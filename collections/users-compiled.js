@@ -2,21 +2,33 @@
  * Users Schema:
  */
 
+"use strict";
 
 Meteor.users.allow({
-  insert: () => false,
-  update: () => false,
-  remove: () => false
+  insert: function insert() {
+    return false;
+  },
+  update: function update() {
+    return false;
+  },
+  remove: function remove() {
+    return false;
+  }
 });
 
 Meteor.users.deny({
-  insert: () => true,
-  update: () => true,
-  remove: () => true
+  insert: function insert() {
+    return true;
+  },
+  update: function update() {
+    return true;
+  },
+  remove: function remove() {
+    return true;
+  }
 });
 
-
-let userProfile = new SimpleSchema({
+var userProfile = new SimpleSchema({
 
   //User basic
   description: {
@@ -24,7 +36,7 @@ let userProfile = new SimpleSchema({
     label: "Description",
     optional: true
   },
-  profileDotId:{
+  profileDotId: {
     type: String,
     label: "Profile Dot Id",
     optional: true,
@@ -33,8 +45,8 @@ let userProfile = new SimpleSchema({
       label: false
     }
   },
-  createdByUserDots:{
-    type:[String],
+  createdByUserDots: {
+    type: [String],
     label: "Created By User Dots",
     optional: true,
     autoform: {
@@ -43,9 +55,8 @@ let userProfile = new SimpleSchema({
     }
   },
 
-
   //User Counters:
-  dotsCounter:{
+  dotsCounter: {
     type: String,
     label: "Dots",
     defaultValue: "0",
@@ -54,7 +65,7 @@ let userProfile = new SimpleSchema({
       label: false
     }
   },
-  connectionsCounter:{
+  connectionsCounter: {
     type: String,
     label: "Connections",
     defaultValue: "0",
@@ -65,7 +76,7 @@ let userProfile = new SimpleSchema({
   },
 
   //User Images:
-  profileImage:{
+  profileImage: {
     type: String,
     label: "Profile Image",
     defaultValue: "wwwwwwwwwwwwwwww", //TBD
@@ -75,7 +86,7 @@ let userProfile = new SimpleSchema({
       label: false
     }
   },
-  coverImage:{
+  coverImage: {
     type: String,
     label: "Cover Image",
     defaultValue: "wwwwwwwwwwwwwwww", //TBD
@@ -85,7 +96,7 @@ let userProfile = new SimpleSchema({
       label: false
     }
   },
-  userImagesUrls:{
+  userImagesUrls: {
     type: [String],
     optional: true,
     autoform: {
@@ -95,33 +106,33 @@ let userProfile = new SimpleSchema({
   },
 
   //User Links and Location:
-  userAddress:{
+  userAddress: {
     type: String,
     label: "Home Address",
     optional: true
   },
-  websiteUrl:{
+  websiteUrl: {
     type: String,
     label: "Website",
     optional: true,
     defaultValue: ""
   },
-  facebookAccountUrl:{
+  facebookAccountUrl: {
     type: String,
     label: "Facebook",
     optional: true
   },
-  twitterAccountUrl:{
+  twitterAccountUrl: {
     type: String,
     label: "Twitter",
     optional: true
   },
-  googleAccountUrl:{
+  googleAccountUrl: {
     type: String,
     label: "Google+",
     optional: true
   },
-  pinterestAccountUrl:{
+  pinterestAccountUrl: {
     type: String,
     label: "Pinterest",
     optional: true,
@@ -130,7 +141,7 @@ let userProfile = new SimpleSchema({
       label: false
     }
   },
-  tripAdvisorAccountUrl:{
+  tripAdvisorAccountUrl: {
     type: String,
     label: "Pinterest",
     optional: true,
@@ -139,7 +150,7 @@ let userProfile = new SimpleSchema({
       label: false
     }
   },
-  foursquareAccountUrl:{
+  foursquareAccountUrl: {
     type: String,
     label: "Pinterest",
     optional: true,
@@ -148,7 +159,7 @@ let userProfile = new SimpleSchema({
       label: false
     }
   },
-  spareAccountsUrlArray:{
+  spareAccountsUrlArray: {
     type: [String],
     label: "Pinterest",
     optional: true,
@@ -159,27 +170,27 @@ let userProfile = new SimpleSchema({
   },
 
   //User feed and following/followers
-  following:{
+  following: {
     type: [String],
     optional: true,
-    autoform:{
-      type:"hidden",
+    autoform: {
+      type: "hidden",
       label: false
     }
   },
-  followers:{
+  followers: {
     type: [String],
     optional: true,
-    autoform:{
-      type:"hidden",
+    autoform: {
+      type: "hidden",
       label: false
     }
   },
-  feedDotz:{
+  feedDotz: {
     type: [String],
     optional: true,
-    autoform:{
-      type:"hidden",
+    autoform: {
+      type: "hidden",
       label: false
     }
   },
@@ -194,18 +205,18 @@ let userProfile = new SimpleSchema({
       label: false
     }
   },
-  flexibleArray:{
+  flexibleArray: {
     type: [String],
     optional: true,
-    autoform:{
-      type:"hidden",
+    autoform: {
+      type: "hidden",
       label: false
     }
   }
 });
 
 //OTNI: TBD
-let user = new SimpleSchema({
+var user = new SimpleSchema({
   username: {
     type: String,
     // For accounts-password, either emails or username is required, but not both. It is OK to make this
@@ -266,3 +277,5 @@ let user = new SimpleSchema({
 });
 
 Meteor.users.attachSchema(user);
+
+//# sourceMappingURL=users-compiled.js.map
