@@ -22,3 +22,10 @@ authenticatedRoutes.route( '/dashboard', {
     BlazeLayout.render( 'default', { yield: 'dashboard' } );
   }
 });
+
+authenticatedRoutes.route( '/addimage', {
+  name: 'form',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'upload' } );
+  }
+});

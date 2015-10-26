@@ -1,8 +1,4 @@
 {
-  "public": {
-    "key": "value"
-  },
-  "private": {
-    "key": "value"
-  }
+  "AWSAccessKeyId": "AKIAIFKF7WSPFRS2LUAQ",
+  "AWSSecretAccessKey": "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"
 }
