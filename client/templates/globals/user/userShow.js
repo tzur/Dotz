@@ -1,5 +1,5 @@
-Template.inbox.onCreated( function() {
-  this.subscribe( 'user', this.params.userId );
+Template.userShow.onCreated( function() {
+  //this.subscribe( 'user', this.params.userId );
 });
 
 Template.userShow.helpers({
