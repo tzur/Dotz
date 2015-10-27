@@ -4,4 +4,4 @@
 
 Template.createDot.helpers({
 
-})
+});
