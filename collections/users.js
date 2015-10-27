@@ -2,17 +2,18 @@
  * Users Schema:
  */
 
+//allow+deny >>>> TBD
 
 Meteor.users.allow({
-  insert: () => false,
-  update: () => false,
-  remove: () => false
-});
-
-Meteor.users.deny({
   insert: () => true,
   update: () => true,
   remove: () => true
+});
+
+Meteor.users.deny({
+  insert: () => false,
+  update: () => false,
+  remove: () => false
 });
 
 
@@ -118,7 +119,7 @@ let userProfile = new SimpleSchema({
   },
   googleAccountUrl:{
     type: String,
-    label: "Google+",
+    label: "Google",
     optional: true
   },
   pinterestAccountUrl:{

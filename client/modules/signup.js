@@ -43,6 +43,11 @@ let _handleSignup = ( template ) => {
       Bert.alert( error.reason, 'danger' );
     } else {
       Bert.alert( 'Welcome!', 'success' );
+
+      //Create new dot + add the new dot ID to the profileDotId field:
+
+
+
     }
   });
 };
