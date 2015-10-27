@@ -3,17 +3,17 @@
  */
 Dotz = new Meteor.Collection( 'dotz' );
 
-//Dotz.allow({
-//  insert: () => true,
-//  update: () => true,
-//  remove: () => false
-//});
-//
-//Dotz.deny({
-//  insert: () => true,
-//  update: () => true,
-//  remove: () => true
-//});
+Dotz.allow({
+  insert: () => true,
+  update: () => true,
+  remove: () => true
+});
+
+Dotz.deny({
+  insert: () => false,
+  update: () => false,
+  remove: () => false
+});
 
 let DotzSchema = new SimpleSchema({
   dotType: {

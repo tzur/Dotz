@@ -43,23 +43,18 @@ let _handleSignup = ( template ) => {
       Bert.alert( error.reason, 'danger' );
     } else {
       Bert.alert( 'Welcome!', 'success' );
-
       //Create new dot + add the new dot ID to the profileDotId field:
-      //to add meteorCall!!
-
-      let userId = Meteor.users.findOne({"emails.address": user.email})._Id;
-      console.log("iserId is " + userId);
-
+      let userId = Meteor.userId();
       let profileDotDoc = {
-        dotType: "profileDot",
+        dotType: "_profileDot",
         ownerUserId: userId,
         dotzConnectedByOthers: [],
-        title: "My Dotz",
-
+        title: "My Dotz"
       };
-      dotId = Dotz.insert(profileDotDoc);
-      console.log("dotId is " + dotId);
+      let dotId = Dotz.insert(profileDotDoc);
 
+      Meteor.users.update( { _id: Meteor.userId() },
+        { $set: { 'profile.profileDotId': dotId }} );
     }
   });
 };
