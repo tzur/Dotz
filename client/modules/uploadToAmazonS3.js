@@ -18,6 +18,11 @@ let _addImageUrlToDatabase = ( url ) => {
   });
 };
 
+let _addImageUrlToSession = (url) => {
+  Session.set('imageUrl', url)
+  _setPlaceholderText();
+};
+
 let _uploadFileToAmazon = ( file ) => {
   const uploader = new Slingshot.Upload( "uploadToAmazonS3" );
 
@@ -26,7 +31,7 @@ let _uploadFileToAmazon = ( file ) => {
       Bert.alert( error.message, "warning" );
       _setPlaceholderText();
     } else {
-      _addImageUrlToDatabase( url );
+      _addImageUrlToSession( url );
     }
   });
 };

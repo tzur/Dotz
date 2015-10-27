@@ -23,6 +23,13 @@ authenticatedRoutes.route( '/dashboard', {
   }
 });
 
+authenticatedRoutes.route( '/createdot', {
+  name: 'createDot',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'createDot' } );
+  }
+});
+
 authenticatedRoutes.route( '/addimage', {
   name: 'form',
   action() {

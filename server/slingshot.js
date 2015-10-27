@@ -10,8 +10,14 @@ Slingshot.createDirective( "uploadToAmazonS3", Slingshot.S3Storage, {
   bucket: "dotz-dev-images",
   acl: "public-read",
   authorize: function () {
-    let userFileCount = Files.find( { "userId": this.userId } ).count();
-    return userFileCount < 3 ? true : false;
+    //let userFileCount = Files.find( { "userId": this.userId } ).count();
+    //return userFileCount < 3 ? true : false;
+    if(Meteor.userId()){
+      return true
+    }
+    else{
+      return false
+    }
   },
   key: function ( file ) {
     var user = Meteor.users.findOne( this.userId );

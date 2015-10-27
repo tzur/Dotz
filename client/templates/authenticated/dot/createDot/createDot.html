@@ -1,0 +1,95 @@
+<template name="createDot">
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 colCenter">
+
+                <div class="row"><h1 class="colCenter txtMd">Create your Dot</h1><br></div>
+
+              {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
+
+                  <div class="row">
+                    {{> afQuickField name='type'}}
+                  </div>
+
+                  <div class="row">
+                    {{> afQuickField name='title'}}
+                  </div>
+
+                  <div class="row">
+                    {{> afQuickField name='bodyText' rows=6}}
+                  </div>
+
+                  {{> uploader}}
+
+                  <div class="row">
+                    <!--{{> afQuickField name='isConnectedToDotzId.0' options=saveToUserDotOptions firstOption="Save on my profile"}}-->
+                  </div>
+
+                  <div class="row">
+                      <hr>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                      <a class="btn btnFull btn-primary locationBtn">Location</a>
+                    <!--{{#if locationFields}}-->
+                        <div class="location optional-field">
+                          {{> afQuickField name='locationName' placeholder="The location name.." label= false}}
+                        </div>
+                    <!--{{/if}}-->
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                      <a class="linkBtn btn btn-primary btnFull">Link</a>
+                    <!--{{#if linkFields}}-->
+                        <div class="location optional-field">
+                          {{> afQuickField name='link' label=false placeholder="Enter the url here"}}
+                        </div>
+                    <!--{{/if}}-->
+                  </div>
+
+                  <br>
+
+                  <!--<div class="row">-->
+                      <!--<a class="eventDetailsBtn btn btn-primary btnFull">Event Details</a>-->
+                    <!--&lt;!&ndash;{{#if eventDetailsFields}}&ndash;&gt;-->
+                        <!--<div class="location optional-field">-->
+                            <!--<div type="bootstrap-datetimepicker" class="eventDetails optional-field">-->
+                              <!--{{> afQuickField name='eventDate'}}-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--&lt;!&ndash;{{/if}}&ndash;&gt;-->
+                  <!--</div>-->
+
+                  <br>
+
+                  <div class="row">
+                      <a class="priceBtn btn btn-primary btnFull">Price</a>
+                    <!--{{#if priceFields}}-->
+                        <div class="price optional-field">
+                          {{> afQuickField name='price' label= false placeholder= "Enter the price here"}}
+                        </div>
+                    <!--{{/if}}-->
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+                      <button id="submit" type="submit" class="postCreateBtn insert btn btn-primary">Add Post</button>
+                  </div>
+
+              {{/autoForm}}
+
+
+
+
+            </div>
+        </div>
+    </div>
+</template>
