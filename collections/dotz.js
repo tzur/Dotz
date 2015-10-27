@@ -3,22 +3,32 @@
  */
 Dotz = new Meteor.Collection( 'dotz' );
 
-Dotz.allow({
-  insert: () => false,
-  update: () => false,
-  remove: () => false
-});
-
-Dotz.deny({
-  insert: () => true,
-  update: () => true,
-  remove: () => true
-});
+//Dotz.allow({
+//  insert: () => true,
+//  update: () => true,
+//  remove: () => false
+//});
+//
+//Dotz.deny({
+//  insert: () => true,
+//  update: () => true,
+//  remove: () => true
+//});
 
 let DotzSchema = new SimpleSchema({
-  type: {
+  dotType: {
     type: String,
-    allowedValues: ['Event', 'Place', 'Concept Dot', 'Text', 'Link', 'Product'],
+    allowedValues: ['Event', 'Place', 'Concept Dot', 'Text', 'Link', 'Product', '_profileDot'],
+    autoform: {
+      options: [
+        {label: "Event", value: "Event"},
+        {label: "Place", value: "Place"},
+        {label: "Concept Dot", value: "Concept Dot"},
+        {label: "Text", value: "Text"},
+        {label: "Link", value: "Link"},
+        {label: "Product", value: "Product"}
+      ]
+    },
     label: "The Dot type:"
   },
 
@@ -36,11 +46,15 @@ let DotzSchema = new SimpleSchema({
 
   bodyText: {
     type: String,
-    label: "Dot body"
+    label: "Dot body",
+    optional: true
   },
 
   createdAtDate:{
-    type: Date
+    type: Date,
+    autoValue: function(){
+      return new Date();
+    }
   },
 
   modifiedAt:{

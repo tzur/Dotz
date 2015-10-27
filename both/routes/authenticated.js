@@ -22,3 +22,17 @@ authenticatedRoutes.route( '/dashboard', {
     BlazeLayout.render( 'default', { yield: 'dashboard' } );
   }
 });
+
+authenticatedRoutes.route( '/createdot', {
+  name: 'createDot',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'createDot' } );
+  }
+});
+
+authenticatedRoutes.route( '/addimage', {
+  name: 'form',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'upload' } );
+  }
+});
