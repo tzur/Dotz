@@ -16,9 +16,9 @@ Dotz = new Meteor.Collection( 'dotz' );
 //});
 
 let DotzSchema = new SimpleSchema({
-  type: {
+  dotType: {
     type: String,
-    allowedValues: ['Event', 'Place', 'Concept Dot', 'Text', 'Link', 'Product'],
+    allowedValues: ['Event', 'Place', 'Concept Dot', 'Text', 'Link', 'Product', '_profileDot'],
     autoform: {
       options: [
         {label: "Event", value: "Event"},
@@ -46,7 +46,8 @@ let DotzSchema = new SimpleSchema({
 
   bodyText: {
     type: String,
-    label: "Dot body"
+    label: "Dot body",
+    optional: true
   },
 
   createdAtDate:{

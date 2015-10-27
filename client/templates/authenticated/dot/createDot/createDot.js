@@ -4,4 +4,8 @@
 
 Template.createDot.helpers({
 
+  dotzOptions: function(){
+    return Modules.client.dotzToConnectToOptions
+  }
+
 });
