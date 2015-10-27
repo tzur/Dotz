@@ -19,7 +19,7 @@ let _addImageUrlToDatabase = ( url ) => {
 };
 
 let _addImageUrlToSession = (url) => {
-  Session.set('imageUrl', url)
+  Session.set('coverImageUrl', url)
   _setPlaceholderText();
 };
 

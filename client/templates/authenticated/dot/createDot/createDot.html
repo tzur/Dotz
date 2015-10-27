@@ -11,7 +11,7 @@
               {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
 
                   <div class="row">
-                    {{> afQuickField name='type'}}
+                    {{> afQuickField name='dotType'}}
                   </div>
 
                   <div class="row">
@@ -23,6 +23,15 @@
                   </div>
 
                   {{> uploader}}
+
+                  {{#if isImageUrl}}
+                      <div class="file col-xs-12 col-sm-8 colCenter">
+                          <div class="preview">
+                              <a href="{{imagePreviewUrl}}"></a>
+                              <img src="{{imagePreviewUrl}}">
+                          </div>
+                      </div>
+                  {{/if}}
 
                   <div class="row">
                     <!--{{> afQuickField name='isConnectedToDotzId' options=dotzOptions firstOption="Save on my profile"}}-->
@@ -49,23 +58,28 @@
                       <a class="linkBtn btn btn-primary btnFull">Link</a>
                     <!--{{#if linkFields}}-->
                         <div class="location optional-field">
-                          {{> afQuickField name='link' label=false placeholder="Enter the url here"}}
+                          {{> afQuickField name='linkUrl' placeholder="Enter the url here"}}
                         </div>
                     <!--{{/if}}-->
                   </div>
 
                   <br>
 
-                  <!--<div class="row">-->
-                      <!--<a class="eventDetailsBtn btn btn-primary btnFull">Event Details</a>-->
-                    <!--&lt;!&ndash;{{#if eventDetailsFields}}&ndash;&gt;-->
-                        <!--<div class="location optional-field">-->
-                            <!--<div type="bootstrap-datetimepicker" class="eventDetails optional-field">-->
-                              <!--{{> afQuickField name='eventDate'}}-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--&lt;!&ndash;{{/if}}&ndash;&gt;-->
-                  <!--</div>-->
+                  <div class="row">
+                      <a class="eventDetailsBtn btn btn-primary btnFull">Event Details</a>
+                    <!--{{#if eventDetailsFields}}-->
+                        <div class="location optional-field">
+                            <div type="bootstrap-datetimepicker" class="eventDetails optional-field">
+                              {{> afQuickField name='startDateAndHour'}}
+                              {{> afQuickField name='endDateAndHour'}}
+                              {{> afQuickField name='repeated' firstOption='None'}}
+                              {{> afQuickField name='endRepeatedDate'}}
+
+
+                            </div>
+                        </div>
+                    <!--{{/if}}-->
+                  </div>
 
                   <br>
 

@@ -6,6 +6,17 @@ Template.createDot.helpers({
 
   dotzOptions: function(){
     return Modules.client.dotzToConnectToOptions
+  },
+
+  isImageUrl: function(){
+    if(Session.get("coverImageUrl")){
+      return true
+    }
+  },
+
+  imagePreviewUrl: function(){
+    const imageUrl = Session.get("coverImageUrl");
+    return (imageUrl);
   }
 
 });

@@ -110,23 +110,47 @@ let DotzSchema = new SimpleSchema({
 
   startDateAndHour: {
     type: Date,
-    optional: true
+    optional: true,
+    autoform: {
+      afFieldInput: {
+        type: "bootstrap-datetimepicker"
+      }
+    }
   },
 
   endDateAndHour: {
     type: Date,
-    optional: true
+    optional: true,
+    autoform: {
+      afFieldInput: {
+        type: "bootstrap-datetimepicker"
+      }
+    }
   },
 
   repeated:{
     type: String,
-    allowedValues: ['daily', 'weekly', 'yearly', 'monthly'],
-    optional: true
+    allowedValues: [ 'daily', 'weekly', 'monthly', 'yearly', false],
+    optional: true,
+    autoform: {
+      options: [
+        {label: "Daily", value: "daily"},
+        {label: "Weekly", value: "weekly"},
+        {label: "Monthly", value: "monthly"},
+        {label: "Yearly", value: "yearly"}
+      ]
+    }
   },
 
   endRepeatedDate: {
     type: Date,
-    optional: true
+    optional: true,
+    autoform: {
+      afFieldInput: {
+        type: "bootstrap-datepicker"
+      }
+    }
+
   },
 
   //Event Fields Section End****
@@ -141,8 +165,13 @@ let DotzSchema = new SimpleSchema({
   currency: {
     type:String,
     allowedValues: ['Dollar', 'Shekels'],
-    defaultValue: "Shekels",
-    optional: true
+    optional: true,
+    autoform: {
+      options: [
+        {label: "Dollar", value: "Dollar"},
+        {label: "Shekels", value: "Shekels"}
+      ]
+    }
   },
 
   //Price Fields Section End****
