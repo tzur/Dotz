@@ -36,5 +36,4 @@ Template.signup.events({
   //    }
   //  });
   //}
-
 });
