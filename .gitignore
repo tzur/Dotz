@@ -1,8 +1,6 @@
 .idea
 .DS_Store
 npm-debug.log
-.node_modules
 settings.json
 settings-development.json
 settings-production.json
-
