@@ -43,13 +43,25 @@ let _handleSignup = ( template ) => {
       Bert.alert( error.reason, 'danger' );
     } else {
       Bert.alert( 'Welcome!', 'success' );
-
-      //Create new dot + add the new dot ID to the profileDotId field:
-
-
-
+      _createNewDotForDotProfile ( Meteor.userId() );
     }
   });
+};
+
+//Create new dot + add the new dot ID to the profileDotId field:
+let _createNewDotForDotProfile = ( userId ) => {
+    let profileDotDoc = {
+        dotType: "_profileDot",
+        ownerUserId: userId,
+        dotzConnectedByOthers: [],
+        title: "My Dotz"
+      };
+    let dotId = Dotz.insert(profileDotDoc);
+      console.log("user " + userId + "dotId " + dotId);
+
+    Meteor.users.update( { _id: Meteor.userId() },
+        { $set: { 'profile.profileDotId': dotId }} );
+
 };
 
 Modules.client.signup = signup;

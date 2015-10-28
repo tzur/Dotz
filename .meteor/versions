@@ -29,6 +29,7 @@ check@1.0.6
 chuangbo:cookie@1.1.0
 coffeescript@1.0.10
 cosmos:browserify@0.5.1
+dburles:mongo-collection-instances@0.3.4
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.1
@@ -56,6 +57,7 @@ insecure@1.0.4
 jquery@1.11.4
 kadira:blaze-layout@2.1.0
 kadira:flow-router@2.6.2
+lai:collection-extensions@0.1.4
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
@@ -67,6 +69,7 @@ meteorhacks:inject-data@1.4.1
 meteorhacks:npm@1.5.0
 meteorhacks:picker@1.0.3
 meteorhacks:ssr@2.1.2
+meteortoys:toykit@2.1.2
 minifiers@1.1.7
 minimongo@1.0.10
 momentjs:moment@2.10.6
@@ -74,6 +77,8 @@ mongo@1.1.2
 mongo-id@1.0.1
 mrt:moment@2.8.1
 mrt:moment-timezone@0.2.1
+msavin:mongol@1.5.0
+>>>>>>> 1585dc15b6c23bc500f09463e5b78c372f79a08c
 npm-bcrypt@0.7.8_2
 npm-container@1.2.0
 npm-mongo@1.4.39_1

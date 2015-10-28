@@ -11,13 +11,9 @@ audit-argument-checks
 themeteorchef:jquery-validation
 twbs:bootstrap
 meteorhacks:npm
-
-
 themeteorchef:bert
 meteorhacks:ssr
 standard-minifiers
-
-
 npm-container
 ecmascript
 digilord:faker
@@ -46,3 +42,5 @@ rajit:bootstrap3-datepicker
 aldeed:autoform-bs-datepicker
 insecure
 browser-policy
+msavin:mongol
+
