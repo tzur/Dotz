@@ -34,7 +34,13 @@
                   {{/if}}
 
                   <div class="row">
-                    <!--{{> afQuickField name='isConnectedToDotzId' options=dotzOptions firstOption="Save on my profile"}}-->
+                  Choose the dot to create inside
+                    {{#each dotzOptions}}
+                        <input type="checkbox" name="target" id="target" value="{{_id}}"> {{title}}
+                        <br>
+                    {{/each}}
+                    <br>
+                    <input type="checkbox" id="target" name="target" class="saveToProfile" value={{profileDotId}}> Create to profile
                   </div>
 
                   <div class="row">

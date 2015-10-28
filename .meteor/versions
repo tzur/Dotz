@@ -78,7 +78,6 @@ mongo-id@1.0.1
 mrt:moment@2.8.1
 mrt:moment-timezone@0.2.1
 msavin:mongol@1.5.0
->>>>>>> 1585dc15b6c23bc500f09463e5b78c372f79a08c
 npm-bcrypt@0.7.8_2
 npm-container@1.2.0
 npm-mongo@1.4.39_1

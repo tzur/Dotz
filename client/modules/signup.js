@@ -54,13 +54,15 @@ let _createNewDotForDotProfile = ( userId ) => {
         dotType: "_profileDot",
         ownerUserId: userId,
         dotzConnectedByOthers: [],
-        title: "My Dotz"
-      };
-    let dotId = Dotz.insert(profileDotDoc);
-      console.log("user " + userId + "dotId " + dotId);
-
-    Meteor.users.update( { _id: Meteor.userId() },
-        { $set: { 'profile.profileDotId': dotId }} );
+        title: "My Dotz",
+        createdAtDate: new Date()
+    };
+    check(profileDotDoc, Schema.dotSchema);
+    Meteor.call('insertDot', profileDotDoc, function(error, result){
+      if (result){
+        Meteor.call('updateUserProfileDotId', Meteor.userId(), result);
+      }
+    });
 
 };
 

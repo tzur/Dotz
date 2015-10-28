@@ -23,14 +23,14 @@ authenticatedRoutes.route( '/dashboard', {
   }
 });
 
-authenticatedRoutes.route( '/createdot', {
+authenticatedRoutes.route( '/createDot', {
   name: 'createDot',
   action() {
     BlazeLayout.render( 'default', { yield: 'createDot' } );
   }
 });
 
-authenticatedRoutes.route( '/addimage', {
+authenticatedRoutes.route( '/addImage', {
   name: 'form',
   action() {
     BlazeLayout.render( 'default', { yield: 'upload' } );

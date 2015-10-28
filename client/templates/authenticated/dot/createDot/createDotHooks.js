@@ -8,6 +8,9 @@ let dotHooks = {
       if(Session.get("coverImageUrl")){
         doc.coverImageUrl = Session.get("coverImageUrl");
       }
+      doc.inDotz = Session.get('parentDot');
+      doc.ownerUserId = Meteor.userId();
+      doc.createdAtDate = new Date();
 
       return doc;
     }
