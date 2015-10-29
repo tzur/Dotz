@@ -1,4 +1,4 @@
-let _updateInDotz = (userId, updateOptions) => {
+let _userUpdate = (userId, updateOptions) => {
     try {
       check(updateOptions, Object);
       check(userId, String);
@@ -16,6 +16,6 @@ Meteor.methods({
     let updateOptions = {
       $set: {"profile.profileDotId": dotId}
     };
-    _updateInDotz(userId ,updateOptions);
+    _userUpdate(userId ,updateOptions);
   }
 });

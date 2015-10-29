@@ -1,4 +1,4 @@
-let _updateInDotz = (dotId, updateOptions) => {
+let _dotUpdate = (dotId, updateOptions) => {
     try {
       check(updateOptions, Object);
       check(dotId, String);
@@ -16,14 +16,14 @@ Meteor.methods({
     let updateOptions = {
       $addToSet: {dotzConnectedByOwner: smartRef}
     };
-    _updateInDotz(smartRef.parentDot, updateOptions)
+    _dotUpdate(smartRef.parentDot, updateOptions)
   },
   addDotConnectedByOther(smartRef){
     check(smartRef, Object);
     let updateOptions = {
       $addToSet: {dotzConnectedByOther: smartRef}
     };
-    _updateInDotz(smartRef.parentDot, updateOptions)
+    _dotUpdate(smartRef.parentDot, updateOptions)
   },
   addDotToInDotz(toBeAddedDotId, targetDotId){
     check(toBeAddedDotId, String);
@@ -31,6 +31,6 @@ Meteor.methods({
     let updateOptions = {
       $addToSet: {inDotz: toBeAddedDotId}
     };
-    _updateInDotz(targetDotId, updateOptions)
+    _dotUpdate(targetDotId, updateOptions)
   }
 });
