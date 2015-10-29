@@ -10,6 +10,7 @@ let _dotUpdate = (dotId, updateOptions) => {
     }
   };
 
+
 Meteor.methods({
   addDotConnectedByOwner(smartRef){
     check(smartRef, Schema.dotSmartRef);
