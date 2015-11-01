@@ -23,3 +23,4 @@ let createSmartRef = (dotId, parentDot, connectedByUserId, actionName, personalD
 };
 
 Modules.both.Dotz.smartRefFactory = createSmartRef;
+
