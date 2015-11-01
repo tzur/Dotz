@@ -51,51 +51,40 @@
 
                   <div class="row">
                       <a class="btn btnFull btn-primary locationBtn">Location</a>
-                    <!--{{#if locationFields}}-->
-                        <div class="location optional-field">
-                          {{> afQuickField name='locationName' placeholder="The location name.." label= false}}
-                        </div>
-                    <!--{{/if}}-->
                   </div>
+
+                  {{> createDotMap}}
 
                   <br>
 
                   <div class="row">
                       <a class="linkBtn btn btn-primary btnFull">Link</a>
-                    <!--{{#if linkFields}}-->
                         <div class="location optional-field">
                           {{> afQuickField name='linkUrl' placeholder="Enter the url here"}}
                         </div>
-                    <!--{{/if}}-->
                   </div>
 
                   <br>
 
                   <div class="row">
                       <a class="eventDetailsBtn btn btn-primary btnFull">Event Details</a>
-                    <!--{{#if eventDetailsFields}}-->
-                        <div class="location optional-field">
+                        <div class="optional-field">
                             <div type="bootstrap-datetimepicker" class="eventDetails optional-field">
-                              {{> afQuickField name='startDateAndHour'}}
-                              {{> afQuickField name='endDateAndHour'}}
+                              {{> afQuickField name='startDateAndHour' placeholder="Pick Start Date"}}
+                              {{> afQuickField name='endDateAndHour' placeholder="Pick End Date"}}
                               {{> afQuickField name='repeated' firstOption='None'}}
-                              {{> afQuickField name='endRepeatedDate'}}
-
-
+                              {{> afQuickField name='endRepeatedDate' placeholder="Pick Repeated End Date"}}
                             </div>
                         </div>
-                    <!--{{/if}}-->
                   </div>
 
                   <br>
 
                   <div class="row">
                       <a class="priceBtn btn btn-primary btnFull">Price</a>
-                    <!--{{#if priceFields}}-->
                         <div class="price optional-field">
                           {{> afQuickField name='price' label= false placeholder= "Enter the price here"}}
                         </div>
-                    <!--{{/if}}-->
                   </div>
 
                   <br>
