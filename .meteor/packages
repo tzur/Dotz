@@ -44,3 +44,6 @@ insecure
 browser-policy
 msavin:mongol
 
+dburles:google-maps
+jeremy:geocomplete
+autopublish
