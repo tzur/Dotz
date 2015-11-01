@@ -69,7 +69,7 @@ let userProfile = new SimpleSchema({
   profileImage:{
     type: String,
     label: "Profile Image",
-    defaultValue: "wwwwwwwwwwwwwwww", //TBD
+    defaultValue: "https://dotz-dev-images.s3.amazonaws.com/otni/lights-night-bokeh-city.jpg", //TBD
     //optional: true,
     autoform: {
       type: "hidden",
@@ -79,7 +79,7 @@ let userProfile = new SimpleSchema({
   coverImage:{
     type: String,
     label: "Cover Image",
-    defaultValue: "wwwwwwwwwwwwwwww", //TBD
+    defaultValue: "https://dotz-dev-images.s3.amazonaws.com/otni/lights-night-bokeh-city.jpg", //TBD
     //optional: true,
     autoform: {
       type: "hidden",
@@ -163,6 +163,7 @@ let userProfile = new SimpleSchema({
   following:{
     type: [String],
     optional: true,
+    defaultValue: [], //TBD
     autoform:{
       type:"hidden",
       label: false
@@ -171,6 +172,7 @@ let userProfile = new SimpleSchema({
   followers:{
     type: [String],
     optional: true,
+    defaultValue: [], //TBD
     autoform:{
       type:"hidden",
       label: false

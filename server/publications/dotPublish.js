@@ -21,6 +21,7 @@ Meteor.publish('availableDotzForCreate', function(profileDot){
   }
 
 });
+
 /*
  * This publish is userId and publishing his profile Dot
  */
@@ -29,6 +30,33 @@ Meteor.publish('profileDot', function(userId){
     check(userId, String);
     let user = Meteor.users.findOne(userId);
     return Dotz.find({_id: user.profile.profileDotId});
+  }
+});
+
+/*
+ * This publish is for publishing all the profile Dotz:
+ */
+Meteor.publish('userProfileDotz', function(userId){
+  if (userId){
+    check(userId, String);
+    let user = Meteor.users.findOne(userId);
+    let dotzConnectedByOwner = Dotz.findOne({_id: user.profile.profileDotId}).dotzConnectedByOwner;
+    let dotzConnectedByOwnerArray = [];
+    dotzConnectedByOwner.forEach(function (dot) {
+      dotzConnectedByOwnerArray.push(dot);
+    });
+    //let Dotz = Dotz.find({_id: user.profile.profileDotId});
+    return dotzConnectedByOwnerArray;
+  }
+});
+
+/*
+ * This publish is publishing a whole Dot (for show)
+ */
+Meteor.publish('dotShow', function(dotId){
+  if (dotId){
+    check(dotId, String);
+    return Dotz.findOne(dotId);
   }
 
 });

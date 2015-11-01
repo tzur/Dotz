@@ -1,0 +1,140 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<template name="userShow">
+{{#if Template.subscriptionsReady}}
+{{#with user}}
+
+
+
+
+
+        <div id="userBgImg" class="container-liquid">
+            <div class="row imgCover" style="background-image: url('{{user.profile.coverImage}}')">
+                <div class="col-xs-12 colCenter">
+                </div>
+            </div>
+        </div>
+
+        <div id="followDiv" class="container-fluid">
+
+            <div class="profile-user-data-row">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div id="userData" class="col-sm-12 colCenter">
+                            <img id="userImgProfile" src="{{user.profile.profileImage}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div id="userDescription" class="col-sm-12 col-md-9 colCenter txtMd">
+
+                            <h1 class="darkText">{{user.username}}</h1>
+
+                            <div class="iconsLinksEtc">
+                                <ul>
+                                    <li class="locationWrapper inline-block">
+                                        <span class="location mdGrey"></span>
+                                      {{user.profile.homeAddress}}
+                                    </li>
+
+                                    <li class="inline-block">
+                                        <span class="inline-block lightGrey">|</span>
+                                    </li>
+
+                                    <li class="websiteWrapper inline-block">
+                                        <a href="{{user.profile.website}}" target="_blank" class="mdGrey" rel="nofollow" itemprop="url">
+                                          {{user.profile.website}}
+                                        </a>
+                                    </li>
+
+                                    <li class="inline-block">
+                                        <span class="inline-block lightGrey">|</span>
+                                    </li>
+
+                                    <li class="inline-block">
+                                        <a href="http://www.facebook.com" target="_blank" rel="nofollow" class="userMenuIcons"><i class="fa fa-facebook-official mdGrey"></i></a>
+                                    </li>
+
+                                    <li class="inline-block">
+                                        <a href="http://twitter.com" target="_blank" rel="nofollow" class="userMenuIcons"><i class="fa fa-twitter-square mdGrey"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <p>{{user.profile.website}}</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="menu js-socialMenu txtMd" data-user-id="42824e6543f3">
+                    <li class="menu-item js-socialMenuFollowers" title="Followers">
+                        <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
+                            <small class="menu-label">Dotz</small>{{dotNum}}</button>
+                    </li>
+
+                    <li class="menu-item js-socialMenuFollowers" title="Followers">
+                        <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
+                            <small class="menu-label">Connections</small>{{connectivityNum}}</button>
+                    </li>
+
+                    <li class="menu-item " title="Following">
+                        <button class="button button--chromeless" data-action="show-follow-list" data-action-value="following">
+                            <small class="menu-label">Following</small>{{followingCounter}}</button>
+                    </li>
+
+                    <li class="menu-item js-socialMenuFollowers" title="Followers">
+                        <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
+                            <small class="menu-label">Followers</small>{{followersCounter}}</button>
+                    </li>
+                </ul>
+
+
+                <div id="following" class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 txtMd">
+                          {{# if notMyProfile}}
+                            {{#if myFollow}}
+                                <button type="button" class="unFollow btn btn-lead btn-lg round">Following</button>
+                            {{else}}
+                                <button type="button" class="follow btn btn-success btn-lg round">Follow</button>
+                            {{/if}}
+                          {{/if}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div>
+                <div class="row user-profile-cards">
+                    <div class="col-xs-12">
+                      {{#each profileDotz}}
+                        {{>newDot}}
+                      {{/each}}
+
+                      {{#if emptyMix}}
+                          <h4>{{user.username}} Still didn't had a chance to upload a mix</h4>
+                      {{/if}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+{{/with}}
+{{else}}
+      <p> Loading...</p>
+  <!--to replace with a loading template-->
+{{/if}}
+</template>
