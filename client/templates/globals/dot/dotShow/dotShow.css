@@ -1,0 +1,147 @@
+pre {
+  font-family: 'Roboto', sans-serif;
+  display: block;
+  margin: 0 0 10px;
+  font-size: 16px;
+  line-height: 1.42857143;
+  color: #333;
+  word-wrap: break-word;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+.postImgCover {
+  height: 40vh;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+}
+
+.liquidRow { /*for full width image without margin*/
+  margin-left: auto;
+  margin-right: auto;
+  text-align: -webkit-center; /*check for a better solution to center the image when it is smaller than the window*/
+}
+
+.liquidCol { /*for full width image*/
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#imgPostShow {
+  height: 40vh;
+}
+#postDescription {
+  color: #949285;
+}
+
+#topPostShow {
+  background-color: #333;
+  /*margin-bottom: 2em;*/
+}
+
+#bodyPostShow { /* after the respImg align the texts in the page need to return to their first settings*/
+  text-align: initial;
+}
+
+.rowMb20 {
+  margin-bottom: 2em;
+}
+
+.dot-description {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.dot-comment-div {
+  padding-bottom: 3em;
+}
+
+.dot-divider-box {
+  background-color: #fafafa;
+  color: #cccccc;
+  border: #cccccc solid 1px;
+  padding: 0.5em 1em 0.5em 1em;
+  position: relative;
+  top: -1.75em;
+}
+
+.dot-divider-hr {
+  position: relative;
+  padding-bottom: 10em;
+  text-align: center;
+}
+
+.dot-desc-left-pad{
+  padding-left: 2em;
+}
+
+
+
+#commentNameDate h4{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 500;
+  color: #2D2D2B;
+}
+
+#commentNameDate p{
+  margin-top: 1em;
+  font-weight: lighter;
+  font-size: 15px;
+  color: #4A4945;
+
+}
+
+#likeBar {
+  text-align: right;
+}
+
+.type-icon-dot-show {
+  height: 1.5em;
+}
+
+#numLikesPostShow {
+  border-style: solid;
+  border-color: #2D2D2B;
+  border-width: 1px;
+  padding: 1px 3px 1px 3px;
+}
+
+.iconBtn {
+  font-size: 1.5em;
+}
+
+#topReview {
+  border-style: solid;
+  border-color: #2D2D2B;
+  background-color: #2D2D2B;
+  border-width: 1px;
+  padding: 1px 2px 1px 2px;
+  color: white;
+  font-size: 1em;
+}
+
+.map-container {
+  width: 800px;
+  max-width: 100%;
+  height: 500px;
+}
+
+#ownerPostDiv {
+  margin-top: 2em;
+}
+
+.postUserImgProfile {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+}
+
+.postCommentImgProfile {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+}

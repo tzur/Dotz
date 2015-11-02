@@ -46,3 +46,11 @@ authenticatedRoutes.route( '/user/:userId', {
     BlazeLayout.render( 'default', { yield: 'userShow' } );
   }
 });
+
+//TBD: we need to move the dotShow page to the global-route area (coming soon):
+authenticatedRoutes.route( '/dot/:dotId', {
+  name: 'dot-show',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'dotShow' } );
+  }
+});

@@ -22,151 +22,145 @@ Template.dotCard.onRendered (function(){
 
 Template.dotCard.helpers({
   dotCard: function() {
-    console.log("&&&&&&&& this._id 2 is " + this._id);
     return this;
   },
   userName: function(){
     return this.owner.userName;
   },
-  profileImageUrl: function() {
-    var user = Meteor.users.findOne(this.owner.userId);
-    return user.profile.profileImage;
-  },
-  createDate: function(){
-    return (moment(this.createdAt).fromNow())
-  },
-  eventDate: function(){
-    if(!this.isMix && this.eventDate.startDate) {
-      return ( moment(this.eventDate.startDate).fromNow());
-    }
-    else {
-      return false;
-    }
-  },
-
-  mixDotzNum: function(){
-    if (this.isMix){
-      var mix = Mixes.findOne({_id: this._id});
-      if (mix.mixDotz) {
-        if (mix.mixDotz.length === 1) {
-          return (mix.mixDotz.length + " Dot");
-        }
-        else {
-          return (mix.mixDotz.length + " Dotz");
-        }
-      }
-
-    }
-  },
-
-  //OTNI: mixImg helpers are TBD (need refactoring)
-
-  mixImg0: function(){
-    var mix = this._id;
-    var mixSession = 'sess0'+mix;
-    Meteor.call('mixCoverImages', this._id, function (error, result) {
-      if (!result[0]) {
-        return;
-      }
-      Session.set(mixSession, result[0]);
-    });
-    return Session.get(mixSession);
-  },
-
-  mixImg1: function(){
-    var mix = this._id;
-    var mixSession = 'sess1'+mix;
-    Meteor.call('mixCoverImages', this._id, function (error, result) {
-      if (!result[1]) {
-        return;
-      }
-      Session.set(mixSession, result[1]);
-    });
-    return Session.get(mixSession);
-  },
-
-  mixImg2: function(){
-    var mix = this._id;
-    var mixSession = 'sess2'+mix;
-    Meteor.call('mixCoverImages', this._id, function (error, result) {
-      if (!result[2]) {
-        return;
-      }
-      Session.set(mixSession, result[2]);
-    });
-    return Session.get(mixSession);
-  },
-
-  mixImg3: function(){
-    var mix = this._id;
-    var mixSession = 'sess3'+mix;
-    Meteor.call('mixCoverImages', this._id, function (error, result) {
-      if (!result[3]) {
-        return;
-      }
-      Session.set(mixSession, result[3]);
-    });
-    return Session.get(mixSession);
-  },
-
-  /////////////
-
   dotIdLink: function() {
-    if (this.isMix){
-      return ('/mix/' + this._id + '#');
-    }
-    else{
-      return ('/post/' + this._id + '#top');
-    }
+    return ('/dot/' + this._id + '#top');
   },
-
   userIdLink: function() {
-    return ('/user/' + this.owner.userId);
-  },
-
-  isMyMix: function(){
-    var data = Template.parentData();
-    if (!data) {
-      return false;
-    }
-    if (data.user){
-      return data.user._id === Meteor.userId();
-    }
-    if (data.mix){
-      return data.mix.owner.userId === Meteor.userId();
-    }
-  },
-  isConnected: function(){
-    if (this.isMix){
-      var mix = Mixes.findOne({_id: this._id});
-      return mix.inMixes.length;
-    }
-    else{
-      var post = Posts.findOne({_id: this._id});
-      return post.inMixes.length;
-    }
-
-  },
-
-  postComments: function(){
-    return Posts.find({parent:this._id}, {sort: {date: -1}});
-  },
-
-  myDot: function(){
-    return (this.owner.userId === Meteor.userId());
-  },
-
-  getPostedBy: function(){
-    var user = Meteor.users.findOne({_id: this.owner});
-    if (user){
-      return user.username;
-    }
-  },
-
-  myConnect: function(){
-    var data = Template.parentData();
-    return (Meteor.userId() === data.mix.owner);
+    return ('/user/' + this.ownerUserId);
   }
+  //profileImageUrl: function() {
+  //  var user = Meteor.users.findOne(this.owner.userId);
+  //  return user.profile.profileImage;
+  //},
+  //createDate: function(){
+  //  return (moment(this.createdAt).fromNow())
+  //},
+  //eventDate: function(){
+  //  if(!this.isMix && this.eventDate.startDate) {
+  //    return ( moment(this.eventDate.startDate).fromNow());
+  //  }
+  //  else {
+  //    return false;
+  //  }
+  //},
+  //
+  //mixDotzNum: function(){
+  //  if (this.isMix){
+  //    var mix = Mixes.findOne({_id: this._id});
+  //    if (mix.mixDotz) {
+  //      if (mix.mixDotz.length === 1) {
+  //        return (mix.mixDotz.length + " Dot");
+  //      }
+  //      else {
+  //        return (mix.mixDotz.length + " Dotz");
+  //      }
+  //    }
+  //
+  //  }
+  //},
+  //
+  ////OTNI: mixImg helpers are TBD (need refactoring)
+  //
+  //mixImg0: function(){
+  //  var mix = this._id;
+  //  var mixSession = 'sess0'+mix;
+  //  Meteor.call('mixCoverImages', this._id, function (error, result) {
+  //    if (!result[0]) {
+  //      return;
+  //    }
+  //    Session.set(mixSession, result[0]);
+  //  });
+  //  return Session.get(mixSession);
+  //},
+  //
+  //mixImg1: function(){
+  //  var mix = this._id;
+  //  var mixSession = 'sess1'+mix;
+  //  Meteor.call('mixCoverImages', this._id, function (error, result) {
+  //    if (!result[1]) {
+  //      return;
+  //    }
+  //    Session.set(mixSession, result[1]);
+  //  });
+  //  return Session.get(mixSession);
+  //},
+  //
+  //mixImg2: function(){
+  //  var mix = this._id;
+  //  var mixSession = 'sess2'+mix;
+  //  Meteor.call('mixCoverImages', this._id, function (error, result) {
+  //    if (!result[2]) {
+  //      return;
+  //    }
+  //    Session.set(mixSession, result[2]);
+  //  });
+  //  return Session.get(mixSession);
+  //},
+  //
+  //mixImg3: function(){
+  //  var mix = this._id;
+  //  var mixSession = 'sess3'+mix;
+  //  Meteor.call('mixCoverImages', this._id, function (error, result) {
+  //    if (!result[3]) {
+  //      return;
+  //    }
+  //    Session.set(mixSession, result[3]);
+  //  });
+  //  return Session.get(mixSession);
+  //},
+  //
+  ///////////////
+  //
+
+  //
+  //isMyMix: function(){
+  //  var data = Template.parentData();
+  //  if (!data) {
+  //    return false;
+  //  }
+  //  if (data.user){
+  //    return data.user._id === Meteor.userId();
+  //  }
+  //  if (data.mix){
+  //    return data.mix.owner.userId === Meteor.userId();
+  //  }
+  //},
+  //isConnected: function(){
+  //  if (this.isMix){
+  //    var mix = Mixes.findOne({_id: this._id});
+  //    return mix.inMixes.length;
+  //  }
+  //  else{
+  //    var post = Posts.findOne({_id: this._id});
+  //    return post.inMixes.length;
+  //  }
+  //
+  //},
+  //
+  //postComments: function(){
+  //  return Posts.find({parent:this._id}, {sort: {date: -1}});
+  //},
+  //
+  //myDot: function(){
+  //  return (this.owner.userId === Meteor.userId());
+  //},
+  //
+  //getPostedBy: function(){
+  //  var user = Meteor.users.findOne({_id: this.owner});
+  //  if (user){
+  //    return user.username;
+  //  }
+  //},
+  //
+  //myConnect: function(){
+  //  var data = Template.parentData();
+  //  return (Meteor.userId() === data.mix.owner);
+  //}
 });
 
 Template.dotCard.events({

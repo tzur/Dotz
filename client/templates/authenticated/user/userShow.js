@@ -11,12 +11,9 @@ Template.userShow.onCreated(function() {
 
     let dotId = _data.user.profile.profileDotId;
 
-    console.log("_data.user.profile.profileDotId is " + _data.user.profile.profileDotId + " and dotId is " + dotId);
-
     self.subscribe('dotShow', dotId);
 
     _data.dot = Dotz.findOne(dotId);
-    console.log("4444444444444 _data.dot is " + Dotz.findOne(dotId));
 
     if (_data.dot) {
       self.subscribe('dotzConnectedByOwner', dotId);
