@@ -33,30 +33,46 @@ Meteor.publish('profileDot', function(userId){
   }
 });
 
+///*
+// * This publish is for publishing all the profile Dotz:
+// */
+//Meteor.publish('userProfileDotz', function(userId){
+//  if (userId){
+//    check(userId, String);
+//    let user = Meteor.users.findOne(userId);
+//    let dotzConnectedByOwner = Dotz.findOne({_id: user.profile.profileDotId}).dotzConnectedByOwner;
+//    let dotzConnectedByOwnerArray = [];
+//    dotzConnectedByOwner.forEach(function (dot) {
+//      dotzConnectedByOwnerArray.push(dot);
+//    });
+//    //let Dotz = Dotz.find({_id: user.profile.profileDotId});
+//    return dotzConnectedByOwnerArray;
+//  }
+//});
+
 /*
- * This publish is for publishing all the profile Dotz:
+ * This publish is publishing a whole Dot (only for show?):
  */
-Meteor.publish('userProfileDotz', function(userId){
-  if (userId){
-    check(userId, String);
-    let user = Meteor.users.findOne(userId);
-    let dotzConnectedByOwner = Dotz.findOne({_id: user.profile.profileDotId}).dotzConnectedByOwner;
-    let dotzConnectedByOwnerArray = [];
-    dotzConnectedByOwner.forEach(function (dot) {
-      dotzConnectedByOwnerArray.push(dot);
-    });
-    //let Dotz = Dotz.find({_id: user.profile.profileDotId});
-    return dotzConnectedByOwnerArray;
+Meteor.publish( 'dotShow', function( dotId ) {
+  if (dotId) {
+    check(dotId, String);
+    console.log("################ dotId is " + dotId);
+    console.log("######################## dot is " + Dotz.findOne(dotId)._id);
+    return Dotz.find(dotId);
   }
 });
 
 /*
- * This publish is publishing a whole Dot (for show)
+ * This publish the dotzConnectedByOwner:
  */
-Meteor.publish('dotShow', function(dotId){
+Meteor.publish('dotzConnectedByOwner', function(dotId){
   if (dotId){
     check(dotId, String);
-    return Dotz.findOne(dotId);
+    let dot = Dotz.findOne(dotId);
+    let dotzConnectedByOwnerArray = [];
+    dot.dotzConnectedByOwner.forEach(function (smartRef) {
+      dotzConnectedByOwnerArray.push(smartRef.dotId);
+    });
+    return Dotz.find({_id: {$in: dotzConnectedByOwnerArray}});
   }
-
 });

@@ -4,14 +4,31 @@ _data = {};
 Template.userShow.onCreated(function() {
   let self = this;
   self.autorun(function() {
+
     let userId = FlowRouter.getParam('userId');
     self.subscribe('user', userId);
-    //self.subscribe('profileDot', userId);
     _data.user = Meteor.users.findOne(userId);
 
     let dotId = _data.user.profile.profileDotId;
+
+    console.log("_data.user.profile.profileDotId is " + _data.user.profile.profileDotId + " and dotId is " + dotId);
+
     self.subscribe('dotShow', dotId);
+
     _data.dot = Dotz.findOne(dotId);
+    console.log("4444444444444 _data.dot is " + Dotz.findOne(dotId));
+
+    if (_data.dot) {
+      self.subscribe('dotzConnectedByOwner', dotId);
+      let getDotzConnectedByOwnerArray = [];
+      _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
+        getDotzConnectedByOwnerArray.push(smartRef.dotId);
+      });
+      _data.dot.dotzConnectedByOwner = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
+    }
+
+    //self.subscribe('dotzConnectedByOthers', dotId);
+
   });
 });
 
@@ -19,8 +36,9 @@ Template.userShow.helpers({
   user: function() {
     return _data.user;
   },
-  profileDot: function() {
-    return _data.user.profileDot;
+  dotzConnectedByOwner: function() {
+    console.log("_data.dot.dotzConnectedByOwner[0] " + _data.dot.dotzConnectedByOwner[0])
+    return _data.dot.dotzConnectedByOwner;
   },
 
   followingCounter: function(){

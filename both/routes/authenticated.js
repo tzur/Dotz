@@ -39,7 +39,7 @@ authenticatedRoutes.route( '/addImage', {
 
 
 
-//TBD: we nee to move the user page to the global-route area (coming soon):
+//TBD: we need to move the user page to the global-route area (coming soon):
 authenticatedRoutes.route( '/user/:userId', {
   name: 'user-show',
   action() {

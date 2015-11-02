@@ -115,8 +115,8 @@
             <div>
                 <div class="row user-profile-cards">
                     <div class="col-xs-12">
-                      {{#each profileDotz}}
-                        {{>newDot}}
+                      {{#each dotzConnectedByOwner}}
+                        {{>dotCard}}
                       {{/each}}
 
                       {{#if emptyMix}}
