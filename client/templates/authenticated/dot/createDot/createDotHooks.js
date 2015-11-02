@@ -8,13 +8,17 @@ let dotHooks = {
       if(Session.get("coverImageUrl")){
         doc.coverImageUrl = Session.get("coverImageUrl");
       }
-      locationObject = Session.get("locationObject");
-      doc.inDotz = Session.get('parentDot');
+      if(locationObject = Session.get("locationObject")){
+        doc.locationLatLng = locationObject.locationLatLng;
+        doc.locationName = locationObject.general.name;
+        doc.locationAddress = locationObject.general.formatted_address;
+      }
+      if( ! (doc.inDotz = Session.get('parentDot')) ){
+        doc.inDotz = Meteor.user().profile.profileDotId
+      }
       doc.ownerUserId = Meteor.userId();
       doc.createdAtDate = new Date();
-      doc.locationLatLng = locationObject.locationLatLng;
-      doc.locationName = locationObject.general.name;
-      doc.locationAddress = locationObject.general.formatted_address;
+
 
 
       return doc;

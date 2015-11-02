@@ -15,7 +15,10 @@ Template.createDot.onCreated(function(){
 Template.createDot.helpers({
 
   dotzOptions: function(){
-    return Modules.both.Dotz.getDotUserDotz(Meteor.user().profile.profileDotId);
+    if(Modules.client.Dotz.getUserProfileDotDotz){
+      return Modules.client.Dotz.getUserProfileDotDotz(Meteor.user().profile.profileDotId);
+
+    }
   },
 
   isImageUrl: function(){

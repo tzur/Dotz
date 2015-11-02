@@ -25,9 +25,11 @@ Template.createDotMap.onRendered(function(){
         types: ['establishment', 'geocode'],
         map: document.getElementById('createDotMap')
       }).bind("geocode:result", function(event, result){
-        locationLatLng[0]= result.geometry.location.lat();
-        locationLatLng[1]= result.geometry.location.lng();
-        Session.set("locationObject", {general: result, locationLatLng: locationLatLng });
+        if(result) {
+          locationLatLng[0] = result.geometry.location.lat();
+          locationLatLng[1] = result.geometry.location.lng();
+          Session.set("locationObject", {general: result, locationLatLng: locationLatLng});
+        }
       });
     }
   });

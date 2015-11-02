@@ -1,6 +1,6 @@
 //Move to client side.
 
-let getDotUserDotz = (dotId) => {
+let getUserProfileDotDotz = (dotId) => {
   let dot = Dotz.findOne({_id: dotId});
   console.log(dotId);
   console.log(dot);
@@ -16,4 +16,4 @@ let getDotUserDotz = (dotId) => {
 
   }
 };
-Modules.both.Dotz.getDotUserDotz = getDotUserDotz;
+Modules.client.Dotz.getUserProfileDotDotz = getUserProfileDotDotz;
