@@ -1,0 +1,200 @@
+<template name="dotShow">
+{{#if Template.subscriptionsReady}}
+{{#with dotShow}}
+
+    <!--Post image-->
+
+    <div id="topPostShow" class="container-liquid drakBg">
+        <div class="col-xs-12 col-sm-8 colCenter postImgCover" style="background-image: url('{{coverImageUrl}}')">
+        </div>
+    </div>
+
+    <!-- next 2 lines are wrapping the showPost body part -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8 colCenter">
+
+                <div class="row dot-title">
+                    <div class="toDot col-xs-12">
+                        <h2>{{title}}
+                          {{#if myDot}}
+                              <small>
+                                  <a class="editPost editbtn-muted">
+                                      <small class="glyphicon glyphicon-pencil" aria-hidden="true"></small>
+                                  </a>
+                              </small>
+                          {{/if}}
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="txtL dot-type">
+                    <img class="type-icon-dot-show" src="http://s2.postimg.org/6yq2vojd1/Location_icon_lg.png">
+                    <span class="greyText smTxt">{{locationName}} <span>�</span> {{#if eventDate.startDate}}{{eventPost}}{{/if}}</span>
+                </div>
+
+
+                <!--<div class="dot-type">-->
+                <!--<div class="col-xs-1 col-sm-1 txtL">-->
+                <!--<img id="type-icon" src="http://s2.postimg.org/6yq2vojd1/Location_icon_lg.png">-->
+                <!--</div>-->
+
+                <!--<div class="col-xs-8 col-sm-8 greyText smTxt">-->
+                <!--<span class="typeTextAlign">{{locationName}}</span>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div>
+
+                    <div id="ownerPostDiv" class="row dot-creator">
+                        <div class="col-xs-9 iconDiv txtL">
+                            <a href="{{userIdLink}}"><img class="postUserImgProfile" src="{{profileImageUrl}}"></a>
+                            <a href="{{userIdLink}}">
+                                <span class="align-icon-text">{{dotOwnerUserName}}</span>
+                            </a>
+                            <span class="greyText">{{createDate}}</span>
+                        </div>
+
+                        <div class="col-xs-3">
+                          {{#if myFollow}}
+                              <button type="button" class="unFollow btn btn-lead btn-sm round pull-right">Following</button>
+                          {{else}}
+                              <button type="button" class="follow btn btn-success btn-sm round pull-right">Follow</button>
+                          {{/if}}
+                        </div>
+                    </div>
+
+
+                    <!-- the dot owner description part-->
+
+                    <div class="row dot-description">
+
+                        <div class="col-xs-12 iconDivDetails">
+                            <pre class="greyText mdTxt limiText dot-desc-left-pad">{{description}}</pre>
+                        </div>
+
+                    </div>
+
+
+                    <!--Comment footer-->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <hr>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Connector area -->
+                <div class="dot-comment-div">
+
+                    <div id="ownerPostDiv" class="row dot-creator">
+                        <div class="col-xs-9 iconDiv txtL">
+                            <a href="{{userIdLink}}"><img class="postUserImgProfile" src="{{profileImageUrl}}"></a>
+                            <a href="{{userIdLink}}">
+                                <span class="align-icon-text">{{owner.userName}}</span>
+                            </a>
+                            <span class="greyText">{{createDate}}</span>
+                        </div>
+
+                        <div class="col-xs-3">
+                          {{#if myFollow}}
+                              <button type="button" class="unFollow btn btn-success btn-sm round pull-right">Following</button>
+                          {{else}}
+                              <button type="button" class="follow btn btn-success btn-sm round pull-right">Follow</button>
+                          {{/if}}
+                        </div>
+                    </div>
+
+
+
+                    <!-- the dot connector description part-->
+
+                    <div class="row dot-description">
+
+                        <div class="col-xs-12 iconDivDetails">
+                            <pre class="greyText mdTxt limiText dot-desc-left-pad">{{description}}</pre>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- end of connector area -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row dot-divider-hr">
+        <hr class="lightGrey">
+        <div class="dot-divider-box col-xs-4 colCenter">Connected dotz by TimeOut Tel-Aviv</div>
+    </div>
+
+    <div class="container-fluid">
+        <!--{{>newDot}}-->
+    </div>
+
+    <div class="row dot-divider-hr">
+        <hr class="lightGrey">
+        <div class="dot-divider-box col-xs-4 colCenter">Connected dotz by others</div>
+    </div>
+
+    <div class="container-fluid">
+        <!--{{>newDot}}-->
+    </div>
+
+    <!-- the dot buttons part-->
+
+    <div class="row">
+        <div class="col-xs-9 col-sm-10 col-lg-11">
+
+        <!--{{#if ../mix}}-->
+                <!--{{#if myDot}}-->
+                <!--<button id="connectBtn" type="button" class="disConnect btn btn-alert btn-lg pull-left">-->
+                <!--<img class="connectIcon" src="http://s24.postimg.org/3y0awecb9/connect_Icon.png">Disconnect</button>-->
+                    <!--{{/if}}-->
+                <!--{{else}}-->
+
+            <button id="connectBtn" type="button" class="connect btn btn-default btn-lg pull-left">
+                <img class="connectIcon" src="http://s24.postimg.org/3y0awecb9/connect_Icon.png">Connect ({{isConnected}})</button>
+                <!--{{/if}}-->
+
+
+
+        </div>
+        <div class="col-xs-3 col-sm-2 col-lg-1">
+            <button id="shareBtn" type="button" class="btn btn-default btn-lg pull-right">
+                <img class="shareicon" src="http://s8.postimg.org/5w1bl4x3l/share_Icon.png"></button>
+        </div>
+    </div>
+    <br>
+    <br>
+  {{#if locationLatLng}}
+      <div class="map-container">
+        {{> googleMap name="exampleMap" options=exampleMapOptions}}
+      </div>
+  {{/if}}
+    <hr>
+    <div>
+
+      <!--{{> addComment}}-->
+        <hr>
+    </div>
+
+
+    <!--Post comment template-->
+
+  <!--{{> showComment}}-->
+
+
+    <!--comment template end-->
+
+    <!--</div>-->
+
+
+
+{{/with}}
+{{else}}
+    <p> Loading...</p>
+    <!--to replace with a loading template-->
+{{/if}}
+</template>

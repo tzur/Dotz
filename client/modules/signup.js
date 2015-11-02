@@ -49,6 +49,7 @@ let _handleSignup = ( template ) => {
 };
 
 //Create new dot + add the new dot ID to the profileDotId field:
+//We need to move this function to the server (and to include some security checks):
 let _createNewDotForDotProfile = ( userId ) => {
     let profileDotDoc = {
         dotType: "_profileDot",

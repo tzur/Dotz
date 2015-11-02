@@ -1,0 +1,424 @@
+/*.canvas-renderer {*/
+    /*display: block;*/
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*pointer-events: none;*/
+    /*background: #B31C1C;*/
+    /*-webkit-transform: translateZ(0);*/
+    /*transform: translateZ(0);*/
+/*}*/
+
+#userBgImg {
+    background-color: #fafafa;
+    position: fixed;
+    left: 0;
+    right: 0;
+    /*display: block;*/
+    /*transform: translateY(0);*/
+}
+
+.imgCover {
+    height: 40vh;
+    background-size: cover;
+    background-position-y: 50%;
+    background-position-x: 50%;
+}
+
+.profile-user-data-row {
+    height: 100%;
+}
+
+.drakBg{
+    background-color: #333;
+}
+
+#followDiv {
+    position: relative;
+    top: 40vh;
+    height: 51vh;
+    padding-top: 4em;
+    background-color: #fafafa;
+}
+
+.user-profile-cards {
+    padding-top: 2em;
+    background-color: #fafafa;
+    border-top: #ccc solid 1px;
+}
+
+#userData {
+    position: absolute;
+    top: -4em;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    /* padding-top: 25%; */
+    /* overflow: hidden; */
+}
+
+.colCenter {
+    float: none;
+    margin: 0 auto;
+}
+
+.followingNum {
+    font-size: 2em;
+    font-weight: 300;
+}
+
+.followersNum {
+    font-size: 2em;
+    font-weight: 300;
+}
+
+#userImgProfile {
+    height: 8em;
+    width: 8em;
+    border-radius: 50%;
+}
+
+.round {
+    border-radius: 24px;
+}
+
+.btn-success {
+    color: #66BD2B;
+    background-color: transparent;
+    border-color: #66BD2B;
+}
+
+.btn-lead {
+    color: #ffffff;
+    background-color: #66BD2B;
+    border-color: #66BD2B;
+}
+
+#userName {
+    color: white;
+    font-weight: 600;
+}
+
+#userAddress {
+    color: white;
+    font-weight: 100;
+}
+
+#overLayer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 30px;
+}
+
+#following {
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+}
+
+#userDescription p {
+    font-size: medium;
+    font-weight: 300;
+    color: #8d8d8d;
+}
+
+#userLinks {
+    text-align: right;
+}
+
+#userDotsBg {
+    background-color: #fafafa;
+}
+
+.socialIcons {
+    height: 2em;
+    width: 2em;
+    margin-left: 0.25em;
+}
+
+.txtMd {
+    text-align: center;
+}
+
+
+ /*menu test*/
+
+menu, ol, ul {
+    display: block;
+    margin: 0;
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+    height: 37px;
+    padding: 0 16px;
+    color: rgba(0,0,0,0.44);
+    background: rgba(0,0,0,0);
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.15);
+    vertical-align: bottom;
+    white-space: nowrap;
+    text-rendering: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+    border-radius: 999em;
+    font-family: -apple-system,".SFNSText-Regular","Helvetica Neue","Roboto","Segoe UI",sans-serif;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+}
+
+menu {
+    margin: 30px;
+}
+
+menu, ol, ul {
+    padding: 0;
+    list-style: none;
+    list-style-image: none
+}
+
+.menu-item {
+    display: inline-block;
+    vertical-align: top
+}
+.menu-item--icons, .menu-item:not(.menu-item--icons)>.button--chromeless {
+    padding: 10px 20px 5px;
+    color: rgba(0,0,0,0.8);
+    font-size: 24px;
+    border-right: 1px solid rgba(0,0,0,0.05)
+}
+.menu-item--icons, .menu-item:last-child>.button--chromeless {
+    border-right: 0
+}
+.menu-item--icons .icon:before {
+    color: rgba(0,0,0,0.8);
+    font-size: 23px
+}
+.menu-label {
+    color: rgba(0,0,0,0.6);
+    text-transform: uppercase;
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px
+}
+.menu-item--icons .button--chromeless:last-child .icon:before {
+    margin-right: 0
+}
+.menu-item--icons .button--chromeless:hover .icon:before {
+    color: rgba(0,0,0,0.6)
+}
+@media (max-width:767px) {
+    .menu-item--icons, .menu-item:not(.menu-item--icons)>.button--chromeless {
+        padding: 7px 15px 3px;
+        vertical-align: top
+    }
+    .menu-item:first-child, .menu-item:first-child>.button--chromeless {
+        padding-left: 0
+    }
+    .menu-item:last-child, .menu-item:last-child>.button--chromeless {
+        padding-right: 0
+    }
+    .menu-label {
+        font-size: 9px
+    }
+}
+
+.inlineTooltip2-menu {
+    display: inline-block;
+    visibility: hidden;
+    padding-left: 22px
+}
+.inlineTooltip2.is-scaled .inlineTooltip2-menu {
+    visibility: visible
+}
+.inlineTooltip2.is-menuImmediatelyHidden .inlineTooltip2-menu {
+    display: none
+}
+.inlineTooltip2-menu .button {
+    margin-right: 9px
+}
+
+
+.icon {
+    font-family: 'medium-icons';
+    font-weight: normal;
+    font-style: normal;
+    speak: none;
+    text-decoration: none;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+.browser-android .icon {
+    text-rendering: auto !important
+}
+
+.icon--break:before {
+    content: "";
+    display: inline-block;
+    width: 80%;
+    height: 4px;
+    background: #fff;
+    margin-top: 13px;
+    margin-bottom: 10px
+}
+
+.icon--twitter:before {
+    content: "\f171"
+}
+
+.icon--twitter:before {
+    font-size: 21px;
+    position: relative;
+    top: 2px
+}
+
+.button .icon--shrink:before, .button .icon--enlarge:before, .button .icon--twitter:before {
+    top: 3px
+}
+.button--chromeless .icon--twitter:before {
+    top: 1px
+}
+
+.button--twitter {
+    background-color: #55acee
+}
+.button--twitter:hover, .button--twitter:focus, .button--twitter:active {
+    background-color: #006daa
+}
+
+.list-itemInputPrefix--icon .icon--twitter:before {
+    font-size: 16px
+}
+
+.button--link>.icon:before, .button--chromeless>.icon:before {
+    color: rgba(0,0,0,0.44)
+}
+.button--link .svgIcon, .button--chromeless .svgIcon {
+    fill: rgba(0,0,0,0.44)
+}
+.button--link:hover, .button--link:active, .button--link:focus, .button--chromeless:hover, .button--chromeless:active, .button--chromeless:focus {
+    color: rgba(0,0,0,0.6);
+    border-width: 0
+}
+
+.button--chromeless .icon--twitter:before {
+    top: 1px
+}
+
+.buttonSet>.button--chromeless+.button, .buttonSet>.buttonSet-separator+.button {
+    margin-left: 8px
+}
+
+.button--larger, .button--larger.button--link, .button--larger.button--chromeless {
+    font-size: 20px
+}
+.button--larger.button--link, .button--larger.button--chromeless {
+    padding: 0
+}
+.button--large {
+    height: 44px;
+    padding: 0 18px
+}
+.button--large, .button--large.button--truncated .icon {
+    line-height: 43px
+}
+.button--large, .button--large.button--link, .button--large.button--chromeless {
+    font-size: 15px
+}
+.button--large.button--link, .button--large.button--chromeless {
+    padding: 0
+}
+
+.button--small.button--link, .button--small.button--chromeless {
+    padding: 0;
+    line-height: inherit;
+    height: inherit
+}
+
+.button--primary.button--chromeless:hover, .button--primary.button--chromeless:active, .button--primary.button--chromeless:focus {
+    color: #1c9963
+}
+
+.buttonSet>.button--link, .buttonSet>.button--chromeless {
+    height: 37px;
+    line-height: 36px
+}
+.buttonSet .button--large.button--link, .buttonSet .button--large.button--chromeless {
+    height: 44px;
+    line-height: 43px
+}
+.buttonSet .button--small.button--link, .buttonSet .button--small.button--chromeless {
+    height: 32px;
+    line-height: 32px
+}
+
+.button--link, .button--chromeless {
+    line-height: inherit;
+    vertical-align: baseline;
+    height: auto;
+    padding: 0
+}
+
+
+.menu-item--icons, .menu-item:last-child>.button--chromeless {
+    border-right: 0
+}
+
+
+.button--link, .button--chromeless {
+    border-radius: 0;
+    box-shadow: none;
+    height: auto;
+    line-height: inherit;
+    border-width: 0;
+    padding: 0;
+    vertical-align: baseline;
+    color: rgba(0,0,0,0.3);
+    white-space: normal;
+}
+
+.iconsLinksEtc {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #9a9a9a;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    max-height: 40px;
+    display: inline-block;
+    margin: 0 0 2em 0;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.lightGrey {
+    color: #e5e5e5;
+}
+
+.userMenuIcons {
+    height: 1em;
+}
+
+.mdGrey {
+    color: #9a9a9a;
+}

@@ -39,10 +39,18 @@ authenticatedRoutes.route( '/addImage', {
 
 
 
-//TBD: we nee to move the user page to the global-route area (coming soon):
+//TBD: we need to move the user page to the global-route area (coming soon):
 authenticatedRoutes.route( '/user/:userId', {
   name: 'user-show',
   action() {
     BlazeLayout.render( 'default', { yield: 'userShow' } );
+  }
+});
+
+//TBD: we need to move the dotShow page to the global-route area (coming soon):
+authenticatedRoutes.route( '/dot/:dotId', {
+  name: 'dot-show',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'dotShow' } );
   }
 });
