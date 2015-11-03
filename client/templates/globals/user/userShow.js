@@ -9,11 +9,12 @@ Template.userShow.onCreated(function() {
     self.subscribe('username', username);
     _data.user = Meteor.users.findOne({username: username});
 
-    let dotId = _data.user.profile.profileDotId;
+    if (_data.user) {
+      let dotId = _data.user.profile.profileDotId;
+      self.subscribe('dotShow', dotId);
+      _data.dot = Dotz.findOne(dotId);
+    }
 
-    self.subscribe('dotShow', dotId);
-
-    _data.dot = Dotz.findOne(dotId);
 
     if (_data.dot) {
       self.subscribe('dotzConnectedByOwner', dotId);
