@@ -17,7 +17,6 @@ Template.createDot.helpers({
   dotzOptions: function(){
     if(Modules.client.Dotz.getUserProfileDotDotz){
       return Modules.client.Dotz.getUserProfileDotDotz(Meteor.user().profile.profileDotId);
-
     }
   },
 

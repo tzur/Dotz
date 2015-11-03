@@ -70,12 +70,14 @@
 
                                               <hr class="lightGrey">
                                               <div class="spacer-xs-card-buttons"></div>
+                                            <div>
                                             {{#if isMyMix}}
                                                 <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
                                                 <button type="button" class="disConnect btn btn-success round btn-sm pull-right">Connected ({{isConnected}})</button>
                                             {{else}}
-                                                <button type="button" class="connect btn btn-success round btn-sm pull-right">Connect ({{isConnected}})</button>
+                                                <button type="button" class="connect btn btn-lead round btn-md ">Connect ({{isConnected}})</button>
                                             {{/if}}
+                                            </div>
 
                                               <button type="button" class="btn btn-default round btn-sm midWidth pull-left like-btn-mobile">
                                                   <img class="like-btn-img-mobile" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
@@ -133,7 +135,7 @@
                                               <div class="spacer-xs-card-buttons"></div>
                                             {{#if isMyMix}}
                                                 <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
-                                                <button type="button" class="disConnect btn btn-success round btn-xs pull-right">Connected ({{isConnected}})</button>
+                                                <button type="button" class="disConnect btn btn-success round btn-xs pull-right">Connected</button>
                                             {{else}}
                                                 <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect ({{isConnected}})</button>
                                             {{/if}}

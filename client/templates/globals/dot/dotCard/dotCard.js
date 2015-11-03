@@ -197,13 +197,10 @@ Template.dotCard.events({
    */
 
   'click .connect': function(){
-    var dotId = this._id;
-    var isMix = this.isMix;
-    console.log("isMic is: " + isMix); //DEBUG
-    Modal.show('saveDotModal', {
+
+    Modal.show('connectDotModal',{
       data:{
-        'dotId': dotId,
-        'isMix': isMix
+        dotId: this._id
       }
     });
   },
