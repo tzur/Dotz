@@ -17,10 +17,13 @@ Template.userShow.onCreated(function() {
       if (_data.dot) {
         self.subscribe('dotzConnectedByOwner', dotId);
         let getDotzConnectedByOwnerArray = [];
-        _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
-          getDotzConnectedByOwnerArray.push(smartRef.dotId);
-        });
-        _data.dot.dotzConnectedByOwner = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
+
+        if (_data.dot.dotzConnectedByOwner) {
+          _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
+            getDotzConnectedByOwnerArray.push(smartRef.dotId);
+          });
+        }
+        _data.dot.dotzConnectedByOwner.objects = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
       }
     }
 
@@ -34,8 +37,8 @@ Template.userShow.helpers({
     return _data.user;
   },
   dotzConnectedByOwner: function() {
-    console.log("_data.dot.dotzConnectedByOwner[0] " + _data.dot.dotzConnectedByOwner[0])
-    return _data.dot.dotzConnectedByOwner;
+    console.log("_data.dot.dotzConnectedByOwner.objects[1] " + _data.dot.dotzConnectedByOwner.objects[1])
+    return _data.dot.dotzConnectedByOwner.objects;
   },
 
   followingCounter: function(){
