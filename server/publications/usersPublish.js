@@ -5,7 +5,7 @@ Meteor.publish( 'user', function( userId ) {
   }
 });
 
-Meteor.publish( 'username', function( username ) {
+Meteor.publish( 'userByUsername', function( username ) {
   if (username) {
     check(username, String);
     return Meteor.users.find({username: username});
