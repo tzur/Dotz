@@ -1,3 +1,92 @@
+.event-details {
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  min-height: 26.5rem;
+  background: #fff;
+  border-top: 1px solid #f1f1e9;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+
+.event-details__images {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  top: 0;
+  width: 60%;
+  overflow: hidden;
+}
+
+.event-details__inner {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.event-details__filler {
+  display: block;
+  width: 60%;
+}
+
+.event-details__info {
+  padding: 1.5rem 2.5rem 2.5rem;
+  max-width: 36.25rem;
+  width: 40%;
+  background: #fff;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  position: relative;
+}
+
+.event-details__title {
+  margin: .75rem 0 0;
+  padding: 0;
+}
+
+.event-details__meta {
+  border: 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  height: auto;
+  margin: 2.6875rem 0;
+  padding: 0;
+  border-top: 1px solid #f1f1e9;
+  width: 100%;
+}
+
+.event-details__book {
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.dot-show-title {
+  margin-top: 0;
+}
+
+
+/**/
+
 pre {
   font-family: 'Roboto', sans-serif;
   display: block;
@@ -12,8 +101,39 @@ pre {
   padding: 0;
 }
 
+.dot-show-header {
+  background-color: #ffffff;
+  /*height: 60vh;*/
+}
+
+.dot-show-main-details {
+  padding: 1em 2em 2em 2em;
+}
+
+.dot-show-type-div {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.dot-show-type-details {
+  padding: 2em 0;
+}
+
+.dot-show-type {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.dot-show-btn-div {
+  padding-top: 1em;
+}
+
+.dot-show-connect-btn {
+  width: 75%;
+}
+
 .postImgCover {
-  height: 40vh;
+  height: 26em;
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;

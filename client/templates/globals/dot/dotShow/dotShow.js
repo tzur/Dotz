@@ -58,8 +58,8 @@ Template.dotShow.onCreated(function() {
  */
 
 Template.dotShow.helpers({
-  dotShow: function() {
-    return _data.dot;
+  data: function() {
+    return _data;
   },
   dotOwnerUserName: function() {
     console.log("_data.user.username  is   " + _data.user.username);

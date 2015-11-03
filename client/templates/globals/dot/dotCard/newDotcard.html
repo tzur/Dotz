@@ -1,0 +1,209 @@
+<template name="newDotCard">
+  {{#if Template.subscriptionsReady}}
+    {{#with dotCard}}
+
+        <!-- full wrapper -->
+
+        <div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
+
+
+                    <div class="container-fluid longCardWrapper">
+                        <div class="row">
+
+                            <div class="col-sm-12">
+
+                                <div class="row">
+
+                                    <div class="col-md-4 liquidCol">
+                                        <div class="container-fluid dot-container-img-card" style="background-image: url('{{coverImageUrl}}')">
+                                            <div class="row" >
+                                                <div id="round-overlay"></div>
+                                                <div class="dotConnectedDotzLastIcon-mobile">
+                                                    <div class="innerDotlengh-upper txtMd"><span>134</span></div>
+                                                    <div class="innerDotlengh-lower txtMd"><span>Dotz</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-8">
+
+                                        <div class="spacerXs visible-xs visible-sm"></div>
+
+                                        <div class="cardDetails-mobile visible-xs visible-sm">
+
+                                            <div class="row cardTitleDiv">
+                                                <div class="col-xs-12 col-sm-12">
+                                                    <a href="{{dotIdLink}}"><h2 class="cardTitle">{{title}}</h2></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row cardPersonalDesc">
+                                                <p class="col-xs-12 col-sm-12 user-personal-desc darkText limitP-mobile">
+                                                  {{description}}
+                                                </p>
+
+                                                <div class="col-xs-12 txtL dot-type">
+                                                    <img id="type-icon" src="http://s2.postimg.org/6yq2vojd1/Location_icon_lg.png">
+                                                    <span class="greyText smTxt">{{locationName}} <span>·</span> {{#if eventDate}}{{eventDate}}{{/if}}</span>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="card-btns-div-mobile">
+
+                                                <div class="cardConnecterDiv-mobile greyText smTxt user-personal-desc-details">
+                                                    <a href="{{userIdLink}}" class="userImgIcon">
+                                                        <img class="userImgIcon" src="{{profileImageUrl}}">
+                                                    </a>
+
+                                                    <a href="{{userIdLink}}">
+                                                        <span class="align-icon-text">{{owner.userName}}</span>
+                                                    </a>
+
+                                                    <span class="alignSub">connected TimeOut Dot <span>·</span> {{createDate}}</span>
+
+                                                </div>
+
+                                                <hr class="lightGrey">
+                                                <div class="spacer-xs-card-buttons"></div>
+
+                                                <div>
+                                                  {{#if isMyMix}}
+                                                      <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
+                                                      <button type="button" class="disConnect btn btn-success round btn-sm pull-right">Connected ({{isConnected}})</button>
+                                                  {{else}}
+                                                      <button type="button" class="connect btn btn-lead round btn-md ">Connect ({{isConnected}})</button>
+                                                  {{/if}}
+                                                </div>
+
+                                                <button type="button" class="btn btn-default round btn-sm midWidth pull-left like-btn-mobile">
+                                                    <img class="like-btn-img-mobile" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
+                                                </button>
+
+                                                <div class="like-btn-text-div-mobile lightGrey">
+                                                    <span class="like-btn-up-text-mobile smTxt">364 likes</span>
+
+                                                    <span class="like-btn-down-text-mobile smTxt">this connection</span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="cardDetails hidden-xs hidden-sm">
+
+                                            <div class="row cardTitleDiv">
+                                                <div class="col-md-10">
+                                                    <a href="{{dotIdLink}}"><h2 class="cardTitle">{{title}}</h2></a>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                  {{#if isMyMix}}
+                                                      <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
+                                                      <button type="button" class="disConnect btn btn-success round btn-xs pull-right">Connected ({{isConnected}})</button>
+                                                  {{else}}
+                                                      <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect ({{isConnected}})</button>
+                                                  {{/if}}
+                                                </div>
+                                            </div>
+
+                                            <div class="row cardPersonalDesc">
+
+                                                <span class="txtL dot-type">
+                                                    <img id="type-icon" src="/place-icon-grey.png">
+                                                    <span class="greyText smTxt">{{locationName}} <span>·</span></span>
+                                                </span>
+
+                                                <span class="txtL dot-type">
+                                                    <img id="type-icon" src="/event-icon-grey.png">
+                                                    <span class="greyText smTxt">{{#if eventDate}}{{eventDate}}{{/if}}</span>
+                                                </span>
+
+                                                <span class="txtL dot-type">
+                                                    <img id="type-icon" src="/price-icon-grey.png">
+                                                    <span class="greyText smTxt">24 <span>$</span></span>
+                                                </span>
+
+                                            </div>
+
+
+                                            <div class="row card-btns-div">
+
+                                                <div class="col-md-12">
+                                                    <hr class="lightGrey">
+                                                </div>
+
+                                                <div class="col-md-10 cardConnecterDiv greyText smTxt">
+                                                    <a href="{{userIdLink}}" class="userImgIcon">
+                                                        <img class="userImgIcon" src="{{profileImageUrl}}">
+                                                    </a>
+
+                                                    <a href="{{userIdLink}}">
+                                                        <span class="align-icon-text">{{owner.userName}}</span>
+                                                    </a>
+
+                                                    <span>connected TimeOut Dot <span>·</span> {{createDate}}</span>
+
+                                                </div>
+
+                                                <div class="col-md-2 cardConnecterDiv">
+                                                    <button type="button" class="btn btn-default round btn-xs midWidth pull-right">
+                                                        <img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
+                                                    </button>
+                                                </div>
+
+                                                <div class="user-personal-desc-details col-md-9">
+                                                    <p class="user-personal-desc greyText limitP">{{description}}</p>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <!--<div class="container-fluid topCardWrapper">-->
+
+                    <!--</div>-->
+
+                    <!--</div>-->
+
+                    <div style="margin-bottom: 1em;">
+                      {{#if myDot}}
+                          <a class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>
+                          <a class="edit editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
+                      {{/if}}
+                      {{#if isMyMix}}
+                          <a class="upBtn"><span class="glyphicon glyphicon-triangle-top smTxt" aria-hidden="true"> </span></a>
+                          <a class="downBtn"><span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span></a>
+                      {{/if}}
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    {{/with}}
+  {{else}}
+      <p> Loading...</p>
+      <!--to replace with a loading template-->
+  {{/if}}
+</template>
