@@ -1,6 +1,6 @@
 <template name="dotCard">
 {{#if Template.subscriptionsReady}}
-{{#with dotCard}}
+{{#with data}}
 
     <!-- full wrapper -->
 
@@ -17,7 +17,7 @@
                               <div class="row">
 
                                   <div class="col-md-4 liquidCol">
-                                      <div class="container-fluid dot-container-img-card" style="background-image: url('{{coverImageUrl}}')">
+                                      <div class="container-fluid dot-container-img-card" style="background-image: url('{{dot.coverImageUrl}}')">
                                           <div class="row" >
                                               <div id="round-overlay"></div>
                                               <div class="dotConnectedDotzLastIcon-mobile">
@@ -37,18 +37,18 @@
 
                                           <div class="row cardTitleDiv">
                                               <div class="col-xs-12 col-sm-12">
-                                                  <a href="{{dotIdLink}}"><h2 class="cardTitle">{{title}}</h2></a>
+                                                  <a href="{{dotIdLink}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
                                               </div>
                                           </div>
 
                                           <div class="row cardPersonalDesc">
                                               <p class="col-xs-12 col-sm-12 user-personal-desc darkText limitP-mobile">
-                                                {{description}}
+                                                {{dot.bodyText}}
                                               </p>
 
                                               <div class="col-xs-12 txtL dot-type">
                                                   <img id="type-icon" src="http://s2.postimg.org/6yq2vojd1/Location_icon_lg.png">
-                                                  <span class="greyText smTxt">{{locationName}} <span>·</span> {{#if eventDate}}{{eventDate}}{{/if}}</span>
+                                                  <span class="greyText smTxt">{{dot.locationName}} <span>·</span> {{#if eventDate}}{{eventDate}}{{/if}}</span>
                                               </div>
 
                                           </div>
@@ -57,11 +57,11 @@
 
                                               <div class="cardConnecterDiv-mobile greyText smTxt user-personal-desc-details">
                                                   <a href="{{userIdLink}}" class="userImgIcon">
-                                                      <img class="userImgIcon" src="{{profileImageUrl}}">
+                                                      <img class="userImgIcon" src="{{user.profileImage}}">
                                                   </a>
 
                                                   <a href="{{userIdLink}}">
-                                                      <span class="align-icon-text">{{owner.userName}}</span>
+                                                      <span class="align-icon-text">{{user.username}}</span>
                                                   </a>
 
                                                   <span class="alignSub">connected TimeOut Dot <span>·</span> {{createDate}}</span>
@@ -139,7 +139,7 @@
                                               </div>
 
                                               <div class="col-md-10 cardConnecterDiv greyText smTxt">
-                                                  <a href="{{userIdLink}}" class="userImgIcon">
+                                                  <a href="{{user.profileImage}}" class="userImgIcon">
                                                       <img class="userImgIcon" src="{{profileImageUrl}}">
                                                   </a>
 

@@ -1,11 +1,11 @@
 <template name="dotShow">
 {{#if Template.subscriptionsReady}}
-{{#with dotShow}}
+{{#with data}}
 
     <div class="container-fluid dot-show-header">
         <div class="row">
 
-            <div class="col-md-7 postImgCover" style="background-image: url('{{coverImageUrl}}')">
+            <div class="col-md-7 postImgCover" style="background-image: url('{{dot.coverImageUrl}}')">
 
             </div>
 
@@ -13,7 +13,7 @@
 
                 <div class="row dot-title">
                     <div class="toDot col-xs-12">
-                        <h2 class="dot-show-title">{{title}}
+                        <h2 class="dot-show-title">{{dot.title}}
                           {{#if myDot}}
                               <small>
                                   <a class="editPost editbtn-muted">
@@ -30,7 +30,7 @@
 
                         <div class="txtL dot-show-type">
                             <img class="type-icon-dot-show" src="/place-icon-grey.png">
-                            <span class="dot-type greyText mdTxt alignSub">{{locationName}}</span>
+                            <span class="dot-type greyText mdTxt alignSub">{{dot.locationName}}</span>
                         </div>
 
                         <div class="txtL dot-show-type">
@@ -74,7 +74,7 @@
 
                     <div id="ownerPostDiv" class="row dot-creator">
                         <div class="col-xs-9 iconDiv txtL">
-                            <a href="{{userIdLink}}"><img class="postUserImgProfile" src="{{profileImageUrl}}"></a>
+                            <a href="{{user.userIdLink}}"><img class="postUserImgProfile" src="{{profileImageUrl}}"></a>
                             <a href="{{userIdLink}}">
                                 <span class="align-icon-text">{{dotOwnerUserName}}</span>
                             </a>
@@ -140,7 +140,7 @@
                     <div class="row dot-description">
 
                         <div class="col-xs-12 iconDivDetails">
-                            <pre class="greyText mdTxt limiText dot-desc-left-pad">{{post.description}}</pre>
+                            <pre class="greyText mdTxt limiText dot-desc-left-pad">{{dot.bodyText}}</pre>
                         </div>
 
                     </div>
