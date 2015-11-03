@@ -4,3 +4,10 @@ Meteor.publish( 'user', function( userId ) {
     return Meteor.users.find(userId);
   }
 });
+
+Meteor.publish( 'username', function( username ) {
+  if (username) {
+    check(username, String);
+    return Meteor.users.find({username: username});
+  }
+});

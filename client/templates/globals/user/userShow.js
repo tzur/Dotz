@@ -5,9 +5,9 @@ Template.userShow.onCreated(function() {
   let self = this;
   self.autorun(function() {
 
-    let userId = FlowRouter.getParam('userId');
-    self.subscribe('user', userId);
-    _data.user = Meteor.users.findOne(userId);
+    let username = FlowRouter.getParam('username');
+    self.subscribe('username', username);
+    _data.user = Meteor.users.findOne({username: username});
 
     let dotId = _data.user.profile.profileDotId;
 

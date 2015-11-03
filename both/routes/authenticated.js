@@ -40,7 +40,7 @@ authenticatedRoutes.route( '/addImage', {
 
 
 //TBD: we need to move the user page to the global-route area (coming soon):
-authenticatedRoutes.route( '/user/:userId', {
+authenticatedRoutes.route( '/:username', {
   name: 'user-show',
   action() {
     BlazeLayout.render( 'default', { yield: 'userShow' } );
