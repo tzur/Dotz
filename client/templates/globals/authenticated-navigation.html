@@ -4,7 +4,7 @@
     <li class="{{currentRoute 'dashboard'}}"><a href="{{pathFor 'dashboard'}}">Dashboard</a></li>
 
   <!--TBD: we need to improve this route:    -->
-      <li class="{{currentRoute 'index'}}"><a href="/user/{{currentUser._id}}">My Profile</a></li>
+      <li class="{{currentRoute 'index'}}"><a href="/{{currentUser.username}}">My Profile</a></li>
 
       <li class="{{currentRoute 'createDot'}}"><a href="{{pathFor 'createDot'}}">Create Dot</a></li>
 
