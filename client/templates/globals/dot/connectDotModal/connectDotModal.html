@@ -26,12 +26,10 @@
 <template name="brainFuck">
   {{#each relevantDotzArray}}
 
-      <button data-toggle="collapse" data-target="#{{id}}">{{name}}</button>
-
-      <div id="{{id}}" class="collapse">
-          <br>
-
-        <!--{{> brainFuck}}-->
+      <button data-toggle="collapse" data-target="#{{_id}}">{{title}}</button>
+      <br>
+      <div id="{{_id}}" class="collapse">
+        {{> brainFuck}}
 
       </div>
 

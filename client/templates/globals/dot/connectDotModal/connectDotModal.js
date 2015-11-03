@@ -1,18 +1,20 @@
 /**
  * Created by avivhatzir on 02/11/2015.
  */
+Template.connectDotModal.onRendered = function(){
+  Session.set('dotIdWishedToBeConnected', this.data.dotId)
+};
+
+
 Template.connectDotModal.helpers({
 
   relevantDotzArray: function(){
-    //Modules.client.Dotz.getDotDotzForConnect()
-    return [{name: "aviv",id: "1"},{name:"aviv2",id:"2"},{name: "aviv3", id: "3"},{name: "aviv4", id: "4"}]
+    return Modules.client.Dotz.getDotDotzForConnect(Meteor.user().profile.profileDotId, this.data.dotId)
   }
-
 });
 
 Template.brainFuck.helpers({
   relevantDotzArray: function(){
-    //Modules.client.Dotz.getDotDotzForConnect()
-    return [{name: "aviv",id: "1"},{name:"aviv2",id:"2"},{name: "aviv3", id: "3"},{name: "aviv4", id: "4"}]
+    return Modules.client.Dotz.getDotDotzForConnect(this._id, Session.get('dotIdWishedToBeConnected'))
   }
 })

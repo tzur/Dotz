@@ -20,11 +20,11 @@ let _checkDot = function(smartRef, dotIdWishedToConnect){
 
 };
 
-let getDotDotzForConnect = (dot, dotIdWishedToConnect) => {
-  let _dot = dot;
+let getDotDotzForConnect = (dotId, dotIdWishedToConnect) => {
+  let _dot = Dotz.findOne(dotId);
   console.log(_dot);
   let userDotzArray = [];
-  if (dot && dot.dotzConnectedByOwner){
+  if (_dot && dot.dotzConnectedByOwner){
     _dot.dotzConnectedByOwner.forEach(function(smartRef){
       if(_checkDot(smartRef,dotIdWishedToConnect)) {
         userDotzArray.push(smartRef.dotId);
