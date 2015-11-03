@@ -21,7 +21,7 @@ p.commentUser{
 .longCardWrapper {
   background-color: #FFFFFF;
   border: 1px solid #edeeee;
-  padding: 0 1em 0 1em;
+  padding: 1em;
 }
 
 .longCardWrapperWithUpVote {
@@ -53,7 +53,7 @@ p.commentUser{
 }
 
 .cardTitleDiv {
-  padding-top: 0.5em;
+  /*padding-top: 0.5em;*/
   padding-bottom: 0.25em;
 }
 
@@ -143,9 +143,9 @@ a:hover {
   padding-top: 0.5em;
 }
 
-/*.typeTextAlign {*/
-/*vertical-align: sub;*/
-/*}*/
+.alignSub {
+  vertical-align: sub;
+}
 
 .arrowBox {
   background-color:rgb(250,250,250);
@@ -172,11 +172,12 @@ a:hover {
 
 .dot-container-img-card {
   /*width: 35vh;*/
-  height: 35vh; /*max-height: 16em;*/
+  height: 34.95vh; /*max-height: 16em;*/
   overflow: hidden;
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
+  padding: 0 1em;
   /*border-radius: 50%;*/
 }
 
@@ -295,16 +296,23 @@ a:hover {
 }
 
 .user-personal-desc-details {
-  margin-bottom: 0.45em;
+  margin-left: 2em;
+  /*margin-bottom: 0.5em;*/
+}
+
+.user-personal-desc-mobile {
+  font-size: 1.15em;
+  margin-bottom: 0;
 }
 
 .user-personal-desc {
-  font-size: 1.15em;
+  font-size: 1em;
   margin-bottom: 0;
 }
 
 .dot-type {
   margin-bottom: 1em;
+  padding-left: 0.5em;
 }
 
 .fullPad {
@@ -395,6 +403,8 @@ a:hover {
   font-size: 0.75em;
 }
 
+
+
 .greyText {
   color: #9B998D;
 }
@@ -463,7 +473,7 @@ a:hover {
 }
 
 #round-overlay {
-  background-image: radial-gradient(20vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 86%, rgba(255, 255, 255, 0.80) 87%, rgba(255, 255, 255, 0.80) 100%);
+  background-image: radial-gradient(20vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 86%, rgba(255, 255, 255, 1) 87%, rgba(255, 255, 255, 1) 100%);
   width: 100%;
   height: 35vh;
 }
@@ -514,7 +524,9 @@ a:hover {
 .card-btns-div{
   position: absolute;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+  /*width: 100%;*/
 }
 
 .card-btns-div-mobile{
