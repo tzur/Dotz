@@ -13,16 +13,15 @@ Template.userShow.onCreated(function() {
       let dotId = _data.user.profile.profileDotId;
       self.subscribe('dotShow', dotId);
       _data.dot = Dotz.findOne(dotId);
-    }
 
-
-    if (_data.dot) {
-      self.subscribe('dotzConnectedByOwner', dotId);
-      let getDotzConnectedByOwnerArray = [];
-      _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
-        getDotzConnectedByOwnerArray.push(smartRef.dotId);
-      });
-      _data.dot.dotzConnectedByOwner = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
+      if (_data.dot) {
+        self.subscribe('dotzConnectedByOwner', dotId);
+        let getDotzConnectedByOwnerArray = [];
+        _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
+          getDotzConnectedByOwnerArray.push(smartRef.dotId);
+        });
+        _data.dot.dotzConnectedByOwner = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
+      }
     }
 
     //self.subscribe('dotzConnectedByOthers', dotId);
