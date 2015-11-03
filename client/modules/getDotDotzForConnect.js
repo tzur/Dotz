@@ -1,14 +1,15 @@
 
-let _checkDot = function(smartRef, dotIdWishedToConnect){
-  let _dot = Dotz.findOne(smartRef.dotId);
-  if(_dot.ownerUserId === Meteor.userId()){
+let _checkDot = function(dotId, dotIdWishedToConnect){
+  let isNotConnected = true;
+  let _dot = Dotz.findOne(dotId);
+  if(_dot._id != dotIdWishedToConnect && _dot.ownerUserId === Meteor.userId()){
     if(_dot.dotzConnectedByOwner) {
       _dot.dotzConnectedByOwner.forEach(function (smartRef) {
         if (smartRef.dotId === dotIdWishedToConnect) {
-          return false;
+          isNotConnected = false;
         }
       });
-      return true;
+      return isNotConnected
     }
     else{
       return true;
@@ -22,11 +23,10 @@ let _checkDot = function(smartRef, dotIdWishedToConnect){
 
 let getDotDotzForConnect = (dotId, dotIdWishedToConnect) => {
   let _dot = Dotz.findOne(dotId);
-  console.log(_dot);
   let userDotzArray = [];
-  if (_dot && dot.dotzConnectedByOwner){
+  if (_dot && _dot.dotzConnectedByOwner){
     _dot.dotzConnectedByOwner.forEach(function(smartRef){
-      if(_checkDot(smartRef,dotIdWishedToConnect)) {
+      if(_checkDot(smartRef.dotId, dotIdWishedToConnect)) {
         userDotzArray.push(smartRef.dotId);
       }
     });
