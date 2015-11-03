@@ -12,6 +12,22 @@ Template.dotShow.onCreated(function() {
     if (_data.dot) {
       self.subscribe('user', _data.dot.ownerUserId);
       _data.user = Meteor.users.findOne(_data.dot.ownerUserId);
+
+      if (_data.dot.dotzConnectedByOwner) {
+        let getDotzConnectedByOwnerObjectsArray = [];
+        _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
+          getDotzConnectedByOwnerObjectsArray.push(smartRef.dotId);
+        });
+      }
+      _data.dot.dotzConnectedByOwner.objectsArray = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
+
+      if (_data.dot.dotzConnectedByOwner.objectsArray) {
+      _data.dot.dotzConnectedByOwner.objectsArray.forEach(function (dot) {
+        dotId = dot._id;
+        self.subscribe('dotShow', dotId);
+      });
+    }
+
     }
 
     if (_data.user) {
@@ -71,7 +87,7 @@ Template.dotShow.helpers({
   },
   dotzConnectedByOwner: function() {
     console.log("_data.dot.dotzConnectedByOwner.objects[1] " + _data.dot.dotzConnectedByOwner.objects[1])
-    return _data.dot.dotzConnectedByOwner.objects;
+    return _data.dot.dotzConnectedByOwner.objectsArray;
   },
   //myDot: function(){
   //  return (_data.dot.owner.userId === Meteor.userId());
