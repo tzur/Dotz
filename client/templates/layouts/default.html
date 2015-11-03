@@ -1,7 +1,21 @@
 <template name="default">
-	{{>bertAlert}}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dotz</title>
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+  {{>bertAlert}}
 	{{>header}}
-	<div class="container">
+
+  <div id="main">
 		{{> Template.dynamic template=yield}}
 	</div>
+
+</body>
+
 </template>

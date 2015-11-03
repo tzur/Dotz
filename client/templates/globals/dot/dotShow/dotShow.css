@@ -125,6 +125,10 @@ pre {
 }
 
 .dot-show-btn-div {
+  padding-top: 0.5em;
+}
+
+.dot-show-btn {
   padding-top: 1em;
 }
 
@@ -265,3 +269,8 @@ pre {
   width: 2em;
   border-radius: 50%;
 }
+
+.dot-owner-description-div {
+  margin-bottom: 2em;
+}
+

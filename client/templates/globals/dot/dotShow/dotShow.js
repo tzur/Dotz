@@ -67,8 +67,12 @@ Template.dotShow.helpers({
   },
   profileImageUrl: function() {
 
-    return _data.user.profile.profileImageUrl;
-  }
+    return _data.user.profile.profileImage;
+  },
+  dotzConnectedByOwner: function() {
+    console.log("_data.dot.dotzConnectedByOwner.objects[1] " + _data.dot.dotzConnectedByOwner.objects[1])
+    return _data.dot.dotzConnectedByOwner.objects;
+  },
   //myDot: function(){
   //  return (_data.dot.owner.userId === Meteor.userId());
   //},
@@ -93,9 +97,9 @@ Template.dotShow.helpers({
   //  return user.profile.profileImage;
   //},
   //
-  //userIdLink: function() {
-  //  return ('/user/' + this.post.owner.userId);
-  //},
+  userIdLink: function() {
+    return ('/user/' + this.post.owner.userId);
+  },
 
   //exampleMapOptions: function() {
   //  // Make sure the maps API has loaded

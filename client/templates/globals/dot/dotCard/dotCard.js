@@ -1,4 +1,4 @@
-//_data = {};
+_data = {};
 //
 //Template.dotCard.onCreated(function() {
 //  console.log("%%%%%%%%%%%%%%%%%%% this._id is 00000 " + this._id);
@@ -28,7 +28,7 @@ Template.dotCard.helpers({
     return this.owner.userName;
   },
   dotIdLink: function() {
-    return ('/dot/' + this._id + '#top');
+    return ('/dot/' + this._id);
   },
   userIdLink: function() {
     return ('/user/' + this.ownerUserId);
