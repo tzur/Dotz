@@ -38,9 +38,8 @@ publicRoutes.route( '/reset-password/:token', {
 });
 
 
-//TBD:
-//
-//publicRoutes.route( '/:username', {
+////TBD:
+//publicRoutes.route( '/user/:username', {
 //  name: 'user-show',
 //  action() {
 //    BlazeLayout.render( 'default', { yield: 'userShow' } );
