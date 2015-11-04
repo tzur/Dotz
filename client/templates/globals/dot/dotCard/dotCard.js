@@ -14,6 +14,7 @@ Template.dotCard.onCreated(function() {
       }
     }
     let userId = this.ownerUserId;
+
     if (userId) {
       self.subscribe('user', userId);
     }
@@ -71,10 +72,9 @@ Template.dotCard.events({
 
 
   'click .connect': function(){
-    let temp = this._id;
     Modal.show('connectDotModal',{
       data:{
-        dotId: this._id
+        dotId: this.dot._id
       }
     });
   },

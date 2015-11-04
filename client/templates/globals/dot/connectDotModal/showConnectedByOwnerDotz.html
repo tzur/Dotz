@@ -1,0 +1,30 @@
+<template name="showConnectedByOwnerDotz">
+
+  <div>
+    <button class="dotTitile" data-toggle="collapse" data-target="#{{_id}}">{{title}}</button>
+  </div>
+
+  {{#if connectBtn}}
+
+    <div>
+      <button class="connectBtn">connect</button>
+    </div>
+
+  {{/if}}
+
+    <br>
+
+    <div id="{{_id}}" class="collapse">
+
+      {{#each relevantDotDotzArray}}
+        <div>
+        {{> showConnectedByOwnerDotz}}
+        </div>
+      {{/each}}
+
+    </div>
+
+
+
+
+</template>

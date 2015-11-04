@@ -97,6 +97,7 @@ Meteor.publish('dotzConnectedByOthers', function(dotId){
     return Dotz.find({_id: {$in: dotzConnectedByOthersArray}});
   }
 });
+
 Meteor.publish('smartRefToUsersCursor', function(smartRefArray){
   check(smartRefArray, Array);
   let userIds = []
@@ -108,12 +109,13 @@ Meteor.publish('smartRefToUsersCursor', function(smartRefArray){
 
   return Meteor.users.find({_id: {$in: userIds}});
 });
-Meteor.publish('smartRefToDotzCursor', function(smartRefArray){
+Meteor.publish('smartRefToDotzCursor', function(smartRefArray) {
   check(smartRefArray, Array);
   let dotzCursor = [];
   let dotIds = []
-  smartRefArray.forEach(function(smartRef){
+  smartRefArray.forEach(function (smartRef) {
     dotIds.push(smartRef.dotId);
   });
   return Dotz.find({_id: {$in: dotIds}});
+
 });

@@ -18,6 +18,16 @@ Meteor.methods({
     };
     _userUpdate(userId ,updateOptions);
   },
+
+  updateUserAllUserDotz(userId, dotId){
+    check(userId, String);
+    check(dotId, String);
+    let updateOptions = {
+      $addToSet: {"profile.createdByUserDots": dotId}
+    };
+    _userUpdate(userId, updateOptions);
+  },
+
   followUser(followingUserId, followedUserId){
     check(followingUserId, Meteor.userId());
     check(followedUserId, String);
@@ -26,6 +36,7 @@ Meteor.methods({
     };
     _userUpdate(followingUserId, updateOptions);
   },
+
   updateFollowedWithFollow(followingUserId, followedUserId){
     check(followingUserId, Meteor.userId());
     check(followedUserId, String);
