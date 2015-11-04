@@ -29,39 +29,39 @@ Template.dotShow.onCreated(function() {
       _data.dotzConnectedByOthersObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOthers);
     }
 
-      //if (_data.dotShow) {
-      //  self.subscribe('dotzConnectedByOwner', dotId);
-      //  self.subscribe('user', _data.ownerUserId);
-      //
-      //  if (_data.dotShow.dotzConnectedByOwner) {
-      //    _data.dotShow.dotzConnectedByOwner.objectsArray = [];
-      //    _data.dotShow.dotzConnectedByOwner.forEach(function (smartRef) {
-      //      let dot = Dotz.findOne(smartRef.dotId);
-      //      if (dot) {
-      //        let object = {};
-      //        object.smartRef = smartRef;
-      //        object.dot = dot;
-      //        _data.dotShow.dotzConnectedByOwner.objectsArray.push(object);
-      //      }
-      //    });
-      //  }
-      //
-      //  self.subscribe('dotzConnectedByOthers', dotId);
-      //  if (_data.dotShow.dotzConnectedByOthers) {
-      //    _data.dotShow.dotzConnectedByOthers.objectsArray = [];
-      //    _data.dotShow.dotzConnectedByOthers.forEach(function (smartRef) {
-      //      let dot = Dotz.findOne(smartRef.dotId);
-      //      if (dot) {
-      //        let object = {};
-      //        object.smartRef = smartRef;
-      //        object.dot = dot;
-      //        _data.dotShow.dotzConnectedByOthers.objectsArray.push(object);
-      //      }
-      //
-      //    });
-      //  }
-      //
-      //}
+    //if (_data.dotShow) {
+    //  self.subscribe('dotzConnectedByOwner', dotId);
+    //  self.subscribe('user', _data.ownerUserId);
+    //
+    //  if (_data.dotShow.dotzConnectedByOwner) {
+    //    _data.dotShow.dotzConnectedByOwner.objectsArray = [];
+    //    _data.dotShow.dotzConnectedByOwner.forEach(function (smartRef) {
+    //      let dot = Dotz.findOne(smartRef.dotId);
+    //      if (dot) {
+    //        let object = {};
+    //        object.smartRef = smartRef;
+    //        object.dot = dot;
+    //        _data.dotShow.dotzConnectedByOwner.objectsArray.push(object);
+    //      }
+    //    });
+    //  }
+    //
+    //  self.subscribe('dotzConnectedByOthers', dotId);
+    //  if (_data.dotShow.dotzConnectedByOthers) {
+    //    _data.dotShow.dotzConnectedByOthers.objectsArray = [];
+    //    _data.dotShow.dotzConnectedByOthers.forEach(function (smartRef) {
+    //      let dot = Dotz.findOne(smartRef.dotId);
+    //      if (dot) {
+    //        let object = {};
+    //        object.smartRef = smartRef;
+    //        object.dot = dot;
+    //        _data.dotShow.dotzConnectedByOthers.objectsArray.push(object);
+    //      }
+    //
+    //    });
+    //  }
+    //
+    //}
 
   });
 });

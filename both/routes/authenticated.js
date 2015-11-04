@@ -22,7 +22,12 @@ authenticatedRoutes.route( '/dashboard', {
     BlazeLayout.render( 'default', { yield: 'dashboard' } );
   }
 });
-
+authenticatedRoutes.route( '/feed', {
+  name: 'feed',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'feed' } );
+  }
+});
 authenticatedRoutes.route( '/createDot', {
   name: 'createDot',
   action() {

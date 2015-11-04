@@ -102,6 +102,13 @@
         </div>
     </div>
 
+    <div class="row map-div">
+        <div class="col-xs-12">
+          <div class="map-container-dot-show"></div>
+          <div class="map-container-overlayer"></div>
+        </div>
+    </div>
+
     <div class="row dot-divider-hr">
         <hr class="lightGrey">
         <div class="dot-divider-box col-xs-4 colCenter">Connected dotz by TimeOut Tel-Aviv</div>
@@ -120,8 +127,12 @@
         <div class="dot-divider-box col-xs-4 colCenter">Connected dotz by others</div>
     </div>
 
-    <div class="container-fluid">
-        <!--{{>newDot}}-->
+    <div class="row">
+        <div class="col-xs-12">
+          {{#each dotzConnectedByOthers}}
+            {{>dotCard}}
+          {{/each}}
+        </div>
     </div>
 
     <!-- the dot buttons part-->

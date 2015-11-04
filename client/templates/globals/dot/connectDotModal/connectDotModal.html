@@ -8,13 +8,23 @@
                 </div>
 
                 <div class="modal-body">
-                {{#each relevantDotzArray}}
-                  {{>brainFuck}}
-                {{/each}}
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+                      <h2>Add Personal Description:</h2>
+
+                  <input id="personalDescription">
+                    <br><br>
+                    <br>
+                    <hr>
+
+                  {{#each userProfileDotzArray}}
+                    <div>
+                    {{> showConnectedByOwnerDotz}}
+                    </div>
+                  {{/each}}
+
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
 
                 </div>
              </div>
@@ -23,20 +33,11 @@
 </template>
 
 
-<template name="brainFuck">
-  {{#each relevantDotzArray}}
-
-      <button data-toggle="collapse" data-target="#{{id}}">{{name}}</button>
-
-      <div id="{{id}}" class="collapse">
-          <br>
-
-        <!--{{> brainFuck}}-->
-
-      </div>
 
 
-  {{/each}}
 
 
-</template>
+
+
+
+
