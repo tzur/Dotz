@@ -108,6 +108,7 @@ pre {
 
 .dot-show-main-details {
   padding: 1em 2em 2em 2em;
+  height: 26em;
 }
 
 .dot-show-type-div {
@@ -125,7 +126,7 @@ pre {
 }
 
 .dot-show-btn-div {
-  padding-top: 0.5em;
+  /*padding-top: 0.5em;*/
 }
 
 .dot-show-btn {
