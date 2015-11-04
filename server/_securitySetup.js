@@ -14,4 +14,7 @@ BrowserPolicy.content.allowOriginForAll("http://s2.postimg.org/6yq2vojd1/Locatio
 BrowserPolicy.content.allowOriginForAll("https://maxcdn.bootstrapcdn.com")
 BrowserPolicy.content.allowOriginForAll("http://*.postimg.org")
 BrowserPolicy.content.allowImageOrigin("https://dotz-dev-images.s3.amazonaws.com/otni/lights-night-bokeh-city.jpg")
+BrowserPolicy.content.allowOriginForAll("http://fonts.googleapis.com")
+BrowserPolicy.content.allowOriginForAll("http://fonts.gstatic.com")
+
 

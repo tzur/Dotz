@@ -40,7 +40,7 @@
 
                         <div class="txtL dot-show-type">
                             <img class="type-icon-dot-show" src="/price-icon-grey.png">
-                            <span class="dot-type greyText mdTxt alignSub">24 <span>$</span></span>
+                            <span class="dot-type greyText mdTxt alignSub"><span>$ </span>{{dot.price}}</span>
                         </div>
 
                     </div>
@@ -55,7 +55,7 @@
                           <button type="button" class="connect btn btn-lead round btn-md dot-show-connect-btn">Connect ({{isConnected}})</button>
                       {{/if}}
                     </div>
-                    <div class="col-md-8 dot-show-btn-div">
+                    <div class="col-md-8 dot-show-btn">
                         <button type="button" class="btn btn-success round btn-md dot-show-connect-btn">Connected Dotz</button>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
     </div>
 
     <!-- next 2 lines are wrapping the showPost body part -->
-    <div class="container-fluid">
+    <div class="container-fluid dot-owner-description-div">
         <div class="row">
             <div class="col-xs-12 col-md-6 col-md-offset-1">
 
@@ -74,7 +74,7 @@
 
                     <div id="ownerPostDiv" class="row dot-creator">
                         <div class="col-xs-9 iconDiv txtL">
-                            <a href="{{user.userIdLink}}"><img class="postUserImgProfile" src="{{profileImageUrl}}"></a>
+                            <a href="{{userIdLink}}"><img class="postUserImgProfile" src="{{profileImageUrl}}"></a>
                             <a href="{{userIdLink}}">
                                 <span class="align-icon-text">{{dotOwnerUserName}}</span>
                             </a>
@@ -90,65 +90,13 @@
                         </div>
                     </div>
 
-                  <!--{{> dotShowMap}}-->
-
-
-
-                    <!-- the dot owner description part-->
-
                     <div class="row dot-description">
-
-                        <div class="col-xs-12 iconDivDetails">
-                            <pre class="greyText mdTxt limiText dot-desc-left-pad">{{bodyText}}</pre>
-                        </div>
-
-                    </div>
-
-
-                    <!--Comment footer-->
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <hr>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Connector area -->
-                <div class="dot-comment-div">
-
-                    <div id="ownerPostDiv" class="row dot-creator">
-                        <div class="col-xs-9 iconDiv txtL">
-                            <a href="{{userIdLink}}"><img class="postUserImgProfile" src="{{profileImageUrl}}"></a>
-                            <a href="{{userIdLink}}">
-                                <span class="align-icon-text">{{post.owner.userName}}</span>
-                            </a>
-                            <span class="greyText">{{createDate}}</span>
-                        </div>
-
-                        <div class="col-xs-3">
-                          {{#if myFollow}}
-                              <button type="button" class="unFollow btn btn-success btn-sm round pull-right">Following</button>
-                          {{else}}
-                              <button type="button" class="follow btn btn-success btn-sm round pull-right">Follow</button>
-                          {{/if}}
-                        </div>
-                    </div>
-
-
-
-                    <!-- the dot connector description part-->
-
-                    <div class="row dot-description">
-
                         <div class="col-xs-12 iconDivDetails">
                             <pre class="greyText mdTxt limiText dot-desc-left-pad">{{dot.bodyText}}</pre>
                         </div>
-
                     </div>
 
                 </div>
-                <!-- end of connector area -->
 
             </div>
         </div>
@@ -159,8 +107,12 @@
         <div class="dot-divider-box col-xs-4 colCenter">Connected dotz by TimeOut Tel-Aviv</div>
     </div>
 
-    <div class="container-fluid">
-        <!--{{>newDot}}-->
+    <div class="row">
+        <div class="col-xs-12">
+          {{#each dotzConnectedByOwner}}
+            {{>dotCard}}
+          {{/each}}
+        </div>
     </div>
 
     <div class="row dot-divider-hr">

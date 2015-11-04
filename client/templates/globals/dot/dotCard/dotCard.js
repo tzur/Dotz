@@ -1,13 +1,32 @@
 _data = {};
 
-
 Template.dotCard.onCreated(function() {
   //console.log("%%%%%%%%%%%%%%%%%%% this._id is 00000 " + this._id);
   let self = this;
   self.autorun(function() {
+
+    if (_data.smartRef) {
+      //self.subscribe('dotShow', _data.smartRef.dotId);
+      console.log("%%%%%%%%%%%%%%%%%%% on created _data.smartRef.dotId is " + _data.smartRef.dotId);
+
+      let dot = Dotz.findOne(_data.smartRef.dotId);
+      if (dot) {
+        console.log("%%%%%%%%%%%%%%%%%%% on created dot is " + dot);
+      }
+
+    }
     let userId = this.ownerUserId;
-    self.subscribe('user', userId);
-    //console`.log("%%%%%%%%%%%%%%%%%%% userId " + userId);
+
+    if (userId) {
+      self.subscribe('user', userId);
+      console.log("%%%%%%%%%%%%%%%%%%% on created userId is " + userId);
+    }
+
+    _data.test = this.title;
+    if (_data.test) {
+      console.log("%%%%%%%%%%%%%%%%%%% on created this.title is " + this.title);
+      console.log("%%%%%%%%%%%%%%%%%%% on created _data.test is " + _data.test);
+    }
 
     let user = Meteor.users.findOne(userId);
     _data.user = user;
@@ -15,30 +34,80 @@ Template.dotCard.onCreated(function() {
   });
 });
 
-Template.dotCard.onRendered (function(){
-  $(".limitP-mobile").each(function(i){
-    len=$(this).text().length;
-    if(len>200)
-    {
-      $(this).text($(this).text().substr(0,200)+'...');
-    }
-  });
-});
+
+/*
+
+
+ Template.dotCard.onCreated(function() {
+ //console.log("%%%%%%%%%%%%%%%%%%% this._id is 00000 " + this._id);
+ let self = this;
+ self.autorun(function() {
+
+
+ if (_data.smartRef) {
+ self.subscribe('dotShow', _data.smartRef.dotId);
+ console.log("%%%%%%%%%%%%%%%%%%% on created _data.smartRef.dotId is " + _data.smartRef.dotId);
+
+ let dot = Dotz.findOne(_data.smartRef.dotId);
+ if (dot) {
+ console.log("%%%%%%%%%%%%%%%%%%% on created dot is " + dot);
+ }
+
+ }
+ let userId = this.ownerUserId;
+ if (userId) {
+ self.subscribe('user', userId);
+ console.log("%%%%%%%%%%%%%%%%%%% on created userId is " + userId);
+ }
+
+ _data.test = this.title;
+ if (_data.test) {
+ console.log("%%%%%%%%%%%%%%%%%%% on created this.title is " + this.title);
+ console.log("%%%%%%%%%%%%%%%%%%% on created _data.test is " + _data.test);
+ }
+
+ let user = Meteor.users.findOne(userId);
+ _data.user = user;
+
+ });
+ });
+
+ */
+//Template.dotCard.onRendered (function(){
+//  let self = this;
+//  self.autorun(function() {
+//  console.log("%%%%%%%%%%%%%%%%%%% on onRendered this.title is " + _data.dot.title);
+//  });
+//});
+
+
+//Template.dotCard.onRendered (function(){
+//  $(".limitP-mobile").each(function(i){
+//    len=$(this).text().length;
+//    if(len>200)
+//    {
+//      $(this).text($(this).text().substr(0,200)+'...');
+//    }
+//  });
+//});
 
 Template.dotCard.helpers({
   dotData: function() {
+    _data.smartRef = this;
     _data.dot = this;
+    _data.test = this.title;
     return _data;
   },
-  userName: function(){
-    return this.owner.userName;
-  },
-  dotUrlLink: function() {
-    return ('/dot/' + _data.dot._id);
-  },
-  userUrlLink: function() {
-    return ('/user/' + _data.user.username);
-  },
+  //userName: function(){
+  //  return this.owner.userName;
+  //},
+
+  //dotUrlLink: function() {
+  //  return ('/dot/' + _data.dot._id);
+  //},
+  //userUrlLink: function() {
+  //  return ('/user/' + _data.user.username);
+  //},
   //profileImageUrl: function() {
   //  var user = Meteor.users.findOne(this.owner.userId);
   //  return user.profile.profileImage;
@@ -202,10 +271,11 @@ Template.dotCard.events({
    */
 
   'click .connect': function(){
+    console.log(_data.dot.title)
 
     Modal.show('connectDotModal',{
       data:{
-        dotId: this.dot._id
+        dotId: this._id
       }
     });
   },

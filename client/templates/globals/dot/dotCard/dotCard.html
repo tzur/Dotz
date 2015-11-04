@@ -1,6 +1,7 @@
 <template name="dotCard">
 {{#if Template.subscriptionsReady}}
-{{#with dotData}}
+<!--{{#with dotData}}-->
+
 
     <!-- full wrapper -->
 
@@ -17,7 +18,7 @@
                               <div class="row">
 
                                   <div class="col-md-4 liquidCol">
-                                      <div class="container-fluid dot-container-img-card" style="background-image: url('{{dot.coverImageUrl}}')">
+                                      <div class="container-fluid dot-container-img-card" style="background-image: url('{{coverImageUrl}}')">
                                           <div class="row" >
                                               <div id="round-overlay"></div>
                                               <div class="dotConnectedDotzLastIcon-mobile">
@@ -37,18 +38,21 @@
 
                                           <div class="row cardTitleDiv">
                                               <div class="col-xs-12 col-sm-12">
-                                                  <a href="{{dotUrlLink}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
+
+
+                                                  <a href="{{dotUrlLink}}"><h2 class="cardTitle">{{title}}</h2></a>
+
                                               </div>
                                           </div>
 
                                           <div class="row cardPersonalDesc">
                                               <p class="col-xs-12 col-sm-12 user-personal-desc darkText limitP-mobile">
-                                                {{dot.bodyText}}
+                                                {{bodyText}}
                                               </p>
 
                                               <div class="col-xs-12 txtL dot-type">
                                                   <img id="type-icon" src="http://s2.postimg.org/6yq2vojd1/Location_icon_lg.png">
-                                                  <span class="greyText smTxt">{{dot.locationName}} <span>·</span> {{#if eventDate}}{{eventDate}}{{/if}}</span>
+                                                  <span class="greyText smTxt">{{locationName}} <span>·</span> {{#if eventDate}}{{eventDate}}{{/if}}</span>
                                               </div>
 
                                           </div>
@@ -57,11 +61,11 @@
 
                                               <div class="cardConnecterDiv-mobile greyText smTxt user-personal-desc-details">
                                                   <a href="{{userUrlLink}}" class="userImgIcon">
-                                                      <img class="userImgIcon" src="{{user.profile.profileImage}}">
+                                                      <img class="userImgIcon" src="{{profile.profileImage}}">
                                                   </a>
 
                                                   <a href="{{userUrlLink}}">
-                                                      <span class="align-icon-text">{{user.username}}</span>
+                                                      <span class="align-icon-text">{{username}}</span>
                                                   </a>
 
                                                   <span class="alignSub">connected TimeOut Dot <span>·</span> {{createDate}}</span>
@@ -99,7 +103,7 @@
 
                                           <div class="row cardTitleDiv">
                                               <div class="col-md-10">
-                                                  <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
+                                                  <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{title}}</h2></a>
                                               </div>
 
                                               <div class="col-md-2">
@@ -230,12 +234,12 @@
 
             </div>
         </div>
-    </div>
+     </div>
   </div>
 
 
 
-{{/with}}
+<!--{{/with}}-->
 {{else}}
     <p> Loading...</p>
     <!--to replace with a loading template-->

@@ -4,10 +4,18 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Connect Dot</h4>
+                    <h4 class="modal-title">Connect {{ Dot</h4>
                 </div>
 
                 <div class="modal-body">
+
+                    <h2>Add Personal Description:</h2>
+
+                <input id="personalDescription">
+                  <br><br>
+                  <br><br>
+                  <hr>
+
                 {{#each userProfileDotzArray}}
                   {{> brainFuck}}
                 {{/each}}
@@ -31,15 +39,16 @@
 <template name="brainFuck">
 
 
-    <button data-toggle="collapse" data-target="#{{_id}}">{{title}}</button><button class="connectBtn">connect</button>
+    <button class="dotTitile" data-toggle="collapse" data-target="#{{_id}}">{{title}}</button>
+    {{#if connectBtn}}
+      <button class="connectBtn">connect</button>
+    {{/if}}
     <br>
     <div id="{{_id}}" class="collapse">
 
         {{#each relevantDotDotzArray}}
-          {{> brainFuck}}
+            {{> brainFuck}}
         {{/each}}
-
-
 
     </div>
 
