@@ -10,27 +10,45 @@ Template.dotCard.onCreated(function() {
     //console.log("%%%%%%%%%%%%%%%%%%% userId " + userId);
 
     let user = Meteor.users.findOne(userId);
-    _data.user = user;
-
-  });
-});
-
-
-Template.dotCard.onRendered (function(){
-  $(".limitP-mobile").each(function(i){
-    len=$(this).text().length;
-    if(len>200)
-    {
-      $(this).text($(this).text().substr(0,200)+'...');
+    if (user) {
+      _data.user = user;
     }
+
   });
 });
+
+
+//Template.dotCard.onRendered (function(){
+//  $(".limitP").each(function(i){
+//    len = $(this).text().length;
+//    if(len>100)
+//    {
+//      $(this).text($(this).text().substr(0,100)+'...');
+//    }
+//  });
+//});
+//
+//Template.dotCard.onRendered (function(){
+//  $(".limitP-mobile").each(function(i){
+//    len=$(this).text().length;
+//    if(len>200)
+//    {
+//      $(this).text($(this).text().substr(0,200)+'...');
+//    }
+//  });
+//});
+
 
 Template.dotCard.helpers({
   dotData: function() {
     _data.dot = this;
     return _data;
   },
+
+  //shortTitle: function() {
+  //  return _.str.prune(this.dot.bodyText, 22);
+  //},
+
   userName: function(){
     return this.owner.userName;
   },

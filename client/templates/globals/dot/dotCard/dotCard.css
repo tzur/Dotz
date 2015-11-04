@@ -10,6 +10,11 @@ p.commentUser{
   height: 0.5em;
 }
 
+.limitP{
+
+}
+
+
 #userName h5{
   margin: 0;
 }
@@ -312,7 +317,7 @@ a:hover {
 
 .dot-type {
   margin-bottom: 1em;
-  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 .fullPad {
@@ -534,7 +539,8 @@ a:hover {
 }
 
 .cardConnecterDiv-mobile {
-  padding-bottom: 0.5em;
+  padding-top: 3em;
+  padding-bottom: 1em;
 }
 
 .cardConnecterDiv {
