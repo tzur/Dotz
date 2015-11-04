@@ -1,13 +1,13 @@
 <template name="dotCard">
-{{#if Template.subscriptionsReady}}
-{{#with dotData}}
+  {{#if Template.subscriptionsReady}}
+  <!--{{#with dotData}}-->
 
 
-    <!-- full wrapper -->
+      <!-- full wrapper -->
 
-    <div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
+      <div>
+          <div class="row">
+              <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
 
 
                   <div class="container-fluid longCardWrapper">
@@ -126,7 +126,7 @@
                                           </div>
 
 
-                                      <div class="row">
+                                          <div class="row">
 
                                             {{#if showOriginalDotCard}}
 
@@ -142,73 +142,27 @@
 
                                             {{/if}}
 
-                                      </div>
+                                          </div>
 
 
 
                                           <div class="row">
-                                            <div class="col-md-12">
-                                              <hr class="lightGrey">
-                                            </div>
+                                              <div class="col-md-12">
+                                                  <hr class="lightGrey">
+                                              </div>
                                           </div>
 
                                           <div class="row">
                                               <div class="col-xs-4 colCenter">
-                                                    {{#if isMyMix}}
-                                                <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
-                                                <button type="button" class="disConnect btn btn-success round btn-sm pull-right">Connected ({{isConnected}})</button>
-                                                    {{else}}
-                                                <button type="button" class="connect btn btn-lead round btn-md ">Connect ({{isConnected}})</button>
-                                                    {{/if}}
+                                                {{#if isMyMix}}
+                                                    <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
+                                                    <button type="button" class="disConnect btn btn-success round btn-sm pull-right">Connected ({{isConnected}})</button>
+                                                {{else}}
+                                                    <button type="button" class="connect btn btn-lead round btn-md ">Connect ({{isConnected}})</button>
+                                                {{/if}}
                                               </div>
                                           </div>
 
-
-
-                                          <!--<div class="row cardPersonalDesc">-->
-                                              <!--<p class="col-xs-12 col-sm-12 user-personal-desc darkText limitP-mobile">-->
-                                                <!--{{dot.bodyText}}-->
-                                              <!--</p>-->
-                                          <!--</div>-->
-
-                                          <!--<div class="card-btns-div-mobile">-->
-
-                                              <!--<div class="cardConnecterDiv-mobile greyText smTxt user-personal-desc-details">-->
-                                                  <!--<a href="{{userUrlLink}}" class="userImgIcon">-->
-                                                      <!--<img class="userImgIcon" src="{{user.profile.profileImage}}">-->
-                                                  <!--</a>-->
-
-                                                  <!--<a href="{{userUrlLink}}">-->
-                                                      <!--<span class="align-icon-text">{{user.username}}</span>-->
-                                                  <!--</a>-->
-
-                                                  <!--<span class="alignSub">connected TimeOut Dot <span>·</span> {{createDate}}</span>-->
-
-                                              <!--</div>-->
-
-                                              <!--<hr class="lightGrey">-->
-                                              <!--<div class="spacer-xs-card-buttons"></div>-->
-
-                                            <!--<div>-->
-                                            <!--{{#if isMyMix}}-->
-                                                <!--&lt;!&ndash;<span id="connectionCounter" class="successColor mdTxt"> </span>&ndash;&gt;-->
-                                                <!--<button type="button" class="disConnect btn btn-success round btn-sm pull-right">Connected ({{isConnected}})</button>-->
-                                            <!--{{else}}-->
-                                                <!--<button type="button" class="connect btn btn-lead round btn-md ">Connect ({{isConnected}})</button>-->
-                                            <!--{{/if}}-->
-                                            <!--</div>-->
-
-                                              <!--<button type="button" class="btn btn-default round btn-sm midWidth pull-left like-btn-mobile">-->
-                                                  <!--<img class="like-btn-img-mobile" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">-->
-                                              <!--</button>-->
-
-                                              <!--<div class="like-btn-text-div-mobile lightGrey">-->
-                                                  <!--<span class="like-btn-up-text-mobile smTxt">364 likes</span>-->
-
-                                                  <!--<span class="like-btn-down-text-mobile smTxt">this connection</span>-->
-                                              <!--</div>-->
-
-                                          <!--</div>-->
 
                                       </div>
 
@@ -255,7 +209,7 @@
                                                 {{/if}}
 
                                               </div>
-                                           </div>
+                                          </div>
 
 
                                           <div class="row card-btns-div">
@@ -294,19 +248,19 @@
                                               </div>
 
 
-                                               {{#if showOriginalDotCard}}
+                                            {{#if showOriginalDotCard}}
 
-                                                  <div class="user-personal-desc-details col-md-9">
-                                                      <p class="user-personal-desc greyText limitP">{{dot.bodyText}}</p>
-                                                  </div>
+                                                <div class="user-personal-desc-details col-md-9">
+                                                    <p class="user-personal-desc greyText limitP">{{dot.bodyText}}</p>
+                                                </div>
 
-                                               {{else}}
+                                            {{else}}
 
-                                                 <div class="user-personal-desc-details col-md-9">
-                                                     <p class="user-personal-desc greyText limitP">asdasdas</p>
-                                                 </div>
+                                                <div class="user-personal-desc-details col-md-9">
+                                                    <p class="user-personal-desc greyText limitP">asdasdas</p>
+                                                </div>
 
-                                               {{/if}}
+                                            {{/if}}
 
                                           </div>
 
@@ -342,15 +296,15 @@
                   </div>
 
 
-            </div>
-        </div>
-    </div>
+              </div>
+          </div>
+      </div>
 
 
 
-{{/with}}
-{{else}}
-    <p> Loading...</p>
-    <!--to replace with a loading template-->
-{{/if}}
+          <!--{{/with}}-->
+  {{else}}
+      <p> Loading...</p>
+      <!--to replace with a loading template-->
+  {{/if}}
 </template>

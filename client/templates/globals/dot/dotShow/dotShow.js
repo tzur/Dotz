@@ -1,94 +1,54 @@
 _data = {};
 //_data.userShow = {}; //TBD?
 
+
 Template.dotShow.onCreated(function() {
   let self = this;
   self.autorun(function() {
 
     let dotId = FlowRouter.getParam('dotId');
     self.subscribe('dotShow', dotId);
-    _data.dot = Dotz.findOne(dotId);
+    _data.dotShow = Dotz.findOne(dotId);
 
-    if (_data.dot) {
-      self.subscribe('user', _data.dot.ownerUserId);
-      _data.user = Meteor.users.findOne(_data.dot.ownerUserId);
+      if (_data.dotShow) {
+        self.subscribe('dotzConnectedByOwner', dotId);
+        self.subscribe('user', _data.ownerUserId);
 
-      if (_data.dot.dotzConnectedByOwner) {
-        let getDotzConnectedByOwnerObjectsArray = [];
-        _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
-          getDotzConnectedByOwnerObjectsArray.push(smartRef.dotId);
-        });
+        if (_data.dotShow.dotzConnectedByOwner) {
+          _data.dotShow.dotzConnectedByOwner.objectsArray = [];
+          _data.dotShow.dotzConnectedByOwner.forEach(function (smartRef) {
+            let dot = Dotz.findOne(smartRef.dotId);
+            if (dot) {
+              let object = {};
+              object.smartRef = smartRef;
+              object.dot = dot;
+              _data.dotShow.dotzConnectedByOwner.objectsArray.push(object);
+            }
+          });
+        }
       }
-      _data.dot.dotzConnectedByOwner.objectsArray = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
-
-      if (_data.dot.dotzConnectedByOwner.objectsArray) {
-      _data.dot.dotzConnectedByOwner.objectsArray.forEach(function (dot) {
-        dotId = dot._id;
-        self.subscribe('dotShow', dotId);
-      });
-    }
-
-    }
-
-    if (_data.user) {
-      console.log("##################### _data.user.username  is   " + _data.user.username);
-    }
-    console.log("444444444444411111111111111 _data.user is " + _data.user);
-
-
-    //if (_data.dot) {
-    //  self.subscribe('dotzConnectedByOwner', dotId);
-    //  let getDotzConnectedByOwnerArray = [];
-    //  _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
-    //    getDotzConnectedByOwnerArray.push(smartRef.dotId);
-    //  });
-    //  _data.dot.dotzConnectedByOwner = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
-    //}
-
-    //self.subscribe('dotzConnectedByOthers', dotId);
-
-
-
   });
 });
-
-/*
-
- Template.dotShow.onCreated(function() {
- // We can use the `ready` callback to interact with the map API once the map is ready.
- GoogleMaps.ready('exampleMap', function(map) {
- // Add a marker to the map once it's ready
- var marker = new google.maps.Marker({
- position: map.options.center,
- map: map.instance
- });
- });
- });
-
- Template.dotShow.onRendered(function(){
- if(!GoogleMaps.loaded()) {
- GoogleMaps.load();
- }
- });
-
- */
 
 Template.dotShow.helpers({
   data: function() {
     return _data;
   },
-  dotOwnerUserName: function() {
-    console.log("_data.user.username  is   " + _data.user.username);
-    return _data.user.username;
-  },
-  profileImageUrl: function() {
-
-    return _data.user.profile.profileImage;
-  },
+  //dotOwnerUserName: function() {
+  //  console.log("_data.user.username  is   " + _data.user.username);
+  //  return _data.user.username;
+  //},
+  //profileImageUrl: function() {
+  //
+  //  return _data.user.profile.profileImage;
+  //},
   dotzConnectedByOwner: function() {
-    console.log("_data.dot.dotzConnectedByOwner.objects[1] " + _data.dot.dotzConnectedByOwner.objects[1])
-    return _data.dot.dotzConnectedByOwner.objectsArray;
-  },
+    //console.log("_data.dot.dotzConnectedByOwner[0] " + _data.dot.dotzConnectedByOwner[0].title)
+    //return _data.dot.dotzConnectedByOwner;
+    return _data.dotShow.dotzConnectedByOwner.objectsArray;
+
+
+  }
   //myDot: function(){
   //  return (_data.dot.owner.userId === Meteor.userId());
   //},
@@ -113,9 +73,10 @@ Template.dotShow.helpers({
   //  return user.profile.profileImage;
   //},
   //
-  userIdLink: function() {
-    return ('/user/' + this.post.owner.userId);
-  },
+
+  //userIdLink: function() {
+  //  return ('/user/' + this.post.owner.userId);
+  //}
 
   //exampleMapOptions: function() {
   //  // Make sure the maps API has loaded

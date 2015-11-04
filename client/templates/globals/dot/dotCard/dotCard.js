@@ -1,13 +1,23 @@
 _data = {};
 
-
 Template.dotCard.onCreated(function() {
-  //console.log("%%%%%%%%%%%%%%%%%%% this._id is 00000 " + this._id);
   let self = this;
   self.autorun(function() {
+
+    if (_data.smartRef) {
+      let dotId = _data.smartRef.dotId;
+      if (dotId) {
+        self.subscribe('dotShow', _data.smartRef.dotId);
+        _data.dot = Dotz.findOne(dotId);
+        if (_data.dot) {
+        }
+      }
+
+    }
     let userId = this.ownerUserId;
-    self.subscribe('user', userId);
-    //console.log("%%%%%%%%%%%%%%%%%%% userId " + userId);
+    if (userId) {
+      self.subscribe('user', userId);
+    }
 
     let user = Meteor.users.findOne(userId);
     if (user) {
@@ -18,47 +28,21 @@ Template.dotCard.onCreated(function() {
 });
 
 
-//Template.dotCard.onRendered (function(){
-//  $(".limitP").each(function(i){
-//    len = $(this).text().length;
-//    if(len>100)
-//    {
-//      $(this).text($(this).text().substr(0,100)+'...');
-//    }
-//  });
-//});
-//
-//Template.dotCard.onRendered (function(){
-//  $(".limitP-mobile").each(function(i){
-//    len=$(this).text().length;
-//    if(len>200)
-//    {
-//      $(this).text($(this).text().substr(0,200)+'...');
-//    }
-//  });
-//});
-
 
 Template.dotCard.helpers({
   dotData: function() {
-    _data.dot = this;
-    return _data;
+    return this;
   },
-
-  //shortTitle: function() {
-  //  return _.str.prune(this.dot.bodyText, 22);
+  //userName: function(){
+  //  return this.owner.userName;
   //},
 
-  userName: function(){
-    return this.owner.userName;
-  },
-
-  dotUrlLink: function() {
-    return ('/dot/' + _data.dot._id);
-  },
-  userUrlLink: function() {
-    return ('/user/' + _data.user.username);
-  },
+  //dotUrlLink: function() {
+  //  return ('/dot/' + _data.dot._id);
+  //},
+  //userUrlLink: function() {
+  //  return ('/user/' + _data.user.username);
+  //},
   //profileImageUrl: function() {
   //  var user = Meteor.users.findOne(this.owner.userId);
   //  return user.profile.profileImage;
@@ -67,7 +51,7 @@ Template.dotCard.helpers({
     return (moment(this.createdAt).fromNow())
   },
   eventDate: function(){
-    return ( moment(_data.dot.startDateAndHour).fromNow());
+    return ( moment(_data.dotShow.startDateAndHour).fromNow());
   },
   showOriginalDotCard: function() {
     let parentData = Template.parentData();
@@ -222,7 +206,7 @@ Template.dotCard.events({
    */
 
   'click .connect': function(){
-
+console.log ("this is " + this._id);
     Modal.show('connectDotModal',{
       data:{
         dotId: this._id
