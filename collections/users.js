@@ -179,7 +179,8 @@ let userProfile = new SimpleSchema({
     }
   },
   feedDotz:{
-    type: [Schema.dotSmartRef],
+    type: [Object],
+    blackbox: true,
     optional: true,
     autoform:{
       type:"hidden",

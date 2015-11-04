@@ -2,50 +2,74 @@ _data = {};
 //_data.userShow = {}; //TBD?
 
 Template.userShow.onCreated(function() {
+
   let self = this;
   self.autorun(function() {
 
     let username = FlowRouter.getParam('username');
-    self.subscribe('userByUsername', username);
-    _data.user = Meteor.users.findOne({username: username});
-
-    if (_data.user) {
-      let dotId = _data.user.profile.profileDotId;
-      self.subscribe('dotShow', dotId);
-      _data.dotShow = Dotz.findOne(dotId);
-
-      if (_data.dotShow) {
-        self.subscribe('dotzConnectedByOwner', dotId);
-        self.subscribe('user', _data.ownerUserId);
-
-        if (_data.dotShow.dotzConnectedByOwner) {
-          _data.dotShow.dotzConnectedByOwner.objectsArray = [];
-          _data.dotShow.dotzConnectedByOwner.forEach(function (smartRef) {
-            let dot = Dotz.findOne(smartRef.dotId);
-            if (dot) {
-              let object = {};
-              object.smartRef = smartRef;
-              object.dot = dot;
-              _data.dotShow.dotzConnectedByOwner.objectsArray.push(object);
-            }
-          });
-        }
-      }
-
-      //if (_data.dot) {
-      //  self.subscribe('dotzConnectedByOwner', dotId);
-      //  let getDotzConnectedByOwnerArray = [];
-      //
-      //  if (_data.dot.dotzConnectedByOwner) {
-      //    _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
-      //      getDotzConnectedByOwnerArray.push(smartRef.dotId);
-      //    });
-      //  }
-      //  _data.dot.dotzConnectedByOwner.originalDotObjects = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
-      //}
+    if (username) {
+      self.subscribe('userByUsername', username);
+      _data.userShow = Meteor.users.findOne({username: username});
     }
 
-    //self.subscribe('dotzConnectedByOthers', dotId);
+    let dotId = _data.userShow.profile.profileDotId;
+    if (dotId) {
+      self.subscribe('dotShow', dotId);
+      _data.userShowDot = Dotz.findOne(dotId);
+    }
+
+    if (_data.userShowDot) {
+      //subscribe all the relevant data for dotzConnectedByOwner:
+      self.subscribe('smartRefToDotzCursor', _data.userShowDot.dotzConnectedByOwner);
+      self.subscribe('smartRefToUsersCursor', _data.userShowDot.dotzConnectedByOwner);
+      //send smartRef to module:
+      _data.dotzConnectedByOwnerObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.userShowDot.dotzConnectedByOwner);
+    }
+
+  //let self = this;
+  //self.autorun(function() {
+  //
+  //  let username = FlowRouter.getParam('username');
+  //  self.subscribe('userByUsername', username);
+  //  _data.user = Meteor.users.findOne({username: username});
+  //
+  //  if (_data.user) {
+  //    let dotId = _data.user.profile.profileDotId;
+  //    self.subscribe('dotShow', dotId);
+  //    _data.dotShow = Dotz.findOne(dotId);
+  //
+  //    if (_data.dotShow) {
+  //      self.subscribe('dotzConnectedByOwner', dotId);
+  //      self.subscribe('user', _data.ownerUserId);
+  //
+  //      if (_data.dotShow.dotzConnectedByOwner) {
+  //        _data.dotShow.dotzConnectedByOwner.objectsArray = [];
+  //        _data.dotShow.dotzConnectedByOwner.forEach(function (smartRef) {
+  //          let dot = Dotz.findOne(smartRef.dotId);
+  //          if (dot) {
+  //            let object = {};
+  //            object.smartRef = smartRef;
+  //            object.dot = dot;
+  //            _data.dotShow.dotzConnectedByOwner.objectsArray.push(object);
+  //          }
+  //        });
+  //      }
+  //    }
+  //
+  //    //if (_data.dot) {
+  //    //  self.subscribe('dotzConnectedByOwner', dotId);
+  //    //  let getDotzConnectedByOwnerArray = [];
+  //    //
+  //    //  if (_data.dot.dotzConnectedByOwner) {
+  //    //    _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
+  //    //      getDotzConnectedByOwnerArray.push(smartRef.dotId);
+  //    //    });
+  //    //  }
+  //    //  _data.dot.dotzConnectedByOwner.originalDotObjects = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
+  //    //}
+  //  }
+  //
+  //  //self.subscribe('dotzConnectedByOthers', dotId);
 
   });
 });
@@ -55,11 +79,7 @@ Template.userShow.helpers({
     return _data;
   },
   dotzConnectedByOwner: function() {
-    //console.log("_data.dot.dotzConnectedByOwner.objects[1] " + _data.dot.dotzConnectedByOwner.originalDotObjects[1])
-    if (_data.dotShow.dotzConnectedByOwner){
-      return _data.dotShow.dotzConnectedByOwner.objectsArray;
-    }
-
+    return _data.dotzConnectedByOwnerObjectsArray;
   },
 
   followingCounter: function(){

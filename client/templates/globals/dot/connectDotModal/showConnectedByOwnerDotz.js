@@ -5,7 +5,7 @@
 Template.showConnectedByOwnerDotz.onCreated(function() {
   let self = this;
   self.autorun(function () {
-    self.subscribe('allUserDotz', Meteor.userId());
+    self.subscribe('createByUserDotz');
   });
 });
 
@@ -24,7 +24,7 @@ Template.showConnectedByOwnerDotz.events({
   'click .connectBtn': function () {
     personalDescription = $('#personalDescription').val();
 
-    let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), this._id, Meteor.userId(), CONNECT_ACTION, personalDescription)
+    let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), this._id, Meteor.userId(), false, CONNECT_ACTION, personalDescription)
     Modules.both.Dotz.connectDot(smartRef)
 
   }

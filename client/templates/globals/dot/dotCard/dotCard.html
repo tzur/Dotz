@@ -2,7 +2,6 @@
 
   {{#if Template.subscriptionsReady}}
 
-
       <!-- full wrapper -->
 
       <div>
@@ -50,7 +49,7 @@
 
                                           <div class="row cardTitleDiv">
                                               <div class="col-xs-12 col-sm-12">
-
+                                                    {{testHelper}}
                                                   <a href="{{dotUrlLink}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
 
                                               </div>
@@ -92,7 +91,8 @@
                                               <div class="col-xs-1 greyText smTxt">
                                                   <a href="{{userUrlLink}}" class="userImgIcon">
 
-                                                      <img class="userImgIcon-mobile" src="{{user.profile.profileImage}}">
+                                                      <img class="userImgIcon-mobile" src="{{profileImageUrl}}">
+
                                                   </a>
                                               </div>
 
@@ -102,15 +102,13 @@
                                                       <span class="align-icon-text">{{username}}</span>
                                                   </a>
 
-                                                {{#if showOriginalDotCard}}
+                                                {{#if isTheOwnerDotCard}}
 
-
-                                                    <span>Created This Dot <span>·</span> </span> <br> <span class="align-icon-text">{{createDate}}</span>
-
+                                                    <span> <span>·</span> </span> <br> <span class="align-icon-text">{{createDate}}</span>
 
                                                 {{else}}
 
-                                                    <span>connected TimeOut Dot <span>·</span> </span> <br> <span class="align-icon-text"> {{createDate}}</span>
+                                                    <span> connected TBD:{{username}} Dot <span>·</span> </span> <br> <span class="align-icon-text"> {{createDate}}</span>
 
                                                 {{/if}}
 
@@ -130,7 +128,7 @@
 
                                           <div class="row">
 
-                                            {{#if showOriginalDotCard}}
+                                            {{#if isTheOwnerDotCard}}
 
                                                 <div class="user-personal-desc-details col-xs-11">
                                                     <p class="user-personal-desc greyText limitP">{{dot.bodyText}}</p>
@@ -222,22 +220,22 @@
 
                                               <div class="col-md-10 cardConnecterDiv greyText smTxt">
                                                   <a href="{{userUrlLink}}" class="userImgIcon">
-                                                      <img class="userImgIcon" src="{{user.profile.profileImage}}">
+                                                      <img class="userImgIcon" src="{{profileImageUrl}}">
                                                   </a>
 
                                                   <a href="{{userUrlLink}}">
-                                                      <span class="align-icon-text">{{user.username}}</span>
+                                                      <span class="align-icon-text">{{username}}</span>
                                                   </a>
 
-                                                {{#if showOriginalDotCard}}
+                                                {{#if isTheOwnerDotCard}}
 
 
-                                                    <span>Created This Dot <span>·</span> {{createDate}}</span>
+                                                    <span>  <span>·</span> {{createDate}}</span>
 
 
                                                 {{else}}
 
-                                                    <span>connected TimeOut Dot <span>·</span> {{createDate}}</span>
+                                                    <span> connected {{Username}} Dot <span>·</span> {{createDate}}</span>
 
                                                 {{/if}}
 
@@ -296,7 +294,7 @@
                       </div>
 
                   </div>
-
+              </div>
                   <!--<div class="container-fluid topCardWrapper">-->
 
                   <!--</div>-->
@@ -304,22 +302,23 @@
                   <!--</div>-->
 
                   <div style="margin-bottom: 1em;">
-                    {{#if myDot}}
+                    {{#if isMyDot}}
                         <a class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>
-                        <a class="edit editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
+                        <a class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
                     {{/if}}
-                    {{#if isMyMix}}
-                        <a class="upBtn"><span class="glyphicon glyphicon-triangle-top smTxt" aria-hidden="true"> </span></a>
-                        <a class="downBtn"><span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span></a>
-                    {{/if}}
+                    <!--{{#if isMyMix}}-->
+                        <!--<a class="upBtn"><span class="glyphicon glyphicon-triangle-top smTxt" aria-hidden="true"> </span></a>-->
+                        <!--<a class="downBtn"><span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span></a>-->
+                    <!--{{/if}}-->
                   </div>
 
 
 
-              </div>
+
           </div>
       </div>
     </div>
+
 
   {{else}}
       <p> Loading...</p>
@@ -327,6 +326,3 @@
 
   {{/if}}
 </template>
-
-
-

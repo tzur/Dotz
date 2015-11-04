@@ -1,32 +1,4 @@
-_data = {};
-
-Template.dotCard.onCreated(function() {
-  let self = this;
-  self.autorun(function() {
-
-    if (_data.smartRef) {
-      let dotId = _data.smartRef.dotId;
-      if (dotId) {
-        self.subscribe('dotShow', _data.smartRef.dotId);
-        _data.dot = Dotz.findOne(dotId);
-        if (_data.dot) {
-        }
-      }
-    }
-    let userId = this.ownerUserId;
-
-    if (userId) {
-      self.subscribe('user', userId);
-    }
-
-    let user = Meteor.users.findOne(userId);
-    if (user) {
-      _data.user = user;
-    }
-
-  });
-});
-
+_dataCard = {};
 
 Template.dotCard.onRendered (function(){
   $(".limitP").each(function(i){
@@ -42,16 +14,24 @@ Template.dotCard.helpers({
   dotData: function() {
     return this;
   },
+  isMyDot: function() {
+    return (this.dot.ownerUserId === Meteor.userId())
+  },
 
+  testHelper: function(){
+    return null;
+  },
   createDate: function(){
     return (moment(this.createdAt).fromNow())
   },
   eventDate: function(){
-    return ( moment(_data.dotShow.startDateAndHour).fromNow());
+    return ( moment(this.dot.startDateAndHour).fromNow());
   },
-  showOriginalDotCard: function() {
-    let parentData = Template.parentData();
-    return (parentData)
+  isTheOwnerDotCard: function() {
+    let connectedByUserId = this.smartRef.connectedByUserId;
+    let dotOwnerUserId = _dataCard.user._id;
+    //let parentData = Template.parentData();
+    return (connectedByUserId === dotOwnerUserId)
   },
   likeCounter: function(){
     return this.smartRef.likes.length;
@@ -106,22 +86,14 @@ Template.dotCard.events({
     Bert.alert( 'Disconnected', 'warning', 'growl-bottom-left' );
   },
 
-  'click .edit': function(){
-    var dotId = this._id;
-    if (this.isMix){
-      Modal.show('editMixModal', {
-        data:{
-          'dotId': dotId
-        }
-      });
-    }
-    else{
-      Modal.show('editPostModal', {
-        data:{
-          'dotId': dotId
-        }
-      });
-    }
+  'click .editBtn': function(){
+    var dotId = this.dot._id;
+    Modal.show('editDotModal', {
+      data:{
+        'dotId': dotId
+      }
+    });
+
   },
 
   'click .delete':function(event){
