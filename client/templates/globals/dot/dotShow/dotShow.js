@@ -26,6 +26,25 @@ Template.dotShow.onCreated(function() {
             }
           });
         }
+
+        self.subscribe('dotzConnectedByOthers', dotId);
+        if (_data.dotShow.dotzConnectedByOthers) {
+          _data.dotShow.dotzConnectedByOthers.objectsArray = [];
+          _data.dotShow.dotzConnectedByOthers.forEach(function (smartRef) {
+            let dot = Dotz.findOne(smartRef.dotId);
+            if (dot) {
+              let object = {};
+              object.smartRef = smartRef;
+              object.dot = dot;
+              _data.dotShow.dotzConnectedByOthers.objectsArray.push(object);
+            }
+
+
+
+          });
+        }
+
+
       }
   });
 });
