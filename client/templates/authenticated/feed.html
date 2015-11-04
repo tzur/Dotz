@@ -1,7 +1,12 @@
 <template name="feed">
+{{#if Template.subscriptionsReady}}
     <div class="jumbotron text-center" style="padding: 20px;">
       {{#each feedDotz}}
         {{> dotCard}}
       {{/each}}
     </div>
+{{else}}
+    <p> Loading...</p>
+    <!--to replace with a loading template-->
+{{/if}}
 </template>

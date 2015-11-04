@@ -8,30 +8,34 @@ let _docValidation = (doc) => {
            !doc.dotzConnectedByOthers )
 };
 
-
 Meteor.methods({
   createDot(doc){
     check(doc, Schema.dotSchema);
     if(_docValidation(doc)) {
       Meteor.call('insertDot', doc, function (error, result) {
-        console.log("The call back function from insert dot" + result);
-        if(!error) {
+        if (!error) {
           let dotId = result;
-          // maybe need to do if(!error).
-          if (dotId) {
-            let smartRef = new Modules.both.Dotz.smartRef(dotId, doc.inDotz[0], doc.ownerUserId, CREATE_ACTION);
-            Modules.both.Dotz.connectDot(smartRef);
-            Meteor.call('updateUserAllUserDotz', Meteor.userId(), dotId, function (error, result) {
+          let dot = Dotz.findOne(doc.inDotz[0]);
+          let isConnectedToOthers;
+          if (doc.ownerUserId === dot.ownerUserId){
+            isConnectedToOthers = false;
+          }
+          else{
+            isConnectedToOthers = true;
+          }
+          let smartRef = new Modules.both.Dotz.smartRef(dotId, doc.inDotz[0], doc.ownerUserId, isConnectedToOthers ,CREATE_ACTION);
+          Modules.both.Dotz.connectDot(smartRef);
+          Modules.both.Dotz.updateFeed(smartRef, doc.ownerUserId);
+          Meteor.call('updateUserAllUserDotz', Meteor.userId(), dotId, function (error, result) {
               if (error) {
                 console.log("THE ERROR IS:" + error);
               }
-            })
-          }
+          })
         }
         else{
-          console.log("THE ERROR IS:" + error)
-
+          console.log("Error" + error);
         }
+
       })
     }
     else{
