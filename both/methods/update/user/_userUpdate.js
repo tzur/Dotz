@@ -17,5 +17,14 @@ Meteor.methods({
       $set: {"profile.profileDotId": dotId}
     };
     _userUpdate(userId ,updateOptions);
+  },
+  updateUserAllUserDotz(userId, dotId){
+    check(userId, String);
+    check(dotId, String);
+    let updateOptions = {
+      $addToSet: {"profile.createdByUserDots": dotId}
+    };
+    _userUpdate(userId ,updateOptions);
   }
+
 });

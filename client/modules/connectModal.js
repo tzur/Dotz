@@ -2,8 +2,6 @@
 let _checkDot = function(dotId){
   let _dot = Dotz.findOne(dotId);
   return ( _dot.ownerUserId === Meteor.userId())
-
-
 };
 
 let getConnectedByOwnerDotz = function(dotId, dotIdWishedToConnectTo) {
@@ -29,8 +27,6 @@ let getConnectedByOwnerDotz = function(dotId, dotIdWishedToConnectTo) {
   }
 };
 
-Modules.client.Dotz.getConnectedByOwnerDotz = getConnectedByOwnerDotz;
-
 let isConnectedToDot = (dotId, dotIdWishedToConnectTo) => {
   let _dot = Dotz.findOne(dotId);
   let isNotConnected = true;
@@ -49,3 +45,4 @@ let isConnectedToDot = (dotId, dotIdWishedToConnectTo) => {
     }
 };
 Modules.client.Dotz.getDotDotzForConnect = isConnectedToDot;
+Modules.client.Dotz.getConnectedByOwnerDotz = getConnectedByOwnerDotz;

@@ -4,25 +4,27 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Connect {{ Dot</h4>
+                    <h4 class="modal-title">Connect Dot</h4>
                 </div>
 
                 <div class="modal-body">
 
-                    <h2>Add Personal Description:</h2>
+                      <h2>Add Personal Description:</h2>
 
-                <input id="personalDescription">
-                  <br><br>
-                  <br><br>
-                  <hr>
+                  <input id="personalDescription">
+                    <br><br>
+                    <br>
+                    <hr>
 
-                {{#each userProfileDotzArray}}
-                  {{> brainFuck}}
-                {{/each}}
+                  {{#each userProfileDotzArray}}
+                    <div>
+                    {{> showConnectedByOwnerDotz}}
+                    </div>
+                  {{/each}}
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
 
                 </div>
              </div>
@@ -36,37 +38,6 @@
 
 
 
-<template name="brainFuck">
 
-
-    <button class="dotTitile" data-toggle="collapse" data-target="#{{_id}}">{{title}}</button>
-    {{#if connectBtn}}
-      <button class="connectBtn">connect</button>
-    {{/if}}
-    <br>
-    <div id="{{_id}}" class="collapse">
-
-        {{#each relevantDotDotzArray}}
-            {{> brainFuck}}
-        {{/each}}
-
-    </div>
-
-
-
-
-</template>
-
-<!--<template name="brainFuck">-->
-
-
-        <!--<button data-toggle="collapse" data-target="#{{_id}}">{{title}}</button>-->
-        <!--<br>-->
-        <!--<div id="{{_id}}" class="collapse">-->
-          <!--
-
-
-
-<!--</template>-->
 
 
