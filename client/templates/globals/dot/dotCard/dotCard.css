@@ -88,6 +88,10 @@ a:hover {
   height: 1.25em;
 }
 
+.like-btn-lnt {
+  padding-right: 0.5em;
+}
+
 .like-btn-img-mobile {
   height: 1.45em;
 }
