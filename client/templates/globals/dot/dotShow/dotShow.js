@@ -1,56 +1,98 @@
 _data = {};
 //_data.userShow = {}; //TBD?
 
+
 Template.dotShow.onCreated(function() {
   let self = this;
   self.autorun(function() {
+
+    //let username = FlowRouter.getParam('username');
+    //self.subscribe('userByUsername', username);
+    //_data.user = Meteor.users.findOne({username: username});
 
     let dotId = FlowRouter.getParam('dotId');
     self.subscribe('dotShow', dotId);
     _data.dot = Dotz.findOne(dotId);
 
+
     if (_data.dot) {
-      self.subscribe('user', _data.dot.ownerUserId);
-      _data.user = Meteor.users.findOne(_data.dot.ownerUserId);
+      //let dotId = _data.user.profile.profileDotId;
+      //self.subscribe('dotShow', dotId);
+      //_data.dot = Dotz.findOne(dotId);
 
-      if (_data.dot.dotzConnectedByOwner) {
-        let getDotzConnectedByOwnerObjectsArray = [];
-        _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
-          getDotzConnectedByOwnerObjectsArray.push(smartRef.dotId);
-        });
-      }
-      _data.dot.dotzConnectedByOwner.objectsArray = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
-
-      if (_data.dot.dotzConnectedByOwner.objectsArray) {
-      _data.dot.dotzConnectedByOwner.objectsArray.forEach(function (dot) {
-        dotId = dot._id;
-        self.subscribe('dotShow', dotId);
-      });
+      //if (_data.dot) {
+      //  self.subscribe('dotzConnectedByOwner', dotId);
+      //  let getDotzConnectedByOwnerArray = [];
+      //
+      //  if (_data.dot.dotzConnectedByOwner) {
+      //    _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
+      //      getDotzConnectedByOwnerArray.push(smartRef.dotId);
+      //    });
+      //  }
+      //  _data.dot.dotzConnectedByOwner.originalDotObjects = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
+      //}
     }
-
-    }
-
-    if (_data.user) {
-      console.log("##################### _data.user.username  is   " + _data.user.username);
-    }
-    console.log("444444444444411111111111111 _data.user is " + _data.user);
-
-
-    //if (_data.dot) {
-    //  self.subscribe('dotzConnectedByOwner', dotId);
-    //  let getDotzConnectedByOwnerArray = [];
-    //  _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
-    //    getDotzConnectedByOwnerArray.push(smartRef.dotId);
-    //  });
-    //  _data.dot.dotzConnectedByOwner = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
-    //}
 
     //self.subscribe('dotzConnectedByOthers', dotId);
 
-
-
   });
 });
+
+/*
+
+ Template.dotShow.onCreated(function() {
+ let self = this;
+ self.autorun(function() {
+
+ let dotId = FlowRouter.getParam('dotId');
+ self.subscribe('dotShow', dotId);
+ _data.dot = Dotz.findOne(dotId);
+
+ if (_data.dot) {
+ self.subscribe('user', _data.dot.ownerUserId);
+ _data.user = Meteor.users.findOne(_data.dot.ownerUserId);
+
+ if (_data.dot.dotzConnectedByOwner) {
+ let getDotzConnectedByOwnerObjectsArray = [];
+ _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
+ getDotzConnectedByOwnerObjectsArray.push(smartRef.dotId);
+ });
+ }
+ _data.dot.dotzConnectedByOwner.objectsArray = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
+
+ if (_data.dot.dotzConnectedByOwner.objectsArray) {
+ _data.dot.dotzConnectedByOwner.objectsArray.forEach(function (dot) {
+ dotId = dot._id;
+ self.subscribe('dotShow', dotId);
+ });
+ }
+
+ }
+
+ if (_data.user) {
+ console.log("##################### _data.user.username  is   " + _data.user.username);
+ }
+ console.log("444444444444411111111111111 _data.user is " + _data.user);
+
+
+ //if (_data.dot) {
+ //  self.subscribe('dotzConnectedByOwner', dotId);
+ //  let getDotzConnectedByOwnerArray = [];
+ //  _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
+ //    getDotzConnectedByOwnerArray.push(smartRef.dotId);
+ //  });
+ //  _data.dot.dotzConnectedByOwner = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
+ //}
+
+ //self.subscribe('dotzConnectedByOthers', dotId);
+
+
+
+ });
+ });
+ */
+
+
 
 /*
 
@@ -77,18 +119,20 @@ Template.dotShow.helpers({
   data: function() {
     return _data;
   },
-  dotOwnerUserName: function() {
-    console.log("_data.user.username  is   " + _data.user.username);
-    return _data.user.username;
-  },
-  profileImageUrl: function() {
-
-    return _data.user.profile.profileImage;
-  },
+  //dotOwnerUserName: function() {
+  //  console.log("_data.user.username  is   " + _data.user.username);
+  //  return _data.user.username;
+  //},
+  //profileImageUrl: function() {
+  //
+  //  return _data.user.profile.profileImage;
+  //},
   dotzConnectedByOwner: function() {
-    console.log("_data.dot.dotzConnectedByOwner.objects[1] " + _data.dot.dotzConnectedByOwner.objects[1])
-    return _data.dot.dotzConnectedByOwner.objectsArray;
-  },
+    console.log("_data.dot.dotzConnectedByOwner[0] " + _data.dot.dotzConnectedByOwner[0])
+    return _data.dot.dotzConnectedByOwner;
+    //return _data.dot.dotzConnectedByOwner.objectsArray;
+
+  }
   //myDot: function(){
   //  return (_data.dot.owner.userId === Meteor.userId());
   //},
@@ -113,9 +157,10 @@ Template.dotShow.helpers({
   //  return user.profile.profileImage;
   //},
   //
-  userIdLink: function() {
-    return ('/user/' + this.post.owner.userId);
-  },
+
+  //userIdLink: function() {
+  //  return ('/user/' + this.post.owner.userId);
+  //}
 
   //exampleMapOptions: function() {
   //  // Make sure the maps API has loaded
