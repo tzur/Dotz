@@ -88,6 +88,10 @@ a:hover {
   height: 1.25em;
 }
 
+.like-btn-lnt {
+  padding-right: 0.5em;
+}
+
 .like-btn-img-mobile {
   height: 1.45em;
 }
@@ -176,25 +180,27 @@ a:hover {
 }
 
 .dot-container-img-card {
-  /*width: 35vh;*/
-  height: 34.95vh; /*max-height: 16em;*/
-  overflow: hidden;
+  position: relative;
+  width: 35vh;
+  height: 35vh; /*max-height: 16em;*/
+  /*overflow: hidden;*/
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
   padding: 0 1em;
-  /*border-radius: 50%;*/
+  border-radius: 50%;
 }
 
 .dot-container-img-card-mobile {
-  /*width: 35vh;*/
-  height: 46.95vh; /*max-height: 16em;*/
-  overflow: hidden;
+  position: relative;
+  width: 47vh;
+  height: 47vh; /*max-height: 16em;*/
+  /*overflow: hidden;*/
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
   padding: 0 1em;
-  /*border-radius: 50%;*/
+  border-radius: 50%;
 }
 
 .dot-row-img-card {
@@ -462,16 +468,16 @@ a:hover {
 
 }
 
-.dotConnectedDotzLastIcon{
-  position: relative;
-  height: 3em;
-  width: 3em;
-  border-radius: 50%;
-  background-size: cover;
-  display: inline-block;
-  vertical-align: bottom;
-  background-color: #c8cbc8
-}
+/*.dotConnectedDotzLastIcon{*/
+  /*position: relative;*/
+  /*height: 3em;*/
+  /*width: 3em;*/
+  /*border-radius: 50%;*/
+  /*background-size: cover;*/
+  /*display: inline-block;*/
+  /*vertical-align: bottom;*/
+  /*background-color: #c8cbc8*/
+/*}*/
 
 
 
@@ -483,10 +489,21 @@ a:hover {
   border-radius: 50%;
 }
 
-.dotConnectedDotzLastIcon-mobile {
+/*.dotConnectedDotzLastIcon-mobile {*/
+  /*position: absolute;*/
+  /*top: 75%;*/
+  /*right: 5%;*/
+  /*height: 3em;*/
+  /*width: 3em;*/
+  /*background-color: #cccccc;*/
+  /*border-radius: 50%;*/
+  /*border: #ffffff solid 2px;*/
+/*}*/
+
+.dotConnectedDotzLastIcon {
   position: absolute;
-  top: 73%;
-  right: 18%;
+  top: 75%;
+  right: 5%;
   height: 3em;
   width: 3em;
   background-color: #cccccc;
@@ -495,15 +512,15 @@ a:hover {
 }
 
 #round-overlay {
-  background-image: radial-gradient(20vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 86%, rgba(255, 255, 255, 1) 87%, rgba(255, 255, 255, 1) 100%);
-  width: 100%;
-  height: 35vh;
+  /*background-image: radial-gradient(20vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 86%, rgba(255, 255, 255, 1) 87%, rgba(255, 255, 255, 1) 100%);*/
+  /*width: 100%;*/
+  /*height: 35vh;*/
 }
 
 #round-overlay-mobile {
-  background-image: radial-gradient(27vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 86%, rgba(255, 255, 255, 1) 87%, rgba(255, 255, 255, 1) 100%);
-  width: 100%;
-  height: 47vh;
+  /*background-image: radial-gradient(27vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 86%, rgba(255, 255, 255, 1) 87%, rgba(255, 255, 255, 1) 100%);*/
+  /*width: 100%;*/
+  /*height: 47vh;*/
 }
 
 

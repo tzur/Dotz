@@ -12,6 +12,7 @@ Meteor.publish( 'userByUsername', function( username ) {
     return Meteor.users.find({username: username});
   }
 });
+
 Meteor.publish('allUsers', function(){
   return Meteor.users.find({})
 });

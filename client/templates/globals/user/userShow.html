@@ -6,7 +6,7 @@
 {{#if Template.subscriptionsReady}}
 {{#with data}}
         <div id="userBgImg" class="container-liquid">
-            <div class="row imgCover" style="background-image: url('{{user.profile.coverImage}}')">
+            <div class="row imgCover" style="background-image: url('{{userShow.profile.coverImage}}')">
                 <div class="col-xs-12 colCenter">
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div id="userData" class="col-sm-12 colCenter">
-                            <img id="userImgProfile" src="{{user.profile.profileImage}}">
+                            <img id="userImgProfile" src="{{userShow.profile.profileImage}}">
                         </div>
                     </div>
                 </div>
@@ -28,13 +28,13 @@
                     <div class="row">
                         <div id="userDescription" class="col-sm-12 col-md-9 colCenter txtMd">
 
-                            <h1 class="darkText">{{user.username}}</h1>
+                            <h1 class="darkText">{{userShow.username}}</h1>
 
                             <div class="iconsLinksEtc">
                                 <ul>
                                     <li class="locationWrapper inline-block">
                                         <span class="location mdGrey"></span>
-                                      {{user.profile.homeAddress}}
+                                      {{userShow.profile.homeAddress}}
                                     </li>
 
                                     <li class="inline-block">
@@ -42,8 +42,8 @@
                                     </li>
 
                                     <li class="websiteWrapper inline-block">
-                                        <a href="{{user.profile.website}}" target="_blank" class="mdGrey" rel="nofollow" itemprop="url">
-                                          {{user.profile.website}}
+                                        <a href="{{userShow.profile.website}}" target="_blank" class="mdGrey" rel="nofollow" itemprop="url">
+                                          {{userShow.profile.website}}
                                         </a>
                                     </li>
 
@@ -61,14 +61,14 @@
                                 </ul>
                             </div>
 
-                            <p>{{user.profile.website}}</p>
+                            <p>{{userShow.profile.website}}</p>
 
                         </div>
                     </div>
                 </div>
 
                 <ul class="menu js-socialMenu txtMd" data-user-id="42824e6543f3">
-                    <li class="menu-item js-socialMenuFollowers" title="Followers">
+                    <li class="menu-item js-socialMenuFollowers hidden-xs" title="Followers">
                         <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
                             <small class="menu-label">Dotz</small>{{dotNum}}</button>
                     </li>

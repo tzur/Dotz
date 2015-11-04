@@ -5,11 +5,11 @@
     <div class="container-fluid dot-show-header">
         <div class="row">
 
-            <div class="col-md-7 postImgCover" style="background-image: url('{{dotShow.coverImageUrl}}')">
+            <div class="col-sm-7 postImgCover" style="background-image: url('{{dotShow.coverImageUrl}}')">
 
             </div>
 
-            <div class="col-md-5 dot-show-main-details">
+            <div class="col-sm-4 dot-show-main-details">
 
                 <div class="row dot-title">
                     <div class="toDot col-xs-12">
@@ -26,28 +26,34 @@
                 </div>
 
                 <div class="row dot-show-type-div">
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
 
+                      {{#if dotShow.locationName}}
                         <div class="txtL dot-show-type">
                             <img class="type-icon-dot-show" src="/place-icon-grey.png">
                             <span class="dot-type greyText mdTxt alignSub">{{dotShow.locationName}}</span>
                         </div>
+                      {{/if}}
 
+                      {{#if eventDate}}
                         <div class="txtL dot-show-type">
                             <img class="type-icon-dot-show" src="/event-icon-grey.png">
-                            <span class="dot-type greyText mdTxt alignSub">{{#if eventDot}}{{eventDot}}{{/if}}</span>
+                            <span class="dot-type greyText mdTxt alignSub">{{eventDate}}</span>
                         </div>
+                      {{/if}}
 
+                      {{#if dotShow.price}}
                         <div class="txtL dot-show-type">
                             <img class="type-icon-dot-show" src="/price-icon-grey.png">
                             <span class="dot-type greyText mdTxt alignSub"><span>$ </span>{{dotShow.price}}</span>
                         </div>
+                      {{/if}}
 
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-sm-10 col-md-8">
                       {{#if isMyMix}}
                           <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
                           <button type="button" class="disConnect btn btn-success round btn-md dot-show-connect-btn">Connected ({{isConnected}})</button>
@@ -55,8 +61,8 @@
                           <button type="button" class="connect btn btn-lead round btn-md dot-show-connect-btn">Connect ({{isConnected}})</button>
                       {{/if}}
                     </div>
-                    <div class="col-md-8 dot-show-btn">
-                        <button type="button" class="btn btn-success round btn-md dot-show-connect-btn">Connected Dotz</button>
+                    <div class="col-sm-12 col-md-8 dot-show-btn">
+                        <a href="#connectedDotz"><button type="button" class="btn btn-success round btn-md dot-show-connect-btn">Connected Dotz</button></a>
                     </div>
                 </div>
 
@@ -68,7 +74,7 @@
     <!-- next 2 lines are wrapping the showPost body part -->
     <div class="container-fluid dot-owner-description-div">
         <div class="row">
-            <div class="col-xs-12 col-md-6 col-md-offset-1">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-1">
 
                 <div>
 
@@ -102,24 +108,31 @@
         </div>
     </div>
 
+
     <div class="row map-div">
-        <div class="col-xs-12">
-          <div class="map-container-dot-show"></div>
+
+      {{#if dotShow.locationName}}
+          <div class="map-container-dot-show">
+            {{> googleMap name="exampleMap" options=exampleMapOptions}}
+          </div>
           <div class="map-container-overlayer"></div>
-        </div>
+      {{/if}}
+
     </div>
 
     <div class="row dot-divider-hr">
         <hr class="lightGrey">
-        <div class="dot-divider-box col-xs-4 colCenter">Connected dotz by TimeOut Tel-Aviv</div>
+        <a name="connectedDotz"><div class="dot-divider-box col-xs-4 colCenter">Connected dotz by TimeOut Tel-Aviv</div></a>
     </div>
 
-    <div class="row">
-        <div class="col-xs-12">
-          {{#each dotzConnectedByOwner}}
-            {{>dotCard}}
-          {{/each}}
-        </div>
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-xs-12">
+            {{#each dotzConnectedByOwner}}
+              {{>dotCard}}
+            {{/each}}
+          </div>
+      </div>
     </div>
 
     <div class="row dot-divider-hr">
@@ -135,43 +148,10 @@
         </div>
     </div>
 
-    <!-- the dot buttons part-->
 
-    <div class="row">
-        <div class="col-xs-9 col-sm-10 col-lg-11">
-
-        <!--{{#if ../mix}}-->
-                <!--{{#if myDot}}-->
-                <!--<button id="connectBtn" type="button" class="disConnect btn btn-alert btn-lg pull-left">-->
-                <!--<img class="connectIcon" src="http://s24.postimg.org/3y0awecb9/connect_Icon.png">Disconnect</button>-->
-                    <!--{{/if}}-->
-                <!--{{else}}-->
-
-            <button id="connectBtn" type="button" class="connect btn btn-default btn-lg pull-left">
-                <img class="connectIcon" src="http://s24.postimg.org/3y0awecb9/connect_Icon.png">Connect ({{isConnected}})</button>
-                <!--{{/if}}-->
-
-
-
-        </div>
-        <div class="col-xs-3 col-sm-2 col-lg-1">
-            <button id="shareBtn" type="button" class="btn btn-default btn-lg pull-right">
-                <img class="shareicon" src="http://s8.postimg.org/5w1bl4x3l/share_Icon.png"></button>
-        </div>
-    </div>
-    <br>
-    <br>
-  {{#if post.locationLatLng}}
-      <div class="map-container">
-        {{> googleMap name="exampleMap" options=exampleMapOptions}}
-      </div>
-  {{/if}}
-    <hr>
-    <div>
-
+    <!--<div>-->
         <!--{{> addComment}}-->
-        <hr>
-    </div>
+    <!--</div>-->
 
 
     <!--Post comment template-->

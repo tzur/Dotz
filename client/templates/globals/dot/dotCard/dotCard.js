@@ -1,29 +1,12 @@
-_data = {};
+_dataCard = {};
 
-Template.dotCard.onCreated(function() {
-  let self = this;
-  self.autorun(function() {
-
-    if (_data.smartRef) {
-      let dotId = _data.smartRef.dotId;
-      if (dotId) {
-        self.subscribe('dotShow', _data.smartRef.dotId);
-        _data.dot = Dotz.findOne(dotId);
-        if (_data.dot) {
-        }
-      }
+Template.dotCard.onRendered (function(){
+  $(".limitP").each(function(i){
+    len=$(this).text().length;
+    if(len>30)
+    {
+      $(this).text($(this).text().substr(0,30)+'...');
     }
-    let userId = this.ownerUserId;
-
-    if (userId) {
-      self.subscribe('user', userId);
-    }
-
-    let user = Meteor.users.findOne(userId);
-    if (user) {
-      _data.user = user;
-    }
-
   });
 });
 
@@ -31,7 +14,6 @@ Template.dotCard.helpers({
   dotData: function() {
     return this;
   },
-
   isMyDot: function() {
     return (this.dot.ownerUserId === Meteor.userId())
   },
@@ -43,11 +25,13 @@ Template.dotCard.helpers({
     return (moment(this.createdAt).fromNow())
   },
   eventDate: function(){
-    return ( moment(_data.dotShow.startDateAndHour).fromNow());
+    return ( moment(this.dot.startDateAndHour).fromNow());
   },
-  showOriginalDotCard: function() {
-    let parentData = Template.parentData();
-    return (parentData)
+  isTheOwnerDotCard: function() {
+    let connectedByUserId = this.connectedByUser._id;
+    let dotOwnerUserId = this.ownerUser._id;
+    //let parentData = Template.parentData();
+    return (connectedByUserId === dotOwnerUserId)
   },
   likeCounter: function(){
     return this.smartRef.likes.length;
