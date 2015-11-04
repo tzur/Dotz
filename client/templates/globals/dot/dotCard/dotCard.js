@@ -27,6 +27,17 @@ Template.dotCard.onCreated(function() {
   });
 });
 
+
+Template.dotCard.onRendered (function(){
+  $(".limitP").each(function(i){
+    len=$(this).text().length;
+    if(len>30)
+    {
+      $(this).text($(this).text().substr(0,30)+'...');
+    }
+  });
+});
+
 Template.dotCard.helpers({
   dotData: function() {
     return this;

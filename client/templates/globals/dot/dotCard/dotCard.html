@@ -31,6 +31,7 @@
                                   </div>
 
                                   <div class="col-md-4 liquidCol hidden-xs hidden-sm">
+
                                       <div class="container-fluid dot-container-img-card" style="background-image: url('{{dot.coverImageUrl}}')">
 
                                         <div class="dotConnectedDotzLastIcon">
@@ -172,7 +173,7 @@
 
                                           <div class="row cardTitleDiv">
                                               <div class="col-md-10">
-                                                  <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{title}}</h2></a>
+                                                  <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
                                               </div>
 
                                               <div class="col-md-2">
@@ -245,31 +246,31 @@
                                               <hr class="lightGrey">
 
                                               <div class="spacer-xs-card-buttons"></div>
-                                            {{#if isMyMix}}
-                                                <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
-                                                <button type="button" class="disConnect btn btn-success round btn-xs">Connected</button>
-                                            {{else}}
-                                                <button type="button" class="connect btn btn-success round btn-xs">Connect ({{isConnected}})</button>
-                                            {{/if}}
+                                            <!--{{#if isMyMix}}-->
+                                                <!--&lt;!&ndash;<span id="connectionCounter" class="successColor mdTxt"> </span>&ndash;&gt;-->
+                                                <!--<button type="button" class="disConnect btn btn-success round btn-xs">Connected</button>-->
+                                            <!--{{else}}-->
+                                                <!--<button type="button" class="connect btn btn-success round btn-xs">Connect ({{isConnected}})</button>-->
+                                            <!--{{/if}}-->
 
-                                              <button type="button" class="btn btn-default round btn-xs midWidth pull-left like-btn-mobile">
-                                                  <img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
-                                              </button>
+                                              <!--<button type="button" class="btn btn-default round btn-xs midWidth pull-left like-btn-mobile">-->
+                                                  <!--<img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">-->
+                                              <!--</button>-->
 
-                                              <div class="like-btn-text-div-mobile lightGrey">
-                                                  <span class="like-btn-up-text-mobile smTxt">364 likes</span>
-                                              <div class="col-md-2 cardConnecterDiv">
-                                                  <button type="button" class="btn btn-default round btn-xs midWidth pull-right">
-                                                      <img class="like like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
-                                                      {{likeCounter}}
-                                                  </button>
-                                              </div>
+
+                                                <div class="like-btn-text-div-mobile col-md-2 cardConnecterDiv">
+                                                    <button type="button" class="like btn btn-default round btn-xs midWidth pull-right">
+                                                        <img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
+                                                        <span class="like-btn-up-text-mobile smTxt">{{likeCounter}}</span>
+                                                    </button>
+                                                </div>
+
 
 
                                             {{#if showOriginalDotCard}}
 
                                                 <div class="user-personal-desc-details col-md-9">
-                                                    <p class="user-personal-desc greyText limitP">{{dot.bodyText}}</p>
+                                                    <p class="limitP user-personal-desc greyText">{{dot.bodyText}}</p>
                                                 </div>
 
                                             {{else}}
@@ -280,7 +281,7 @@
 
                                             {{/if}}
 
-                                          </div>
+
 
                                       </div>
 
