@@ -26,6 +26,7 @@ let connectDot = (smartRef) => {
   console.log("in connectDot" + smartRef);
   if (_isConnectToOwner(smartRef.connectedByUserId, smartRef.parentDot)){
     // We are connecting to OWNER case.
+    smartRef.isConnectedToOthers = false;
      Meteor.call('addDotConnectedByOwner', smartRef, function(error, result){
         if (!error){
           //Connected to dot owner was successful, now check if we need to update ourself
@@ -41,6 +42,7 @@ let connectDot = (smartRef) => {
   }
   else{
     // We are connecting to OTHER case.
+    smartRef.isConnectedToOthers = true;
     Meteor.call('addDotConnectedByOther', smartRef, function(error, result){
       if (!error){
         //Connected to dot owner was successful, now check if we need to update ourself

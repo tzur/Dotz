@@ -20,6 +20,13 @@ Schema.dotSmartRef = new SimpleSchema({
   personalDescription:{
     type: String,
     optional: true
+  },
+  likes:{
+    type: [String],
+    optional: true
+  },
+  isConnectedToOthers:{
+    type: Boolean
   }
 });
 

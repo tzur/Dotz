@@ -9,18 +9,28 @@ let _docValidation = (doc) => {
 };
 
 
-
 Meteor.methods({
   createDot(doc){
     check(doc, Schema.dotSchema);
     if(_docValidation(doc)) {
       Meteor.call('insertDot', doc, function (error, result) {
         console.log("The call back function from insert dot" + result);
-        let dotId = result;
-        // maybe need to do if(!error).
-        if (dotId) {
-          let smartRef = Modules.both.Dotz.smartRefFactory(dotId, doc.inDotz[0], doc.ownerUserId, CREATE_ACTION);
-          Modules.both.Dotz.connectDot(smartRef);
+        if(!error) {
+          let dotId = result;
+          // maybe need to do if(!error).
+          if (dotId) {
+            let smartRef = new Modules.both.Dotz.smartRef(dotId, doc.inDotz[0], doc.ownerUserId, CREATE_ACTION);
+            Modules.both.Dotz.connectDot(smartRef);
+            Meteor.call('updateUserAllUserDotz', Meteor.userId(), dotId, function (error, result) {
+              if (error) {
+                console.log("THE ERROR IS:" + error);
+              }
+            })
+          }
+        }
+        else{
+          console.log("THE ERROR IS:" + error)
+
         }
       })
     }

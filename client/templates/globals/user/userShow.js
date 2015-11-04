@@ -56,7 +56,10 @@ Template.userShow.helpers({
   },
   dotzConnectedByOwner: function() {
     //console.log("_data.dot.dotzConnectedByOwner.objects[1] " + _data.dot.dotzConnectedByOwner.originalDotObjects[1])
-    return _data.dotShow.dotzConnectedByOwner.objectsArray;
+    if (_data.dotShow.dotzConnectedByOwner){
+      return _data.dotShow.dotzConnectedByOwner.objectsArray;
+    }
+
   },
 
   followingCounter: function(){
@@ -112,10 +115,10 @@ Template.userShow.events({
     });
   },
   'click .follow': function(){
-    Meteor.call('followUser', Meteor.userId(), this.user._id)
+    Modules.both.Dotz.followUser(Meteor.userId(), _data.user._id);
   },
   'click .unFollow': function(){
-    Meteor.call('unFollowUser', Meteor.userId(), this.user._id);
+   Modules.both.Dotz.unFollowUser(Meteor.userId(), _data.user._id);
   }
 });
 
