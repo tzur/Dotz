@@ -79,11 +79,7 @@ Template.userShow.helpers({
     return _data;
   },
   dotzConnectedByOwner: function() {
-    //console.log("_data.dot.dotzConnectedByOwner.objects[1] " + _data.dot.dotzConnectedByOwner.originalDotObjects[1])
-    if (_data.dotShow.dotzConnectedByOwner){
-      return _data.dotShow.dotzConnectedByOwner.objectsArray;
-    }
-
+    return _data.dotzConnectedByOwnerObjectsArray;
   },
 
   followingCounter: function(){
