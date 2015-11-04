@@ -10,61 +10,26 @@ Template.dotShow.onCreated(function() {
       _data.dotShow = Dotz.findOne(dotId);
     }
 
-    let userId = _data.dotShow.ownerUserId;
-    if (userId) {
-      _data.dotShowUser = Meteor.users.findOne(userId);
+    if (_data.dotShow) {
+
+      _data.dotShowUser = Meteor.users.findOne(_data.dotShow.ownerUserId);
+
+      if (_data.dotShow.dotzConnectedByOwner) {
+        //subscribe all the relevant data for dotzConnectedByOwner:
+        self.subscribe('smartRefToDotzCursor', _data.dotShow.dotzConnectedByOwner);
+        self.subscribe('smartRefToUsersCursor', _data.dotShow.dotzConnectedByOwner);
+        //send smartRef to module:
+        //_data.dotzConnectedByOwnerObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOwner);
+      }
+
+      if (_data.dotShow.dotzConnectedByOthers) {
+        //subscribe all the relevant data for dotzConnectedByOthers:
+        self.subscribe('smartRefToDotzCursor', _data.dotShow.dotzConnectedByOthers);
+        self.subscribe('smartRefToUsersCursor', _data.dotShow.dotzConnectedByOthers);
+        //send smartRef to module:
+        //_data.dotzConnectedByOthersObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOthers);
+      }
     }
-
-    if (_data.dotShow.dotzConnectedByOwner) {
-      //subscribe all the relevant data for dotzConnectedByOwner:
-      self.subscribe('smartRefToDotzCursor', _data.dotShow.dotzConnectedByOwner);
-      self.subscribe('smartRefToUsersCursor', _data.dotShow.dotzConnectedByOwner);
-      //send smartRef to module:
-      _data.dotzConnectedByOwnerObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOwner);
-    }
-
-    if (_data.dotShow.dotzConnectedByOthers) {
-      //subscribe all the relevant data for dotzConnectedByOthers:
-      self.subscribe('smartRefToDotzCursor', _data.dotShow.dotzConnectedByOthers);
-      self.subscribe('smartRefToUsersCursor', _data.dotShow.dotzConnectedByOthers);
-      //send smartRef to module:
-      _data.dotzConnectedByOthersObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOthers);
-    }
-
-    //if (_data.dotShow) {
-    //  self.subscribe('dotzConnectedByOwner', dotId);
-    //  self.subscribe('user', _data.ownerUserId);
-    //
-    //  if (_data.dotShow.dotzConnectedByOwner) {
-    //    _data.dotShow.dotzConnectedByOwner.objectsArray = [];
-    //    _data.dotShow.dotzConnectedByOwner.forEach(function (smartRef) {
-    //      let dot = Dotz.findOne(smartRef.dotId);
-    //      if (dot) {
-    //        let object = {};
-    //        object.smartRef = smartRef;
-    //        object.dot = dot;
-    //        _data.dotShow.dotzConnectedByOwner.objectsArray.push(object);
-    //      }
-    //    });
-    //  }
-    //
-    //  self.subscribe('dotzConnectedByOthers', dotId);
-    //  if (_data.dotShow.dotzConnectedByOthers) {
-    //    _data.dotShow.dotzConnectedByOthers.objectsArray = [];
-    //    _data.dotShow.dotzConnectedByOthers.forEach(function (smartRef) {
-    //      let dot = Dotz.findOne(smartRef.dotId);
-    //      if (dot) {
-    //        let object = {};
-    //        object.smartRef = smartRef;
-    //        object.dot = dot;
-    //        _data.dotShow.dotzConnectedByOthers.objectsArray.push(object);
-    //      }
-    //
-    //    });
-    //  }
-    //
-    //}
-
   });
 });
 
@@ -81,11 +46,15 @@ Template.dotShow.helpers({
   //  return _data.user.profile.profileImage;
   //},
   dotzConnectedByOwner: function() {
-    return _data.dotzConnectedByOwnerObjectsArray;
+    if (_data.dotShow.dotzConnectedByOwner) {
+      return Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOwner);
+    }
   },
 
   dotzConnectedByOthers: function() {
-    return _data.dotzConnectedByOthersObjectsArray;
+    if (_data.dotShow.dotzConnectedByOthers) {
+      return Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOthers);
+    }
   }
 
 
