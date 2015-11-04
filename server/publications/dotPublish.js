@@ -97,11 +97,10 @@ Meteor.publish('dotzConnectedByOthers', function(dotId){
   }
 });
 
-Meteor.publish('allUserDotz', function(userId){
-  if (dotId){
-    check(userId, String);
-    let allUserDotzIdArray = Meteor.user().profile.createdByUserDots;
+Meteor.publish('createByUserDotz', function(){
+  let currentUser = Meteor.users.findOne(this.userId);
+  let createByUserDotz = currentUser.profile.createdByUserDots;
+  console.log(createByUserDotz);
+  return Dotz.find({_id: {$in: createByUserDotz}});
 
-    return Dotz.find({_id: {$in: allUserDotzIdArray}});
-  }
 });

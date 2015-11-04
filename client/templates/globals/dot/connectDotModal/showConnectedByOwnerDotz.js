@@ -5,7 +5,7 @@
 Template.showConnectedByOwnerDotz.onCreated(function() {
   let self = this;
   self.autorun(function () {
-    self.subscribe('allUserDotz', Meteor.userId());
+    self.subscribe('createByUserDotz');
   });
 });
 

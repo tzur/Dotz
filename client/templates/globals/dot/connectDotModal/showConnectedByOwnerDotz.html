@@ -1,6 +1,10 @@
 <template name="showConnectedByOwnerDotz">
+{{#if Template.subscriptionsReady}}
 
-  <div>
+
+
+
+        <div>
     <button class="dotTitile" data-toggle="collapse" data-target="#{{_id}}">{{title}}</button>
   </div>
 
@@ -26,5 +30,5 @@
 
 
 
-
+{{/if}}
 </template>

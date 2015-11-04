@@ -32,6 +32,13 @@ Template.dotCard.helpers({
     return this;
   },
 
+  isMyDot: function() {
+    return (this.dot.ownerUserId === Meteor.userId())
+  },
+
+  testHelper: function(){
+    return null;
+  },
   createDate: function(){
     return (moment(this.createdAt).fromNow())
   },
@@ -95,22 +102,14 @@ Template.dotCard.events({
     Bert.alert( 'Disconnected', 'warning', 'growl-bottom-left' );
   },
 
-  'click .edit': function(){
-    var dotId = this._id;
-    if (this.isMix){
-      Modal.show('editMixModal', {
-        data:{
-          'dotId': dotId
-        }
-      });
-    }
-    else{
-      Modal.show('editPostModal', {
-        data:{
-          'dotId': dotId
-        }
-      });
-    }
+  'click .editBtn': function(){
+    var dotId = this.dot._id;
+    Modal.show('editDotModal', {
+      data:{
+        'dotId': dotId
+      }
+    });
+
   },
 
   'click .delete':function(event){
