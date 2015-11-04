@@ -5,7 +5,7 @@
     <div class="container-fluid dot-show-header">
         <div class="row">
 
-            <div class="col-md-7 postImgCover" style="background-image: url('{{dot.coverImageUrl}}')">
+            <div class="col-md-7 postImgCover" style="background-image: url('{{dotShow.coverImageUrl}}')">
 
             </div>
 
@@ -13,7 +13,7 @@
 
                 <div class="row dot-title">
                     <div class="toDot col-xs-12">
-                        <h2 class="dot-show-title">{{dot.title}}
+                        <h2 class="dot-show-title">{{dotShow.title}}
                           {{#if myDot}}
                               <small>
                                   <a class="editPost editbtn-muted">
@@ -30,7 +30,7 @@
 
                         <div class="txtL dot-show-type">
                             <img class="type-icon-dot-show" src="/place-icon-grey.png">
-                            <span class="dot-type greyText mdTxt alignSub">{{dot.locationName}}</span>
+                            <span class="dot-type greyText mdTxt alignSub">{{dotShow.locationName}}</span>
                         </div>
 
                         <div class="txtL dot-show-type">
@@ -40,7 +40,7 @@
 
                         <div class="txtL dot-show-type">
                             <img class="type-icon-dot-show" src="/price-icon-grey.png">
-                            <span class="dot-type greyText mdTxt alignSub"><span>$ </span>{{dot.price}}</span>
+                            <span class="dot-type greyText mdTxt alignSub"><span>$ </span>{{dotShow.price}}</span>
                         </div>
 
                     </div>
@@ -92,7 +92,7 @@
 
                     <div class="row dot-description">
                         <div class="col-xs-12 iconDivDetails">
-                            <pre class="greyText mdTxt limiText dot-desc-left-pad">{{dot.bodyText}}</pre>
+                            <pre class="greyText mdTxt limiText dot-desc-left-pad">{{dotShow.bodyText}}</pre>
                         </div>
                     </div>
 
