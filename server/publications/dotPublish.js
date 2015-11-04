@@ -76,3 +76,18 @@ Meteor.publish('dotzConnectedByOwner', function(dotId){
     return Dotz.find({_id: {$in: dotzConnectedByOwnerArray}});
   }
 });
+
+/*
+ * This publish the dotzConnectedByOthers:
+ */
+Meteor.publish('dotzConnectedByOthers', function(dotId){
+  if (dotId){
+    check(dotId, String);
+    let dot = Dotz.findOne(dotId);
+    let dotzConnectedByOthersArray = [];
+    dot.dotzConnectedByOthers.forEach(function (smartRef) {
+      dotzConnectedByOthersArray.push(smartRef.dotId);
+    });
+    return Dotz.find({_id: {$in: dotzConnectedByOthersArray}});
+  }
+});

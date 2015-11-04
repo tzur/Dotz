@@ -12,19 +12,37 @@ Template.userShow.onCreated(function() {
     if (_data.user) {
       let dotId = _data.user.profile.profileDotId;
       self.subscribe('dotShow', dotId);
-      _data.dot = Dotz.findOne(dotId);
+      _data.dotShow = Dotz.findOne(dotId);
 
-      if (_data.dot) {
+      if (_data.dotShow) {
         self.subscribe('dotzConnectedByOwner', dotId);
-        let getDotzConnectedByOwnerArray = [];
+        self.subscribe('user', _data.ownerUserId);
 
-        if (_data.dot.dotzConnectedByOwner) {
-          _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
-            getDotzConnectedByOwnerArray.push(smartRef.dotId);
+        if (_data.dotShow.dotzConnectedByOwner) {
+          _data.dotShow.dotzConnectedByOwner.objectsArray = [];
+          _data.dotShow.dotzConnectedByOwner.forEach(function (smartRef) {
+            let dot = Dotz.findOne(smartRef.dotId);
+            if (dot) {
+              let object = {};
+              object.smartRef = smartRef;
+              object.dot = dot;
+              _data.dotShow.dotzConnectedByOwner.objectsArray.push(object);
+            }
           });
         }
-        _data.dot.dotzConnectedByOwner.originalDotObjects = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
       }
+
+      //if (_data.dot) {
+      //  self.subscribe('dotzConnectedByOwner', dotId);
+      //  let getDotzConnectedByOwnerArray = [];
+      //
+      //  if (_data.dot.dotzConnectedByOwner) {
+      //    _data.dot.dotzConnectedByOwner.forEach(function (smartRef) {
+      //      getDotzConnectedByOwnerArray.push(smartRef.dotId);
+      //    });
+      //  }
+      //  _data.dot.dotzConnectedByOwner.originalDotObjects = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
+      //}
     }
 
     //self.subscribe('dotzConnectedByOthers', dotId);
@@ -38,7 +56,7 @@ Template.userShow.helpers({
   },
   dotzConnectedByOwner: function() {
     //console.log("_data.dot.dotzConnectedByOwner.objects[1] " + _data.dot.dotzConnectedByOwner.originalDotObjects[1])
-    return _data.dot.dotzConnectedByOwner.originalDotObjects;
+    return _data.dotShow.dotzConnectedByOwner.objectsArray;
   },
 
   followingCounter: function(){
