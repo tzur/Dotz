@@ -28,8 +28,8 @@ Template.dotCard.helpers({
     return ( moment(this.dot.startDateAndHour).fromNow());
   },
   isTheOwnerDotCard: function() {
-    let connectedByUserId = this.smartRef.connectedByUserId;
-    let dotOwnerUserId = _dataCard.user._id;
+    let connectedByUserId = this.connectedByUser._id;
+    let dotOwnerUserId = this.ownerUser._id;
     //let parentData = Template.parentData();
     return (connectedByUserId === dotOwnerUserId)
   },
