@@ -1,14 +1,19 @@
-//_data = {};
-//
-//Template.dotCard.onCreated(function() {
-//  console.log("%%%%%%%%%%%%%%%%%%% this._id is 00000 " + this._id);
-//  let self = this;
-//  self.autorun(function() {
-//    let dotId = this._id;
-//    self.subscribe('dotShow', dotId);
-//    console.log("%%%%%%%%%%%%%%%%%%% this._id is " + this._id);
-//  });
-//});
+_data = {};
+
+
+Template.dotCard.onCreated(function() {
+  //console.log("%%%%%%%%%%%%%%%%%%% this._id is 00000 " + this._id);
+  let self = this;
+  self.autorun(function() {
+    let userId = this.ownerUserId;
+    self.subscribe('user', userId);
+    //console`.log("%%%%%%%%%%%%%%%%%%% userId " + userId);
+
+    let user = Meteor.users.findOne(userId);
+    _data.user = user;
+
+  });
+});
 
 Template.dotCard.onRendered (function(){
   $(".limitP-mobile").each(function(i){
@@ -21,33 +26,33 @@ Template.dotCard.onRendered (function(){
 });
 
 Template.dotCard.helpers({
-  dotCard: function() {
-    return this;
+  dotData: function() {
+    _data.dot = this;
+    return _data;
   },
   userName: function(){
     return this.owner.userName;
   },
-  dotIdLink: function() {
-    return ('/dot/' + this._id + '#top');
+  dotUrlLink: function() {
+    return ('/dot/' + _data.dot._id);
   },
-  userIdLink: function() {
-    return ('/user/' + this.ownerUserId);
-  }
+  userUrlLink: function() {
+    return ('/user/' + _data.user.username);
+  },
   //profileImageUrl: function() {
   //  var user = Meteor.users.findOne(this.owner.userId);
   //  return user.profile.profileImage;
   //},
-  //createDate: function(){
-  //  return (moment(this.createdAt).fromNow())
-  //},
-  //eventDate: function(){
-  //  if(!this.isMix && this.eventDate.startDate) {
-  //    return ( moment(this.eventDate.startDate).fromNow());
-  //  }
-  //  else {
-  //    return false;
-  //  }
-  //},
+  createDate: function(){
+    return (moment(this.createdAt).fromNow())
+  },
+  eventDate: function(){
+    return ( moment(_data.dot.startDateAndHour).fromNow());
+  },
+  showOriginalDotCard: function() {
+    let parentData = Template.parentData();
+    return (parentData)
+  }
   //
   //mixDotzNum: function(){
   //  if (this.isMix){
@@ -200,7 +205,7 @@ Template.dotCard.events({
 
     Modal.show('connectDotModal',{
       data:{
-        dotId: this._id
+        dotId: this.dot._id
       }
     });
   },

@@ -26,12 +26,12 @@ Meteor.methods({
     };
     _dotUpdate(smartRef.parentDot, updateOptions)
   },
-  addDotToInDotz(toBeAddedDotId, targetDotId){
-    check(toBeAddedDotId, String);
-    check(targetDotId, String);
+  addDotToInDotz(dotId, parentDotId){
+    check(dotId, String);
+    check(parentDotId, String);
     let updateOptions = {
-      $addToSet: {inDotz: toBeAddedDotId}
+      $addToSet: {inDotz: parentDotId}
     };
-    _dotUpdate(targetDotId, updateOptions)
+    _dotUpdate(dotId, updateOptions)
   }
 });

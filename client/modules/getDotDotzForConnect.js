@@ -2,22 +2,7 @@
 let _checkDot = function(dotId, dotIdWishedToConnect){
   let isNotConnected = true;
   let _dot = Dotz.findOne(dotId);
-  if(_dot._id != dotIdWishedToConnect && _dot.ownerUserId === Meteor.userId()){
-    if(_dot.dotzConnectedByOwner) {
-      _dot.dotzConnectedByOwner.forEach(function (smartRef) {
-        if (smartRef.dotId === dotIdWishedToConnect) {
-          isNotConnected = false;
-        }
-      });
-      return isNotConnected
-    }
-    else{
-      return true;
-    }
-  }
-  else{
-    return false;
-  }
+  return (_dot._id != dotIdWishedToConnect && _dot.ownerUserId === Meteor.userId())
 
 };
 

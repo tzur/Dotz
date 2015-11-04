@@ -1,6 +1,6 @@
 <template name="dotCard">
 {{#if Template.subscriptionsReady}}
-{{#with data}}
+{{#with dotData}}
 
     <!-- full wrapper -->
 
@@ -37,7 +37,7 @@
 
                                           <div class="row cardTitleDiv">
                                               <div class="col-xs-12 col-sm-12">
-                                                  <a href="{{dotIdLink}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
+                                                  <a href="{{dotUrlLink}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
                                               </div>
                                           </div>
 
@@ -56,11 +56,11 @@
                                           <div class="card-btns-div-mobile">
 
                                               <div class="cardConnecterDiv-mobile greyText smTxt user-personal-desc-details">
-                                                  <a href="{{userIdLink}}" class="userImgIcon">
-                                                      <img class="userImgIcon" src="{{user.profileImage}}">
+                                                  <a href="{{userUrlLink}}" class="userImgIcon">
+                                                      <img class="userImgIcon" src="{{user.profile.profileImage}}">
                                                   </a>
 
-                                                  <a href="{{userIdLink}}">
+                                                  <a href="{{userUrlLink}}">
                                                       <span class="align-icon-text">{{user.username}}</span>
                                                   </a>
 
@@ -99,7 +99,7 @@
 
                                           <div class="row cardTitleDiv">
                                               <div class="col-md-10">
-                                                  <a href="{{dotIdLink}}"><h2 class="cardTitle">{{title}}</h2></a>
+                                                  <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
                                               </div>
 
                                               <div class="col-md-2">
@@ -114,20 +114,27 @@
 
                                           <div class="row cardPersonalDesc">
 
+                                            {{#if dot.locationName}}
                                                 <span class="txtL dot-type">
                                                     <img id="type-icon" src="/place-icon-grey.png">
-                                                    <span class="greyText smTxt">{{locationName}} <span>·</span></span>
+                                                    <span class="greyText smTxt">{{dot.locationName}}</span>
                                                 </span>
+                                            {{/if}}
 
+                                            {{#if eventDate}}
                                                 <span class="txtL dot-type">
                                                     <img id="type-icon" src="/event-icon-grey.png">
-                                                    <span class="greyText smTxt">{{#if eventDate}}{{eventDate}}{{/if}}</span>
+                                                    <span class="greyText smTxt">{{eventDate}}</span>
                                                 </span>
+                                            {{/if}}
 
+                                            {{#if dot.price}}
                                                 <span class="txtL dot-type">
                                                     <img id="type-icon" src="/price-icon-grey.png">
-                                                    <span class="greyText smTxt">24 <span>$</span></span>
+                                                    <span class="greyText smTxt">{{dot.price}} <span>$</span></span>
                                                 </span>
+                                            {{/if}}
+
 
                                           </div>
 
@@ -139,15 +146,25 @@
                                               </div>
 
                                               <div class="col-md-10 cardConnecterDiv greyText smTxt">
-                                                  <a href="{{user.profileImage}}" class="userImgIcon">
-                                                      <img class="userImgIcon" src="{{profileImageUrl}}">
+                                                  <a href="{{userUrlLink}}" class="userImgIcon">
+                                                      <img class="userImgIcon" src="{{user.profile.profileImage}}">
                                                   </a>
 
-                                                  <a href="{{userIdLink}}">
-                                                      <span class="align-icon-text">{{owner.userName}}</span>
+                                                  <a href="{{userUrlLink}}">
+                                                      <span class="align-icon-text">{{user.username}}</span>
                                                   </a>
 
-                                                  <span>connected TimeOut Dot <span>·</span> {{createDate}}</span>
+                                                {{#if showOriginalDotCard}}
+
+
+                                                    <span>connected TimeOut Dot <span>·</span> {{createDate}}</span>
+
+
+                                                {{else}}
+
+                                                    <span>connected TimeOut Dot <span>·</span> {{createDate}}</span>
+
+                                                {{/if}}
 
                                               </div>
 
@@ -214,6 +231,7 @@
             </div>
         </div>
     </div>
+  </div>
 
 
 

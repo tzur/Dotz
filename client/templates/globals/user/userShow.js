@@ -6,7 +6,7 @@ Template.userShow.onCreated(function() {
   self.autorun(function() {
 
     let username = FlowRouter.getParam('username');
-    self.subscribe('username', username);
+    self.subscribe('userByUsername', username);
     _data.user = Meteor.users.findOne({username: username});
 
     if (_data.user) {
@@ -23,7 +23,7 @@ Template.userShow.onCreated(function() {
             getDotzConnectedByOwnerArray.push(smartRef.dotId);
           });
         }
-        _data.dot.dotzConnectedByOwner.objects = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
+        _data.dot.dotzConnectedByOwner.originalDotObjects = Dotz.find({_id: {$in: getDotzConnectedByOwnerArray}});
       }
     }
 
@@ -33,21 +33,22 @@ Template.userShow.onCreated(function() {
 });
 
 Template.userShow.helpers({
-  user: function() {
-    return _data.user;
+  data: function() {
+    return _data;
   },
   dotzConnectedByOwner: function() {
-    console.log("_data.dot.dotzConnectedByOwner.objects[1] " + _data.dot.dotzConnectedByOwner.objects[1])
-    return _data.dot.dotzConnectedByOwner.objects;
+    //console.log("_data.dot.dotzConnectedByOwner.objects[1] " + _data.dot.dotzConnectedByOwner.originalDotObjects[1])
+    return _data.dot.dotzConnectedByOwner.originalDotObjects;
   },
 
   followingCounter: function(){
     return _data.user.profile.following.length;
   },
   followersCounter: function(){
-        return _data.user.profile.followers.length;
+    return _data.user.profile.followers.length;
   },
   myFollow: function(){
+
     if (Meteor.user().profile.following &&
       Meteor.user().profile.following.indexOf(_data.user._id) > -1){
       return true;
