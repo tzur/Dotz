@@ -7,7 +7,7 @@
 
       <div>
           <div class="row">
-              <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
+              <div class="col-xs-12 col-sm-9 col-lg-9 colCenter">
 
 
                   <div class="container-fluid longCardWrapper">
@@ -21,7 +21,7 @@
                                       <div class="container-fluid dot-container-img-card-mobile" style="background-image: url('{{dot.coverImageUrl}}')">
                                           <div class="row" >
                                               <div id="round-overlay-mobile"></div>
-                                              <div class="dotConnectedDotzLastIcon-mobile">
+                                              <div class="dotConnectedDotzLastIcon">
                                                   <div class="innerDotlengh-upper txtMd"><span>134</span></div>
                                                   <div class="innerDotlengh-lower txtMd"><span>Dotz</span></div>
                                               </div>
@@ -31,13 +31,11 @@
 
                                   <div class="col-md-4 liquidCol hidden-xs hidden-sm">
                                       <div class="container-fluid dot-container-img-card" style="background-image: url('{{dot.coverImageUrl}}')">
-                                          <div class="row" >
-                                              <div id="round-overlay"></div>
-                                              <div class="dotConnectedDotzLastIcon-mobile">
-                                                  <div class="innerDotlengh-upper txtMd"><span>134</span></div>
-                                                  <div class="innerDotlengh-lower txtMd"><span>Dotz</span></div>
-                                              </div>
-                                          </div>
+
+                                        <div class="dotConnectedDotzLastIcon">
+                                            <div class="innerDotlengh-upper txtMd"><span>134</span></div>
+                                            <div class="innerDotlengh-lower txtMd"><span>Dotz</span></div>
+                                        </div>
                                       </div>
                                   </div>
 
@@ -153,7 +151,7 @@
                                           </div>
 
                                           <div class="row">
-                                              <div class="col-xs-4 colCenter">
+                                              <div class="col-xs-4 col-sm-3 colCenter">
                                                 {{#if isMyMix}}
                                                     <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
                                                     <button type="button" class="disConnect btn btn-success round btn-sm pull-right">Connected ({{isConnected}})</button>
@@ -308,3 +306,6 @@
       <!--to replace with a loading template-->
   {{/if}}
 </template>
+
+
+
