@@ -2,11 +2,13 @@
 
   {{#if Template.subscriptionsReady}}
 
+
       <!-- full wrapper -->
 
       <div>
           <div class="row">
               <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
+
 
 
                   <div class="container-fluid longCardWrapper">
@@ -124,6 +126,7 @@
                                               </div>
 
                                           </div>
+
 
 
                                           <div class="row">
@@ -259,7 +262,8 @@
                                                   <span class="like-btn-up-text-mobile smTxt">364 likes</span>
                                               <div class="col-md-2 cardConnecterDiv">
                                                   <button type="button" class="btn btn-default round btn-xs midWidth pull-right">
-                                                      <img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
+                                                      <img class="like like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
+                                                      {{likeCounter}}
                                                   </button>
                                               </div>
 
@@ -318,10 +322,9 @@
       </div>
     </div>
 
-
-
   {{else}}
       <p> Loading...</p>
       <!--to replace with a loading template-->
+
   {{/if}}
 </template>

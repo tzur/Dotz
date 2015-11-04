@@ -18,13 +18,48 @@ Meteor.methods({
     };
     _userUpdate(userId ,updateOptions);
   },
+
   updateUserAllUserDotz(userId, dotId){
     check(userId, String);
     check(dotId, String);
     let updateOptions = {
       $addToSet: {"profile.createdByUserDots": dotId}
     };
-    _userUpdate(userId ,updateOptions);
+    _userUpdate(userId, updateOptions);
+  },
+
+  followUser(followingUserId, followedUserId){
+    check(followingUserId, Meteor.userId());
+    check(followedUserId, String);
+    let updateOptions = {
+      $addToSet: {"profile.following": followedUserId}
+    };
+    _userUpdate(followingUserId, updateOptions);
+  },
+
+  updateFollowedWithFollow(followingUserId, followedUserId){
+    check(followingUserId, Meteor.userId());
+    check(followedUserId, String);
+    let updateOptions = {
+      $addToSet: {"profile.followers": followingUserId}
+    };
+    _userUpdate(followedUserId, updateOptions)
+  },
+  unFollowUser(followingUserId, followedUserId){
+    check(followingUserId, Meteor.userId());
+    check(followedUserId, String);
+    let updateOptions = {
+      $pull: {"profile.following": followedUserId}
+    };
+    _userUpdate(followingUserId ,updateOptions);
+  },
+  updateFollowedWithUnFollow(followingUserId, followedUserId){
+    check(followingUserId, Meteor.userId());
+    check(followedUserId, String);
+    let updateOptions = {
+      $pull: {"profile.followers": followingUserId}
+    };
+    _userUpdate(followedUserId, updateOptions);
   }
 
 });

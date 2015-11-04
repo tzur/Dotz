@@ -12,6 +12,33 @@ let _dotUpdate = (dotId, updateOptions) => {
 
 
 Meteor.methods({
+  likeDotInOwner(targetDotId, smartRefId, userId ){
+    check(targetDotId, String);
+    check(smartRefId, String);
+    check(userId, Meteor.userId());
+    try{
+
+      Dotz.update({_id: targetDotId, "dotzConnectedByOwner.dotId": smartRefId}, {
+        $addToSet: {"dotzConnectedByOwner.$.likes": userId}})
+    }
+    catch(exception){
+      return exception;
+    }
+
+  },
+  likeDotInOthers(targetDotId, smartRefId, userId ){
+    check(targetDotId, String);
+    check(smartRefId, String);
+    check(userId, Meteor.userId());
+    try{
+      Dotz.update({_id: targetDotId, "dotzConnectedByOthers.dotId": smartRefId}, {
+        $addToSet: {"dotzConnectedByOthers.$.likes": userId}})
+    }
+    catch(exception){
+      return exception;
+    }
+
+  },
   addDotConnectedByOwner(smartRef){
     check(smartRef, Schema.dotSmartRef);
     let updateOptions = {
