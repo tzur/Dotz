@@ -17,14 +17,16 @@ Template.dotShow.onCreated(function() {
 
     if (_data.dotShow.dotzConnectedByOwner) {
       //subscribe all the relevant data for dotzConnectedByOwner:
-      self.subscribe('smartRefToDataObject', _data.dotShow.dotzConnectedByOwner);
+      self.subscribe('smartRefToDotzCursor', _data.dotShow.dotzConnectedByOwner);
+      self.subscribe('smartRefToUsersCursor', _data.dotShow.dotzConnectedByOwner);
       //send smartRef to module:
       _data.dotzConnectedByOwnerObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOwner);
     }
 
     if (_data.dotShow.dotzConnectedByOthers) {
       //subscribe all the relevant data for dotzConnectedByOthers:
-      self.subscribe('smartRefToDataObject', _data.dotShow.dotzConnectedByOthers);
+      self.subscribe('smartRefToDotzCursor', _data.dotShow.dotzConnectedByOthers);
+      self.subscribe('smartRefToUsersCursor', _data.dotShow.dotzConnectedByOthers);
       //send smartRef to module:
       _data.dotzConnectedByOthersObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOthers);
     }
