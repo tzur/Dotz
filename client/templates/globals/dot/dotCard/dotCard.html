@@ -1,8 +1,5 @@
 <template name="dotCard">
   {{#if Template.subscriptionsReady}}
-    <!--{{#with dotData}}-->
-
-
     <!-- full wrapper -->
     <div>
         <div class="row">
@@ -147,7 +144,7 @@
                                               <div class="col-md-10">
                                                   <a href="/dot/{{_id}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
                                               </div>
-
+                                          </div>
 
 
 
@@ -352,10 +349,5 @@
         </div>
 
 
-
-    <!--{{/with}}-->
-  {{else}}
-      <p> Loading...</p>
-      <!--to replace with a loading template-->
   {{/if}}
 </template>
