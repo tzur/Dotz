@@ -16,5 +16,9 @@ Template.connectDotModal.helpers({
     if(Session.get('dotIdWishedToBeConnected')) {
       return Modules.client.Dotz.getConnectedByOwnerDotz(Meteor.user().profile.profileDotId, Session.get('dotIdWishedToBeConnected'))
     }
+  },
+
+  isConnectedToUserProfileDot: function(){
+    return Modules.client.Dotz.isConnectedToDot(Meteor.user().profile.profileDotId, Session.get('dotIdWishedToBeConnected'))
   }
 });
