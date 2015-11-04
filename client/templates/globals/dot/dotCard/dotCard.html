@@ -58,7 +58,7 @@
 
                                           <div class="row cardTitleDiv">
                                               <div class="col-xs-12 col-sm-12">
-
+                                                    {{testHelper}}
                                                   <a href="{{dotUrlLink}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
 
                                               </div>
@@ -311,14 +311,14 @@
                   <!--</div>-->
 
                   <div style="margin-bottom: 1em;">
-                    {{#if myDot}}
+                    {{#if isMyDot}}
                         <a class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>
-                        <a class="edit editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
+                        <a class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
                     {{/if}}
-                    {{#if isMyMix}}
-                        <a class="upBtn"><span class="glyphicon glyphicon-triangle-top smTxt" aria-hidden="true"> </span></a>
-                        <a class="downBtn"><span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span></a>
-                    {{/if}}
+                    <!--{{#if isMyMix}}-->
+                        <!--<a class="upBtn"><span class="glyphicon glyphicon-triangle-top smTxt" aria-hidden="true"> </span></a>-->
+                        <!--<a class="downBtn"><span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span></a>-->
+                    <!--{{/if}}-->
                   </div>
 
 

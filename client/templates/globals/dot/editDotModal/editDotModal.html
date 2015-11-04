@@ -1,0 +1,48 @@
+<template name="editDotModal">
+    <div class="modal fade">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit-your-Dot:</h4>
+                </div>
+
+                <div class="modal-body">
+                  {{#autoForm id="editDotForm" type="update" collection="Dotz" doc=selectedDotDoc}}
+                      <fieldset>
+                        {{> afQuickField name='title' autofocus= ''}}
+                        {{> afQuickField name='bodyText' rows=6}}
+                          <div class="liquidCol col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                              <img id="imgDotShow" class="img-responsive" src={{dot.dotImageUrl}}>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <br>
+                              </div>
+                              <div class="col-xs-4">
+                                  <p>Change image: <br></p>
+                              </div>
+                            {{> uploader}}
+
+                            {{#if isImageUrl}}
+                                <div class="file col-xs-12 col-sm-8 colCenter">
+                                    <div class="preview">
+                                        <a href="{{dot.coverImageUrl}}"></a>
+                                        <img src="{{dot.coverImageUrl}}">
+                                    </div>
+                                </div>
+                            {{/if}}
+                          </div>
+                          <div id="loading" class="row loading"></div>
+                          <br>
+                        {{> afQuickField name='locationName'}}
+                          <!--{{> afQuickField name='locationLatLng'}}-->
+                      </fieldset>
+                      <button type="submit" id="submit" class="editDot btn btn-primary">Save changes</button>
+                  {{/autoForm}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,6 +1,13 @@
 /**
  * Created by avivhatzir on 02/11/2015.
  */
+Template.connectDotModal.onCreated(function(){
+  let self = this;
+  self.autorun(function () {
+    self.subscribe('createByUserDotz');
+  });
+
+  });
 
 Template.connectDotModal.helpers({
 
