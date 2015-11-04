@@ -20,7 +20,9 @@ Template.dotCard.onCreated(function() {
     }
 
     let user = Meteor.users.findOne(userId);
-    _data.user = user;
+    if (user) {
+      _data.user = user;
+    }
 
   });
 });
