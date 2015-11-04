@@ -1,61 +1,42 @@
-_data = {};
-
-Template.dotCard.onCreated(function() {
-  let self = this;
-  self.autorun(function() {
-
-    if (_data.smartRef) {
-      let dotId = _data.smartRef.dotId;
-      if (dotId) {
-        self.subscribe('dotShow', _data.smartRef.dotId);
-        _data.dot = Dotz.findOne(dotId);
-        if (_data.dot) {
-        }
-      }
-
-    }
-    let userId = this.ownerUserId;
-    if (userId) {
-      self.subscribe('user', userId);
-    }
-
-    let user = Meteor.users.findOne(userId);
-    if (user) {
-      _data.user = user;
-    }
-
-  });
-});
-
-
+_dataCard = {};
 
 Template.dotCard.helpers({
-  dotData: function() {
-    return this;
-  },
-  //userName: function(){
-  //  return this.owner.userName;
+  //dotData: function() {
+  //  _dataCard.dot = this.dot;
+  //  console.log("2222222222222 _dataCard.dot is " + _dataCard.dot.title);
+  //  return this;
   //},
+
+  username: function(){
+    return _dataCard.user.username;
+  },
 
   //dotUrlLink: function() {
   //  return ('/dot/' + _data.dot._id);
   //},
-  //userUrlLink: function() {
-  //  return ('/user/' + _data.user.username);
-  //},
-  //profileImageUrl: function() {
-  //  var user = Meteor.users.findOne(this.owner.userId);
-  //  return user.profile.profileImage;
-  //},
+  userUrlLink: function() {
+    if (_dataCard.user.username) {
+      return ('/user/' + _dataCard.user.username);
+    }
+  },
+  profileImageUrl: function() {
+    return _dataCard.user.profile.profileImage;
+  },
+  //show the dotOwner for connected dotz:
+  dotOwnerUsername: function() {
+    return _dataCard.user.username;
+  },
   createDate: function(){
     return (moment(this.createdAt).fromNow())
   },
   eventDate: function(){
-    return ( moment(_data.dotShow.startDateAndHour).fromNow());
+    return ( moment(this.dot.startDateAndHour).fromNow());
   },
-  showOriginalDotCard: function() {
-    let parentData = Template.parentData();
-    return (parentData)
+  isTheOwnerDotCard: function() {
+    let connectedByUserId = this.smartRef.connectedByUserId;
+    let dotOwnerUserId = _dataCard.user._id;
+    //let parentData = Template.parentData();
+    return (connectedByUserId === dotOwnerUserId)
   }
   //
   //mixDotzNum: function(){
