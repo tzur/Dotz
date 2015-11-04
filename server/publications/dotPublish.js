@@ -92,16 +92,30 @@ Meteor.publish('dotzConnectedByOthers', function(dotId){
       dot.dotzConnectedByOthers.forEach(function (smartRef) {
         dotzConnectedByOthersArray.push(smartRef.dotId);
       });
-      return Dotz.find({_id: {$in: dotzConnectedByOthersArray}});
+
     }
+    return Dotz.find({_id: {$in: dotzConnectedByOthersArray}});
   }
 });
 
-Meteor.publish('allUserDotz', function(userId){
-  if (dotId){
-    check(userId, String);
-    let allUserDotzIdArray = Meteor.user().profile.createdByUserDots;
+Meteor.publish('smartRefToUsersCursor', function(smartRefArray){
+  check(smartRefArray, Array);
+  let userIds = []
+  smartRefArray.forEach(function(smartRef){
+    let dot = Dotz.find(smartRef.dotId);
+    userIds.push(smartRef.connectedByUserId);
+    userIds.push(dot.ownerUserId);
+  });
 
-    return Dotz.find({_id: {$in: allUserDotzIdArray}});
-  }
+  return Meteor.users.find({_id: {$in: userIds}});
+});
+Meteor.publish('smartRefToDotzCursor', function(smartRefArray) {
+  check(smartRefArray, Array);
+  let dotzCursor = [];
+  let dotIds = []
+  smartRefArray.forEach(function (smartRef) {
+    dotIds.push(smartRef.dotId);
+  });
+  return Dotz.find({_id: {$in: dotIds}});
+
 });
