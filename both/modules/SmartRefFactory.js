@@ -1,26 +1,16 @@
-
-let createSmartRef = (dotId, parentDot, connectedByUserId, actionName, personalDescription) => {
-  let smartRef = {};
-  // just delete the entire if, at the worst case it will be undefined and it's fine.
-  if (personalDescription){
-    smartRef = {
-      dotId: dotId,
-      parentDot: parentDot,
-      connectedByUserId: connectedByUserId,
-      actionName: actionName,
-      personalDescription:personalDescription
-    }
-  }
-  else{
-    smartRef = {
-      dotId: dotId,
-      parentDot: parentDot,
-      connectedByUserId: connectedByUserId,
-      actionName: actionName
-    }
-  }
-  return smartRef
+//changing SmartRef to be independent object.
+SmartRef = function (dotId, parentDot, connectedByUserId, actionName, personalDescription){
+      this.dotId = dotId,
+      this.parentDot = parentDot,
+      this.connectedByUserId =  connectedByUserId,
+      this.actionName =  actionName,
+      this.personalDescription = personalDescription,
+      this.likes = []
 };
-
-Modules.both.Dotz.smartRefFactory = createSmartRef;
+SmartRef.prototype = {
+  like: function(userId){
+    Meteor.call('likeDot', this.parentDot, this.dotId, userId);
+  }
+};
+//Modules.both.Dotz.smartRef = SmartRef;
 

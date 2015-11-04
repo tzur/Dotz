@@ -19,7 +19,7 @@ Meteor.methods({
         let dotId = result;
         // maybe need to do if(!error).
         if (dotId) {
-          let smartRef = Modules.both.Dotz.smartRefFactory(dotId, doc.inDotz[0], doc.ownerUserId, CREATE_ACTION);
+          let smartRef = new SmartRef(dotId, doc.inDotz[0], doc.ownerUserId, CREATE_ACTION);
           Modules.both.Dotz.connectDot(smartRef);
         }
       })
