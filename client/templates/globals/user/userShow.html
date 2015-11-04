@@ -4,9 +4,7 @@
 
 <template name="userShow">
 {{#if Template.subscriptionsReady}}
-<!--{{#with data}} -->
-
-
+{{#with data}}
         <div id="userBgImg" class="container-liquid">
             <div class="row imgCover" style="background-image: url('{{user.profile.coverImage}}')">
                 <div class="col-xs-12 colCenter">
@@ -97,7 +95,7 @@
                         <div class="col-sm-12 txtMd">
                           {{# if notMyProfile}}
                             {{#if myFollow}}
-                                <button type="button" class="unFollow btn btn-lead btn-lg round">Following</button>
+                                <button type="button" class="unFollow btn btn-success btn-lg round">Following</button>
                             {{else}}
                                 <button type="button" class="follow btn btn-success btn-lg round">Follow</button>
                             {{/if}}
@@ -129,7 +127,7 @@
 
 
 
-<!--{{/with}}-->
+{{/with}}
 {{else}}
       <p> Loading...</p>
   <!--to replace with a loading template-->

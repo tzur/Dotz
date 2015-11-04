@@ -12,7 +12,6 @@ Template.dotCard.onCreated(function() {
         if (_data.dot) {
         }
       }
-
     }
     let userId = this.ownerUserId;
     if (userId) {
@@ -26,8 +25,6 @@ Template.dotCard.onCreated(function() {
 
   });
 });
-
-
 
 Template.dotCard.helpers({
   dotData: function() {
@@ -43,6 +40,9 @@ Template.dotCard.helpers({
   showOriginalDotCard: function() {
     let parentData = Template.parentData();
     return (parentData)
+  },
+  likeCounter: function(){
+    return this.smartRef.likes.length;
   }
 });
 
@@ -57,7 +57,7 @@ Template.dotCard.events({
   },
 
   'click .like': function(event){
-    Meteor.call('likePost', Meteor.userId(), this._id);
+    Modules.both.Dotz.likeDot(this.smartRef, Meteor.userId());
   },
 
   'click .unlike': function(event){
