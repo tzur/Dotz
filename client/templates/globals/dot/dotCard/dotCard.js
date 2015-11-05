@@ -31,11 +31,8 @@ Template.dotCard.helpers({
     }
   },
 
-  userIsDotCardOwner: function() {
-    let connectedByUserId = this.connectedByUser._id;
-    let dotOwnerUserId = this.ownerUser._id;
-    //let parentData = Template.parentData();
-    return (connectedByUserId === dotOwnerUserId)
+  userIsTheDotCreator: function() {
+    return (this.ownerUser._id === this.connectedByUser._id)
   },
 
   personlDescriptionOrBodyText: function() {
@@ -106,6 +103,14 @@ Template.dotCard.helpers({
   //
   //},
 
+
+  isConnected: function() {
+    let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
+    return ( parentDotOwnerId === Meteor.userId() )
+  },
+
+
+
   connectCounter: function() {
     let counter = Dotz.findOne(this.dot._id).inDotz.length;
     if (counter === 0) {
@@ -119,6 +124,12 @@ Template.dotCard.helpers({
   likeCounter: function(){
     return this.smartRef.likes.length;
   },
+
+
+
+
+
+
 
   isInMyParentDot: function() {
     let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
@@ -165,10 +176,9 @@ Template.dotCard.events({
   },
 
   'click .editBtn': function(){
-    var dotId = this.dot._id;
     Modal.show('editDotModal', {
       data:{
-        'dotId': dotId
+        'dot': this.dot
       }
     });
 
