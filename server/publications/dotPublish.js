@@ -100,7 +100,7 @@ Meteor.publish('dotzConnectedByOthers', function(dotId){
 
 Meteor.publish('createByUserDotz', function() {
   let currentUser = Meteor.users.findOne(this.userId);
-  let createByUserDotz = currentUser.profile.createdByUserDots;
+  let createByUserDotz = currentUser.profile.createdByUserDotz;
   createByUserDotz.push(currentUser.profile.profileDotId);
   console.log("#################################" + createByUserDotz);
   return Dotz.find({_id: {$in: createByUserDotz}});

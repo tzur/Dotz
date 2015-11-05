@@ -23,7 +23,7 @@ Meteor.methods({
     check(userId, String);
     check(dotId, String);
     let updateOptions = {
-      $addToSet: {"profile.createdByUserDots": dotId}
+      $addToSet: {"profile.createdByUserDotz": dotId}
     };
     _userUpdate(userId, updateOptions);
   },
