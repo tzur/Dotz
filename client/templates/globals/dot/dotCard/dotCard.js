@@ -21,6 +21,12 @@ Template.dotCard.helpers({
     return (this.dot.ownerUserId === Meteor.userId())
   },
 
+  //Works for dotzConnectedByOwner, TBD for dotzConnectedByOthers:
+  sortIsAvailable: function() {
+    let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
+    return ( parentDotOwnerId === Meteor.userId() )
+  },
+
   actionDate: function(){
     if (this.dot.createdAtDate) {
       return (moment(this.dot.createdAtDate).fromNow())
@@ -87,31 +93,9 @@ Template.dotCard.helpers({
     }
   },
 
-  //isConnected: function() {
-  //
-  //  var data = Template.parentData();
-  //  if (!data) {
-  //    return false;
-  //  }
-  //  if (data.user){
-  //    return data.user._id === Meteor.userId();
-  //  }
-  //  if (data.mix){
-  //    return data.mix.owner.userId === Meteor.userId();
-  //  }
-  //
-  //  let dotId = this.dot._id;
-  //
-  //
-  //},
-
-
   isConnected: function() {
-    let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
-    return ( parentDotOwnerId === Meteor.userId() )
+    return ( this.smartRef.connectedByUserId === Meteor.userId() )
   },
-
-
 
   connectCounter: function() {
     let counter = Dotz.findOne(this.dot._id).inDotz.length;
@@ -125,12 +109,8 @@ Template.dotCard.helpers({
 
   likeCounter: function(){
     return this.smartRef.likes.length;
-  },
-
-  sortIsAvailable: function() {
-    let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
-    return ( parentDotOwnerId === Meteor.userId() )
   }
+
 });
 
 
@@ -155,20 +135,23 @@ Template.dotCard.events({
     });
   },
 
+  //To be fixed:
   'click .disConnect': function(){
-    var data = Template.parentData();
-    var dotId = this._id;
-    var isMix = this.isMix;
+    Modules.both.Dotz.disConnectDot(this.smartRef);
+  },
 
-    if (data.mix) {
-      var mixId = data.mix._id;
-    }
-    if (data.user) {
-      var mixId = data.user._id;
-    }
+  'click .upBtn':function(event){
+    //console.log("UP: ");
+    let smartRef = this.smartRef;
+    let sortValue = 1;
+    Modules.both.Dotz.sortDotz(smartRef, sortValue);
+  },
 
-    Meteor.call('disConnectDot', mixId, dotId, isMix );
-    Bert.alert( 'Disconnected', 'warning', 'growl-bottom-left' );
+  'click .downBtn':function(event){
+    //console.log("DOWN: ");
+    let smartRef = this.smartRef;
+    let sortValue = -1;
+    Modules.both.Dotz.sortDotz(smartRef, sortValue);
   },
 
   'click .editBtn': function(){
@@ -177,9 +160,10 @@ Template.dotCard.events({
         'dot': this.dot
       }
     });
-
   },
 
+
+  //To be fixed:
   'click .delete':function(event){
     var data = Template.parentData();
 
@@ -205,52 +189,6 @@ Template.dotCard.events({
     console.log("mixId: " + mixId);
     Meteor.call('deleteDot', mixId, dotId, isMix, userId);
     Bert.alert( 'Deleted', 'danger', 'growl-bottom-left' );
-  },
-
-  'click .upBtn':function(event){
-    //console.log("UP: ");
-    let smartRef = this.smartRef;
-    let sortValue = 1;
-    Modules.both.Dotz.sortDotz(smartRef, sortValue);
-  },
-
-  'click .downBtn':function(event){
-    //console.log("DOWN: ");
-    let smartRef = this.smartRef;
-    let sortValue = -1;
-    Modules.both.Dotz.sortDotz(smartRef, sortValue);
-  },
-
-  'click .downBtn2':function(event){
-    //console.log("DOWN: ");
-
-    var data = Template.parentData();
-    var parentId;
-    var userId = Meteor.userId();
-    var dotId = this._id;
-    var isMix = this.isMix; //TBD
-    var dotzArray = [];
-
-    if (data.user) {
-      parentId = Meteor.userId();
-      var user = Meteor.users.findOne(parentId);
-      dotzArray = user.profile.profileDotz;
-    }
-    else if (data.mix) {
-      parentId = data.mix._id;
-      var mix = Mixes.findOne(parentId);
-      dotzArray = mix.mixDotz;
-    }
-
-    var index = dotzArray.map(function(e) { return e.dotId; }).indexOf(dotId);
-    var arrayLength = dotzArray.length;
-
-    if (index !== arrayLength) {
-      var newIndex = index + 1;
-      Meteor.call('sortDotz', parentId, dotId, isMix, newIndex);
-    }
-
-    //console.log("index is: " + index + " new index is: " + newIndex + "parent data is " + parentId); //DEBUG
-
   }
+
 });

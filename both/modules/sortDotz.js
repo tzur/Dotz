@@ -26,7 +26,7 @@ let sortDotz = (smartRef, sortValue) => {
       else if (sortValue === -1) {
         let arrayLength = dotzArray.length;
         if (index !== arrayLength) {
-          let newIndex = index + 1;
+          let newIndex = index - sortValue;
           Meteor.call('sortDotzUpdate', smartRef, newIndex);
         }
       }

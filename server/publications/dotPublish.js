@@ -56,8 +56,6 @@ Meteor.publish('profileDot', function(userId){
 Meteor.publish( 'dotShow', function( dotId ) {
   if (dotId) {
     check(dotId, String);
-    console.log("################ dotId is " + dotId);
-    console.log("######################## dot is " + Dotz.findOne(dotId)._id);
     return Dotz.find(dotId);
   }
 });
@@ -102,7 +100,6 @@ Meteor.publish('createByUserDotz', function() {
   let currentUser = Meteor.users.findOne(this.userId);
   let createByUserDotz = currentUser.profile.createdByUserDotz;
   createByUserDotz.push(currentUser.profile.profileDotId);
-  console.log("#################################" + createByUserDotz);
   return Dotz.find({_id: {$in: createByUserDotz}});
 });
 
