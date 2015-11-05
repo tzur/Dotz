@@ -46,6 +46,7 @@ Meteor.methods({
     };
     _userUpdate(followedUserId, updateOptions)
   },
+
   unFollowUser(followingUserId, followedUserId){
     check(followingUserId, Meteor.userId());
     check(followedUserId, String);
@@ -54,6 +55,7 @@ Meteor.methods({
     };
     _userUpdate(followingUserId ,updateOptions);
   },
+
   updateFollowedWithUnFollow(followingUserId, followedUserId){
     check(followingUserId, Meteor.userId());
     check(followedUserId, String);
@@ -61,8 +63,8 @@ Meteor.methods({
       $pull: {"profile.followers": followingUserId}
     };
     _userUpdate(followedUserId, updateOptions);
-  }
-  ,
+  },
+
   updateUserConnectivity(connectedUserId, dotId, belongsToUserId, parentDotId){
     check(connectedUserId, String);
     check(dotId, String);
