@@ -1,7 +1,10 @@
 
 let _checkDot = function(dotId){
   let _dot = Dotz.findOne(dotId);
-  return ( _dot.ownerUserId === Meteor.userId())
+  if(_dot){
+    return ( _dot.ownerUserId === Meteor.userId())
+  }
+
 };
 
 let getConnectedByOwnerDotz = function(dotId, dotIdWishedToConnectTo) {
