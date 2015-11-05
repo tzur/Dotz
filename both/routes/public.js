@@ -9,6 +9,13 @@ const publicRoutes = FlowRouter.group({
   triggersEnter: [ publicRedirect ]
 });
 
+publicRoutes.route( '/testmap', {
+  name: 'testmap',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'testMap' } );
+  }
+});
+
 publicRoutes.route( '/signup', {
   name: 'signup',
   action() {

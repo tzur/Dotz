@@ -94,6 +94,11 @@ Schema.dotSchema = new SimpleSchema({
     optional: true
   },
 
+  locationPlaceId: {
+    type: String,
+    optional: true
+  },
+
   //Location Section End****
 
   //****The Event Fields Section
