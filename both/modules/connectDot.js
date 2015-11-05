@@ -20,10 +20,10 @@ let _updateInDotz = (toBeAddedDotId, targetDotId) => {
  * This function receive smartRef of a needed to be connected dot, and does all the logic
  * in order to makes the connections.
  */
-let _sendToUpdateFeed = function(smartRef){
-  let dot = Dotz.findOne(smartRef.dotId);
-  Modules.both.Dotz.updateFeed(smartRef, dot.ownerUserId);
-};
+//let _sendToUpdateFeed = function(smartRef){
+//  let dot = Dotz.findOne(smartRef.dotId);
+//  Modules.both.Dotz.updateFeed(smartRef);
+//};
 let connectDot = (smartRef) => {
   //PLEASE MAKE IT SMARTER...COULD BE  BETTER
   /// Probably one module with private functions.
@@ -37,7 +37,7 @@ let connectDot = (smartRef) => {
           if (smartRef.actionName === CONNECT_ACTION){
             _updateInDotz(smartRef.dotId, smartRef.parentDot);
           }
-          _sendToUpdateFeed(smartRef);
+          Modules.both.Dotz.updateFeed(smartRef);
 
         }
        else{

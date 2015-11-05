@@ -22,7 +22,9 @@ Meteor.methods({
         checkInterval = user.profile.feedDotz.length - MAXIMUM_NUMBER_OF_FEED_DOTZ_TO_CHECK;
       }
       for (let i = checkInterval; i < user.profile.feedDotz.length; i++) {
+        console.log("^^^^^^^^^^^^^^^^");
         if (user.profile.feedDotz[i].dotId === smartRef.dotId) {
+          console.log("IM HERE" + smartRef.dotId);
           let updateOptions = {
             $pull: {"profile.feedDotz": {dotId: smartRef.dotId}}
           };

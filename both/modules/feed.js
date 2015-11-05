@@ -1,5 +1,5 @@
-let _updateFeed = function(smartRef, ownerUserId){
-  var currentUser = Meteor.users.findOne(ownerUserId);
+let _updateFeed = function(smartRef){
+  var currentUser = Meteor.user();
   if (currentUser.profile.followers){
     currentUser.profile.followers.forEach(function(followerId){
       Meteor.call('updateFeed', smartRef, followerId, function(error, result){
