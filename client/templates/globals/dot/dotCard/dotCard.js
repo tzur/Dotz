@@ -201,14 +201,14 @@ Template.dotCard.events({
     //console.log("UP: ");
     let smartRef = this.smartRef;
     let sortValue = 1;
-    Modules.both.Dotz.sortDotzUp(smartRef, sortValue);
+    Modules.both.Dotz.sortDotz(smartRef, sortValue);
   },
 
   'click .downBtn':function(event){
     //console.log("DOWN: ");
     let smartRef = this.smartRef;
     let sortValue = -1;
-    Modules.both.Dotz.sortDotzDown(smartRef, sortValue);
+    Modules.both.Dotz.sortDotz(smartRef, sortValue);
   },
 
   'click .downBtn2':function(event){
