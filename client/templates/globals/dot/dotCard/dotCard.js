@@ -125,13 +125,7 @@ Template.dotCard.helpers({
     return this.smartRef.likes.length;
   },
 
-
-
-
-
-
-
-  isInMyParentDot: function() {
+  sortIsAvailable: function() {
     let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
     return ( parentDotOwnerId === Meteor.userId() )
   }
