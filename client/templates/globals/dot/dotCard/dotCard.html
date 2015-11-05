@@ -20,11 +20,14 @@
                                   <div class="col-md-4 visible-xs visible-sm">
                                       <div class="container-fluid dot-container-img-card-mobile" style="background-image: url('{{dot.coverImageUrl}}')">
                                           <div class="row" >
+                                              {{#if dotzNum}}
                                               <div id="round-overlay-mobile"></div>
                                               <div class="dotConnectedDotzLastIcon">
-                                                  <div class="innerDotlengh-upper txtMd"><span>134</span></div>
-                                                  <div class="innerDotlengh-lower txtMd"><span>Dotz</span></div>
+                                                  <div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>
+                                                  <div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>
                                               </div>
+                                              {{/if}}
+
                                           </div>
                                       </div>
                                   </div>
@@ -32,11 +35,12 @@
                                   <div class="col-md-4 liquidCol hidden-xs hidden-sm">
 
                                       <div class="container-fluid dot-container-img-card" style="background-image: url('{{dot.coverImageUrl}}')">
-
+                                      {{#if dotzNum}}
                                         <div class="dotConnectedDotzLastIcon">
-                                            <div class="innerDotlengh-upper txtMd"><span>134</span></div>
-                                            <div class="innerDotlengh-lower txtMd"><span>Dotz</span></div>
+                                            <div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>
+                                            <div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>
                                         </div>
+                                      {{/if}}
                                       </div>
                                   </div>
 
@@ -50,7 +54,7 @@
                                           <div class="row cardTitleDiv">
                                               <div class="col-xs-12 col-sm-12">
                                                     {{testHelper}}
-                                                  <a href="{{dotUrlLink}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
+                                                  <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
 
                                               </div>
                                           </div>
@@ -88,27 +92,33 @@
 
 
 
-                                              <div class="col-xs-1 greyText smTxt">
-                                                  <a href="{{userUrlLink}}" class="userImgIcon">
+                                              <div class="col-xs-10 cardConnecterDiv greyText smTxt">
 
-                                                      <img class="userImgIcon-mobile" src="{{profileImageUrl}}">
+                                                {{#if userIsDotCardOwner}}
 
-                                                  </a>
-                                              </div>
 
-                                              <div class="col-xs-9 greyText smTxt">
+                                                    <a href="/user/{{ownerUser.username}}" class="userImgIcon">
+                                                        <img class="userImgIcon" src="{{ownerUser.profileImage}}">
+                                                    </a>
 
-                                                  <a href="{{userUrlLink}}">
-                                                      <span class="align-icon-text">{{username}}</span>
-                                                  </a>
+                                                    <a href="/user/{{ownerUser.username}}">
+                                                        <span class="align-icon-text">{{ownerUser.username}}</span>
+                                                    </a>
 
-                                                {{#if isTheOwnerDotCard}}
+                                                    <span>  <span>·</span> {{actionDate}}</span>
 
-                                                    <span> <span>·</span> </span> <br> <span class="align-icon-text">{{createDate}}</span>
 
                                                 {{else}}
 
-                                                    <span> connected TBD:{{username}} Dot <span>·</span> </span> <br> <span class="align-icon-text"> {{createDate}}</span>
+                                                    <a href="/user/{{connectedByUser.username}}" class="userImgIcon">
+                                                        <img class="userImgIcon" src="{{connectedByUser.profileImage}}">
+                                                    </a>
+
+                                                    <a href="/user/{{connectedByUser.username}}">
+                                                        <span class="align-icon-text">{{connectedByUser.username}}</span>
+                                                    </a>
+
+                                                    <span> connected {{ownerUser.username}} Dot <span>·</span> {{actionDate}}</span>
 
                                                 {{/if}}
 
@@ -128,7 +138,8 @@
 
                                           <div class="row">
 
-                                            {{#if isTheOwnerDotCard}}
+
+                                            {{#if userIsDotCardOwner}}
 
                                                 <div class="user-personal-desc-details col-xs-11">
                                                     <p class="user-personal-desc greyText limitP">{{dot.bodyText}}</p>
@@ -137,7 +148,7 @@
                                             {{else}}
 
                                                 <div class="user-personal-desc-details col-xs-11">
-                                                    <p class="user-personal-desc greyText limitP">Created by User Place Holder</p>
+                                                    <p class="user-personal-desc greyText limitP">{{smartRef.personalDescription}}</p>
                                                 </div>
 
                                             {{/if}}
@@ -154,11 +165,10 @@
 
                                           <div class="row">
                                               <div class="col-xs-4 col-sm-3 colCenter">
-                                                {{#if isMyMix}}
-                                                    <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
-                                                    <button type="button" class="disConnect btn btn-success round btn-sm pull-right">Connected ({{isConnected}})</button>
+                                                {{#if isConnected}}
+                                                    <button type="button" class="disConnect btn btn-success round btn-sm pull-right">Connected {{connectCounter}}</button>
                                                 {{else}}
-                                                    <button type="button" class="connect btn btn-lead round btn-md ">Connect ({{isConnected}})</button>
+                                                    <button type="button" class="connect btn btn-lead round btn-md ">Connect {{connectCounter}}</button>
                                                 {{/if}}
                                               </div>
                                           </div>
@@ -219,23 +229,31 @@
                                               </div>
 
                                               <div class="col-md-10 cardConnecterDiv greyText smTxt">
-                                                  <a href="{{userUrlLink}}" class="userImgIcon">
-                                                      <img class="userImgIcon" src="{{profileImageUrl}}">
-                                                  </a>
 
-                                                  <a href="{{userUrlLink}}">
-                                                      <span class="align-icon-text">{{username}}</span>
-                                                  </a>
+                                                {{#if userIsDotCardOwner}}
 
-                                                {{#if isTheOwnerDotCard}}
+                                                    <a href="{{ownerUser.username}}" class="userImgIcon">
+                                                        <img class="userImgIcon" src="{{ownerUser.profileImage}}">
+                                                    </a>
 
+                                                    <a href="{{ownerUser.username}}">
+                                                        <span class="align-icon-text">{{ownerUser.username}}</span>
+                                                    </a>
 
-                                                    <span>  <span>·</span> {{createDate}}</span>
+                                                    <span>  <span>·</span> {{actionDate}}</span>
 
 
                                                 {{else}}
 
-                                                    <span> connected {{Username}} Dot <span>·</span> {{createDate}}</span>
+                                                    <a href="/user/{{connectedByUser.username}}" class="userImgIcon">
+                                                        <img class="userImgIcon" src="{{connectedByUser.profileImage}}">
+                                                    </a>
+
+                                                    <a href="/user/{{connectedByUser.username}}">
+                                                        <span class="align-icon-text">{{connectedByUser.username}}</span>
+                                                    </a>
+
+                                                    <span> connected {{ownerUser.username}} Dot <span>·</span> {{actionDate}}</span>
 
                                                 {{/if}}
 
@@ -265,7 +283,7 @@
 
 
 
-                                            {{#if showOriginalDotCard}}
+                                            {{#if userIsDotCardOwner}}
 
                                                 <div class="user-personal-desc-details col-md-9">
                                                     <p class="limitP user-personal-desc greyText">{{dot.bodyText}}</p>
@@ -274,7 +292,7 @@
                                             {{else}}
 
                                                 <div class="user-personal-desc-details col-md-9">
-                                                    <p class="user-personal-desc greyText limitP">Created by User Place Holder</p>
+                                                    <p class="user-personal-desc greyText limitP">{{smartRef.personalDescription}}</p>
                                                 </div>
 
                                             {{/if}}

@@ -8,6 +8,7 @@
       this.isConnectedToOthers = isConnectedToOthers,
       this.likes = []
 };
+
 let _likeDot = function(smartRef, userId){
   check(smartRef, Schema.dotSmartRef);
   check(userId, Meteor.userId());
