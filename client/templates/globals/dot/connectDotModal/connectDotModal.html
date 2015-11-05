@@ -1,5 +1,6 @@
 <template name="connectDotModal">
-    <div class="modal fade">
+
+        <div class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -15,6 +16,12 @@
                     <br><br>
                     <br>
                     <hr>
+
+                    <div>
+                      {{#if isConnectedToUserProfileDot}}
+                          <button class="connectToUserProfile">connect to profile</button>
+                      {{/if}}
+                    </div>
 
                   {{#each userProfileDotzArray}}
                     <div>

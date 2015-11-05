@@ -3,36 +3,72 @@ _dataCard = {};
 Template.dotCard.onRendered (function(){
   $(".limitP").each(function(i){
     len=$(this).text().length;
-    if(len>30)
+    if(len>100)
     {
-      $(this).text($(this).text().substr(0,30)+'...');
+      $(this).text($(this).text().substr(0,100)+'...');
     }
   });
 });
 
 Template.dotCard.helpers({
-  dotData: function() {
-    return this;
-  },
+
   isMyDot: function() {
     return (this.dot.ownerUserId === Meteor.userId())
   },
 
-  testHelper: function(){
-    return null;
-  },
-  createDate: function(){
+  actionDate: function(){
     return (moment(this.createdAt).fromNow())
   },
+
   eventDate: function(){
     return ( moment(this.dot.startDateAndHour).fromNow());
   },
+
   isTheOwnerDotCard: function() {
     let connectedByUserId = this.connectedByUser._id;
     let dotOwnerUserId = this.ownerUser._id;
     //let parentData = Template.parentData();
     return (connectedByUserId === dotOwnerUserId)
   },
+
+  dotzNum: function() {
+    let ownerDotz = 0;
+    if (this.dot.dotzConnectedByOwner) {
+      ownerDotz = this.dot.dotzConnectedByOwner.length;
+    }
+
+    let othersDotz = 0;
+    if (this.dot.dotzConnectedByOthers) {
+      othersDotz = this.dot.dotzConnectedByOthers.length;
+    }
+
+    if ((ownerDotz + othersDotz) === 0) {
+      return false;
+    }
+    else {
+      return ("+ " + (ownerDotz + othersDotz) );
+    }
+  },
+
+  dotOrDotz: function() {
+    let ownerDotz = 0;
+    if (this.dot.dotzConnectedByOwner) {
+      ownerDotz = this.dot.dotzConnectedByOwner.length;
+    }
+
+    let othersDotz = 0;
+    if (this.dot.dotzConnectedByOthers) {
+      othersDotz = this.dot.dotzConnectedByOthers.length;
+    }
+
+    if ( (ownerDotz+othersDotz) === 1 ) {
+      return ("Dot");
+    }
+    else {
+      return ("Dotz");
+    }
+  },
+
   likeCounter: function(){
     return this.smartRef.likes.length;
   }

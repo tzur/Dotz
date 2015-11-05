@@ -20,11 +20,14 @@
                                   <div class="col-md-4 visible-xs visible-sm">
                                       <div class="container-fluid dot-container-img-card-mobile" style="background-image: url('{{dot.coverImageUrl}}')">
                                           <div class="row" >
+                                              {{#if dotzNum}}
                                               <div id="round-overlay-mobile"></div>
                                               <div class="dotConnectedDotzLastIcon">
-                                                  <div class="innerDotlengh-upper txtMd"><span>134</span></div>
-                                                  <div class="innerDotlengh-lower txtMd"><span>Dotz</span></div>
+                                                  <div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>
+                                                  <div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>
                                               </div>
+                                              {{/if}}
+
                                           </div>
                                       </div>
                                   </div>
@@ -32,11 +35,12 @@
                                   <div class="col-md-4 liquidCol hidden-xs hidden-sm">
 
                                       <div class="container-fluid dot-container-img-card" style="background-image: url('{{dot.coverImageUrl}}')">
-
+                                      {{#if dotzNum}}
                                         <div class="dotConnectedDotzLastIcon">
-                                            <div class="innerDotlengh-upper txtMd"><span>134</span></div>
-                                            <div class="innerDotlengh-lower txtMd"><span>Dotz</span></div>
+                                            <div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>
+                                            <div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>
                                         </div>
+                                      {{/if}}
                                       </div>
                                   </div>
 
@@ -104,11 +108,11 @@
 
                                                 {{#if isTheOwnerDotCard}}
 
-                                                    <span> <span>·</span> </span> <br> <span class="align-icon-text">{{createDate}}</span>
+                                                    <span> <span>·</span> </span> <br> <span class="align-icon-text">{{actionDate}}</span>
 
                                                 {{else}}
 
-                                                    <span> connected TBD:{{username}} Dot <span>·</span> </span> <br> <span class="align-icon-text"> {{createDate}}</span>
+                                                    <span> connected TBD:{{username}} Dot <span>·</span> </span> <br> <span class="align-icon-text"> {{actionDate}}</span>
 
                                                 {{/if}}
 
@@ -137,7 +141,7 @@
                                             {{else}}
 
                                                 <div class="user-personal-desc-details col-xs-11">
-                                                    <p class="user-personal-desc greyText limitP">asdasdas</p>
+                                                    <p class="user-personal-desc greyText limitP">Created by User Place Holder</p>
                                                 </div>
 
                                             {{/if}}
@@ -230,12 +234,12 @@
                                                 {{#if isTheOwnerDotCard}}
 
 
-                                                    <span>  <span>·</span> {{createDate}}</span>
+                                                    <span>  <span>·</span> {{actionDate}}</span>
 
 
                                                 {{else}}
 
-                                                    <span> connected {{Username}} Dot <span>·</span> {{createDate}}</span>
+                                                    <span> connected {{Username}} Dot <span>·</span> {{actionDate}}</span>
 
                                                 {{/if}}
 
@@ -274,7 +278,7 @@
                                             {{else}}
 
                                                 <div class="user-personal-desc-details col-md-9">
-                                                    <p class="user-personal-desc greyText limitP">asdasdas</p>
+                                                    <p class="user-personal-desc greyText limitP">Created by User Place Holder</p>
                                                 </div>
 
                                             {{/if}}
