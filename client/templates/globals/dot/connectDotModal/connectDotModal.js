@@ -26,9 +26,8 @@ Template.connectDotModal.helpers({
 Template.connectDotModal.events({
   'click .connectToUserProfile': function () {
     personalDescription = $('#personalDescription').val();
-
     let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), Meteor.user().profile.profileDotId, Meteor.userId(), false, CONNECT_ACTION, personalDescription)
-    Modules.both.Dotz.connectDot(smartRef)
+    Modules.both.Dotz.connectDot(smartRef);
 
   }
 });

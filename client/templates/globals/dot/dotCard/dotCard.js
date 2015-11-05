@@ -1,5 +1,10 @@
 _dataCard = {};
 
+//Template.userShow.onCreated(function() {
+//  let parent = Template.parentData();
+//  console.log("###### parent is " + parent);
+//});
+
 Template.dotCard.onRendered (function(){
   $(".limitP").each(function(i){
     len=$(this).text().length;
@@ -21,10 +26,12 @@ Template.dotCard.helpers({
   },
 
   eventDate: function(){
-    return ( moment(this.dot.startDateAndHour).fromNow());
+    if (this.dot.startDateAndHour) {
+      return ( moment(this.dot.startDateAndHour).fromNow());
+    }
   },
 
-  isTheOwnerDotCard: function() {
+  userIsDotCardOwner: function() {
     let connectedByUserId = this.connectedByUser._id;
     let dotOwnerUserId = this.ownerUser._id;
     //let parentData = Template.parentData();
@@ -49,7 +56,6 @@ Template.dotCard.helpers({
       return ("+ " + (ownerDotz + othersDotz) );
     }
   },
-
   dotOrDotz: function() {
     let ownerDotz = 0;
     if (this.dot.dotzConnectedByOwner) {
@@ -66,6 +72,34 @@ Template.dotCard.helpers({
     }
     else {
       return ("Dotz");
+    }
+  },
+
+  //isConnected: function() {
+  //
+  //  var data = Template.parentData();
+  //  if (!data) {
+  //    return false;
+  //  }
+  //  if (data.user){
+  //    return data.user._id === Meteor.userId();
+  //  }
+  //  if (data.mix){
+  //    return data.mix.owner.userId === Meteor.userId();
+  //  }
+  //
+  //  let dotId = this.dot._id;
+  //
+  //
+  //},
+
+  connectCounter: function() {
+    let counter = Dotz.findOne(this.dot._id).inDotz.length;
+    if (counter === 0) {
+      return ("");
+    }
+    else {
+      return ( "(" + counter + ")" );
     }
   },
 
