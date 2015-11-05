@@ -38,6 +38,18 @@ Template.dotCard.helpers({
     return (connectedByUserId === dotOwnerUserId)
   },
 
+  personlDescriptionOrBodyText: function() {
+    if (this.smartRef.personalDescription) {
+      return this.smartRef.personalDescription;
+    }
+    else if (this.connectedByUser._id === this.dot.ownerUserId) {
+      return this.dot.bodyText;
+    }
+    else {
+      return " ";
+    }
+  },
+
   dotzNum: function() {
     let ownerDotz = 0;
     if (this.dot.dotzConnectedByOwner) {
@@ -105,18 +117,15 @@ Template.dotCard.helpers({
 
   likeCounter: function(){
     return this.smartRef.likes.length;
+  },
+
+  isInMyParentDot: function() {
+    let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
+    return ( parentDotOwnerId === Meteor.userId() )
   }
 });
 
 Template.dotCard.events({
-  'keyup .comment': function(evt, tmpl){
-    if (evt.which== 13){
-      var commentText = tmpl.find('.comment').value;
-      var options = {text: commentText, parent: this._id};
-      Meteor.call('addPost', options);
-      $('.comment').val('').select().focus();
-    }
-  },
 
   'click .like': function(event){
     Modules.both.Dotz.likeDot(this.smartRef, Meteor.userId());
@@ -124,10 +133,6 @@ Template.dotCard.events({
 
   'click .unlike': function(event){
     Meteor.call('unLikePost', Meteor.userId(), this._id);
-  },
-
-  'click .toUser': function(){
-    Router.go('/user/' + this.owner.userId);
   },
 
   'click .connect': function(){
@@ -194,40 +199,19 @@ Template.dotCard.events({
 
   'click .upBtn':function(event){
     //console.log("UP: ");
-
-    var data = Template.parentData();
-    var parentId;
-    var userId = Meteor.userId();
-    var dotId = this._id;
-    var isMix = this.isMix; //TBD
-    var dotzArray = [];
-
-    if (data.user) {
-      parentId = Meteor.userId();
-      var user = Meteor.users.findOne(parentId);
-      dotzArray = user.profile.profileDotz;
-    }
-    else if (data.mix) {
-      console.log("HI 11");
-      parentId = data.mix._id;
-      console.log("parentId is: " + parentId);
-      var mix = Mixes.findOne(parentId);
-      dotzArray = mix.mixDotz;
-    }
-
-    var index = dotzArray.map(function(e) { return e.dotId; }).indexOf(dotId);
-
-    if (index !== 0) {
-      var newIndex = index - 1;
-      Meteor.call('sortDotz', parentId, dotId, isMix, newIndex);
-    }
-
-    //console.log("index is: " + index + " new index is: " + newIndex + "parent data is " + parentId); //DEBUG
-
-
+    let smartRef = this.smartRef;
+    let sortValue = 1;
+    Modules.both.Dotz.sortDotzUp(smartRef, sortValue);
   },
 
   'click .downBtn':function(event){
+    //console.log("DOWN: ");
+    let smartRef = this.smartRef;
+    let sortValue = -1;
+    Modules.both.Dotz.sortDotzDown(smartRef, sortValue);
+  },
+
+  'click .downBtn2':function(event){
     //console.log("DOWN: ");
 
     var data = Template.parentData();

@@ -138,20 +138,9 @@
 
                                           <div class="row">
 
-
-                                            {{#if userIsDotCardOwner}}
-
-                                                <div class="user-personal-desc-details col-xs-11">
-                                                    <p class="user-personal-desc greyText limitP">{{dot.bodyText}}</p>
-                                                </div>
-
-                                            {{else}}
-
-                                                <div class="user-personal-desc-details col-xs-11">
-                                                    <p class="user-personal-desc greyText limitP">{{smartRef.personalDescription}}</p>
-                                                </div>
-
-                                            {{/if}}
+                                              <div class="user-personal-desc-details col-xs-11">
+                                                  <p class="user-personal-desc greyText limitP">{{personlDescriptionOrBodyText}}</p>
+                                              </div>
 
                                           </div>
 
@@ -281,23 +270,9 @@
                                                     </button>
                                                 </div>
 
-
-
-                                            {{#if userIsDotCardOwner}}
-
                                                 <div class="user-personal-desc-details col-md-9">
-                                                    <p class="limitP user-personal-desc greyText">{{dot.bodyText}}</p>
+                                                    <p class="limitP user-personal-desc greyText">{{personlDescriptionOrBodyText}}</p>
                                                 </div>
-
-                                            {{else}}
-
-                                                <div class="user-personal-desc-details col-md-9">
-                                                    <p class="user-personal-desc greyText limitP">{{smartRef.personalDescription}}</p>
-                                                </div>
-
-                                            {{/if}}
-
-
 
                                       </div>
 
@@ -324,10 +299,11 @@
                         <a class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>
                         <a class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
                     {{/if}}
-                    <!--{{#if isMyMix}}-->
-                        <!--<a class="upBtn"><span class="glyphicon glyphicon-triangle-top smTxt" aria-hidden="true"> </span></a>-->
-                        <!--<a class="downBtn"><span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span></a>-->
-                    <!--{{/if}}-->
+
+                    {{#if isInMyParentDot}}
+                        <a class="upBtn"><span class="glyphicon glyphicon-triangle-top smTxt" aria-hidden="true"> </span></a>
+                        <a class="downBtn"><span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span></a>
+                    {{/if}}
                   </div>
 
 
