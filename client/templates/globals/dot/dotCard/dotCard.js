@@ -22,7 +22,9 @@ Template.dotCard.helpers({
   },
 
   actionDate: function(){
-    return (moment(this.createdAt).fromNow())
+    if (this.dot.createdAtDate) {
+      return (moment(this.dot.createdAtDate).fromNow())
+    }
   },
 
   eventDate: function(){
