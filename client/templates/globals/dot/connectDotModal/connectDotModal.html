@@ -5,34 +5,37 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Connect to:</h4>
+                    <h4 class="modal-title">Connect to</h4>
                 </div>
 
                 <div class="modal-body">
-                    <div class="container-fluid">
+
+                  {{#with dotTarget}}
+
+                   <div class="container-fluid">
                         <div class="row">
 
                             <div class="col-md-4">
                                 <div class="container-fluid dot-img-connect-modal" style="background-image: url('{{dot.coverImageUrl}}')"></div>
                             </div>
 
-                          {{dotDetails}}
-
                             <div class="col-md-8">
                                 <h2 class="cardTitle">{{dot.title}}</h2>
+                                <p>{{currentUserImageUrl}}</p>
                                 <textarea id="personalDescription"  placeholder="Write your note here..."></textarea>
                             </div>
 
 
-
                         </div>
                     </div>
+                    {{/with}}
 
                     <hr>
 
                   <div>
                     {{#if isConnectedToUserProfileDot}}
                         <button class="connectToUserProfile">connect to profile</button>
+                      <p>{{currentUserImageUrl}}</p>
                     {{/if}}
                   </div>
 

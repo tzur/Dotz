@@ -11,6 +11,7 @@
 
 
 Template.showConnectedByOwnerDotz.helpers({
+
   relevantDotDotzArray: function(){
     return Modules.client.Dotz.getConnectedByOwnerDotz(this._id, Session.get('dotIdWishedToBeConnected'))
   },

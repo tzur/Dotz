@@ -11,18 +11,22 @@ Template.connectDotModal.onCreated(function(){
 
 Template.connectDotModal.helpers({
 
+  currentUserImageUrl: function() {
+    return Meteor.user().profile.profileImage;
+  },
+
+  dotTarget: function() {
+    return this.data;
+  },
+
   userProfileDotzArray: function(){
     Session.set('dotIdWishedToBeConnected', this.data.dotId);
     if(Session.get('dotIdWishedToBeConnected')) {
       return Modules.client.Dotz.getConnectedByOwnerDotz(Meteor.user().profile.profileDotId, Session.get('dotIdWishedToBeConnected'))
     }
   },
-
   isConnectedToUserProfileDot: function(){
     return Modules.client.Dotz.isConnectedToDot(Meteor.user().profile.profileDotId, Session.get('dotIdWishedToBeConnected'))
-  },
-  dotDetails: function(){
-    console.log("im here")
   }
 });
 
