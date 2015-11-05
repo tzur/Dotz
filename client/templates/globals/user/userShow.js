@@ -32,7 +32,7 @@ Template.userShow.onCreated(function() {
 
 Template.userShow.helpers({
   data: function() {
-    _data.userShow = Meteor.users.findOne(FlowRouter.getParam('username'));
+    _data.userShow = Meteor.users.findOne({username: FlowRouter.getParam('username')});
     return _data;
   },
 
