@@ -4,21 +4,21 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-sm-8 colCenter">
+            <div class="col-xs-12 col-md-8 colCenter">
 
-                <div class="row"><h1 class="colCenter txtMd">Create your Dot</h1><br></div>
+                <div class="row"><h1 class="txtMd">Create New Dot</h1></div>
 
               {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
 
-                  <div class="row">
-                    {{> afQuickField name='dotType'}}
+                  <div>
+                    {{> afQuickField name='dotType' label="Dot Type"}}
                   </div>
 
-                  <div class="row">
+                  <div>
                     {{> afQuickField name='title'}}
                   </div>
 
-                  <div class="row">
+                  <div>
                     {{> afQuickField name='bodyText' rows=6}}
                   </div>
 
@@ -92,11 +92,11 @@
               <br><br>
 
 
-                <div class="row">
+                <div>
                   <button id="createToOneOfMyDotz" class="createBtn insert btn btn-primary">Create To My Dotz</button>
                 </div>
 
-                <div class="row">
+                <div>
                   <button id="createToMyProfile" type="submit" class="createBtn insert btn btn-primary">Add To My Profile</button>
                 </div>
 
