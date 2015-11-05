@@ -2,6 +2,7 @@ _searchCursor = {};
 
 Template.searchBox.onCreated(function(){
   var self = this;
+  Session.set('searchInput',undefined);
   self.autorun(function(){
       if (Session.get('searchInput')){
         _searchCursor = DotzIndex.search(Session.get('searchInput'));
@@ -22,7 +23,7 @@ Template.searchBox.helpers({
     }
   },
   result: function(){
-    return _searchCursor.fetch();
+    return Modules.both.Dotz.searchCursorToDataObject(_searchCursor.fetch());
   }
 
 });

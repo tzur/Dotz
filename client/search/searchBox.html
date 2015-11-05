@@ -11,7 +11,8 @@
             <!--<div class="no-results">No results found!</div>-->
         <!--{{/EasySearch.IfNoResults}}-->
          {{#each result}}
-           {{title}} {{bodyText}} <br>
+           <!--{{dot.title}} {{dot.bodyText}} {{ownerUser.username}} <br>-->
+            {{> dotCardSearch}}
          {{/each}}
 
        {{/if}}
