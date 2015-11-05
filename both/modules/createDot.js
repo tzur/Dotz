@@ -25,7 +25,7 @@ Meteor.methods({
           }
           let smartRef = new Modules.both.Dotz.smartRef(dotId, doc.inDotz[0], doc.ownerUserId, isConnectedToOthers ,CREATE_ACTION);
           Modules.both.Dotz.connectDot(smartRef);
-          Modules.both.Dotz.updateFeed(smartRef, doc.ownerUserId);
+         // Modules.both.Dotz.updateFeed(smartRef, doc.ownerUserId);
           Meteor.call('updateUserAllUserDotz', Meteor.userId(), dotId, function (error, result) {
               if (error) {
                 console.log("THE ERROR IS:" + error);

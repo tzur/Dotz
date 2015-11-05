@@ -60,15 +60,7 @@ Meteor.methods({
       $pull: {"profile.followers": followingUserId}
     };
     _userUpdate(followedUserId, updateOptions);
-  },
-  updateFeed(smartRef, userId){
-    check(smartRef, Schema.dotSmartRef);
-    check(userId, String);
-    console.log("im updating the feed");
-    let updateOptions = {
-      $addToSet: {"profile.feedDotz": smartRef}
-    };
-    _userUpdate(userId, updateOptions);
   }
+
 
 });
