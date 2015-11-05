@@ -12,6 +12,7 @@ let _dotUpdate = (dotId, updateOptions) => {
 
 
 Meteor.methods({
+
   likeDotInOwner(targetDotId, smartRefId, userId ){
     check(targetDotId, String);
     check(smartRefId, String);
@@ -26,6 +27,7 @@ Meteor.methods({
     }
 
   },
+
   likeDotInOthers(targetDotId, smartRefId, userId ){
     check(targetDotId, String);
     check(smartRefId, String);
@@ -37,8 +39,8 @@ Meteor.methods({
     catch(exception){
       return exception;
     }
-
   },
+
   addDotConnectedByOwner(smartRef){
     check(smartRef, Schema.dotSmartRef);
     let updateOptions = {
@@ -46,6 +48,7 @@ Meteor.methods({
     };
     _dotUpdate(smartRef.parentDot, updateOptions)
   },
+
   addDotConnectedByOther(smartRef){
     check(smartRef, Object);
     let updateOptions = {
@@ -53,6 +56,7 @@ Meteor.methods({
     };
     _dotUpdate(smartRef.parentDot, updateOptions)
   },
+
   addDotToInDotz(dotId, parentDotId){
     check(dotId, String);
     check(parentDotId, String);
@@ -60,5 +64,27 @@ Meteor.methods({
       $addToSet: {inDotz: parentDotId}
     };
     _dotUpdate(dotId, updateOptions)
+  },
+
+  sortDotzUpdate(smartRef, newIndex ){
+    check(smartRef, Object);
+    check(newIndex, Number);
+    try {
+      Dotz.update({ _id: smartRef.parentDot }, {
+        $pull: {"dotzConnectedByOwner": smartRef }
+      });
+      Dotz.update({ _id: smartRef.parentDot }, {
+        $push: {
+          "dotzConnectedByOwner": {
+            $each: [ smartRef ],
+            $position: newIndex
+          }
+        }
+      });
+    }
+    catch(exception){
+      return exception;
+    }
   }
+
 });

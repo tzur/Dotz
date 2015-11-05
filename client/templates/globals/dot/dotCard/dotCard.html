@@ -97,11 +97,11 @@
                                                 {{#if userIsDotCardOwner}}
 
 
-                                                    <a href="/user/{{ownerUser.username}}" class="userImgIcon">
+                                                    <a href="/{{ownerUser.username}}" class="userImgIcon">
                                                         <img class="userImgIcon" src="{{ownerUser.profileImage}}">
                                                     </a>
 
-                                                    <a href="/user/{{ownerUser.username}}">
+                                                    <a href="/{{ownerUser.username}}">
                                                         <span class="align-icon-text">{{ownerUser.username}}</span>
                                                     </a>
 
@@ -110,11 +110,11 @@
 
                                                 {{else}}
 
-                                                    <a href="/user/{{connectedByUser.username}}" class="userImgIcon">
+                                                    <a href="/{{connectedByUser.username}}" class="userImgIcon">
                                                         <img class="userImgIcon" src="{{connectedByUser.profileImage}}">
                                                     </a>
 
-                                                    <a href="/user/{{connectedByUser.username}}">
+                                                    <a href="/{{connectedByUser.username}}">
                                                         <span class="align-icon-text">{{connectedByUser.username}}</span>
                                                     </a>
 
@@ -138,20 +138,9 @@
 
                                           <div class="row">
 
-
-                                            {{#if userIsDotCardOwner}}
-
-                                                <div class="user-personal-desc-details col-xs-11">
-                                                    <p class="user-personal-desc greyText limitP">{{dot.bodyText}}</p>
-                                                </div>
-
-                                            {{else}}
-
-                                                <div class="user-personal-desc-details col-xs-11">
-                                                    <p class="user-personal-desc greyText limitP">{{smartRef.personalDescription}}</p>
-                                                </div>
-
-                                            {{/if}}
+                                              <div class="user-personal-desc-details col-xs-11">
+                                                  <p class="user-personal-desc greyText limitP">{{personlDescriptionOrBodyText}}</p>
+                                              </div>
 
                                           </div>
 
@@ -232,11 +221,11 @@
 
                                                 {{#if userIsDotCardOwner}}
 
-                                                    <a href="{{ownerUser.username}}" class="userImgIcon">
+                                                    <a href="/{{ownerUser.username}}" class="userImgIcon">
                                                         <img class="userImgIcon" src="{{ownerUser.profileImage}}">
                                                     </a>
 
-                                                    <a href="{{ownerUser.username}}">
+                                                    <a href="/{{ownerUser.username}}">
                                                         <span class="align-icon-text">{{ownerUser.username}}</span>
                                                     </a>
 
@@ -245,11 +234,11 @@
 
                                                 {{else}}
 
-                                                    <a href="/user/{{connectedByUser.username}}" class="userImgIcon">
+                                                    <a href="/{{connectedByUser.username}}" class="userImgIcon">
                                                         <img class="userImgIcon" src="{{connectedByUser.profileImage}}">
                                                     </a>
 
-                                                    <a href="/user/{{connectedByUser.username}}">
+                                                    <a href="/{{connectedByUser.username}}">
                                                         <span class="align-icon-text">{{connectedByUser.username}}</span>
                                                     </a>
 
@@ -281,23 +270,9 @@
                                                     </button>
                                                 </div>
 
-
-
-                                            {{#if userIsDotCardOwner}}
-
                                                 <div class="user-personal-desc-details col-md-9">
-                                                    <p class="limitP user-personal-desc greyText">{{dot.bodyText}}</p>
+                                                    <p class="limitP user-personal-desc greyText">{{personlDescriptionOrBodyText}}</p>
                                                 </div>
-
-                                            {{else}}
-
-                                                <div class="user-personal-desc-details col-md-9">
-                                                    <p class="user-personal-desc greyText limitP">{{smartRef.personalDescription}}</p>
-                                                </div>
-
-                                            {{/if}}
-
-
 
                                       </div>
 
@@ -324,10 +299,11 @@
                         <a class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>
                         <a class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
                     {{/if}}
-                    <!--{{#if isMyMix}}-->
-                        <!--<a class="upBtn"><span class="glyphicon glyphicon-triangle-top smTxt" aria-hidden="true"> </span></a>-->
-                        <!--<a class="downBtn"><span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span></a>-->
-                    <!--{{/if}}-->
+
+                    {{#if isInMyParentDot}}
+                        <a class="upBtn"><span class="glyphicon glyphicon-triangle-top smTxt" aria-hidden="true"> </span></a>
+                        <a class="downBtn"><span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span></a>
+                    {{/if}}
                   </div>
 
 
