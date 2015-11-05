@@ -4,7 +4,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-md-8 colCenter">
+            <div class="col-xs-12 col-md-6 colCenter">
 
                 <div class="row"><h1 class="txtMd">Create New Dot</h1></div>
 
@@ -25,10 +25,9 @@
                   {{> uploader}}
 
                   {{#if isImageUrl}}
-                      <div class="file col-xs-12 col-sm-8 colCenter">
-                          <div class="preview">
-                              <a href="{{imagePreviewUrl}}"></a>
-                              <img src="{{imagePreviewUrl}}">
+                      <div class="file container-fluid">
+                          <div class="row">
+                              <div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')"></div>
                           </div>
                       </div>
                   {{/if}}
@@ -50,66 +49,55 @@
 
 
                         </div>
+
                         <div role="tabpanel" class="tab-pane" id="eventDetails">
 
-                            <div class="row">
-                                <a class="eventDetailsBtn btn btn-primary btnFull">Event Details</a>
-                                <div class="optional-field">
-                                    <div type="bootstrap-datetimepicker" class="eventDetails optional-field">
-                                      {{> afQuickField name='startDateAndHour' placeholder="Pick Start Date"}}
-                                      {{> afQuickField name='endDateAndHour' placeholder="Pick End Date"}}
-                                      {{> afQuickField name='repeated' firstOption='None'}}
-                                      {{> afQuickField name='endRepeatedDate' placeholder="Pick Repeated End Date"}}
-                                    </div>
+                            <div class="optional-field">
+                                <div type="bootstrap-datetimepicker" class="eventDetails optional-field">
+                                  {{> afQuickField name='startDateAndHour' placeholder="Pick Start Date"}}
+                                  {{> afQuickField name='endDateAndHour' placeholder="Pick End Date"}}
+                                  {{> afQuickField name='repeated' firstOption='None'}}
+                                  {{> afQuickField name='endRepeatedDate' placeholder="Pick Repeated End Date"}}
                                 </div>
                             </div>
 
                         </div>
+
                         <div role="tabpanel" class="tab-pane" id="link">
 
-                            <div class="row">
-                                <a class="linkBtn btn btn-primary btnFull">Link</a>
-                                <div class="location optional-field">
-                                  {{> afQuickField name='linkUrl' placeholder="Enter the url here"}}
-                                </div>
+                            <div class="location optional-field">
+                              {{> afQuickField name='linkUrl' placeholder="Ex: http://www.website.com ..."}}
                             </div>
 
                         </div>
+
                         <div role="tabpanel" class="tab-pane" id="price">
 
-                            <div class="row">
-                                <a class="priceBtn btn btn-primary btnFull">Price</a>
-                                <div class="price optional-field">
-                                  {{> afQuickField name='price' label= false placeholder= "Enter the price here"}}
-                                </div>
+                            <div class="price optional-field">
+                              {{> afQuickField name='price' label= false placeholder= "Write price in dollars ..."}}
                             </div>
 
                         </div>
+
                     </div>
 
                 </div>
 
               <br><br>
 
+              <div class="row btns-create-dot-row">
 
-                <div>
-                  <button id="createToOneOfMyDotz" class="createBtn insert btn btn-primary">Create To My Dotz</button>
-                </div>
+                  <div class="col-xs-6 col-md-4 btns-create-dot">
+                      <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-success">Connect To My Profile</button>
+                  </div>
 
-                <div>
-                  <button id="createToMyProfile" type="submit" class="createBtn insert btn btn-primary">Add To My Profile</button>
-                </div>
+                  <div class="col-xs-6 col-md-4 btns-create-dot">
+                    <button id="createToOneOfMyDotz" class="createBtn insert btn round btn-lead">Connect To My Dotz</button>
+                  </div>
+
+              </div>
 
               {{/autoForm}}
-
-                <br>
-                <br>
-                <br>
-
-
-
-
-
 
             </div>
         </div>

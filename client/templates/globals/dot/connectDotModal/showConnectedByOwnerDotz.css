@@ -26,7 +26,7 @@
   font-weight: 900;
 }
 
-.connectBtn {
+.connectBtn, .createToBtn, .connectToUserProfile  {
   margin-top: 0.75em;
   width: 100%;
 }

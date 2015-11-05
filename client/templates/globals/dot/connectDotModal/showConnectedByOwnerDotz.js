@@ -21,7 +21,11 @@ Template.showConnectedByOwnerDotz.helpers({
       return false;
     }
 
-    return (Modules.client.Dotz.isConnectedToDot(this._id, Session.get('dotIdWishedToBeConnected')))
+    else{
+      return (Modules.client.Dotz.isConnectedToDot(this._id, Session.get('dotIdWishedToBeConnected')))
+
+    }
+
   }
 });
 

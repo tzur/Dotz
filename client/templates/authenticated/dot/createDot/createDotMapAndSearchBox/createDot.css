@@ -1,0 +1,31 @@
+.tab-content .tab-pane {
+  padding: 1em 0;
+}
+
+. btns-create-dot {
+  padding-top: 1em;
+}
+
+.createBtn {
+  width: 100%;
+}
+
+.btns-create-dot-row {
+  margin-top: 2em;
+  padding: 2em 0;
+  margin-bottom: 1em;
+  border-top: #ccc solid 1px;
+}
+
+.dot-img-create-dot {
+  width: 25em;
+  height: 25em;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  border-radius: 50%;
+}
+
+.file {
+  margin-bottom: 1.25em;
+}

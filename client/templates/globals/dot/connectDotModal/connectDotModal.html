@@ -34,10 +34,26 @@
                     </div>
 
                     {{#if isConnectedToUserProfileDot}}
-                    <div>
-                        <button class="connectToUserProfile">connect to profile</button>
-                      <p>{{currentUserImageUrl}}</p>
-                    </div>
+                      <div class="container-fluid">
+                        <div class="row ConnectedByOwnerDotz">
+                            <div class="col-md-12">
+
+                              <div class="col-md-2">
+                                  <div class="container-fluid dot-container-img-card-connect-modal" style="background-image: url('{{currentUserImageUrl}}')"></div>
+                              </div>
+
+                              <div class="col-md-8">
+
+                                  <h5 class="dotTitle-connect-modal">My Profile</h5>
+                              </div>
+
+                              <div class="col-md-2">
+                                  <button class="connectToUserProfile btn btn-lead round btn-xs">connect</button>
+                              </div>
+
+                            </div>
+                        </div>
+                      </div>
                     {{/if}}
 
 
