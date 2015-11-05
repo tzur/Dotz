@@ -39,6 +39,9 @@ Template.dotCard.helpers({
   },
 
   personlDescriptionOrBodyText: function() {
+    console.log("11111111 this.connectedByUser._id is  " + this.connectedByUser._id);
+    console.log("22222222 this.dot.ownerUserId is  " + this.dot.ownerUserId);
+
     if (this.smartRef.personalDescription) {
       return this.smartRef.personalDescription;
     }
@@ -68,6 +71,7 @@ Template.dotCard.helpers({
       return ("+ " + (ownerDotz + othersDotz) );
     }
   },
+
   dotOrDotz: function() {
     let ownerDotz = 0;
     if (this.dot.dotzConnectedByOwner) {
@@ -124,6 +128,8 @@ Template.dotCard.helpers({
     return ( parentDotOwnerId === Meteor.userId() )
   }
 });
+
+
 
 Template.dotCard.events({
 
