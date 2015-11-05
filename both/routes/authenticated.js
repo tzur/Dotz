@@ -28,6 +28,12 @@ authenticatedRoutes.route( '/feed', {
     BlazeLayout.render( 'default', { yield: 'feed' } );
   }
 });
+authenticatedRoutes.route( '/search', {
+  name: 'search',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'searchBox' } );
+  }
+});
 authenticatedRoutes.route( '/createDot', {
   name: 'createDot',
   action() {
