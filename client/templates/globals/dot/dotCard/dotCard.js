@@ -39,13 +39,10 @@ Template.dotCard.helpers({
   },
 
   personlDescriptionOrBodyText: function() {
-    console.log("11111111 this.connectedByUser._id is  " + this.connectedByUser._id);
-    console.log("22222222 this.dot.ownerUserId is  " + this.dot.ownerUserId);
-
     if (this.smartRef.personalDescription) {
       return this.smartRef.personalDescription;
     }
-    else if (this.connectedByUser._id === this.dot.ownerUserId) {
+    else if (this.connectedByUser.id === this.dot.ownerUserId) {
       return this.dot.bodyText;
     }
     else {
