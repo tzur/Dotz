@@ -44,5 +44,5 @@ let isConnectedToDot = (dotId, dotIdWishedToConnectTo) => {
       return true;
     }
 };
-Modules.client.Dotz.getDotDotzForConnect = isConnectedToDot;
+Modules.client.Dotz.isConnectedToDot = isConnectedToDot;
 Modules.client.Dotz.getConnectedByOwnerDotz = getConnectedByOwnerDotz;

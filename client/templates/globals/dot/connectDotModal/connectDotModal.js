@@ -16,5 +16,19 @@ Template.connectDotModal.helpers({
     if(Session.get('dotIdWishedToBeConnected')) {
       return Modules.client.Dotz.getConnectedByOwnerDotz(Meteor.user().profile.profileDotId, Session.get('dotIdWishedToBeConnected'))
     }
+  },
+
+  isConnectedToUserProfileDot: function(){
+    return Modules.client.Dotz.isConnectedToDot(Meteor.user().profile.profileDotId, Session.get('dotIdWishedToBeConnected'))
+  }
+});
+
+Template.connectDotModal.events({
+  'click .connectToUserProfile': function () {
+    personalDescription = $('#personalDescription').val();
+
+    let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), Meteor.user().profile.profileDotId, Meteor.userId(), false, CONNECT_ACTION, personalDescription)
+    Modules.both.Dotz.connectDot(smartRef)
+
   }
 });

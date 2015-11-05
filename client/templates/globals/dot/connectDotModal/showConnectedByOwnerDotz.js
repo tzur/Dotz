@@ -2,12 +2,12 @@
  * Created by avivhatzir on 04/11/2015.
  */
 
-Template.showConnectedByOwnerDotz.onCreated(function() {
-  let self = this;
-  self.autorun(function () {
-    self.subscribe('createByUserDotz');
-  });
-});
+//Template.showConnectedByOwnerDotz.onCreated(function() {
+//  let self = this;
+//  self.autorun(function () {
+//    self.subscribe('createByUserDotz');
+//  });
+//});
 
 
 Template.showConnectedByOwnerDotz.helpers({
@@ -16,7 +16,7 @@ Template.showConnectedByOwnerDotz.helpers({
   },
 
   connectBtn: function(){
-    return Modules.client.Dotz.getDotDotzForConnect(this._id, Session.get('dotIdWishedToBeConnected'))
+    return Modules.client.Dotz.isConnectedToDot(this._id, Session.get('dotIdWishedToBeConnected'))
   }
 });
 
