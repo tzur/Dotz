@@ -5,29 +5,49 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Connect Dot</h4>
+                    <h4 class="modal-title">Connect to:</h4>
                 </div>
 
                 <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
 
-                      <h2>Add Personal Description:</h2>
+                            <div class="col-md-4">
+                                <div class="container-fluid dot-img-connect-modal" style="background-image: url('{{dot.coverImageUrl}}')"></div>
+                            </div>
 
-                  <input id="personalDescription">
-                    <br><br>
-                    <br>
+                          {{dotDetails}}
+
+                            <div class="col-md-8">
+                                <h2 class="cardTitle">{{dot.title}}</h2>
+                                <textarea id="personalDescription"  placeholder="Write your note here..."></textarea>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
                     <hr>
 
-                    <div>
-                      {{#if isConnectedToUserProfileDot}}
-                          <button class="connectToUserProfile">connect to profile</button>
-                      {{/if}}
-                    </div>
+                  <div>
+                    {{#if isConnectedToUserProfileDot}}
+                        <button class="connectToUserProfile">connect to profile</button>
+                    {{/if}}
+                  </div>
 
-                  {{#each userProfileDotzArray}}
-                    <div>
-                    {{> showConnectedByOwnerDotz}}
-                    </div>
-                  {{/each}}
+                  <div class="container-fluid ConnectedByOwnerDotz-div">
+                      <div class="row">
+                          <div class="col-md-12">
+                            {{#each userProfileDotzArray}}
+                                <div class="container-fluid">
+                                  {{> showConnectedByOwnerDotz}}
+                                </div>
+                            {{/each}}
+                          </div>
+                      </div>
+                  </div>
+
 
                   <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

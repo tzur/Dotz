@@ -1,28 +1,41 @@
 <template name="showConnectedByOwnerDotz">
 {{#if Template.subscriptionsReady}}
 
+<div class="row ConnectedByOwnerDotz" data-toggle="collapse" data-target="#{{_id}}">
+    <div class="col-md-2">
+        <div class="container-fluid dot-container-img-card-connect-modal" style="background-image: url('{{coverImageUrl}}')"></div>
+    </div>
 
-  <div>
-    <button class="dotTitile" data-toggle="collapse" data-target="#{{_id}}">{{title}}</button>
-  </div>
+    <div class="col-md-8">
+       <h5 class="dotTitle-connect-modal">{{title}}</h5>
+    </div>
+
+
 
   {{#if connectBtn}}
 
-    <div>
-      <button class="connectBtn">connect</button>
+    <div class="col-md-2">
+      <button type="button" class="connectBtn btn btn-lead round btn-xs">Connect</button>
     </div>
 
   {{/if}}
+</div>
 
-    <br>
+
 
     <div id="{{_id}}" class="collapse">
 
+  {{#if relevantDotDotzArray}}
+        <br>
+
       {{#each relevantDotDotzArray}}
-        <div>
-        {{> showConnectedByOwnerDotz}}
-        </div>
+          <div class="nested-dotz">
+            {{> showConnectedByOwnerDotz}}
+          </div>
       {{/each}}
+
+        <br>
+    {{/if}}
 
     </div>
 
