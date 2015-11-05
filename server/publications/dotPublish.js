@@ -110,11 +110,15 @@ Meteor.publish('smartRefToUsersCursor', function(smartRefArray){
   check(smartRefArray, Array);
   let userIds = [];
   smartRefArray.forEach(function(smartRef){
-    let dot = Dotz.find(smartRef.dotId);
+    let dot = Dotz.findOne(smartRef.dotId);
+    console.log("This is the dot" + dot._id);
     userIds.push(smartRef.connectedByUserId);
     userIds.push(dot.ownerUserId);
+    console.log("This is the user id im looking for: " + dot.ownerUserId);
   });
-
+  Meteor.users.find({_id: {$in: userIds}}).forEach(function(user){
+    console.log("##" + user.username);
+  });
   return Meteor.users.find({_id: {$in: userIds}});
 });
 
