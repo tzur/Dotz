@@ -86,23 +86,3 @@ Template.createDotMap.onRendered(function(){
   });
 
 });
-//GoogleMaps.create({
-//  name: 'createDotMap',
-//  element: document.getElementById('createDotMap'),
-//  options: {
-//    center: new google.maps.LatLng(32.075362, 34.774936),
-//    zoom: 13
-//  }
-//});
-
-
-//let input = $("#locationInput").geocomplete({
-//  types: ['establishment', 'geocode'],
-//  map: document.getElementById('createDotMap')
-//}).bind("geocode:result", function(event, result){
-//  if(result) {
-//    locationLatLng[0] = result.geometry.location.lat();
-//    locationLatLng[1] = result.geometry.location.lng();
-//    Session.set("locationObject", {general: result, locationLatLng: locationLatLng});
-//  }
-//});

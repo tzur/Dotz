@@ -18,14 +18,13 @@ Template.userShow.onCreated(function() {
       if (dotId) {
         self.subscribe('dotShow', dotId);
         _data.userShowDot = Dotz.findOne(dotId);
+        Session.set('dot', _data.userShowDot);
       }
-
       if (_data.userShowDot) {
         //subscribe all the relevant data for dotzConnectedByOwner:
         self.subscribe('smartRefToDotzCursor', _data.userShowDot.dotzConnectedByOwner);
         self.subscribe('smartRefToUsersCursor', _data.userShowDot.dotzConnectedByOwner);
         //send smartRef to module:
-        //_data.dotzConnectedByOwnerObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.userShowDot.dotzConnectedByOwner);
       }
     }
   });
@@ -35,20 +34,24 @@ Template.userShow.helpers({
   data: function() {
     return _data;
   },
-  dotzConnectedByOwner: function() {
-    if (_data.userShowDot.dotzConnectedByOwner) {
-      return Modules.both.Dotz.smartRefToDataObject(_data.userShowDot.dotzConnectedByOwner);
-    }
-  },
 
+//user counters:
   followingCounter: function(){
-    return _data.userShow.profile.following.length;
+    //return _data.userShow.profile.following.length;
+    return Meteor.users.findOne(_data.userShow._id).profile.following.length;
   },
   followersCounter: function(){
-    return _data.userShow.profile.followers.length;
+    //return _data.userShow.profile.followers.length;
+    return Meteor.users.findOne(_data.userShow._id).profile.followers.length;
   },
-  myFollow: function(){
+  dotNumCounter:  function(){
+    return Meteor.users.findOne(_data.userShow._id).profile.createdByUserDotz.length;
+  },
+  connectivityNum:  function(){
+    return Meteor.users.findOne(_data.userShow._id).profile.userConnections.length;
+  },
 
+  myFollow: function(){
     if (Meteor.user().profile.following &&
       Meteor.user().profile.following.indexOf(_data.userShow._id) > -1){
       return true;
@@ -57,7 +60,6 @@ Template.userShow.helpers({
       return false;
     }
   },
-
   notMyProfile: function() {
     if (Meteor.userId() === _data.userShow._id) {
       return false;
@@ -67,13 +69,12 @@ Template.userShow.helpers({
     }
   },
 
-  dotNum:  function(){
-    return 123;
-  },
-
-  connectivityNum:  function(){
-    return 456;
+  dotzConnectedByOwner: function() {
+    if (Session.get('dot')) {
+      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOwner);
+    }
   }
+
 });
 
 Template.userShow.events({

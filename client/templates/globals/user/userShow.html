@@ -3,7 +3,7 @@
 </head>
 
 <template name="userShow">
-{{#if Template.subscriptionsReady}}
+<!--{{#if Template.subscriptionsReady}}-->
 {{#with data}}
         <div id="userBgImg" class="container-liquid">
             <div class="row imgCover" style="background-image: url('{{userShow.profile.coverImage}}')">
@@ -70,7 +70,7 @@
                 <ul class="menu js-socialMenu txtMd" data-user-id="42824e6543f3">
                     <li class="menu-item js-socialMenuFollowers hidden-xs" title="Followers">
                         <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
-                            <small class="menu-label">Dotz</small>{{dotNum}}</button>
+                            <small class="menu-label">Dotz</small>{{dotNumCounter}}</button>
                     </li>
 
                     <li class="menu-item js-socialMenuFollowers" title="Followers">
@@ -128,8 +128,8 @@
 
 
 {{/with}}
-{{else}}
-      <p> Loading...</p>
-  <!--to replace with a loading template-->
-{{/if}}
+<!--{{else}}-->
+      <!--<p> Loading...</p>-->
+  <!--&lt;!&ndash;to replace with a loading template&ndash;&gt;-->
+<!--{{/if}}-->
 </template>

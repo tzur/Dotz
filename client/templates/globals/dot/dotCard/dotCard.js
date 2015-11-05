@@ -1,5 +1,10 @@
 _dataCard = {};
 
+//Template.userShow.onCreated(function() {
+//  let parent = Template.parentData();
+//  console.log("###### parent is " + parent);
+//});
+
 Template.dotCard.onRendered (function(){
   $(".limitP").each(function(i){
     len=$(this).text().length;
@@ -21,14 +26,28 @@ Template.dotCard.helpers({
   },
 
   eventDate: function(){
-    return ( moment(this.dot.startDateAndHour).fromNow());
+    if (this.dot.startDateAndHour) {
+      return ( moment(this.dot.startDateAndHour).fromNow());
+    }
   },
 
-  isTheOwnerDotCard: function() {
+  userIsDotCardOwner: function() {
     let connectedByUserId = this.connectedByUser._id;
     let dotOwnerUserId = this.ownerUser._id;
     //let parentData = Template.parentData();
     return (connectedByUserId === dotOwnerUserId)
+  },
+
+  personlDescriptionOrBodyText: function() {
+    if (this.smartRef.personalDescription) {
+      return this.smartRef.personalDescription;
+    }
+    else if (this.connectedByUser._id === this.dot.ownerUserId) {
+      return this.dot.bodyText;
+    }
+    else {
+      return " ";
+    }
   },
 
   dotzNum: function() {
@@ -49,7 +68,6 @@ Template.dotCard.helpers({
       return ("+ " + (ownerDotz + othersDotz) );
     }
   },
-
   dotOrDotz: function() {
     let ownerDotz = 0;
     if (this.dot.dotzConnectedByOwner) {
@@ -69,22 +87,48 @@ Template.dotCard.helpers({
     }
   },
 
+  //isConnected: function() {
+  //
+  //  var data = Template.parentData();
+  //  if (!data) {
+  //    return false;
+  //  }
+  //  if (data.user){
+  //    return data.user._id === Meteor.userId();
+  //  }
+  //  if (data.mix){
+  //    return data.mix.owner.userId === Meteor.userId();
+  //  }
+  //
+  //  let dotId = this.dot._id;
+  //
+  //
+  //},
+
+  connectCounter: function() {
+    let counter = Dotz.findOne(this.dot._id).inDotz.length;
+    if (counter === 0) {
+      return ("");
+    }
+    else {
+      return ( "(" + counter + ")" );
+    }
+  },
+
   likeCounter: function(){
     return this.smartRef.likes.length;
+  },
+
+  isInMyParentDot: function() {
+    let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
+    return ( parentDotOwnerId === Meteor.userId() )
   }
 });
 
 Template.dotCard.events({
-  'keyup .comment': function(evt, tmpl){
-    if (evt.which== 13){
-      var commentText = tmpl.find('.comment').value;
-      var options = {text: commentText, parent: this._id};
-      Meteor.call('addPost', options);
-      $('.comment').val('').select().focus();
-    }
-  },
 
   'click .like': function(event){
+    event.preventDefault();
     Modules.both.Dotz.likeDot(this.smartRef, Meteor.userId());
   },
 
@@ -92,16 +136,11 @@ Template.dotCard.events({
     Meteor.call('unLikePost', Meteor.userId(), this._id);
   },
 
-  'click .toUser': function(){
-    Router.go('/user/' + this.owner.userId);
-  },
-
-
-
   'click .connect': function(){
     Modal.show('connectDotModal',{
       data:{
-        dotId: this.dot._id
+        dotId: this.dot._id,
+        dot: this.dot
       }
     });
   },
@@ -161,40 +200,19 @@ Template.dotCard.events({
 
   'click .upBtn':function(event){
     //console.log("UP: ");
-
-    var data = Template.parentData();
-    var parentId;
-    var userId = Meteor.userId();
-    var dotId = this._id;
-    var isMix = this.isMix; //TBD
-    var dotzArray = [];
-
-    if (data.user) {
-      parentId = Meteor.userId();
-      var user = Meteor.users.findOne(parentId);
-      dotzArray = user.profile.profileDotz;
-    }
-    else if (data.mix) {
-      console.log("HI 11");
-      parentId = data.mix._id;
-      console.log("parentId is: " + parentId);
-      var mix = Mixes.findOne(parentId);
-      dotzArray = mix.mixDotz;
-    }
-
-    var index = dotzArray.map(function(e) { return e.dotId; }).indexOf(dotId);
-
-    if (index !== 0) {
-      var newIndex = index - 1;
-      Meteor.call('sortDotz', parentId, dotId, isMix, newIndex);
-    }
-
-    //console.log("index is: " + index + " new index is: " + newIndex + "parent data is " + parentId); //DEBUG
-
-
+    let smartRef = this.smartRef;
+    let sortValue = 1;
+    Modules.both.Dotz.sortDotz(smartRef, sortValue);
   },
 
   'click .downBtn':function(event){
+    //console.log("DOWN: ");
+    let smartRef = this.smartRef;
+    let sortValue = -1;
+    Modules.both.Dotz.sortDotz(smartRef, sortValue);
+  },
+
+  'click .downBtn2':function(event){
     //console.log("DOWN: ");
 
     var data = Template.parentData();

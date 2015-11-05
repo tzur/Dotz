@@ -23,13 +23,14 @@ Meteor.methods({
     check(userId, String);
     check(dotId, String);
     let updateOptions = {
-      $addToSet: {"profile.createdByUserDots": dotId}
+      $addToSet: {"profile.createdByUserDotz": dotId}
     };
     _userUpdate(userId, updateOptions);
   },
 
   followUser(followingUserId, followedUserId){
     check(followingUserId, Meteor.userId());
+    check(followingUserId, String);
     check(followedUserId, String);
     let updateOptions = {
       $addToSet: {"profile.following": followedUserId}

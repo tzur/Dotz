@@ -18,7 +18,6 @@ Schema.dotSchema = new SimpleSchema({
     type: String
     //autoValue: function(){
       //return Meteor.userId()
-
   },
 
   title: {
@@ -83,13 +82,7 @@ Schema.dotSchema = new SimpleSchema({
     optional: true
   },
 
-  locationLat:{
-    type: String,
-    decimal:true,
-    optional: true
-  },
-
-  locationLng: {
+  locationLink: {
     type: String,
     optional: true
   },
@@ -175,12 +168,14 @@ Schema.dotSchema = new SimpleSchema({
   // All the dotz that were connected by OWNER.
   dotzConnectedByOwner: {
     type: [Object],
+    defaultValue: [], //TBD
     blackbox: true,
     optional: true
   },
   //All the dotz that were connected by OTHER users.
   dotzConnectedByOthers: {
     type: [Object],
+    defaultValue: [], //TBD
     blackbox: true,
     optional: true
   },

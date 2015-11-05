@@ -4,30 +4,55 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
-                <div class="modal-header">
-                    <h4 class="modal-title">Connect Dot</h4>
-                </div>
-
                 <div class="modal-body">
 
-                      <h2>Add Personal Description:</h2>
+                  {{#with dotTarget}}
 
-                  <input id="personalDescription">
-                    <br><br>
-                    <br>
-                    <hr>
+                   <div class="container-fluid chosen-dot-dot-modal">
+                        <div class="row">
 
-                    <div>
-                      {{#if isConnectedToUserProfileDot}}
-                          <button class="connectToUserProfile">connect to profile</button>
-                      {{/if}}
+                            <div class="col-md-4">
+                                <div class="container-fluid dot-img-connect-modal" style="background-image: url('{{dot.coverImageUrl}}')"></div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <h2 class="cardTitle">{{dot.title}}</h2>
+                                <div class="userDetails-dot-modal">
+                                    <img class="userImgIcon-dot-modal" src="{{currentUserImageUrl}}">
+                                    <span class="align-icon-text username-dot-modal">{{currentUserUsername}}</span>
+                                </div>
+                                <textarea id="personalDescription"  placeholder="Write your note here..."></textarea>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    {{/with}}
+
+                    <div class="modal-header">
+                        <h3 class="modal-title">Connect to:</h3>
                     </div>
 
-                  {{#each userProfileDotzArray}}
+                    {{#if isConnectedToUserProfileDot}}
                     <div>
-                    {{> showConnectedByOwnerDotz}}
+                        <button class="connectToUserProfile">connect to profile</button>
+                      <p>{{currentUserImageUrl}}</p>
                     </div>
-                  {{/each}}
+                    {{/if}}
+
+
+                  <div class="container-fluid ConnectedByOwnerDotz-div">
+                      <div class="row">
+                          <div class="col-md-12">
+                            {{#each userProfileDotzArray}}
+                                <div class="container-fluid">
+                                  {{> showConnectedByOwnerDotz}}
+                                </div>
+                            {{/each}}
+                          </div>
+                      </div>
+                  </div>
+
 
                   <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
