@@ -107,9 +107,9 @@ Meteor.publish('createByUserDotz', function() {
 
 Meteor.publish('smartRefToUsersCursor', function(smartRefArray){
   check(smartRefArray, Array);
-  let userIds = []
+  let userIds = [];
   smartRefArray.forEach(function(smartRef){
-    let dot = Dotz.find(smartRef.dotId);
+    let dot = Dotz.findOne(smartRef.dotId);
     userIds.push(smartRef.connectedByUserId);
     userIds.push(dot.ownerUserId);
   });
@@ -120,7 +120,7 @@ Meteor.publish('smartRefToUsersCursor', function(smartRefArray){
 Meteor.publish('smartRefToDotzCursor', function(smartRefArray) {
   check(smartRefArray, Array);
   let dotzCursor = [];
-  let dotIds = []
+  let dotIds = [];
   smartRefArray.forEach(function (smartRef) {
     dotIds.push(smartRef.dotId);
   });
