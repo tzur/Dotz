@@ -1,8 +1,41 @@
+.modal-header {
+  padding: 0 1em;
+  margin: 1em 0;
+}
+
+.modal-title {
+  font-weight: 600;
+}
+
 .dot-img-connect-modal {
-  height: 15vh;
-  width: 15vh;
+  height: 9em;
+  width: 9em;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  border-radius: 50%;
+}
+
+.chosen-dot-dot-modal {
+  margin-bottom: 1em;
 }
 
 .modal-body textarea {
   width: 100%;
 }
+
+.userDetails-dot-modal {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.userImgIcon-dot-modal {
+  height: 1.25em;
+  width: 1.25em;
+  border-radius: 50%;
+}
+
+.username-dot-modal {
+  font-size: 0.75em;
+}
+
