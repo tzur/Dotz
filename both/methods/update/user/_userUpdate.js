@@ -62,6 +62,19 @@ Meteor.methods({
     };
     _userUpdate(followedUserId, updateOptions);
   }
-
+  ,
+  updateUserConnectivity(connectedUserId, dotId, belongsToUserId){
+    check(connectedUserId, String);
+    check(dotId, String);
+    check(belongsToUserId, String);
+    let connectivityItem = {
+      userId: connectedUserId,
+      dotId: dotId
+    };
+    let updateOptions = {
+      $addToSet: {"profile.userConnections" : connectivityItem}
+    };
+    _userUpdate(belongsToUserId, updateOptions);
+  }
 
 });
