@@ -31,21 +31,23 @@ let _smartRefToDataObject = function(smartRefArray){
   smartRefArray.forEach(function(smartRef) {
     data = {};
     let dot = Dotz.findOne(smartRef.dotId);
-    let ownerUser = Meteor.users.findOne(dot.ownerUserId);
-    let connectedUser = Meteor.users.findOne(smartRef.connectedByUserId);
-    data.smartRef = smartRef;
-    data.dot = dot;
-    data.ownerUser = {
-      id: ownerUser._id,
-      username: ownerUser.username,
-      profileImage: ownerUser.profile.profileImage
-    };
-    data.connectedByUser = {
-      id: connectedUser._id,
-      username: connectedUser.username,
-      profileImage: connectedUser.profile.profileImage
-    };
-    dataArray.push(data);
+    if (dot){
+      let ownerUser = Meteor.users.findOne(dot.ownerUserId);
+      let connectedUser = Meteor.users.findOne(smartRef.connectedByUserId);
+      data.smartRef = smartRef;
+      data.dot = dot;
+      data.ownerUser = {
+        id: ownerUser._id,
+        username: ownerUser.username,
+        profileImage: ownerUser.profile.profileImage
+      };
+      data.connectedByUser = {
+        id: connectedUser._id,
+        username: connectedUser.username,
+        profileImage: connectedUser.profile.profileImage
+      };
+      dataArray.push(data);
+    }
   });
   return dataArray;
 };

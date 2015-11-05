@@ -18,8 +18,8 @@ Template.userShow.onCreated(function() {
       if (dotId) {
         self.subscribe('dotShow', dotId);
         _data.userShowDot = Dotz.findOne(dotId);
+        Session.set('dot', _data.userShowDot);
       }
-
       if (_data.userShowDot) {
         //subscribe all the relevant data for dotzConnectedByOwner:
         self.subscribe('smartRefToDotzCursor', _data.userShowDot.dotzConnectedByOwner);
@@ -70,8 +70,8 @@ Template.userShow.helpers({
   },
 
   dotzConnectedByOwner: function() {
-    if (_data.userShowDot.dotzConnectedByOwner) {
-      return Modules.both.Dotz.smartRefToDataObject(_data.userShowDot.dotzConnectedByOwner);
+    if (Session.get('dot')) {
+      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOwner);
     }
   }
 

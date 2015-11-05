@@ -1,5 +1,7 @@
 _data = {};
-
+Template.dotShow.onRendered(function(){
+  window.scrollTo(0,0);
+});
 Template.dotShow.onCreated(function() {
   let self = this;
   self.autorun(function() {
@@ -8,6 +10,7 @@ Template.dotShow.onCreated(function() {
     if (dotId) {
       self.subscribe('dotShow', dotId);
       _data.dotShow = Dotz.findOne(dotId);
+      Session.set('dot', _data.dotShow);
     }
 
     if (_data.dotShow) {
@@ -35,6 +38,7 @@ Template.dotShow.onCreated(function() {
 
 Template.dotShow.helpers({
   data: function() {
+    _data.dotShow = Dotz.findOne(FlowRouter.getParam('dotId'));
     return _data;
   },
   //dotOwnerUserName: function() {
@@ -46,14 +50,14 @@ Template.dotShow.helpers({
   //  return _data.user.profile.profileImage;
   //},
   dotzConnectedByOwner: function() {
-    if (_data.dotShow.dotzConnectedByOwner) {
-      return Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOwner);
+    if (Session.get('dot')) {
+      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOwner);
     }
   },
 
   dotzConnectedByOthers: function() {
-    if (_data.dotShow.dotzConnectedByOthers) {
-      return Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOthers);
+    if (Session.get('dot')) {
+      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOthers);
     }
   }
 
