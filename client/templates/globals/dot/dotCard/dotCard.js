@@ -134,7 +134,7 @@ Template.dotCard.events({
     Modal.show('connectDotModal',{
       data:{
         dotId: this.dot._id,
-        //dot: this.dot
+        dot: this.dot
       }
     });
   },
