@@ -30,6 +30,7 @@ Meteor.methods({
 
   followUser(followingUserId, followedUserId){
     check(followingUserId, Meteor.userId());
+    check(followingUserId, String);
     check(followedUserId, String);
     let updateOptions = {
       $addToSet: {"profile.following": followedUserId}

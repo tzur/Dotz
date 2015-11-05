@@ -72,7 +72,14 @@ let _createNewDotForDotProfile = ( userId ) => {
     check(profileDotDoc, Schema.dotSchema);
     Meteor.call('insertDot', profileDotDoc, function(error, result){
       if (result){
-        Meteor.call('updateUserProfileDotId', Meteor.userId(), result);
+        Meteor.call('updateUserProfileDotId', Meteor.userId(), result, function(error, result){
+          if (!error){
+            FlowRouter.go('/' + Meteor.user().username);
+          }
+          else{
+            console.log("Error" + error);
+          }
+        });
       }
     });
 
