@@ -9,11 +9,12 @@ let dotShowMap = function() {
     center: {lat: _data.dotShow.locationLatLng[0], lng: _data.dotShow.locationLatLng[1]},
     zoom: 16
   });
-
-  var marker = new google.maps.Marker({
-    map: dotShowMap,
-    position: {lat: _data.dotShow.locationLatLng[0], lng: _data.dotShow.locationLatLng[1]}
-  });
+  if(dotShowMap) {
+    var marker = new google.maps.Marker({
+      map: dotShowMap,
+      position: {lat: _data.dotShow.locationLatLng[0], lng: _data.dotShow.locationLatLng[1]}
+    });
+  }
 
 
 };

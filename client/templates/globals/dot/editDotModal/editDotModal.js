@@ -1,12 +1,14 @@
 /**
  * Created by avivhatzir on 04/11/2015.
  */
+
+
+
 Template.editDotModal.helpers({
   selectedDotDoc: function () {
-    console.log("search result " + Dotz.findOne({_id: this.data.dotId}));
     //for the events
-    Session.set("dotId", this.data.dotId);
-    return Dotz.findOne({_id: this.data.dotId});
+    Session.set("dotId", this.data.dot._id);
+    return Dotz.findOne({_id: this.data.dot._id});
   },
   isImageUrl: function(){
     if(this.dot.coverImageUrl){

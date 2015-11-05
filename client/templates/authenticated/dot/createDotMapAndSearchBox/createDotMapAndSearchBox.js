@@ -6,11 +6,18 @@
 //  GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places'});
 //
 //});
+Template.createDotMap.onCreated(function(){
+  if (!GoogleMaps.loaded()){
+    GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
+  }
+});
 
 Template.createDotMap.onRendered(function(){
   this.autorun(function () {
     let locationLatLng=[];
     if (GoogleMaps.loaded()) {
+
+        let centerLat = Template.parentData()
 
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 32.075362, lng: 34.774936},
@@ -83,6 +90,7 @@ Template.createDotMap.onRendered(function(){
 
 
     }
+
   });
 
 });

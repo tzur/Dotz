@@ -42,7 +42,7 @@ Template.dotCard.helpers({
     if (this.smartRef.personalDescription) {
       return this.smartRef.personalDescription;
     }
-    else if (this.connectedByUser._id === this.dot.ownerUserId) {
+    else if (this.connectedByUser.id === this.dot.ownerUserId) {
       return this.dot.bodyText;
     }
     else {
@@ -68,6 +68,7 @@ Template.dotCard.helpers({
       return ("+ " + (ownerDotz + othersDotz) );
     }
   },
+
   dotOrDotz: function() {
     let ownerDotz = 0;
     if (this.dot.dotzConnectedByOwner) {
@@ -124,6 +125,8 @@ Template.dotCard.helpers({
     return ( parentDotOwnerId === Meteor.userId() )
   }
 });
+
+
 
 Template.dotCard.events({
 

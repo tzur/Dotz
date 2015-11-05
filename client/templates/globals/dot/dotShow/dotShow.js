@@ -1,10 +1,17 @@
 _data = {};
 Template.dotShow.onRendered(function(){
   window.scrollTo(0,0);
+  if (GoogleMaps.loaded() && _data.dotShow){
+    Modules.client.Dotz.dotShowMap()
+  }
 });
 Template.dotShow.onCreated(function() {
   let self = this;
   self.autorun(function() {
+
+    if (!GoogleMaps.loaded()){
+      GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
+    }
 
     let dotId = FlowRouter.getParam('dotId');
     if (dotId) {
@@ -36,10 +43,6 @@ Template.dotShow.onCreated(function() {
       }
     }
 
-    GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
-    if (GoogleMaps.loaded() && _data.dotShow){
-      Modules.client.Dotz.dotShowMap()
-    }
 
 
   });
