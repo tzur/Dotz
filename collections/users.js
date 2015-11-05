@@ -19,7 +19,7 @@ Meteor.users.deny({
 
 let userProfile = new SimpleSchema({
 
-  //User basic
+  //User - basic info:
   description: {
     type: String,
     label: "Description",
@@ -28,24 +28,34 @@ let userProfile = new SimpleSchema({
   profileDotId:{
     type: String,
     label: "Profile Dot Id",
-    optional: true,
+    optional: true, //TBD
     autoform: {
       type: "hidden",
       label: false
     }
   },
-  createdByUserDots:{
+  createdByUserDotz:{
     type:[String],
-    label: "Created By User Dots",
+    label: "Created By User Dotz",
     optional: true,
+    defaultValue: [], //TBD
+    autoform: {
+      type: "hidden",
+      label: false
+    }
+  },
+  userConnections:{
+    type:[String],
+    label: "User Connections",
+    optional: true,
+    defaultValue: [], //TBD
     autoform: {
       type: "hidden",
       label: false
     }
   },
 
-
-  //User Counters:
+  //User Counters - TBD:
   dotsCounter:{
     type: String,
     label: "Dots",
@@ -188,10 +198,30 @@ let userProfile = new SimpleSchema({
     }
   },
 
-  // TBD!!
+  //info Fields:
+  userContext: {
+    type: [String],
+    //defaultValue: ["none"], //TBD
+    optional: true,
+    autoform: {
+      type: "hidden",
+      label: false
+    }
+  },
+  userInfo: {
+    type: [String],
+    //defaultValue: ["none"], //TBD
+    optional: true,
+    autoform: {
+      type: "hidden",
+      label: false
+    }
+  },
+
   //Flexible Fields:
   flexibleString: {
     type: String,
+    defaultValue: "", //TBD
     optional: true,
     autoform: {
       type: "hidden",
@@ -200,6 +230,7 @@ let userProfile = new SimpleSchema({
   },
   flexibleArray:{
     type: [String],
+    defaultValue: [], //TBD
     optional: true,
     autoform:{
       type:"hidden",
@@ -208,7 +239,7 @@ let userProfile = new SimpleSchema({
   }
 });
 
-//OTNI: TBD
+//TBD: especially the "blackBox" and the roles (and the username >> Regex..?)
 let user = new SimpleSchema({
   username: {
     type: String,
