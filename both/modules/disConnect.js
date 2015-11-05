@@ -1,5 +1,4 @@
 
-
 let disConnectDot = (smartRef) => {
 
   //security check:

@@ -1,4 +1,5 @@
 
+//TBD: add an "if (!error)" statements! >> get inspired by disConnect module :)
 let sortDotz = (smartRef, sortValue) => {
 
     //security check:

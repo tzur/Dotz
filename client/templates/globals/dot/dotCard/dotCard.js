@@ -1,9 +1,3 @@
-_dataCard = {};
-
-//Template.userShow.onCreated(function() {
-//  let parent = Template.parentData();
-//  console.log("###### parent is " + parent);
-//});
 
 Template.dotCard.onRendered (function(){
   $(".limitP").each(function(i){
@@ -14,6 +8,7 @@ Template.dotCard.onRendered (function(){
     }
   });
 });
+
 
 Template.dotCard.helpers({
 
@@ -135,7 +130,6 @@ Template.dotCard.events({
     });
   },
 
-  //To be fixed:
   'click .disConnect': function(){
     Modules.both.Dotz.disConnectDot(this.smartRef);
   },
@@ -163,30 +157,9 @@ Template.dotCard.events({
   },
 
 
-  //To be fixed:
+  //####################To be fixed:
   'click .delete':function(event){
     var data = Template.parentData();
-
-    //OTNI: I used if-else statement, cause sometimes there is no a parentData..
-
-    var mixId;
-
-    if (!data) {
-      mixId = false;
-    }
-    else {
-      if (data.mix) {
-        mixId = data.mix._id;
-      }
-    }
-
-    //if (data.user) {
-    //    parentId = data.user._id;
-    //}
-    var dotId = this._id;
-    var isMix = this.isMix;
-    var userId = Meteor.userId();
-    console.log("mixId: " + mixId);
     Meteor.call('deleteDot', mixId, dotId, isMix, userId);
     Bert.alert( 'Deleted', 'danger', 'growl-bottom-left' );
   }
