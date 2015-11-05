@@ -1,7 +1,12 @@
 /**
  * Created by avivhatzir on 26/10/2015.
  */
-Dotz = new Meteor.Collection( 'dotz' );
+Dotz = new Meteor.Collection( 'dotz'),
+  DotzIndex = new EasySearch.Index({
+    collection: Dotz,
+    fields: ['title', 'bodyText'],
+    engine: new EasySearch.MongoDB()
+  });
 
 Dotz.allow({
   insert: () => true,

@@ -1,0 +1,19 @@
+<template name="searchBox">
+<input type="text" class="searchInput" id="searchInput" placeholder="search whatever you want">
+    <ul>
+       {{#if findDotz}}
+
+        <!--{{#EasySearch.Each index=dotzIndex }}-->
+            <!--<li>Name of the dot: {{title}} {{bodyText}}</li>-->
+        <!--{{/EasySearch.Each}}-->
+
+        <!--{{#EasySearch.IfNoResults index=dotzIndex}}-->
+            <!--<div class="no-results">No results found!</div>-->
+        <!--{{/EasySearch.IfNoResults}}-->
+         {{#each result}}
+           {{title}} {{bodyText}} <br>
+         {{/each}}
+
+       {{/if}}
+    </ul>
+</template>
