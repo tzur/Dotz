@@ -13,9 +13,14 @@ let dotHooks = {
         doc.locationName = locationObject.general.name;
         doc.locationAddress = locationObject.general.formatted_address;
       }
-      if( ! (doc.inDotz = Session.get('parentDot')) ){
-        doc.inDotz = Meteor.user().profile.profileDotId
+
+      if(Session.get('parentDot')){
+        doc.inDotz = [Session.get('parentDot')];
       }
+      else{
+        doc.inDotz = [Meteor.user().profile.profileDotId]
+      }
+
       doc.ownerUserId = Meteor.userId();
       doc.createdAtDate = new Date();
 

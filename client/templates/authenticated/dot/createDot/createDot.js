@@ -12,14 +12,18 @@ Template.createDot.onCreated(function(){
   });
 
 });
-Template.createDot.helpers({
 
-  dotzOptions: function(){
-    if(Modules.client.Dotz.getUserProfileDotDotz){
-      //return Modules.client.Dotz.getUserProfileDotDotz(Meteor.user().profile.profileDotId);
-      return Dotz.find({ownerUserId: Meteor.userId()})
-    }
-  },
+Template.createDot.onRendered(function(){
+
+  $('#myTabs a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show')
+  });
+
+});
+
+
+Template.createDot.helpers({
 
   isImageUrl: function(){
     if(Session.get("coverImageUrl")){
@@ -36,10 +40,16 @@ Template.createDot.helpers({
   }
 
 });
+
 Template.createDot.events({
-  'change #target': function(e){
-    let parentIds = $('input[type="checkbox"]:checked').map(function() { return this.value; }).get();
-    Session.set('parentDot', parentIds);
+  'click #createToOneOfMyDotz': function(e){
+    e.preventDefault();
+    Modal.show('createToOneOfMyDotzModal', {
+      data:{
+        isActionTypeCreate: true
+      }
+    })
   }
+
 });
 
