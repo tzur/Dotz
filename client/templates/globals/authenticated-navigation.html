@@ -4,10 +4,11 @@
     <li class="{{currentRoute 'dashboard'}}"><a href="{{pathFor 'dashboard'}}">Dashboard</a></li>
 
   <!--TBD: we need to improve this route:    -->
-      <li class="{{currentRoute 'index'}}"><a href="/user/{{currentUser.username}}">My Profile</a></li>
+      <li class="{{currentRoute 'user-show'}}"><a href="/{{currentUser.username}}">My Profile</a></li>
 
       <li class="{{currentRoute 'createDot'}}"><a href="{{pathFor 'createDot'}}">Create Dot</a></li>
       <li class="{{currentRoute 'feed'}}"><a href="{{pathFor 'feed'}}">Feed</a></li>
+      <li class="{{currentRoute 'search'}}"><a href="{{pathFor 'search'}}">Search</a></li>
 
   </ul>
   <ul class="nav navbar-nav navbar-right">

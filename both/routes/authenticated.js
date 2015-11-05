@@ -3,7 +3,6 @@ const authenticatedRedirect = () => {
     FlowRouter.go( 'login' );
   }
 };
-
 const authenticatedRoutes = FlowRouter.group({
   name: 'authenticated',
   triggersEnter: [ authenticatedRedirect ]
@@ -15,47 +14,30 @@ authenticatedRoutes.route( '/', {
     BlazeLayout.render( 'default', { yield: 'index' } );
   }
 });
-
 authenticatedRoutes.route( '/dashboard', {
   name: 'dashboard',
   action() {
     BlazeLayout.render( 'default', { yield: 'dashboard' } );
   }
 });
-authenticatedRoutes.route( '/feed', {
+authenticatedRoutes.route( '/main/feed', {
   name: 'feed',
   action() {
     BlazeLayout.render( 'default', { yield: 'feed' } );
   }
 });
-authenticatedRoutes.route( '/createDot', {
+
+authenticatedRoutes.route( '/main/createDot', {
   name: 'createDot',
   action() {
     BlazeLayout.render( 'default', { yield: 'createDot' } );
   }
 });
 
-authenticatedRoutes.route( '/addImage', {
+authenticatedRoutes.route( '/main/addImage', {
   name: 'form',
   action() {
     BlazeLayout.render( 'default', { yield: 'upload' } );
   }
 });
 
-
-
-//TBD: we need to move the user page to the global-route area (coming soon):
-authenticatedRoutes.route( '/user/:username', {
-  name: 'user-show',
-  action() {
-    BlazeLayout.render( 'default', { yield: 'userShow' } );
-  }
-});
-
-//TBD: we need to move the dotShow page to the global-route area (coming soon):
-authenticatedRoutes.route( '/dot/:dotId', {
-  name: 'dot-show',
-  action() {
-    BlazeLayout.render( 'default', { yield: 'dotShow' } );
-  }
-});

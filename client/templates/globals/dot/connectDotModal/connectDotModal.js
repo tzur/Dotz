@@ -15,6 +15,10 @@ Template.connectDotModal.helpers({
     return Meteor.user().profile.profileImage;
   },
 
+  currentUserUsername: function() {
+    return Meteor.user().username;
+  },
+
   dotTarget: function() {
     return this.data;
   },
