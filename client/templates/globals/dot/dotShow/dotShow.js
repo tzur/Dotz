@@ -1,4 +1,5 @@
 _data = {};
+
 Template.dotShow.onRendered(function(){
   window.scrollTo(0,0);
   if (GoogleMaps.loaded() && _data.dotShow){

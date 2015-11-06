@@ -1,42 +1,4 @@
 
-//Template.dotCard.onRendered (function(){
-//  $(".limitP").each(function(i){
-//    len=$(this).text().length;
-//    if(len>100)
-//    {
-//      $(this).text($(this).text().substr(0,100)+'...');
-//    }
-//  });
-//});
-
-
-
-Template.dotCard.onRendered(function() {
-
-  //$(".limitP").each(function(i){
-  //  len=$(this).text().length;
-  //  if(len>100)
-  //  {
-  //    $(this).text($(this).text().substr(0,100)+'...');
-  //  }
-  //});
-
-
-  let self = this;
-  self.autorun(function() {
-
-  $(".limitP").each(function(i){
-    len=$(this).text().length;
-    if(len>100)
-    {
-      $(this).text($(this).text().substr(0,100)+'...');
-    }
-  });
-
-
-  });
-});
-
 Template.dotCard.helpers({
 
   isMyDot: function() {
@@ -67,10 +29,11 @@ Template.dotCard.helpers({
 
   personlDescriptionOrBodyText: function() {
     if (this.smartRef.personalDescription) {
-      return this.smartRef.personalDescription;
+      return s.prune(this.smartRef.personalDescription, 100);
     }
     else if (this.connectedByUser.id === this.dot.ownerUserId) {
-      return this.dot.bodyText;
+
+      return s.prune(this.dot.bodyText, 100);
     }
     else {
       return " ";
