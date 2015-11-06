@@ -1,0 +1,161 @@
+<template name="editUserAccount">
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 colCenter">
+
+                <div class="row"><h1 class="txtMd">Edit Your Account</h1></div>
+
+              {{#autoForm id="editUserAccountForm" collection="Meteor.users" type="update" doc=selectedUserDoc}}
+
+                  <div>
+                    {{> afQuickField name='username'}}
+                  </div>
+
+                  <div>
+                    {{> afQuickField name='profile.description' rows=6}}
+                  </div>
+
+                  <div>
+                    {{> afQuickField name='profile.userAddress'}}
+                  </div>
+
+                  <div>
+                    {{> afQuickField name='profile.websiteUrl'}}
+                  </div>
+
+                  <div>
+                    {{> afQuickField name='profile.facebookAccountUrl'}}
+                  </div>
+
+                  <div>
+                    {{> afQuickField name='profile.twitterAccountUrl'}}
+                  </div>
+
+                  <div>
+                    {{> afQuickField name='profile.googleAccountUrl'}}
+                  </div>
+
+                  <div>
+                    {{> afQuickField name='profile.pinterestAccountUrl'}}
+                  </div>
+
+                  <div>
+                    {{> afQuickField name='profile.tripAdvisorAccountUrl'}}
+                  </div>
+
+                  <div>
+                    {{> afQuickField name='profile.foursquareAccountUrl'}}
+                  </div>
+
+                  <div>
+                    <h2>profile image</h2>
+                    {{#if isUserProfileImageUrl}}
+                        <div class="file container-fluid">
+                            <div class="row">
+                                <div class="dot-img-create-dot colCenter" style="background-image: url('{{userProfileImagePreviewUrl}}')"></div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{> uploader}}
+                  </div>
+
+                  <div>
+                    <h2>cover image</h2>
+                    {{#if isUserCoverImageUrl}}
+                        <div class="file container-fluid">
+                            <div class="row">
+                                <div class="dot-img-create-dot colCenter" style="background-image: url('{{userCoverImagePreviewUrl}}')"></div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{> uploader}}
+                  </div>
+
+
+
+
+                {{> uploader}}
+
+                {{#if isImageUrl}}
+                    <div class="file container-fluid">
+                        <div class="row">
+                            <div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')"></div>
+                        </div>
+                    </div>
+                {{/if}}
+
+                  <div>
+
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" role="tablist">
+                          <li role="presentation" class= "active"><a href="#location" aria-controls="location" role="tab" data-toggle="tab">Location</a></li>
+                          <li role="presentation"><a href="#eventDetails" aria-controls="eventDetails" role="tab" data-toggle="tab">Event Details</a></li>
+                          <li role="presentation"><a href="#link" aria-controls="link" role="tab" data-toggle="tab">Link</a></li>
+                          <li role="presentation"><a href="#price" aria-controls="price" role="tab" data-toggle="tab">Price</a></li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                          <div role="tabpanel" class="tab-pane active" id="location">
+                            {{> createDotMap}}
+
+
+                          </div>
+
+                          <div role="tabpanel" class="tab-pane" id="eventDetails">
+
+                              <div class="optional-field">
+                                  <div type="bootstrap-datetimepicker" class="eventDetails optional-field">
+                                    {{> afQuickField name='startDateAndHour' placeholder="Pick Start Date"}}
+                                    {{> afQuickField name='endDateAndHour' placeholder="Pick End Date"}}
+                                    {{> afQuickField name='repeated' firstOption='None'}}
+                                    {{> afQuickField name='endRepeatedDate' placeholder="Pick Repeated End Date"}}
+                                  </div>
+                              </div>
+
+                          </div>
+
+                          <div role="tabpanel" class="tab-pane" id="link">
+
+                              <div class="location optional-field">
+                                {{> afQuickField name='linkUrl' placeholder="Ex: http://www.website.com ..."}}
+                              </div>
+
+                          </div>
+
+                          <div role="tabpanel" class="tab-pane" id="price">
+
+                              <div class="price optional-field">
+                                {{> afQuickField name='price' label= false placeholder= "Write price in dollars ..."}}
+                              </div>
+
+                          </div>
+
+                      </div>
+
+                  </div>
+
+                  <br><br>
+
+                  <div class="row btns-create-dot-row">
+
+                      <div class="col-xs-6 col-md-4 btns-create-dot">
+                          <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-success">Connect To My Profile</button>
+                      </div>
+
+                      <div class="col-xs-6 col-md-4 btns-create-dot">
+                          <button id="createToOneOfMyDotz" class="createBtn insert btn round btn-lead">Connect To My Dotz</button>
+                      </div>
+
+                  </div>
+
+              {{/autoForm}}
+
+
+            </div>
+        </div>
+    </div>
+</template>

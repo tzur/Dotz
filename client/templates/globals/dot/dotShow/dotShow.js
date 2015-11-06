@@ -1,10 +1,12 @@
 _data = {};
+
 Template.dotShow.onRendered(function(){
   window.scrollTo(0,0);
   if (GoogleMaps.loaded() && _data.dotShow){
     Modules.client.Dotz.dotShowMap()
   }
 });
+
 Template.dotShow.onCreated(function() {
   let self = this;
   self.autorun(function() {

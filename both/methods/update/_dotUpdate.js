@@ -85,6 +85,15 @@ Meteor.methods({
     catch(exception){
       return exception;
     }
+  },
+
+  editDotImage(coverImageUrl, dotId){
+    //change to URL in check
+    check(coverImageUrl, String);
+    let updateOptions = {
+      $set: {coverImageUrl: coverImageUrl}
+    };
+    _dotUpdate(dotId, updateOptions)
   }
 
 });

@@ -41,3 +41,10 @@ authenticatedRoutes.route( '/main/addImage', {
   }
 });
 
+authenticatedRoutes.route( '/editprofile', {
+  name: 'editprofile',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'editUserAccount' } );
+  }
+});
+

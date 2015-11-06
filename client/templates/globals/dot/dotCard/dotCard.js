@@ -1,15 +1,4 @@
 
-Template.dotCard.onRendered (function(){
-  $(".limitP").each(function(i){
-    len=$(this).text().length;
-    if(len>100)
-    {
-      $(this).text($(this).text().substr(0,100)+'...');
-    }
-  });
-});
-
-
 Template.dotCard.helpers({
 
   isMyDot: function() {
@@ -35,15 +24,16 @@ Template.dotCard.helpers({
   },
 
   userIsTheDotCreator: function() {
-    return (this.dot.ownerUserId === this.connectedByUser._id)
+    return (this.ownerUser.username === this.connectedByUser.username)
   },
 
   personlDescriptionOrBodyText: function() {
     if (this.smartRef.personalDescription) {
-      return this.smartRef.personalDescription;
+      return s.prune(this.smartRef.personalDescription, 100);
     }
     else if (this.connectedByUser.id === this.dot.ownerUserId) {
-      return this.dot.bodyText;
+
+      return s.prune(this.dot.bodyText, 100);
     }
     else {
       return " ";
@@ -151,7 +141,8 @@ Template.dotCard.events({
   'click .editBtn': function(){
     Modal.show('editDotModal', {
       data:{
-        'dot': this.dot
+        'dot': this.dot,
+        'actionTypeEdit': true
       }
     });
   },

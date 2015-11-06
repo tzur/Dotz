@@ -25,10 +25,9 @@
                             {{> uploader}}
 
                             {{#if isImageUrl}}
-                                <div class="file col-xs-12 col-sm-8 colCenter">
-                                    <div class="preview">
-                                        <a href="{{dot.coverImageUrl}}"></a>
-                                        <img src="{{dot.coverImageUrl}}">
+                                <div class="file container-fluid">
+                                    <div class="row">
+                                        <div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')"></div>
                                     </div>
                                 </div>
                             {{/if}}
