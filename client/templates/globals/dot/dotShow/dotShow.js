@@ -5,6 +5,7 @@ Template.dotShow.onRendered(function(){
     Modules.client.Dotz.dotShowMap()
   }
 });
+
 Template.dotShow.onCreated(function() {
   let self = this;
   self.autorun(function() {

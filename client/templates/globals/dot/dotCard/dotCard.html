@@ -157,7 +157,8 @@
                                           <div class="row">
                                               <div class="col-xs-4 col-sm-3 colCenter">
                                                 {{#if isConnected}}
-                                                    <button type="button" class="disConnect btn btn-success round btn-sm pull-right">Connected {{connectCounter}}</button>
+                                                    <button type="button" class="connect btn btn-lead round btn-md ">Connect {{connectCounter}}</button>
+                                                    <button type="button" class="disConnect btn btn-danger round btn-sm pull-right"> X </button>
                                                 {{else}}
                                                     <button type="button" class="connect btn btn-lead round btn-md ">Connect {{connectCounter}}</button>
                                                 {{/if}}
@@ -177,8 +178,8 @@
 
                                               <div class="col-md-2">
                                                 {{#if isConnected}}
-                                                    <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
-                                                    <button type="button" class="disConnect btn btn-success round btn-xs pull-right">Connected {{connectCounter}}</button>
+                                                    <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect {{connectCounter}}</button>
+                                                    <button type="button" class="disConnect btn btn-danger round btn-xs pull-right"> X </button>
                                                 {{else}}
                                                     <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect {{connectCounter}}</button>
                                                 {{/if}}

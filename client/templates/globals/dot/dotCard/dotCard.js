@@ -1,5 +1,30 @@
 
-Template.dotCard.onRendered (function(){
+//Template.dotCard.onRendered (function(){
+//  $(".limitP").each(function(i){
+//    len=$(this).text().length;
+//    if(len>100)
+//    {
+//      $(this).text($(this).text().substr(0,100)+'...');
+//    }
+//  });
+//});
+
+
+
+Template.dotCard.onRendered(function() {
+
+  //$(".limitP").each(function(i){
+  //  len=$(this).text().length;
+  //  if(len>100)
+  //  {
+  //    $(this).text($(this).text().substr(0,100)+'...');
+  //  }
+  //});
+
+
+  let self = this;
+  self.autorun(function() {
+
   $(".limitP").each(function(i){
     len=$(this).text().length;
     if(len>100)
@@ -7,8 +32,10 @@ Template.dotCard.onRendered (function(){
       $(this).text($(this).text().substr(0,100)+'...');
     }
   });
-});
 
+
+  });
+});
 
 Template.dotCard.helpers({
 
@@ -35,7 +62,7 @@ Template.dotCard.helpers({
   },
 
   userIsTheDotCreator: function() {
-    return (this.dot.ownerUserId === this.connectedByUser._id)
+    return (this.ownerUser.username === this.connectedByUser.username)
   },
 
   personlDescriptionOrBodyText: function() {
