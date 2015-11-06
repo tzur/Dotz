@@ -1,5 +1,4 @@
 _data = {};
-//_data.userShow = {}; //TBD?
 
 Template.userShow.onCreated(function() {
 
@@ -29,6 +28,7 @@ Template.userShow.onCreated(function() {
     }
   });
 });
+
 
 Template.userShow.helpers({
   data: function() {

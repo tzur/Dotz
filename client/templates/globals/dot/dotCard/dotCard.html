@@ -20,13 +20,13 @@
                                   <div class="col-md-4 visible-xs visible-sm">
                                       <div class="container-fluid dot-container-img-card-mobile" style="background-image: url('{{dot.coverImageUrl}}')">
                                           <div class="row" >
-                                              {{#if dotzNum}}
-                                              <div id="round-overlay-mobile"></div>
-                                              <div class="dotConnectedDotzLastIcon">
-                                                  <div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>
-                                                  <div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>
-                                              </div>
-                                              {{/if}}
+                                            {{#if dotzNum}}
+                                                <div id="round-overlay-mobile"></div>
+                                                <div class="dotConnectedDotzLastIcon">
+                                                    <div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>
+                                                    <div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>
+                                                </div>
+                                            {{/if}}
 
                                           </div>
                                       </div>
@@ -35,12 +35,12 @@
                                   <div class="col-md-4 liquidCol hidden-xs hidden-sm">
 
                                       <div class="container-fluid dot-container-img-card" style="background-image: url('{{dot.coverImageUrl}}')">
-                                      {{#if dotzNum}}
-                                        <div class="dotConnectedDotzLastIcon">
-                                            <div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>
-                                            <div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>
-                                        </div>
-                                      {{/if}}
+                                        {{#if dotzNum}}
+                                            <div class="dotConnectedDotzLastIcon">
+                                                <div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>
+                                                <div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>
+                                            </div>
+                                        {{/if}}
                                       </div>
                                   </div>
 
@@ -53,7 +53,7 @@
 
                                           <div class="row cardTitleDiv">
                                               <div class="col-xs-12 col-sm-12">
-                                                    {{testHelper}}
+                                                {{testHelper}}
                                                   <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
 
                                               </div>
@@ -110,15 +110,17 @@
 
                                                 {{else}}
 
+                                                    <!--userIsTheDotConnector-->
                                                     <a href="/{{connectedByUser.username}}" class="userImgIcon">
                                                         <img class="userImgIcon" src="{{connectedByUser.profileImage}}">
                                                     </a>
 
                                                     <a href="/{{connectedByUser.username}}">
-                                                        <span class="align-icon-text">{{connectedByUser.username}}</span>
-                                                    </a>
-
-                                                    <span> connected {{ownerUser.username}} Dot <span>·</span> {{actionDate}}</span>
+                                                    <span class="align-icon-text">{{connectedByUser.username}}</span></a>
+                                                    <span>connected<a href="/{{ownerUser.username}}">
+                                                        <span> {{ownerUser.username}}</span></a> Dot
+                                                        <span>·</span> {{actionDate}}
+                                                    </span>
 
                                                 {{/if}}
 
@@ -155,7 +157,8 @@
                                           <div class="row">
                                               <div class="col-xs-4 col-sm-3 colCenter">
                                                 {{#if isConnected}}
-                                                    <button type="button" class="disConnect btn btn-success round btn-sm pull-right">Connected {{connectCounter}}</button>
+                                                    <button type="button" class="connect btn btn-lead round btn-md ">Connect {{connectCounter}}</button>
+                                                    <button type="button" class="disConnect btn btn-danger round btn-sm pull-right"> X </button>
                                                 {{else}}
                                                     <button type="button" class="connect btn btn-lead round btn-md ">Connect {{connectCounter}}</button>
                                                 {{/if}}
@@ -175,8 +178,8 @@
 
                                               <div class="col-md-2">
                                                 {{#if isConnected}}
-                                                    <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
-                                                    <button type="button" class="disConnect btn btn-success round btn-xs pull-right">Connected {{connectCounter}}</button>
+                                                    <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect {{connectCounter}}</button>
+                                                    <button type="button" class="disConnect btn btn-danger round btn-xs pull-right"> X </button>
                                                 {{else}}
                                                     <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect {{connectCounter}}</button>
                                                 {{/if}}
@@ -239,10 +242,12 @@
                                                     </a>
 
                                                     <a href="/{{connectedByUser.username}}">
-                                                        <span class="align-icon-text">{{connectedByUser.username}}</span>
-                                                    </a>
+                                                    <span class="align-icon-text">{{connectedByUser.username}}</span></a>
+                                                    <span>connected<a href="/{{ownerUser.username}}">
+                                                      <span> {{ownerUser.username}}</span></a> Dot
+                                                        <span>·</span> {{actionDate}}
+                                                    </span>
 
-                                                    <span> connected {{ownerUser.username}} Dot <span>·</span> {{actionDate}}</span>
 
                                                 {{/if}}
 
@@ -252,31 +257,31 @@
 
                                               <div class="spacer-xs-card-buttons"></div>
 
-                                                <div class="like-btn-text-div-mobile col-md-2 cardConnecterDiv">
-                                                    <button type="button" class="like btn btn-default round btn-xs midWidth pull-right">
-                                                        <span class="like-btn-lnt smTxt greyText">{{likeCounter}}</span>
-                                                        <img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
-                                                    </button>
-                                                </div>
+                                              <div class="like-btn-text-div-mobile col-md-2 cardConnecterDiv">
+                                                  <button type="button" class="like btn btn-default round btn-xs midWidth pull-right">
+                                                      <span class="like-btn-lnt smTxt greyText">{{likeCounter}}</span>
+                                                      <img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
+                                                  </button>
+                                              </div>
 
-                                                <div class="user-personal-desc-details col-md-9">
-                                                    <p class="limitP user-personal-desc greyText">{{personlDescriptionOrBodyText}}</p>
-                                                </div>
+                                              <div class="user-personal-desc-details col-md-9">
+                                                  <p class="limitP user-personal-desc greyText">{{personlDescriptionOrBodyText}}</p>
+                                              </div>
+
+                                          </div>
 
                                       </div>
 
-                                  </div>
 
+                                  </div>
 
                               </div>
 
+
                           </div>
 
-
                       </div>
-
                   </div>
-              </div>
 
                   <div style="margin-bottom: 1em;">
                     {{#if isMyDot}}
@@ -293,9 +298,9 @@
 
 
 
+              </div>
           </div>
       </div>
-    </div>
 
 
   {{else}}
