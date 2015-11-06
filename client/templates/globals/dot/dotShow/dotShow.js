@@ -1,10 +1,17 @@
 _data = {};
 Template.dotShow.onRendered(function(){
   window.scrollTo(0,0);
+  if (GoogleMaps.loaded() && _data.dotShow){
+    Modules.client.Dotz.dotShowMap()
+  }
 });
 Template.dotShow.onCreated(function() {
   let self = this;
   self.autorun(function() {
+
+    if (!GoogleMaps.loaded()){
+      GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
+    }
 
     let dotId = FlowRouter.getParam('dotId');
     if (dotId) {
@@ -31,10 +38,39 @@ Template.dotShow.onCreated(function() {
         self.subscribe('smartRefToUsersCursor', _data.dotShow.dotzConnectedByOthers);
         //send smartRef to module:
         //_data.dotzConnectedByOthersObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOthers);
+
+
       }
     }
+
+
+
   });
 });
+//
+//Template.dotShow.onRendered(function() {
+//  let self = this;
+//  self.autorun(function() {
+//    if (GoogleMaps.loaded()) {
+//
+//      var map = new google.maps.Map(document.getElementById('map'), {
+//        center: {lat: 32.075362, lng: 34.774936},
+//        zoom: 13,
+//        mapTypeId: google.maps.MapTypeId.ROADMAP
+//      });
+//
+//      var infowindow = new google.maps.InfoWindow();
+//      var service = new google.maps.places.PlacesService(map);
+//
+//      var marker = new google.maps.Marker({
+//        map: map,
+//        position: place.geometry.location
+//      });
+//    }
+//
+//  });
+//});
+
 
 Template.dotShow.helpers({
   data: function() {
@@ -52,6 +88,18 @@ Template.dotShow.helpers({
   dotzConnectedByOwner: function() {
     if (Session.get('dot')) {
       return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOwner);
+    }
+  },
+
+  dotShowMapOptions: function(){
+    if (GoogleMaps.loaded() && _data.dotShow.locationLat) {
+      // Map initialization options
+      loc[0] = _data.dotShow.locationLat;
+      loc[1] = _data.dotShow.locationLng;
+      return {
+        center: new google.maps.LatLng(loc[0], loc[1]),
+        zoom: 13
+      };
     }
   },
 
