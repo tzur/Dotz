@@ -1,3 +1,15 @@
+.tab-content {
+  background-color: white;
+  border-bottom: #e1e1e1 solid 1px;
+  border-left: #e1e1e1 solid 1px;
+  border-right: #e1e1e1 solid 1px;
+}
+
+.nav-tabs > li {
+  float: left;
+  margin-bottom: -2px;
+}
+
 .tab-content .tab-pane {
   padding: 1em 0;
 }
