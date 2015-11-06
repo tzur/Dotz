@@ -35,7 +35,7 @@ Template.dotCard.helpers({
   },
 
   userIsTheDotCreator: function() {
-    return (this.ownerUser._id === this.connectedByUser._id)
+    return (this.dot.ownerUserId === this.connectedByUser._id)
   },
 
   personlDescriptionOrBodyText: function() {
