@@ -1,27 +1,28 @@
 <template name="feed">
 
+<div class="container-fluid">
+
 {{#if Template.subscriptionsReady}}
 
-  <div class="container-fluid">
       <div class="row feed-cards">
           <div class="col-xs-12">
-                  {{#each feedDotz}}
-                    {{> dotCard}}
-                  {{/each}}
+            {{#each feedDotz}}
+              {{> dotCard}}
+            {{/each}}
           </div>
       </div>
-  </div>
 
 {{else}}
-{{/if}}
-<div class="container-fluid">
-  <div class="row row-loading">
-    <div class="col-xs-12">
-      {{>loading2}}
-    </div>
-  </div>
-</div>
 
+      <div class="row row-loading">
+          <div class="col-xs-12">
+            {{>loading2}}
+          </div>
+      </div>
+
+{{/if}}
+
+</div>
 
 
 </template>

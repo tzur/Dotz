@@ -6,7 +6,7 @@
   overflow:hidden;
 }
 
-.planet{
+.circle-loading{
   position:absolute;
   top:0;
   left:0;
@@ -15,7 +15,7 @@
   background:url(/loading/circle-big.png) no-repeat center center;
 }
 
-.rocket{
+.dot-loading{
   position:absolute;
   top:0;
   left:0;
