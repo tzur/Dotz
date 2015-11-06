@@ -1,0 +1,10 @@
+.feed-cards {
+  padding-top: 2em;
+  background-color: #fafafa;
+  border-top: #ccc solid 1px;
+}
+
+.row-loading {
+  padding-top: 4em;
+  background-color: #ffffff;
+}
