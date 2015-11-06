@@ -24,6 +24,15 @@ let _updateInDotz = (toBeAddedDotId, targetDotId) => {
 //  let dot = Dotz.findOne(smartRef.dotId);
 //  Modules.both.Dotz.updateFeed(smartRef);
 //};
+let _updateUserConnectivity = (dotId, parentDotId) =>{
+  let dot = Dotz.findOne(dotId);
+  let userId = dot.ownerUserId;
+  Meteor.call('updateUserConnectivity', Meteor.userId(), dotId, userId, parentDotId ,function(error, result){
+    if (error){
+      console.log("Error " + error );
+    }
+  });
+};
 let connectDot = (smartRef) => {
   //PLEASE MAKE IT SMARTER...COULD BE  BETTER
   /// Probably one module with private functions.
@@ -38,7 +47,7 @@ let connectDot = (smartRef) => {
             _updateInDotz(smartRef.dotId, smartRef.parentDot);
           }
           Modules.both.Dotz.updateFeed(smartRef);
-
+          _updateUserConnectivity(smartRef.dotId, smartRef.parentDot)
         }
        else{
           console.log("Error" + error);
@@ -54,7 +63,8 @@ let connectDot = (smartRef) => {
         if (smartRef.actionName === CONNECT_ACTION){
           _updateInDotz(smartRef.dotId, smartRef.parentDot);
         }
-        _sendToUpdateFeed(smartRef);
+        Modules.both.Dotz.updateFeed(smartRef);
+        _updateUserConnectivity(smartRef.dotId, smartRef.parentDot)
       }
       else{
         console.log("Error" + error);

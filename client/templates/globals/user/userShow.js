@@ -32,7 +32,7 @@ Template.userShow.onCreated(function() {
 
 Template.userShow.helpers({
   data: function() {
-    _data.userShow = Meteor.users.findOne(FlowRouter.getParam('username'));
+    _data.userShow = Meteor.users.findOne({username: FlowRouter.getParam('username')});
     return _data;
   },
 
@@ -80,8 +80,9 @@ Template.userShow.helpers({
   },
 
   dotzConnectedByOwner: function() {
-    if (Session.get('dot')) {
-      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOwner);
+    let dot = Session.get('dot');
+    if ( dot && dot.dotzConnectedByOwner ) {
+      return Modules.both.Dotz.smartRefToDataObject(dot.dotzConnectedByOwner);
     }
   }
 

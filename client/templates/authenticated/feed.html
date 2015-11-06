@@ -1,12 +1,27 @@
 <template name="feed">
+
 {{#if Template.subscriptionsReady}}
-    <div class="jumbotron text-center" style="padding: 20px;">
-      {{#each feedDotz}}
-        {{> dotCard}}
-      {{/each}}
-    </div>
+
+  <div class="container-fluid">
+      <div class="row feed-cards">
+          <div class="col-xs-12">
+                  {{#each feedDotz}}
+                    {{> dotCard}}
+                  {{/each}}
+          </div>
+      </div>
+  </div>
+
 {{else}}
-    <p> Loading...</p>
-    <!--to replace with a loading template-->
 {{/if}}
+<div class="container-fluid">
+  <div class="row row-loading">
+    <div class="col-xs-12">
+      {{>loading2}}
+    </div>
+  </div>
+</div>
+
+
+
 </template>

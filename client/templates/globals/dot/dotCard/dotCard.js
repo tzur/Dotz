@@ -1,9 +1,3 @@
-_dataCard = {};
-
-//Template.userShow.onCreated(function() {
-//  let parent = Template.parentData();
-//  console.log("###### parent is " + parent);
-//});
 
 Template.dotCard.onRendered (function(){
   $(".limitP").each(function(i){
@@ -15,14 +9,23 @@ Template.dotCard.onRendered (function(){
   });
 });
 
+
 Template.dotCard.helpers({
 
   isMyDot: function() {
     return (this.dot.ownerUserId === Meteor.userId())
   },
 
+  //Works for dotzConnectedByOwner, TBD for dotzConnectedByOthers:
+  sortIsAvailable: function() {
+    let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
+    return ( parentDotOwnerId === Meteor.userId() )
+  },
+
   actionDate: function(){
-    return (moment(this.createdAt).fromNow())
+    if (this.dot.createdAtDate) {
+      return (moment(this.dot.createdAtDate).fromNow())
+    }
   },
 
   eventDate: function(){
@@ -85,31 +88,9 @@ Template.dotCard.helpers({
     }
   },
 
-  //isConnected: function() {
-  //
-  //  var data = Template.parentData();
-  //  if (!data) {
-  //    return false;
-  //  }
-  //  if (data.user){
-  //    return data.user._id === Meteor.userId();
-  //  }
-  //  if (data.mix){
-  //    return data.mix.owner.userId === Meteor.userId();
-  //  }
-  //
-  //  let dotId = this.dot._id;
-  //
-  //
-  //},
-
-
   isConnected: function() {
-    let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
-    return ( parentDotOwnerId === Meteor.userId() )
+    return ( this.smartRef.connectedByUserId === Meteor.userId() )
   },
-
-
 
   connectCounter: function() {
     let counter = Dotz.findOne(this.dot._id).inDotz.length;
@@ -123,18 +104,8 @@ Template.dotCard.helpers({
 
   likeCounter: function(){
     return this.smartRef.likes.length;
-  },
-
-
-
-
-
-
-
-  isInMyParentDot: function() {
-    let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
-    return ( parentDotOwnerId === Meteor.userId() )
   }
+
 });
 
 
@@ -160,55 +131,7 @@ Template.dotCard.events({
   },
 
   'click .disConnect': function(){
-    var data = Template.parentData();
-    var dotId = this._id;
-    var isMix = this.isMix;
-
-    if (data.mix) {
-      var mixId = data.mix._id;
-    }
-    if (data.user) {
-      var mixId = data.user._id;
-    }
-
-    Meteor.call('disConnectDot', mixId, dotId, isMix );
-    Bert.alert( 'Disconnected', 'warning', 'growl-bottom-left' );
-  },
-
-  'click .editBtn': function(){
-    Modal.show('editDotModal', {
-      data:{
-        'dot': this.dot
-      }
-    });
-
-  },
-
-  'click .delete':function(event){
-    var data = Template.parentData();
-
-    //OTNI: I used if-else statement, cause sometimes there is no a parentData..
-
-    var mixId;
-
-    if (!data) {
-      mixId = false;
-    }
-    else {
-      if (data.mix) {
-        mixId = data.mix._id;
-      }
-    }
-
-    //if (data.user) {
-    //    parentId = data.user._id;
-    //}
-    var dotId = this._id;
-    var isMix = this.isMix;
-    var userId = Meteor.userId();
-    console.log("mixId: " + mixId);
-    Meteor.call('deleteDot', mixId, dotId, isMix, userId);
-    Bert.alert( 'Deleted', 'danger', 'growl-bottom-left' );
+    Modules.both.Dotz.disConnectDot(this.smartRef);
   },
 
   'click .upBtn':function(event){
@@ -225,36 +148,20 @@ Template.dotCard.events({
     Modules.both.Dotz.sortDotz(smartRef, sortValue);
   },
 
-  'click .downBtn2':function(event){
-    //console.log("DOWN: ");
+  'click .editBtn': function(){
+    Modal.show('editDotModal', {
+      data:{
+        'dot': this.dot
+      }
+    });
+  },
 
+
+  //####################To be fixed:
+  'click .delete':function(event){
     var data = Template.parentData();
-    var parentId;
-    var userId = Meteor.userId();
-    var dotId = this._id;
-    var isMix = this.isMix; //TBD
-    var dotzArray = [];
-
-    if (data.user) {
-      parentId = Meteor.userId();
-      var user = Meteor.users.findOne(parentId);
-      dotzArray = user.profile.profileDotz;
-    }
-    else if (data.mix) {
-      parentId = data.mix._id;
-      var mix = Mixes.findOne(parentId);
-      dotzArray = mix.mixDotz;
-    }
-
-    var index = dotzArray.map(function(e) { return e.dotId; }).indexOf(dotId);
-    var arrayLength = dotzArray.length;
-
-    if (index !== arrayLength) {
-      var newIndex = index + 1;
-      Meteor.call('sortDotz', parentId, dotId, isMix, newIndex);
-    }
-
-    //console.log("index is: " + index + " new index is: " + newIndex + "parent data is " + parentId); //DEBUG
-
+    Meteor.call('deleteDot', mixId, dotId, isMix, userId);
+    Bert.alert( 'Deleted', 'danger', 'growl-bottom-left' );
   }
+
 });
