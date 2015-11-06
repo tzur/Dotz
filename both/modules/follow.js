@@ -12,6 +12,7 @@ let _followUser = function(followingUserId, followedUserId){
     }
   })
 };
+
 let _unFollowUser =  function(followingUserId, followedUserId){
   Meteor.call('unFollowUser', followingUserId, followedUserId, function(error, result){
     if (!error){
@@ -26,5 +27,6 @@ let _unFollowUser =  function(followingUserId, followedUserId){
     }
   });
 };
+
 Modules.both.Dotz.followUser = _followUser;
 Modules.both.Dotz.unFollowUser = _unFollowUser;

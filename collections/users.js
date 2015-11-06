@@ -45,7 +45,8 @@ let userProfile = new SimpleSchema({
     }
   },
   userConnections:{
-    type:[String],
+    type:[Object],
+    blackbox:true,
     label: "User Connections",
     optional: true,
     defaultValue: [], //TBD

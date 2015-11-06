@@ -32,27 +32,36 @@ Template.userShow.onCreated(function() {
 
 Template.userShow.helpers({
   data: function() {
+    _data.userShow = Meteor.users.findOne({username: FlowRouter.getParam('username')});
     return _data;
   },
 
 //user counters:
   followingCounter: function(){
     //return _data.userShow.profile.following.length;
-    return Meteor.users.findOne(_data.userShow._id).profile.following.length;
+    if (_data.userShow) {
+      return Meteor.users.findOne(_data.userShow._id).profile.following.length;
+    }
   },
   followersCounter: function(){
     //return _data.userShow.profile.followers.length;
-    return Meteor.users.findOne(_data.userShow._id).profile.followers.length;
+    if (_data.userShow) {
+      return Meteor.users.findOne(_data.userShow._id).profile.followers.length;
+    }
   },
   dotNumCounter:  function(){
-    return Meteor.users.findOne(_data.userShow._id).profile.createdByUserDotz.length;
+    if (_data.userShow) {
+      return Meteor.users.findOne(_data.userShow._id).profile.createdByUserDotz.length;
+    }
   },
   connectivityNum:  function(){
-    return Meteor.users.findOne(_data.userShow._id).profile.userConnections.length;
+    if (_data.userShow) {
+      return Meteor.users.findOne(_data.userShow._id).profile.userConnections.length;
+    }
   },
 
   myFollow: function(){
-    if (Meteor.user().profile.following &&
+    if (_data.userShow && Meteor.user().profile.following &&
       Meteor.user().profile.following.indexOf(_data.userShow._id) > -1){
       return true;
     }
@@ -61,7 +70,8 @@ Template.userShow.helpers({
     }
   },
   notMyProfile: function() {
-    if (Meteor.userId() === _data.userShow._id) {
+
+    if (_data.userShow && Meteor.userId() === _data.userShow._id) {
       return false;
     }
     else {
@@ -70,8 +80,9 @@ Template.userShow.helpers({
   },
 
   dotzConnectedByOwner: function() {
-    if (Session.get('dot')) {
-      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOwner);
+    let dot = Session.get('dot');
+    if ( dot && dot.dotzConnectedByOwner ) {
+      return Modules.both.Dotz.smartRefToDataObject(dot.dotzConnectedByOwner);
     }
   }
 

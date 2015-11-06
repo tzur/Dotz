@@ -1,32 +1,33 @@
 
-let _updateInDotz = (toBeAddedDotId, targetDotId) => {
-  //to add callback to catch errors.
-  //Meteor.call('addDotToInDotz',toBeAddedDotId, targetDotId );
-};
-
-
+//TBD: add an "if (!error)" statements! >> get inspired by disConnect module :)
 let sortDotz = (smartRef, sortValue) => {
 
+    //security check:
+    if (Meteor.userId() !== smartRef.connectedByUserId) {
+      return false;
+    }
+
+    //find relevant index:
     let dotId = smartRef.dotId;
     let parentDot = Dotz.findOne(smartRef.parentDot);
     let dotzArray = parentDot.dotzConnectedByOwner;
 
     if (dotzArray) {
-      var index = dotzArray.map(function(e) { return e.dotId; }).indexOf(dotId);
+      let index = dotzArray.map(function(e) { return e.dotId; }).indexOf(dotId);
 
       //UpBtn
       if (sortValue === 1) {
         if (index !== 0) {
-          var newIndex = index - sortValue;
+          let newIndex = index - sortValue;
           Meteor.call('sortDotzUpdate', smartRef, newIndex);
         }
       }
 
       //DownBtn
       else if (sortValue === -1) {
-        var arrayLength = dotzArray.length;
+        let arrayLength = dotzArray.length;
         if (index !== arrayLength) {
-          var newIndex = index + 1;
+          let newIndex = index - sortValue;
           Meteor.call('sortDotzUpdate', smartRef, newIndex);
         }
       }

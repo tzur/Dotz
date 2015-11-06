@@ -1,6 +1,5 @@
 Meteor.publish( 'user', function( userId ) {
   check(userId, String, Object);
-  console.log("DOGGGGGG " + userId);
   if (userId) {
     return Meteor.users.find(userId);
   }
