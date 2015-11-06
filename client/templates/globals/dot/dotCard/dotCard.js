@@ -151,7 +151,8 @@ Template.dotCard.events({
   'click .editBtn': function(){
     Modal.show('editDotModal', {
       data:{
-        'dot': this.dot
+        'dot': this.dot,
+        'actionTypeEdit': true
       }
     });
   },
