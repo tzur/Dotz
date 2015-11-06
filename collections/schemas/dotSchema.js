@@ -1,6 +1,7 @@
 Schema.dotSchema = new SimpleSchema({
   dotType: {
     type: String,
+    optional: true,
     allowedValues: ['Event', 'Place', 'Concept Dot', 'Text', 'Link', 'Product', '_profileDot'],
     autoform: {
       options: [

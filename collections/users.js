@@ -20,6 +20,11 @@ Meteor.users.deny({
 let userProfile = new SimpleSchema({
 
   //User - basic info:
+  userSlug: {
+    type: String,
+    label: "Slug",
+    optional: true
+  },
   description: {
     type: String,
     label: "Description",

@@ -15,12 +15,12 @@ Meteor.methods({
     }
   },
 
-  pullDotFromDotzConnectedByOwner( smartRef ) {
-    check( smartRef, Object );
-    check( smartRef.parentDot, String );
+  pullDotFromDotzConnectedByOwner( dotId, parentDot ) {
+    check( dotId, String );
+    check( parentDot, String );
     try {
-      Dotz.update(smartRef.parentDot, {
-        $pull: {"dotzConnectedByOwner": smartRef}
+      Dotz.update(parentDot, {
+        $pull: {"dotzConnectedByOwner": {"dotId": dotId} }
       });
     }
     catch( exception ) {
@@ -28,12 +28,12 @@ Meteor.methods({
     }
   },
 
-  pullDotFromDotzConnectedByOthers( smartRef ) {
-    check( smartRef, Object );
-    check( smartRef.parentDot, String );
+  pullDotFromDotzConnectedByOthers( dotId, parentDot ) {
+    check( dotId, String );
+    check( parentDot, String );
     try {
-      Dotz.update(smartRef.parentDot, {
-        $pull: {"dotzConnectedByOthers": smartRef}
+      Dotz.update(parentDot, {
+        $pull: {"dotzConnectedByOthers": {"dotId": dotId} }
       });
     }
     catch( exception ) {

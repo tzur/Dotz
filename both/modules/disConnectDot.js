@@ -21,7 +21,7 @@ let disConnectDot = (smartRef) => {
 
               //is ConnectedToOthers:
               if (smartRef.isConnectedToOthers){
-                Meteor.call('pullDotFromDotzConnectedByOthers', smartRef, function(error,result){
+                Meteor.call('pullDotFromDotzConnectedByOthers', smartRef.dotId, smartRef.parentDot, function(error,result){
                   if (!error){
                     Bert.alert( 'Disconnected', 'warning', 'growl-bottom-left' );
                   }
@@ -33,7 +33,7 @@ let disConnectDot = (smartRef) => {
 
               //is ConnectedToOwner:
               else if ( smartRef.isConnectedToOthers === false) {
-                Meteor.call('pullDotFromDotzConnectedByOwner', smartRef, function(error,result){
+                Meteor.call('pullDotFromDotzConnectedByOwner', smartRef.dotId, smartRef.parentDot, function(error,result){
                   if (!error){
                     Bert.alert( 'Disconnected', 'warning', 'growl-bottom-left' );
                   }

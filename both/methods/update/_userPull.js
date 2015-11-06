@@ -20,7 +20,24 @@ Meteor.methods({
     catch( exception ) {
       return exception;
     }
+  },
+
+  pullFromCreatedByUserDotz(userId, dotId){
+    //check( userId === Meteor.userId() );
+    check(userId, String);
+    check(dotId, String);
+    try {
+      Meteor.users.update(userId, {
+        $pull: {"profile.createdByUserDotz": dotId}
+      });
+    }
+    catch( exception ) {
+      return exception;
+    }
   }
+
+
+
 
 });
 
