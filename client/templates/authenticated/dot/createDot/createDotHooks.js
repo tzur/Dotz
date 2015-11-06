@@ -12,6 +12,8 @@ let dotHooks = {
         doc.locationLatLng = locationObject.locationLatLng;
         doc.locationName = locationObject.general.name;
         doc.locationAddress = locationObject.general.formatted_address;
+        doc.locationLink = locationObject.general.url;
+        doc.locationPlaceId = locationObject.general.place_id;
       }
 
       if(Session.get('parentDot')){

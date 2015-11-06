@@ -112,9 +112,9 @@
     <div class="row map-div">
 
       {{#if dotShow.locationName}}
-          <div class="map-container-dot-show">
-            {{> googleMap name="exampleMap" options=exampleMapOptions}}
-          </div>
+
+            <div id="dotShowMap" class="map-container map-container-dot-show"></div>
+
           <div class="map-container-overlayer"></div>
       {{/if}}
 
@@ -139,6 +139,7 @@
         <hr class="lightGrey">
         <div class="dot-divider-box col-xs-4 colCenter">Connected dotz by others</div>
     </div>
+
 
     <div class="row">
         <div class="col-xs-12">

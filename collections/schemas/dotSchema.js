@@ -82,13 +82,12 @@ Schema.dotSchema = new SimpleSchema({
     optional: true
   },
 
-  locationLat:{
+  locationLink: {
     type: String,
-    decimal:true,
     optional: true
   },
 
-  locationLng: {
+  locationPlaceId: {
     type: String,
     optional: true
   },
