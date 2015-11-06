@@ -2,8 +2,6 @@
  * Created by avivhatzir on 04/11/2015.
  */
 
-
-
 Template.editDotModal.helpers({
   selectedDotDoc: function () {
     //for the events

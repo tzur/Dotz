@@ -94,7 +94,7 @@
 
                                               <div class="col-xs-10 cardConnecterDiv greyText smTxt">
 
-                                                {{#if userIsDotCardOwner}}
+                                                {{#if userIsTheDotCreator}}
 
 
                                                     <a href="/{{ownerUser.username}}" class="userImgIcon">
@@ -174,7 +174,7 @@
                                               </div>
 
                                               <div class="col-md-2">
-                                                {{#if isMyMix}}
+                                                {{#if isConnected}}
                                                     <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
                                                     <button type="button" class="disConnect btn btn-success round btn-xs pull-right">Connected {{connectCounter}}</button>
                                                 {{else}}
@@ -219,7 +219,7 @@
 
                                               <div class="col-md-10 cardConnecterDiv greyText smTxt">
 
-                                                {{#if userIsDotCardOwner}}
+                                                {{#if userIsTheDotCreator}}
 
                                                     <a href="/{{ownerUser.username}}" class="userImgIcon">
                                                         <img class="userImgIcon" src="{{ownerUser.profileImage}}">
@@ -251,17 +251,6 @@
                                               <hr class="lightGrey">
 
                                               <div class="spacer-xs-card-buttons"></div>
-                                            <!--{{#if isMyMix}}-->
-                                                <!--&lt;!&ndash;<span id="connectionCounter" class="successColor mdTxt"> </span>&ndash;&gt;-->
-                                                <!--<button type="button" class="disConnect btn btn-success round btn-xs">Connected</button>-->
-                                            <!--{{else}}-->
-                                                <!--<button type="button" class="connect btn btn-success round btn-xs">Connect ({{isConnected}})</button>-->
-                                            <!--{{/if}}-->
-
-                                              <!--<button type="button" class="btn btn-default round btn-xs midWidth pull-left like-btn-mobile">-->
-                                                  <!--<img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">-->
-                                              <!--</button>-->
-
 
                                                 <div class="like-btn-text-div-mobile col-md-2 cardConnecterDiv">
                                                     <button type="button" class="like btn btn-default round btn-xs midWidth pull-right">
@@ -288,11 +277,6 @@
 
                   </div>
               </div>
-                  <!--<div class="container-fluid topCardWrapper">-->
-
-                  <!--</div>-->
-
-                  <!--</div>-->
 
                   <div style="margin-bottom: 1em;">
                     {{#if isMyDot}}
