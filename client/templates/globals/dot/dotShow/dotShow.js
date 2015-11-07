@@ -1,19 +1,5 @@
 _data = {};
 
-Template.dotShow.onRendered(function(){
-  window.scrollTo(0,0);
-
-  Tracker.autorun(function(){
-    GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
-
-    if (GoogleMaps.loaded() && _data.dotShow) {
-      Modules.client.Dotz.dotShowMap()
-    }
-  })
-
-
-});
-
 Template.dotShow.onCreated(function() {
   let self = this;
   self.autorun(function() {
@@ -46,15 +32,29 @@ Template.dotShow.onCreated(function() {
 
 
       }
+
+
     }
 
   });
 });
 
+Template.dotShow.onRendered(function(){
+  window.scrollTo(0,0);
+  Tracker.autorun(function(c){
+    if(!GoogleMaps.loaded()){
+      GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
+    }
+    if (GoogleMaps.loaded() && document.getElementById('dotShowMap')) {
+      Modules.client.Dotz.dotShowMap()
+    }
+  });
+});
 
 Template.dotShow.helpers({
   data: function() {
     _data.dotShow = Dotz.findOne(FlowRouter.getParam('dotId'));
+
     return _data;
   },
 
@@ -84,6 +84,7 @@ Template.dotShow.helpers({
 
   connectCounter: function() {
     //check if this dot is exist (to avoid some errors during delete action)
+
     let counter;
     let dot = Dotz.findOne( _data.dotShow._id);
     if (dot) {

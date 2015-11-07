@@ -11,6 +11,7 @@ Template.editDotModal.onRendered(function(){
     });
   });
 });
+
 Template.editDotModal.helpers({
   selectedDotDoc: function () {
     return Dotz.findOne({_id: this.data.dot._id});

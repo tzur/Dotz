@@ -4,19 +4,21 @@
 
 let dotShowMap = function() {
 
-
-  var dotShowMap = new google.maps.Map(document.getElementById('dotShowMap'), {
+  var map = new google.maps.Map(document.getElementById('dotShowMap'), {
     center: {lat: _data.dotShow.locationLatLng[0], lng: _data.dotShow.locationLatLng[1]},
     zoom: 16
   });
-  if(dotShowMap) {
+
+  google.maps.event.addListenerOnce(map, 'idle', function(){
+    // do something only the first time the map is loaded
+
+
     var marker = new google.maps.Marker({
-      map: dotShowMap,
+      map: map,
       position: {lat: _data.dotShow.locationLatLng[0], lng: _data.dotShow.locationLatLng[1]}
     });
-  }
 
-
+  });
 };
 
 Modules.client.Dotz.dotShowMap = dotShowMap;
