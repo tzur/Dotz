@@ -22,134 +22,104 @@
                     {{> afQuickField name='profile.userAddress'}}
                   </div>
 
-                  <div>
-                    {{> afQuickField name='profile.websiteUrl'}}
-                  </div>
-
-                  <div>
-                    {{> afQuickField name='profile.facebookAccountUrl'}}
-                  </div>
-
-                  <div>
-                    {{> afQuickField name='profile.twitterAccountUrl'}}
-                  </div>
-
-                  <div>
-                    {{> afQuickField name='profile.googleAccountUrl'}}
-                  </div>
-
-                  <div>
-                    {{> afQuickField name='profile.pinterestAccountUrl'}}
-                  </div>
-
-                  <div>
-                    {{> afQuickField name='profile.tripAdvisorAccountUrl'}}
-                  </div>
-
-                  <div>
-                    {{> afQuickField name='profile.foursquareAccountUrl'}}
-                  </div>
-
-                  <div>
-                    <h2>profile image</h2>
-                    {{#if isUserProfileImageUrl}}
-                        <div class="file container-fluid">
-                            <div class="row">
-                                <div class="dot-img-create-dot colCenter" style="background-image: url('{{userProfileImagePreviewUrl}}')"></div>
-                            </div>
-                        </div>
-                    {{/if}}
-                    {{> uploader}}
-                  </div>
-
-                  <div>
-                    <h2>cover image</h2>
-                    {{#if isUserCoverImageUrl}}
-                        <div class="file container-fluid">
-                            <div class="row">
-                                <div class="dot-img-create-dot colCenter" style="background-image: url('{{userCoverImagePreviewUrl}}')"></div>
-                            </div>
-                        </div>
-                    {{/if}}
-                    {{> uploader}}
-                  </div>
 
 
 
 
-                {{> uploader}}
-
-                {{#if isImageUrl}}
-                    <div class="file container-fluid">
-                        <div class="row">
-                            <div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')"></div>
-                        </div>
-                    </div>
-                {{/if}}
-
-                  <div>
 
                       <!-- Nav tabs -->
+
                       <ul class="nav nav-tabs" role="tablist">
-                          <li role="presentation" class= "active"><a href="#location" aria-controls="location" role="tab" data-toggle="tab">Location</a></li>
-                          <li role="presentation"><a href="#eventDetails" aria-controls="eventDetails" role="tab" data-toggle="tab">Event Details</a></li>
-                          <li role="presentation"><a href="#link" aria-controls="link" role="tab" data-toggle="tab">Link</a></li>
-                          <li role="presentation"><a href="#price" aria-controls="price" role="tab" data-toggle="tab">Price</a></li>
+                          <li role="presentation"><a href="#image" aria-controls="image" role="tab" data-toggle="tab"><i class="fa fa-camera"></i></a></li>
+                          <li role="presentation" class= "active"><a href="#location" aria-controls="location" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i></a></li>
+                          <li role="presentation"><a href="#socialInformation" aria-controls="socialInformation" role="tab" data-toggle="tab"><i class="fa fa-icon-comments-alt"></i></a>Website</li>
+                          <li role="presentation"><a href="#website" aria-controls="website" role="tab" data-toggle="tab"><i class="fa fa-link"></i></a></li>
+                          <!--<li role="presentation"><a href="#price" aria-controls="price" role="tab" data-toggle="tab"><i class="fa fa-credit-card"></i></a></li>-->
                       </ul>
 
                       <!-- Tab panes -->
                       <div class="tab-content">
                           <div role="tabpanel" class="tab-pane active" id="location">
-                            {{> createDotMap}}
-
+                            {{> editUserMapAndSearchBox}}
 
                           </div>
 
-                          <div role="tabpanel" class="tab-pane" id="eventDetails">
+
+                          <div role="tabpanel" class="tab-pane" id="socialInformation">
 
                               <div class="optional-field">
-                                  <div type="bootstrap-datetimepicker" class="eventDetails optional-field">
-                                    {{> afQuickField name='startDateAndHour' placeholder="Pick Start Date"}}
-                                    {{> afQuickField name='endDateAndHour' placeholder="Pick End Date"}}
-                                    {{> afQuickField name='repeated' firstOption='None'}}
-                                    {{> afQuickField name='endRepeatedDate' placeholder="Pick Repeated End Date"}}
+                                  <div class="eventDetails optional-field">
+                                        {{> afQuickField name='profile.facebookAccountUrl'}}
+
+                                        {{> afQuickField name='profile.twitterAccountUrl'}}
+
+                                        {{> afQuickField name='profile.googleAccountUrl'}}
+
+                                        {{> afQuickField name='profile.pinterestAccountUrl'}}
+
+                                        {{> afQuickField name='profile.tripAdvisorAccountUrl'}}
+
+                                        {{> afQuickField name='profile.foursquareAccountUrl'}}
                                   </div>
                               </div>
 
                           </div>
 
-                          <div role="tabpanel" class="tab-pane" id="link">
+                          <div role="tabpanel" class="tab-pane" id="image">
+                              <div class="image optional-field container-fluid">
 
-                              <div class="location optional-field">
-                                {{> afQuickField name='linkUrl' placeholder="Ex: http://www.website.com ..."}}
+                                  <div>
+                                      <h2>profile image</h2>
+                                    {{#if isUserProfileImageUrl}}
+                                        <div class="file container-fluid">
+                                            <div class="row">
+                                                <div class="dot-img-create-dot colCenter" style="background-image: url('{{userProfileImagePreviewUrl}}')"></div>
+                                            </div>
+                                        </div>
+                                    {{/if}}
+                                      <div id="profileImageUpload">
+                                        {{> uploader}}
+                                      </div>
+                                  </div>
+
+                                  <div>
+                                      <h2>cover image</h2>
+                                    {{#if isUserCoverImageUrl}}
+                                        <div class="file container-fluid">
+                                            <div class="row">
+                                                <div class="dot-img-create-dot colCenter" style="background-image: url('{{userCoverImagePreviewUrl}}')"></div>
+                                            </div>
+                                        </div>
+                                    {{/if}}
+                                      <div id="coverImageUpload">
+                                        {{> uploader}}
+                                      </div>
+                                  </div>
+
+
+                                  <div>
                               </div>
-
                           </div>
 
-                          <div role="tabpanel" class="tab-pane" id="price">
-
-                              <div class="price optional-field">
-                                {{> afQuickField name='price' label= false placeholder= "Write price in dollars ..."}}
+                          <div role="tabpanel" class="tab-pane" id="website">
+                              <div class="location optional-field container-fluid">
+                                {{> afQuickField name='profile.websiteUrl' placeholder="Ex: http://www.website.com ..."}}
                               </div>
-
                           </div>
+
+                          <!--<div role="tabpanel" class="tab-pane" id="price">-->
+                              <!--<div class="price optional-field container-fluid">-->
+                                <!--{{> afQuickField name='price' label= false placeholder= "Write price in dollars ..."}}-->
+                              <!--</div>-->
+                          <!--</div>-->
 
                       </div>
-
                   </div>
 
                   <br><br>
 
                   <div class="row btns-create-dot-row">
-
-                      <div class="col-xs-6 col-md-4 btns-create-dot">
-                          <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-success">Connect To My Profile</button>
-                      </div>
-
-                      <div class="col-xs-6 col-md-4 btns-create-dot">
-                          <button id="createToOneOfMyDotz" class="createBtn insert btn round btn-lead">Connect To My Dotz</button>
-                      </div>
-
+                      <button type="submit" id="submitEditUser" class="btn btn-primary">Save changes</button>
                   </div>
 
               {{/autoForm}}

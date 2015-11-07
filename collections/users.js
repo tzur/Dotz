@@ -117,6 +117,23 @@ let userProfile = new SimpleSchema({
     label: "Home Address",
     optional: true
   },
+
+  userAddressLatLng:{
+    type: [Number],
+    decimal:true,
+    optional: true
+  },
+
+  userAddressPlaceId:{
+    type: String,
+    optional: true
+  },
+
+  userAddressName:{
+    type: String,
+    optional: true
+  },
+
   websiteUrl:{
     type: String,
     label: "Website",

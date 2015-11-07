@@ -13,7 +13,7 @@ Template.editUserAccount.helpers({
     return Meteor.user()
   },
   isUserProfileImageUrl: function () {
-    if (Session.get("userProfileImageUrl") || this.data.user.profile.profileImage) {
+    if (Session.get("userProfileImageUrl") || Meteor.user().profile.profileImage) {
       return true
     }
   },
@@ -23,13 +23,13 @@ Template.editUserAccount.helpers({
       let imageUrl = Session.get("userProfileImageUrl");
       return (imageUrl);
     }
-    else if (this.data.user.profile.profileImage) {
-      return this.data.user.profile.profileImage
+    else if (Meteor.user().profile.profileImage) {
+      return Meteor.user().profile.profileImage
     }
   },
 
   isUserCoverImageUrl: function () {
-    if (Session.get("userCoverImageUrl") || this.data.user.profile.coverImage) {
+    if (Session.get("userCoverImageUrl") || Meteor.user().profile.coverImage) {
       return true
     }
   },
@@ -39,76 +39,61 @@ Template.editUserAccount.helpers({
       let imageUrl = Session.get("userCoverImageUrl");
       return (imageUrl);
     }
-    else if (this.data.user.profile.coverImageUrl) {
-      return this.data.user.profile.coverImageUrl
+    else if (Meteor.user().profile.coverImage) {
+      return Meteor.user().profile.coverImage
     }
   }
 
 });
 
 Template.editUserAccount.events({
-  'change #profilePicInput':function(){
-    if(document.getElementById('profilePicInput').files[0]) {
-      document.getElementById("submit").disabled = true;
-      Session.set('isUploading', true);
-      Session.set('downloadUrl', false);
-      var i = 0;
-      var loadingInterval = setInterval(function () {
-        i = ++i % 4;
-        document.getElementById("profileLoading").innerHTML = ("Loading " + Array(i + 1).join("."));
-      }, 800);
-      uploader.send(document.getElementById('profilePicInput').files[0], function (error, downloadUrl) {
-        if (error) {
-          // Log service detailed response.
-          console.error('Error uploading', uploader.xhr.response);
-          alert(error);
-        }
-        else {
-          Session.set("downloadUrl", downloadUrl);
-          clearInterval(loadingInterval);
-          document.getElementById("profileLoading").innerHTML = "Done :)";
-          document.getElementById("submit").disabled = false;
-          Meteor.call('addImageToUser', Meteor.userId(), downloadUrl, true);
+  'change #coverImageUpload input[type="file"]': function(){
+    Tracker.autorun(function(c) {
+      document.getElementById("submitEditUser").disabled = true;
+      if (Session.get('coverImageUrl')) {
+        Session.set('userCoverImageUrl', Session.get('coverImageUrl'));
+        c.stop();
+        document.getElementById("submitEditUser").disabled = false;
+        Session.set('coverImageUrl', undefined);
 
-        }
-      });
-    }
+
+      }
+    });
   },
 
-  'change #coverPicInput':function(){
-    if(document.getElementById('coverPicInput').files[0]) {
-      document.getElementById("submit").disabled = true;
-      Session.set('isUploading', true);
-      Session.set('downloadUrl', false);
-      var i = 0;
-      var loadingInterval = setInterval(function () {
-        i = ++i % 4;
-        document.getElementById("coverLoading").innerHTML = ("Loading " + Array(i + 1).join("."));
-      }, 800);
-      uploader.send(document.getElementById('coverPicInput').files[0], function (error, downloadUrl) {
-        if (error) {
-          // Log service detailed response.
-          console.error('Error uploading', uploader.xhr.response);
-          alert(error);
-        }
-        else {
-          Session.set("downloadUrl", downloadUrl);
-          clearInterval(loadingInterval);
-          var dotId = Session.get("dotId");
-          document.getElementById("coverLoading").innerHTML = "Done :)";
-          document.getElementById("submit").disabled = false;
-          Meteor.call('addImageToUser', Meteor.userId(), downloadUrl, false);
+  'change #profileImageUpload input[type="file"]': function(){
+    Tracker.autorun(function(c) {
+      document.getElementById("submitEditUser").disabled = true;
+      if (Session.get('coverImageUrl')) {
+        Session.set('userProfileImageUrl', Session.get('coverImageUrl'));
+        c.stop();
+        document.getElementById("submitEditUser").disabled = false;
+        Session.set('coverImageUrl', undefined);
 
-        }
-      });
-    }
+      }
+    });
   },
 
-  'click .submit':function(){
+  'click #submitEditUser':function(){
     //if we need some force edit :)
     //console.log("im here");
     //Meteor.call('forceUpdate', Meteor.userId(),website, descriptoin);
-    Session.set("isUploading", undefined);
-    Session.set("downloadUrl", undefined);
+    if(Session.get('userCoverImageUrl')){
+      Meteor.call('editUserCoverImage', Session.get('userCoverImageUrl'));
+    }
+    if(Session.get('userProfileImageUrl')) {
+      Meteor.call('editUserProfileImage', Session.get('userProfileImageUrl'));
+    }
+    if(Session.get('locationObject')){
+      Meteor.call('editUserLocation', Session.get('locationObject'));
+
+    }
+    Session.set("userCoverImageUrl", undefined);
+    Session.set("userProfileImageUrl", undefined);
+    Session.set("locationObject", undefined);
+
+
+
+
   }
 });

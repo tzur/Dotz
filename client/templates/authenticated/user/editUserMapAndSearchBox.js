@@ -2,7 +2,7 @@
 // feature. People can enter geographical searches. The search box will return a
 // pick list containing a mix of places and predicted search terms.
 
-Template.createDotMap.onCreated(function(){
+Template.editUserMapAndSearchBox.onCreated(function(){
   this.autorun(function (c) {
     if (!GoogleMaps.loaded()) {
       GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
@@ -11,17 +11,14 @@ Template.createDotMap.onCreated(function(){
   })
 });
 
-Template.createDotMap.onRendered(function(){
+Template.editUserMapAndSearchBox.onRendered(function(){
   this.autorun(function () {
     let locationLatLng=[];
     if (GoogleMaps.loaded()) {
       let centerLatLng = [];
-      let currPlace = {};
 
-      if(Template.parentData().data && Template.parentData().data.dot) {
-        currPlace = Template.parentData().data.dot
-        centerLatLng = currPlace.locationLatLng
-
+      if(Meteor.user().profile.userAddressLatLng) {
+        centerLatLng = Meteor.user().profile.userAddressLatLng;
       }
 
       else{
@@ -42,7 +39,7 @@ Template.createDotMap.onRendered(function(){
       // Create the search box and link it to the UI element.
       var input = document.getElementById('pac-input');
 
-      if(map && Template.parentData().data && Template.parentData().data.dot){
+      if(map && Meteor.user().profile.userAddressLatLng){
         var marker = new google.maps.Marker({
           map: map,
           position: {lat: centerLatLng[0] , lng: centerLatLng[1]}
