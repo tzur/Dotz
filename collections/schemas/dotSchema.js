@@ -185,16 +185,19 @@ Schema.dotSchema = new SimpleSchema({
   //**** The id's of the dotz that this current dot is inside them ("in mexes")
   inDotz: {
     type: [String],
+    defaultValue: [], //TBD
     optional: true
   },
 
   // Tagging section:
   category:{
     type: [String],
+    defaultValue: [], //TBD
     optional: true
   },
   tags: {
     type: [String],
+    defaultValue: [], //TBD
     optional: true
   },
 

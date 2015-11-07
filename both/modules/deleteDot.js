@@ -1,13 +1,8 @@
 
 let deleteDot = (dot, smartRef) => {
 
-
-   //this.dot._id, this.dot.inDotz, this.dot.ownerUserId
-  //dotId, inDotz, dotOwnerUserId
-
-
    //security checks:
-  if (dotOwnerUserId !== Meteor.userId() ) {
+  if (dot.ownerUserId !== Meteor.userId() ) {
     return false
   }
   check( dot, Object );
@@ -18,7 +13,7 @@ let deleteDot = (dot, smartRef) => {
   check( smartRef.parentDot, String );
 
    //pull smartRef from all dotz parent:
-   inDotz.forEach(function(dotId) {
+   dot.inDotz.forEach(function(dotId) {
 
        //is ConnectedToOthers:
        if (smartRef.isConnectedToOthers){
@@ -42,8 +37,8 @@ let deleteDot = (dot, smartRef) => {
 
   //pull dotId from all Children's inDotz (to update the "connect" counter):
   if (dot.dotzConnectedByOwner) {
-      dot.dotzConnectedByOwner.forEach(function(smartRef) {
-          Meteor.call('pullDotFromInDotz', smartRef.dotId, smartRef.parentDot, function(error,result){
+      dot.dotzConnectedByOwner.forEach(function(localSmartRef) {
+          Meteor.call('pullDotFromInDotz', localSmartRef.dotId, localSmartRef.parentDot, function(error,result){
               if (error){
                 console.log("pullDotFromInDotz >> Error " + error);
               }
@@ -51,8 +46,8 @@ let deleteDot = (dot, smartRef) => {
       });
   }
   else if (dot.dotzConnectedByOthers) {
-      dot.dotzConnectedByOthers.forEach(function(smartRef) {
-          Meteor.call('pullDotFromInDotz', smartRef.dotId, smartRef.parentDot, function(error,result){
+      dot.dotzConnectedByOthers.forEach(function(localSmartRef) {
+          Meteor.call('pullDotFromInDotz', localSmartRef.dotId, localSmartRef.parentDot, function(error,result){
               if (error){
                 console.log("pullDotFromInDotz >> Error " + error);
               }
