@@ -13,7 +13,7 @@ Template.editUserMapAndSearchBox.onCreated(function(){
 
 Template.editUserMapAndSearchBox.onRendered(function(){
   this.autorun(function () {
-    let locationLatLng=[];
+    let locationLatLng= [];
     if (GoogleMaps.loaded()) {
       let centerLatLng = [];
 
@@ -105,9 +105,6 @@ Template.editUserMapAndSearchBox.onRendered(function(){
         });
         map.fitBounds(bounds);
       });
-
-
-
     }
 
   });

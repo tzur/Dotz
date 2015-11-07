@@ -13,15 +13,12 @@ Template.createDotMap.onCreated(function(){
 
 Template.createDotMap.onRendered(function(){
   this.autorun(function () {
-    let locationLatLng=[];
+    let locationLatLng= [];
     if (GoogleMaps.loaded()) {
       let centerLatLng = [];
-      let currPlace = {};
 
-      if(Template.parentData().data && Template.parentData().data.dot) {
-        currPlace = Template.parentData().data.dot
-        centerLatLng = currPlace.locationLatLng
-
+      if(Template.parentData() && Template.parentData().data.dot) {
+        centerLatLng = Template.parentData().data.dot.locationLatLng
       }
 
       else{
@@ -42,7 +39,7 @@ Template.createDotMap.onRendered(function(){
       // Create the search box and link it to the UI element.
       var input = document.getElementById('pac-input');
 
-      if(map && Template.parentData().data && Template.parentData().data.dot){
+      if(map && Template.parentData() && Template.parentData().data.dot.locationLatLng){
         var marker = new google.maps.Marker({
           map: map,
           position: {lat: centerLatLng[0] , lng: centerLatLng[1]}
@@ -107,6 +104,13 @@ Template.createDotMap.onRendered(function(){
           }
         });
         map.fitBounds(bounds);
+      });
+
+      google.maps.event.addListenerOnce( map, 'idle', function() {
+        var currentCenter = map.getCenter();  // Get current center before resizing
+        google.maps.event.trigger(map, "resize");
+        map.setCenter(currentCenter);
+
       });
 
 

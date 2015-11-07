@@ -1,4 +1,4 @@
-Template.createDot.onCreated(function(){
+Template.createDotModal.onCreated(function(){
   var self = this;
   self.autorun(function(){
     if(Meteor.userId()){
@@ -12,17 +12,25 @@ Template.createDot.onCreated(function(){
 
 });
 
-Template.createDot.onRendered(function(){
+Template.createDotModal.onRendered(function(){
 
-  $('#myTabs a').click(function (e) {
-    e.preventDefault();
-    $(this).tab('show')
+  //$('#myTabs a').click(function (e) {
+  //  e.preventDefault();
+  //  $(this).tab('show')
+  //});
+  $(document).ready(function() {
+    $(window).keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
   });
 
 });
 
 
-Template.createDot.helpers({
+Template.createDotModal.helpers({
 
   isImageUrl: function(){
     if(Session.get("coverImageUrl")){
@@ -48,6 +56,16 @@ Template.createDot.events({
         isActionTypeCreate: true
       }
     })
+  },
+
+  'change #addDotImage input[type="file"]': function(){
+    Tracker.autorun(function(c) {
+      document.getElementsByClassName("createBtn").disabled = true;
+      if (Session.get('coverImageUrl')) {
+        c.stop();
+        document.getElementById("createBtn").disabled = false;
+      }
+    });
   }
 
 });

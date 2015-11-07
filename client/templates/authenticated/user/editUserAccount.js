@@ -1,12 +1,6 @@
 /**
  * Created by avivhatzir on 06/11/2015.
  */
-var uploader = new Slingshot.Upload("myFileUploads");
-
-//if we need some force edit :), just fill the vars and push insert
-
-//var descriptoin= "";
-//var website= "";
 
 Template.editUserAccount.helpers({
   selectedUserDoc: function () {

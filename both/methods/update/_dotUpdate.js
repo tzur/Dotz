@@ -94,6 +94,23 @@ Meteor.methods({
       $set: {coverImageUrl: coverImageUrl}
     };
     _dotUpdate(dotId, updateOptions)
+  },
+
+  editDotLocation(locationObject, dotId){
+    //change to URL in check
+    check(locationObject, Object);
+    let userLocationOptions = {};
+
+    userLocationOptions.LatLng = locationObject.locationLatLng || undefined;
+    userLocationOptions.name = locationObject.general.name || undefined;
+    userLocationOptions.address = locationObject.general.formatted_address || undefined;
+    userLocationOptions.placeId = locationObject.general.place_id || undefined;
+
+    let updateOptions = {
+      $set: { "locationLatLng": userLocationOptions.LatLng, "locationName": userLocationOptions.name,
+        "locationAddress": userLocationOptions.address, "locationPlaceId": userLocationOptions.placeId }
+    };
+    _dotUpdate(dotId, updateOptions)
   }
 
 });

@@ -37,6 +37,11 @@
 
 .pac-container {
   font-family: Roboto;
+  background-color: #FFF;
+  z-index: 1050 !important;
+  position: fixed;
+  display: inline-block;
+  float: left;
 }
 
 #type-selector {
@@ -50,3 +55,12 @@
   font-size: 13px;
   font-weight: 300;
 }
+
+.modal {
+  z-index: 1050 !important;
+}
+
+//.modal-backdrop{
+//  z-index: 10;
+//}​
+
