@@ -8,7 +8,7 @@ let disConnectDot = (smartRef) => {
 
   let belongsToUserId = Dotz.findOne(smartRef.parentDot).ownerUserId;
   //pull from inDotz:
-  Meteor.call('pullDotFromInDotz', smartRef, function(error, result){
+  Meteor.call('pullDotFromInDotz', smartRef.dotId, smartRef.parentDot, function(error, result){
 
     //pull from User Connections Counter:
     //params: connectedUserId, dotId, belongsToUserId, parentDotId

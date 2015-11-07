@@ -155,7 +155,7 @@ Template.dotCard.events({
   },
 
   'click .delete':function(event){
-    Modules.both.Dotz.deleteDot(this.dot._id, this.dot.inDotz, this.dot.ownerUserId, this.smartRef);
+    Modules.both.Dotz.deleteDot(this.dot, this.smartRef);
   }
 
 });

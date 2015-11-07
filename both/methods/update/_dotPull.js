@@ -1,13 +1,12 @@
 
 Meteor.methods({
 
-  pullDotFromInDotz( smartRef ) {
-    check( smartRef, Object );
-    check( smartRef.parentDot, String );
-    check( smartRef.dotId, String );
+  pullDotFromInDotz( dotId, parentDot ) {
+    check( dotId, String );
+    check( parentDot, String );
     try {
-      Dotz.update(smartRef.dotId, {
-        $pull: {"inDotz": {dotId: smartRef.parentDot}}
+      Dotz.update(dotId, {
+        $pull: {"inDotz": {"dotId": parentDot}}
       });
     }
     catch( exception ) {
