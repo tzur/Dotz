@@ -77,18 +77,18 @@
 
                     <div id="ownerPostDiv" class="row dot-creator">
                         <div class="col-xs-9 iconDiv txtL">
-                            <a href="{{dotShowUser.username}}"><img class="postUserImgProfile" src="{{dotShowUser.profile.profileImage}}"></a>
-                            <a href="{{dotShowUser.username}}"><span class="align-icon-text">{{dotShowUser.username}}</span></a>
+                            <a href="/{{dotShowUser.username}}"><img class="postUserImgProfile" src="{{dotShowUser.profile.profileImage}}"></a>
+                            <a href="/{{dotShowUser.username}}"><span class="align-icon-text">{{dotShowUser.username}}</span></a>
                             <span class="greyText"><span>·</span> {{actionDate}} </span>
                         </div>
 
-                        <div class="col-xs-3">
-                          {{#if myFollow}}
-                              <button type="button" class="unFollow btn btn-lead btn-sm round pull-right">Following</button>
-                          {{else}}
-                              <button type="button" class="follow btn btn-success btn-sm round pull-right">Follow</button>
-                          {{/if}}
-                        </div>
+                        <!--<div class="col-xs-3">-->
+                          <!--{{#if myFollow}}-->
+                              <!--<button type="button" class="unFollow btn btn-lead btn-sm round pull-right">Following</button>-->
+                          <!--{{else}}-->
+                              <!--<button type="button" class="follow btn btn-success btn-sm round pull-right">Follow</button>-->
+                          <!--{{/if}}-->
+                        <!--</div>-->
                     </div>
 
                     <div class="row dot-description">
