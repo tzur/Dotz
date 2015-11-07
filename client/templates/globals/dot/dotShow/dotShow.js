@@ -45,52 +45,14 @@ Template.dotShow.onCreated(function() {
       }
     }
 
-
-
   });
 });
-//
-//Template.dotShow.onRendered(function() {
-//  let self = this;
-//  self.autorun(function() {
-//    if (GoogleMaps.loaded()) {
-//
-//      var map = new google.maps.Map(document.getElementById('map'), {
-//        center: {lat: 32.075362, lng: 34.774936},
-//        zoom: 13,
-//        mapTypeId: google.maps.MapTypeId.ROADMAP
-//      });
-//
-//      var infowindow = new google.maps.InfoWindow();
-//      var service = new google.maps.places.PlacesService(map);
-//
-//      var marker = new google.maps.Marker({
-//        map: map,
-//        position: place.geometry.location
-//      });
-//    }
-//
-//  });
-//});
 
 
 Template.dotShow.helpers({
   data: function() {
     _data.dotShow = Dotz.findOne(FlowRouter.getParam('dotId'));
     return _data;
-  },
-  //dotOwnerUserName: function() {
-  //  console.log("_data.user.username  is   " + _data.user.username);
-  //  return _data.user.username;
-  //},
-  //profileImageUrl: function() {
-  //
-  //  return _data.user.profile.profileImage;
-  //},
-  dotzConnectedByOwner: function() {
-    if (Session.get('dot')) {
-      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOwner);
-    }
   },
 
   dotShowMapOptions: function(){
@@ -105,6 +67,60 @@ Template.dotShow.helpers({
     }
   },
 
+  actionDate: function(){
+    if (_data.dotShow.createdAtDate) {
+      return (moment(_data.dotShow.createdAtDate).fromNow())
+    }
+  },
+
+  eventDate: function(){
+    if (_data.dotShow.startDateAndHour) {
+      return ( moment(_data.dotShow.startDateAndHour).fromNow());
+    }
+  },
+
+  connectCounter: function() {
+    //check if this dot is exist (to avoid some errors during delete action)
+    let counter;
+    let dot = Dotz.findOne( _data.dotShow._id);
+    if (dot) {
+      counter = dot.inDotz.length;
+    }
+
+    //counter show:
+    if (counter && counter === 0) {
+      return ("");
+    }
+    else if (counter) {
+      return ( "(" + counter + ")" );
+    }
+  },
+
+  dotzNum: function() {
+    let ownerDotz = 0;
+    if (_data.dotShow.dotzConnectedByOwner) {
+      ownerDotz = _data.dotShow.dotzConnectedByOwner.length;
+    }
+
+    let othersDotz = 0;
+    if (_data.dotShow.dotzConnectedByOthers) {
+      othersDotz = _data.dotShow.dotzConnectedByOthers.length;
+    }
+
+    if ((ownerDotz + othersDotz) === 0) {
+      return false;
+    }
+    else {
+      return ("+ " + (ownerDotz + othersDotz) );
+    }
+  },
+
+  dotzConnectedByOwner: function() {
+    if (Session.get('dot')) {
+      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOwner);
+    }
+  },
+
   dotzConnectedByOthers: function() {
     if (Session.get('dot')) {
       return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOthers);
@@ -112,76 +128,25 @@ Template.dotShow.helpers({
   }
 
 
-  //myDot: function(){
-  //  return (_data.dot.owner.userId === Meteor.userId());
-  //},
-  //
-  //createDate: function(){
-  //  return (moment(_data.dot.createdAt).fromNow())
-  //},
-  //
-  //eventPost: function (){
-  //  return ( moment(_data.dot.eventDate.startDate).toNow(true));
-  //} ,
-  //
-  //isConnected: function(){
-  //
-  //  var post = Dotz.findOne({_id: _data.dot._id});
-  //  return post.inDotz.length;
-  //
-  //},
-  //
-  //profileImageUrl: function() {
-  //  var user = Meteor.users.findOne(this.post.owner.userId);
-  //  return user.profile.profileImage;
-  //},
-  //
 
-  //userIdLink: function() {
-  //  return ('/user/' + this.post.owner.userId);
-  //}
 
-  //exampleMapOptions: function() {
-  //  // Make sure the maps API has loaded
-  //  if (GoogleMaps.loaded() && this.post.locationLatLng) {
-  //    // Map initialization options
-  //    var loc = this.post.locationLatLng.split(",");
-  //    loc[0] = parseFloat(loc[0]);
-  //    loc[1] = parseFloat(loc[1]);
-  //    return {
-  //      center: new google.maps.LatLng(loc[0], loc[1]),
-  //      zoom: 13
-  //    };
-  //  }
-  //}
+
 
 });
 
 Template.dotShow.events({
-  'click .editPost': function(){
-    var dotId = this.post._id;
-    var dotImage = this.post.outPic;
-    console.log("the current post id "+ dotId);
-    Modal.show('editPostModal', {
-      data:{
-        'dotId': dotId,
-        'dotImage':dotImage
-      }
-    });
-  },
 
   'click .connect': function(){
-    var dotId = this.post._id;
-    var isMix = this.post.isMix;
-    console.log("isMic is: " + isMix); //DEBUG
-    Modal.show('saveDotModal', {
+    Modal.show('connectDotModal',{
       data:{
-        'dotId': dotId,
-        'isMix': isMix
+        dotId: _data.dotShow._id,
+        dot: _data.dotShow
       }
     });
-
   }
+
+
+
 });
 
 
