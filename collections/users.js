@@ -20,6 +20,11 @@ Meteor.users.deny({
 let userProfile = new SimpleSchema({
 
   //User - basic info:
+  userSlug: {
+    type: String,
+    label: "Slug",
+    optional: true
+  },
   description: {
     type: String,
     label: "Description",
@@ -112,6 +117,23 @@ let userProfile = new SimpleSchema({
     label: "Home Address",
     optional: true
   },
+
+  userAddressLatLng:{
+    type: [Number],
+    decimal:true,
+    optional: true
+  },
+
+  userAddressPlaceId:{
+    type: String,
+    optional: true
+  },
+
+  userAddressName:{
+    type: String,
+    optional: true
+  },
+
   websiteUrl:{
     type: String,
     label: "Website",
@@ -202,7 +224,7 @@ let userProfile = new SimpleSchema({
   //info Fields:
   userContext: {
     type: [String],
-    //defaultValue: ["none"], //TBD
+    defaultValue: [], //TBD
     optional: true,
     autoform: {
       type: "hidden",
@@ -211,7 +233,7 @@ let userProfile = new SimpleSchema({
   },
   userInfo: {
     type: [String],
-    //defaultValue: ["none"], //TBD
+    defaultValue: [], //TBD
     optional: true,
     autoform: {
       type: "hidden",

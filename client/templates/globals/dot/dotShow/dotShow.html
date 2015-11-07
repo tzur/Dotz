@@ -45,7 +45,7 @@
                       {{#if dotShow.price}}
                         <div class="txtL dot-show-type">
                             <img class="type-icon-dot-show" src="/price-icon-grey.png">
-                            <span class="dot-type greyText mdTxt alignSub"><span>$ </span>{{dotShow.price}}</span>
+                            <span class="dot-type greyText mdTxt alignSub">{{dotShow.price}} $ </span>
                         </div>
                       {{/if}}
 
@@ -54,16 +54,13 @@
 
                 <div class="row">
                     <div class="col-sm-10 col-md-8">
-                      {{#if isMyMix}}
-                          <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
-                          <button type="button" class="disConnect btn btn-success round btn-md dot-show-connect-btn">Connected ({{isConnected}})</button>
-                      {{else}}
-                          <button type="button" class="connect btn btn-lead round btn-md dot-show-connect-btn">Connect ({{isConnected}})</button>
-                      {{/if}}
+                        <button type="button" class="connect btn btn-lead round btn-md dot-show-connect-btn">Connect {{connectCounter}}</button>
                     </div>
+                {{#if dotzNum}}
                     <div class="col-sm-12 col-md-8 dot-show-btn">
-                        <a href="#connectedDotz"><button type="button" class="btn btn-success round btn-md dot-show-connect-btn">Connected Dotz</button></a>
+                        <a href="#connectedDotz"><button type="button" class="btn btn-success round btn-md dot-show-connect-btn"> {{dotzNum}} Connected Dotz</button></a>
                     </div>
+                {{/if}}
                 </div>
 
 
@@ -80,20 +77,18 @@
 
                     <div id="ownerPostDiv" class="row dot-creator">
                         <div class="col-xs-9 iconDiv txtL">
-                            <a href="{{userIdLink}}"><img class="postUserImgProfile" src="{{profileImageUrl}}"></a>
-                            <a href="{{userIdLink}}">
-                                <span class="align-icon-text">{{dotOwnerUserName}}</span>
-                            </a>
-                            <span class="greyText">{{createDate}}</span>
+                            <a href="/{{dotShowUser.username}}"><img class="postUserImgProfile" src="{{dotShowUser.profile.profileImage}}"></a>
+                            <a href="/{{dotShowUser.username}}"><span class="align-icon-text">{{dotShowUser.username}}</span></a>
+                            <span class="greyText"><span>·</span> {{actionDate}} </span>
                         </div>
 
-                        <div class="col-xs-3">
-                          {{#if myFollow}}
-                              <button type="button" class="unFollow btn btn-lead btn-sm round pull-right">Following</button>
-                          {{else}}
-                              <button type="button" class="follow btn btn-success btn-sm round pull-right">Follow</button>
-                          {{/if}}
-                        </div>
+                        <!--<div class="col-xs-3">-->
+                          <!--{{#if myFollow}}-->
+                              <!--<button type="button" class="unFollow btn btn-lead btn-sm round pull-right">Following</button>-->
+                          <!--{{else}}-->
+                              <!--<button type="button" class="follow btn btn-success btn-sm round pull-right">Follow</button>-->
+                          <!--{{/if}}-->
+                        <!--</div>-->
                     </div>
 
                     <div class="row dot-description">
@@ -120,9 +115,13 @@
 
     </div>
 
+    <!--Anchor-->
+    <a name="connectedDotz"></a>
+
+{{#if dotShow.dotzConnectedByOwner}}
     <div class="row dot-divider-hr">
         <hr class="lightGrey">
-        <a name="connectedDotz"><div class="dot-divider-box col-xs-4 colCenter">Connected dotz by TimeOut Tel-Aviv</div></a>
+       <div class="dot-divider-box col-xs-4 colCenter">Connected Dotz by {{dotShowUser.username}}</div>
     </div>
 
     <div class="container-fluid">
@@ -135,11 +134,15 @@
       </div>
     </div>
 
+{{/if}}
+
+
     <div class="row dot-divider-hr">
         <hr class="lightGrey">
-        <div class="dot-divider-box col-xs-4 colCenter">Connected dotz by others</div>
+        <div class="dot-divider-box col-xs-4 colCenter">Connected Dotz by others</div>
     </div>
 
+{{#if dotShow.dotzConnectedByOthers}}
 
     <div class="row">
         <div class="col-xs-12">
@@ -149,28 +152,22 @@
         </div>
     </div>
 
+{{else}}
 
-    <!--<div>-->
-        <!--{{> addComment}}-->
-    <!--</div>-->
+    <div class="col-xs-4 col-sm-3 colCenter">
+    <p>Add your connection.. (Coming Soon)</p>
+    <br class="jo"><br>
+    </div>
 
-
-    <!--Post comment template-->
-
-    <!--{{> showComment}}-->
-
-
-    <!--comment template end-->
-
-    <!--</div>-->
-
-
+{{/if}}
 
 
 
 {{/with}}
+
 <!--{{else}}-->
     <!--<p> Loading...</p>-->
     <!--&lt;!&ndash;to replace with a loading template&ndash;&gt;-->
 <!--{{/if}}-->
+
 </template>

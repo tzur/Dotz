@@ -83,11 +83,18 @@ Template.dotCard.helpers({
   },
 
   connectCounter: function() {
-    let counter = Dotz.findOne(this.dot._id).inDotz.length;
-    if (counter === 0) {
+    //check if this dot is exist (to avoid some errors during delete action)
+    let counter;
+    let dot = Dotz.findOne(this.dot._id);
+    if (dot) {
+      counter = dot.inDotz.length;
+    }
+
+    //counter show:
+    if (counter && counter === 0) {
       return ("");
     }
-    else {
+    else if (counter) {
       return ( "(" + counter + ")" );
     }
   },
@@ -147,12 +154,8 @@ Template.dotCard.events({
     });
   },
 
-
-  //####################To be fixed:
   'click .delete':function(event){
-    var data = Template.parentData();
-    Meteor.call('deleteDot', mixId, dotId, isMix, userId);
-    Bert.alert( 'Deleted', 'danger', 'growl-bottom-left' );
+    Modules.both.Dotz.deleteDot(this.dot, this.smartRef);
   }
 
 });

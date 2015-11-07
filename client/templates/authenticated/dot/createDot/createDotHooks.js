@@ -36,7 +36,7 @@ let dotHooks = {
   onSuccess: function(update, result){
     //Router.go("/post/"+ result);
     Session.set("coverImageUrl", undefined);
-    Session.set("locationObject", undefined)
+    Session.set("locationObject", undefined);
     Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
   }
 };

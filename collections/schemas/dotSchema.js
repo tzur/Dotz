@@ -1,6 +1,7 @@
 Schema.dotSchema = new SimpleSchema({
   dotType: {
     type: String,
+    optional: true,
     allowedValues: ['Event', 'Place', 'Concept Dot', 'Text', 'Link', 'Product', '_profileDot'],
     autoform: {
       options: [
@@ -184,15 +185,40 @@ Schema.dotSchema = new SimpleSchema({
   //**** The id's of the dotz that this current dot is inside them ("in mexes")
   inDotz: {
     type: [String],
+    defaultValue: [], //TBD
     optional: true
   },
+
   // Tagging section:
   category:{
     type: [String],
+    defaultValue: [], //TBD
     optional: true
   },
   tags: {
     type: [String],
+    defaultValue: [], //TBD
     optional: true
+  },
+
+  //info Fields:
+  dotContext: {
+    type: [String],
+    defaultValue: [], //TBD
+    optional: true,
+    autoform: {
+      type: "hidden",
+      label: false
+    }
+  },
+  dotInfo: {
+    type: [String],
+    defaultValue: [], //TBD
+    optional: true,
+    autoform: {
+      type: "hidden",
+      label: false
+    }
   }
+
 });
