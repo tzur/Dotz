@@ -187,6 +187,7 @@ Schema.dotSchema = new SimpleSchema({
     type: [String],
     optional: true
   },
+
   // Tagging section:
   category:{
     type: [String],
@@ -195,5 +196,26 @@ Schema.dotSchema = new SimpleSchema({
   tags: {
     type: [String],
     optional: true
+  },
+
+  //info Fields:
+  dotContext: {
+    type: [String],
+    defaultValue: [], //TBD
+    optional: true,
+    autoform: {
+      type: "hidden",
+      label: false
+    }
+  },
+  dotInfo: {
+    type: [String],
+    defaultValue: [], //TBD
+    optional: true,
+    autoform: {
+      type: "hidden",
+      label: false
+    }
   }
+
 });

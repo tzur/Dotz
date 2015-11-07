@@ -207,7 +207,7 @@ let userProfile = new SimpleSchema({
   //info Fields:
   userContext: {
     type: [String],
-    //defaultValue: ["none"], //TBD
+    defaultValue: [], //TBD
     optional: true,
     autoform: {
       type: "hidden",
@@ -216,7 +216,7 @@ let userProfile = new SimpleSchema({
   },
   userInfo: {
     type: [String],
-    //defaultValue: ["none"], //TBD
+    defaultValue: [], //TBD
     optional: true,
     autoform: {
       type: "hidden",
