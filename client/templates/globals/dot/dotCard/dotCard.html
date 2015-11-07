@@ -155,10 +155,10 @@
                                           </div>
 
                                           <div class="row">
-                                              <div class="col-xs-4 col-sm-3 colCenter">
+                                              <div class="col-xs-6 col-sm-4 colCenter">
                                                 {{#if isConnected}}
                                                     <button type="button" class="connect btn btn-lead round btn-md ">Connect {{connectCounter}}</button>
-                                                    <button type="button" class="disConnect btn btn-danger round btn-sm pull-right"> X </button>
+                                                    <button type="button" class="disConnect btn btn-delete round btn-xs"><i class="fa fa-remove"></i></button>
                                                 {{else}}
                                                     <button type="button" class="connect btn btn-lead round btn-md ">Connect {{connectCounter}}</button>
                                                 {{/if}}
@@ -172,14 +172,14 @@
                                       <div class="cardDetails hidden-xs hidden-sm">
 
                                           <div class="row cardTitleDiv">
-                                              <div class="col-md-10">
+                                              <div class="col-md-9">
                                                   <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
                                               </div>
 
-                                              <div class="col-md-2">
+                                              <div class="col-md-3">
                                                 {{#if isConnected}}
+                                                    <button type="button" class="disConnect btn btn-delete round btn-xs pull-right"><i class="fa fa-remove"></i></button>
                                                     <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect {{connectCounter}}</button>
-                                                    <button type="button" class="disConnect btn btn-danger round btn-xs pull-right"> X </button>
                                                 {{else}}
                                                     <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect {{connectCounter}}</button>
                                                 {{/if}}
