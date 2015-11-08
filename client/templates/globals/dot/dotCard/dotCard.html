@@ -63,7 +63,7 @@
                                           <div class="row cardPersonalDesc">
                                               <div class="col-xs-12">
 
-                                                {{#if dot.locationName}}
+                                                {{#if dot.location.address}}
                                                     <span class="txtL dot-type">
                                                         <img id="type-icon" src="/place-icon-grey.png">
                                                         <span class="greyText smTxt">{{dot.location.address}}</span>
@@ -98,7 +98,7 @@
 
 
                                                     <a href="/{{ownerUser.username}}" class="userImgIcon">
-                                                        <img class="userImgIcon" src="{{ownerUser.profileImage}}">
+                                                        <img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">
                                                     </a>
 
                                                     <a href="/{{ownerUser.username}}">
@@ -112,7 +112,7 @@
 
                                                     <!--userIsTheDotConnector-->
                                                     <a href="/{{connectedByUser.username}}" class="userImgIcon">
-                                                        <img class="userImgIcon" src="{{connectedByUser.profileImage}}">
+                                                        <img class="userImgIcon" src="{{connectedByUser.profile.profileImage}}">
                                                     </a>
 
                                                     <a href="/{{connectedByUser.username}}">
