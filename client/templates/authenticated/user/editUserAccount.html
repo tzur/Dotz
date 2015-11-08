@@ -24,107 +24,149 @@
                                   {{> afQuickField name='profile.description' rows=6}}
                                 </div>
 
-                                <div>
-                                  {{> afQuickField name='profile.location.address'}}
-                                </div>
+                                <!--<div>-->
+                                  <!--{{> afQuickField name='profile.location.address'}}-->
+                                <!--</div>-->
                                 <div>
                                   {{> afQuickField name='profile.location.placePhoneNumber' placeholder= "Your Phone Number.."}}
                                 </div>
 
 
 
+                                <div>
+
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+
+                                        <li role="presentation" class= "active">
+                                            <a href="#profileImage" aria-controls="coverImage" role="tab" data-toggle="tab"><i class="fa fa-camera"></i> Profile</a></li>
+
+                                        <li role="presentation">
+                                            <a href="#coverImage" aria-controls="coverImage" role="tab" data-toggle="tab"><i class="fa fa-camera"></i> Cover</a></li>
+
+                                        <li role="presentation">
+                                            <a href="#address" aria-controls="address" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i> Address</a></li>
+
+                                        <li role="presentation">
+                                            <a href="#website" aria-controls="website" role="tab" data-toggle="tab"><i class="fa fa-link"></i> Web</a></li>
+
+                                        <li role="presentation">
+                                            <a href="#facebookAccount" aria-controls="facebook" role="tab" data-toggle="tab"><i class="fa fa-facebook"></i></a></li>
+
+                                        <li role="presentation">
+                                            <a href="#twitterAccount" aria-controls="twitter" role="tab" data-toggle="tab"><i class="fa fa-twitter"></i></a></li>
+
+                                        <li role="presentation">
+                                            <a href="#googleAccount" aria-controls="google" role="tab" data-toggle="tab"><i class="fa fa-google-plus"></i></a></li>
+
+                                    </ul>
 
 
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
 
-                                <!-- Nav tabs -->
-
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class= "active"><a href="#image" aria-controls="image" role="tab" data-toggle="tab"><i class="fa fa-camera"></i></a></li>
-                                    <li role="presentation" id="mapTab"><a href="#location" aria-controls="location" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i></a></li>
-                                    <li role="presentation"><a href="#socialInformation" aria-controls="socialInformation" role="tab" data-toggle="tab"><i class="fa-icon-comments-alt"></i></a></li>
-                                    <li role="presentation"><a href="#website" aria-controls="website" role="tab" data-toggle="tab"><i class="fa fa-link"></i></a></li>
-                                    <!--<li role="presentation"><a href="#price" aria-controls="price" role="tab" data-toggle="tab"><i class="fa fa-credit-card"></i></a></li>-->
-                                </ul>
-
-                                <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane" id="location">
-
-                                      {{#if mapTabActive}}
-                                        {{> editUserMapAndSearchBox}}
-                                      {{/if}}
+                                        <div role="tabpanel" class="tab-pane" id="address">
+                                          {{> createDotMap}}
+                                        </div>
 
 
-                                    </div>
+                                        <div role="tabpanel" class="tab-pane" id="profileImage">
 
-
-                                    <div role="tabpanel" class="tab-pane" id="socialInformation">
-
-                                        <div class="optional-field">
-                                            <div class="socialInformation optional-field">
-                                              {{> afQuickField name='profile.facebookAccountUrl'}}
-                                              {{> afQuickField name='profile.twitterAccountUrl'}}
-                                              {{> afQuickField name='profile.googleAccountUrl'}}
-                                              {{> afQuickField name='profile.pinterestAccountUrl'}}
-                                              {{> afQuickField name='profile.tripAdvisorAccountUrl'}}
-                                              {{> afQuickField name='profile.foursquareAccountUrl'}}
+                                            <div class="image optional-field container-fluid">
+                                                <div>
+                                                    <h2>profile image</h2>
+                                                  {{#if isUserProfileImageUrl}}
+                                                      <div class="file container-fluid">
+                                                          <div class="row">
+                                                              <div class="edit-profile-img colCenter" style="background-image: url('{{userProfileImagePreviewUrl}}')"></div>
+                                                          </div>
+                                                      </div>
+                                                  {{/if}}
+                                                    <div id="profileImageUpload">
+                                                      {{> uploader}}
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
-                                    </div>
 
-                                    <div role="tabpanel" class="tab-pane" id="website">
-                                        <div class="website optional-field container-fluid">
-                                          {{> afQuickField name='profile.websiteUrl' placeholder="Ex: http://www.website.com ..."}}
-                                        </div>
-                                    </div>
+                                        <div role="tabpanel" class="tab-pane" id="coverImage">
 
-                                    <div role="tabpanel" class="tab-pane active" id="image">
-                                        <div class="image optional-field container-fluid">
-
-                                            <div>
-                                                <h2>profile image</h2>
-                                              {{#if isUserProfileImageUrl}}
-                                                  <div class="file container-fluid">
-                                                      <div class="row">
-                                                          <div class="dot-img-create-dot colCenter" style="background-image: url('{{userProfileImagePreviewUrl}}')"></div>
+                                            <div class="image optional-field container-fluid">
+                                                <div>
+                                                    <h2>profile image</h2>
+                                                  {{#if isUserCoverImageUrl}}
+                                                      <div class="file container-fluid">
+                                                          <div class="row">
+                                                              <div class="edit-cover-img colCenter" style="background-image: url('{{userCoverImagePreviewUrl}}')"></div>
+                                                          </div>
                                                       </div>
-                                                  </div>
-                                              {{/if}}
-                                                <div id="profileImageUpload">
-                                                  {{> uploader}}
+                                                  {{/if}}
+                                                    <div id="coverImageUpload">
+                                                      {{> uploader}}
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div>
-                                                <h2>cover image</h2>
-                                              {{#if isUserCoverImageUrl}}
-                                                  <div class="file container-fluid">
-                                                      <div class="row">
-                                                          <div class="dot-img-create-dot colCenter" style="background-image: url('{{userCoverImagePreviewUrl}}')"></div>
-                                                      </div>
-                                                  </div>
-                                              {{/if}}
-                                                <div id="coverImageUpload">
-                                                  {{> uploader}}
-                                                </div>
-                                            </div>
+                                            <!--<div class="image optional-field">-->
+                                              <!--{{#if isImageUrl}}-->
+                                                  <!--<div class="file container-fluid">-->
+                                                      <!--<div class="row">-->
+                                                          <!--<div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')"></div>-->
+                                                      <!--</div>-->
+                                                  <!--</div>-->
+                                              <!--{{/if}}-->
+                                                <!--<div id="addDotImage">-->
+                                                  <!--{{> uploader}}-->
+                                                <!--</div>-->
+                                            <!--</div>-->
 
+                                        </div>
 
-                                            <div>
+                                        <!--<div role="tabpanel" class="tab-pane" id="link">-->
+                                            <!--<div class="location optional-field in-tab-wrapper">-->
+                                              <!--{{> afQuickField name='linkUrl' label="Link" placeholder="Ex: http://www.website.com"}}-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+
+                                        <div role="tabpanel" class="tab-pane" id="website">
+                                            <div class="website optional-field container-fluid">
+                                              {{> afQuickField name='profile.websiteUrl' placeholder="Ex: http://www.website.com ..."}}
                                             </div>
                                         </div>
 
 
+                                        <div role="tabpanel" class="tab-pane" id="facebookAccount">
+                                            <div class="optional-field">
+                                                <div class="facebookAccount optional-field container-fluid">
+                                                  {{> afQuickField name='profile.facebookAccountUrl'}}
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                        <!--<div role="tabpanel" class="tab-pane" id="price">-->
-                                        <!--<div class="price optional-field container-fluid">-->
-                                        <!--{{> afQuickField name='price' label= false placeholder= "Write price in dollars ..."}}-->
-                                        <!--</div>-->
-                                        <!--</div>-->
+                                        <div role="tabpanel" class="tab-pane" id="twitterAccount">
+                                            <div class="optional-field">
+                                                <div class="facebookAccount optional-field container-fluid">
+                                                  {{> afQuickField name='profile.twitterAccountUrl'}}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane" id="googleAccount container-fluid">
+                                            <div class="optional-field">
+                                                <div class="facebookAccount optional-field">
+                                                  {{> afQuickField name='profile.googleAccountUrl'}}
+                                                </div>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
+
+
+                                <!-- Tab panes -->
+
+                                <!--</div>-->
 
                                 <br><br>
 

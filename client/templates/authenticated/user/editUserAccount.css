@@ -1,0 +1,29 @@
+.edit-profile-img {
+  width: 15em;
+  height: 15em;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  border-radius: 50%;
+}
+
+.edit-cover-img {
+  /*width: 15em;*/
+  height: 20em;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  /*border-radius: 50%;*/
+}
+
+
+.profileImageUpload {
+  height: 10vh;
+
+}
+
+
+.coverImageUpload {
+  height: 10vh;
+
+}

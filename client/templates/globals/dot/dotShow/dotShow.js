@@ -54,7 +54,10 @@ Template.dotShow.onRendered(function(){
 Template.dotShow.helpers({
   data: function() {
     _data.dotShow = Dotz.findOne(FlowRouter.getParam('dotId'));
-
+    if (_data.dotShow) {
+      _data.dotShowUser = Meteor.users.findOne(_data.dotShow.ownerUserId);
+      //return _data;
+    }
     return _data;
   },
 
