@@ -5,8 +5,9 @@
 let dotShowMap = function() {
 
   var map = new google.maps.Map(document.getElementById('dotShowMap'), {
-    center: {lat: _data.dotShow.locationLatLng[0], lng: _data.dotShow.locationLatLng[1]},
-    zoom: 16
+    center: {lat: _data.dotShow.location.latLng[0], lng: _data.dotShow.location.latLng[1]},
+    zoom: 16,
+    disableDefaultUI: true
   });
 
   google.maps.event.addListenerOnce(map, 'idle', function(){
@@ -15,7 +16,7 @@ let dotShowMap = function() {
 
     var marker = new google.maps.Marker({
       map: map,
-      position: {lat: _data.dotShow.locationLatLng[0], lng: _data.dotShow.locationLatLng[1]}
+      position: {lat: _data.dotShow.location.latLng[0], lng: _data.dotShow.location.latLng[1]}
     });
 
   });

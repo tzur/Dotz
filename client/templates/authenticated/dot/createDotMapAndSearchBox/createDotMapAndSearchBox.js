@@ -18,7 +18,7 @@ Template.createDotMap.onRendered(function(){
       let centerLatLng = [];
 
       if(Template.parentData() && Template.parentData().data.dot) {
-        centerLatLng = Template.parentData().data.dot.locationLatLng
+        centerLatLng = Template.parentData().data.dot.location.latLng
       }
 
       else{
@@ -39,7 +39,7 @@ Template.createDotMap.onRendered(function(){
       // Create the search box and link it to the UI element.
       var input = document.getElementById('pac-input');
 
-      if(map && Template.parentData() && Template.parentData().data.dot.locationLatLng){
+      if(map && Template.parentData() && Template.parentData().data.dot.location.latLng){
         var marker = new google.maps.Marker({
           map: map,
           position: {lat: centerLatLng[0] , lng: centerLatLng[1]}

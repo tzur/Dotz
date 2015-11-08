@@ -102,16 +102,20 @@ Meteor.methods({
   editUserLocation(locationObject){
     //change to URL in check
     check(locationObject, Object);
-    let userLocationOptions = {};
 
-    userLocationOptions.LatLng = locationObject.locationLatLng || undefined;
-    userLocationOptions.name = locationObject.general.name || undefined;
-    userLocationOptions.address = locationObject.general.formatted_address || undefined;
-    userLocationOptions.placeId = locationObject.general.place_id || undefined;
+    let locationSchemaObject = {};
+    locationSchemaObject = {
+      latLng: locationObject.locationLatLng,
+      name: locationObject.general.name,
+      address: locationObject.general.formatted_address,
+      googleMapsUrl: locationObject.general.url,
+      placeId: locationObject.general.place_id,
+      placePhoneNumber: locationObject.general.formatted_phone_number
+    };
+    check(locationSchemaObject, Schema.location);
 
     let updateOptions = {
-      $set: { "profile.userAddressLatLng": userLocationOptions.LatLng, "profile.userAddressName": userLocationOptions.name,
-              "profile.userAddress": userLocationOptions.address, "profile.userAddressPlaceId": userLocationOptions.placeId }
+      $set: { "profile.location": locationSchemaObject}
     };
     _userUpdate(Meteor.userId(), updateOptions)
   }

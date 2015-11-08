@@ -9,11 +9,18 @@ let dotHooks = {
         doc.coverImageUrl = Session.get("coverImageUrl");
       }
       if(locationObject = Session.get("locationObject")){
-        doc.locationLatLng = locationObject.locationLatLng;
-        doc.locationName = locationObject.general.name;
-        doc.locationAddress = locationObject.general.formatted_address;
-        doc.locationLink = locationObject.general.url;
-        doc.locationPlaceId = locationObject.general.place_id;
+        let locationSchemaObject = {};
+        locationSchemaObject = {
+          latLng: locationObject.locationLatLng,
+          name: locationObject.general.name,
+          address: locationObject.general.formatted_address,
+          googleMapsUrl: locationObject.general.url,
+          placeId: locationObject.general.place_id,
+          placePhoneNumber: locationObject.general.formatted_phone_number
+        };
+        if(check(locationSchemaObject, Schema.location)){
+          doc.location = locationSchemaObject;
+        }
       }
 
       if(Session.get('parentDot')){
