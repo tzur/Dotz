@@ -1,5 +1,5 @@
 <template name="dotShow">
-{{#if Template.subscriptionsReady}}
+<!--{{#if Template.subscriptionsReady}}-->
 {{#with data}}
 
     <div class="container-fluid dot-show-header">
@@ -105,10 +105,11 @@
 
 
     <div class="row map-div">
-
       {{#if dotShow.locationName}}
 
-            <div id="dotShowMap" class="map-container map-container-dot-show"></div>
+          <div class="map-container-create-dot">
+              <div id="dotShowMap" class="map-container-create-dot"></div>
+          </div>
 
           <div class="map-container-overlayer"></div>
       {{/if}}
@@ -165,9 +166,9 @@
 
 {{/with}}
 
-{{else}}
-    <p> Loading...</p>
-    <!--&lt;!&ndash;to replace with a loading template&ndash;&gt;-->
-{{/if}}
+<!--{{else}}-->
+    <!--<p> Loading...</p>-->
+    <!--&lt;!&ndash;&lt;!&ndash;to replace with a loading template&ndash;&gt;&ndash;&gt;-->
+<!--{{/if}}-->
 
 </template>

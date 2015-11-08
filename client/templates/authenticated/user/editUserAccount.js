@@ -1,8 +1,25 @@
 /**
  * Created by avivhatzir on 06/11/2015.
  */
+Template.editUserAccountModal.onRendered(function(){
+  $(document).ready(function() {
+    $(window).keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
+  });
+});
+Template.editUserAccountModal.onDestroyed(function(){
+  Session.set("mapTabActive", undefined);
+  Session.set('coverImageUrl', undefined);
+  Session.set("userCoverImageUrl", undefined);
+  Session.set("userProfileImageUrl", undefined);
+  Session.set("locationObject", undefined);
+});
 
-Template.editUserAccount.helpers({
+Template.editUserAccountModal.helpers({
   selectedUserDoc: function () {
     return Meteor.user()
   },
@@ -36,11 +53,15 @@ Template.editUserAccount.helpers({
     else if (Meteor.user().profile.coverImage) {
       return Meteor.user().profile.coverImage
     }
+  },
+
+  mapTabActive: function(){
+    return Session.get('mapTabActive')
   }
 
 });
 
-Template.editUserAccount.events({
+Template.editUserAccountModal.events({
   'change #coverImageUpload input[type="file"]': function(){
     Tracker.autorun(function(c) {
       document.getElementById("submitEditUser").disabled = true;
@@ -68,6 +89,10 @@ Template.editUserAccount.events({
     });
   },
 
+  'click #mapTab': function(){
+    Session.set('mapTabActive', true);
+  },
+
   'click #submitEditUser':function(){
     //if we need some force edit :)
     //console.log("im here");
@@ -85,6 +110,7 @@ Template.editUserAccount.events({
     Session.set("userCoverImageUrl", undefined);
     Session.set("userProfileImageUrl", undefined);
     Session.set("locationObject", undefined);
+    Modal.hide('editUserAccountModal');
 
 
 

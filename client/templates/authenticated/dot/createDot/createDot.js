@@ -29,6 +29,11 @@ Template.createDotModal.onRendered(function(){
 
 });
 
+Template.createDotModal.onDestroyed(function(){
+  Session.set('mapTabActive', undefined);
+  Session.set('coverImageUrl', undefined);
+});
+
 
 Template.createDotModal.helpers({
 
@@ -44,11 +49,14 @@ Template.createDotModal.helpers({
   },
   profileDotId: function(){
     return Meteor.user().profile.profileDotId;
-  }
+  },
 
+  mapTabActive: function() {
+    return (Session.get("mapTabActive"))
+  }
 });
 
-Template.createDot.events({
+Template.createDotModal.events({
   'click #createToOneOfMyDotz': function(e){
     e.preventDefault();
     Modal.show('createToOneOfMyDotzModal', {
@@ -58,6 +66,11 @@ Template.createDot.events({
     })
   },
 
+  'click #createToMyProfile': function(){
+    Modal.hide('createToOneOfMyDotzModal');
+  },
+
+
   'change #addDotImage input[type="file"]': function(){
     Tracker.autorun(function(c) {
       document.getElementsByClassName("createBtn").disabled = true;
@@ -66,6 +79,10 @@ Template.createDot.events({
         document.getElementById("createBtn").disabled = false;
       }
     });
+  },
+
+  'click #mapTab': function(){
+    Session.set('mapTabActive', true);
   }
 
 });

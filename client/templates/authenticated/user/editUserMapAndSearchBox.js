@@ -25,7 +25,7 @@ Template.editUserMapAndSearchBox.onRendered(function(){
         centerLatLng = [32.075362, 34.774936]
       }
 
-      var map = new google.maps.Map(document.getElementById('map'), {
+      var map = new google.maps.Map(document.getElementById('editUserMap'), {
         center: {lat: centerLatLng[0] , lng: centerLatLng[1]},
         zoom: 13,
         mapTypeId: google.maps.MapTypeId.ROADMAP
