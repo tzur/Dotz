@@ -128,8 +128,8 @@
 
                                               <div class="col-xs-1 pull-right">
                                                   <button type="button" class="like btn btn-invisible btn-xs pull-right">
-
-                                                      <img class="like-btn-img pull-right" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png"> <br>
+                                                      <i class="fa fa-heart-o greyText"></i>
+                                                      <!--<img class="like-btn-img pull-right" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png"> <br>-->
                                                       <div class="smTxt">{{likeCounter}}</div>
                                                   </button>
                                               </div>
@@ -155,12 +155,14 @@
                                           </div>
 
                                           <div class="row">
-                                              <div class="col-xs-6 col-sm-4 colCenter">
+                                              <div class="col-xs-10 col-sm-6 colCenter">
                                                 {{#if isConnected}}
-                                                    <button type="button" class="connect btn btn-lead round btn-md ">Connect {{connectCounter}}</button>
-                                                    <button type="button" class="disConnect btn btn-delete round btn-xs"><i class="fa fa-remove"></i></button>
+                                                    <button type="button" class="connect btn btn-lead round btn-md "><i class="fa fa-plus"></i>
+                                                        Connect {{connectCounter}}</button>
+                                                    <button type="button" class="disConnect btn btn-delete round btn-md"><i class="fa fa-minus"></i></button>
                                                 {{else}}
-                                                    <button type="button" class="connect btn btn-lead round btn-md ">Connect {{connectCounter}}</button>
+                                                    <button type="button" class="connect btn btn-lead round btn-md "><i class="fa fa-plus"></i>
+                                                        Connect {{connectCounter}}</button>
                                                 {{/if}}
                                               </div>
                                           </div>
@@ -178,10 +180,12 @@
 
                                               <div class="col-md-3">
                                                 {{#if isConnected}}
-                                                    <button type="button" class="disConnect btn btn-delete round btn-xs pull-right"><i class="fa fa-remove"></i></button>
-                                                    <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect {{connectCounter}}</button>
+                                                    <button type="button" class="disConnect btn btn-delete round btn-xs pull-right"><i class="fa fa-minus"></i></button>
+                                                    <button type="button" class="connect btn btn-success round btn-xs pull-right"><i class="fa fa-plus"></i>
+                                                        Connect {{connectCounter}}</button>
                                                 {{else}}
-                                                    <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect {{connectCounter}}</button>
+                                                    <button type="button" class="connect btn btn-success round btn-xs pull-right"><i class="fa fa-plus"></i>
+                                                        Connect {{connectCounter}}</button>
                                                 {{/if}}
                                               </div>
                                           </div>
@@ -260,7 +264,8 @@
                                               <div class="like-btn-text-div-mobile col-md-2 cardConnecterDiv">
                                                   <button type="button" class="like btn btn-default round btn-xs midWidth pull-right">
                                                       <span class="like-btn-lnt smTxt greyText">{{likeCounter}}</span>
-                                                      <img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
+                                                      <i class="fa fa-heart-o greyText"></i>
+                                                      <!--<img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">-->
                                                   </button>
                                               </div>
 
@@ -304,8 +309,9 @@
 
 
   {{else}}
-      <p> Loading...</p>
+      <!--<p> Loading...</p>-->
       <!--to replace with a loading template-->
+      <i class="fa fa-spinner fa-pulse"></i>
 
   {{/if}}
 </template>

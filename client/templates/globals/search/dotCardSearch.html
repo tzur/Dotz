@@ -1,14 +1,22 @@
 <template name="dotCardSearch">
 
   {{#if Template.subscriptionsReady}}
+
       <!-- full wrapper -->
+
       <div>
           <div class="row">
               <div class="col-xs-12 col-sm-9 col-lg-9 colCenter">
+
+
+
                   <div class="container-fluid longCardWrapper">
                       <div class="row">
+
                           <div class="col-sm-12">
+
                               <div class="row">
+
                                   <div class="col-md-4 visible-xs visible-sm">
                                       <div class="container-fluid dot-container-img-card-mobile" style="background-image: url('{{dot.coverImageUrl}}')">
                                           <div class="row" >
@@ -23,7 +31,9 @@
                                           </div>
                                       </div>
                                   </div>
+
                                   <div class="col-md-4 liquidCol hidden-xs hidden-sm">
+
                                       <div class="container-fluid dot-container-img-card" style="background-image: url('{{dot.coverImageUrl}}')">
                                         {{#if dotzNum}}
                                             <div class="dotConnectedDotzLastIcon">
@@ -33,29 +43,40 @@
                                         {{/if}}
                                       </div>
                                   </div>
+
+
                                   <div class="col-md-8">
+
                                       <div class="spacerXs visible-xs visible-sm"></div>
+
                                       <div class="cardDetails-mobile visible-xs visible-sm">
+
                                           <div class="row cardTitleDiv">
                                               <div class="col-xs-12 col-sm-12">
                                                 {{testHelper}}
                                                   <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
+
                                               </div>
                                           </div>
+
+
                                           <div class="row cardPersonalDesc">
                                               <div class="col-xs-12">
+
                                                 {{#if dot.locationName}}
                                                     <span class="txtL dot-type">
                                                         <img id="type-icon" src="/place-icon-grey.png">
                                                         <span class="greyText smTxt">{{dot.locationName}}</span>
                                                     </span>
                                                 {{/if}}
+
                                                 {{#if eventDate}}
                                                     <span class="txtL dot-type">
                                                         <img id="type-icon" src="/event-icon-grey.png">
                                                         <span class="greyText smTxt">{{eventDate}}</span>
                                                     </span>
                                                 {{/if}}
+
                                                 {{#if dot.price}}
                                                     <span class="txtL dot-type">
                                                         <img id="type-icon" src="/price-icon-grey.png">
@@ -65,26 +86,50 @@
 
                                               </div>
                                           </div>
+
+
                                           <div class="row cardConnecterDiv-mobile">
+
+
+
                                               <div class="col-xs-10 cardConnecterDiv greyText smTxt">
-                                                    <a href="/user/{{ownerUser.username}}" class="userImgIcon">
+
+
+
+                                                    <a href="/{{ownerUser.username}}" class="userImgIcon">
                                                         <img class="userImgIcon" src="{{ownerUser.profileImage}}">
                                                     </a>
 
-                                                    <a href="/user/{{ownerUser.username}}">
+                                                    <a href="/{{ownerUser.username}}">
                                                         <span class="align-icon-text">{{ownerUser.username}}</span>
                                                     </a>
 
                                                     <span>  <span>·</span> {{actionDate}}</span>
 
+
+                                              </div>
+
+                                              <div class="col-xs-1 pull-right">
+                                                  <button type="button" class="like btn btn-invisible btn-xs pull-right">
+
+                                                      <img class="like-btn-img pull-right" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png"> <br>
+                                                      <div class="smTxt">{{likeCounter}}</div>
+                                                  </button>
                                               </div>
 
                                           </div>
+
+
+
                                           <div class="row">
-                                                <div class="user-personal-desc-details col-xs-11">
-                                                    <p class="user-personal-desc greyText limitP">{{dot.bodyText}}</p>
-                                                </div>
+
+                                              <div class="user-personal-desc-details col-xs-11">
+                                                  <p class="user-personal-desc greyText limitP">{{pruneBodyText}}</p>
+                                              </div>
+
                                           </div>
+
+
 
                                           <div class="row">
                                               <div class="col-md-12">
@@ -93,29 +138,24 @@
                                           </div>
 
                                           <div class="row">
-                                              <div class="col-xs-4 col-sm-3 colCenter">
-                                                {{#if isConnected}}
-                                                    <button type="button" class="disConnect btn btn-success round btn-sm pull-right">Connected {{connectCounter}}</button>
-                                                {{else}}
+                                              <div class="col-xs-6 col-sm-4 colCenter">
                                                     <button type="button" class="connect btn btn-lead round btn-md ">Connect {{connectCounter}}</button>
-                                                {{/if}}
                                               </div>
                                           </div>
+
+
                                       </div>
+
+
                                       <div class="cardDetails hidden-xs hidden-sm">
 
                                           <div class="row cardTitleDiv">
-                                              <div class="col-md-10">
+                                              <div class="col-md-9">
                                                   <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
                                               </div>
 
-                                              <div class="col-md-2">
-                                                {{#if isMyMix}}
-                                                    <!--<span id="connectionCounter" class="successColor mdTxt"> </span>-->
-                                                    <button type="button" class="disConnect btn btn-success round btn-xs pull-right">Connected ({{isConnected}})</button>
-                                                {{else}}
-                                                    <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect ({{isConnected}})</button>
-                                                {{/if}}
+                                              <div class="col-md-3">
+                                                    <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect {{connectCounter}}</button>
                                               </div>
                                           </div>
 
@@ -154,28 +194,61 @@
                                               </div>
 
                                               <div class="col-md-10 cardConnecterDiv greyText smTxt">
-                                                    <a href="{{ownerUser.username}}" class="userImgIcon">
+
+
+                                                    <a href="/{{ownerUser.username}}" class="userImgIcon">
                                                         <img class="userImgIcon" src="{{ownerUser.profileImage}}">
                                                     </a>
 
-                                                    <a href="{{ownerUser.username}}">
+                                                    <a href="/{{ownerUser.username}}">
                                                         <span class="align-icon-text">{{ownerUser.username}}</span>
                                                     </a>
 
                                                     <span>  <span>·</span> {{actionDate}}</span>
+
+
                                               </div>
+
                                               <hr class="lightGrey">
+
                                               <div class="spacer-xs-card-buttons"></div>
-                                                <div class="user-personal-desc-details col-md-9">
-                                                    <p class="limitP user-personal-desc greyText">{{dot.bodyText}}</p>
-                                                </div>
+
+                                              <div class="like-btn-text-div-mobile col-md-2 cardConnecterDiv">
+                                                  <button type="button" class="like btn btn-default round btn-xs midWidth pull-right">
+                                                      <span class="like-btn-lnt smTxt greyText">{{likeCounter}}</span>
+                                                      <img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
+                                                  </button>
+                                              </div>
+
+                                              <div class="user-personal-desc-details col-md-9">
+                                                  <p class="limitP user-personal-desc greyText">{{pruneBodyText}}</p>
+                                              </div>
+
                                           </div>
+
                                       </div>
+
+
                                   </div>
+
                               </div>
+
+
                           </div>
+
                       </div>
                   </div>
+
+                  <div style="margin-bottom: 1em;">
+                    {{#if isMyDot}}
+                        <a class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>
+                        <a class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
+                    {{/if}}
+
+                  </div>
+
+
+
 
               </div>
           </div>
@@ -185,5 +258,6 @@
   {{else}}
       <p> Loading...</p>
       <!--to replace with a loading template-->
+
   {{/if}}
 </template>

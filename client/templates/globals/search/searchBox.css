@@ -36,8 +36,8 @@
 
 .search-row {
   padding: 3em 0;
-  border-bottom: #cccccc solid 1px;
-
+  /*border-bottom: #cccccc solid 1px;*/
+  min-height: 20vh;
 }
 
 .search-container {
@@ -48,7 +48,7 @@
 .search-results-row {
   padding-top: 2em;
   background-color: #fafafa;
-  min-height: 50vh;
+  min-height: 70vh;
 }
 
 .dot-card-search-wrapper {

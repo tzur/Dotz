@@ -2,23 +2,37 @@
 
 <div class="container-fluid">
 
-{{#if Template.subscriptionsReady}}
+{{#if feeDotz}}
+    {{#if Template.subscriptionsReady}}
 
-      <div class="row feed-cards">
-          <div class="col-xs-12">
-            {{#each feedDotz}}
-              {{> dotCard}}
-            {{/each}}
-          </div>
-      </div>
+        <div class="row feed-cards">
+            <div class="col-xs-12">
+              {{#each feedDotz}}
+                {{> dotCard}}
+              {{/each}}
+            </div>
+        </div>
+
+    {{else}}
+
+        <div class="row row-loading">
+            <div class="col-xs-12">
+              {{>loading2}}
+            </div>
+        </div>
+
+    {{/if}}
 
 {{else}}
 
-      <div class="row row-loading">
-          <div class="col-xs-12">
-            {{>loading2}}
-          </div>
-      </div>
+  {{> searchBox}}
+    <!--<div class="jumbotron text-center" style="padding: 20px;">-->
+        <!--<h2>Welcome Dotz :)</h2>-->
+        <!--<br>-->
+        <!--&lt;!&ndash;<p>Welcome :)</p>&ndash;&gt;-->
+        <!--<p><a class="btn btn-success" href="/main/search" role="button">Start Discover The City</a></p>-->
+        <!--&lt;!&ndash;<p style="font-size: 16px; color: #aaa;">Tel Aviv</p>&ndash;&gt;-->
+    <!--</div>-->
 
 {{/if}}
 
