@@ -4,5 +4,9 @@
 Template.authenticatedNavigation.events({
   'click .createDot': function(){
     Modal.show('createDotModal')
+  },
+
+  'click .editUserAccount': function(){
+    Modal.show('editUserAccountModal')
   }
 });

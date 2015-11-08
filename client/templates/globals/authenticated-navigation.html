@@ -6,7 +6,7 @@
   <!--TBD: we need to improve this route:    -->
       <li class="{{currentRoute 'user-show'}}"><a href="/{{currentUser.username}}">My Profile</a></li>
 
-      <li class="createDot"><a>Create Dot</a></li>
+      <li class="createDot"><a href="#">Create Dot</a></li>
       <li class="{{currentRoute 'feed'}}"><a href="{{pathFor 'feed'}}">Feed</a></li>
       <li class="{{currentRoute 'search'}}"><a href="{{pathFor 'search'}}">Search</a></li>
 
@@ -15,6 +15,7 @@
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.emails.[0].address}} <span class="caret"></span></a>
       <ul class="dropdown-menu" role="menu">
+          <li class="editUserAccount"><a href="#">Edit Account</a></li>
         <li class="logout"><a href="#">Logout</a></li>
       </ul>
     </li>
