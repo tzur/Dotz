@@ -73,32 +73,32 @@ Schema.dotSchema = new SimpleSchema({
 
   //****The Location Section
 
-  locationName: {
-    type: String,
-    optional: true
-  },
-
-  locationLatLng:{
-    type: [Number],
-    decimal:true,
-    optional: true
-  },
-
-  locationAddress: {
-    type: String,
-    decimal:true,
-    optional: true
-  },
-
-  locationLink: {
-    type: String,
-    optional: true
-  },
-
-  locationPlaceId: {
-    type: String,
-    optional: true
-  },
+  //locationName: {
+  //  type: String,
+  //  optional: true
+  //},
+  //
+  //locationLatLng:{
+  //  type: [Number],
+  //  decimal:true,
+  //  optional: true
+  //},
+  //
+  //locationAddress: {
+  //  type: String,
+  //  decimal:true,
+  //  optional: true
+  //},
+  //
+  //locationLink: {
+  //  type: String,
+  //  optional: true
+  //},
+  //
+  //locationPlaceId: {
+  //  type: String,
+  //  optional: true
+  //},
 
   //Location Section End****
 
