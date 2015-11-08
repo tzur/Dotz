@@ -16,18 +16,22 @@ Template.createDotMap.onRendered(function(){
     let locationLatLng= [];
     if (GoogleMaps.loaded()) {
       let centerLatLng = [];
+      let zoomLevel;
 
       if(Template.parentData() && Template.parentData().data.dot) {
         centerLatLng = Template.parentData().data.dot.location.latLng
+        zoomLevel = 16
       }
 
       else{
         centerLatLng = [32.075362, 34.774936]
+        zoomLevel = 13
+
       }
 
       var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: centerLatLng[0] , lng: centerLatLng[1]},
-        zoom: 13,
+        zoom: zoomLevel,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
@@ -119,4 +123,15 @@ Template.createDotMap.onRendered(function(){
 
   });
 
+});
+
+Template.createDotMap.helpers({
+  SearchBoxPlaceHolder: function(){
+    if(Template.parentData() && Template.parentData().data.dot.location.latLng){
+      return (Template.parentData().data.dot.location.address)
+    }
+    else{
+      return ("Search Box")
+    }
+  }
 });

@@ -4,19 +4,23 @@
 Schema.location = new SimpleSchema({
   name:{
     type: String,
-    index: 1
+    optional: true
   },
 
   address:{
-    type: String
+    type: String,
+    optional: true
   },
 
   placeId:{
-    type: String
+    type: String,
+    optional: true
   },
 
   googleMapsUrl: {
-    type: String
+    type: String,
+    optional: true
+
   },
 
   latLng: {

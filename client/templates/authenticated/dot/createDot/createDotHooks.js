@@ -18,9 +18,7 @@ let dotHooks = {
           placeId: locationObject.general.place_id,
           placePhoneNumber: locationObject.general.formatted_phone_number
         };
-        if(check(locationSchemaObject, Schema.location)){
-          doc.location = locationSchemaObject;
-        }
+        doc.location = locationSchemaObject;
       }
 
       if(Session.get('parentDot')){
@@ -44,6 +42,7 @@ let dotHooks = {
     //Router.go("/post/"+ result);
     Session.set("coverImageUrl", undefined);
     Session.set("locationObject", undefined);
+    Modal.hide('createDotModal');
     Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
   }
 };

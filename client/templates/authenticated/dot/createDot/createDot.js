@@ -73,10 +73,13 @@ Template.createDotModal.events({
 
   'change #addDotImage input[type="file"]': function(){
     Tracker.autorun(function(c) {
-      document.getElementsByClassName("createBtn").disabled = true;
+      document.getElementById("createToMyProfile").disabled = true;
+      document.getElementById("createToOneOfMyDotz").disabled = true;
+
       if (Session.get('coverImageUrl')) {
         c.stop();
-        document.getElementById("createBtn").disabled = false;
+        document.getElementById("createToMyProfile").disabled = false;
+        document.getElementById("createToOneOfMyDotz").disabled = false;
       }
     });
   },
