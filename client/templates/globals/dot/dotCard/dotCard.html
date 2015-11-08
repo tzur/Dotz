@@ -66,7 +66,7 @@
                                                 {{#if dot.locationName}}
                                                     <span class="txtL dot-type">
                                                         <img id="type-icon" src="/place-icon-grey.png">
-                                                        <span class="greyText smTxt">{{dot.locationName}}</span>
+                                                        <span class="greyText smTxt">{{dot.location.address}}</span>
                                                     </span>
                                                 {{/if}}
 
@@ -193,10 +193,10 @@
                                           <div class="row cardPersonalDesc">
                                               <div class="col-xs-12">
 
-                                                {{#if dot.locationName}}
+                                                {{#if dot.location.latLng}}
                                                     <span class="txtL dot-type">
                                                         <img id="type-icon" src="/place-icon-grey.png">
-                                                        <span class="greyText smTxt">{{dot.locationName}}</span>
+                                                        <span class="greyText smTxt">{{dot.location.address}}</span>
                                                     </span>
                                                 {{/if}}
 

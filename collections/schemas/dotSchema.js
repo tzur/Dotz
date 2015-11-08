@@ -1,3 +1,4 @@
+
 Schema.dotSchema = new SimpleSchema({
   dotType: {
     type: String,
@@ -61,6 +62,12 @@ Schema.dotSchema = new SimpleSchema({
   linkUrl: {
     type: String,
     regEx: SimpleSchema.RegEx.Url,
+    optional: true
+  },
+
+  location: {
+    type: Object,
+    blackbox: true,
     optional: true
   },
 

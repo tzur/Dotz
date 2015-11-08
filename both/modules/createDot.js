@@ -11,6 +11,7 @@ let _docValidation = (doc) => {
 Meteor.methods({
   createDot(doc){
     check(doc, Schema.dotSchema);
+    check(doc.location, Schema.location);
     if(_docValidation(doc)) {
       Meteor.call('insertDot', doc, function (error, result) {
         if (!error) {
