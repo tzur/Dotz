@@ -66,9 +66,9 @@ Template.createDotModal.events({
     })
   },
 
-  'click #createToMyProfile': function(){
-    Modal.hide('createToOneOfMyDotzModal');
-  },
+  //'click #createToMyProfile': function(){
+  //  Modal.hide('createToOneOfMyDotzModal');
+  //},
 
 
   'change #addDotImage input[type="file"]': function(){

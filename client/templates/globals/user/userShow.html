@@ -33,35 +33,42 @@
                             <div class="iconsLinksEtc">
                                 <ul>
                                     <li class="locationWrapper inline-block">
-                                        <span class="location mdGrey"></span>
-                                      {{userShow.profile.location.address}}
+                                        <a href="{{userShow.profile.location.address}}">
+                                        <i class="fa fa-map-marker mdGrey"></i></a>
                                     </li>
 
                                     <li class="inline-block">
-                                        <span class="inline-block lightGrey">|</span>
+                                        <span>·</span>
                                     </li>
 
                                     <li class="websiteWrapper inline-block">
-                                        <a href="{{userShow.profile.website}}" target="_blank" class="mdGrey" rel="nofollow" itemprop="url">
-                                          {{userShow.profile.website}}
+                                        <a href="{{userShow.profile.website}}" target="_blank" class="mdGrey" rel="nofollow">
+                                          <i class="fa fa-globe mdGrey"></i>
                                         </a>
                                     </li>
 
                                     <li class="inline-block">
-                                        <span class="inline-block lightGrey">|</span>
+                                        <span>·</span>
                                     </li>
 
                                     <li class="inline-block">
-                                        <a href="http://www.facebook.com" target="_blank" rel="nofollow" class="userMenuIcons"><i class="fa fa-facebook-official mdGrey"></i></a>
+                                        <a href="{{userShow.profile.facebookAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                            <i class="fa fa-facebook-official mdGrey"></i></a>
                                     </li>
 
                                     <li class="inline-block">
-                                        <a href="http://twitter.com" target="_blank" rel="nofollow" class="userMenuIcons"><i class="fa fa-twitter-square mdGrey"></i></a>
+                                        <a href="{{userShow.profile.twitterAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                            <i class="fa fa-twitter-square mdGrey"></i></a>
+                                    </li>
+
+                                    <li class="inline-block">
+                                        <a href="{{userShow.profile.googleAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                            <i class="fa fa-google-plus-square mdGrey"></i></a>
                                     </li>
                                 </ul>
                             </div>
 
-                            <p>{{userShow.profile.website}}</p>
+                            <p>{{userShow.profile.description}}</p>
 
                         </div>
                     </div>

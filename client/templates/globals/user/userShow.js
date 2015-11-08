@@ -5,27 +5,30 @@ Template.userShow.onCreated(function() {
   let self = this;
   self.autorun(function() {
 
-    let username = FlowRouter.getParam('username');
-    if (username) {
-      self.subscribe('userByUsername', username);
-      _data.userShow = Meteor.users.findOne({username: username});
-    }
-
-    if (_data.userShow) {
-
-      let dotId = _data.userShow.profile.profileDotId;
-      if (dotId) {
-        self.subscribe('dotShow', dotId);
-        _data.userShowDot = Dotz.findOne(dotId);
-        Session.set('dot', _data.userShowDot);
+      let username = FlowRouter.getParam('username');
+      if (username) {
+        self.subscribe('userByUsername', username);
+        _data.userShow = Meteor.users.findOne({username: username});
       }
-      if (_data.userShowDot) {
-        //subscribe all the relevant data for dotzConnectedByOwner:
-        self.subscribe('smartRefToDotzCursor', _data.userShowDot.dotzConnectedByOwner);
-        self.subscribe('smartRefToUsersCursor', _data.userShowDot.dotzConnectedByOwner);
-        //send smartRef to module:
+
+      if (_data.userShow) {
+
+          if (_data.userShow.profile) {
+              let dotId =_data.userShow.profile.profileDotId;
+              if (dotId) {
+                self.subscribe('dotShow', dotId);
+                _data.userShowDot = Dotz.findOne(dotId);
+                Session.set('dot', _data.userShowDot);
+            }
+          }
+
+          if (_data.userShowDot) {
+            //subscribe all the relevant data for dotzConnectedByOwner:
+            self.subscribe('smartRefToDotzCursor', _data.userShowDot.dotzConnectedByOwner);
+            self.subscribe('smartRefToUsersCursor', _data.userShowDot.dotzConnectedByOwner);
+            //send smartRef to module:
+          }
       }
-    }
   });
 });
 
