@@ -18,8 +18,14 @@ let _addImageUrlToDatabase = ( url ) => {
   });
 };
 
-let _addImageUrlToSession = (url) => {
-  Session.set('coverImageUrl', url)
+let _addImageUrlToUser = (url) => {
+  //Session.set('coverImageUrl', url)
+  Meteor.call('editUserCoverImage', url, function(error,result){
+    if (error){
+      console.log("editUserCoverImage >> Error " + error);
+    }
+  });
+
   _setPlaceholderText();
 };
 
@@ -31,7 +37,7 @@ let _uploadFileToAmazon = ( file ) => {
       Bert.alert( error.message, "warning" );
       _setPlaceholderText();
     } else {
-      _addImageUrlToSession( url );
+      _addImageUrlToUser( url );
     }
   });
 };
@@ -45,4 +51,4 @@ let upload = ( options ) => {
   _uploadFileToAmazon( file );
 };
 
-Modules.client.uploadToAmazonS3 = upload;
+Modules.client.uploadImguserEdit = upload;

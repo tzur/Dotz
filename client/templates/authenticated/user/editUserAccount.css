@@ -1,6 +1,6 @@
 .edit-profile-img {
-  width: 15em;
-  height: 15em;
+  width: 10em;
+  height: 10em;
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
@@ -9,7 +9,7 @@
 
 .edit-cover-img {
   /*width: 15em;*/
-  height: 20em;
+  height: 10em;
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
@@ -17,13 +17,11 @@
 }
 
 
-.profileImageUpload {
+#profileImageUpload {
   height: 10vh;
-
 }
 
 
-.coverImageUpload {
+#coverImageUpload {
   height: 10vh;
-
 }

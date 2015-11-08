@@ -1,12 +1,10 @@
 <template name="createDot">
 
-
-
     <div class="container-fluid">
         <div class="row">
             <!--<div class="col-xs-12 col-md-5 colCenter">-->
 
-                <div class="row"><h1 class="txtMd">Create New Dot</h1></div>
+                <div class="row"><h2 class="txtMd">Create New Dot</h2></div>
 
               {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
 
@@ -78,13 +76,17 @@
                               {{#if isImageUrl}}
                                   <div class="file container-fluid">
                                       <div class="row">
-                                          <div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')"></div>
+                                          <!--<div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')">-->
+                                          <div class="dot-img-create-dot">
+                                               <img class="imagePreview" src="{{imagePreviewUrl}}">
+                                          </div>
+                                          <div id="addDotImage">
+                                            {{> uploader}}
+                                          </div>
                                       </div>
                                   </div>
                               {{/if}}
-                              <div id="addDotImage">
-                                {{> uploader}}
-                              </div>
+
 
                             </div>
                         </div>

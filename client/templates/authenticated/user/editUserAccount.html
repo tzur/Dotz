@@ -24,39 +24,30 @@
                                   {{> afQuickField name='profile.description' rows=6}}
                                 </div>
 
-                                <!--<div>-->
-                                  <!--{{> afQuickField name='profile.location.address'}}-->
-                                <!--</div>-->
-                                <div>
-                                  {{> afQuickField name='profile.location.placePhoneNumber' placeholder= "Your Phone Number.."}}
-                                </div>
-
-
-
                                 <div>
 
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-tabs" role="tablist">
 
-                                        <li role="presentation" class= "active">
+                                        <li role="presentation" class="active editTab">
                                             <a href="#profileImage" aria-controls="coverImage" role="tab" data-toggle="tab"><i class="fa fa-camera"></i> Profile</a></li>
 
-                                        <li role="presentation">
+                                        <li role="presentation" class="editTab">
                                             <a href="#coverImage" aria-controls="coverImage" role="tab" data-toggle="tab"><i class="fa fa-camera"></i> Cover</a></li>
 
-                                        <li role="presentation">
-                                            <a href="#address" aria-controls="address" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i> Address</a></li>
+                                        <li id="mapTab" role="presentation" class="editTab">
+                                            <a href="#location" aria-controls="location" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i> Address</a></li>
 
-                                        <li role="presentation">
+                                        <li role="presentation" class="editTab">
                                             <a href="#website" aria-controls="website" role="tab" data-toggle="tab"><i class="fa fa-link"></i> Web</a></li>
 
-                                        <li role="presentation">
+                                        <li role="presentation" class="editTab">
                                             <a href="#facebookAccount" aria-controls="facebook" role="tab" data-toggle="tab"><i class="fa fa-facebook"></i></a></li>
 
-                                        <li role="presentation">
+                                        <li role="presentation" class="editTab">
                                             <a href="#twitterAccount" aria-controls="twitter" role="tab" data-toggle="tab"><i class="fa fa-twitter"></i></a></li>
 
-                                        <li role="presentation">
+                                        <li role="presentation" class="editTab">
                                             <a href="#googleAccount" aria-controls="google" role="tab" data-toggle="tab"><i class="fa fa-google-plus"></i></a></li>
 
                                     </ul>
@@ -65,7 +56,7 @@
                                     <!-- Tab panes -->
                                     <div class="tab-content">
 
-                                        <div role="tabpanel" class="tab-pane" id="address">
+                                        <div role="tabpanel" class="tab-pane" id="location">
                                           {{> createDotMap}}
                                         </div>
 
@@ -74,7 +65,7 @@
 
                                             <div class="image optional-field container-fluid">
                                                 <div>
-                                                    <h2>profile image</h2>
+                                                    <!--<h2>profile image</h2>-->
                                                   {{#if isUserProfileImageUrl}}
                                                       <div class="file container-fluid">
                                                           <div class="row">
@@ -94,7 +85,7 @@
 
                                             <div class="image optional-field container-fluid">
                                                 <div>
-                                                    <h2>profile image</h2>
+                                                    <!--<h2>cover image</h2>-->
                                                   {{#if isUserCoverImageUrl}}
                                                       <div class="file container-fluid">
                                                           <div class="row">
@@ -146,15 +137,15 @@
 
                                         <div role="tabpanel" class="tab-pane" id="twitterAccount">
                                             <div class="optional-field">
-                                                <div class="facebookAccount optional-field container-fluid">
+                                                <div class="twitterAccount optional-field container-fluid">
                                                   {{> afQuickField name='profile.twitterAccountUrl'}}
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div role="tabpanel" class="tab-pane" id="googleAccount container-fluid">
+                                        <div role="tabpanel" class="tab-pane" id="googleAccount">
                                             <div class="optional-field">
-                                                <div class="facebookAccount optional-field">
+                                                <div class="googleAccount optional-field container-fluid">
                                                   {{> afQuickField name='profile.googleAccountUrl'}}
                                                 </div>
                                             </div>

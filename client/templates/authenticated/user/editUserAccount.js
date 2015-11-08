@@ -111,9 +111,6 @@ Template.editUserAccountModal.events({
     Session.set("userProfileImageUrl", undefined);
     Session.set("locationObject", undefined);
     Modal.hide('editUserAccountModal');
-
-
-
-
   }
+
 });
