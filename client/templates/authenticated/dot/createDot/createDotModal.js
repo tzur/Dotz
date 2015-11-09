@@ -66,7 +66,7 @@ Template.createDot.helpers({
   }
 });
 
-Template.createDotModal.events({
+Template.createDot.events({
   'click #createToOneOfMyDotz': function(e){
     e.preventDefault();
     Modal.show('createToOneOfMyDotzModal', {
