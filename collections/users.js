@@ -27,11 +27,13 @@ let userProfile = new SimpleSchema({
   userSlug: {
     type: String,
     label: "Slug",
+    defaultValue: " ",
     optional: true
   },
   description: {
     type: String,
     label: "Description",
+    defaultValue: " ",
     optional: true
   },
   profileDotId:{
@@ -109,6 +111,7 @@ let userProfile = new SimpleSchema({
   userImagesUrls:{
     type: [String],
     optional: true,
+    defaultValue: [],
     autoform: {
       type: "hidden",
       label: false
