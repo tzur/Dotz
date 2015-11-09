@@ -1,6 +1,6 @@
 <template name="createDotModal">
-    <div class="modal fade">
-        <div class="modal-dialog modal-md">
+    <div class="modal fade  col-md-10 colCenter" id="createDotModal">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content ">
 
                 <!--<div class="modal-header">-->
@@ -124,8 +124,10 @@
                                       <div class="col-xs-12 btns-create-dot-row">
 
                                           <div class="btns-create-dot">
-                                              <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-success">Connect To My Profile</button>
-                                              <button id="createToOneOfMyDotz" class="createBtn insert btn round btn-lead">Connect To My Dotz</button>
+                                              <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-lead">Publish To My Profile</button>
+                                            {{#if currentUser.profile.dotzCreatedByUser}}
+                                              <button id="createToOneOfMyDotz" class="createBtn insert btn round btn-success">Connect To My Dotz</button>
+                                            {{/if}}
                                           </div>
 
                                       </div>

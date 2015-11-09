@@ -9,10 +9,16 @@ Template.createDotModal.onCreated(function(){
       self.subscribe('availableDotzForCreate', profileDot);
     }
   });
+  $('#createDotModal').modal({
+    backdrop: 'static'
+  });
+
 
 });
 
 Template.createDotModal.onRendered(function(){
+
+
 
   //$('#myTabs a').click(function (e) {
   //  e.preventDefault();

@@ -26,12 +26,14 @@ let _updateInDotz = (toBeAddedDotId, targetDotId) => {
 //};
 let _updateUserConnectivity = (dotId, parentDotId) =>{
   let dot = Dotz.findOne(dotId);
-  let userId = dot.ownerUserId;
-  Meteor.call('updateUserConnectivity', Meteor.userId(), dotId, userId, parentDotId ,function(error, result){
-    if (error){
-      console.log("Error " + error );
-    }
-  });
+  if(dot){
+    let userId = dot.ownerUserId;
+    Meteor.call('updateUserConnectivity', Meteor.userId(), dotId, userId, parentDotId ,function(error, result){
+      if (error){
+        console.log("Error " + error );
+      }
+    });
+  }
 };
 let connectDot = (smartRef) => {
   //PLEASE MAKE IT SMARTER...COULD BE  BETTER
