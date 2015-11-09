@@ -85,7 +85,7 @@ let userProfile = new SimpleSchema({
   profileImage:{
     type: String,
     label: "Profile Image",
-    defaultValue: "https://dotz-dev-images.s3.amazonaws.com/otni/lights-night-bokeh-city.jpg", //TBD
+    defaultValue: "https://dotz-tlv-development.s3.amazonaws.com/33nkhiBnh3eWh7sbo/dotz.jpg", //TBD
     //optional: true,
     autoform: {
       type: "hidden",
@@ -95,7 +95,7 @@ let userProfile = new SimpleSchema({
   coverImage:{
     type: String,
     label: "Cover Image",
-    defaultValue: "https://dotz-dev-images.s3.amazonaws.com/otni/lights-night-bokeh-city.jpg", //TBD
+    defaultValue: "https://dotz-tlv-development.s3.amazonaws.com/33nkhiBnh3eWh7sbo/city-dotz.jpg", //TBD
     //optional: true,
     autoform: {
       type: "hidden",

@@ -32,15 +32,19 @@
 
                             <div class="iconsLinksEtc">
                                 <ul>
+
+                                    {{#if userShow.profile.location.googleMapsUrl}}
                                     <li class="locationWrapper inline-block">
-                                        <a href="{{userShow.profile.location.address}}">
+                                        <a href="{{userShow.profile.location.googleMapsUrl}}">
                                         <i class="fa fa-map-marker mdGrey"></i></a>
                                     </li>
 
                                     <li class="inline-block">
                                         <span>·</span>
                                     </li>
+                                    {{/if}}
 
+                                    {{#if userShow.profile.website}}
                                     <li class="websiteWrapper inline-block">
                                         <a href="{{userShow.profile.website}}" target="_blank" class="mdGrey" rel="nofollow">
                                           <i class="fa fa-globe mdGrey"></i>
@@ -50,25 +54,34 @@
                                     <li class="inline-block">
                                         <span>·</span>
                                     </li>
+                                    {{/if}}
 
-                                    <li class="inline-block">
+                                   {{#if userShow.profile.facebookAccountUrl}}
+                                   <li class="inline-block">
                                         <a href="{{userShow.profile.facebookAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
                                             <i class="fa fa-facebook-official mdGrey"></i></a>
                                     </li>
+                                   {{/if}}
 
+                                    {{#if userShow.profile.twitterAccountUrl}}
                                     <li class="inline-block">
                                         <a href="{{userShow.profile.twitterAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
                                             <i class="fa fa-twitter-square mdGrey"></i></a>
                                     </li>
+                                    {{/if}}
 
+                                    {{#if userShow.profile.twitterAccountUrl}}
                                     <li class="inline-block">
                                         <a href="{{userShow.profile.googleAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
                                             <i class="fa fa-google-plus-square mdGrey"></i></a>
                                     </li>
+                                    {{/if}}
+
                                 </ul>
                             </div>
 
                             <p>{{userShow.profile.description}}</p>
+                            <br>
 
                         </div>
                     </div>
