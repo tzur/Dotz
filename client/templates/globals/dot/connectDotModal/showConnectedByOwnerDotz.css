@@ -31,6 +31,11 @@
   width: 100%;
 }
 
+.checkBtn  {
+  margin-top: 0.75em;
+  width: 100%;
+}
+
 .nested-dotz {
   background-color: #ffffff;
 }
