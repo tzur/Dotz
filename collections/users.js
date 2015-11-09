@@ -5,18 +5,19 @@
 //allow+deny >>>> TBD!!!!
 
 Meteor.users.allow({
-  insert: () => false,
-  update: function (userId, doc, fields, modifier) {
-    // can only change your own documents
-    //console.log("this is the user id##########################" + userId);
-    return doc._id === userId;
-  },
-  remove: () => false
+  insert: () => true,
+  //update: function (userId, doc, fields, modifier) {
+  //  // can only change your own documents
+  //  //console.log("this is the user id##########################" + userId);
+  //  return doc._id === userId;
+  //},
+  update: () => true,
+  remove: () => true
 });
 
 Meteor.users.deny({
   insert: () => true,
-  update: () => false,
+  update: () => true,
   remove: () => true
 });
 
