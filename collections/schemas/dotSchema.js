@@ -226,6 +226,31 @@ Schema.dotSchema = new SimpleSchema({
       type: "hidden",
       label: false
     }
+  },
+
+  //Search fields:
+  searchInfo:{
+    type: [Object],
+    defaultValue: [], //TBD
+    blackbox: true,
+    optional: true,
+    autoform:{
+      type:"hidden",
+      label: false
+    }
+  },
+
+  //Flexible object :)
+  moreInfo:{
+    type: Object,
+    defaultValue: {}, //TBD
+    blackbox: true,
+    optional: true,
+    autoform:{
+      type:"hidden",
+      label: false
+    }
   }
+
 
 });

@@ -1,5 +1,6 @@
 
 Schema.dotSmartRef = new SimpleSchema({
+
   dotId:{
     type: String,
     index: 1
@@ -27,6 +28,31 @@ Schema.dotSmartRef = new SimpleSchema({
   },
   isConnectedToOthers:{
     type: Boolean
+  },
+
+  //Search fields:
+  searchInfo:{
+    type: [Object],
+    defaultValue: [], //TBD
+    blackbox: true,
+    optional: true,
+    autoform:{
+      type:"hidden",
+      label: false
+    }
+  },
+
+  //Flexible object :)
+  moreInfo:{
+    type: Object,
+    defaultValue: {}, //TBD
+    blackbox: true,
+    optional: true,
+    autoform:{
+      type:"hidden",
+      label: false
+    }
   }
+
 });
 

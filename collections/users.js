@@ -251,25 +251,30 @@ let userProfile = new SimpleSchema({
     }
   },
 
-  //Flexible Fields:
-  flexibleString: {
-    type: String,
-    defaultValue: "", //TBD
-    optional: true,
-    autoform: {
-      type: "hidden",
-      label: false
-    }
-  },
-  flexibleArray:{
-    type: [String],
+  //Search fields:
+  searchInfo:{
+    type: [Object],
     defaultValue: [], //TBD
+    blackbox: true,
     optional: true,
     autoform:{
       type:"hidden",
       label: false
     }
+  },
+
+  //Flexible object :)
+  moreInfo:{
+      type: Object,
+    defaultValue: {}, //TBD
+    blackbox: true,
+      optional: true,
+      autoform:{
+        type:"hidden",
+        label: false
+      }
   }
+
 });
 
 //TBD: especially the "blackBox" and the roles (and the username >> Regex..?)
