@@ -57,11 +57,13 @@
                                     <div class="tab-content">
 
                                         <div role="tabpanel" class="tab-pane" id="location">
-                                          {{> createDotMap}}
+                                          {{#if mapTabActive}}
+                                            {{> createDotMap}}
+                                          {{/if}}
                                         </div>
 
 
-                                        <div role="tabpanel" class="tab-pane" id="profileImage">
+                                        <div role="tabpanel" class="tab-pane active" id="profileImage">
 
                                             <div class="image optional-field container-fluid">
                                                 <div>

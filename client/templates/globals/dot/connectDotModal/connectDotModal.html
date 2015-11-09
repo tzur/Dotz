@@ -57,14 +57,18 @@
                     {{/if}}
 
 
-                  <div class="container-fluid ConnectedByOwnerDotz-div">
+                  <div class="container-fluid ConnectedByOwnerDotz-div" id="dotzToConnectTo">
                       <div class="row">
-                          <div class="col-md-12">
+                          <div class="col-md-12" id="availableDotz">
+                          {{#if userProfileDotzArray}}
                             {{#each userProfileDotzArray}}
                                 <div class="container-fluid">
                                   {{> showConnectedByOwnerDotz}}
                                 </div>
                             {{/each}}
+                          {{else}}
+                            <h3 class="colCenter">Its seems like there is no other Dotz to connect to :)</h3>
+                          {{/if}}
                           </div>
                       </div>
                   </div>

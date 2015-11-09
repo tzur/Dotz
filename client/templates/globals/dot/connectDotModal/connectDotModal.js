@@ -30,7 +30,7 @@ Template.connectDotModal.helpers({
     }
   },
   isConnectedToUserProfileDot: function(){
-    return Modules.client.Dotz.isConnectedToDot(Meteor.user().profile.profileDotId, Session.get('dotIdWishedToBeConnected'))
+      return Modules.client.Dotz.isConnectedToDot(Meteor.user().profile.profileDotId, Session.get('dotIdWishedToBeConnected'))
   }
 });
 
