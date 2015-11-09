@@ -18,6 +18,7 @@ Meteor.methods({
       Meteor.call('insertDot', doc, function (error, result) {
         if (!error) {
           let dotId = result;
+
           let dot = Dotz.findOne(doc.inDotz[0]);
           let isConnectedToOthers;
           if (doc.ownerUserId === dot.ownerUserId){
@@ -32,6 +33,11 @@ Meteor.methods({
           Meteor.call('updateUserAllUserDotz', Meteor.userId(), dotId, function (error, result) {
               if (error) {
                 console.log("THE ERROR IS:" + error);
+              }
+              else if (!error) {
+                //TBD:
+                Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
+                FlowRouter.go('/dot/' + dotId);
               }
           })
         }

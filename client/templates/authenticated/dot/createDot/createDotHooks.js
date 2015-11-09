@@ -43,7 +43,6 @@ let dotHooks = {
     Session.set("coverImageUrl", undefined);
     Session.set("locationObject", undefined);
     //Modal.hide('createDotModal');
-    Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
   }
 };
 
