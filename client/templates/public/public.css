@@ -1,7 +1,46 @@
-.loginPage {
-  min-height: 100vh;
+#loginPage {
+  background-image: url("https://dotz-tlv-development.s3.amazonaws.com/8tLTFXTFJg5snurhX/dotz _tlv_city.jpg");
+  background-size: cover;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  height: 100vh;
 }
 
-.signupPage {
-  min-height: 100vh;
+.loginBtn {
+  width: 100%;
+  color: #FFFFFF;
+  background-color: #337ab7;
+  border-color: #ffffff;
+}
+.loginBtn:hover {
+  color: #FFFFFF;
+  background-color: #36465d;
+  border-color: #ffffff;
+}
+
+.alreadyText {
+  color: #FFFFFF;
+}
+
+/*signupPage*/
+
+#signupPage {
+  background-image: url("https://dotz-tlv-development.s3.amazonaws.com/8tLTFXTFJg5snurhX/dotz _tlv_city.jpg");
+  background-size: cover;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  height: 100vh;
+}
+
+
+.signupBtn {
+  width: 100%;
+  color: #FFFFFF;
+  background-color: #337ab7;
+  border-color: #ffffff;
+}
+.signupBtn:hover {
+  color: #FFFFFF;
+  background-color: #36465d;
+  border-color: #ffffff;
 }
