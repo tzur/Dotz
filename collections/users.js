@@ -31,9 +31,9 @@ let userProfile = new SimpleSchema({
   },
   description: {
     type: String,
-    label: "Description"
+    label: "Description",
+    optional: true
   },
-
   profileDotId:{
     type: String,
     label: "Profile Dot Id",
