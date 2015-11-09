@@ -1,6 +1,8 @@
 _data = {};
 
+
 Template.dotShow.onCreated(function() {
+
   let self = this;
   self.autorun(function() {
 
@@ -13,6 +15,7 @@ Template.dotShow.onCreated(function() {
 
     if (_data.dotShow) {
 
+      self.subscribe('user', _data.dotShow.ownerUserId );
       _data.dotShowUser = Meteor.users.findOne(_data.dotShow.ownerUserId);
 
       if (_data.dotShow.dotzConnectedByOwner) {
@@ -29,17 +32,14 @@ Template.dotShow.onCreated(function() {
         self.subscribe('smartRefToUsersCursor', _data.dotShow.dotzConnectedByOthers);
         //send smartRef to module:
         //_data.dotzConnectedByOthersObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOthers);
-
-
       }
-
-
     }
-
   });
 });
 
+
 Template.dotShow.onRendered(function(){
+
   window.scrollTo(0,0);
   Tracker.autorun(function(c){
     if(!GoogleMaps.loaded()){
@@ -51,7 +51,9 @@ Template.dotShow.onRendered(function(){
   });
 });
 
+
 Template.dotShow.helpers({
+
   data: function() {
     _data.dotShow = Dotz.findOne(FlowRouter.getParam('dotId'));
     if (_data.dotShow) {
@@ -59,6 +61,68 @@ Template.dotShow.helpers({
       //return _data;
     }
     return _data;
+  },
+
+  isMyDot: function() {
+    if (_data.dotShow) {
+      return (_data.dotShow.ownerUserId === Meteor.userId())
+    }
+  },
+
+  actionDate: function(){
+    if (_data.dotShow) {
+      if (_data.dotShow.createdAtDate) {
+        return (moment(_data.dotShow.createdAtDate).fromNow())
+      }
+    }
+  },
+
+  eventDate: function(){
+    if (_data.dotShow) {
+      if (_data.dotShow.startDateAndHour) {
+        return ( moment(_data.dotShow.startDateAndHour).fromNow());
+      }
+    }
+  },
+
+  connectCounter: function() {
+    //check if this dot is exist (to avoid some errors during delete action)
+    if ( _data.dotShow ) {
+        let counter;
+        let dot = Dotz.findOne( _data.dotShow._id);
+        if (dot) {
+          counter = dot.inDotz.length;
+        }
+
+        //counter show:
+        if (counter && counter === 0) {
+          return ("");
+        }
+        else if (counter) {
+          return ( "(" + counter + ")" );
+        }
+    }
+  },
+
+  dotzNum: function() {
+    if ( _data.dotShow ) {
+        let ownerDotz = 0;
+        if (_data.dotShow.dotzConnectedByOwner) {
+          ownerDotz = _data.dotShow.dotzConnectedByOwner.length;
+        }
+
+        let othersDotz = 0;
+        if (_data.dotShow.dotzConnectedByOthers) {
+          othersDotz = _data.dotShow.dotzConnectedByOthers.length;
+        }
+
+        if ((ownerDotz + othersDotz) === 0) {
+          return false;
+        }
+        else {
+          return ("+ " + (ownerDotz + othersDotz) );
+        }
+    }
   },
 
   dotShowMapOptions: function(){
@@ -70,55 +134,6 @@ Template.dotShow.helpers({
         center: new google.maps.LatLng(loc[0], loc[1]),
         zoom: 13
       };
-    }
-  },
-
-  actionDate: function(){
-    if (_data.dotShow.createdAtDate) {
-      return (moment(_data.dotShow.createdAtDate).fromNow())
-    }
-  },
-
-  eventDate: function(){
-    if (_data.dotShow.startDateAndHour) {
-      return ( moment(_data.dotShow.startDateAndHour).fromNow());
-    }
-  },
-
-  connectCounter: function() {
-    //check if this dot is exist (to avoid some errors during delete action)
-
-    let counter;
-    let dot = Dotz.findOne( _data.dotShow._id);
-    if (dot) {
-      counter = dot.inDotz.length;
-    }
-
-    //counter show:
-    if (counter && counter === 0) {
-      return ("");
-    }
-    else if (counter) {
-      return ( "(" + counter + ")" );
-    }
-  },
-
-  dotzNum: function() {
-    let ownerDotz = 0;
-    if (_data.dotShow.dotzConnectedByOwner) {
-      ownerDotz = _data.dotShow.dotzConnectedByOwner.length;
-    }
-
-    let othersDotz = 0;
-    if (_data.dotShow.dotzConnectedByOthers) {
-      othersDotz = _data.dotShow.dotzConnectedByOthers.length;
-    }
-
-    if ((ownerDotz + othersDotz) === 0) {
-      return false;
-    }
-    else {
-      return ("+ " + (ownerDotz + othersDotz) );
     }
   },
 
@@ -134,12 +149,8 @@ Template.dotShow.helpers({
     }
   }
 
-
-
-
-
-
 });
+
 
 Template.dotShow.events({
 
@@ -150,9 +161,25 @@ Template.dotShow.events({
         dot: _data.dotShow
       }
     });
+  },
+
+  'click .editBtn': function(){
+    Modal.show('editDotModal', {
+      data:{
+        'dot': _data.dotShow,
+        'actionTypeEdit': true
+      }
+    });
+  },
+
+  'click .delete':function(event){
+    if (_data.dotShow) {
+        let dotShowSmartRef = {};
+        dotShowSmartRef.parentDot = _data.dotShow.profile.profileDotId;
+        dotShowSmartRef.dotId = _data.dotShow._id;
+        Modules.both.Dotz.deleteDot(_data.dotShow, dotShowSmartRef);
+    }
   }
-
-
 
 });
 

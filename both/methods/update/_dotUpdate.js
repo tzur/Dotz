@@ -99,16 +99,18 @@ Meteor.methods({
   editDotLocation(locationObject, dotId){
     //change to URL in check
     check(locationObject, Object);
-    let userLocationOptions = {};
-
-    userLocationOptions.LatLng = locationObject.locationLatLng || undefined;
-    userLocationOptions.name = locationObject.general.name || undefined;
-    userLocationOptions.address = locationObject.general.formatted_address || undefined;
-    userLocationOptions.placeId = locationObject.general.place_id || undefined;
-
+    let locationSchemaObject= {}
+    locationSchemaObject = {
+      latLng: locationObject.locationLatLng,
+      name: locationObject.general.name,
+      address: locationObject.general.formatted_address,
+      googleMapsUrl: locationObject.general.url,
+      placeId: locationObject.general.place_id,
+      placePhoneNumber: locationObject.general.formatted_phone_number
+    };
+    check(locationSchemaObject, Schema.location);
     let updateOptions = {
-      $set: { "locationLatLng": userLocationOptions.LatLng, "locationName": userLocationOptions.name,
-        "locationAddress": userLocationOptions.address, "locationPlaceId": userLocationOptions.placeId }
+      $set: {"location": locationSchemaObject}
     };
     _dotUpdate(dotId, updateOptions)
   }

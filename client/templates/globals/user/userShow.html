@@ -35,7 +35,7 @@
 
                                     {{#if userShow.profile.location.googleMapsUrl}}
                                     <li class="locationWrapper inline-block">
-                                        <a href="{{userShow.profile.location.googleMapsUrl}}">
+                                        <a href="{{userShow.profile.location.googleMapsUrl}}" target="_blank" class="mdGrey" rel="nofollow">
                                         <i class="fa fa-map-marker mdGrey"></i></a>
                                     </li>
 
@@ -44,9 +44,9 @@
                                     </li>
                                     {{/if}}
 
-                                    {{#if userShow.profile.website}}
+                                    {{#if userShow.profile.websiteUrl}}
                                     <li class="websiteWrapper inline-block">
-                                        <a href="{{userShow.profile.website}}" target="_blank" class="mdGrey" rel="nofollow">
+                                        <a href="{{userShow.profile.websiteUrl}}" target="_blank" class="mdGrey" rel="nofollow">
                                           <i class="fa fa-globe mdGrey"></i>
                                         </a>
                                     </li>
@@ -70,7 +70,7 @@
                                     </li>
                                     {{/if}}
 
-                                    {{#if userShow.profile.twitterAccountUrl}}
+                                    {{#if userShow.profile.googleAccountUrl}}
                                     <li class="inline-block">
                                         <a href="{{userShow.profile.googleAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
                                             <i class="fa fa-google-plus-square mdGrey"></i></a>

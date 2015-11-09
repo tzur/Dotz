@@ -8,7 +8,7 @@ Meteor.users.allow({
   insert: () => false,
   update: function (userId, doc, fields, modifier) {
     // can only change your own documents
-    console.log("this is the user id##########################" + userId);
+    //console.log("this is the user id##########################" + userId);
     return doc._id === userId;
   },
   remove: () => false

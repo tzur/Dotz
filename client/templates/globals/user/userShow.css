@@ -301,12 +301,12 @@ menu, ol, ul {
     top: 1px
 }
 
-.button--twitter {
-    background-color: #55acee
-}
-.button--twitter:hover, .button--twitter:focus, .button--twitter:active {
-    background-color: #006daa
-}
+/*.button--twitter {*/
+    /*background-color: #55acee*/
+/*}*/
+/*.button--twitter:hover, .button--twitter:focus, .button--twitter:active {*/
+    /*background-color: #006daa*/
+/*}*/
 
 .list-itemInputPrefix--icon .icon--twitter:before {
     font-size: 16px
@@ -318,10 +318,10 @@ menu, ol, ul {
 .button--link .svgIcon, .button--chromeless .svgIcon {
     fill: rgba(0,0,0,0.44)
 }
-.button--link:hover, .button--link:active, .button--link:focus, .button--chromeless:hover, .button--chromeless:active, .button--chromeless:focus {
-    color: rgba(0,0,0,0.6);
-    border-width: 0
-}
+/*.button--link:hover, .button--link:active, .button--link:focus, .button--chromeless:hover, .button--chromeless:active, .button--chromeless:focus {*/
+    /*color: rgba(0,0,0,0.6);*/
+    /*border-width: 0*/
+/*}*/
 
 .button--chromeless .icon--twitter:before {
     top: 1px
@@ -357,9 +357,9 @@ menu, ol, ul {
     height: inherit
 }
 
-.button--primary.button--chromeless:hover, .button--primary.button--chromeless:active, .button--primary.button--chromeless:focus {
-    color: #1c9963
-}
+/*.button--primary.button--chromeless:hover, .button--primary.button--chromeless:active, .button--primary.button--chromeless:focus {*/
+    /*color: #1c9963*/
+/*}*/
 
 .buttonSet>.button--link, .buttonSet>.button--chromeless {
     height: 37px;
