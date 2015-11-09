@@ -15,6 +15,7 @@ Template.dotShow.onCreated(function() {
 
     if (_data.dotShow) {
 
+      self.subscribe('user', _data.dotShow.ownerUserId );
       _data.dotShowUser = Meteor.users.findOne(_data.dotShow.ownerUserId);
 
       if (_data.dotShow.dotzConnectedByOwner) {
@@ -65,18 +66,6 @@ Template.dotShow.helpers({
   isMyDot: function() {
     if (_data.dotShow) {
       return (_data.dotShow.ownerUserId === Meteor.userId())
-    }
-  },
-
-  dotShowMapOptions: function(){
-    if (GoogleMaps.loaded() && _data.dotShow.locationLat) {
-      // Map initialization options
-      loc[0] = _data.dotShow.locationLat;
-      loc[1] = _data.dotShow.locationLng;
-      return {
-        center: new google.maps.LatLng(loc[0], loc[1]),
-        zoom: 13
-      };
     }
   },
 
@@ -133,6 +122,18 @@ Template.dotShow.helpers({
         else {
           return ("+ " + (ownerDotz + othersDotz) );
         }
+    }
+  },
+
+  dotShowMapOptions: function(){
+    if (GoogleMaps.loaded() && _data.dotShow.locationLat) {
+      // Map initialization options
+      loc[0] = _data.dotShow.locationLat;
+      loc[1] = _data.dotShow.locationLng;
+      return {
+        center: new google.maps.LatLng(loc[0], loc[1]),
+        zoom: 13
+      };
     }
   },
 
