@@ -130,7 +130,7 @@ Template.dotCardSearch.events({
   'click .delete':function(event){
     let searchSmartRef = {};
     searchSmartRef.parentDot = Meteor.users.findOne(this.ownerUser.id).profile.profileDotId;
-    console.log("searchSmartRef.parentDot is " + searchSmartRef.parentDot);
+    //console.log("searchSmartRef.parentDot is " + searchSmartRef.parentDot);
     searchSmartRef.dotId = this.dot._id;
     if (searchSmartRef.parentDot) {
       Modules.both.Dotz.deleteDot(this.dot, searchSmartRef);

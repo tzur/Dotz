@@ -14,11 +14,11 @@
                 <div class="row dot-title">
                     <div class="toDot col-xs-12">
                         <h2 class="dot-show-title">{{dotShow.title}}
-                          {{#if myDot}}
+                          {{#if isMyDot}}
                               <small>
-                                  <a class="editPost editbtn-muted">
-                                      <small class="glyphicon glyphicon-pencil" aria-hidden="true"></small>
-                                  </a>
+                                  <a class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>
+                                  <a class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
+
                               </small>
                           {{/if}}
                         </h2>
@@ -30,8 +30,10 @@
 
                       {{#if dotShow.location.address}}
                         <div class="txtL dot-show-type">
+                            <a href="{{dotShow.location.googleMapsUrl}}" target="_blank">
                             <img class="type-icon-dot-show" src="/place-icon-grey.png">
                             <span class="dot-type greyText mdTxt alignSub">{{dotShow.location.address}}</span>
+                            </a>
                         </div>
                       {{/if}}
 
@@ -47,14 +49,6 @@
                             <img class="type-icon-dot-show" src="/price-icon-grey.png">
                             <span class="dot-type greyText mdTxt alignSub">{{dotShow.price}} $ </span>
                         </div>
-                      {{/if}}
-
-                      {{#if dotShow.linkUrl}}
-                          <div class="txtL dot-show-type">
-                              <img class="type-icon-dot-show" src="/price-icon-grey.png">
-                              <i class="fa fa-globe"></i>
-                              <span class="dot-type greyText mdTxt alignSub">Go to link </span>
-                          </div>
                       {{/if}}
 
                     </div>
