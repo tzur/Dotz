@@ -18,7 +18,7 @@ Template.createDotMap.onRendered(function(){
       let centerLatLng = [];
       let zoomLevel;
 
-      if(Template.parentData() && Template.parentData().data.dot) {
+      if(Template.parentData() && Template.parentData().data && Template.parentData().data.dot && Template.parentData().data.dot.location ) {
         centerLatLng = Template.parentData().data.dot.location.latLng
         zoomLevel = 16
       }
@@ -43,7 +43,7 @@ Template.createDotMap.onRendered(function(){
       // Create the search box and link it to the UI element.
       var input = document.getElementById('pac-input');
 
-      if(map && Template.parentData() && Template.parentData().data.dot.location.latLng){
+      if(map && Template.parentData() && Template.parentData().data && Template.parentData().data.dot.location){
         var marker = new google.maps.Marker({
           map: map,
           position: {lat: centerLatLng[0] , lng: centerLatLng[1]}
@@ -127,7 +127,7 @@ Template.createDotMap.onRendered(function(){
 
 Template.createDotMap.helpers({
   SearchBoxPlaceHolder: function(){
-    if(Template.parentData() && Template.parentData().data.dot.location.latLng){
+    if(Template.parentData() && Template.parentData().data && Template.parentData().data.dot.location){
       return (Template.parentData().data.dot.location.address)
     }
     else{

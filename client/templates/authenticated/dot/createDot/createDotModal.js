@@ -9,11 +9,6 @@ Template.createDot.onCreated(function(){
       self.subscribe('availableDotzForCreate', profileDot);
     }
   });
-  $('#createDotModal').modal({
-    backdrop: 'static'
-  });
-
-
 });
 
 Template.createDot.onRendered(function(){
@@ -59,14 +54,10 @@ Template.createDot.helpers({
 
   mapTabActive: function() {
     return (Session.get("mapTabActive"))
-  },
-
-  isUserHaveDotz: function(){
-    return Meteor.user().profile.dotzCreatedByUser
   }
 });
 
-Template.createDotModal.events({
+Template.createDot.events({
   'click #createToOneOfMyDotz': function(e){
     e.preventDefault();
     Modal.show('createToOneOfMyDotzModal', {
