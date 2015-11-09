@@ -1,4 +1,4 @@
-Template.createDotModal.onCreated(function(){
+Template.createDot.onCreated(function(){
   var self = this;
   self.autorun(function(){
     if(Meteor.userId()){
@@ -16,7 +16,7 @@ Template.createDotModal.onCreated(function(){
 
 });
 
-Template.createDotModal.onRendered(function(){
+Template.createDot.onRendered(function(){
 
 
 
@@ -35,13 +35,13 @@ Template.createDotModal.onRendered(function(){
 
 });
 
-Template.createDotModal.onDestroyed(function(){
+Template.createDot.onDestroyed(function(){
   Session.set('mapTabActive', undefined);
   Session.set('coverImageUrl', undefined);
 });
 
 
-Template.createDotModal.helpers({
+Template.createDot.helpers({
 
   isImageUrl: function(){
     if(Session.get("coverImageUrl")){
@@ -59,6 +59,10 @@ Template.createDotModal.helpers({
 
   mapTabActive: function() {
     return (Session.get("mapTabActive"))
+  },
+
+  isUserHaveDotz: function(){
+    return Meteor.user().profile.dotzCreatedByUser
   }
 });
 
@@ -80,12 +84,15 @@ Template.createDotModal.events({
   'change #addDotImage input[type="file"]': function(){
     Tracker.autorun(function(c) {
       document.getElementById("createToMyProfile").disabled = true;
-      document.getElementById("createToOneOfMyDotz").disabled = true;
-
+      if(document.getElementById("createToOneOfMyDotz")){
+        document.getElementById("createToOneOfMyDotz").disabled = true;
+      }
       if (Session.get('coverImageUrl')) {
         c.stop();
         document.getElementById("createToMyProfile").disabled = false;
-        document.getElementById("createToOneOfMyDotz").disabled = false;
+        if(document.getElementById("createToOneOfMyDotz")){
+          document.getElementById("createToOneOfMyDotz").disabled = false;
+        }
       }
     });
   },

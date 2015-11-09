@@ -42,7 +42,7 @@ let dotHooks = {
     //Router.go("/post/"+ result);
     Session.set("coverImageUrl", undefined);
     Session.set("locationObject", undefined);
-    Modal.hide('createDotModal');
+    //Modal.hide('createDotModal');
     Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
   }
 };
