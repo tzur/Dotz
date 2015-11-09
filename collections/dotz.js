@@ -8,16 +8,23 @@ Dotz = new Meteor.Collection( 'dotz'),
     engine: new EasySearch.MongoDB()
   });
 
+
+//TBD!!!@#!@#!@#!@#
 Dotz.allow({
-  insert: () => true,
-  update: () => true,
-  remove: () => true
+  insert: () => false,
+  update: (userId, doc, fieldNames, modifier) => {
+    return doc.ownerUserId === userId
+  },
+  remove: () => false
+
 });
 
 Dotz.deny({
-  insert: () => false,
-  update: () => false,
-  remove: () => false
+  insert: () => true,
+  update: (userId, doc, fieldNames, modifier) => {
+    return (doc.ownerUserId != userId);
+  },
+  remove: () => true
 });
 
 Dotz.attachSchema( Schema.dotSchema );
