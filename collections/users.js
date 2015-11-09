@@ -27,7 +27,7 @@ let userProfile = new SimpleSchema({
   userSlug: {
     type: String,
     label: "Slug",
-    //defaultValue: "",
+    //defaultValue: "", //TBD
     optional: true
   },
   description: {
@@ -36,6 +36,7 @@ let userProfile = new SimpleSchema({
     defaultValue: " ",
     optional: true
   },
+
   profileDotId:{
     type: String,
     label: "Profile Dot Id",
