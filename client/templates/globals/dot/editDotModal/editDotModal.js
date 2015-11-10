@@ -47,6 +47,9 @@ Template.editDotModal.events({
     }
     Session.set("coverImageUrl", undefined);
     Session.set("locationObject", undefined);
+    if(Session.get("isUserameEdited")) {
+      FlowRouter.go('/user/' + dotId)
+    }
 
     Modal.hide('editDotModal');
   },
