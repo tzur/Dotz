@@ -21,7 +21,6 @@ Meteor.methods({
   updateUserSlug(userId, slug){
     check(userId, String);
     check(slug, String);
-    console.log("######### slugMethod " + slug);
     let updateOptions = {
       $set: {"profile.userSlug": slug}
     };

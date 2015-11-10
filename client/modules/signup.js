@@ -47,8 +47,6 @@ let _handleSignup = ( template ) => {
     password: template.find( '[name="password"]' ).value
   };
 
-  console.log("$$$$$$$$$$$$$$$$$$ username " + user.username);
-
   Accounts.createUser( user, ( error ) => {
     if ( error ) {
       Bert.alert( error.reason, 'danger' );
