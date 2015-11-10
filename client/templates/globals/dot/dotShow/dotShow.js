@@ -45,11 +45,7 @@ Template.dotShow.onCreated(function() {
 Template.dotShow.onRendered(function(){
 
   window.scrollTo(0,0);
-  Tracker.autorun(function(c){
-    if (GoogleMaps.loaded() && document.getElementById('dotShowMap')) {
-      Modules.client.Dotz.dotShowMap()
-    }
-  });
+
 });
 
 

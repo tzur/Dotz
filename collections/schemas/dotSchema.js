@@ -205,7 +205,10 @@ Schema.dotSchema = new SimpleSchema({
   tags: {
     type: [String],
     defaultValue: [], //TBD
-    optional: true
+    optional: true,
+    autoform: {
+      type: 'tags'
+    }
   },
 
   //info Fields:
