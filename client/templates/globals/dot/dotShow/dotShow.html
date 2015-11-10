@@ -121,11 +121,7 @@
       {{#if dotShow.location.address}}
         <a href={{dotShow.location.googleMapsUrl}} target="_blank">
 
-          <div class="map-container-create-dot">
-              <div id="dotShowMap" class="map-container-create-dot"></div>
-          </div>
-
-          <div class="map-container-overlayer"></div>
+          {{> dotShowMap}}
         </a>
       {{/if}}
 

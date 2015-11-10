@@ -27,10 +27,17 @@ authenticatedRoutes.route( '/main/feed', {
   }
 });
 
-authenticatedRoutes.route( '/main/createDot', {
-  name: 'createDot',
+authenticatedRoutes.route( '/main/newDot', {
+  name: 'newDot',
   action() {
     BlazeLayout.render( 'default', { yield: 'createDot' } );
+  }
+});
+
+authenticatedRoutes.route( '/main/newCollection', {
+  name: 'newCollection',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'createCollection' } );
   }
 });
 
