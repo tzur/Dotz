@@ -2,14 +2,7 @@
  * Created by avivhatzir on 06/11/2015.
  */
 Template.editUserAccountModal.onRendered(function(){
-  $(document).ready(function() {
-    $(window).keydown(function(event){
-      if(event.keyCode == 13) {
-        event.preventDefault();
-        return false;
-      }
-    });
-  });
+
 });
 Template.editUserAccountModal.onDestroyed(function(){
   Session.set("mapTabActive", undefined);

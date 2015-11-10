@@ -5,19 +5,20 @@
 //allow+deny >>>> TBD!!!!
 
 Meteor.users.allow({
-  insert: () => false,
-  update: function (userId, doc, fields, modifier) {
-    // can only change your own documents
-    //console.log("this is the user id##########################" + userId);
-    return doc._id === userId;
-  },
-  remove: () => false
+  insert: () => true,
+  //update: function (userId, doc, fields, modifier) {
+  //  // can only change your own documents
+  //  //console.log("this is the user id##########################" + userId);
+  //  return doc._id === userId;
+  //},
+  update: () => true,
+  remove: () => true
 });
 
 Meteor.users.deny({
-  insert: () => true,
+  insert: () => false,
   update: () => false,
-  remove: () => true
+  remove: () => false
 });
 
 
@@ -27,7 +28,7 @@ let userProfile = new SimpleSchema({
   userSlug: {
     type: String,
     label: "Slug",
-    //defaultValue: "", //TBD
+    defaultValue: " ",
     optional: true
   },
   description: {
@@ -36,7 +37,6 @@ let userProfile = new SimpleSchema({
     defaultValue: " ",
     optional: true
   },
-
   profileDotId:{
     type: String,
     label: "Profile Dot Id",
@@ -112,6 +112,7 @@ let userProfile = new SimpleSchema({
   userImagesUrls:{
     type: [String],
     optional: true,
+    defaultValue: [],
     autoform: {
       type: "hidden",
       label: false
