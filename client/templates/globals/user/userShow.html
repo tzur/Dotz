@@ -133,11 +133,25 @@
 
 
 
-                      <!--{{>collectionShow}}-->
+                        <div class="wrapper">
+                            <div class="container">
+                                <div class="masonry-container">
 
-                      <!--<br>-->
-                      <!--<hr>-->
-                      <!--<br>-->
+                                  {{#each dotzConnectedByOwner}}
+                                    {{>collectionShow}}
+                                  {{/each}}
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- end wrapper -->
+
+
+
+                      <br>
+                      <hr>
+                      <br>
 
                       {{#each dotzConnectedByOwner}}
                         {{>dotCard}}
