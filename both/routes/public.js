@@ -34,7 +34,7 @@ publicRoutes.route( '/reset-password/:token', {
 });
 
 //TBD: we need to move the user page to the global-route area (coming soon):
-publicRoutes.route( '/:username', {
+publicRoutes.route( '/:userSlug', {
   name: 'user-show',
   action() {
     BlazeLayout.render( 'default', { yield: 'userShow' } );

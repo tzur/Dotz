@@ -73,12 +73,19 @@ let _createNewDotForDotProfile = ( userId ) => {
     Meteor.call('insertDot', profileDotDoc, function(error, result){
       if (result){
         Meteor.call('updateUserProfileDotId', Meteor.userId(), result, function(error, result){
-          if (!error){
-            FlowRouter.go('/' + Meteor.user().username);
-          }
-          else{
-            console.log("Error" + error);
-          }
+            let username = Meteor.user().username;
+            let slug = username.replace(/ /g, "");
+
+            if (!error && slug) {
+              Meteor.call('updateUserSlug', Meteor.userId(), slug, function(error, result) {
+                  if (!error) {
+                    FlowRouter.go('/' + Meteor.user().profile.userSlug);
+                  }
+              });
+            }
+            else{
+              console.log(" updateUserProfileDotId Error >> " + error);
+            }
         });
       }
     });

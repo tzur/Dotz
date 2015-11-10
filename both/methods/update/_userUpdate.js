@@ -10,11 +10,20 @@ let _userUpdate = (userId, updateOptions) => {
 
 Meteor.methods({
   updateUserProfileDotId(userId, dotId){
-    console.log(userId, dotId);
     check(userId, String);
     check(dotId, String);
     let updateOptions = {
       $set: {"profile.profileDotId": dotId}
+    };
+    _userUpdate(userId ,updateOptions);
+  },
+
+  updateUserSlug(userId, slug){
+    check(userId, String);
+    check(slug, String);
+    console.log("######### slugMethod " + slug);
+    let updateOptions = {
+      $set: {"profile.userSlug": slug}
     };
     _userUpdate(userId ,updateOptions);
   },

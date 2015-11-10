@@ -44,6 +44,7 @@ let _smartRefToDataObject = function(smartRefArray){
         data.ownerUser = {
           id: ownerUser._id,
           username: ownerUser.username,
+          userSlug: ownerUser.profile.userSlug,
           profileImage: ownerUser.profile.profileImage
         };
       }
@@ -52,6 +53,7 @@ let _smartRefToDataObject = function(smartRefArray){
         data.connectedByUser = {
           id: connectedUser._id,
           username: connectedUser.username,
+          userSlug: ownerUser.profile.userSlug,
           profileImage: connectedUser.profile.profileImage
         };
       }

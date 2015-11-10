@@ -4,7 +4,7 @@
     <!--<li class="{{currentRoute 'dashboard'}}"><a href="{{pathFor 'dashboard'}}">Dashboard</a></li>-->
 
   <!--TBD: we need to improve this route:    -->
-      <li class="{{currentRoute 'user-show'}}"><a href="/{{currentUser.username}}">My Profile</a></li>
+      <li class="{{currentRoute 'user-show'}}"><a href="/{{currentUser.profile.userSlug}}">My Profile</a></li>
 
       <li class="{{currentRoute 'newDot'}}"><a href="{{pathFor 'newDot'}}">New Dot</a></li>
       <li class="{{currentRoute 'newCollection'}}"><a href="{{pathFor 'newCollection'}}">New Collection</a></li>

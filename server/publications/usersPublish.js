@@ -5,10 +5,10 @@ Meteor.publish( 'user', function( userId ) {
   }
 });
 
-Meteor.publish( 'userByUsername', function( username ) {
-  if (username) {
-    check(username, String);
-    return Meteor.users.find({username: username});
+Meteor.publish( 'userByUserSlug', function( userSlug ) {
+  if (userSlug) {
+    check(userSlug, String);
+    return Meteor.users.find( {"profile.userSlug": userSlug} );
   }
 });
 

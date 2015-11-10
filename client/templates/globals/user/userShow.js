@@ -5,14 +5,13 @@ Template.userShow.onCreated(function() {
   let self = this;
   self.autorun(function() {
 
-      let username = FlowRouter.getParam('username');
-      if (username) {
-        self.subscribe('userByUsername', username);
-        _data.userShow = Meteor.users.findOne({username: username});
+      let userSlug = FlowRouter.getParam('userSlug');
+      if (userSlug) {
+        self.subscribe('userByUserSlug', userSlug);
+        _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug} );
       }
 
       if (_data.userShow) {
-
           if (_data.userShow.profile) {
               let dotId =_data.userShow.profile.profileDotId;
               if (dotId) {
@@ -35,7 +34,7 @@ Template.userShow.onCreated(function() {
 
 Template.userShow.helpers({
   data: function() {
-    _data.userShow = Meteor.users.findOne({username: FlowRouter.getParam('username')});
+    _data.userShow = Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
     return _data;
   },
 
