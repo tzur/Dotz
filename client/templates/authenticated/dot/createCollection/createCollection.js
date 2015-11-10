@@ -1,4 +1,4 @@
-Template.createDot.onCreated(function(){
+Template.createCollection.onCreated(function(){
   var self = this;
   self.autorun(function(){
     if(Meteor.userId()){
@@ -12,7 +12,7 @@ Template.createDot.onCreated(function(){
 });
 
 
-Template.createDot.onRendered(function(){
+Template.createCollection.onRendered(function(){
 
   //$('#myTabs a').click(function (e) {
   //  e.preventDefault();
@@ -30,13 +30,13 @@ Template.createDot.onRendered(function(){
 });
 
 
-Template.createDot.onDestroyed(function(){
+Template.createCollection.onDestroyed(function(){
   Session.set('mapTabActive', undefined);
   Session.set('coverImageUrl', undefined);
 });
 
 
-Template.createDot.helpers({
+Template.createCollection.helpers({
 
   isImageUrl: function(){
     if(Session.get("coverImageUrl")){
@@ -58,7 +58,7 @@ Template.createDot.helpers({
 });
 
 
-Template.createDot.events({
+Template.createCollection.events({
   'click #createToOneOfMyDotz': function(e){
     e.preventDefault();
     Modal.show('createToOneOfMyDotzModal', {
