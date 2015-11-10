@@ -16,9 +16,9 @@ Meteor.users.allow({
 });
 
 Meteor.users.deny({
-  insert: () => true,
-  update: () => true,
-  remove: () => true
+  insert: () => false,
+  update: () => false,
+  remove: () => false
 });
 
 

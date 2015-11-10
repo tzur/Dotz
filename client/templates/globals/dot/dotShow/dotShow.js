@@ -6,6 +6,10 @@ Template.dotShow.onCreated(function() {
   let self = this;
   self.autorun(function() {
 
+    if(!GoogleMaps.loaded()){
+      GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
+    }
+
     let dotId = FlowRouter.getParam('dotId');
     if (dotId) {
       self.subscribe('dotShow', dotId);
@@ -42,9 +46,6 @@ Template.dotShow.onRendered(function(){
 
   window.scrollTo(0,0);
   Tracker.autorun(function(c){
-    if(!GoogleMaps.loaded()){
-      GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
-    }
     if (GoogleMaps.loaded() && document.getElementById('dotShowMap')) {
       Modules.client.Dotz.dotShowMap()
     }
