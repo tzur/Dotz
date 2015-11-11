@@ -121,5 +121,4 @@ Meteor.publish('smartRefToDotzCursor', function(smartRefArray) {
     dotIds.push(smartRef.dotId);
   });
   return Dotz.find({_id: {$in: dotIds}});
-
 });
