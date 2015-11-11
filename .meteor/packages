@@ -50,4 +50,5 @@ underscorestring:underscore.string
 easy:search
 yogiben:autoform-tags
 sergeyt:typeahead
-autopublish
+sanjo:jasmine
+velocity:html-reporter

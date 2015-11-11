@@ -7,19 +7,25 @@ Template.userShow.onCreated(function() {
 
       let userSlug = FlowRouter.getParam('userSlug');
       if (userSlug) {
-        self.subscribe('userByUserSlug', userSlug);
-        _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug} );
-      }
-
-      if (_data.userShow) {
-          if (_data.userShow.profile) {
-              let dotId =_data.userShow.profile.profileDotId;
-              if (dotId) {
-                self.subscribe('dotShow', dotId);
-                _data.userShowDot = Dotz.findOne(dotId);
-                Session.set('dot', _data.userShowDot);
-            }
+        self.subscribe('userByUserSlug', userSlug, function(){
+          _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug});
+          if (!_data.userShow){
+            FlowRouter.go('/');
+            Bert.alert('Page does not exist', 'danger');
           }
+          else{
+            console.log("HAS USER");
+            Session.set('userSubscribeFinished', true);
+          }
+        });
+      }
+      if (Session.get('userSubscribeFinished')) {
+            let dotId =_data.userShow.profile.profileDotId;
+            if (dotId) {
+              self.subscribe('dotShow', dotId);
+              _data.userShowDot = Dotz.findOne(dotId);
+              Session.set('dot', _data.userShowDot);
+            }
 
           if (_data.userShowDot) {
             //subscribe all the relevant data for dotzConnectedByOwner:

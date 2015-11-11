@@ -10,6 +10,7 @@ Meteor.publish( 'userByUserSlug', function( userSlug ) {
     check(userSlug, String);
     return Meteor.users.find( {"profile.userSlug": userSlug} );
   }
+  //return this.ready();
 });
 
 Meteor.publish('allUsers', function(){
