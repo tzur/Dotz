@@ -6,14 +6,19 @@
  */
 let locationObject;
 let editDotHooks = {
+  //before: {
+  //  update: function(doc){
+  //    console.log("im here");
+  //  }
+  //},
   onSuccess: function (update, result) {
 
     FlowRouter.go('/' + Meteor.user().username)
 
   }
 };
-
-AutoForm.addHooks('editUserAccountForm', editDotHooks);
+//
+//AutoForm.addHooks('editDotForm', editDotHooks);
 
 
 
