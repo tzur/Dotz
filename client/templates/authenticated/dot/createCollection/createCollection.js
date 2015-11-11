@@ -68,6 +68,10 @@ Template.createCollection.events({
     })
   },
 
+  'click #createToOneOfMyDotz, click #createToMyProfile': function(){
+    Session.set('dotType', "Collection");
+  },
+
   //'click #createToMyProfile': function(){
   //  Modal.hide('createToOneOfMyDotzModal');
   //},

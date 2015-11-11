@@ -13,6 +13,8 @@ Template.createDot.onCreated(function(){
 
 
 Template.createDot.onRendered(function(){
+  tagsArray = Tools.findOne({docName: "dotzTags"});
+  Meteor.typeahead(".typeahead", tagsArray.tags);
 
   //$('#myTabs a').click(function (e) {
   //  e.preventDefault();
@@ -54,6 +56,11 @@ Template.createDot.helpers({
 
   mapTabActive: function() {
     return (Session.get("mapTabActive"))
+  },
+
+  dotzTags: function(){
+    tagsArray = Tools.findOne({docName: "dotzTags"});
+    return tagsArray.tags;
   }
 });
 
