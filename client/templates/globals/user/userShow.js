@@ -7,8 +7,17 @@ Template.userShow.onCreated(function() {
 
       let userSlug = FlowRouter.getParam('userSlug');
       if (userSlug) {
-        self.subscribe('userByUserSlug', userSlug);
-        _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug} );
+        self.subscribe('userByUserSlug', userSlug, function(){
+          _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug});
+          if (!_data.userShow){
+            FlowRouter.go('/');
+            Bert.alert('Page does not exist', 'danger');
+          }
+          else{
+            console.log("HAS USER");
+          }
+        });
+
       }
 
       if (_data.userShow) {
