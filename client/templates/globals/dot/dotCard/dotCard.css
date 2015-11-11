@@ -355,10 +355,10 @@ a:hover {
 }
 
 .connectIcon {
-  margin-bottom: 0.25em;
+  /*margin-bottom: 0.25em;*/
   height: 0.35em;
   width: 1em;
-  margin-right: 0.5em;
+  /*margin-right: 0.5em;*/
 }
 
 #connectBtn {
@@ -367,7 +367,7 @@ a:hover {
 }
 
 .connect {
-  margin-right: 0.5em;
+  /*margin-right: 0.5em;*/
 }
 
 .btn-delete {
@@ -815,5 +815,5 @@ hr {
 
 .ownerName .smTxt {
   position: relative;
-  top: -0.7em;
+  /*top: -0.7em;*/
 }

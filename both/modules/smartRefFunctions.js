@@ -53,7 +53,7 @@ let _smartRefToDataObject = function(smartRefArray){
         data.connectedByUser = {
           id: connectedUser._id,
           username: connectedUser.username,
-          userSlug: ownerUser.profile.userSlug,
+          userSlug: connectedUser.profile.userSlug,
           profileImage: connectedUser.profile.profileImage
         };
       }
