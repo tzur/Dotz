@@ -30,6 +30,7 @@ let dotHooks = {
 
       doc.ownerUserId = Meteor.userId();
       doc.createdAtDate = new Date();
+      doc.dotType = Session.get("dotType") || undefined;
 
 
 
@@ -42,6 +43,8 @@ let dotHooks = {
     //Router.go("/post/"+ result);
     Session.set("coverImageUrl", undefined);
     Session.set("locationObject", undefined);
+    Session.set("dotType", undefined);
+
     //Modal.hide('createDotModal');
   }
 };

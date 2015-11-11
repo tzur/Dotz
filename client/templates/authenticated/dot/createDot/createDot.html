@@ -21,7 +21,9 @@
               </div>
 
               <div>
-                {{> afQuickField name='tags' label="Just tag it if you'd like.."}}
+
+                {{> afQuickField name='tags' label="Just tag it if you'd like.." class="form-control typeahead"
+                data-sets="dotzTags" autocomplete="on"}}
               </div>
 
 

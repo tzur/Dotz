@@ -17,6 +17,7 @@ Meteor.methods({
     if(_docValidation(doc)) {
       Meteor.call('insertDot', doc, function (error, result) {
         if (!error) {
+          Meteor.call("updateTagsDoc", doc.tags, "dotzTags");
           let dotId = result;
 
           let dot = Dotz.findOne(doc.inDotz[0]);
