@@ -15,20 +15,17 @@ Template.userShow.onCreated(function() {
           }
           else{
             console.log("HAS USER");
+            Session.set('userSubscribeFinished', true);
           }
         });
-
       }
-
-      if (_data.userShow) {
-          if (_data.userShow.profile) {
-              let dotId =_data.userShow.profile.profileDotId;
-              if (dotId) {
-                self.subscribe('dotShow', dotId);
-                _data.userShowDot = Dotz.findOne(dotId);
-                Session.set('dot', _data.userShowDot);
+      if (Session.get('userSubscribeFinished')) {
+            let dotId =_data.userShow.profile.profileDotId;
+            if (dotId) {
+              self.subscribe('dotShow', dotId);
+              _data.userShowDot = Dotz.findOne(dotId);
+              Session.set('dot', _data.userShowDot);
             }
-          }
 
           if (_data.userShowDot) {
             //subscribe all the relevant data for dotzConnectedByOwner:

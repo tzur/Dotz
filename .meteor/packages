@@ -49,3 +49,5 @@ momentjs:moment
 underscorestring:underscore.string
 easy:search
 yogiben:autoform-tags
+sanjo:jasmine
+velocity:html-reporter
