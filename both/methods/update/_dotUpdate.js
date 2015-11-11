@@ -12,7 +12,12 @@ let _dotUpdate = (dotId, updateOptions) => {
 
 
 Meteor.methods({
-
+  updateDot(doc){
+    check(doc, Object);
+    Dotz.update({id: doc._id}, {
+      doc
+    })
+  },
   likeDotInOwner(targetDotId, smartRefId, userId ){
     check(targetDotId, String);
     check(smartRefId, String);

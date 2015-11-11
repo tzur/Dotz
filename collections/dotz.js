@@ -12,18 +12,14 @@ Dotz = new Meteor.Collection( 'dotz'),
 //TBD!!!@#!@#!@#!@#
 Dotz.allow({
   insert: () => false,
-  update: (userId, doc, fieldNames, modifier) => {
-    return doc.ownerUserId === userId
-  },
+  update: () => true,
   remove: () => false
 
 });
 
 Dotz.deny({
   insert: () => true,
-  update: (userId, doc, fieldNames, modifier) => {
-    return (doc.ownerUserId != userId);
-  },
+  update: () => false,
   remove: () => true
 });
 

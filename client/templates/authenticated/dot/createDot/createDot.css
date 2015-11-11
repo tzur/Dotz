@@ -88,6 +88,10 @@ button .collapsed {
   margin: 0.5em 0 1.5em 0;
 }
 
+.formDotTypeIcons {
+  padding: 0.5em;
+}
+
 /*repeated date button*/
 
 /*.onoffswitch {*/

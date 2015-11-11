@@ -6,14 +6,23 @@
  */
 let locationObject;
 let editDotHooks = {
-  onSuccess: function (update, result) {
+  before: {
+    method: function(doc){
+      doc.createdAtDate = new Date()
+      return doc
+    }
 
-    FlowRouter.go('/' + Meteor.user().username)
+  },
 
+  onSuccess: function(update, result){
+    //Router.go("/post/"+ result);
+    Session.set("coverImageUrl", undefined);
+    Session.set("locationObject", undefined);
+    //Modal.hide('createDotModal');
   }
 };
 
-AutoForm.addHooks('editUserAccountForm', editDotHooks);
+AutoForm.addHooks('editDotForm', editDotHooks);
 
 
 

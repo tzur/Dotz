@@ -30,7 +30,7 @@ let dotHooks = {
 
       doc.ownerUserId = Meteor.userId();
       doc.createdAtDate = new Date();
-      doc.dotType = Session.get("dotType") || undefined;
+      doc.dotType = Session.get("dotType");
 
 
 

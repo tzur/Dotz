@@ -8,6 +8,8 @@ Template.editDotModal.onRendered(function(){
 Template.editDotModal.onDestroyed(function(){
   Session.set("editModalMapTabActive", undefined);
   Session.set('coverImageUrl', undefined);
+  Session.set("coverImageUrl", undefined);
+  Session.set("locationObject", undefined);
 });
 
 Template.editDotModal.helpers({
@@ -45,11 +47,8 @@ Template.editDotModal.events({
     if(Session.get('locationObject')) {
       Meteor.call('editDotLocation', Session.get('locationObject'), this.data.dot._id);
     }
-    Session.set("coverImageUrl", undefined);
-    Session.set("locationObject", undefined);
-    if(Session.get("isUserameEdited")) {
-      FlowRouter.go('/user/' + dotId)
-    }
+
+
 
     Modal.hide('editDotModal');
   },

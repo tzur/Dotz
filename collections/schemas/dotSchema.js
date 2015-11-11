@@ -4,6 +4,16 @@ Schema.dotSchema = new SimpleSchema({
     type: String,
     optional: true,
     allowedValues: ['Event', 'Place', 'Collection', 'Text', 'Link', 'Product', '_profileDot'],
+    autoform: {
+      options: [
+        {label: "Event", value: "Event"},
+        {label: "Place", value: "Place"},
+        {label: "Concept Dot", value: "Concept Dot"},
+        {label: "Text", value: "Text"},
+        {label: "Link", value: "Link"},
+        {label: "Product", value: "Product"}
+      ]
+    },
     label: "The Dot type:"
   },
   ownerUserId: {
@@ -195,10 +205,7 @@ Schema.dotSchema = new SimpleSchema({
   tags: {
     type: [String],
     defaultValue: [], //TBD
-    optional: true,
-    autoform: {
-      type: 'tags'
-    }
+    optional: true
   },
 
   //info Fields:

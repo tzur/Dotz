@@ -13,7 +13,7 @@
 
                             <div class="row"><h1 class="txtMd">Edit Your Dot</h1></div>
 
-                          {{#autoForm id="editDotForm" type="update" collection="Dotz" doc=selectedDotDoc}}
+                          {{#autoForm id="editDotForm" type="method"  collection="Dotz" doc=selectedDotDoc meteormethod="updateDot"}}
 
                               <!--<div>-->
                               <!--{{> afQuickField name='dotType' label="Dot Type"}}-->
