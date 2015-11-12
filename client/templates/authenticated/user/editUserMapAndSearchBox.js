@@ -2,6 +2,10 @@
 // feature. People can enter geographical searches. The search box will return a
 // pick list containing a mix of places and predicted search terms.
 
+// This example adds a search box to a map, using the Google Place Autocomplete
+// feature. People can enter geographical searches. The search box will return a
+// pick list containing a mix of places and predicted search terms.
+
 Template.editUserMapAndSearchBox.onCreated(function(){
   this.autorun(function (c) {
     if (!GoogleMaps.loaded()) {
@@ -16,18 +20,22 @@ Template.editUserMapAndSearchBox.onRendered(function(){
     let locationLatLng= [];
     if (GoogleMaps.loaded()) {
       let centerLatLng = [];
+      let zoomLevel;
 
-      if(Meteor.user().profile.userAddressLatLng) {
-        centerLatLng = Meteor.user().profile.userAddressLatLng;
+      if(Meteor.user().profile.location) {
+        centerLatLng = Meteor.user().profile.location.latLng;
+        zoomLevel = 16
       }
 
       else{
         centerLatLng = [32.075362, 34.774936]
+        zoomLevel = 13
+
       }
 
-      var map = new google.maps.Map(document.getElementById('editUserMap'), {
+      var editUserMap = new google.maps.Map(document.getElementById('editUserMap'), {
         center: {lat: centerLatLng[0] , lng: centerLatLng[1]},
-        zoom: 13,
+        zoom: zoomLevel,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
@@ -39,19 +47,19 @@ Template.editUserMapAndSearchBox.onRendered(function(){
       // Create the search box and link it to the UI element.
       var input = document.getElementById('pac-input');
 
-      if(map && Meteor.user().profile.userAddressLatLng){
+      if(editUserMap && Meteor.user().profile.location){
         var marker = new google.maps.Marker({
-          map: map,
+          map: editUserMap,
           position: {lat: centerLatLng[0] , lng: centerLatLng[1]}
         });
       }
 
       var searchBox = new google.maps.places.SearchBox(input);
-      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+      editUserMap.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
       // Bias the SearchBox results towards current map's viewport.
-      map.addListener('bounds_changed', function() {
-        searchBox.setBounds(map.getBounds());
+      editUserMap.addListener('bounds_changed', function() {
+        searchBox.setBounds(editUserMap.getBounds());
       });
 
       var markers = [];
@@ -90,7 +98,7 @@ Template.editUserMapAndSearchBox.onRendered(function(){
 
           // Create a marker for each place.
           markers.push(new google.maps.Marker({
-            map: map,
+            map: editUserMap,
             icon: icon,
             title: place.name,
             position: place.geometry.location
@@ -103,10 +111,34 @@ Template.editUserMapAndSearchBox.onRendered(function(){
             bounds.extend(place.geometry.location);
           }
         });
-        map.fitBounds(bounds);
+        editUserMap.fitBounds(bounds);
       });
+
+      google.maps.event.addListenerOnce( editUserMap, 'idle', function() {
+        var currentCenter = editUserMap.getCenter();  // Get current center before resizing
+        google.maps.event.trigger(editUserMap, "resize");
+        editUserMap.setCenter(currentCenter);
+
+      });
+
+
+
     }
 
   });
 
 });
+
+Template.editUserMapAndSearchBox.helpers({
+  mapPlaceHolder: function() {
+    if(Meteor.user().profile.location){
+      return Meteor.user().profile.location.address
+    }
+    else{
+      return ("Search Box");
+    }
+  }
+});
+
+
+

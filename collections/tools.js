@@ -15,10 +15,10 @@ Tools.allow({
 
 });
 
-Dotz.deny({
+Tools.deny({
   insert: () => true,
   update: () => true,
   remove: () => true
 });
 
-Dotz.attachSchema( Schema.dotSchema );
+Tools.attachSchema( Schema.tools );

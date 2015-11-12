@@ -1,13 +1,12 @@
 "use strict";
-describe("InsertDot", function(){
+describe("InsertDot", function(done){
   let doc = {
     dotType: "Event",
     ownerUserId: "1",
     title: "Sample",
     createdAtDate: new Date()
   };
-  it("just checking cows 123", function(){
-    //spyOn(Dotz, "insert");
+  it("checking insert dot", function(){
     Meteor.call('insertDot', doc, function(error, result){
       if (error){
         fail("insert dot was failed" + error);
@@ -18,10 +17,10 @@ describe("InsertDot", function(){
         expect(dot.dotType).toEqual("Event");
         expect(dot._id).toEqual(result);
         expect(dot.ownerUserId).toEqual("1");
-        //expect(dot.createdAtDate).toBe(Date);
+
+        expect(dot.createdAtDate).toEqual(doc.createdAtDate);
+        done();
       }
     });
-    //expect(Dotz.insert).toHaveBeenCalled();
-
   })
 });

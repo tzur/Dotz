@@ -7,22 +7,30 @@
 let locationObject;
 let editDotHooks = {
   before: {
-    method: function(doc){
-      doc.createdAtDate = new Date()
-      return doc
+    "method-update": function(doc){
+      if(Session.get('coverImageUrl')){
+        doc.$set.coverImageUrl = Session.get('coverImageUrl');
+      }
+      if(Session.get('locationObject')) {
+        doc.$set.location = Modules.client.Dotz.createLocationObject(Session.get('locationObject'))
+      }
+      return (doc);
     }
-
   },
+
 
   onSuccess: function(update, result){
     //Router.go("/post/"+ result);
     Session.set("coverImageUrl", undefined);
     Session.set("locationObject", undefined);
+    Modal.hide('editDotModal');
     //Modal.hide('createDotModal');
   }
 };
 
 AutoForm.addHooks('editDotForm', editDotHooks);
+//
+//AutoForm.addHooks('editDotForm', editDotHooks);
 
 
 

@@ -13,8 +13,9 @@ Template.createDotModal.onCreated(function(){
 
 
 Template.createDotModal.onRendered(function(){
-  tagsArray = Tools.findOne({docName: "dotzTags"});
-  Meteor.typeahead(".typeahead", tagsArray.tags);
+  //tagsArray = Tools.findOne({docName: "dotzTags"});
+  //Meteor.typeahead(".typeahead", tagsArray.tags);
+
 
   //$('#myTabs a').click(function (e) {
   //  e.preventDefault();
