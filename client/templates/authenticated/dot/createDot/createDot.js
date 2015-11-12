@@ -12,24 +12,23 @@ Template.createDot.onCreated(function(){
 });
 
 
-Template.createDot.onRendered(function(){
-  tagsArray = Tools.findOne({docName: "dotzTags"});
-  Meteor.typeahead(".typeahead", tagsArray.tags);
-
-  //$('#myTabs a').click(function (e) {
-  //  e.preventDefault();
-  //  $(this).tab('show')
-  //});
-  //$(document).ready(function() {
-  //  $(window).keydown(function(event){
-  //    if(event.keyCode == 13) {
-  //      event.preventDefault();
-  //      return false;
-  //    }
-  //  });
-  //});
-
-});
+//Template.createDot.onRendered(function(){
+//  tagsArray = Tools.findOne({docName: "dotzTags"});
+//  Meteor.typeahead(".typeahead", tagsArray.tags);
+//  //$('#myTabs a').click(function (e) {
+//  //  e.preventDefault();
+//  //  $(this).tab('show')
+//  //});
+//  //$(document).ready(function() {
+//  //  $(window).keydown(function(event){
+//  //    if(event.keyCode == 13) {
+//  //      event.preventDefault();
+//  //      return false;
+//  //    }
+//  //  });
+//  //});
+//
+//});
 
 
 Template.createDot.onDestroyed(function(){

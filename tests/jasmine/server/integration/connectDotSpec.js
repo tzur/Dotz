@@ -30,6 +30,7 @@ describe("Connect dot integration test", function(){
   };
   it("Action: connect, Owner case.",function(){
     spyOn(Meteor, 'userId').and.returnValue("123");
+    spyOn(Meteor, 'user').and.returnValue({profile:{}});
     Modules.both.Dotz.connectDot(smartRefConnect);
     let parentDot = Dotz.findOne(parentDotId);
     let childDot = Dotz.findOne(childDotId);
@@ -37,6 +38,6 @@ describe("Connect dot integration test", function(){
     expect(childDot.title).toEqual("Child");
     expect(childDot.inDotz).toContain(parentDotId);
     expect(parentDot.dotzConnectedByOwner).toContain(smartRefConnect);
-    ///WTF??? WHy this is what happening?? NEED TO GO TO SLEEP ASAP.
+
   });
 });

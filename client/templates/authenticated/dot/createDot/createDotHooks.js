@@ -44,6 +44,8 @@ let dotHooks = {
     Session.set("coverImageUrl", undefined);
     Session.set("locationObject", undefined);
     Session.set("dotType", undefined);
+    Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
+    FlowRouter.go('/dot/' + result);
 
     //Modal.hide('createDotModal');
   }
