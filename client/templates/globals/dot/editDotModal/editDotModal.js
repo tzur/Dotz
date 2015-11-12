@@ -8,6 +8,9 @@ Template.editDotModal.onRendered(function(){
 Template.editDotModal.onDestroyed(function(){
   Session.set("editModalMapTabActive", undefined);
   Session.set('coverImageUrl', undefined);
+  Session.set("locationObject", undefined);
+  Session.set("dotDoc", undefined);
+
 });
 
 Template.editDotModal.helpers({
@@ -32,6 +35,10 @@ Template.editDotModal.helpers({
 
   mapTabActive: function() {
     return (Session.get("editModalMapTabActive"))
+  },
+
+  editDotSchema: function(){
+    return Schema.editDotSchema;
   }
 });
 
@@ -39,19 +46,7 @@ Template.editDotModal.helpers({
 Template.editDotModal.events({
   //exit the modal window after submmiting the edits
   'click .editDot': function () {
-    if(Session.get('coverImageUrl')){
-      Meteor.call('editDotImage', Session.get('coverImageUrl'), this.data.dot._id);
-    }
-    if(Session.get('locationObject')) {
-      Meteor.call('editDotLocation', Session.get('locationObject'), this.data.dot._id);
-    }
-    Session.set("coverImageUrl", undefined);
-    Session.set("locationObject", undefined);
-    if(Session.get("isUserameEdited")) {
-      FlowRouter.go('/user/' + dotId)
-    }
 
-    Modal.hide('editDotModal');
   },
 
   'change #editDotImage input[type="file"]': function(){

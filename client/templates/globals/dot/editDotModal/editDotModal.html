@@ -1,5 +1,5 @@
 <template name="editDotModal">
-    <div class="modal fade">
+    <div class="modal fade" data-keyboard="false">
         <div class="modal-dialog modal-md">
             <div class="modal-content ">
 
@@ -13,7 +13,7 @@
 
                             <div class="row"><h1 class="txtMd">Edit Your Dot</h1></div>
 
-                          {{#autoForm id="editDotForm" type="update" collection="Dotz" doc=selectedDotDoc}}
+                          {{#autoForm id="editDotForm" type="method-update"  schema=editDotSchema doc=selectedDotDoc meteormethod="updateDot"}}
 
                               <!--<div>-->
                               <!--{{> afQuickField name='dotType' label="Dot Type"}}-->
@@ -24,7 +24,11 @@
                               </div>
 
                               <div>
-                                {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="What makes it special?"}}
+                                {{> afQuickField name='bodyText' label="Description" rows=4 placeholder="What makes it special?"}}
+                              </div>
+
+                              <div>
+                                {{> afQuickField name='tags' label="Tags" placeholder="Tag it if you'd like"}}
                               </div>
 
 

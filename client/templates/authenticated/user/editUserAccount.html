@@ -1,6 +1,6 @@
 <template name="editUserAccountModal">
 
-  <div class="modal fade">
+  <div class="modal fade" data-keyboard="false">
       <div class="modal-dialog modal-md">
           <div class="modal-content ">
 
@@ -14,7 +14,7 @@
 
                               <div class="row"><h1 class="txtMd">Edit Your Account</h1></div>
 
-                            {{#autoForm id="editUserAccountForm" collection="Meteor.users" type="update" doc=selectedUserDoc}}
+                            {{#autoForm id="editUserAccountForm" schema= editUserAccountSchema type="method-update" meteormethod="editUserAccount" doc=selectedUserDoc}}
 
                                 <div>
                                   {{> afQuickField name='username'}}
@@ -58,7 +58,7 @@
 
                                         <div role="tabpanel" class="tab-pane" id="location">
                                           {{#if mapTabActive}}
-                                            {{> createDotMap}}
+                                            {{> editUserMapAndSearchBox}}
                                           {{/if}}
                                         </div>
 
