@@ -19,7 +19,8 @@ describe("createDot test", function(done){
     ownerUserId: userId,
     title: "New Created Dot",
     createdAtDate: new Date(),
-    inDotz: [parentDotId]
+    inDotz: [parentDotId],
+    isOpen: true
   };
   it("checking create dot", function(){
     spyOn(Meteor, 'userId').and.returnValue(userId);

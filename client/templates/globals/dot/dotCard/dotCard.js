@@ -104,7 +104,7 @@ Template.dotCard.events({
 
   'click .like': function(event){
     event.preventDefault();
-    Modules.both.Dotz.likeDot(this.smartRef, Meteor.userId());
+    Modules.both.Dotz.likeDot(this.smartRef, Meteor.userId(), this.dot);
   },
 
   'click .unlike': function(event){
