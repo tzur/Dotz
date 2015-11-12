@@ -32,7 +32,6 @@ Template.createDotModal.onRendered(function(){
 
 });
 
-
 Template.createDotModal.onDestroyed(function(){
   Session.set('mapTabActive', undefined);
   Session.set('coverImageUrl', undefined);

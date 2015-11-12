@@ -63,7 +63,6 @@ let _createNewDotForDotProfile = ( userId ) => {
     let profileDotDoc = {
         dotType: "_profileDot",
         ownerUserId: userId,
-        dotzConnectedByOthers: [],
         title: "My Dotz",
         createdAtDate: new Date()
     };

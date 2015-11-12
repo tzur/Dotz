@@ -28,9 +28,9 @@ Template.userShow.onCreated(function() {
             }
 
           if (_data.userShowDot) {
-            //subscribe all the relevant data for dotzConnectedByOwner:
-            self.subscribe('smartRefToDotzCursor', _data.userShowDot.dotzConnectedByOwner);
-            self.subscribe('smartRefToUsersCursor', _data.userShowDot.dotzConnectedByOwner);
+            //subscribe all the relevant data for connectedDotzArray:
+            self.subscribe('smartRefToDotzCursor', _data.userShowDot.connectedDotzArray);
+            self.subscribe('smartRefToUsersCursor', _data.userShowDot.connectedDotzArray);
             //send smartRef to module:
           }
       }
@@ -87,10 +87,10 @@ Template.userShow.helpers({
     }
   },
 
-  dotzConnectedByOwner: function() {
+  connectedDotzArray: function() {
     let dot = Session.get('dot');
-    if ( dot && dot.dotzConnectedByOwner ) {
-      return Modules.both.Dotz.smartRefToDataObject(dot.dotzConnectedByOwner);
+    if ( dot && dot.connectedDotzArray ) {
+      return Modules.both.Dotz.smartRefToDataObject(dot.connectedDotzArray);
     }
   }
 

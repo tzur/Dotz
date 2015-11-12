@@ -25,14 +25,8 @@ describe('disConnectDot', function(){
   };
 
   let childDotId = Dotz.insert(childDot);
-  let smartRefConnect = {
-    dotId: childDotId,
-    parentDot: parentDotId,
-    connectedByUserId: userId,
-    actionName: CONNECT_ACTION,
-    personalDescription: "Personal",
-    isConnectedToOthers: false
-  };
+
+  let smartRefConnect = new Modules.both.Dotz.smartRef(childDotId, userId, parentDotId, CONNECT_ACTION, userId, "Personal");
   fakeUser = Meteor.users.findOne({username: "testUser4"});
   it("should disconnect", function(){
     spyOn(Meteor, 'userId').and.returnValue(userId);
@@ -46,7 +40,7 @@ describe('disConnectDot', function(){
     childDot = Dotz.findOne(childDotId);
     let parentDot = Dotz.findOne(parentDotId);
     expect(childDot.inDotz).toEqual([]);
-    expect(parentDot.dotzConnectedByOwner).toEqual([]);
+    expect(parentDot.connectedDotzArray).toEqual([]);
     fakeUser = Meteor.users.findOne({username: "testUser4"});
     expect(fakeUser.profile.userConnections.length).toEqual(0);
   });
