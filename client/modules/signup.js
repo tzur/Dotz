@@ -64,7 +64,8 @@ let _createNewDotForDotProfile = ( userId ) => {
         dotType: "_profileDot",
         ownerUserId: userId,
         title: "My Dotz",
-        createdAtDate: new Date()
+        createdAtDate: new Date(),
+        isOpen: false
     };
     check(profileDotDoc, Schema.dotSchema);
     Meteor.call('insertDot', profileDotDoc, function(error, result){
