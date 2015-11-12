@@ -31,9 +31,9 @@ Template.showConnectedByOwnerDotz.helpers({
 
 Template.showConnectedByOwnerDotz.events({
   'click .connectBtn': function () {
-    personalDescription = $('#personalDescription').val();
-
-    let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), this._id, Meteor.userId(), false, CONNECT_ACTION, personalDescription)
+    let personalDescription = $('#personalDescription').val();
+    let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), Session.get('dotOwnerUserId'),
+                           this._id, CONNECT_ACTION, Meteor.userId(),personalDescription);
     Modules.both.Dotz.connectDot(smartRef)
 
   },

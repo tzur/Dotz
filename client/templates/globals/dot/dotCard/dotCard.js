@@ -7,7 +7,7 @@ Template.dotCard.helpers({
 
   //Works for dotzConnectedByOwner, TBD for dotzConnectedByOthers:
   sortIsAvailable: function() {
-    let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
+    let parentDotOwnerId = Dotz.findOne(this.smartRef.connection.toParentDotId).ownerUserId;
     return ( parentDotOwnerId === Meteor.userId() )
   },
 
@@ -27,9 +27,9 @@ Template.dotCard.helpers({
     return (this.ownerUser.username === this.connectedByUser.username)
   },
 
-  personlDescriptionOrBodyText: function() {
-    if (this.smartRef.personalDescription) {
-      return s.prune(this.smartRef.personalDescription, 100);
+  personalDescriptionOrBodyText: function() {
+    if (this.smartRef.connection.personalDescription) {
+      return s.prune(this.smartRef.connection.personalDescription, 100);
     }
     else if (this.connectedByUser.id === this.dot.ownerUserId) {
 
@@ -41,36 +41,27 @@ Template.dotCard.helpers({
   },
 
   dotzNum: function() {
-    let ownerDotz = 0;
-    if (this.dot.dotzConnectedByOwner) {
-      ownerDotz = this.dot.dotzConnectedByOwner.length;
+    let connectedDotz = 0;
+    if (this.dot.connectedDotzArray) {
+      connectedDotz = this.dot.connectedDotzArray.length;
     }
-
-    let othersDotz = 0;
-    if (this.dot.dotzConnectedByOthers) {
-      othersDotz = this.dot.dotzConnectedByOthers.length;
-    }
-
-    if ((ownerDotz + othersDotz) === 0) {
+    if (connectedDotz == 0){
       return false;
     }
-    else {
-      return ("+ " + (ownerDotz + othersDotz) );
+    else{
+      return ("+ " + connectedDotz );
     }
+
+
   },
 
   dotOrDotz: function() {
-    let ownerDotz = 0;
-    if (this.dot.dotzConnectedByOwner) {
-      ownerDotz = this.dot.dotzConnectedByOwner.length;
+    let connectedDotz = 0;
+    if (this.dot.connectedDotzArray) {
+      connectedDotz = this.dot.connectedDotzArray.length;
     }
 
-    let othersDotz = 0;
-    if (this.dot.dotzConnectedByOthers) {
-      othersDotz = this.dot.dotzConnectedByOthers.length;
-    }
-
-    if ( (ownerDotz+othersDotz) === 1 ) {
+    if ( connectedDotz === 1 ) {
       return ("Dot");
     }
     else {
@@ -79,7 +70,7 @@ Template.dotCard.helpers({
   },
 
   isConnected: function() {
-    return ( this.smartRef.connectedByUserId === Meteor.userId() )
+    return ( this.smartRef.connection.connectedByUserId === Meteor.userId() )
   },
 
   connectCounter: function() {
@@ -100,8 +91,8 @@ Template.dotCard.helpers({
   },
 
   likeCounter: function(){
-    if (this.smartRef.likes.length > 0) {
-      return this.smartRef.likes.length;
+    if (this.smartRef.connection.likes.length > 0) {
+      return this.smartRef.connection.likes.length;
     }
   }
 

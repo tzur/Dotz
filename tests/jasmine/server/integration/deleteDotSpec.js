@@ -37,32 +37,13 @@ describe('deleteDot', function(){
   };
   let insideTheDeletedDotId = Dotz.insert(insideTheDeletedDot);
 
-  let smartRefInside = {
-    dotId: insideTheDeletedDotId,
-    parentDot: childDotId,
-    connectedByUserId: userId,
-    actionName: CONNECT_ACTION,
-    personalDescription: "Personal",
-    isConnectedToOthers: false
-  };
-  let smartRefDelete1= {
-    dotId: childDotId,
-    parentDot: parentDot1Id,
-    connectedByUserId: userId,
-    actionName: CONNECT_ACTION,
-    personalDescription: "Personal",
-    isConnectedToOthers: false
-  };
-  let smartRefDelete2 = {
-    dotId: childDotId,
-    parentDot: parentDot2Id,
-    connectedByUserId: userId,
-    actionName: CONNECT_ACTION,
-    personalDescription: "Personal",
-    isConnectedToOthers: false
-  };
+
+  let smartRefInside = new Modules.both.Dotz.smartRef(insideTheDeletedDotId, userId, childDotId,CONNECT_ACTION, userId,"Personal");
+  let smartRefDelete1 = new Modules.both.Dotz.smartRef(childDotId, userId, parentDot1Id,CONNECT_ACTION, userId,"Personal");
+  let smartRefDelete2 = new Modules.both.Dotz.smartRef(childDotId, userId, parentDot2Id,CONNECT_ACTION, userId,"Personal");
   fakeUser = Meteor.users.findOne({username: "testUser7"});
-  it("should disconnect", function(){
+
+  it("should delete", function(){
     spyOn(Meteor, 'userId').and.returnValue(userId);
     spyOn(Meteor, 'user').and.returnValue(fakeUser);
     Modules.both.Dotz.connectDot(smartRefInside);
@@ -73,15 +54,15 @@ describe('deleteDot', function(){
     let parent1 = Dotz.findOne(parentDot1Id);
     let parent2 = Dotz.findOne(parentDot2Id);
     let insideDot = Dotz.findOne(insideTheDeletedDotId);
-    expect(parent1.dotzConnectedByOwner.length).toEqual(1);
-    expect(parent2.dotzConnectedByOwner.length).toEqual(1);
+    expect(parent1.connectedDotzArray.length).toEqual(1);
+    expect(parent2.connectedDotzArray.length).toEqual(1);
     expect(insideDot.inDotz).toContain(childDotId);
     let childDot = Dotz.findOne(childDotId);
     Modules.both.Dotz.deleteDot(childDot, smartRefDelete1);
     parent1 = Dotz.findOne(parentDot1Id);
     parent2 = Dotz.findOne(parentDot2Id);
-    expect(parent1.dotzConnectedByOwner.length).toEqual(0);
-    expect(parent2.dotzConnectedByOwner.length).toEqual(0);
+    expect(parent1.connectedDotzArray.length).toEqual(0);
+    expect(parent2.connectedDotzArray.length).toEqual(0);
     childDot = Dotz.findOne(childDotId);
     insideDot = Dotz.findOne(insideTheDeletedDotId);
     expect(insideDot.inDotz.length).toEqual(0);

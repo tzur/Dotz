@@ -130,7 +130,7 @@
     <!--Anchor-->
     <a name="connectedDotz"></a>
 
-{{#if dotShow.dotzConnectedByOwner}}
+{{#if dotShow.connectedDotzArray}}
     <div class="row dot-divider-hr">
         <hr class="lightGrey">
        <div class="dot-divider-box col-xs-4 colCenter">Connected Dotz by {{dotShowUser.username}}</div>
@@ -139,7 +139,7 @@
     <div class="container-fluid">
       <div class="row">
           <div class="col-xs-12">
-            {{#each dotzConnectedByOwner}}
+            {{#each connectedDotzArray}}
               {{>dotCard}}
             {{/each}}
           </div>
@@ -148,32 +148,10 @@
 
 {{/if}}
 
-
-    <div class="row dot-divider-hr">
-        <hr class="lightGrey">
-        <div class="dot-divider-box col-xs-4 colCenter">Connected Dotz by others</div>
-    </div>
-
-{{#if dotShow.dotzConnectedByOthers}}
-
-    <div class="row">
-        <div class="col-xs-12">
-          {{#each dotzConnectedByOthers}}
-            {{>dotCard}}
-          {{/each}}
-        </div>
-    </div>
-
-{{else}}
-
     <div class="col-xs-4 col-sm-3 colCenter">
     <p>Add your connection.. (Coming Soon)</p>
     <br class="jo"><br>
     </div>
-
-{{/if}}
-
-
 
 {{/with}}
 

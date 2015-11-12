@@ -32,7 +32,7 @@ Meteor.methods({
           else{
             isConnectedToOthers = true;
           }
-          let smartRef = new Modules.both.Dotz.smartRef(dotId, doc.inDotz[0], doc.ownerUserId, isConnectedToOthers ,CREATE_ACTION);
+          let smartRef = new Modules.both.Dotz.smartRef(dotId, Meteor.userId() ,doc.inDotz[0], CREATE_ACTION, doc.ownerUserId);
           Modules.both.Dotz.connectDot(smartRef);
          // Modules.both.Dotz.updateFeed(smartRef, doc.ownerUserId);
           Meteor.call('updateUserAllUserDotz', Meteor.userId(), dotId, function (error, result) {
