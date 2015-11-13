@@ -14,8 +14,7 @@ Template.userShow.onCreated(function() {
             Bert.alert('Page does not exist', 'danger');
           }
           else{
-            console.log("HAS USER");
-            Session.set('userSubscribeFinished', true);
+            Session.set('userSubscribeFinished', _data.userShow);
           }
         });
       }

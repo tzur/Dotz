@@ -129,40 +129,66 @@
 
             <div>
                 <div class="row user-profile-cards">
-                    <div class="col-xs-12">
+                    <!--<div class="col-xs-12">-->
 
-                      <br>
 
-                        <div class="wrapper">
-                            <div class="container">
-                                <div class="masonry-container">
 
-                                  {{#each dotzConnectedByOwner}}
-                                    {{>gridCard}}
-                                  {{/each}}
+                    <br>
 
-                                </div>
+                    <div class="wrapper">
+                        <div class="container">
+                            <div class="masonry-container">
+
+                              {{#each dotzConnectedByOwner}}
+                                {{>listCard}}
+                              {{/each}}
+
                             </div>
                         </div>
-
-                        <!-- end wrapper -->
-
-
-
-                      <br>
-                      <hr>
-                      <br>
-
-                      {{#each dotzConnectedByOwner}}
-                        {{>dotCard}}
-                      {{/each}}
-
-                      {{#if emptyMix}}
-                          <h4>{{user.username}} Still didn't had a chance to create a dot</h4>
-                      {{/if}}
-
-
                     </div>
+
+                    <!-- end wrapper -->
+
+
+
+                    <br>
+                    <hr>
+                    <br>
+
+
+
+                            <!--<br>-->
+
+                              <!--<div class="wrapper">-->
+                                  <!--<div class="container">-->
+                                      <!--<div class="masonry-container">-->
+
+                                        <!--{{#each dotzConnectedByOwner}}-->
+                                          <!--{{>gridCard}}-->
+                                        <!--{{/each}}-->
+
+                                      <!--</div>-->
+                                  <!--</div>-->
+                              <!--</div>-->
+
+                              <!-- end wrapper -->
+
+
+
+                            <br>
+                            <hr>
+                            <br>
+
+                            <!--{{#each dotzConnectedByOwner}}-->
+                              <!--{{>dotCard}}-->
+                            <!--{{/each}}-->
+
+                            {{#if emptyMix}}
+                                <h4>{{user.username}} Still didn't had a chance to create a dot</h4>
+                            {{/if}}
+
+
+                    <!--</div>-->
                 </div>
             </div>
 

@@ -1,27 +1,48 @@
 
 #card-box {
-  /*padding-right: 0;*/
-  /*padding-left: 0;*/
+  padding: 1vh;
+  /*margin-bottom: 1vh;*/
+  /*margin: 1vh;*/
+}
+
+#imgSide {
+  padding: 0;
+}
+
+#imgSide .imgSideSpacer {
+  height: 80%;
+}
+
+#textSide {
+  /*padding: 0;*/
+  background-color: rgba(255, 255, 255, 0.95);
+  height: 30vh;
+  /*padding: 10vh;*/
+  /*width: 100%;*/
 }
 
 .card {
   /*border-radius: 6px;*/
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23);
   background-color: #FFFFFF;
-  margin-bottom: 3.5vh;
-  height: 60vh;
+  /*margin-bottom: 3.5vh;*/
+  /*max-height: 70vh;*/
   /*width: 100%;*/
-  /*padding: 1vh;*/
+  margin: 1vh;
 }
 
 .cardHeader {
-  height: 30vh;
+  /*height: 35vh;*/
+}
+
+.card .cardHeader .container-fluid {
+  /*background-color: rgba(255, 255, 255, 0.95);*/
 }
 
 .dot-container-img-card-grid {
   position: relative;
   width: 100%;
-  height: 30vh;
+  height: 100%;
   /*overflow: hidden;*/
   background-size: cover;
   background-position-y: 50%;
@@ -34,18 +55,20 @@
 }
 
 #round-overlay {
-  background-image: radial-gradient(17vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 86%, rgba(255, 255, 255, 0.95) 87%, rgba(255, 255, 255, 0.95) 100%);
+  background-image: radial-gradient(17vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 87%, rgba(255, 255, 255, 0.95) 87%, rgba(255, 255, 255, 0.95) 100%);
   width: 100%;
   height: 30vh;
 }
 
 #round-overlay:hover {
-  background-image: radial-gradient(17vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 86%, rgba(255, 255, 255, 0) 87%, rgba(255, 255, 255, 0) 100%);
+  background-image: radial-gradient(17vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 100%);
 }
 
 .card .content {
-  height: 23vh;
-  padding: 0.5vh 2vh 0.5vh 2vh;
+  /*height: 20vh;*/
+  /*width: 40%;*/
+  padding: 2vh 1vh 1vh 1vh;
+  height: 80%;
 }
 
 .card .content .cardTitle {
@@ -59,12 +82,8 @@
 .card .content .cardTitle .h2Title {
   margin: 0;
   font-weight: 400;
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   color: rgba(0, 0, 0, 0.8);
-}
-
-.card .content .cardIcons {
-  /*height: 2vh;*/
 }
 
 .card .content .cardSpacer {
@@ -74,19 +93,20 @@
 .card .content .cardText {
   /*height: 9vh;*/
   padding-top: 1vh;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.4);
   line-height: 1.4;
   font-size: 16px;
 }
 
 
-.card .content .cardUser {
-  height: 5vh;
-  padding: 1vh 2vh 0.5vh 0vh;
+.card .cardUser {
+  height: 20%;
+  padding: 1vh 2vh 0.5vh 2vh;
   vertical-align: top;
+  /*background-color: rgba(255, 255, 255, 0.95);*/
 }
 
-.card .content .cardUser .userImgIcon {
+.card .cardUser .userImgIcon {
   position: relative;
   /*top: 1vh;*/
   /*bottom: 1vh;*/
@@ -109,6 +129,13 @@
 }
 
 
+.card .cardIcons {
+  height: 3vh;
+  padding: 0.5vh 2vh 0.5vh 2vh;
+}
+
+
+
 .card .footer {
   height: 4vh;
   background-color: #FFFFFF;
@@ -119,8 +146,18 @@
   padding-bottom: 0.5vh;
 
 }
+
+.card .btn-connect-div {
+  /*display: block;*/
+  margin-left: auto;
+  margin-right: auto;
+  width: 10em;
+  height: 20%;
+  /*z-index: 9999;*/
+}
+
 .card .footer div {
-  display: inline-block;
+  /*display: inline-block;*/
 }
 
 
@@ -130,10 +167,10 @@
 
 
 /*.card .content .title {*/
-  /*position: relative;*/
-  /*z-index: 3;*/
-  /*/!*text-transform: uppercase;*!/*/
-  /*color: #333333;*/
+/*position: relative;*/
+/*z-index: 3;*/
+/*/!*text-transform: uppercase;*!/*/
+/*color: #333333;*/
 /*}*/
 
 .card > .title {
@@ -176,17 +213,17 @@
 
 
 /*.card .image {*/
-  /*width: 100%;*/
-  /*overflow: hidden;*/
-  /*height: 30vh;*/
-  /*border-radius: 6px 6px 0 0;*/
-  /*position: relative;*/
-  /*-webkit-transform-style: preserve-3d;*/
-  /*-moz-transform-style: preserve-3d;*/
-  /*transform-style: preserve-3d;*/
+/*width: 100%;*/
+/*overflow: hidden;*/
+/*height: 30vh;*/
+/*border-radius: 6px 6px 0 0;*/
+/*position: relative;*/
+/*-webkit-transform-style: preserve-3d;*/
+/*-moz-transform-style: preserve-3d;*/
+/*transform-style: preserve-3d;*/
 /*}*/
 /*.card .image img {*/
-  /*width: 100%;*/
+/*width: 100%;*/
 /*}*/
 .card .filter {
   position: absolute;
@@ -247,12 +284,12 @@
 
 
 /*.card .footer {*/
-  /*padding: 0;*/
-  /*background-color: transparent;*/
-  /*line-height: 30px;*/
+/*padding: 0;*/
+/*background-color: transparent;*/
+/*line-height: 30px;*/
 /*}*/
 /*.card .footer div {*/
-  /*display: inline-block;*/
+/*display: inline-block;*/
 /*}*/
 
 .card .stats {
