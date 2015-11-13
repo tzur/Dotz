@@ -1,5 +1,5 @@
 //browser poslicy setup
-BrowserPolicy.content.allowEval("https://maps.googleapis.com")
+BrowserPolicy.content.allowEval("https://maps.googleapis.com");
 BrowserPolicy.content.allowImageOrigin("https://csi.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("https://*.googleapis.com");
 BrowserPolicy.content.allowOriginForAll("https://maps.gstatic.com");
@@ -16,11 +16,7 @@ BrowserPolicy.content.allowOriginForAll("http://*.postimg.org");
 BrowserPolicy.content.allowImageOrigin("https://dotz-dev-images.s3.amazonaws.com/otni/lights-night-bokeh-city.jpg");
 BrowserPolicy.content.allowOriginForAll("http://fonts.googleapis.com");
 BrowserPolicy.content.allowOriginForAll("http://fonts.gstatic.com");
-//BrowserPolicy.content.allowOriginForAll("http://localhost:61429/");
-//BrowserPolicy.content.allowOriginForAll("http://localhost:*/");
-//BrowserPolicy.content.allowOriginForAll("http://localhost");
-//BrowserPolicy.framing.allowAll();
-
-
-
-
+BrowserPolicy.content.allowOriginForAll("localhost:*");
+BrowserPolicy.content.allowConnectOrigin("ws://localhost:5000");
+BrowserPolicy.content.allowConnectOrigin("http://localhost:5000");
+BrowserPolicy.framing.allowAll();

@@ -50,6 +50,10 @@ Template.editUserAccountModal.helpers({
 
   mapTabActive: function(){
     return Session.get('mapTabActive')
+  },
+
+  editUserAccountSchema: function() {
+    return Schema.editUserAccount;
   }
 
 });
@@ -90,20 +94,7 @@ Template.editUserAccountModal.events({
     //if we need some force edit :)
     //console.log("im here");
     //Meteor.call('forceUpdate', Meteor.userId(),website, descriptoin);
-    if(Session.get('userCoverImageUrl')){
-      Meteor.call('editUserCoverImage', Session.get('userCoverImageUrl'));
-    }
-    if(Session.get('userProfileImageUrl')) {
-      Meteor.call('editUserProfileImage', Session.get('userProfileImageUrl'));
-    }
-    if(Session.get('locationObject')){
-      Meteor.call('editUserLocation', Session.get('locationObject'));
 
-    }
-    Session.set("userCoverImageUrl", undefined);
-    Session.set("userProfileImageUrl", undefined);
-    Session.set("locationObject", undefined);
-    Modal.hide('editUserAccountModal');
   }
 
 });

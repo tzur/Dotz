@@ -1,4 +1,4 @@
-Template.createDot.onCreated(function(){
+Template.createDotModal.onCreated(function(){
   var self = this;
   self.autorun(function(){
     if(Meteor.userId()){
@@ -12,7 +12,10 @@ Template.createDot.onCreated(function(){
 });
 
 
-Template.createDot.onRendered(function(){
+Template.createDotModal.onRendered(function(){
+  //tagsArray = Tools.findOne({docName: "dotzTags"});
+  //Meteor.typeahead(".typeahead", tagsArray.tags);
+
 
   //$('#myTabs a').click(function (e) {
   //  e.preventDefault();
@@ -29,14 +32,15 @@ Template.createDot.onRendered(function(){
 
 });
 
-
-Template.createDot.onDestroyed(function(){
+Template.createDotModal.onDestroyed(function(){
   Session.set('mapTabActive', undefined);
   Session.set('coverImageUrl', undefined);
+  Session.set('dotType', undefined);
+
 });
 
 
-Template.createDot.helpers({
+Template.createDotModal.helpers({
 
   isImageUrl: function(){
     if(Session.get("coverImageUrl")){
@@ -54,11 +58,21 @@ Template.createDot.helpers({
 
   mapTabActive: function() {
     return (Session.get("mapTabActive"))
+  },
+
+  dotzTags: function(){
+    tagsArray = Tools.findOne({docName: "dotzTags"});
+    return tagsArray.tags;
+  },
+  dotType: function(){
+    console.log("im running");
+    return Session.get("dotType")
+
   }
 });
 
 
-Template.createDot.events({
+Template.createDotModal.events({
   'click #createToOneOfMyDotz': function(e){
     e.preventDefault();
     Modal.show('createToOneOfMyDotzModal', {
@@ -66,6 +80,10 @@ Template.createDot.events({
         isActionTypeCreate: true
       }
     })
+  },
+
+  'click #closeBtn': function(){
+    Modal.hide('createDotModal');
   },
 
   //'click #createToMyProfile': function(){
@@ -90,6 +108,10 @@ Template.createDot.events({
 
   'click #mapTab': function(){
     Session.set('mapTabActive', true);
+  },
+
+  'click .dotTypeBtn': function(e){
+    Session.set("dotType", e.target.id);
   }
 
 });

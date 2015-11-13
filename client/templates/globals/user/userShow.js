@@ -7,29 +7,31 @@ Template.userShow.onCreated(function() {
 
       let userSlug = FlowRouter.getParam('userSlug');
       if (userSlug) {
-        self.subscribe('userByUserSlug', userSlug, function(){
-          _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug});
-          if (!_data.userShow){
-            FlowRouter.go('/');
-            Bert.alert('Page does not exist', 'danger');
-          }
-          else{
-            Session.set('userSubscribeFinished', _data.userShow);
-          }
-        });
+          self.subscribe('userByUserSlug', userSlug, function(){
+              _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug});
+              if (!_data.userShow){
+                FlowRouter.go('/');
+                Bert.alert('Page does not exist', 'danger');
+              }
+              else{
+                Session.set('userSubscribeFinished', _data.userShow);
+              }
+          });
       }
-      if (Session.get('userSubscribeFinished')) {
-            let dotId =_data.userShow.profile.profileDotId;
-            if (dotId) {
-              self.subscribe('dotShow', dotId);
-              _data.userShowDot = Dotz.findOne(dotId);
-              Session.set('dot', _data.userShowDot);
-            }
 
+      if (Session.get('userSubscribeFinished')) {
+          //if (_data.userShow.profile) {
+          //    let dotId =_data.userShow.profile.profileDotId;
+          let dotId = Session.get('userSubscribeFinished').profile.profileDotId;
+          if (dotId) {
+            self.subscribe('dotShow', dotId);
+            _data.userShowDot = Dotz.findOne(dotId);
+            Session.set('dot', _data.userShowDot);
+          }
           if (_data.userShowDot) {
-            //subscribe all the relevant data for dotzConnectedByOwner:
-            self.subscribe('smartRefToDotzCursor', _data.userShowDot.dotzConnectedByOwner);
-            self.subscribe('smartRefToUsersCursor', _data.userShowDot.dotzConnectedByOwner);
+            //subscribe all the relevant data for connectedDotzArray:
+            self.subscribe('smartRefToDotzCursor', _data.userShowDot.connectedDotzArray);
+            self.subscribe('smartRefToUsersCursor', _data.userShowDot.connectedDotzArray);
             //send smartRef to module:
           }
       }
@@ -86,14 +88,15 @@ Template.userShow.helpers({
     }
   },
 
-  dotzConnectedByOwner: function() {
+  connectedDotzArray: function() {
     let dot = Session.get('dot');
-    if ( dot && dot.dotzConnectedByOwner ) {
-      return Modules.both.Dotz.smartRefToDataObject(dot.dotzConnectedByOwner);
+    if ( dot && dot.connectedDotzArray ) {
+      return Modules.both.Dotz.smartRefToDataObject(dot.connectedDotzArray);
     }
   }
 
 });
+
 
 Template.userShow.events({
   'click .followersNum': function(){

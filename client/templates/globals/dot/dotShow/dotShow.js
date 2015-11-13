@@ -21,21 +21,12 @@ Template.dotShow.onCreated(function() {
 
       self.subscribe('user', _data.dotShow.ownerUserId );
       _data.dotShowUser = Meteor.users.findOne(_data.dotShow.ownerUserId);
-
-      if (_data.dotShow.dotzConnectedByOwner) {
+      if (_data.dotShow.connectedDotzArray) {
         //subscribe all the relevant data for dotzConnectedByOwner:
-        self.subscribe('smartRefToDotzCursor', _data.dotShow.dotzConnectedByOwner);
-        self.subscribe('smartRefToUsersCursor', _data.dotShow.dotzConnectedByOwner);
+        self.subscribe('smartRefToDotzCursor', _data.dotShow.connectedDotzArray);
+        self.subscribe('smartRefToUsersCursor', _data.dotShow.connectedDotzArray);
         //send smartRef to module:
         //_data.dotzConnectedByOwnerObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOwner);
-      }
-
-      if (_data.dotShow.dotzConnectedByOthers) {
-        //subscribe all the relevant data for dotzConnectedByOthers:
-        self.subscribe('smartRefToDotzCursor', _data.dotShow.dotzConnectedByOthers);
-        self.subscribe('smartRefToUsersCursor', _data.dotShow.dotzConnectedByOthers);
-        //send smartRef to module:
-        //_data.dotzConnectedByOthersObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOthers);
       }
     }
   });
@@ -43,9 +34,7 @@ Template.dotShow.onCreated(function() {
 
 
 Template.dotShow.onRendered(function(){
-
   window.scrollTo(0,0);
-
 });
 
 
@@ -103,21 +92,15 @@ Template.dotShow.helpers({
 
   dotzNum: function() {
     if ( _data.dotShow ) {
-        let ownerDotz = 0;
-        if (_data.dotShow.dotzConnectedByOwner) {
-          ownerDotz = _data.dotShow.dotzConnectedByOwner.length;
+        let connectedDotz = 0;
+        if (_data.dotShow.connectedDotzArray) {
+          connectedDotz = _data.dotShow.connectedDotzArray.length;
         }
-
-        let othersDotz = 0;
-        if (_data.dotShow.dotzConnectedByOthers) {
-          othersDotz = _data.dotShow.dotzConnectedByOthers.length;
-        }
-
-        if ((ownerDotz + othersDotz) === 0) {
+        if (connectedDotz === 0) {
           return false;
         }
         else {
-          return ("+ " + (ownerDotz + othersDotz) );
+          return ("+ " + connectedDotz );
         }
     }
   },
@@ -134,17 +117,11 @@ Template.dotShow.helpers({
     }
   },
 
-  dotzConnectedByOwner: function() {
+  connectedDotzArray: function() {
     if (Session.get('dot')) {
-      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOwner);
+      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').connectedDotzArray);
     }
   },
-
-  dotzConnectedByOthers: function() {
-    if (Session.get('dot')) {
-      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').dotzConnectedByOthers);
-    }
-  }
 
 });
 
