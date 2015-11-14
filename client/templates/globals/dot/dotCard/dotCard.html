@@ -23,6 +23,15 @@
           {{/if}}
 
 
+<!--<div class="connctIcon">-->
+
+    <!--<div class="plusIcon pull-right">-->
+        <!--<i class="fa fa-plus-circle"></i>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+
 
 {{else}}
 
@@ -73,19 +82,9 @@
 
                     </a>
                     <div class="listCardTitle">
-                        <!--<h6 class="category">News</h6>-->
-                        <!--<h4 class="title"><a href="#">{{dot.title}}</a></h4>-->
                         <a href="/dot/{{dot._id}}"><h2 class="h2Title">{{dot.title}}</h2></a>
-                        <!--<p class="description" id="des1">When selling products it's always a good idea to go with commanding.</p>-->
+                        <h2 class="listIcon"><i class="fa fa-list-ul"></i></h2>
                     </div>
-                    <!--<div class="listCardSpacer">-->
-                    <!--</div>-->
-
-
-
-                    <!--<hr class="listCoverHr">-->
-
-
 
                     <div class="row listCardFooter">
 
@@ -96,34 +95,29 @@
                               <a href="/{{ownerUser.userSlug}}" class="userImgIcon">
                                   <img class="userImgIcon" src="{{ownerUser.profileImage}}">
                               </a>
-                      <span class="smTxt"><a class="whiteTxt" href="/{{ownerUser.userSlug}}">
-                          <strong>{{ownerUser.username}}</strong></a></span>
-                              <!--<span>  <span>·</span> {{actionDate}}</span>-->
-                              <span class="whiteTxt smTxt"> · {{actionDate}}</span>
+                              <span class="smTxt"><a class="whiteTxt" href="/{{ownerUser.userSlug}}">
+                              <strong>{{ownerUser.username}}</strong></a></span>
+                              <!--<span class="whiteTxt smTxt"> · {{actionDate}}</span>-->
 
                           {{else}}
 
                               <!--userIsTheDotConnector-->
-
-                              <!--<div class="col-xs-2">-->
                               <a href="/{{connectedByUser.userSlug}}" class="userImgIcon">
                                   <img class="userImgIcon" src="{{connectedByUser.profileImage}}">
                               </a>
-                              <!--</div>-->
 
-                              <!--<div class="col-xs-10">-->
                               <span class="smTxt whiteTxt"><a class="whiteTxt" href="/{{connectedByUser.userSlug}}"><strong>{{connectedByUser.username}}</strong></a></span>
                               <span class="whiteTxt smTxt">connected</span>
                               <span class="smTxt whiteTxt"><a class="whiteTxt" href="/{{ownerUser.userSlug}}"><strong>{{ownerUser.username}}</strong></a></span>
                               <span class="whiteTxt smTxt">List</span>
-                              <span class="whiteTxt smTxt"> · {{actionDate}}</span>
-                              <!--</div>-->
+                              <!--<span class="whiteTxt smTxt"> · {{actionDate}}</span>-->
 
                           {{/if}}
                         </div> <!--end userListCard -->
 
 
-                        <div class="btn-connect-div col-xs-4 pull-right">
+                        <!--<div class="btn-connect-div col-xs-4 pull-right">-->
+                        <div class="buttonsBar col-xs-4">
 
                           {{#if isConnected}}
 
@@ -205,26 +199,20 @@
                                           </a>
                                           <span class="smTxt"><a class="whiteTxt" href="/{{ownerUser.userSlug}}">
                                               <strong>{{ownerUser.username}}</strong></a></span>
-                                              <!--<span>  <span>·</span> {{actionDate}}</span>-->
-                                              <span class="whiteTxt smTxt"> · {{actionDate}}</span>
+                                              <!--<span class="whiteTxt smTxt"> · {{actionDate}}</span>-->
 
                                       {{else}}
 
                                           <!--userIsTheDotConnector-->
-
-                                          <!--<div class="col-xs-2">-->
                                           <a href="/{{connectedByUser.userSlug}}" class="userImgIcon">
                                               <img class="userImgIcon" src="{{connectedByUser.profileImage}}">
                                           </a>
-                                          <!--</div>-->
 
-                                          <!--<div class="col-xs-10">-->
                                           <span class="smTxt whiteTxt"><a class="whiteTxt" href="/{{connectedByUser.userSlug}}"><strong>{{connectedByUser.username}}</strong></a></span>
                                           <span class="whiteTxt smTxt">connected</span>
                                           <span class="smTxt whiteTxt"><a class="whiteTxt" href="/{{ownerUser.userSlug}}"><strong>{{ownerUser.username}}</strong></a></span>
                                           <span class="whiteTxt smTxt">Dot</span>
-                                          <span class="whiteTxt smTxt"> · {{actionDate}}</span>
-                                          <!--</div>-->
+                                          <!--<span class="whiteTxt smTxt"> · {{actionDate}}</span>-->
 
                                       {{/if}}
                                     </div> <!--end userListCard -->
@@ -253,13 +241,8 @@
                                 <a href="/dot/{{dot._id}}">
 
                                 <div class="listCardTitle">
-                                    <!--<h6 class="category">News</h6>-->
-                                    <!--<h4 class="title"><a href="#">{{dot.title}}</a></h4>-->
                                     <a href="/dot/{{dot._id}}"><h2 class="h2Title">{{dot.title}}</h2></a>
-                                    <!--<p class="description" id="des1">When selling products it's always a good idea to go with commanding.</p>-->
                                 </div>
-                                <!--<div class="listCardSpacer">-->
-                                <!--</div>-->
                                 </a>
 
 
@@ -342,7 +325,7 @@
                                 <!--</div> &lt;!&ndash;end userListCard &ndash;&gt;-->
 
 
-                                <div class="btn-connect-div col-sm-4 pull-right">
+                                <div class="buttonsBar">
 
                                   {{#if isConnected}}
 
