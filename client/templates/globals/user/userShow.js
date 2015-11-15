@@ -3,11 +3,24 @@ _data = {};
 Template.userShow.onCreated(function() {
 
   let self = this;
+  self.subs = new SubsManager({
+    // maximum number of cache subscriptions
+    cacheLimit: 10,
+    // any subscription will be expire after 5 minute, if it's not subscribed again
+    expireIn: 5
+  });
+
+  //Tracker.autorun(function() {
+  //  if(subs.ready()) {
+  //    // all the subscriptions are ready to use.
+  //  }
+  //});
+
   self.autorun(function() {
 
       let userSlug = FlowRouter.getParam('userSlug');
       if (userSlug) {
-          self.subscribe('userByUserSlug', userSlug, function(){
+          self.subs.subscribe('userByUserSlug', userSlug, function(){
               _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug});
               if (!_data.userShow){
                 FlowRouter.go('/');
@@ -24,14 +37,14 @@ Template.userShow.onCreated(function() {
           //    let dotId =_data.userShow.profile.profileDotId;
           let dotId = Session.get('userSubscribeFinished').profile.profileDotId;
           if (dotId) {
-            self.subscribe('dotShow', dotId);
+            self.subs.subscribe('dotShow', dotId);
             _data.userShowDot = Dotz.findOne(dotId);
             Session.set('dot', _data.userShowDot);
           }
           if (_data.userShowDot) {
             //subscribe all the relevant data for connectedDotzArray:
-            self.subscribe('smartRefToDotzCursor', _data.userShowDot.connectedDotzArray);
-            self.subscribe('smartRefToUsersCursor', _data.userShowDot.connectedDotzArray);
+            self.subs.subscribe('smartRefToDotzCursor', _data.userShowDot.connectedDotzArray);
+            self.subs.subscribe('smartRefToUsersCursor', _data.userShowDot.connectedDotzArray);
             //send smartRef to module:
           }
       }
@@ -92,6 +105,15 @@ Template.userShow.helpers({
     let dot = Session.get('dot');
     if ( dot && dot.connectedDotzArray ) {
       return Modules.both.Dotz.smartRefToDataObject(dot.connectedDotzArray);
+    }
+  },
+
+
+  //TEST:
+  smartRefArray: function() {
+    let dot = Session.get('dot');
+    if ( dot && dot.connectedDotzArray ) {
+      return dot.connectedDotzArray;
     }
   }
 
