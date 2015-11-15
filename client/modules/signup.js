@@ -48,11 +48,22 @@ let _handleSignup = ( template ) => {
   };
 
   Accounts.createUser( user, ( error ) => {
-    if ( error ) {
-      Bert.alert( error.reason, 'danger' );
-    } else {
-      Bert.alert( 'Welcome!', 'success' );
-      _createNewDotForDotProfile ( Meteor.userId() );
+      if ( error ) {
+        Bert.alert( error.reason, 'danger' );
+      }
+
+      else {
+          let username = Meteor.user().username;
+          let slug = username.replace(/ /g, "").toLowerCase();
+          Meteor.call('updateUserSlug', Meteor.userId(), slug, function(error, result) {
+              //TBD:
+              if (error) {
+                Bert.alert( 'username slug already exists ', 'danger' );
+              }
+              else {
+                _createNewDotForDotProfile ( Meteor.userId() );
+              }
+          });
     }
   });
 };
@@ -63,31 +74,24 @@ let _createNewDotForDotProfile = ( userId ) => {
     let profileDotDoc = {
         dotType: "_profileDot",
         ownerUserId: userId,
-        title: "My Dotz",
+        title: Meteor.user().username + " Dotz",
         createdAtDate: new Date(),
         isOpen: false
     };
     check(profileDotDoc, Schema.dotSchema);
     Meteor.call('insertDot', profileDotDoc, function(error, result){
-      if (result){
-        Meteor.call('updateUserProfileDotId', Meteor.userId(), result, function(error, result){
-            let username = Meteor.user().username;
-            let slug = username.replace(/ /g, "").toLowerCase();
-
-            if (!error && slug) {
-              Meteor.call('updateUserSlug', Meteor.userId(), slug, function(error, result) {
-                  if (!error) {
-                    FlowRouter.go('/' + Meteor.user().profile.userSlug);
-                  }
-              });
-            }
-            else{
-              console.log(" updateUserProfileDotId Error >> " + error);
-            }
-        });
-      }
+        if (result){
+            Meteor.call('updateUserProfileDotId', Meteor.userId(), result, function(error, result){
+                if (!error) {
+                  Bert.alert( 'Welcome!', 'success' );
+                  FlowRouter.go('/' + Meteor.user().profile.userSlug);
+                }
+                else{
+                  console.log(" updateUserProfileDotId Error >> " + error);
+                }
+            });
+        }
     });
-
 };
 
 Modules.client.signup = signup;

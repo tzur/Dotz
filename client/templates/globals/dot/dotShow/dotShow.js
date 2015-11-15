@@ -134,7 +134,7 @@ Template.dotShow.helpers({
     if (Session.get('dot')) {
       return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').connectedDotzArray);
     }
-  },
+  }
 
 });
 
