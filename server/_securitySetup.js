@@ -20,3 +20,5 @@ BrowserPolicy.content.allowOriginForAll("localhost:*");
 BrowserPolicy.content.allowConnectOrigin("ws://localhost:5000");
 BrowserPolicy.content.allowConnectOrigin("http://localhost:5000");
 BrowserPolicy.framing.allowAll();
+BrowserPolicy.content.allowOriginForAll("www.google-analytics.com");
+BrowserPolicy.content.allowOriginForAll("cdn.mxpnl.com");

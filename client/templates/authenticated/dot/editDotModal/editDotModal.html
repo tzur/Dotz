@@ -15,13 +15,10 @@
 
                           {{#autoForm id="editDotForm" type="method-update"  schema=editDotSchema doc=selectedDotDoc meteormethod="updateDot"}}
 
-                              <!--<div>-->
-                              <!--{{> afQuickField name='dotType' label="Dot Type"}}-->
-                              <!--</div>-->
-
                               <div>
-                                {{> afQuickField name='title' label="Title" placeholder="What is it?"}}
+                                {{> afQuickField id="editTitileField" name='title' label="Title" placeholder="What is it?"}}
                               </div>
+                              <div id="editTitileFieldFeedback"></div>
 
                               <div>
                                 {{> afQuickField name='bodyText' label="Description" rows=4 placeholder="What makes it special?"}}

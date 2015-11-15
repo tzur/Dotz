@@ -13,6 +13,8 @@ Template.createDotModal.onCreated(function(){
 
 
 Template.createDotModal.onRendered(function(){
+
+  Modules.client.Dotz.limitCharactersAndCounter('#titleField', 50, '#titleFieldFeedback');
   //tagsArray = Tools.findOne({docName: "dotzTags"});
   //Meteor.typeahead(".typeahead", tagsArray.tags);
 
@@ -29,6 +31,7 @@ Template.createDotModal.onRendered(function(){
   //    }
   //  });
   //});
+
 
 });
 

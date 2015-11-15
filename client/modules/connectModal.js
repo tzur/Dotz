@@ -2,14 +2,14 @@
 let _checkDot = function(dotId){
   let _dot = Dotz.findOne(dotId);
   if(_dot){
-    return ( _dot.ownerUserId === Meteor.userId())
+    return ( _dot.ownerUserId === Meteor.userId() && _dot.dotType === "List")
   }
 
 };
 
 let getConnectedByOwnerDotz = function(dotId, dotIdWishedToConnectTo) {
   let _dot = Dotz.findOne(dotId);
-  if(dotIdWishedToConnectTo === dotId) {
+  if(dotIdWishedToConnectTo && dotIdWishedToConnectTo === dotId) {
     return false;
   }
   let _dotzConnectedByOwnerArray = [];
