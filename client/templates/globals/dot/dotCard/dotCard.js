@@ -8,7 +8,7 @@ Template.dotCard.helpers({
   },
 
   isListCard: function() {
-    return (this.dot.dotType === "Collection")
+    return (this.dot.dotType === "List")
   },
 
   isMyDot: function() {

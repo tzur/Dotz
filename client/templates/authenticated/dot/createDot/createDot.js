@@ -82,7 +82,7 @@ Template.createDotModal.events({
     })
   },
 
-  'click #closeBtn': function(){
+  'click #exitBtn': function(){
     Modal.hide('createDotModal');
   },
 
