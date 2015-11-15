@@ -10,6 +10,7 @@ Template.userShow.onCreated(function() {
     expireIn: 5
   });
 
+  //TBD:
   //Tracker.autorun(function() {
   //  if(subs.ready()) {
   //    // all the subscriptions are ready to use.

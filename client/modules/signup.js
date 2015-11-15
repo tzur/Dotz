@@ -72,7 +72,7 @@ let _createNewDotForDotProfile = ( userId ) => {
       if (result){
         Meteor.call('updateUserProfileDotId', Meteor.userId(), result, function(error, result){
             let username = Meteor.user().username;
-            let slug = username.replace(/ /g, "");
+            let slug = username.replace(/ /g, "").toLowerCase();
 
             if (!error && slug) {
               Meteor.call('updateUserSlug', Meteor.userId(), slug, function(error, result) {
