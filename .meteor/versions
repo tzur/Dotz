@@ -75,6 +75,7 @@ meteorhacks:inject-data@1.4.1
 meteorhacks:npm@1.5.0
 meteorhacks:picker@1.0.3
 meteorhacks:ssr@2.1.2
+meteorhacks:subs-manager@1.6.2
 meteortoys:toykit@2.1.2
 minifiers@1.1.7
 minimongo@1.0.10
@@ -91,6 +92,7 @@ oauth@1.1.6
 oauth1@1.1.5
 oauth2@1.1.5
 observe-sequence@1.0.7
+okgrow:analytics@1.0.4
 ordered-dict@1.0.4
 peerlibrary:assert@0.2.5
 peerlibrary:base-component@0.10.0

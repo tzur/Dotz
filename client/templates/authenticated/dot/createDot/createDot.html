@@ -77,13 +77,11 @@
 
                             {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
 
-                            <!--<div>-->
-                            <!--{{> afQuickField name='dotType' label="Dot Type"}}-->
-                            <!--</div>-->
-
                             <div>
-                              {{> afQuickField name='title' label="Title" placeholder="What is it? E.g. Stand-up show, Picnic, Street food kiosk..."}}
+                              {{> afQuickField id="titleField" name='title' label="Title" placeholder="What is it? E.g. Stand-up show, Picnic, Street food kiosk..."}}
+
                             </div>
+                            <div id="titleFieldFeedback"></div>
 
                             <div>
                               {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="What can you do there?"}}

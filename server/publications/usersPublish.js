@@ -1,20 +1,18 @@
 Meteor.publish( 'user', function( userId ) {
   check(userId, String, Object);
   if (userId) {
-    return Meteor.users.find(userId);
+    return Meteor.users.find(userId, {fields: {"services.password": 0, "emails.address": 0, "emails.verified": 0}} );
   }
 });
+
+//Users.find({}, {fields: {password: 0, hash: 0}})
 
 Meteor.publish( 'userByUserSlug', function( userSlug ) {
   if (userSlug) {
     check(userSlug, String);
-    return Meteor.users.find( {"profile.userSlug": userSlug} );
+    return Meteor.users.find( {"profile.userSlug": userSlug}, {fields: {"services.password": 0, "emails.address": 0, "emails.verified": 0}} );
   }
   //return this.ready();
-});
-
-Meteor.publish('allUsers', function(){
-  return Meteor.users.find({});
 });
 
 Meteor.publish('dotzArrayToUserCursor',function(dotzArray){
@@ -25,5 +23,5 @@ Meteor.publish('dotzArrayToUserCursor',function(dotzArray){
     currentDot = Dotz.findOne(dot.__originalId);
     userIds.push(currentDot.ownerUserId);
   });
-  return Meteor.users.find({_id: {$in: userIds}});
+  return Meteor.users.find({_id: {$in: userIds}}, {fields: {"services.password": 0, "emails.address": 0, "emails.verified": 0}} );
 });

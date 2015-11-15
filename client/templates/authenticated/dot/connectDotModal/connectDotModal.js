@@ -9,6 +9,12 @@ Template.connectDotModal.onCreated(function(){
 
   });
 
+Template.connectDotModal.onRendered(function() {
+  Modules.client.Dotz.limitCharactersAndCounter('#personalDescription', 100, '#personalDescriptionFeedback');
+});
+
+
+
 Template.connectDotModal.helpers({
 
   currentUserImageUrl: function() {

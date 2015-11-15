@@ -2,6 +2,7 @@
  * Created by avivhatzir on 04/11/2015.
  */
 Template.editDotModal.onRendered(function(){
+  Modules.client.Dotz.limitCharactersAndCounter('#editTitleField', 50, '#titleFieldFeedback');
 
 });
 
