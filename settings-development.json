@@ -1,4 +1,11 @@
 {
   "AWSAccessKeyId": "AKIAIFKF7WSPFRS2LUAQ",
-  "AWSSecretAccessKey": "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"
+  "AWSSecretAccessKey": "XY26MEDs4LBr1NC9BHUKg+5nNgFnOtemYUH49r5b",
+
+
+  "public": {
+    "analyticsSettings": {
+      "Google Analytics" : {"trackingId": "UA-63151429-1"}
+    }
+  }
 }

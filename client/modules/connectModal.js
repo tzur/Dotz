@@ -2,7 +2,7 @@
 let _checkDot = function(dotId){
   let _dot = Dotz.findOne(dotId);
   if(_dot){
-    return ( _dot.ownerUserId === Meteor.userId())
+    return ( _dot.ownerUserId === Meteor.userId() && _dot.dotType === "List")
   }
 
 };

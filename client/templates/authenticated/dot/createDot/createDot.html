@@ -61,23 +61,20 @@
 
                                 </a>
                             </div>
-
+                            <br><br>
                         </div>
                         </div>
 
-                        {{#if dotType}}
+                        <!--{{#if dotType}}-->
 
                           <div class="col-xs-12 col-md-7 colCenter">
 
                             {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
 
-                            <!--<div>-->
-                            <!--{{> afQuickField name='dotType' label="Dot Type"}}-->
-                            <!--</div>-->
-
                             <div>
-                              {{> afQuickField name='title' label="Title" placeholder="What is it?"}}
+                              {{> afQuickField id="titleField" name='title' maxLength= 20 label="Title" placeholder="What is it?"}}
                             </div>
+                            <div id="titleFieldFeedback"></div>
 
                             <div>
                               {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="What makes it special?"}}
@@ -195,7 +192,7 @@
 
                         {{/autoForm}}
                       </div>
-                    {{/if}}
+                    <!--{{/if}}-->
                     </div>
                 </div>
 
