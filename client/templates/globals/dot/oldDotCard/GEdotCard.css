@@ -2,15 +2,14 @@
 
 #listCard-box {
   padding: 1vh;
-  margin-bottom: 1vh;
 }
 
 /*#listCard-box .connect > button {*/
-  /*margin: auto;*/
-  /*height: 4vh;*/
-  /*/!*padding: 10%;*!/*/
-  /*padding-left: 1vh;*/
-  /*padding-right: 1vh;*/
+/*margin: auto;*/
+/*height: 4vh;*/
+/*/!*padding: 10%;*!/*/
+/*padding-left: 1vh;*/
+/*padding-right: 1vh;*/
 /*}*/
 
 .connectBtn {
@@ -56,7 +55,7 @@
 #listCardImgSide .filter {
   position: absolute;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 100%;
 }
@@ -230,9 +229,9 @@
 }
 
 /*#listCard .btn-connect-div > button {*/
-  /*padding: inherit;*/
-  /*padding-left: 1vh;*/
-  /*padding-right: 1vh;*/
+/*padding: inherit;*/
+/*padding-left: 1vh;*/
+/*padding-right: 1vh;*/
 /*}*/
 
 #listCard > .title {
@@ -300,7 +299,7 @@
 #listCover .filter {
   position: absolute;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
   /*top: 0;*/
   /*left: 0;*/
   width: 100%;
