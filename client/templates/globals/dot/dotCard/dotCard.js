@@ -122,12 +122,19 @@ Template.dotCard.events({
   },
 
   'click .connect': function(){
-    Modal.show('connectDotModal',{
-      data:{
-        dotId: this.dot._id,
-        dot: this.dot
-      }
-    });
+    if(Meteor.user())
+    {
+      Modal.show('connectDotModal',{
+        data:{
+          dotId: this.dot._id,
+          dot: this.dot
+        }
+      });
+    }
+    else{
+      Modal.show('signUpModal');
+    }
+
   },
 
   'click .disConnect': function(){

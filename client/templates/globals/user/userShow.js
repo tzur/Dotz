@@ -116,7 +116,12 @@ Template.userShow.events({
     });
   },
   'click .follow': function(){
-    Modules.both.Dotz.followUser(Meteor.userId(), _data.userShow._id);
+    if(Meteor.user()) {
+      Modules.both.Dotz.followUser(Meteor.userId(), _data.userShow._id);
+    }
+    else{
+      Modal.show('signUpModal');
+    }
   },
   'click .unFollow': function(){
    Modules.both.Dotz.unFollowUser(Meteor.userId(), _data.userShow._id);
