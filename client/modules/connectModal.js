@@ -9,7 +9,7 @@ let _checkDot = function(dotId){
 
 let getConnectedByOwnerDotz = function(dotId, dotIdWishedToConnectTo) {
   let _dot = Dotz.findOne(dotId);
-  if(dotIdWishedToConnectTo === dotId) {
+  if(dotIdWishedToConnectTo && dotIdWishedToConnectTo === dotId) {
     return false;
   }
   let _dotzConnectedByOwnerArray = [];

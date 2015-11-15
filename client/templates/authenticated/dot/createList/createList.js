@@ -1,4 +1,4 @@
-Template.createCollection.onCreated(function(){
+Template.createListModal.onCreated(function(){
   var self = this;
   self.autorun(function(){
     if(Meteor.userId()){
@@ -12,7 +12,11 @@ Template.createCollection.onCreated(function(){
 });
 
 
-Template.createCollection.onRendered(function(){
+Template.createListModal.onRendered(function(){
+  Session.set("dotType", "List")
+  //tagsArray = Tools.findOne({docName: "dotzTags"});
+  //Meteor.typeahead(".typeahead", tagsArray.tags);
+
 
   //$('#myTabs a').click(function (e) {
   //  e.preventDefault();
@@ -29,14 +33,15 @@ Template.createCollection.onRendered(function(){
 
 });
 
-
-Template.createCollection.onDestroyed(function(){
+Template.createListModal.onDestroyed(function(){
   Session.set('mapTabActive', undefined);
   Session.set('coverImageUrl', undefined);
+  Session.set('dotType', undefined);
+
 });
 
 
-Template.createCollection.helpers({
+Template.createListModal.helpers({
 
   isImageUrl: function(){
     if(Session.get("coverImageUrl")){
@@ -54,11 +59,21 @@ Template.createCollection.helpers({
 
   mapTabActive: function() {
     return (Session.get("mapTabActive"))
-  }
+  },
+
+  dotzTags: function(){
+    tagsArray = Tools.findOne({docName: "dotzTags"});
+    return tagsArray.tags;
+  },
+  //dotType: function(){
+  //  console.log("im running");
+  //  return
+  //
+  //}
 });
 
 
-Template.createCollection.events({
+Template.createListModal.events({
   'click #createToOneOfMyDotz': function(e){
     e.preventDefault();
     Modal.show('createToOneOfMyDotzModal', {
@@ -68,8 +83,8 @@ Template.createCollection.events({
     })
   },
 
-  'click #createToOneOfMyDotz, click #createToMyProfile': function(){
-    Session.set('dotType', "Collection");
+  'click #exitBtn': function(){
+    Modal.hide('createListModal');
   },
 
   //'click #createToMyProfile': function(){
@@ -94,6 +109,10 @@ Template.createCollection.events({
 
   'click #mapTab': function(){
     Session.set('mapTabActive', true);
+  },
+
+  'click .dotTypeBtn': function(e){
+    Session.set("dotType", e.target.id);
   }
 
 });

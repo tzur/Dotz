@@ -1,138 +1,213 @@
-<template name="createCollection">
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-md-5 colCenter">
-
-            <div class="row"><h1 class="txtMd">Create New Collection</h1></div>
-
-          {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
-
-              <!--<div>-->
-              <!--{{> afQuickField name='dotType' label="Dot Type"}}-->
-              <!--</div>-->
-
-              <div>
-                {{> afQuickField name='title' label="Title" placeholder="What is it?"}}
-              </div>
-
-              <div>
-                {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="What makes it special?"}}
-              </div>
-
-              <div>
-                {{> afQuickField name='tags' label="Just tag it if you'd like.."}}
-              </div>
+<template name="createListModal">
+    <div class="modal fade" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
 
 
-              <div>
+                <div id="create-dot-modal" class="container-fluid">
 
-                  <!-- Nav tabs -->
-                  <ul class="nav nav-tabs" role="tablist">
-                      <li role="presentation" class= "active createTab">
-                          <a href="#image" aria-controls="image" role="tab" data-toggle="tab"><i class="fa fa-camera"></i> Image</a></li>
-                      <li id="mapTab" role="presentation" class="createTab">
-                          <a href="#location" aria-controls="location" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i> Location</a></li>
-                      <li role="presentation" class="createTab">
-                          <a href="#eventDetails" aria-controls="eventDetails" role="tab" data-toggle="tab"><i class="fa fa-calendar"></i> Date</a></li>
-                      <li role="presentation" class="createTab">
-                          <a href="#price" aria-controls="price" role="tab" data-toggle="tab"><i class="fa fa-dollar"></i> Price</a></li>
-                      <li role="presentation" class="createTab">
-                          <a href="#link" aria-controls="link" role="tab" data-toggle="tab"><i class="fa fa-link"></i> Link</a></li>
-                  </ul>
+                    <div class="exit-btn">
+                        <a href="#"><button class="btn round btn-delete btn-sm" id="exitBtn"><i class="fa fa-times"></i></button></a>
+                    </div>
 
-                  <!-- Tab panes -->
-                  <div class="tab-content">
+                    <div class="row">
 
-                      <div role="tabpanel" class="tab-pane" id="location">
+                        <div class="modal-title col-xs-12 colCenter">
 
-                        {{#if mapTabActive}}
-                          {{> createDotMap}}
-                        {{/if}}
+                            <div class="row">
+                                <h1 class="txtMd">Create New List</h1>
+                            </div>
 
 
-                      </div>
+                            <!--<div class="row">-->
+                            <!--&lt;!&ndash;<div class="col-xs-12 colCenter">&ndash;&gt;-->
+                            <!--<div class="col-xs-2">-->
+                            <!--<a href="#" class="dotTypeBtn"><i id="Place" class="fa fa-map-marker fa-2x formDotTypeIcons"></i>-->
+                            <!--<br>-->
+                            <!--Place-->
+                            <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class="col-xs-2 dotTypeBtn">-->
+                            <!--<a href="#" class="dotTypeBtn"><i id="Event" class=" fa fa-calendar fa-2x formDotTypeIcons"></i>-->
+                            <!--<br>-->
+                            <!--Event-->
+                            <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class="col-xs-2">-->
+                            <!--<a href="#" class="dotTypeBtn"><i id="Link" class="fa fa-link fa-2x formDotTypeIcons"></i>-->
+                            <!--<br>-->
+                            <!--Link-->
+                            <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class="col-xs-2">-->
+                            <!--<a href="#" class="dotTypeBtn"><i id="Product" class="fa fa-link fa-3x formDotTypeIcons"></i>-->
+                            <!--<br>-->
+                            <!--Stuff-->
+                            <!--</a>-->
+                            <!--</div>-->
 
 
-                      <div role="tabpanel" class="tab-pane" id="eventDetails">
+                            <!--<div class="col-xs-2">-->
+                            <!--<a href="#" class="dotTypeBtn"><i id="Text" class=" fa fa-sticky-note-o fa-2x formDotTypeIcons"></i>-->
+                            <!--<br>-->
+                            <!--Note-->
+                            <!--</a>-->
+                            <!--</div>-->
 
-                          <div class="eventDetails-div optional-field in-tab-wrapper">
+                            <!--<div class="col-xs-2">-->
+                            <!--<a href="#" class="dotTypeBtn">-->
+                            <!--<i id="Collection" class="fa fa-list-ol fa-2x formDotTypeIcons"></i>-->
+                            <!--<br>-->
+                            <!--List-->
 
-                              <div type="bootstrap-datetimepicker" class="eventDetails row">
-                                  <div class="col-xs-6">{{> afQuickField name='startDateAndHour' placeholder="Pick Start Date"}}</div>
-                                  <div class="col-xs-6">{{> afQuickField name='endDateAndHour' placeholder="Pick End Date"}}</div>
-                              </div>
+                            <!--</a>-->
+                            <!--</div>-->
 
-                              <!--<div class="onoffswitch">-->
-                              <!--<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" data-toggle="collapse" href="#repeated">-->
-                              <!--<label class="onoffswitch-label" for="myonoffswitch"></label>-->
+
+                            <!--</div>-->
+
+                        </div>
+
+                            <!--{{#if dotType}}-->
+
+                        <div class="col-xs-10 colCenter">
+
+                          {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
+
+                              <!--<div>-->
+                              <!--{{> afQuickField name='dotType' label="Dot Type"}}-->
                               <!--</div>-->
 
-                              <button id="repeated-btn" class="btn btn-default btn-sm round" href="#repeated" data-toggle="collapse">Repeated ?</button>
+                              <div>
+                                {{> afQuickField name='title' label="Title" placeholder="What is it? E.g. Stand-up show, Picnic, Street food kiosk..."}}
+                              </div>
 
-                              <div id="repeated" class="collapse">
-                                  <div type="bootstrap-datetimepicker" class="eventDetails row">
-                                      <div class="col-xs-6">{{> afQuickField name='repeated' firstOption='None'}}</div>
-                                      <div class="col-xs-6">{{> afQuickField name='endRepeatedDate' placeholder="Pick Repeated End Date"}}</div>
+                              <div>
+                                {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="What can you do there?"}}
+                              </div>
+
+                              <div>
+
+                                  <!-- Nav tabs -->
+                                  <ul class="nav nav-tabs" role="tablist">
+                                      <li role="presentation" class= "active createTab">
+                                          <a href="#image" aria-controls="image" role="tab" data-toggle="tab"><i class="fa fa-camera"></i><br>Image</a></li>
+                                      <li id="mapTab" role="presentation" class="createTab">
+                                          <a href="#location" aria-controls="location" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i><br>Location</a></li>
+                                      <li role="presentation" class="createTab">
+                                          <a href="#eventDetails" aria-controls="eventDetails" role="tab" data-toggle="tab"><i class="fa fa-calendar"></i><br>Date</a></li>
+                                      <li role="presentation" class="createTab">
+                                          <a href="#price" aria-controls="price" role="tab" data-toggle="tab"><i class="fa fa-dollar"></i><br>Price</a></li>
+                                      <li role="presentation" class="createTab">
+                                          <a href="#link" aria-controls="link" role="tab" data-toggle="tab"><i class="fa fa-link"></i><br>Link</a></li>
+                                      <li role="presentation" class="createTab">
+                                          <a href="#tags" aria-controls="tags" role="tab" data-toggle="tab"><i class="fa fa-tag"></i><br>Tags</a></li>
+                                  </ul>
+
+                                  <!-- Tab panes -->
+                                  <div class="tab-content">
+
+                                      <div role="tabpanel" class="tab-pane tab-height" id="location">
+
+                                        {{#if mapTabActive}}
+                                          {{> createDotMap}}
+                                        {{/if}}
+
+                                      </div>
+
+
+                                      <div role="tabpanel" class="tab-pane tab-height" id="eventDetails">
+
+                                          <div class="eventDetails-div optional-field in-tab-wrapper">
+
+                                              <div type="bootstrap-datetimepicker" class="eventDetails row">
+                                                  <div class="col-xs-6">{{> afQuickField name='startDateAndHour' placeholder="Pick Start Date"}}</div>
+                                                  <div class="col-xs-6">{{> afQuickField name='endDateAndHour' placeholder="Pick End Date"}}</div>
+                                              </div>
+
+                                              <!--<div class="onoffswitch">-->
+                                              <!--<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" data-toggle="collapse" href="#repeated">-->
+                                              <!--<label class="onoffswitch-label" for="myonoffswitch"></label>-->
+                                              <!--</div>-->
+
+                                              <button id="repeated-btn" class="btn btn-default btn-sm round" href="#repeated" data-toggle="collapse">Repeated ?</button>
+
+                                              <div id="repeated" class="collapse">
+                                                  <div type="bootstrap-datetimepicker" class="eventDetails row">
+                                                      <div class="col-xs-6">{{> afQuickField name='repeated' firstOption='None'}}</div>
+                                                      <div class="col-xs-6">{{> afQuickField name='endRepeatedDate' placeholder="Pick Repeated End Date"}}</div>
+                                                  </div>
+                                              </div>
+
+
+                                          </div>
+
+                                      </div>
+
+                                      <div role="tabpanel" class="tab-pane active" id="image">
+                                          <div class="image optional-field">
+
+                                            {{#if isImageUrl}}
+                                                <div class="file container-fluid">
+                                                    <div class="row">
+                                                        <div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')"></div>
+                                                    </div>
+                                                </div>
+                                            {{/if}}
+                                              <div id="addDotImage">
+                                                {{> uploader}}
+                                              </div>
+
+                                          </div>
+                                      </div>
+
+                                      <div role="tabpanel" class="tab-pane tab-height" id="link">
+                                          <div class="link optional-field in-tab-wrapper">
+                                            {{> afQuickField name='linkUrl' label="Link" placeholder="Ex: http://www.website.com"}}
+                                          </div>
+                                      </div>
+
+                                      <div role="tabpanel" class="tab-pane tab-height" id="tags">
+                                          <div class="tags optional-field in-tab-wrapper">
+                                            {{> afQuickField name='tags' label="Just tag it if you'd like.." placeholder="Night-Life, Sports, Vacation ..."}}
+                                          </div>
+                                      </div>
+
+                                      <div role="tabpanel" class="tab-pane tab-height" id="price">
+                                          <div class="price optional-field in-tab-wrapper">
+                                            {{> afQuickField name='price' label="Price" placeholder="Price in US Dollars ..."}}
+                                          </div>
+                                      </div>
+
                                   </div>
                               </div>
 
+                              <div>
+                                  <div>
+                                      <div class="col-xs-12 btns-create-dot-row">
 
-                          </div>
+                                          <div class="btns-create-dot">
+                                              <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish To My Profile</button>
+                                            {{#if currentUser.profile.createdByUserDotz}}
+                                                <button id="createToOneOfMyDotz" class="createBtn insert btn round btn-default">Publish To My Dotz</button>
+                                            {{/if}}
+                                          </div>
 
-                      </div>
-
-                      <div role="tabpanel" class="tab-pane active" id="image">
-                          <div class="image optional-field">
-
-                            {{#if isImageUrl}}
-                                <div class="file container-fluid">
-                                    <div class="row">
-                                        <div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')"></div>
-                                    </div>
-                                </div>
-                            {{/if}}
-                              <div id="addDotImage">
-                                {{> uploader}}
+                                      </div>
+                                  </div>
                               </div>
 
-                          </div>
-                      </div>
-
-                      <div role="tabpanel" class="tab-pane" id="link">
-                          <div class="location optional-field in-tab-wrapper">
-                            {{> afQuickField name='linkUrl' label="Link" placeholder="Ex: http://www.website.com"}}
-                          </div>
-                      </div>
-
-                      <div role="tabpanel" class="tab-pane" id="price">
-                          <div class="price optional-field in-tab-wrapper">
-                            {{> afQuickField name='price' label="Price" placeholder="US Dollars only..."}}
-                          </div>
-                      </div>
-
-                  </div>
-              </div>
-
-              <div>
-                  <div>
-                      <div class="col-xs-12 btns-create-dot-row">
-
-                          <div class="btns-create-dot">
-                              <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-lead">Publish To My Profile</button>
-                            {{#if currentUser.profile.createdByUserDotz}}
-                                <button id="createToOneOfMyDotz" class="createBtn insert btn round btn-success">Publish To My Dotz</button>
-                            {{/if}}
-                          </div>
-
-                      </div>
-                  </div>
-              </div>
-
-          {{/autoForm}}
-        </div>
+                          {{/autoForm}}
+                        </div>
+                            <!--{{/if}}-->
+                    </div>
+                </div>
 
 
+            </div>
         </div>
     </div>
 

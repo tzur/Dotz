@@ -6,6 +6,10 @@ Template.authenticatedNavigation.events({
     Modal.show('createDotModal');
   },
 
+  'click .createList': function(){
+    Modal.show('createListModal');
+  },
+
   'click .editUserAccount': function(){
     Modal.show('editUserAccountModal')
   }
