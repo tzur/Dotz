@@ -129,12 +129,17 @@ Template.dotShow.helpers({
 Template.dotShow.events({
 
   'click .connect': function(){
-    Modal.show('connectDotModal',{
-      data:{
-        dotId: _data.dotShow._id,
-        dot: _data.dotShow
-      }
-    });
+    if(Meteor.user()) {
+      Modal.show('connectDotModal', {
+        data: {
+          dotId: _data.dotShow._id,
+          dot: _data.dotShow
+        }
+      });
+    }
+    else{
+      Modal.show('signUpModal');
+    }
   },
 
   'click .editBtn': function(){

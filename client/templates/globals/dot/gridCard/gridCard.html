@@ -1,0 +1,169 @@
+<template name="gridCard">
+
+    <div class="col-xs-12 col-sm-8 col-md-6" id="card-box">
+        <div class="row card">
+
+
+
+
+
+            <div class="cardHeader">
+
+                <div class="container-fluid dot-container-img-card-grid" style="background-image: url('{{dot.coverImageUrl}}')">
+                    <div class="row" >
+
+
+                        <a href="/dot/{{dot._id}}">
+                            <div class="col-md-6" id="imgSide">
+                                <div id="round-overlay">
+
+                                    <div class="imgSideSpacer">
+
+                                    </div>
+
+
+                                    <div class="cardUser">
+
+                                      {{#if userIsTheDotCreator}}
+
+                                          <a href="/{{ownerUser.userSlug}}" class="userImgIcon">
+                                              <img class="userImgIcon" src="{{ownerUser.profileImage}}">
+                                          </a>
+                                          <span class="smTxt"><a href="/{{ownerUser.userSlug}}">{{ownerUser.username}}</a></span>
+                                          <!--<span>  <span>·</span> {{actionDate}}</span>-->
+                                          <span class="greyText smTxt"> · {{actionDate}}</span>
+
+                                      {{else}}
+
+                                          <!--userIsTheDotConnector-->
+
+                                          <!--<div class="col-xs-2">-->
+                                          <a href="/{{connectedByUser.userSlug}}" class="userImgIcon">
+                                              <img class="userImgIcon" src="{{connectedByUser.profileImage}}">
+                                          </a>
+                                          <!--</div>-->
+
+                                          <!--<div class="col-xs-10">-->
+                                          <span class="smTxt"><a href="/{{connectedByUser.userSlug}}">{{connectedByUser.username}}</a></span>
+                                          <span class="greyText smTxt">connected</span>
+                                          <span class="smTxt"> <a href="/{{ownerUser.userSlug}}"> {{ownerUser.username}}</a></span>
+                                          <span class="greyText smTxt">Dot</span>
+                                          <span class="greyText smTxt"> · {{actionDate}}</span>
+                                          <!--</div>-->
+
+                                      {{/if}}
+
+                                    </div> <!--end userCard -->
+
+
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <div class="col-md-6" id="textSide">
+
+                            <div class="content">
+
+                                <a href="/dot/{{dot._id}}">
+
+                                    <div class="cardTitle">
+                                        <!--<h6 class="category">News</h6>-->
+                                        <!--<h4 class="title"><a href="#">{{dot.title}}</a></h4>-->
+                                        <a href="/dot/{{dot._id}}"><h2 class="h2Title">{{dot.title}}</h2></a>
+                                        <!--<p class="description" id="des1">When selling products it's always a good idea to go with commanding.</p>-->
+                                    </div>
+                                    <!--<div class="cardSpacer">-->
+                                    <!--</div>-->
+                                </a>
+
+
+
+                                <div class="cardText">
+                                    <p class="personlDescriptionOrBodyText">{{personlDescriptionOrBodyText}}</p>
+                                </div>
+
+
+                                <!--<div class="cardIcons">-->
+
+                                    <!--{{#if shortenAdress}}-->
+                                <!--<span class="txtL dot-type">-->
+                                <!--<img id="type-icon" src="/place-icon-grey.png">-->
+                                <!--<span class="greyText smTxt">{{shortenAdress}}</span>-->
+                                <!--</span>-->
+                                <!--<br>-->
+                                    <!--{{/if}}-->
+
+                                    <!--{{#if eventDate}}-->
+                                <!--<span class="txtL dot-type">-->
+                                <!--<img id="type-icon" src="/event-icon-grey.png">-->
+                                <!--<span class="greyText smTxt">{{eventDate}}</span>-->
+                                <!--</span>-->
+                                <!--<br>-->
+                                    <!--{{/if}}-->
+
+
+                                    <!--{{#if dot.price}}-->
+                                <!--<span class="txtL dot-type">-->
+                                <!--<img id="type-icon" src="/price-icon-grey.png">-->
+                                <!--<span class="greyText smTxt">{{dot.price}} <span>$</span></span>-->
+                                <!--</span>-->
+                                    <!--{{/if}}-->
+
+                                <!--</div> &lt;!&ndash;end cardIcons&ndash;&gt;-->
+
+
+
+                            </div>
+
+
+                            <div class="btn-connect-div">
+
+                              {{#if isConnected}}
+
+                                  <button type="button" class="connect btn btn-success round btn-sm"><i class="fa fa-plus"></i>
+                                      Connect {{connectCounter}}</button>
+                                  <button type="button" class="disConnect btn btn-delete round btn-sm"><i class="fa fa-minus"></i></button>
+
+                              {{else}}
+
+                                  <button type="button" class="connect btn btn-success round btn-sm"><i class="fa fa-plus"></i>
+                                      Connect {{connectCounter}}</button>
+
+                              {{/if}}
+
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+
+
+
+                      {{#if dotzNum}}
+                          <div class="dotConnectedDotzLastIcon">
+                              <div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>
+                              <div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>
+                          </div>
+                      {{/if}}
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div> <!-- end card -->
+    </div>
+
+
+</template>

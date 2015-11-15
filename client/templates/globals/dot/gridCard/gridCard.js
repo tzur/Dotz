@@ -1,15 +1,5 @@
 
-Template.dotCard.helpers({
-
-  isInOpenList: function() {
-    let parentDotIsOpen = Template.parentData().userShowDot.isOpen;
-    console.log("######## parentDotIsOpen " + parentDotIsOpen)
-    return parentDotIsOpen
-  },
-
-  isListCard: function() {
-    return (this.dot.dotType === "Collection")
-  },
+Template.gridCard.helpers({
 
   isMyDot: function() {
     return (this.dot.ownerUserId === Meteor.userId())
@@ -17,13 +7,20 @@ Template.dotCard.helpers({
 
   //Works for dotzConnectedByOwner, TBD for dotzConnectedByOthers:
   sortIsAvailable: function() {
-    let parentDotOwnerId = Dotz.findOne(this.smartRef.connection.toParentDotId).ownerUserId;
+    let parentDotOwnerId = Dotz.findOne(this.smartRef.parentDot).ownerUserId;
     return ( parentDotOwnerId === Meteor.userId() )
   },
 
   actionDate: function(){
     if (this.dot.createdAtDate) {
       return (moment(this.dot.createdAtDate).fromNow())
+    }
+  },
+
+
+  shortenAdress: function() {
+    if (this.dot.location) {
+      return s.prune(this.dot.location.address, 20);
     }
   },
 
@@ -37,9 +34,9 @@ Template.dotCard.helpers({
     return (this.ownerUser.username === this.connectedByUser.username)
   },
 
-  personalDescriptionOrBodyText: function() {
-    if (this.smartRef.connection.personalDescription) {
-      return s.prune(this.smartRef.connection.personalDescription, 100);
+  personlDescriptionOrBodyText: function() {
+    if (this.smartRef.personalDescription) {
+      return s.prune(this.smartRef.personalDescription, 100);
     }
     else if (this.connectedByUser.id === this.dot.ownerUserId) {
 
@@ -51,27 +48,36 @@ Template.dotCard.helpers({
   },
 
   dotzNum: function() {
-    let connectedDotz = 0;
-    if (this.dot.connectedDotzArray) {
-      connectedDotz = this.dot.connectedDotzArray.length;
+    let ownerDotz = 0;
+    if (this.dot.dotzConnectedByOwner) {
+      ownerDotz = this.dot.dotzConnectedByOwner.length;
     }
-    if (connectedDotz == 0){
+
+    let othersDotz = 0;
+    if (this.dot.dotzConnectedByOthers) {
+      othersDotz = this.dot.dotzConnectedByOthers.length;
+    }
+
+    if ((ownerDotz + othersDotz) === 0) {
       return false;
     }
-    else{
-      return ("+ " + connectedDotz );
+    else {
+      return ("+ " + (ownerDotz + othersDotz) );
     }
-
-
   },
 
   dotOrDotz: function() {
-    let connectedDotz = 0;
-    if (this.dot.connectedDotzArray) {
-      connectedDotz = this.dot.connectedDotzArray.length;
+    let ownerDotz = 0;
+    if (this.dot.dotzConnectedByOwner) {
+      ownerDotz = this.dot.dotzConnectedByOwner.length;
     }
 
-    if ( connectedDotz === 1 ) {
+    let othersDotz = 0;
+    if (this.dot.dotzConnectedByOthers) {
+      othersDotz = this.dot.dotzConnectedByOthers.length;
+    }
+
+    if ( (ownerDotz+othersDotz) === 1 ) {
       return ("Dot");
     }
     else {
@@ -80,7 +86,7 @@ Template.dotCard.helpers({
   },
 
   isConnected: function() {
-    return ( this.smartRef.connection.connectedByUserId === Meteor.userId() )
+    return ( this.smartRef.connectedByUserId === Meteor.userId() )
   },
 
   connectCounter: function() {
@@ -101,8 +107,8 @@ Template.dotCard.helpers({
   },
 
   likeCounter: function(){
-    if (this.smartRef.connection.likes.length > 0) {
-      return this.smartRef.connection.likes.length;
+    if (this.smartRef.likes.length > 0) {
+      return this.smartRef.likes.length;
     }
   }
 
@@ -110,7 +116,7 @@ Template.dotCard.helpers({
 
 
 
-Template.dotCard.events({
+Template.gridCard.events({
 
   'click .like': function(event){
     event.preventDefault();
@@ -122,19 +128,12 @@ Template.dotCard.events({
   },
 
   'click .connect': function(){
-    if(Meteor.user())
-    {
-      Modal.show('connectDotModal',{
-        data:{
-          dotId: this.dot._id,
-          dot: this.dot
-        }
-      });
-    }
-    else{
-      Modal.show('signUpModal');
-    }
-
+    Modal.show('connectDotModal',{
+      data:{
+        dotId: this.dot._id,
+        dot: this.dot
+      }
+    });
   },
 
   'click .disConnect': function(){

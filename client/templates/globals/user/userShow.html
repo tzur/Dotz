@@ -129,26 +129,29 @@
 
             <div>
                 <div class="row user-profile-cards">
-                    <div class="col-xs-12">
+
+<br>
+
+                    <div class="wrapper">
+                        <div class="container">
+                            <div class="masonry-container">
+
+                              {{#each connectedDotzArray}}
+                                {{>dotCard}}
+                              {{/each}}
+
+<br><br><br>
+
+                            </div>
+                        </div>
+                    </div><!-- end wrapper -->
 
 
-
-                      <!--{{>collectionShow}}-->
-
-                      <!--<br>-->
-                      <!--<hr>-->
-                      <!--<br>-->
-
-                      {{#each connectedDotzArray}}
-                        {{>dotCard}}
-                      {{/each}}
-
-                      {{#if emptyMix}}
-                          <h4>{{user.username}} Still didn't had a chance to create a dot</h4>
-                      {{/if}}
+                            {{#if emptyProfile}}
+                                <h4>{{user.username}} Still didn't had a chance to create a dot</h4>
+                            {{/if}}
 
 
-                    </div>
                 </div>
             </div>
 

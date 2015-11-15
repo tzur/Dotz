@@ -14,7 +14,7 @@ Meteor.publish( 'userByUserSlug', function( userSlug ) {
 });
 
 Meteor.publish('allUsers', function(){
-  return Meteor.users.find({})
+  return Meteor.users.find({});
 });
 
 Meteor.publish('dotzArrayToUserCursor',function(dotzArray){

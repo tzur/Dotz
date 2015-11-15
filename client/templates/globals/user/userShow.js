@@ -7,26 +7,27 @@ Template.userShow.onCreated(function() {
 
       let userSlug = FlowRouter.getParam('userSlug');
       if (userSlug) {
-        self.subscribe('userByUserSlug', userSlug, function(){
-          _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug});
-          if (!_data.userShow){
-            FlowRouter.go('/');
-            Bert.alert('Page does not exist', 'danger');
-          }
-          else{
-            console.log("HAS USER");
-            Session.set('userSubscribeFinished', true);
-          }
-        });
+          self.subscribe('userByUserSlug', userSlug, function(){
+              _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug});
+              if (!_data.userShow){
+                FlowRouter.go('/');
+                Bert.alert('Page does not exist', 'danger');
+              }
+              else{
+                Session.set('userSubscribeFinished', _data.userShow);
+              }
+          });
       }
-      if (Session.get('userSubscribeFinished')) {
-            let dotId =_data.userShow.profile.profileDotId;
-            if (dotId) {
-              self.subscribe('dotShow', dotId);
-              _data.userShowDot = Dotz.findOne(dotId);
-              Session.set('dot', _data.userShowDot);
-            }
 
+      if (Session.get('userSubscribeFinished')) {
+          //if (_data.userShow.profile) {
+          //    let dotId =_data.userShow.profile.profileDotId;
+          let dotId = Session.get('userSubscribeFinished').profile.profileDotId;
+          if (dotId) {
+            self.subscribe('dotShow', dotId);
+            _data.userShowDot = Dotz.findOne(dotId);
+            Session.set('dot', _data.userShowDot);
+          }
           if (_data.userShowDot) {
             //subscribe all the relevant data for connectedDotzArray:
             self.subscribe('smartRefToDotzCursor', _data.userShowDot.connectedDotzArray);
@@ -96,6 +97,7 @@ Template.userShow.helpers({
 
 });
 
+
 Template.userShow.events({
   'click .followersNum': function(){
     var userIds = this.userShow.profile.followers;
@@ -114,7 +116,12 @@ Template.userShow.events({
     });
   },
   'click .follow': function(){
-    Modules.both.Dotz.followUser(Meteor.userId(), _data.userShow._id);
+    if(Meteor.user()) {
+      Modules.both.Dotz.followUser(Meteor.userId(), _data.userShow._id);
+    }
+    else{
+      Modal.show('signUpModal');
+    }
   },
   'click .unFollow': function(){
    Modules.both.Dotz.unFollowUser(Meteor.userId(), _data.userShow._id);
