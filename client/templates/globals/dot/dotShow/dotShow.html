@@ -2,6 +2,38 @@
 <!--{{#if Template.subscriptionsReady}}-->
 {{#with data}}
 
+
+
+
+{{#if isListShow}}
+
+
+    <div class="container-fluid" id="listShowHeader">
+
+        <div class="row postImgCover" style="background-image: url('{{dotShow.coverImageUrl}}')">
+
+        </div><!--end div row-->
+
+
+
+        <div class="spacer">
+
+            <br>
+            <br>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+{{else}} <!--this is a dotShow-->
+
     <div class="container-fluid dot-show-header">
         <div class="row">
 
@@ -127,26 +159,40 @@
 
     </div>
 
+  {{#if dotShow.connectedDotzArray}}
+          <div class="row dot-divider-hr">
+              <hr class="lightGrey">
+              <div class="dot-divider-box col-xs-4 colCenter">Connected Dotz by {{dotShowUser.username}}</div>
+          </div>
+
+  {{/if}}
+
+
+{{/if}} <!--check if is ListShow or DotShow-->
+
+
+
     <!--Anchor-->
     <a name="connectedDotz"></a>
 
-{{#if dotShow.connectedDotzArray}}
-    <div class="row dot-divider-hr">
-        <hr class="lightGrey">
-       <div class="dot-divider-box col-xs-4 colCenter">Connected Dotz by {{dotShowUser.username}}</div>
-    </div>
 
-    <div class="container-fluid">
-      <div class="row">
-          <div class="col-xs-12">
-            {{#each connectedDotzArray}}
-              {{>dotCard}}
-            {{/each}}
-          </div>
-      </div>
-    </div>
+
+{{#if dotShow.connectedDotzArray}}
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="masonry-container">
+
+              {{#each connectedDotzArray}}
+                {{>dotCard}}
+              {{/each}}
+
+            </div>
+        </div>
+    </div><!-- end wrapper -->
 
 {{/if}}
+
 
     <div class="col-xs-4 col-sm-3 colCenter">
     <p>Add your connection.. (Coming Soon)</p>

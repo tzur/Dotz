@@ -4,6 +4,13 @@ _data = {};
 Template.dotShow.onCreated(function() {
 
   let self = this;
+  self.subs = new SubsManager({
+    // maximum number of cache subscriptions
+    cacheLimit: 10,
+    // any subscription will be expire after 5 minute, if it's not subscribed again
+    expireIn: 5
+  });
+
   self.autorun(function() {
 
     if(!GoogleMaps.loaded()){
@@ -12,19 +19,19 @@ Template.dotShow.onCreated(function() {
 
     let dotId = FlowRouter.getParam('dotId');
     if (dotId) {
-      self.subscribe('dotShow', dotId);
+      self.subs.subscribe('dotShow', dotId);
       _data.dotShow = Dotz.findOne(dotId);
       Session.set('dot', _data.dotShow);
     }
 
     if (_data.dotShow) {
 
-      self.subscribe('user', _data.dotShow.ownerUserId );
+      self.subs.subscribe('user', _data.dotShow.ownerUserId );
       _data.dotShowUser = Meteor.users.findOne(_data.dotShow.ownerUserId);
       if (_data.dotShow.connectedDotzArray) {
         //subscribe all the relevant data for dotzConnectedByOwner:
-        self.subscribe('smartRefToDotzCursor', _data.dotShow.connectedDotzArray);
-        self.subscribe('smartRefToUsersCursor', _data.dotShow.connectedDotzArray);
+        self.subs.subscribe('smartRefToDotzCursor', _data.dotShow.connectedDotzArray);
+        self.subs.subscribe('smartRefToUsersCursor', _data.dotShow.connectedDotzArray);
         //send smartRef to module:
         //_data.dotzConnectedByOwnerObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOwner);
       }
@@ -47,6 +54,12 @@ Template.dotShow.helpers({
       //return _data;
     }
     return _data;
+  },
+
+  isListShow: function() {
+    if (_data.dotShow) {
+      return (_data.dotShow.dotType === "List")
+    }
   },
 
   isMyDot: function() {
@@ -121,7 +134,7 @@ Template.dotShow.helpers({
     if (Session.get('dot')) {
       return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').connectedDotzArray);
     }
-  },
+  }
 
 });
 

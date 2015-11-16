@@ -4,8 +4,7 @@
  */
 let _docValidation = (doc) => {
   return ( doc.ownerUserId === Meteor.userId() &&
-           doc.inDotz.length === 1 &&
-           !doc.dotzConnectedByOthers )
+           doc.inDotz.length === 1 )
 };
 
 Meteor.methods({
@@ -35,7 +34,9 @@ Meteor.methods({
           let smartRef = new Modules.both.Dotz.smartRef(dotId, Meteor.userId() ,doc.inDotz[0], CREATE_ACTION, doc.ownerUserId);
           Modules.both.Dotz.connectDot(smartRef);
          // Modules.both.Dotz.updateFeed(smartRef, doc.ownerUserId);
-          Meteor.call('updateUserAllUserDotz', Meteor.userId(), dotId, function (error, result) {
+
+          if(doc.dotType === "List"){
+            Meteor.call('updateCreatedByUserLists', Meteor.userId(), dotId, function (error, result) {
               if (error) {
                 console.log("THE ERROR IS:" + error);
                 myFuture.throw(error);
@@ -43,7 +44,20 @@ Meteor.methods({
               else if (!error) {
                 myFuture.return(dotId);
               }
-          });
+            });
+          }
+          else{
+            Meteor.call('updateCreatedByUserDotz', Meteor.userId(), dotId, function (error, result) {
+              if (error) {
+                console.log("THE ERROR IS:" + error);
+                myFuture.throw(error);
+              }
+              else if (!error) {
+                myFuture.return(dotId);
+              }
+            });
+          }
+
         }
         else{
           console.log("ASD ASD ASD ASD ASD ASD");

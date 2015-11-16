@@ -1,4 +1,5 @@
 <template name="createListModal">
+
     <div class="modal fade" data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -23,63 +24,126 @@
 
                         </div>
                     </div>
-                            <!--{{#if dotType}}-->
 
-                  <div class="row">
+                    <div class="row">
 
-                        <div class="col-xs-10 colCenter">
-
+                        <div class="container-fluid colCenter" id="createListFields">
                           {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
 
-                              <!--<div>-->
-                              <!--{{> afQuickField name='dotType' label="Dot Type"}}-->
-                              <!--</div>-->
+                              <div class="listTitle container-fluid">
 
-                              <div>
-                                  <div class="col-xs-12">
-                                     {{> afQuickField id="titleField-list" name='title' label="Title" placeholder="Enter List Title"}}
-                                      <div id="titleFieldFeedback"></div>
+                                  <div class="col-xs-12 col-sm-2">
+                                      <p><strong>Title:</strong></p>
+                                  </div>
+
+                                  <div class="col-xs-12 col-sm-10">
+                                    {{> afQuickField name='title' label="Title" placeholder="What is it? E.g. Stand-up show, Picnic, Street food kiosk..."}}
                                   </div>
                               </div>
 
-                              <div class="col-xs-12">
-                                {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="Add a Description"}}
+                              <!--<hr>-->
+
+                              <div class="listDescription container-fluid">
+
+                                  <div class="col-xs-12 col-sm-2">
+                                      <p><strong>Description:</strong></p>
+                                  </div>
+
+                                  <div class="col-xs-12 col-sm-10">
+                                    {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="What can you do there?"}}
+                                  </div>
+
                               </div>
 
-                              <div class="col-xs-12">
+                              <!--<hr>-->
 
+                              <div class="listImage container-fluid">
 
-                              <div class="container-fluid image-create-preview">
-                                  <div class="image optional-field">
+                                  <div class="col-xs-12 col-sm-2">
+                                      <p><strong>Image:</strong></p>
+                                  </div>
 
-                                    {{#if isImageUrl}}
-                                        <div class="file container-fluid">
-                                            <div class="row">
-                                                <div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')"></div>
-                                            </div>
-                                        </div>
-                                    {{/if}}
-                                      <div class="container-fluid">
-                                          <div class="row">
-                                              <div class="col-xs-12 txtMd">
-                                                  <i class="fa greyText fa-camera fa-3x btn-file">
-                                                      <input type="file">
-                                                  </i>
+                                  <div class="col-xs-12 col-sm-10">
+                                      <div class="container-fluid image-create-preview">
+                                          <div class="image optional-field">
+
+                                            {{#if isImageUrl}}
+                                                <div class="file container-fluid">
+                                                    <div class="row">
+                                                        <div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')"></div>
+                                                    </div>
+                                                </div>
+                                            {{/if}}
+                                              <div class="container-fluid">
+                                                  <div class="row">
+                                                      <div class="col-xs-12 txtMd">
+                                                          <i class="fa greyText fa-camera fa-3x btn-file">
+                                                              <input type="file">
+                                                          </i>
+                                                      </div>
+                                                  </div>
                                               </div>
+
+                                              <div id="addDotImage-list">
+                                                {{> uploader}}
+                                              </div>
+
+
                                           </div>
                                       </div>
-
-                                      <div id="addDotImage-list">
-                                        {{> uploader}}
-                                      </div>
-
-
                                   </div>
                               </div>
 
 
 
-                          </div>
+
+
+                              <!--<div class="listDescription container-fluid">-->
+
+                              <!--<div class="col-xs-12 col-sm-2">-->
+                              <!--<p><strong>Open Lest:</strong></p>-->
+                              <!--</div>-->
+
+                              <!--<div class="col-xs-12 col-sm-10">-->
+
+
+
+
+                              <!--<input type="checkbox" checked data-toggle="switch" class="ct-green"/>-->
+
+                              <!--<input type="checkbox" data-toggle="switch" />-->
+
+
+                              <!--<div class="switch"-->
+
+                              <!--data-on-label="<i class='fa fa-check'></i>"-->
+
+                              <!--data-off-label="<i class='fa fa-times'></i>">-->
+
+                              <!--<input type="checkbox" checked/>-->
+
+                              <!--</div>-->
+
+                              <!--<div class="switch"-->
+
+                              <!--data-on-label="<i class='fa fa-check'></i>"-->
+
+                              <!--data-off-label="<i class='fa fa-times'></i>">-->
+
+                              <!--<input type="checkbox"/>-->
+
+                              <!--</div>-->
+
+
+
+
+                              <!--</div>-->
+
+                              <!--</div>-->
+
+
+
+
 
 
                               <div>
@@ -87,9 +151,14 @@
                                       <div class="col-xs-12 btns-create-dot-row">
 
                                           <div class="btns-create-dot">
-                                              <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish To My Profile</button>
-                                            {{#if currentUser.profile.createdByUserDotz}}
-                                                <button id="createToOneOfMyDotz" class="createBtn insert btn round btn-default">Publish To My Dotz</button>
+                                              <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish</button>
+                                            {{#if currentUser.profile.createdByUserLists}}
+
+                                                <button type="button" class="createBtn insert btn round btn-default"
+                                                        data-toggle="collapse" data-target="#createToOneOfMyLists">
+                                                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                                                </button>
+
                                             {{/if}}
                                           </div>
 
@@ -97,9 +166,22 @@
                                   </div>
                               </div>
 
+                              <div class="publishToMyLists container-fluid">
+                                  <div class="col-xs-12">
+
+                                      <div id="createToOneOfMyLists" class="collapse">
+                                        {{> createToOneOfMyLists}}
+                                      </div>
+
+                                  </div>
+                              </div>
+
+
+
+
                           {{/autoForm}}
                         </div>
-                            <!--{{/if}}-->
+
                     </div>
                 </div>
 
@@ -107,7 +189,5 @@
             </div>
         </div>
     </div>
-
-
 
 </template>
