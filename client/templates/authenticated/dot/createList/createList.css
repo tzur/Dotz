@@ -1,1 +1,39 @@
+
 /*css is in creatDot.css*/
+
+#createListFields {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+#createListFields hr {
+  border-color: rgba(0,0,0,0);
+}
+
+#createListFields .image-create-preview {
+  background-color: #Fafafa;
+  border: 1px solid #d6d3ce;
+  border-radius: 4px;
+}
+
+
+
+#createListFields textarea {
+  background-color: #Fafafa;
+  border: 1px solid #d6d3ce;
+}
+
+#createListFields input {
+  background-color: #Fafafa;
+  border: 1px solid #d6d3ce;
+}
+
+.listTitle {
+  /*margin-top: 2vh;*/
+  margin-bottom: 0;
+}
+
+.listDescription {
+  /*margin-top: 3vh;*/
+  margin-bottom: 0;
+}
