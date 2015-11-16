@@ -86,3 +86,10 @@ input.ct-green + span.switch-left, input.ct-green + span + label + span.switch-r
   transition: 0.25s ease-out;
 }
 
+
+
+#createToOneOfMyLists {
+  height: 30vh;
+  overflow: scroll;
+}
+

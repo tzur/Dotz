@@ -1,15 +1,54 @@
+
+
+
 .miniListCard {
   margin-bottom: 1vh;
 }
 
 .miniListCard .container-fluid {
   background-color: rgba(0,0,0,0.4);
+  padding: 0;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  position: relative;
+  width: 100%;
   height: 10vh;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
 }
 
+.miniListCard .filter {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+}
 
 .dotTitle-connect-modal {
   margin: 0;
 }
+
+.miniListCard .dotTitle {
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+.miniListCard .publishHere {
+  padding: inherit;
+  background-color: #337ab7;
+  border-color: #FFFFFF;
+  width: 15vh;
+  /*margin: 2vh;*/
+  /*text-align: center;*/
+}
+
+.miniListCard .publishButton {
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+
+
+
+

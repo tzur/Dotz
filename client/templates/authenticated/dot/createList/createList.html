@@ -36,9 +36,14 @@
                                       <p><strong>Title:</strong></p>
                                   </div>
 
-                                  <div class="col-xs-12 col-sm-10">
-                                    {{> afQuickField name='title' label="Title" placeholder="Romantic Night Out / Hipster day in TLV / etc..."}}
+                                  <div class="col-xs-10 col-sm-9">
+                                    {{> afQuickField id="titleField" name='title' label="Title" placeholder="Romantic Night Out / Hipster day in TLV / etc..."}}
+
+                                  <div class="col-xs-2 col-sm-1" id="titleFieldFeedback"></div>
                                   </div>
+
+
+
                               </div>
 
                               <!--<hr>-->
@@ -77,9 +82,11 @@
                                               <div class="container-fluid">
                                                   <div class="row">
                                                       <div class="col-xs-12 txtMd">
-                                                          <i class="fa greyText fa-camera fa-3x btn-file">
-                                                              <input type="file">
-                                                          </i>
+                                                          <a href="#">
+                                                              <i class="fa greyText fa-camera fa-3x btn-file">
+                                                                  <input type="file">
+                                                              </i>
+                                                          </a>
                                                       </div>
                                                   </div>
                                               </div>
@@ -167,13 +174,9 @@
                               </div>
 
                               <div class="publishToMyLists container-fluid">
-                                  <div class="col-xs-12">
-
-                                      <div id="createToOneOfMyLists" class="collapse">
+                                      <div id="createToOneOfMyLists" class="collapse col-xs-12">
                                         {{> createToOneOfMyLists}}
                                       </div>
-
-                                  </div>
                               </div>
 
 
