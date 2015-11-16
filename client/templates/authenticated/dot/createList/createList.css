@@ -16,6 +16,10 @@
   border-radius: 4px;
 }
 
+#createListFields .openList {
+  margin-top: 2vh;
+}
+
 #createListFields button {
   margin-right: 0;
   margin-left: 0;
@@ -28,6 +32,11 @@
 }
 
 #createListFields input {
+  background-color: #Fafafa;
+  border: 1px solid #d6d3ce;
+}
+
+#createListFields select {
   background-color: #Fafafa;
   border: 1px solid #d6d3ce;
 }
