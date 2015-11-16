@@ -1,0 +1,15 @@
+.miniListCard {
+  margin-bottom: 1vh;
+}
+
+.miniListCard .container-fluid {
+  background-color: rgba(0,0,0,0.4);
+  height: 10vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+
+.dotTitle-connect-modal {
+  margin: 0;
+}

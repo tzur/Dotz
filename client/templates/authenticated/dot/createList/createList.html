@@ -95,22 +95,89 @@
                     </div>
 
 
+
+
+
+                        <!--<div class="listDescription container-fluid">-->
+
+                            <!--<div class="col-xs-12 col-sm-2">-->
+                                <!--<p><strong>Open Lest:</strong></p>-->
+                            <!--</div>-->
+
+                            <!--<div class="col-xs-12 col-sm-10">-->
+
+
+
+
+                                <!--<input type="checkbox" checked data-toggle="switch" class="ct-green"/>-->
+
+                                <!--<input type="checkbox" data-toggle="switch" />-->
+
+
+                                <!--<div class="switch"-->
+
+                                     <!--data-on-label="<i class='fa fa-check'></i>"-->
+
+                                     <!--data-off-label="<i class='fa fa-times'></i>">-->
+
+                                    <!--<input type="checkbox" checked/>-->
+
+                                <!--</div>-->
+
+                                <!--<div class="switch"-->
+
+                                     <!--data-on-label="<i class='fa fa-check'></i>"-->
+
+                                     <!--data-off-label="<i class='fa fa-times'></i>">-->
+
+                                    <!--<input type="checkbox"/>-->
+
+                                <!--</div>-->
+
+
+
+
+                            <!--</div>-->
+
+                        <!--</div>-->
+
+
+
+
+
+
                             <div>
                                 <div>
                                     <div class="col-xs-12 btns-create-dot-row">
 
                                         <div class="btns-create-dot">
-                                            <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish To My Profile</button>
-                                          {{#if currentUser.profile.createdByUserDotz}}
-                                              <button id="createToOneOfMyDotz" class="createBtn insert btn round btn-default">
-                                                  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                                            <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish</button>
+                                          {{#if currentUser.profile.createdByUserLists}}
+
+                                              <button type="button" class="createBtn insert btn round btn-default"
+                                                      data-toggle="collapse" data-target="#createToOneOfMyLists">
+                                              <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                                               </button>
+
                                           {{/if}}
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
+
+                        <div class="publishToMyLists container-fluid">
+                            <div class="col-xs-12">
+
+                                <div id="createToOneOfMyLists" class="collapse">
+                                  {{> createToOneOfMyLists}}
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
 
                         {{/autoForm}}
                       </div>
