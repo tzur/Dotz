@@ -19,7 +19,7 @@ Template.createToOneOfMyLists.helpers({
 });
 
 Template.createToOneOfMyLists.events({
-  'click .createToBtn': function () {
+  'click .publishHere': function () {
     Session.set('parentDot', this._id);
     $('#createToMyProfile').trigger('click');
     Modal.hide('createDotModal');
