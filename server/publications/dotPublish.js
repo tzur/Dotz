@@ -75,7 +75,7 @@ Meteor.publish('smartRefToUsersCursor', function(smartRefArray){
     userIds.push(smartRef.connection.connectedByUserId);
     userIds.push(dot.ownerUserId);
   });
-  return Meteor.users.find({_id: {$in: userIds}}, {fields: {"services.password": 0, "emails.address": 0, "emails.verified": 0}} );
+  return Meteor.users.find({_id: {$in: userIds}}, {fields: {"services.password": 0, "services.loginTokens": 0, "emails.address": 0, "emails.verified": 0}} );
 });
 
 Meteor.publish('smartRefToDotzCursor', function(smartRefArray) {
@@ -84,5 +84,5 @@ Meteor.publish('smartRefToDotzCursor', function(smartRefArray) {
   smartRefArray.forEach(function (smartRef) {
     dotIds.push(smartRef.dot._id);
   });
-  return Dotz.find({_id: {$in: dotIds}}, {fields: {"services.password": 0, "emails.address": 0, "emails.verified": 0}});
+  return Dotz.find({_id: {$in: dotIds}}, {fields: {"services.password": 0, "services.loginTokens": 0, "emails.address": 0, "emails.verified": 0}});
 });

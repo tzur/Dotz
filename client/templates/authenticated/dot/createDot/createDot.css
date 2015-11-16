@@ -10,6 +10,12 @@
   z-index: 1;
 }
 
+.add-image-create-modal {
+  font-size: large;
+  padding-top: 0.25em;
+  padding-left: 0;
+}
+
 .exit-btn .btn-delete {
    color: #C5C5C5;
    background-color: transparent;
@@ -30,7 +36,7 @@
 }
 
 
-.modal-title h1 {
+.modal-title h3 {
   color: #ffffff;
 }
 
@@ -136,6 +142,41 @@ button .collapsed {
   padding: 0.5em;
 }
 
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.image .btn-file {
+  padding: 0.5em 0;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+#addDotImage-list {
+  display: none;
+}
+
+.image-create-preview {
+  padding: 1em 1em 0 1em;
+  background-color: #E8E8E8;
+}
+
 /*repeated date button*/
 
 /*.onoffswitch {*/
@@ -172,3 +213,4 @@ button .collapsed {
 /*}*/
 
 /*end of repeated date button*/
+

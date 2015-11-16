@@ -91,7 +91,7 @@ Template.createListModal.events({
   //  Modal.hide('createToOneOfMyDotzModal');
   //},
 
-  'change #addDotImage input[type="file"]': function(){
+  'change #addDotImage-list input[type="file"]': function(){
     Tracker.autorun(function(c) {
       document.getElementById("createToMyProfile").disabled = true;
       if(document.getElementById("createToOneOfMyDotz")){
@@ -113,6 +113,10 @@ Template.createListModal.events({
 
   'click .dotTypeBtn': function(e){
     Session.set("dotType", e.target.id);
+  },
+
+  'change input[type="file"]' ( event, template ) {
+    Modules.client.uploadToAmazonS3( { event: event, template: template } );
   }
 
 });
