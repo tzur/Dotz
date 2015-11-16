@@ -15,6 +15,7 @@ Template.createDotModal.onCreated(function(){
 Template.createDotModal.onRendered(function(){
 
   Modules.client.Dotz.limitCharactersAndCounter('#titleField', 50, '#titleFieldFeedback');
+  Session.set("dotType", "Dot")
   //tagsArray = Tools.findOne({docName: "dotzTags"});
   //Meteor.typeahead(".typeahead", tagsArray.tags);
 
@@ -66,11 +67,6 @@ Template.createDotModal.helpers({
   dotzTags: function(){
     tagsArray = Tools.findOne({docName: "dotzTags"});
     return tagsArray.tags;
-  },
-  dotType: function(){
-    console.log("im running");
-    return Session.get("dotType")
-
   }
 });
 
@@ -111,10 +107,6 @@ Template.createDotModal.events({
 
   'click #mapTab': function(){
     Session.set('mapTabActive', true);
-  },
-
-  'click .dotTypeBtn': function(e){
-    Session.set("dotType", e.target.id);
   }
 
 });

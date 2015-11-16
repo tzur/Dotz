@@ -57,7 +57,7 @@ Template.connectDotModal.events({
     let personalDescription = $('#personalDescription').val();
     let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), Session.get('dotOwnerUserId'),
       this._id, CONNECT_ACTION, Meteor.userId(),personalDescription);
-    Modules.both.Dotz.connectDot(smartRef)
+    Modules.both.Dotz.connectDot(smartRef);
     Modal.hide('createDotModal');
 
   }

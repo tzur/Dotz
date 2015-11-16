@@ -30,16 +30,7 @@
                   <ul>
                     {{#if findDotz}}
 
-                    <!--{{#EasySearch.Each index=dotzIndex }}-->
-                        <!--<li>Name of the dot: {{title}} {{bodyText}}</li>-->
-                            <!--{{/EasySearch.Each}}-->
-
-                            <!--{{#EasySearch.IfNoResults index=dotzIndex}}-->
-                        <!--<div class="no-results">No results found!</div>-->
-                            <!--{{/EasySearch.IfNoResults}}-->
-
                       {{#each result}}
-                          <!--{{dot.title}} {{dot.bodyText}} {{ownerUser.username}} <br>-->
                         <div class="dot-card-search-wrapper">
                           {{> dotCardSearch}}
                         </div>
@@ -51,90 +42,5 @@
             </div>
         </div>
     </div>
-
-
-
-    <!--<div class="container-fluid divHeader">-->
-
-        <!--<div class="row">-->
-            <!--<div id="mixDescription" class="col-xs-12 col-sm-10 col-md-6 colCenter txtMd">-->
-
-                <!--<h1 class="darkText">What Do You Wanna Do?</h1>-->
-
-            <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="row">-->
-            <!--<div id="mixDescription" class="col-xs-12 col-sm-6 col-md-4 colCenter txtMd">-->
-
-              <!--{{resultsLabels}}-->
-              <!--{{> esInput index=indexes class="form-control round" placeholder='"Eat", "Surf", "Dance" ...' }}-->
-
-            <!--</div>-->
-        <!--</div>-->
-
-    <!--</div>-->
-
-    <!--<hr class="darkText">-->
-
-    <!--<div class="container-fluid search">-->
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12 col-sm-10 col-lg-9 colCenter">-->
-
-              <!--{{#ifEsHasNoResults index=indexes}}-->
-                  <!--<h2 class="no-results">No posts found!</h2>-->
-              <!--{{/ifEsHasNoResults}}-->
-
-              <!--{{#ifEsIsSearching index=indexes}}-->
-                  <!--<h2>Loading...</h2>-->
-              <!--{{/ifEsIsSearching}}-->
-
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="container-fluid searchResults search">-->
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12 col-sm-10 col-lg-9 colCenter">-->
-              <!--{{#if postResults}}-->
-                  <!--<h2>Dots:</h2>-->
-              <!--{{/if}}-->
-            <!--</div>-->
-        <!--</div>-->
-
-      <!--{{#esEach index="posts"}}-->
-        <!--{{> newDot}}-->
-      <!--{{/esEach}}-->
-        <!--<div class="container-fluid loadMore">-->
-            <!--<div class="row">-->
-                <!--<div class="col-xs-8 col-sm-4 colCenter txtMd">-->
-                  <!--{{> esLoadMoreButton class="connect btn btn-success round btn-lg" index="posts"}}-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
-
-    <!--<div class="container-fluid searchResults search">-->
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12 col-sm-10 col-lg-9 colCenter">-->
-              <!--{{#if mixResults}}-->
-                  <!--<h2>Collections:</h2>-->
-              <!--{{/if}}-->
-            <!--</div>-->
-        <!--</div>-->
-      <!--{{#esEach index="mixes"}}-->
-        <!--{{> newDot}}-->
-      <!--{{/esEach}}-->
-
-        <!--<div class="container-fluid">-->
-            <!--<div class="row">-->
-                <!--<div class="col-xs-8 col-sm-4 colCenter txtMd">-->
-                  <!--{{> esLoadMoreButton class="connect btn btn-success round btn-lg" index="mixes"}}-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
 
 </template>
