@@ -152,6 +152,10 @@ button .collapsed {
   padding: 0.5em 0;
 }
 
+.tab-pane .btn-file {
+  padding: 0.5em 0 0 0;
+}
+
 .btn-file input[type=file] {
   position: absolute;
   top: 0;
@@ -172,10 +176,31 @@ button .collapsed {
   display: none;
 }
 
+#addDotImage {
+  display: none;
+}
+
 .image-create-preview {
   padding: 1em 1em 0 1em;
-  background-color: #E8E8E8;
+  background-color: #fafafa;
 }
+
+.nav-tabs li i {
+  font-size: 1.125em;
+}
+
+/**/
+
+#titleFieldFeedback {
+  position: absolute;
+  color: #ccc;
+  top: 0.25em;
+  right: -1.25em;
+  font-size: 1.125em;
+}
+
+
+
 
 /*repeated date button*/
 

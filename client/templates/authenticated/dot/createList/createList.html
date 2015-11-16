@@ -36,13 +36,14 @@
                               <!--</div>-->
 
                               <div>
-                                  <div class="col-xs-11">
-                                     {{> afQuickField name='title' label="Title" placeholder="What is it? E.g. Stand-up show, Picnic, Street food kiosk..."}}
+                                  <div class="col-xs-12">
+                                     {{> afQuickField id="titleField-list" name='title' label="Title" placeholder="Enter List Title"}}
+                                      <div id="titleFieldFeedback"></div>
                                   </div>
                               </div>
 
                               <div class="col-xs-12">
-                                {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="What can you do there?"}}
+                                {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="Add a Description"}}
                               </div>
 
                               <div class="col-xs-12">
