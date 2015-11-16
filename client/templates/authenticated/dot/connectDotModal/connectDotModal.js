@@ -4,7 +4,7 @@
 Template.connectDotModal.onCreated(function(){
   let self = this;
   self.autorun(function () {
-    self.subscribe('createByUserDotz');
+    self.subscribe('createByUserLists');
   });
 
   });

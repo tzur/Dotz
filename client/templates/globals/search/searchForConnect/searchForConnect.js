@@ -15,24 +15,26 @@ Template.searchBoxForConnect.onCreated(function(){
     }
   });
 });
+
+Template.searchBoxForConnect.onDestroyed(function(){
+  _alreadyConnectedDotz = [];
+});
+
 Template.searchBoxForConnect.helpers({
   dotzIndex: () => DotzIndex,
-  findDotz: function(){
-    if (Session.get('searchInput')){
-      return true;
-    }
-    else{
-      return false;
-    }
+  findDotz: function() {
+    return (Session.get('searchInput'))
   },
+
   result: function(){
-    return Modules.both.Dotz.searchCursorToDataObject(_searchCursor.fetch());
+    return Modules.both.Dotz.searchCursorToDataObjectForConnect(_searchCursor.fetch(), _data.dotShow._id);
+
   }
 
 });
 Template.searchBoxForConnect.events({
   'input #searchInput': function(event, template){
     Session.set('searchInput', event.target.value);
-  }
+    Session.set('_alreadyConnectedDotz', undefined)  }
 });
 

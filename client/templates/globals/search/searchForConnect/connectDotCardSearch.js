@@ -43,43 +43,43 @@ Template.connectDotCardSearch.helpers({
     }
   },
 
-  dotzNum: function() {
-    let ownerDotz = 0;
-    if (this.dot.connectedDotArray) {
-      ownerDotz = this.dot.dotzConnectedByOwner.length;
-    }
+  //dotzNum: function() {
+  //  let ownerDotz = 0;
+  //  if (this.dot.connectedDotArray) {
+  //    ownerDotz = this.dot.dotzConnectedByOwner.length;
+  //  }
+  //
+  //  let othersDotz = 0;
+  //  if (this.dot.dotzConnectedByOthers) {
+  //    othersDotz = this.dot.dotzConnectedByOthers.length;
+  //  }
+  //
+  //  if ((ownerDotz + othersDotz) === 0) {
+  //    return false;
+  //  }
+  //  else {
+  //    return ("+ " + (ownerDotz + othersDotz) );
+  //  }
+  //},
 
-    let othersDotz = 0;
-    if (this.dot.dotzConnectedByOthers) {
-      othersDotz = this.dot.dotzConnectedByOthers.length;
-    }
-
-    if ((ownerDotz + othersDotz) === 0) {
-      return false;
-    }
-    else {
-      return ("+ " + (ownerDotz + othersDotz) );
-    }
-  },
-
-  dotOrDotz: function() {
-    let ownerDotz = 0;
-    if (this.dot.dotzConnectedByOwner) {
-      ownerDotz = this.dot.dotzConnectedByOwner.length;
-    }
-
-    let othersDotz = 0;
-    if (this.dot.dotzConnectedByOthers) {
-      othersDotz = this.dot.dotzConnectedByOthers.length;
-    }
-
-    if ( (ownerDotz+othersDotz) === 1 ) {
-      return ("Dot");
-    }
-    else {
-      return ("Dotz");
-    }
-  },
+  //dotOrDotz: function() {
+  //  let ownerDotz = 0;
+  //  if (this.dot.dotzConnectedByOwner) {
+  //    ownerDotz = this.dot.dotzConnectedByOwner.length;
+  //  }
+  //
+  //  let othersDotz = 0;
+  //  if (this.dot.dotzConnectedByOthers) {
+  //    othersDotz = this.dot.dotzConnectedByOthers.length;
+  //  }
+  //
+  //  if ( (ownerDotz+othersDotz) === 1 ) {
+  //    return ("Dot");
+  //  }
+  //  else {
+  //    return ("Dotz");
+  //  }
+  //},
 
   connectCounter: function() {
     //check if this dot is exist (to avoid some errors during delete action)
@@ -108,13 +108,11 @@ Template.connectDotCardSearch.helpers({
 
 Template.connectDotCardSearch.events({
 
-  'click .connect': function(){
-    Modal.show('connectDotModal',{
-      data:{
-        dotId: this.dot._id,
-        dot: this.dot
-      }
-    });
+  'click #connectBySearchBtn': function(){
+    let personalDescription = $('#personalDescription').val();
+    let smartRef = new Modules.both.Dotz.smartRef(this.dot._id, this.ownerUser.id, _data.dotShow._id,
+                                                  CONNECT_ACTION, Meteor.userId(), personalDescription);
+    Modules.both.Dotz.connectDot(smartRef);
   }
 });
 

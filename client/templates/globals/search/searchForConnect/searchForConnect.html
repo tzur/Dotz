@@ -21,13 +21,25 @@
                 <ul>
                   {{#if findDotz}}
 
-                    {{#each result}}
+                    {{#each result.canBeConnected}}
                         <div class="dot-card-search-wrapper">
-                          {{> connectDotCardSearch}}
+                            {{> connectDotCardSearch}}
                         </div>
                     {{/each}}
 
+                  {{#if result.canNotBeConnected}}
+                      <hr><h5>Already Connected:</h5>
+
+                    {{#each result.canNotBeConnected}}
+                        <div class="dot-card-search-wrapper">
+                            {{> connectDotCardSearch}}
+                        </div>
+                    {{/each}}
                   {{/if}}
+                  {{/if}}
+
+
+
                 </ul>
 
             </div>

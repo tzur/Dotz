@@ -8,13 +8,13 @@
 
 let limitCharactersAndCounter = (inputFieldId, maxCharacters, inputFieldFeedbackId) => {
   var text_max = maxCharacters;
-  $(inputFieldFeedbackId).html(text_max + ' characters remaining');
+  $(inputFieldFeedbackId).html('('+ text_max  + ')');
 
   $(inputFieldId).keyup(function() {
     var text_length = $(inputFieldId).val().length;
     var text_remaining = text_max - text_length;
 
-    $(inputFieldFeedbackId).html(text_remaining + ' characters remaining');
+    $(inputFieldFeedbackId).html('('+ text_remaining + ')');
   });
 
 };

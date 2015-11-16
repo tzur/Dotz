@@ -60,9 +60,9 @@ Meteor.publish( 'dotShow', function( dotId ) {
   }
 });
 
-Meteor.publish('createByUserDotz', function() {
+Meteor.publish('createByUserLists', function() {
   let currentUser = Meteor.users.findOne(this.userId);
-  let createByUserDotz = currentUser.profile.createdByUserDotz;
+  let createByUserDotz = currentUser.profile.createdByUserLists;
   createByUserDotz.push(currentUser.profile.profileDotId);
   return Dotz.find({_id: {$in: createByUserDotz}});
 });

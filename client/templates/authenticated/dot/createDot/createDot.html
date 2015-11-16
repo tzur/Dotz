@@ -79,13 +79,13 @@
                             {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
 
                             <div>
-                              {{> afQuickField id="titleField" name='title' label="Title" placeholder="What is it? E.g. Stand-up show, Picnic, Street food kiosk..."}}
-
+                              {{> afQuickField id="titleField" name='title' label="Title" placeholder="Enter a Title"}}
+                              <div id="titleFieldFeedback"></div>
                             </div>
-                            <div id="titleFieldFeedback"></div>
+
 
                             <div>
-                              {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="What can you do there?"}}
+                              {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="Add a Description"}}
                             </div>
 
                             <div>
@@ -132,6 +132,7 @@
                                             <!--<label class="onoffswitch-label" for="myonoffswitch"></label>-->
                                             <!--</div>-->
 
+
                                             <button id="repeated-btn" class="btn btn-default btn-sm round" href="#repeated" data-toggle="collapse">Repeated ?</button>
 
                                             <div id="repeated" class="collapse">
@@ -156,6 +157,17 @@
                                                   </div>
                                               </div>
                                           {{/if}}
+
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-xs-12 txtMd">
+                                                        <i class="fa greyText fa-camera fa-3x btn-file">
+                                                            <input type="file">
+                                                        </i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div id="addDotImage">
                                               {{> uploader}}
                                             </div>

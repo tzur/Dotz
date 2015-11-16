@@ -18,6 +18,14 @@ Template.createListModal.onRendered(function(){
   //Meteor.typeahead(".typeahead", tagsArray.tags);
 
 
+
+
+  Modules.client.Dotz.limitCharactersAndCounter('#titleField-list', 50, '#titleFieldFeedback');
+  //tagsArray = Tools.findOne({docName: "dotzTags"});
+  //Meteor.typeahead(".typeahead", tagsArray.tags);
+
+
+
   //$('#myTabs a').click(function (e) {
   //  e.preventDefault();
   //  $(this).tab('show')

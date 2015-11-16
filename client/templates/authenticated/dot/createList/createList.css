@@ -1,1 +1,88 @@
+
 /*css is in creatDot.css*/
+
+#createListFields {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+#createListFields hr {
+  border-color: rgba(0,0,0,0);
+}
+
+#createListFields .image-create-preview {
+  background-color: #Fafafa;
+  border: 1px solid #d6d3ce;
+  border-radius: 4px;
+}
+
+#createListFields button {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+
+#createListFields textarea {
+  background-color: #Fafafa;
+  border: 1px solid #d6d3ce;
+}
+
+#createListFields input {
+  background-color: #Fafafa;
+  border: 1px solid #d6d3ce;
+}
+
+.listTitle {
+  /*margin-top: 2vh;*/
+  margin-bottom: 0;
+}
+
+.listDescription {
+  /*margin-top: 3vh;*/
+  margin-bottom: 0;
+}
+
+.createBtn .glyphicon-triangle-bottom {
+  color: #337ab7;
+}
+
+#createToOneOfMyLists {
+  margin-bottom: 5vh;
+}
+
+
+
+
+
+
+
+
+input.ct-green + span.switch-left, input.ct-green + span + label + span.switch-right {
+  background-color: #05ae0e;
+}
+.has-switch span.switch-left {
+  background-color: #2ca8ff;
+  border-left: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 30px 0 0 30px;
+  color: #FFFFFF;
+}
+.has-switch span {
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset; */
+  cursor: pointer;
+  float: left;
+  font-size: 11px;
+  font-weight: 400;
+  height: 24px;
+  line-height: 15px;
+  margin: 0;
+  padding-bottom: 6px;
+  padding-top: 5px;
+  position: relative;
+  text-align: center;
+  text-indent: -10px;
+  width: 50%;
+  z-index: 1;
+  -webkit-transition: 0.25s ease-out;
+  transition: 0.25s ease-out;
+}
+

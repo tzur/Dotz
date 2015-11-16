@@ -107,6 +107,14 @@ Template.createDotModal.events({
 
   'click #mapTab': function(){
     Session.set('mapTabActive', true);
+  },
+
+  'click .dotTypeBtn': function(e){
+    Session.set("dotType", e.target.id);
+  },
+
+  'change input[type="file"]' ( event, template ) {
+    Modules.client.uploadToAmazonS3( { event: event, template: template } );
   }
 
 });
