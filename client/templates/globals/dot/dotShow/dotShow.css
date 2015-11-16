@@ -344,3 +344,8 @@ pre {
   background-color: rgba(0, 0, 0, 0.34);
   cursor: pointer;
 }
+
+
+#dotShowFooter {
+  background-color: rgba(0, 0, 0, 0.1);
+}
