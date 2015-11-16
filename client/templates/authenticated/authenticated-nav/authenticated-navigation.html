@@ -1,24 +1,49 @@
 <template name="authenticatedNavigation">
-  <ul class="nav navbar-nav">
-    <!--<li class="{{currentRoute 'index'}}"><a href="{{pathFor 'index'}}">Index</a></li>-->
-    <!--<li class="{{currentRoute 'dashboard'}}"><a href="{{pathFor 'dashboard'}}">Dashboard</a></li>-->
+  <!--<ul class="nav navbar-nav">-->
+    <!--&lt;!&ndash;<li class="{{currentRoute 'index'}}"><a href="{{pathFor 'index'}}">Index</a></li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li class="{{currentRoute 'dashboard'}}"><a href="{{pathFor 'dashboard'}}">Dashboard</a></li>&ndash;&gt;-->
 
-  <!--TBD: we need to improve this route:    -->
-      <li class="{{currentRoute 'user-show'}}"><a href="/{{currentUser.profile.userSlug}}">My Profile</a></li>
+  <!--&lt;!&ndash;TBD: we need to improve this route:    &ndash;&gt;-->
+      <!--<li class="{{currentRoute 'user-show'}}"><a href="/{{currentUser.profile.userSlug}}">My Profile</a></li>-->
 
-      <li class="createDot"><a href="#">New Dot</a></li>
-      <li class="createList"><a href="#">New List</a></li>
-      <li class="{{currentRoute 'feed'}}"><a href="{{pathFor 'feed'}}">Feed</a></li>
-      <li class="{{currentRoute 'search'}}"><a href="{{pathFor 'search'}}">Search</a></li>
+      <!--<li class="createDot"><a href="#">New Dot</a></li>-->
+      <!--<li class="createList"><a href="#">New List</a></li>-->
+      <!--<li class="{{currentRoute 'feed'}}"><a href="{{pathFor 'feed'}}">Feed</a></li>-->
+      <!--<li class="{{currentRoute 'search'}}"><a href="{{pathFor 'search'}}">Search</a></li>-->
 
-  </ul>
-  <ul class="nav navbar-nav navbar-right">
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.emails.[0].address}} <span class="caret"></span></a>
-      <ul class="dropdown-menu" role="menu">
-          <li class="editUserAccount"><a href="#">Edit Account</a></li>
-        <li class="logout"><a href="#">Logout</a></li>
-      </ul>
-    </li>
-  </ul>
+  <!--</ul>-->
+  <!--<ul class="nav navbar-nav navbar-right">-->
+    <!--<li class="dropdown">-->
+      <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.emails.[0].address}} <span class="caret"></span></a>-->
+      <!--<ul class="dropdown-menu" role="menu">-->
+          <!--<li class="editUserAccount"><a href="#">Edit Account</a></li>-->
+        <!--<li class="logout"><a href="#">Logout</a></li>-->
+      <!--</ul>-->
+    <!--</li>-->
+  <!--</ul>-->
+
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{currentUser.emails.[0].address}}<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li class="{{currentRoute 'user-show'}}"><a href="/{{currentUser.profile.userSlug}}">My Profile</a></li>
+                <li class="createDot"><a href="#">New Dot</a></li>
+                <li class="createList"><a href="#">New List</a></li>
+                <li class="{{currentRoute 'feed'}}"><a href="{{pathFor 'feed'}}">Feed</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="editUserAccount"><a href="#">Edit Account</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Sign Out</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn unstyled-btn"><i class="fa fa-search mdTxt"></i></button>
+    </form>
+
+
 </template>

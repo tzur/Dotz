@@ -1,0 +1,36 @@
+.unstyled-btn {
+  color: #ccc;
+  background-color: transparent;
+  border-color: transparent;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: none;
+  border-radius: 0;
+}
+
+.navbar-form .form-control {
+  border-radius: 24px;
+}
+
+/**/
+
+#navbar-collapse .navbar-nav > li > .dropdown-menu {
+   margin-top: 0;
+   border-top-left-radius: 11px;
+   border-top-right-radius: 11px;
+}
+
+
