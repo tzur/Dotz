@@ -32,24 +32,30 @@
 
                               <div class="listTitle container-fluid">
 
-                                  <div class="col-xs-12 col-sm-2">
+                                  <div class="col-xs-12 col-sm-3">
                                       <p><strong>Title:</strong></p>
                                   </div>
 
-                                  <div class="col-xs-12 col-sm-10">
-                                    {{> afQuickField name='title' label="Title" placeholder="Romantic Night Out / Hipster day in TLV / etc..."}}
+                                  <div class="col-xs-11 col-sm-8">
+                                    {{> afQuickField id="titleField" name='title' label="Title" placeholder="Romantic Night Out / Hipster day in TLV / etc..."}}
+                                      <div class="col-xs-1 col-sm-1" id="titleFieldFeedback"></div>
                                   </div>
+
+
+
+
+
                               </div>
 
                               <!--<hr>-->
 
                               <div class="listDescription container-fluid">
 
-                                  <div class="col-xs-12 col-sm-2">
+                                  <div class="col-xs-12 col-sm-3">
                                       <p><strong>Description:</strong></p>
                                   </div>
 
-                                  <div class="col-xs-12 col-sm-10">
+                                  <div class="col-xs-12 col-sm-9">
                                     {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="What's your List about?"}}
                                   </div>
 
@@ -59,11 +65,11 @@
 
                               <div class="listImage container-fluid">
 
-                                  <div class="col-xs-12 col-sm-2">
+                                  <div class="col-xs-12 col-sm-3">
                                       <p><strong>Image:</strong></p>
                                   </div>
 
-                                  <div class="col-xs-12 col-sm-10">
+                                  <div class="col-xs-12 col-sm-9">
                                       <div class="container-fluid image-create-preview">
                                           <div class="image optional-field">
 
@@ -77,9 +83,11 @@
                                               <div class="container-fluid">
                                                   <div class="row">
                                                       <div class="col-xs-12 txtMd">
-                                                          <i class="fa greyText fa-camera fa-3x btn-file">
-                                                              <input type="file">
-                                                          </i>
+                                                          <a href="#">
+                                                              <i class="fa greyText fa-camera fa-3x btn-file">
+                                                                  <input type="file">
+                                                              </i>
+                                                          </a>
                                                       </div>
                                                   </div>
                                               </div>
@@ -96,50 +104,21 @@
 
 
 
+                              <div class="openList container-fluid">
 
+                                  <div class="col-xs-12 col-sm-3">
+                                      <p>
+                                          <strong>Open List:</strong>
+                                      </p>
+                                  </div>
 
-                              <!--<div class="listDescription container-fluid">-->
-
-                              <!--<div class="col-xs-12 col-sm-2">-->
-                              <!--<p><strong>Open Lest:</strong></p>-->
-                              <!--</div>-->
-
-                              <!--<div class="col-xs-12 col-sm-10">-->
-
-
-
-
-                              <!--<input type="checkbox" checked data-toggle="switch" class="ct-green"/>-->
-
-                              <!--<input type="checkbox" data-toggle="switch" />-->
-
-
-                              <!--<div class="switch"-->
-
-                              <!--data-on-label="<i class='fa fa-check'></i>"-->
-
-                              <!--data-off-label="<i class='fa fa-times'></i>">-->
-
-                              <!--<input type="checkbox" checked/>-->
-
-                              <!--</div>-->
-
-                              <!--<div class="switch"-->
-
-                              <!--data-on-label="<i class='fa fa-check'></i>"-->
-
-                              <!--data-off-label="<i class='fa fa-times'></i>">-->
-
-                              <!--<input type="checkbox"/>-->
-
-                              <!--</div>-->
+                                  <div class="col-xs-12 col-sm-9">
+                                    {{> afQuickField name="isOpen"}}
+                                  </div>
 
 
 
-
-                              <!--</div>-->
-
-                              <!--</div>-->
+                              </div>
 
 
 
@@ -168,13 +147,9 @@
                               </div>
 
                               <div class="publishToMyLists container-fluid">
-                                  <div class="col-xs-12">
-
-                                      <div id="createToOneOfMyLists" class="collapse">
+                                      <div id="createToOneOfMyLists" class="collapse col-xs-12">
                                         {{> createToOneOfMyLists}}
                                       </div>
-
-                                  </div>
                               </div>
 
 

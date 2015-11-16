@@ -39,7 +39,7 @@ let _handleLogin = ( template ) => {
       Bert.alert( error.reason, 'warning' );
     } else {
       Bert.alert( 'Logged in!', 'success' );
-      FlowRouter.go( '/' + Meteor.user().username);
+      FlowRouter.go('/' + Meteor.user().profile.userSlug);
     }
   });
 };

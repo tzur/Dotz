@@ -1,6 +1,7 @@
 .ConnectedByOwnerDotz-div {
   height: 30vh;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .dot-container-img-card-connect-modal {

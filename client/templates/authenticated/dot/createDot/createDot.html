@@ -19,57 +19,6 @@
                             <h3 class="txtMd">Create New Dot</h3>
                         </div>
 
-
-                        <!--<div class="row">-->
-                        <!--&lt;!&ndash;<div class="col-xs-12 colCenter">&ndash;&gt;-->
-                            <!--<div class="col-xs-2">-->
-                                <!--<a href="#" class="dotTypeBtn"><i id="Place" class="fa fa-map-marker fa-2x formDotTypeIcons"></i>-->
-                                <!--<br>-->
-                                <!--Place-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class="col-xs-2 dotTypeBtn">-->
-                                <!--<a href="#" class="dotTypeBtn"><i id="Event" class=" fa fa-calendar fa-2x formDotTypeIcons"></i>-->
-                                <!--<br>-->
-                                <!--Event-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class="col-xs-2">-->
-                                <!--<a href="#" class="dotTypeBtn"><i id="Link" class="fa fa-link fa-2x formDotTypeIcons"></i>-->
-                                <!--<br>-->
-                                <!--Link-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class="col-xs-2">-->
-                                <!--<a href="#" class="dotTypeBtn"><i id="Product" class="fa fa-link fa-3x formDotTypeIcons"></i>-->
-                                <!--<br>-->
-                                <!--Stuff-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-
-                            <!--<div class="col-xs-2">-->
-                                <!--<a href="#" class="dotTypeBtn"><i id="Text" class=" fa fa-sticky-note-o fa-2x formDotTypeIcons"></i>-->
-                                <!--<br>-->
-                                <!--Note-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class="col-xs-2">-->
-                                <!--<a href="#" class="dotTypeBtn">-->
-                                    <!--<i id="Collection" class="fa fa-list-ol fa-2x formDotTypeIcons"></i>-->
-                                    <!--<br>-->
-                                    <!--List-->
-
-                                <!--</a>-->
-                            <!--</div>-->
-
-
-                        <!--</div>-->
-
                     </div>
 
                         <!--{{#if dotType}}-->
@@ -196,34 +145,32 @@
                                 </div>
                             </div>
 
+
                             <div>
                                 <div>
                                     <div class="col-xs-12 btns-create-dot-row">
 
                                         <div class="btns-create-dot">
-                                            <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish To My Profile</button>
-                                          {{#if currentUser.profile.createdByUserDotz}}
-                                              <button type="button" id="createToOneOfMyDotz" class="createBtn insert btn round btn-default"
-                                                      data-toggle="collapse" data-target="#createToOneOfMyLists">Publish To My Dotz</button>
-
-
-
-
-
-
-                                          {{/if}}
+                                            <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish</button>
+                                            {{#if currentUser.profile.createdByUserLists}}
+                                              <button type="button" class="createBtn insert btn round btn-default"
+                                                      data-toggle="collapse" data-target="#createToOneOfMyLists">
+                                                  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                                              </button>
+                                            {{/if}}
                                         </div>
 
                                     </div>
                                 </div>
+                            </div>
 
-
-                                <div id="createToOneOfMyLists" class="collapse">
+                            <div class="publishToMyLists container-fluid">
+                                <div id="createToOneOfMyLists" class="collapse col-xs-12">
                                   {{> createToOneOfMyLists}}
                                 </div>
                             </div>
 
-                        {{/autoForm}}
+                            {{/autoForm}}
                       </div>
                     <!--{{/if}}-->
                     </div>

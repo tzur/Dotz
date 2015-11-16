@@ -1,20 +1,24 @@
 <template name="createToOneOfMyLists">
 
-                <div class="container-fluid">
+                <div class="container-fluid" id="publishToMyLists">
 
                   {{#each userProfileListsArray}}
                       <div class="miniListCard row">
-                          <div class="container-fluid" style="background-image: url('{{coverImageUrl}}')">
+                      <div class="container-fluid" style="background-image: url('{{coverImageUrl}}')">
+                      <div class="filter">
 
-                              <div class="col-xs-12 colCenter">
-                                  <h5 class="dotTitle-connect-modal whiteTxt">{{title}}</h5>
+                          <div class="col-xs-12 colCenter">
+                              <h4 class="dotTitle whiteTxt">{{title}}</h4>
+                              <div class="publishButton colCenter">
+                              <button type="button" class="publishHere btn btn-lead round btn-xs">Publish Here</button>
                               </div>
-
-                              <div class="col-xs-2 colCenter">
-                                  <button type="button" class="createToBtn btn btn-lead round btn-xs">Publish</button>
-                              </div>
-
                           </div>
+
+                              <!--<div class="col-xs-2 colCenter">-->
+                                  <!--<button type="button" class="publishHere btn btn-lead round btn-xs">Publish Here</button>-->
+                              <!--</div>-->
+                      </div>
+                      </div>
                       </div>
 
                   {{/each}}

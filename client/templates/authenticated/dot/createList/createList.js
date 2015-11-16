@@ -13,32 +13,8 @@ Template.createListModal.onCreated(function(){
 
 
 Template.createListModal.onRendered(function(){
-  Session.set("dotType", "List")
-  //tagsArray = Tools.findOne({docName: "dotzTags"});
-  //Meteor.typeahead(".typeahead", tagsArray.tags);
-
-
-
-
-  Modules.client.Dotz.limitCharactersAndCounter('#titleField-list', 50, '#titleFieldFeedback');
-  //tagsArray = Tools.findOne({docName: "dotzTags"});
-  //Meteor.typeahead(".typeahead", tagsArray.tags);
-
-
-
-  //$('#myTabs a').click(function (e) {
-  //  e.preventDefault();
-  //  $(this).tab('show')
-  //});
-  //$(document).ready(function() {
-  //  $(window).keydown(function(event){
-  //    if(event.keyCode == 13) {
-  //      event.preventDefault();
-  //      return false;
-  //    }
-  //  });
-  //});
-
+  Session.set("dotType", "List");
+  Modules.client.Dotz.limitCharactersAndCounter('#titleField', 50, '#titleFieldFeedback');
 });
 
 Template.createListModal.onDestroyed(function(){
