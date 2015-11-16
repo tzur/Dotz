@@ -1,29 +1,33 @@
 
-let _checkDot = function(dotId){
+let _checkList = function(dotId, dotIdWishedToConnectTo){
+  let _isValid = true;
   let _dot = Dotz.findOne(dotId);
-  if(_dot){
-    return ( _dot.ownerUserId === Meteor.userId() && _dot.dotType === "List")
+  if(_dot.dotType === "List" && _dot._id != dotIdWishedToConnectTo) {
+    _dot.connectedDotzArray.forEach(function (smartRef){
+      if(smartRef.dot._id === dotIdWishedToConnectTo){
+        _isValid = false;
+      }
+    });
+    return _isValid;
+  }
+  else{
+    return false;
   }
 
 };
 
-let getConnectedByOwnerDotz = function(dotId, dotIdWishedToConnectTo) {
-  let _dot = Dotz.findOne(dotId);
-  if(dotIdWishedToConnectTo && dotIdWishedToConnectTo === dotId) {
-    return false;
-  }
-  let _dotzConnectedByOwnerArray = [];
-  if (_dot && _dot.connectedDotzArray) {
-    _dot.connectedDotzArray.forEach(function (smartRef) {
-      if(smartRef.connection.actionName === CREATE_ACTION && _checkDot(smartRef.dot._id) &&
-        dotIdWishedToConnectTo != smartRef.dot._id) {
-        _dotzConnectedByOwnerArray.push(smartRef.dot._id);
-      }
+let getAvailableLists = function(dotIdWishedToConnectTo) {
+  let _createdByUserLists = Meteor.user().profile.createdByUserLists;
+  let _availableLists = [];
+  if (_createdByUserLists) {
+    _createdByUserLists.forEach(function (dotId) {
+      if(_checkList(dotId, dotIdWishedToConnectTo))
+        _availableLists.push(dotId);
     });
   }
-  console.log(_dotzConnectedByOwnerArray.length);
-  if (_dotzConnectedByOwnerArray.length > 0){
-    return Dotz.find({_id: {$in: _dotzConnectedByOwnerArray}});
+  console.log(_availableLists.length);
+  if (_availableLists.length > 0){
+    return Dotz.find({_id: {$in: _availableLists}}, {sort: {title: 1}});
   }
   else{
     return false
@@ -37,7 +41,7 @@ let isConnectedToDot = (dotId, dotIdWishedToConnectTo) => {
   if(_dot && _dot._id != dotIdWishedToConnectTo)
     if (_dot.connectedDotzArray){
       _dot.connectedDotzArray.forEach(function(smartRef){
-        if(dotIdWishedToConnectTo === smartRef.dot._id) {
+        if(dotIdWishedToConnectTo && dotIdWishedToConnectTo === smartRef.dot._id) {
           isNotConnected = false;
         }
       });
@@ -48,4 +52,4 @@ let isConnectedToDot = (dotId, dotIdWishedToConnectTo) => {
     }
 };
 Modules.client.Dotz.isConnectedToDot = isConnectedToDot;
-Modules.client.Dotz.getConnectedByOwnerDotz = getConnectedByOwnerDotz;
+Modules.client.Dotz.getAvailableList = getAvailableLists;
