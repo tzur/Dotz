@@ -33,4 +33,16 @@
    border-top-right-radius: 11px;
 }
 
+#navBarUserImgProfile {
+  padding-top: 0em;
+  padding-bottom: 0em;
+  height: 2em;
+  width: 2em;
+  border-color: white;
+  border-width: 0px;
+  border-style: solid;
+  border-radius: 50%;
+
+}
+
 
