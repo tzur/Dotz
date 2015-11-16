@@ -1,0 +1,49 @@
+<template name="searchBoxForConnect">
+
+    <div class="container-fluid search-container">
+
+        <div class="row search-row">
+            <div class="col-xs-12 txtMd">
+
+                <input type="text" class="searchInput search-box" id="searchInput" placeholder='"Bar", "Restaurant", "Museum" ...'>
+                <i id="search-icon" class="fa fa-search"></i>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row search-results-row">
+            <div class="col-xs-12">
+
+                <ul>
+                  {{#if findDotz}}
+
+                    {{#each result.canBeConnected}}
+                        <div class="dot-card-search-wrapper">
+                            {{> connectDotCardSearch}}
+                        </div>
+                    {{/each}}
+
+                  {{#if result.canNotBeConnected}}
+                      <hr><h5>Already Connected:</h5>
+
+                    {{#each result.canNotBeConnected}}
+                        <div class="dot-card-search-wrapper">
+                            {{> connectDotCardSearch}}
+                        </div>
+                    {{/each}}
+                  {{/if}}
+                  {{/if}}
+
+
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</template>

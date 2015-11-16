@@ -147,6 +147,7 @@ Template.dotShow.events({
         data: {
           dotId: _data.dotShow._id,
           dot: _data.dotShow
+
         }
       });
     }
@@ -171,6 +172,10 @@ Template.dotShow.events({
         dotShowSmartRef.dotId = _data.dotShow._id;
         Modules.both.Dotz.deleteDot(_data.dotShow, dotShowSmartRef);
     }
+  },
+
+  'click #addUserConnection': function(){
+    Modal.show('connectDotBySreachModal');
   }
 
 });
