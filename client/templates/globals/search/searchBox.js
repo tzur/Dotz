@@ -28,7 +28,7 @@ Template.searchBox.helpers({
 
 });
 Template.searchBox.events({
-  'input #searchInput': function(event, template){
+  'keypress #searchInput': function(event, template){
     Session.set('searchInput', event.target.value);
   }
 });

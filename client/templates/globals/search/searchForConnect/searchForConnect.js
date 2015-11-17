@@ -33,7 +33,7 @@ Template.searchBoxForConnect.helpers({
 
 });
 Template.searchBoxForConnect.events({
-  'input #searchInput': function(event, template){
+  'keypress #searchInput': function(event, template){
     Session.set('searchInput', event.target.value);
     Session.set('_alreadyConnectedDotz', undefined)  }
 });
