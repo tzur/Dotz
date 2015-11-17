@@ -36,6 +36,12 @@ Template.dotCard.helpers({
     }
   },
 
+  shortenAdress: function(){
+    if (this.dot.location.address) {
+      return s.prune(this.dot.location.address, 40);
+    }
+  },
+
   userIsTheDotCreator: function() {
     return (this.ownerUser.username === this.connectedByUser.username)
   },
