@@ -13,13 +13,12 @@
   /*padding-right: 1vh;*/
 /*}*/
 
-.connectBtn {
-  height: 4vh;
-  margin: auto;
-  border-radius: 24px;
-  width: auto;
-  padding: inherit;
-}
+/*.connectBtn {*/
+  /*height: 4vh;*/
+  /*border-radius: 24px;*/
+  /*width: auto;*/
+  /*padding: inherit;*/
+/*}*/
 
 #listCardLikeSide {
   height: 22vh;

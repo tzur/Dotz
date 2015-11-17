@@ -12,6 +12,7 @@
   background-position-y: 50%;
   background-position-x: 50%;
   border-radius: 50%;
+  background-color: #eee;
 }
 
 .chosen-dot-dot-modal {
@@ -36,4 +37,60 @@
 .username-dot-modal {
   font-size: 0.75em;
 }
+
+.ConnectedByOwnerDotz-div {
+  height: 25vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.dot-container-img-card-connect-modal {
+  position: relative;
+  width: 3em;
+  height: 3em;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  border-radius: 50%;
+}
+
+.ConnectedByOwnerDotz {
+  padding: 0.5em;
+  border-bottom: #F3F3F3 solid 1px;
+}
+
+.ConnectedByOwnerDotz:hover {
+  background-color: #eeeeee;
+}
+
+.dotTitle-connect-modal {
+  font-weight: 600;
+  /*margin: 0;*/
+}
+
+.connectBtn, .createToBtn, .connectToUserProfile  {
+  margin-top: 0.5em;
+  height: 4vh;
+  border-radius: 24px;
+  width: auto;
+  padding: inherit;
+}
+
+.checkBtn  {
+  margin-top: 0.75em;
+  width: 100%;
+}
+
+.nested-dotz {
+  background-color: #ffffff;
+}
+
+.nested-dotz .ConnectedByOwnerDotz {
+  background-color: #eeeeee;
+}
+
+.nested-dotz .ConnectedByOwnerDotz:hover {
+  background-color: #cccccc;
+}
+
 
