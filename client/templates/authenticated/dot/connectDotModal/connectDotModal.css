@@ -39,7 +39,7 @@
 }
 
 .ConnectedByOwnerDotz-div {
-  height: 25vh;
+  height: 30vh;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -61,6 +61,7 @@
 
 .ConnectedByOwnerDotz:hover {
   background-color: #eeeeee;
+  cursor: pointer;
 }
 
 .dotTitle-connect-modal {
@@ -68,7 +69,19 @@
   /*margin: 0;*/
 }
 
-.connectBtn, .createToBtn, .connectToUserProfile  {
+.publishHere {
+  display: none;
+}
+
+.visible-xs .publishHere {
+  display: block;
+}
+
+.ConnectedByOwnerDotz:hover .publishHere {
+  display: block;
+}
+
+.connectBtn, .createToBtn, .connectToUserProfile, .publishHere  {
   margin-top: 0.5em;
   height: 4vh;
   border-radius: 24px;
@@ -87,6 +100,7 @@
 
 .nested-dotz .ConnectedByOwnerDotz {
   background-color: #eeeeee;
+
 }
 
 .nested-dotz .ConnectedByOwnerDotz:hover {

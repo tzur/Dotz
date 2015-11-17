@@ -6,6 +6,8 @@ Template.editDotModal.onRendered(function(){
 
 });
 
+
+
 Template.editDotModal.onDestroyed(function(){
   Session.set("editModalMapTabActive", undefined);
   Session.set('coverImageUrl', undefined);
@@ -15,9 +17,15 @@ Template.editDotModal.onDestroyed(function(){
 });
 
 Template.editDotModal.helpers({
+
+  isList: function() {
+    return (this.data.dot.dotType === "List")
+  },
+
   selectedDotDoc: function () {
     return Dotz.findOne({_id: this.data.dot._id});
   },
+
   isImageUrl: function(){
     if(Session.get("coverImageUrl") || this.data.dot.coverImageUrl){
       return true
@@ -50,14 +58,12 @@ Template.editDotModal.events({
 
   },
 
-  'change #editDotImage input[type="file"]': function(){
-    Tracker.autorun(function(c) {
-      document.getElementById("submitEditDot").disabled = true;
-      if (Session.get('coverImageUrl')) {
-        c.stop();
-        document.getElementById("submitEditDot").disabled = false;
-      }
-    });
+  'click #exitBtn': function(){
+    Modal.hide('createListModal');
+  },
+
+  'change input[type="file"]' ( event, template ) {
+    Modules.client.uploadToAmazonS3( { event: event, template: template } );
   },
 
   'click #mapTab': function(){

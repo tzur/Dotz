@@ -84,6 +84,10 @@ Template.createDotModal.events({
     Modal.hide('createDotModal');
   },
 
+  'click .toggle-form': function() {
+    $('#form-body').slideToggle(700);
+  },
+
   //'click #createToMyProfile': function(){
   //  Modal.hide('createToOneOfMyDotzModal');
   //},
