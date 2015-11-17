@@ -32,13 +32,12 @@
                     {{/with}}
 
                     <div class="modal-header">
-                        <h3 class="modal-title">Connect to:</h3>
+                        <h5 class="modal-title">Connect to List:</h5>
                     </div>
 
                     {{#if isConnectedToUserProfileDot}}
-                      <div class="container-fluid">
-                        <div class="row ConnectedByOwnerDotz">
-                            <div class="col-md-12">
+                      <!--<div class="container-fluid">-->
+                        <div class="container-fluid ConnectedByOwnerDotz">
 
                               <div class="col-md-2">
                                   <div class="container-fluid dot-container-img-card-connect-modal" style="background-image: url('{{currentUserImageUrl}}')"></div>
@@ -50,12 +49,11 @@
                               </div>
 
                               <div class="col-md-2">
-                                  <button class="connectToUserProfile btn btn-lead round btn-xs">connect</button>
+                                  <button type="button" class="connectToUserProfile btn btn-lead round btn-xs">Connect</button>
                               </div>
 
-                            </div>
                         </div>
-                      </div>
+                      <!--</div>-->
                     {{/if}}
 
 
@@ -64,7 +62,7 @@
                           <div class="col-md-12" id="availableDotz">
                           {{#if userProfileDotzArray}}
                             {{#each userProfileDotzArray}}
-                              <div class="row">
+                              <div class="row ConnectedByOwnerDotz">
                                 <div class="col-md-2">
                                     <div class="container-fluid dot-container-img-card-connect-modal" style="background-image: url('{{coverImageUrl}}')"></div>
                                 </div>

@@ -23,9 +23,11 @@
 
                         <!--{{#if dotType}}-->
 
-                          <div class="col-xs-10 colCenter">
+
 
                             {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
+
+                            <div class="col-xs-10 colCenter">
 
                             <div>
                               {{> afQuickField id="titleField" name='title' label="Title" placeholder="Enter a Title"}}
@@ -146,32 +148,33 @@
                             </div>
 
 
-                            <div>
-                                <div>
-                                    <div class="col-xs-12 btns-create-dot-row">
-
-                                        <div class="btns-create-dot">
-                                            <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish</button>
-                                            {{#if currentUser.profile.createdByUserLists}}
-                                              <button type="button" class="createBtn insert btn round btn-default"
-                                                      data-toggle="collapse" data-target="#createToOneOfMyLists">
-                                                  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                                              </button>
-                                            {{/if}}
-                                        </div>
-
-                                    </div>
+                            <div class="btns-create-dot-row">
+                                <div class="btns-create-dot">
+                                    <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish</button>
+                                    {{#if currentUser.profile.createdByUserLists}}
+                                      <button type="button" class="createBtn insert btn round btn-default"
+                                              data-toggle="collapse" data-target="#createToOneOfMyLists">
+                                          <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                                      </button>
+                                    {{/if}}
                                 </div>
                             </div>
 
+                        </div>
+
+                        <div class="col-xs-12 colCenter">
+
                             <div class="publishToMyLists container-fluid">
-                                <div id="createToOneOfMyLists" class="collapse col-xs-12">
+                                <div id="createToOneOfMyLists" class="collapse row">
                                   {{> createToOneOfMyLists}}
                                 </div>
                             </div>
 
+                        </div>
+
+
                             {{/autoForm}}
-                      </div>
+
                     <!--{{/if}}-->
                     </div>
                 </div>

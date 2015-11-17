@@ -7,8 +7,27 @@ body {
 
 #main {
   background-color: #FAFAFA;
-  margin-top: 7vh;
+  margin-top: 6vh;
 }
 
 
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-button {
+  width: 8px;
+  height:5px;
+}
+::-webkit-scrollbar-track {
+  background:transparent;
+  border-radius:10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(153, 153, 153, 0.67);
+  border: thin solid rgba(128, 128, 128, 0.67);
+  border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(125, 125, 125, 0.76);
+}

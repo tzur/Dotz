@@ -99,6 +99,7 @@ input.ct-green + span.switch-left, input.ct-green + span + label + span.switch-r
 
 #createToOneOfMyLists {
   height: 30vh;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 

@@ -12,18 +12,28 @@
 
     <div class="container-fluid" id="listShowHeader">
 
-        <div class="row postImgCover" style="background-image: url('{{dotShow.coverImageUrl}}')">
+        <div class="row listCoverImg" style="background-image: url('{{dotShow.coverImageUrl}}')">
+            <div class="filter">
 
-        </div><!--end div row-->
+                <h1 class="title"><i class="fa fa-list-ul"></i> {{dotShow.title}}</h1>
+
+                <h5 class="description">{{dotShow.bodyText}}</h5>
 
 
 
-        <div class="spacer">
+                <div class="user">
 
-            <br>
-            <br>
+                    <div class="iconDiv txtL">
+                        <a href="/{{dotShowUser.userSlug}}"><img class="postUserImgProfile" src="{{dotShowUser.profile.profileImage}}"></a>
+                        <a href="/{{dotShowUser.userSlug}}"><span class="userText">
+                          Connected By <strong>{{dotShowUser.username}}</strong></span></a>
+                    </div>
 
-        </div>
+                </div>
+
+
+            </div>
+        </div><!--end row listCoverImg-->
 
 
     </div>
@@ -36,7 +46,7 @@
 
 {{else}} <!--this is a dotShow-->
 
-    <div class="container-fluid dot-show-header">
+    <div class="container-fluid dot-show-header" id="dotShowHeader">
         <div class="row">
 
             <div class="col-sm-7 postImgCover" style="background-image: url('{{dotShow.coverImageUrl}}')">
@@ -170,18 +180,21 @@
   {{/if}}
 
 
-{{/if}} <!--check if is ListShow or DotShow-->
+
+{{/if}} <!--end the check if is ListShow or DotShow-->
 
 
 
     <!--Anchor-->
-    <a name="connectedDotz"></a>
-
+<a name="connectedDotz"></a>
 
 
 {{#if dotShow.connectedDotzArray}}
 
-    <div class="wrapper">
+
+<div id="connectedDotzArray">
+
+      <div class="wrapper">
         <div class="container">
             <div class="masonry-container">
 
@@ -193,14 +206,58 @@
         </div>
     </div><!-- end wrapper -->
 
-{{/if}}
+</div>
 
 
-    <div class="col-xs-4 col-sm-3 colCenter">
-    <p>Add your connection.. (Coming Soon)</p>
-      <button id="addUserConnection" class="btn btn-success round btn-md dot-show-connect-btn">Add Your Dot</button>
-    <br class="jo"><br>
+
+
+<div class="container-fluid" id="dotShowFooter">
+
+    <!--<div class="row col-xs-12 col-md-8 colCenter">-->
+
+        <!--<button  class="btn btn-success round btn-md dot-show-connect-btn colCenter">Add Your Dot</button>-->
+
+    <!--</div>-->
+
+
+    <div class="row">
+        <!--<h4 class="title" id="addUserConnection">Search for Dotz you want to Connect</h4>-->
+        <div class="addButton">
+            <button id="addUserConnection" type="button" class="btn btn-success round btn-md dot-show-connect-btn">
+                Search for Dotz you want to Connect
+            </button>
+        </div>
     </div>
+
+
+</div>
+
+
+
+{{else}}
+
+<div class="container-fluid" id="emptyList">
+
+    <!--<div class="row col-xs-12 col-md-8 colCenter">-->
+
+    <!--<button  class="btn btn-success round btn-md dot-show-connect-btn colCenter">Add Your Dot</button>-->
+
+    <!--</div>-->
+
+
+    <div class="row">
+        <!--<h4 class="title" id="addUserConnection">Search for Dotz you want to Connect</h4>-->
+        <div class="addButton">
+            <button id="addUserConnection" type="button" class="btn btn-success round btn-md dot-show-connect-btn">
+                Search for Dotz you want to Connect
+            </button>
+        </div>
+    </div>
+
+
+</div>
+
+{{/if}}
 
 
 
