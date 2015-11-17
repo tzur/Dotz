@@ -6,12 +6,8 @@
   color: rgba(0,0,0,0.7);
 }
 
-.navbar-default {
-  max-height: 7vh;
-}
-
 .navbar-fixed-top {
-  max-height: 7vh;
+  height: 6vh;
 }
 
 .navbar .container {

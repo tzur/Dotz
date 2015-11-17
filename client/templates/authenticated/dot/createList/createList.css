@@ -1,10 +1,10 @@
 
 /*css is in creatDot.css*/
 
-#createListFields {
-  padding-right: 0;
-  padding-left: 0;
-}
+/*#createListFields {*/
+  /*padding-right: 0;*/
+  /*padding-left: 0;*/
+/*}*/
 
 #createListFields hr {
   border-color: rgba(0,0,0,0);
@@ -99,6 +99,7 @@ input.ct-green + span.switch-left, input.ct-green + span + label + span.switch-r
 
 #createToOneOfMyLists {
   height: 30vh;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 

@@ -39,6 +39,7 @@ ddp-common@1.2.1
 ddp-rate-limiter@1.0.0
 ddp-server@1.2.1
 deps@1.0.9
+dfischer:phantomjs@1.0.4
 diff-sequence@1.0.1
 digilord:faker@1.0.7
 easy:search@2.0.0
@@ -62,7 +63,9 @@ http@1.1.1
 id-map@1.0.4
 jeremy:geocomplete@1.6.5_9
 jquery@1.11.4
+jsx@0.1.6
 kadira:blaze-layout@2.1.0
+kadira:dochead@1.1.0
 kadira:flow-router@2.6.2
 lai:collection-extensions@0.1.4
 less@2.5.0_3
@@ -122,6 +125,7 @@ session@1.1.1
 sha@1.0.4
 spacebars@1.0.7
 spacebars-compiler@1.0.7
+spiderable@1.0.9
 srp@1.0.4
 standard-minifiers@1.0.1
 stevezhu:lodash@3.10.1

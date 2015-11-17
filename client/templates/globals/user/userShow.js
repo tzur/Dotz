@@ -23,6 +23,8 @@ Template.userShow.onCreated(function() {
       if (userSlug) {
           self.subs.subscribe('userByUserSlug', userSlug, function(){
               _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug});
+              var title = _data.userShow.username;
+              DocHead.setTitle("Dotz: " + title);
               if (!_data.userShow){
                 FlowRouter.go('/');
                 Bert.alert('Page does not exist', 'danger');
