@@ -8,8 +8,22 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="{{brandLink}}">Dotz</a>
+
+
+          <div class="logo">
+              <a class="navbar-brand" href="{{brandLink}}"><strong>Dotz:</strong></a>
+          </div>
+
+        <!--show the current dot/list Show-->
+          <div id="whereIAm" class="noneWhere">
+              <div>
+                  <img class="hereWithImg" src="{{hereWithImg}}">
+                  <span class="iAmHere">{{iAmHere}}</span>
+              </div>
+          </div>
+
 	    </div>
+
 	    <div id="navbar-collapse" class="collapse navbar-collapse">
 	    	{{#if currentUser}}
 					{{> authenticatedNavigation}}

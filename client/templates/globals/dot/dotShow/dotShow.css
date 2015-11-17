@@ -1,5 +1,14 @@
 /*ListShowHeader*/
 
+#listShowHeader {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
 #listShowHeader .listCoverImg {
   position: relative;
   width: 100%;
@@ -7,13 +16,14 @@
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
+  margin: 0;
 }
 
 
 #listShowHeader .filter {
   position: absolute;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   /*top: 0;*/
   /*left: 0;*/
   width: 100%;
@@ -28,14 +38,41 @@
 #listShowHeader .title {
   text-align: center;
   color: #FFFFFF;
+  font-size: 4rem;
+  margin-top: 8vh;
+  margin-bottom: 2vh;
+}
+
+#listShowHeader .title .fa-list-ul {
+  color: #FFFFFF;
   font-size: 3rem;
-  margin-top: 10vh;
 }
 
 
+#listShowHeader .description {
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 2rem;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+}
 
 
+#listShowHeader .user {
+  width: 30vh;
+  margin: auto;
+}
 
+#listShowHeader .user .userText {
+  color: rgba(255,255,255,0.7);
+}
+
+
+#listShowHeader .iconDiv {
+  /*width: 30vh;*/
+  margin: auto;
+  text-align: center;
+}
 
 
 
@@ -346,6 +383,71 @@ pre {
 }
 
 
+
+/*connectedDotzArray area*/
+
+#connectedDotzArray {
+  min-height: 40vh;
+  padding-top: 7vh;
+}
+
+
+
+
+/*dotShow Footer*/
+
 #dotShowFooter {
   background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 5vh;
+  padding: 2vh;
+
 }
+
+#dotShowFooter .row {
+  height: 20vh;
+}
+
+#dotShowFooter .addButton {
+  width: 35vh;
+  margin: auto;
+}
+
+#dotShowFooter .addButton button {
+  width: 35vh;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#dotShowFooter .title {
+  margin: 5vh;
+  text-align: center;
+}
+
+
+
+/*dotShow with emptyList*/
+
+#emptyList {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 2vh;
+
+}
+
+#emptyList .row {
+  height: 65vh;
+  padding-top: 10vh;
+}
+
+#emptyList .addButton {
+  width: 35vh;
+  margin: auto;
+}
+
+#emptyList .addButton button {
+  width: 35vh;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+

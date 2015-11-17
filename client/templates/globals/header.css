@@ -1,0 +1,56 @@
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar .navbar-brand{
+  color: rgba(0,0,0,0.7);
+}
+
+.navbar-default {
+  max-height: 7vh;
+}
+
+.navbar-fixed-top {
+  max-height: 7vh;
+}
+
+.navbar .container {
+  max-height: 7vh;
+}
+
+.navbar .container {
+  max-height: 7vh;
+}
+
+
+#whereIAm {
+  margin-top: 2vh;
+  min-width: 50vw;
+  max-width: 75vw;
+  height: 4vh;
+}
+
+#whereIAm .hereWithImg {
+  position: relative;
+  /* top: 1vh; */
+  /* bottom: 1vh; */
+  height: 3vh;
+  width: 3vh;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+}
+
+.iAmHere {
+  color: rgba(0,0,0,0.6);
+}
+
+.showWhere {
+
+}
+
+.noneWhere {
+  display: none;
+}
