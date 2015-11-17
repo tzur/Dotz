@@ -67,6 +67,10 @@ Template.createListModal.events({
     })
   },
 
+  'click .createBtn': function() {
+    $('#form-body').slideToggle(700);
+  },
+
   'click #exitBtn': function(){
     Modal.hide('createListModal');
   },

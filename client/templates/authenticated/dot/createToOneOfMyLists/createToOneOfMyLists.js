@@ -28,5 +28,12 @@ Template.createToOneOfMyLists.events({
   'click .publishHere': function () {
     Session.set('parentDot', this._id);
     $('#createToMyProfile').trigger('click');
+  },
+
+  'click .ConnectedByOwnerDotz': function () {
+    Session.set('parentDot', this._id);
+    $('#createToMyProfile').trigger('click');
   }
+
+
 });
