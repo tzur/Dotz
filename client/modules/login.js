@@ -40,6 +40,11 @@ let _handleLogin = ( template ) => {
     } else {
       Bert.alert( 'Logged in!', 'success' );
       FlowRouter.go('/' + Meteor.user().profile.userSlug);
+
+      analytics.identify( Meteor.userId(), {
+        email: Meteor.user().emails[0].address,
+        name: Meteor.user().username
+      });
     }
   });
 };

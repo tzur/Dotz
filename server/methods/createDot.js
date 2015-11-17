@@ -22,8 +22,11 @@ Meteor.methods({
           //Meteor.call("updateTagsDoc", doc.tags, "dotzTags");
           let dotId = result;
 
+
           console.log("dotId" + dotId);
           let dot = Dotz.findOne(doc.inDotz[0]);
+
+          Meteor.call('addOrEditObjectInAlgolia', dotId);
           let isConnectedToOthers;
           if (doc.ownerUserId === dot.ownerUserId){
             isConnectedToOthers = false;
