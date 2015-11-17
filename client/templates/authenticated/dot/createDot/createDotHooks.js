@@ -41,15 +41,13 @@ let dotHooks = {
   },
 
   onSuccess: function(update, result){
-    //Router.go("/post/"+ result);
     Session.set("coverImageUrl", undefined);
     Session.set("locationObject", undefined);
     Session.set("dotType", undefined);
-    Modal.hide("createDotModal")
+    Modal.hide("createDotModal");
     Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
-    FlowRouter.go('/dot/' + result);
-
-    //Modal.hide('createDotModal');
+    console.log("############# THIS is " + this.currentDoc);
+    FlowRouter.go('/' + result);
   }
 };
 
