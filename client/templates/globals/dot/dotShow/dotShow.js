@@ -17,10 +17,12 @@ Template.dotShow.onCreated(function() {
       GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
     }
 
-    let dotId = FlowRouter.getParam('dotId');
-    if (dotId) {
-      self.subs.subscribe('dotShow', dotId);
-      _data.dotShow = Dotz.findOne(dotId);
+    let dotSlug = FlowRouter.current().path.slice(1);
+    console.log("#######dotSlug " + dotSlug);
+
+    if (dotSlug) {
+      self.subs.subscribe('dotShowByDotSlug', dotSlug);
+      _data.dotShow = Dotz.findOne({"dotSlug": dotSlug});
       Session.set('dot', _data.dotShow);
     }
 
@@ -62,10 +64,16 @@ Template.dotShow.onRendered(function(){
 });
 
 
+Template.dotShow.onDestroyed(function(){
+  Session.set('whereIAm', undefined);
+  Session.set('hereWithImg', undefined);
+});
+
+
 Template.dotShow.helpers({
 
   data: function() {
-    _data.dotShow = Dotz.findOne(FlowRouter.getParam('dotId'));
+    _data.dotShow = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1) });
     if (_data.dotShow) {
       Session.set('whereIAm', _data.dotShow.title);
       Session.set('hereWithImg', _data.dotShow.coverImageUrl);

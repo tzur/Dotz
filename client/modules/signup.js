@@ -58,7 +58,7 @@ let _handleSignup = ( template ) => {
           Meteor.call('updateUserSlug', Meteor.userId(), slug, function(error, result) {
               //TBD:
               if (error) {
-                Bert.alert( 'username slug already exists ', 'danger' );
+                Bert.alert( 'Username Slug (aka url address ;) already exists ', 'danger' ); //TBD
               }
               else {
                 _createNewDotForDotProfile ( Meteor.userId() );

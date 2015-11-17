@@ -60,6 +60,13 @@ Meteor.publish( 'dotShow', function( dotId ) {
   }
 });
 
+Meteor.publish( 'dotShowByDotSlug', function( dotSlug ) {
+  if (dotSlug) {
+    check(dotSlug, String);
+    return Dotz.find({"dotSlug": dotSlug});
+  }
+});
+
 Meteor.publish('createByUserLists', function() {
   let currentUser = Meteor.users.findOne(this.userId);
   let createByUserDotz = currentUser.profile.createdByUserLists;
