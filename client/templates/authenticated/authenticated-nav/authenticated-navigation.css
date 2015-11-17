@@ -42,7 +42,10 @@
   border-width: 0px;
   border-style: solid;
   border-radius: 50%;
+}
 
+.navbar-fixed-top {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23)
 }
 
 
@@ -50,3 +53,4 @@
    padding-top: 10px;
    padding-bottom: 10px;
 }
+

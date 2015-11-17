@@ -2,9 +2,12 @@
 Template.dotCard.helpers({
 
   isInOpenList: function() {
-    let parentDotIsOpen = Template.parentData().userShowDot.isOpen;
-    console.log("######## parentDotIsOpen " + parentDotIsOpen)
-    return parentDotIsOpen
+    if (Template.parentData().userShowDot) {
+      return Template.parentData().userShowDot.isOpen;
+    }
+    else if (Template.parentData().dotShow) {
+      return Template.parentData().dotShow.isOpen;
+    }
   },
 
   isListCard: function() {
@@ -127,7 +130,8 @@ Template.dotCard.events({
       Modal.show('connectDotModal',{
         data:{
           dotId: this.dot._id,
-          dot: this.dot
+          dot: this.dot,
+          connectToMyLists: true
         }
       });
     }

@@ -14,6 +14,25 @@ Template.createDotModal.onCreated(function(){
 
 Template.createDotModal.onRendered(function(){
   Modules.client.Dotz.limitCharactersAndCounter('#titleField', 50, '#titleFieldFeedback');
+  Session.set("dotType", "Dot")
+  //tagsArray = Tools.findOne({docName: "dotzTags"});
+  //Meteor.typeahead(".typeahead", tagsArray.tags);
+
+
+  //$('#myTabs a').click(function (e) {
+  //  e.preventDefault();
+  //  $(this).tab('show')
+  //});
+  //$(document).ready(function() {
+  //  $(window).keydown(function(event){
+  //    if(event.keyCode == 13) {
+  //      event.preventDefault();
+  //      return false;
+  //    }
+  //  });
+  //});
+
+
 });
 
 Template.createDotModal.onDestroyed(function(){
@@ -47,11 +66,6 @@ Template.createDotModal.helpers({
   dotzTags: function(){
     tagsArray = Tools.findOne({docName: "dotzTags"});
     return tagsArray.tags;
-  },
-  dotType: function(){
-    console.log("im running");
-    return Session.get("dotType")
-
   }
 });
 

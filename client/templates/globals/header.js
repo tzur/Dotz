@@ -3,7 +3,16 @@ Template.header.helpers({
     let login = FlowRouter.path( 'login' ),
         index = FlowRouter.path( 'index' );
     return !Meteor.loggingIn() && !Meteor.userId() ? login : index;
+  },
+
+  iAmHere: function() {
+    return Session.get('whereIAm');
+  },
+
+  hereWithImg: function() {
+    return Session.get('hereWithImg');
   }
+
 });
 
 Template.header.events({
