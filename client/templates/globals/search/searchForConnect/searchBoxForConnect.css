@@ -12,10 +12,14 @@
 
 .nav-pills .search-btns {
   display: inline-block;
-  width: 15%;
+  width: 25%;
   margin-bottom: 2em;
 }
 
 .nav-pills li a {
   border: #337AB7 solid 1px;
+}
+
+.nav-pills .active {
+  background-color: transparent;
 }

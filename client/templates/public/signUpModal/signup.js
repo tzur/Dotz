@@ -6,7 +6,11 @@ Template.signup.onRendered( () => {
 });
 
 Template.signup.events({
-  'submit form': ( event ) => event.preventDefault()
+  'submit form': ( event ) => event.preventDefault(),
+
+  'click #exitBtn': function(){
+    Modal.hide('createListModal');
+  }
 
 
   //Discover 3rd part accounts: https://themeteorchef.com/recipes/roll-your-own-authentication/
