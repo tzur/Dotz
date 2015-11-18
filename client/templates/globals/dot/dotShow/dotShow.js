@@ -2,29 +2,27 @@
 Template.dotShow.onCreated(function() {
 
   let self = this;
-  self.subs = new SubsManager({
-    // maximum number of cache subscriptions
-    cacheLimit: 10,
-    // any subscription will be expire after 5 minute, if it's not subscribed again
-    expireIn: 5
-  });
+  //self.subs = new SubsManager({
+  //  // maximum number of cache subscriptions
+  //  cacheLimit: 10,
+  //  // any subscription will be expire after 5 minute, if it's not subscribed again
+  //  expireIn: 5
+  //});
   self.autorun(function() {
     if(!GoogleMaps.loaded()){
       GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
     }
-    let dotSlug = FlowRouter.current().path.slice(1);
-
-    if (dotSlug) {
-      self.subscribe('dotShowByDotSlug', dotSlug);
+    Session.set('dotSlug', FlowRouter.current().path.slice(1));
+    if (Session.get('dotSlug')) {
+      self.subscribe('dotShowByDotSlug', Session.get('dotSlug'));
     }
-    let currentDot = Dotz.findOne({"dotSlug": dotSlug});
-    if (currentDot){
+    let currentDot = Dotz.findOne({"dotSlug": Session.get('dotSlug')});
+    if (currentDot) {
       DocHead.setTitle("Dotz: " + currentDot.title);
-      if (currentDot){
-        self.subscribe('user', currentDot.ownerUserId );
+      if (currentDot) {
+        self.subscribe('user', currentDot.ownerUserId);
       }
     }
-
   });
 });
 
@@ -32,27 +30,27 @@ Template.dotShow.onRendered(function(){
   window.scrollTo(0,0);
 
   $(window).scroll(function() {
-    if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-      document.getElementById("whereIAm").className = "showWhere";
-      //console.log("OK GO :)");
-    } else {
-      document.getElementById("whereIAm").className = "noneWhere";
-      //console.log("Back!!!");
-    }
+    //if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+    //  document.getElementById("whereIAm").className = "showWhere";
+    //  //console.log("OK GO :)");
+    //} else {
+    //  document.getElementById("whereIAm").className = "noneWhere";
+    //  //console.log("Back!!!");
+    //}
   });
 
 });
 
 
-Template.dotShow.onDestroyed(function(){
-  Session.set('whereIAm', undefined);
-  Session.set('hereWithImg', undefined);
-});
+//Template.dotShow.onDestroyed(function(){
+//  Session.set('whereIAm', undefined);
+//  Session.set('hereWithImg', undefined);
+//});
 
 
 Template.dotShow.helpers({
   dotShow: function() {
-    let dot = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1) });
+    let dot = Dotz.findOne({ "dotSlug": Session.get('dotSlug')});
     let ownerUser = Meteor.users.findOne(dot.ownerUserId);
     Session.set('whereIAm', dot.title);
     Session.set('hereWithImg', dot.coverImageUrl);
