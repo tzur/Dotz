@@ -7560,7 +7560,7 @@ var packageMetadata = {
                 },
                 "version": {
                   "type": "constant",
-                  "value": "668f60f30f725ccb3fc77a6a3257f618e402fc37"
+                  "value": "fff7d67da8f7b7218b6e99649238e03701bc2d51"
                 },
                 "PUBLIC_SETTINGS": {
                   "type": "object",
@@ -7709,7 +7709,7 @@ var packageMetadata = {
             },
             "connections": {
               "type": "constant",
-              "value": 8
+              "value": 0
             },
             "timeout": {
               "type": "constant",
@@ -8130,7 +8130,7 @@ var packageMetadata = {
             },
             "fibersCreated": {
               "type": "constant",
-              "value": 18
+              "value": 16
             },
             "prototype": {
               "type": "object",
@@ -19939,13 +19939,7 @@ var packageMetadata = {
               }
             },
             "rename": {
-              "type": "function",
-              "members": {
-                "displayName": {
-                  "type": "constant",
-                  "value": "rename"
-                }
-              }
+              "type": "function"
             },
             "realpath": {
               "type": "function",
@@ -20098,7 +20092,7 @@ var packageMetadata = {
             },
             "pathOsDelimiter": {
               "type": "constant",
-              "value": ":"
+              "value": ";"
             },
             "convertToStandardPath": {
               "type": "function"
@@ -22150,15 +22144,15 @@ var packageMetadata = {
                 },
                 "appPath": {
                   "type": "constant",
-                  "value": "/Users/otniel/WebstormProjects/prototypeB1"
+                  "value": "C:\\Users\\yoav\\DotzDeploy"
                 },
                 "pid": {
                   "type": "constant",
-                  "value": 29344
+                  "value": 7472
                 },
                 "fout": {
                   "type": "constant",
-                  "value": 34
+                  "value": 4
                 },
                 "child": {
                   "type": "object",
@@ -22177,7 +22171,7 @@ var packageMetadata = {
                     },
                     "pid": {
                       "type": "constant",
-                      "value": 29344
+                      "value": 7472
                     },
                     "stdin": {
                       "type": "null",
@@ -22381,11 +22375,11 @@ var packageMetadata = {
       "members": {
         "autoupdateVersion": {
           "type": "constant",
-          "value": "7604ca0c1dbe7cefc910b8fc0b477b39fda8e3c6"
+          "value": "25b5884862c590dee530a4f7d2a8a41a4fb0dba7"
         },
         "autoupdateVersionRefreshable": {
           "type": "constant",
-          "value": "4c05641a716e5ec006dce5d6b43f19e243bb9787"
+          "value": "0ee53ccb1436d1dcda124ca5e1bce912d551c16c"
         },
         "autoupdateVersionCordova": {
           "type": "constant",
