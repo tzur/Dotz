@@ -13,12 +13,13 @@
   /*padding-right: 1vh;*/
 /*}*/
 
-/*.connectBtn {*/
-  /*height: 4vh;*/
-  /*border-radius: 24px;*/
-  /*width: auto;*/
-  /*padding: inherit;*/
-/*}*/
+.connectBtn {
+  height: 4vh;
+  margin: auto;
+  border-radius: 24px;
+  width: auto;
+  padding: inherit;
+}
 
 #listCardLikeSide {
   height: 22vh;
@@ -153,11 +154,12 @@
   /*padding: 0.2vh 0vh 0.3vh 0vh;*/
   padding-top: 1vh;
   /*line-height: 4vh;*/
+  margin-top: 0;
   margin-bottom: 0;
 }
 
 #listCard .content .listCardTitle .h2Title {
-  margin-top: 2vh;
+  margin: 0;
   font-weight: 400;
   font-size: 2.0rem;
   color: rgba(0, 0, 0, 0.8);

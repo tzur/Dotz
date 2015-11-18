@@ -1,0 +1,354 @@
+/*/!*general*!/*/
+
+/*#listCard-box {*/
+  /*padding: 1vh;*/
+  /*margin-bottom: 1vh;*/
+/*}*/
+
+
+/*#listCardLikeSide {*/
+  /*height: 22vh;*/
+  /*padding-right: 2vh;*/
+/*}*/
+
+
+/*#listCardLikeSide .likeBtn {*/
+  /*background-color: transparent;*/
+  /*color: rgba(0, 0, 0, 0.6);*/
+  /*text-align: center;*/
+  /*width: 5vh;*/
+  /*font-size: 3rem;*/
+  /*margin-top: 7vh;*/
+  /*padding: 1vh;*/
+/*}*/
+
+/*#listCardLikeSide .likesCounter {*/
+  /*color: rgba(0, 0, 0, 0.6);*/
+  /*font-size: 1.5rem;*/
+  /*text-align: center;*/
+/*}*/
+
+
+/*#listCardImgSide {*/
+  /*padding: 0;*/
+  /*height: 22vh;*/
+/*}*/
+
+
+/*#listCardImgSide .filter {*/
+  /*position: absolute;*/
+  /*z-index: 2;*/
+  /*background-color: rgba(0, 0, 0, 0.3);*/
+  /*width: 100%;*/
+  /*height: 100%;*/
+/*}*/
+
+/*#listCardImgSide .imgSideSpacer {*/
+  /*height: 78%;*/
+/*}*/
+
+/*#listCardImgSide .listCardUser {*/
+  /*margin: 1vh;*/
+/*}*/
+
+
+/*#listCardTextSide {*/
+  /*background-color: rgba(255, 255, 255, 1);*/
+  /*height: 100%;*/
+
+/*}*/
+
+/*#listCardTextSide .listCardFooter {*/
+  /*padding: 0vh 2vh 0.5vh 2vh;*/
+/*}*/
+
+/*#listCardTextSide .listCardFooter .btn {*/
+  /*margin-left: 0.5vh;*/
+/*}*/
+
+
+/*#listCard {*/
+  /*box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23);*/
+  /*background-color: #FFFFFF;*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+  /*height: 100%;*/
+/*}*/
+
+/*#listCard .greyText {*/
+  /*color: rgba(0, 0, 0, 0.5);*/
+/*}*/
+
+/*.listCardHeader {*/
+
+/*}*/
+
+/*#listCard .listCardHeader .container-fluid {*/
+
+/*}*/
+
+/*.dot-container-img-listCard {*/
+  /*position: relative;*/
+  /*width: 100%;*/
+  /*height: 100%;*/
+
+  /*background-size: cover;*/
+  /*background-position-y: 50%;*/
+  /*background-position-x: 50%;*/
+  /*padding: 0;*/
+
+/*}*/
+
+/*#round-overlay {*/
+  /*background-image: radial-gradient(12.5vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 87%, rgba(255, 255, 255, 1) 87%, rgba(255, 255, 255, 1) 100%);*/
+  /*width: 100%;*/
+  /*height: 22vh;*/
+/*}*/
+
+/*#round-overlay:hover {*/
+  /*background-image: radial-gradient(12.5vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 100%);*/
+/*}*/
+
+/*#listCard .content {*/
+
+  /*min-height: 12.5vh; /!*joe*!/*/
+
+/*}*/
+
+/*#listCard .content .listCardTitle {*/
+
+  /*margin-bottom: 0;*/
+/*}*/
+
+/*#listCard .content .listCardTitle .h2Title {*/
+
+  /*font-weight: 400;*/
+
+  /*color: rgba(0, 0, 0, 0.8);*/
+/*}*/
+
+/*#listCard .content .listCardSpacer {*/
+
+/*}*/
+
+/*#listCard .content .listCardText {*/
+
+  /*color: rgba(0, 0, 0, 0.4);*/
+  /*line-height: 1.4;*/
+  /*font-size: 16px;*/
+  /*margin: 0;*/
+/*}*/
+
+/*#listCard .content .listCardText > p {*/
+  /*margin: 0;*/
+  /*color: rgba(0, 0, 0, 0.5);*/
+/*}*/
+
+
+/*#listCard .listCardUser {*/
+
+  /*padding: 0.5vh 0.5vh 0.5vh 0vh;*/
+
+/*}*/
+
+/*.userImgIcon > img {*/
+  /*position: relative;*/
+
+  /*height: 3vh;*/
+  /*width: 3vh;*/
+  /*background-size: cover;*/
+  /*background-position-y: 50%;*/
+  /*background-position-x: 50%;*/
+  /*border: 1px solid #ffffff;*/
+  /*border-radius: 50%;*/
+/*}*/
+
+/*#listCard .listCardUser .smTxt {*/
+  /*position: relative;*/
+  /**/
+/*}*/
+
+
+/*#listCard .listCardIcons {*/
+  /*height: 3vh;*/
+  /*padding: 0.5vh 0.5vh 0.5vh 0vh;*/
+  /*margin: 0;*/
+/*}*/
+
+
+/*#listCard .footer {*/
+  /**/
+  /*background-color: #FFFFFF;*/
+  /*line-height: 30px;*/
+  /*padding-left: 2vh;*/
+  /*padding-right: 2vh;*/
+  /**/
+  /*padding-bottom: 0.5vh;*/
+
+/*}*/
+
+/*#listCover .buttonsBar > div {*/
+  /*padding: 0;*/
+/*}*/
+
+/*#listCard > .title {*/
+  /*margin: 0;*/
+  /*padding: 30px 0 0;*/
+/*}*/
+
+/*#listCard .content .title {*/
+  /*margin: 10px 0 20px 0;*/
+  /*position: relative;*/
+  /*z-index: 3;*/
+  /*color: #333333;*/
+/*}*/
+
+/*#listCard .content .title {*/
+  /*font-weight: 400;*/
+  /*font-size: 24px;*/
+  /*line-height: 30px;*/
+  /*-webkit-font-smoothing: antialiased;*/
+  /*font-family: "Playfair Display","Raleway","Helvetica Neue",Arial,sans-serif;*/
+/*}*/
+
+
+/*#listCardOtherSide {*/
+  /*padding:0;*/
+  /*margin: 0;*/
+/*}*/
+
+
+
+/*#listCardOtherSide .panelBtn {*/
+  /*padding: 1.5vh;*/
+  /**/
+/*}*/
+
+
+
+/*/!*ListCover*!/*/
+
+
+/*#listCover {*/
+
+  /*box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23);*/
+  /*background-color: rgba(92,184,92, 0.6);*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+  /*height: 22vh;*/
+  /*filter: ;*/
+/*}*/
+
+
+/*#listCover .dot-container-img-listCard {*/
+  /*height: 100%;*/
+/*}*/
+
+
+
+/*#listCover .filter {*/
+  /*position: absolute;*/
+  /*z-index: 2;*/
+  /*background-color: rgba(0, 0, 0, 0.3);*/
+  /*width: 100%;*/
+  /*height: 100%;*/
+/*}*/
+
+/*#listCover .listCardTitle {*/
+  /*width: 80%;*/
+  /*height: 17vh;*/
+  /*margin: auto;*/
+  /*padding-top: 2vh;*/
+/*}*/
+
+/*#listCover .listCardTitle .h2Title {*/
+  /*color: #FFFFFF;*/
+  /*font-size: 1.5em;*/
+  /*text-align: center;*/
+/*}*/
+
+
+/*#listCover .listIcon {*/
+  /*color: #FFFFFF;*/
+  /*text-align: center;*/
+  /*font-size: 2rem;*/
+  /*margin: auto;*/
+/*}*/
+
+/*#listCover .fa-list-ul {*/
+  /*color: #FFFFFF;*/
+  /*text-align: center;*/
+  /*font-size: 2rem;*/
+  /*margin: auto;*/
+/*}*/
+
+/*#listCover .listCoverHr {*/
+  /*width: 30%;*/
+  /*margin: auto;*/
+  /*border-color: red;*/
+  /*height: 2vh;*/
+/*}*/
+
+
+
+/*#listCover .listCardFooter {*/
+  /*height: 5vh;*/
+  /*padding: 1vh;*/
+  /*margin: 0;*/
+/*}*/
+
+
+/*#listCover .listCardFooter .btn {*/
+  /*margin-left: 0.5vh;*/
+/*}*/
+
+
+/*#listCover .listCardFooter .connect {*/
+
+/*}*/
+
+/*#listCover .listCardFooter .disConnect {*/
+  /*background-color: transparent;*/
+
+/*}*/
+
+/*#listCover .listCardFooter .disConnect:hover {*/
+  /*background-color: rgba(255,255,255, 0.6);*/
+  /*color: red;*/
+  /*border-color: red;*/
+/*}*/
+
+
+
+
+
+/*.connctIcon {*/
+  /*margin-top: 15vh;*/
+/*}*/
+
+/*.connctIcon .plusIcon {*/
+  /*color: rgba(0,0,0,0.3);*/
+  /*position: absolute;*/
+  /*z-index: 2;*/
+/*}*/
+
+/*.connctIcon .plusIcon .fa-plus-circle {*/
+
+  /*width: 3vh;*/
+
+  /*margin: auto;*/
+
+  /*background-color: transparent;*/
+  /*color: rgba(0, 0, 0, 0.6);*/
+  /*text-align: center;*/
+  /*font-size: 3rem;*/
+  /*padding: 1vh;*/
+/*}*/
+
+/*#listCover .listCardUser {*/
+  /*padding: 0.5vh 0.5vh 0.5vh 0vh;*/
+/*}*/
+
+
+
+
