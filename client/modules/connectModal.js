@@ -34,8 +34,8 @@ let getAvailableLists = function(dotIdWishedToConnectTo) {
   }
 };
 
-let isConnectedToDot = (dotId, dotIdWishedToConnectTo) => {
-  let _dot = Dotz.findOne(dotId);
+let isConnectedToDot = (parentDotId, dotIdWishedToConnectTo) => {
+  let _dot = Dotz.findOne(parentDotId);
   let isNotConnected = true;
 
   if(_dot && _dot._id != dotIdWishedToConnectTo)

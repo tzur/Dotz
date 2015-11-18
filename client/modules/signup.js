@@ -67,6 +67,8 @@ let _handleSignup = ( template ) => {
                   email: Meteor.user().emails[0].address,
                   name: Meteor.user().username
                 });
+
+                Meteor.call('')
               }
           });
     }

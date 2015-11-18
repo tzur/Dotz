@@ -18,7 +18,6 @@ Template.dotShow.onCreated(function() {
     }
 
     let dotSlug = FlowRouter.current().path.slice(1);
-    console.log("#######dotSlug " + dotSlug);
 
     if (dotSlug) {
       self.subs.subscribe('dotShowByDotSlug', dotSlug);
@@ -167,6 +166,14 @@ Template.dotShow.helpers({
     if (Session.get('dot')) {
       return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').connectedDotzArray);
     }
+  },
+
+  iAmHere: function() {
+    return Session.get('whereIAm');
+  },
+
+  hereWithImg: function() {
+    return Session.get('hereWithImg');
   }
 
 });
