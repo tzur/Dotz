@@ -1,43 +1,43 @@
-_searchCursor = {};
 
-Template.searchBox.onCreated(function(){
-  var self = this;
-  Session.set('searchInput',undefined);
-  self.autorun(function(){
-      if (Session.get('searchInput')){
-        Modules.client.searchByAlgolia(Session.get('searchInput'));
-        if (Session.get('searchResult')){
-          Meteor.subscribe('dotzArrayToUserCursor', Session.get('searchResult').hits)
-        }
-      }
-  });
-});
+//Template.searchBox.onCreated(function(){
+//  var self = this;
+//  Session.set('searchInput',undefined);
+//  self.autorun(function(){
+//      if (Session.get('searchInput')){
+//        Modules.client.searchByAlgolia(Session.get('searchInput'));
+//        if (Session.get('searchResult')){
+//          Meteor.subscribe('dotzArrayToUserCursor', Session.get('searchResult').hits)
+//        }
+//      }
+//  });
+//});
 
 Template.searchBox.onDestroyed(function(){
-  Session.set('searchResult', undefined);
-  Session.set('searchInput', event.target.value);
+  Session.set('searchInput', undefined);
 });
 Template.searchBox.helpers({
-  findDotz: function(){
-    if (Session.get('searchInput')){
-      return true;
-    }
-    else{
-      return false;
-    }
+  findDotz: function() {
+    return (Session.get('searchInput'))
   },
+
   result: function(){
-    if(Session.get('searchResult')){
-      return Modules.both.Dotz.searchCursorToDataObject(Session.get('searchResult').hits);
+    if(Session.get('searchInput')){
+      let resultArray = Modules.client.searchByAlgolia(Session.get('searchInput'), function(content, error){
+        if(content){
+          console.log(content.hits);
+          return content.hits
+        }
+        else{
+          console.log("Error: " + error)
+        }
+      });
     }
   }
 
 });
 Template.searchBox.events({
-  'keypress #searchInput': function(event, template){
+  'keypress #searchInput': function(event){
     Session.set('searchInput', event.target.value);
-    Session.set('searchResult', undefined);
-
   }
 });
 
