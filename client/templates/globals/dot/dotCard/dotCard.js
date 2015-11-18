@@ -1,12 +1,22 @@
 
 Template.dotCard.helpers({
 
+  //create specific SESSION!!!! TBD
   isInOpenList: function() {
     if (Template.parentData().userShowDot) {
       return Template.parentData().userShowDot.isOpen;
     }
     else if (Template.parentData().dotShow) {
       return Template.parentData().dotShow.isOpen;
+    }
+  },
+
+  isInClosedList: function() {
+    if (Template.parentData().userShowDot) {
+      return !(Template.parentData().userShowDot.isOpen);
+    }
+    else if (Template.parentData().dotShow) {
+      return !(Template.parentData().dotShow.isOpen);
     }
   },
 
