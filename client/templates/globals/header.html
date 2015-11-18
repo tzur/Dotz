@@ -24,13 +24,26 @@
 
 	    </div>
 
+
+
 	    <div id="navbar-collapse" class="collapse navbar-collapse">
 	    	{{#if currentUser}}
 					{{> authenticatedNavigation}}
 	      {{else}}
 	      	{{> publicNavigation}}
 	      {{/if}}
+
+          <form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn unstyled-btn"><i class="fa fa-search mdTxt"></i></button>
+          </form>
+
 	    </div>
+
+
+
 	  </div>
 	</nav>
 </template>
