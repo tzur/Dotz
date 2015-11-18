@@ -129,6 +129,8 @@
 
 #listCardImgSide .dot-container-img-listCard:hover {
   border-radius: 0;
+  height: 22vh;
+  width: 100%;
 }
 
 #round-overlay {
