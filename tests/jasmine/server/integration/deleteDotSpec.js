@@ -58,7 +58,7 @@ describe('deleteDot', function(){
     expect(parent2.connectedDotzArray.length).toEqual(1);
     expect(insideDot.inDotz).toContain(childDotId);
     let childDot = Dotz.findOne(childDotId);
-    Modules.both.Dotz.deleteDot(childDot, smartRefDelete1);
+    Modules.both.Dotz.deleteDot(childDot, smartRefDelete1.connection.toParentDotId);
     parent1 = Dotz.findOne(parentDot1Id);
     parent2 = Dotz.findOne(parentDot2Id);
     expect(parent1.connectedDotzArray.length).toEqual(0);

@@ -16,13 +16,15 @@ Template.dotShow.onCreated(function() {
 
     if (dotSlug) {
       self.subscribe('dotShowByDotSlug', dotSlug);
-
-      Session.set('dot', _data.dotShow);
     }
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot){
-      self.subscribe('user', currentDot.ownerUserId );
+      DocHead.setTitle("Dotz: " + currentDot.title);
+      if (currentDot){
+        self.subscribe('user', currentDot.ownerUserId );
+      }
     }
+
   });
 });
 
@@ -87,7 +89,8 @@ Template.dotShow.helpers({
 
   connectCounter: function() {
     //check if this dot is exist (to avoid some errors during delete action)
-      let counter = this.inDotz.length;
+
+      let counter = this.dot.inDotz.length;
       //counter show:
       if (counter && counter === 0) {
         return ("");
@@ -144,9 +147,8 @@ Template.dotShow.events({
     if(Meteor.user()) {
       Modal.show('connectDotModal', {
         data: {
-          dotId: _data.dotShow._id,
-          dot: _data.dotShow
-
+          dotId: this.dot._id,
+          dot: this.dot
         }
       });
     }
@@ -158,19 +160,14 @@ Template.dotShow.events({
   'click .editBtn': function(){
     Modal.show('editDotModal', {
       data:{
-        'dot': _data.dotShow,
+        'dot':this.dot,
         'actionTypeEdit': true
       }
     });
   },
 
   'click .delete':function(event){
-    if (_data.dotShow) {
-        let dotShowSmartRef = {};
-        dotShowSmartRef.parentDot = _data.dotShow.profile.profileDotId;
-        dotShowSmartRef.dotId = _data.dotShow._id;
-        Modules.both.Dotz.deleteDot(_data.dotShow, dotShowSmartRef);
-    }
+      Modules.both.Dotz.deleteDot(this.dot);
   },
 
   'click #addUserConnection': function(){
