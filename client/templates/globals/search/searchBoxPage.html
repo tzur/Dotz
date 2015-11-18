@@ -1,0 +1,98 @@
+<template name="searchBox">
+
+    <div class="container-fluid search-container">
+
+        <div class="row">
+            <div id="mixDescription" class="col-xs-12 col-sm-10 col-md-6 colCenter txtMd">
+
+                <h1 class="darkText">What Do You Wanna Do?</h1>
+
+            </div>
+        </div>
+
+
+        <div class="row search-row">
+            <div class="col-xs-12 txtMd">
+
+                <input type="text" class="searchInput search-box" id="searchInput" placeholder='"Eat", "Surf", "Dance" ...'>
+                <i id="search-icon" class="fa fa-search"></i>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row search-results-row">
+            <div class="col-xs-12">
+
+              {{#if isSearched}}
+
+
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs nav-justified" role="tablist">
+                        <li role="presentation" class="active"><a href="#dotz" aria-controls="dotz" role="tab" data-toggle="tab">Dotz</a></li>
+                        <li role="presentation"><a href="#lists" aria-controls="lists" role="tab" data-toggle="tab">Lists</a></li>
+                        <li role="presentation"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Users</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="dotz">
+                          {{#if dotzResult}}
+                            <ul>
+                              {{#each dotzResult}}
+                                  <div class="dot-card-search-wrapper">
+                                    {{> dotCardSearch}}
+                                  </div>
+                              {{/each}}
+                            </ul>
+                            {{else}}
+                            <h4 class="txtMd">Sorry :( Nothing Here</h4>
+                          {{/if}}
+
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="lists">
+                          {{#if listsResult}}
+
+                            <ul>
+                              {{#each listsResult}}
+                                  <div class="dot-card-search-wrapper">
+                                    {{> dotCardSearch}}
+                                  </div>
+                              {{/each}}
+                            </ul>
+                          {{else}}
+                              <h4 class="txtMd">Sorry :( Nothing Here</h4>
+                          {{/if}}
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="users">
+
+                          {{#if usersResult}}
+                             <ul>
+                              {{#each usersResult}}
+                                  <div class="dot-card-search-wrapper">
+                                    {{> dotCardSearch}}
+                                  </div>
+                              {{/each}}
+                            </ul>
+                          {{else}}
+                              <h4 class="txtMd">Sorry :( Nothing Here</h4>
+                          {{/if}}
+
+                        </div>
+                    </div>
+
+
+                </div>
+             {{/if}}
+            </div>
+        </div>
+    </div>
+
+</template>

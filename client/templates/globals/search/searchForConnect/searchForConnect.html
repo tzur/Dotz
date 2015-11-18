@@ -1,4 +1,4 @@
-<template name="searchBoxForConnect" xmlns="http://www.w3.org/1999/html">
+<template name="searchBoxForConnect">
 <div id="searchToConnect">
     <div class="container-fluid search-container">
 
@@ -19,25 +19,13 @@
             <div class="col-xs-12">
 
                 <ul>
-                  {{#if findDotz}}
-
-                    {{#each result.canBeConnected}}
+                    {{#each result}}
                         <div class="dot-card-search-wrapper">
-                            {{> connectDotCardSearch}}
+                            {{#if isAlreadyConnected}}
+                              {{> connectDotCardSearch}}
+                            {{/if}}
                         </div>
                     {{/each}}
-
-                  {{#if result.canNotBeConnected}}
-                      <hr><h5>Already Connected:</h5>
-
-                    {{#each result.canNotBeConnected}}
-                        <div class="dot-card-search-wrapper">
-                            {{> connectDotCardSearch}}
-                        </div>
-                    {{/each}}
-                  {{/if}}
-                  {{/if}}
-
 
 
                 </ul>
