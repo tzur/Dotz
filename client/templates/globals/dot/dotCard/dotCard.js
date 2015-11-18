@@ -19,11 +19,11 @@ Template.dotCard.helpers({
   },
   //create specific SESSION!!!! TBD
   isInOpenList: function() {
-    if (Template.parentData().userShowDot) {
-      return Template.parentData().userShowDot.isOpen;
+    if (Template.parentData(2).username) {
+      return false;
     }
-    else if (Template.parentData().dotShow) {
-      return Template.parentData().dotShow.isOpen;
+    else if (Template.parentData(2).dot.isOpen) {
+      return true;
     }
   },
 
@@ -33,8 +33,8 @@ Template.dotCard.helpers({
       return true;
     }
     //NEED TO FIX IT FOR DOT SHOW
-    else if (Template.parentData().dotShow) {
-      return !(Template.parentData().dotShow.isOpen);
+    else if (!Template.parentData(2).dot.isOpen) {
+      return true;
     }
   },
 
