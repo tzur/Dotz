@@ -92,17 +92,18 @@ Template.createDotModal.events({
   //  Modal.hide('createToOneOfMyDotzModal');
   //},
 
-  'change #addDotImage input[type="file"]': function(){
+  'change #addDotImageWraper input[type="file"]': function(){
+    Session.set('coverImageUrl', undefined);
     Tracker.autorun(function(c) {
       document.getElementById("createToMyProfile").disabled = true;
-      if(document.getElementById("createToOneOfMyDotz")){
-        document.getElementById("createToOneOfMyDotz").disabled = true;
+      if(document.getElementById("createToMyLists")){
+        document.getElementById("createToMyLists").disabled = true;
       }
       if (Session.get('coverImageUrl')) {
         c.stop();
         document.getElementById("createToMyProfile").disabled = false;
-        if(document.getElementById("createToOneOfMyDotz")){
-          document.getElementById("createToOneOfMyDotz").disabled = false;
+        if(document.getElementById("createToMyLists")){
+          document.getElementById("createToMyLists").disabled = false;
         }
       }
     });
