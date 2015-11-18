@@ -108,3 +108,26 @@
 }
 
 
+.ConnectedByOwnerDotz-div ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ConnectedByOwnerDotz-div ::-webkit-scrollbar-button {
+  width: 8px;
+  height:5px;
+}
+
+.ConnectedByOwnerDotz-div ::-webkit-scrollbar-track {
+  background:transparent;
+  border-radius:10px;
+}
+
+.ConnectedByOwnerDotz-div ::-webkit-scrollbar-thumb {
+  background: rgba(153, 153, 153, 0.67);
+  border: thin solid rgba(128, 128, 128, 0.67);
+  border-radius:10px;
+}
+
+.ConnectedByOwnerDotz-div ::-webkit-scrollbar-thumb:hover {
+  background: rgba(125, 125, 125, 0.76);
+}
