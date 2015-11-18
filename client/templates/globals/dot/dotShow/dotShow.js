@@ -46,18 +46,12 @@ Template.dotShow.onRendered(function(){
   window.scrollTo(0,0);
 
   $(window).scroll(function() {
-    //if (document.body.scrollTop === 200) {
-    //  console.log("Back!!!");
-    //}
-    //if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-    //  console.log("OK GO :)");
-    //}
     if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
       document.getElementById("whereIAm").className = "showWhere";
-      console.log("OK GO :)");
+      //console.log("OK GO :)");
     } else {
       document.getElementById("whereIAm").className = "noneWhere";
-      console.log("Back!!!");
+      //console.log("Back!!!");
     }
   });
 
