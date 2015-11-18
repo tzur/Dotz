@@ -169,7 +169,8 @@ Template.dotShow.events({
   },
 
   'click .delete':function(event){
-      Modules.both.Dotz.deleteDot(this.dot);
+      Modules.both.Dotz.deleteDot(this.dot, this.dot.inDotz[0]);
+      FlowRouter.go("/" + Meteor.user().profile.userSlug);
   },
 
   'click #addUserConnection': function(){
