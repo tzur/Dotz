@@ -37,6 +37,8 @@ let editUserHooks = {
     Session.set("userProfileImageUrl", undefined);
     Session.set("locationObject", undefined);
     Modal.hide('editUserAccountModal');
+    Meteor.call('addOrEditObjectInAlgolia', Meteor.user().profile.userSlug, true);
+
   }
 };
 
