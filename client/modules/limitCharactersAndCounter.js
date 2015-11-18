@@ -7,8 +7,10 @@
 //Move to client side.
 
 let limitCharactersAndCounter = (inputFieldId, maxCharacters, inputFieldFeedbackId) => {
+  var text_length = $(inputFieldId).val().length;
   var text_max = maxCharacters;
-  $(inputFieldFeedbackId).html('('+ text_max  + ')');
+  var text_strating = maxCharacters - text_length;
+  $(inputFieldFeedbackId).html('('+ text_strating  + ')');
 
   $(inputFieldId).keyup(function() {
     var text_length = $(inputFieldId).val().length;

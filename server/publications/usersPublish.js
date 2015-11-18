@@ -20,7 +20,7 @@ Meteor.publish('dotzArrayToUserCursor',function(dotzArray){
   let userIds = [];
   let currentDot ;
   dotzArray.forEach(function(dot){
-    currentDot = Dotz.findOne(dot.__originalId);
+    currentDot = Dotz.findOne(dot._id);
     userIds.push(currentDot.ownerUserId);
   });
   return Meteor.users.find({_id: {$in: userIds}}, {fields: {"services.password": 0, "services.loginTokens": 0, "emails.address": 0, "emails.verified": 0}} );

@@ -40,7 +40,7 @@ Meteor.methods({
           let dotId = result;
           let titleRegex = doc.title.replace(/ /g, "-");
           let slug = (Meteor.user().profile.userSlug + '/' + doc.dotType + '/' + titleRegex).toLowerCase();
-
+          Meteor.call('addOrEditObjectInAlgolia', dotId);
           //slug Process:
           if ( _slugUniquenessValidation (dotId, slug) ) {
             //TBD

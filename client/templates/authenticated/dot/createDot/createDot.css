@@ -181,7 +181,7 @@ button .collapsed {
   display: none;
 }
 
-#addDotImage {
+#addDotImage, #editDotImage {
   display: none;
 }
 
