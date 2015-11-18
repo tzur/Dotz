@@ -1,21 +1,21 @@
 Template.dotCard.onCreated(function(){
-  let self = this;
-  self.autorun(function(){
-    self.subscribe('dotCard', self.data.dot._id);
-    self.subscribe('user', self.data.dot.ownerUserId);
-    self.subscribe('user', self.data.connection.connectedByUserId);
-  })
+      Meteor.subscribe('dotCard', this.data.dot._id);
+      Meteor.subscribe('user', this.data.dot.ownerUserId);
+      Meteor.subscribe('user', this.data.connection.connectedByUserId);
 });
+
+
 Template.dotCard.helpers({
   dataCard: function(){
-    let data = {
-      dot: Dotz.findOne(this.dot._id),
-      smartRef: this,
-      ownerUser: Meteor.users.findOne(this.dot.ownerUserId),
-      connectedByUser: Meteor.users.findOne(this.connection.connectedByUserId)
-    };
-
-    return data;
+    if (this.dot){
+      let data = {
+        dot: Dotz.findOne(this.dot._id),
+        smartRef: this,
+        ownerUser: Meteor.users.findOne(this.dot.ownerUserId),
+        connectedByUser: Meteor.users.findOne(this.connection.connectedByUserId)
+      };
+      return data;
+    }
   },
   //create specific SESSION!!!! TBD
   isInOpenList: function() {
@@ -39,11 +39,11 @@ Template.dotCard.helpers({
   },
 
   isListCard: function() {
-    return (this.dot.dotType === "List")
+    return (this.dot && this.dot.dotType === "List")
   },
 
   isMyDot: function() {
-    return (this.dot.ownerUserId === Meteor.userId())
+    return (this.dot && this.dot.ownerUserId === Meteor.userId())
   },
 
   //Works for dotzConnectedByOwner, TBD for dotzConnectedByOthers:
@@ -59,13 +59,13 @@ Template.dotCard.helpers({
   },
 
   eventDate: function(){
-    if (this.dot.startDateAndHour) {
+    if (this.dot && this.dot.startDateAndHour) {
       return ( moment(this.dot.startDateAndHour).fromNow());
     }
   },
 
   shortenAdress: function(){
-    if (this.dot.location && this.dot.location.address) {
+    if (this.dot && this.dot.location && this.dot.location.address) {
       return s.prune(this.dot.location.address, 40);
     }
   },
@@ -75,21 +75,24 @@ Template.dotCard.helpers({
   },
 
   personalDescriptionOrBodyText: function() {
-    if (this.smartRef.connection.personalDescription) {
-      return s.prune(this.smartRef.connection.personalDescription, 100);
-    }
-    else if (this.connectedByUser.id === this.dot.ownerUserId) {
+    if (this.dot){
+      if (this.smartRef.connection.personalDescription) {
+        return s.prune(this.smartRef.connection.personalDescription, 100);
+      }
+      else if (this.connectedByUser.id === this.dot.ownerUserId) {
 
-      return s.prune(this.dot.bodyText, 100);
+        return s.prune(this.dot.bodyText, 100);
+      }
+      else {
+        return " ";
+      }
     }
-    else {
-      return " ";
-    }
+
   },
 
   dotzNum: function() {
     let connectedDotz = 0;
-    if (this.dot.connectedDotzArray) {
+    if (this.dot && this.dot.connectedDotzArray) {
       connectedDotz = this.dot.connectedDotzArray.length;
     }
     if (connectedDotz == 0){
@@ -104,7 +107,7 @@ Template.dotCard.helpers({
 
   dotOrDotz: function() {
     let connectedDotz = 0;
-    if (this.dot.connectedDotzArray) {
+    if (this.dot && this.dot.connectedDotzArray) {
       connectedDotz = this.dot.connectedDotzArray.length;
     }
 
@@ -123,17 +126,22 @@ Template.dotCard.helpers({
   connectCounter: function() {
     //check if this dot is exist (to avoid some errors during delete action)
     let counter;
-    let dot = Dotz.findOne(this.dot._id);
-    if (dot) {
-      counter = dot.inDotz.length;
-    }
+    if (this.dot) {
+      console.log("IM HERE");
 
-    //counter show:
-    if (counter && counter === 0) {
-      return ("");
-    }
-    else if (counter) {
-      return ( "(" + counter + ")" );
+      let dot = Dotz.findOne(this.dot._id);
+      if (dot) {
+        counter = dot.inDotz.length;
+      }
+
+
+      //counter show:
+      if (counter && counter === 0) {
+        return ("");
+      }
+      else if (counter) {
+        return ( "(" + counter + ")" );
+      }
     }
   },
 
@@ -201,7 +209,7 @@ Template.dotCard.events({
   },
 
   'click .delete':function(event){
-    Modules.both.Dotz.deleteDot(this.dot, this.smartRef);
+    Modules.both.Dotz.deleteDot(this.dot, this.smartRef.connection.toParentDotId);
   }
 
 });

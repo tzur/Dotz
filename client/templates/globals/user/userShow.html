@@ -6,7 +6,7 @@
 {{#if Template.subscriptionsReady}}
 {{#with dataUser}}
         <div id="userBgImg" class="container-liquid">
-            <div class="row imgCover" style="background-image: url('{{userShow.profile.coverImage}}')">
+            <div class="row imgCover" style="background-image: url('{{profile.coverImage}}')">
                 <div class="col-xs-12 colCenter">
                 </div>
             </div>
@@ -136,12 +136,13 @@
 
 <br>
 
-                    <div class="wrapper">
-                        <div class="container">
-                            <div class="masonry-container">
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-8 colCenter">
 
                               {{#each connectedDotzArray}}
-                                {{>dotCard}}
+                                {{> dotCard}}
                               {{/each}}
 
                             </div>

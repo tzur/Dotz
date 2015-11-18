@@ -6,6 +6,14 @@
   /*padding-left: 0;*/
 /*}*/
 
+#descriptionFieldFeedback {
+  position: absolute;
+  color: #ccc;
+  top: 0.25em;
+  right: -1.5em;
+  font-size: 1.1em;
+}
+
 #createListFields hr {
   border-color: rgba(0,0,0,0);
 }
