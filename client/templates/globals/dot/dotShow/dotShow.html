@@ -16,13 +16,17 @@
                 <h5 class="description">{{dot.bodyText}}</h5>
 
 
-
                 <div class="user">
 
                     <div class="iconDiv txtL">
                         <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
                         <a href="/{{ownerUser.profile.userSlug}}"><span class="userText">
                           Connected By <strong>{{ownerUser.username}}</strong></span></a>
+
+                          {{#if isMyDot}}
+                              <a href="" class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"></span></a>
+                              <a href="" class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"></span></a>
+                          {{/if}}
                     </div>
 
                 </div>
@@ -56,8 +60,8 @@
                         <h2 class="dot-show-title">{{dot.title}}
                           <small>
                           {{#if isMyDot}}
-                                  <a class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"></span></a>
-                                  <a class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"></span></a>
+                                  <a href="" class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"></span></a>
+                                  <a href="" class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"></span></a>
                           {{/if}}
                           </small>
                         </h2>
@@ -101,12 +105,12 @@
                     <!--</div>-->
                 <!--{{/if}}-->
 
-                    <span class="">
-                        <a href="{{dot.linkUrl}}" target="_blank">
-                            <button type="button" class="btn btn-lead btn-md">
-                            <i class="fa fa-globe"></i> Visit Site </button>
-                        </a>
-                    </span>
+                    <!--<span class="">-->
+                        <!--<a href="{{dot.linkUrl}}" target="_blank">-->
+                            <!--<button type="button" class="btn btn-lead btn-md">-->
+                            <!--<i class="fa fa-globe"></i> Visit Site </button>-->
+                        <!--</a>-->
+                    <!--</span>-->
 
                 </div>
 
@@ -148,7 +152,7 @@
                     <br>
                     <div class="col-xs-4 col-sm-3 colCenter">
                         <a href="{{dot.linkUrl}}" target="_blank">
-                        <button type="button" class="btn btn-success round btn-md">
+                        <button type="button" class="btn btn-success btn-md">
                             <i class="fa fa-globe"></i> Visit Site </button>
                         </a>
                     </div>
@@ -188,46 +192,6 @@
       </div>
 
   {{/if}}
-
-
-
-<!--navBar fixed bottom-->
-
-    <nav class="navbar navbar-default navbar-fixed-bottom" id="navbar-bottom">
-        <div class="container">
-
-<div class="row">
-
-
-    <!--show the current dot/list Show-->
-    <div class="hidden-xs col-sm-8 col-md-8">
-    <div id="whereIAm" class="noneWhere">
-        <!--<div>-->
-            <img class="hereWithImg" src="{{hereWithImg}}">
-            <span class="iAmHere">{{iAmHere}}</span>
-        <!--</div>-->
-    </div>
-    </div>
-
-    <div class="col-sm-2 col-md-2">
-        <button type="button" class="connect btn btn-success btn-md dot-show-connect-btn">Connect {{connectCounter}}</button>
-    </div>
-
-
-
-
-
-</div>
-
-
-        </div>
-    </nav>
-
-
-
-
-
-
 
 
 {{/if}} <!--end the check if is ListShow or DotShow-->
@@ -289,6 +253,33 @@
 
 </div>
 
+
+
+<!--navBar fixed bottom-->
+
+<nav class="navbar navbar-default navbar-fixed-bottom" id="navbar-bottom">
+    <div class="container">
+
+        <div class="row">
+
+            <!--show the current dot/list Show-->
+            <div class="hidden-xs col-sm-8 col-md-8">
+                <div id="whereIAm" class="noneWhere">
+                    <!--<div>-->
+                    <img class="hereWithImg" src="{{dot.coverImageUrl}}">
+                    <span class="iAmHere">{{dot.title}}</span>
+                    <!--</div>-->
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-md-2">
+                <button type="button" class="connect btn btn-success btn-md dot-show-connect-btn">Connect {{connectCounter}}</button>
+            </div>
+
+        </div>
+
+    </div>
+</nav>
 
 
 
