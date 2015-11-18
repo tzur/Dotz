@@ -101,14 +101,14 @@ Template.userShow.events({
   },
   'click .follow': function(){
     if(Meteor.user()) {
-      Modules.both.Dotz.followUser(Meteor.userId(), _data.userShow._id);
+      Modules.both.Dotz.followUser(Meteor.userId(), this._id);
     }
     else{
       Modal.show('signUpModal');
     }
   },
   'click .unFollow': function(){
-   Modules.both.Dotz.unFollowUser (Meteor.userId(), _data.userShow._id);
+   Modules.both.Dotz.unFollowUser (Meteor.userId(), this._id);
   },
 
   'click .editUserAccount-btn': function(){

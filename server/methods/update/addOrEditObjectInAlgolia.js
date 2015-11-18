@@ -27,6 +27,7 @@ Meteor.methods({
       else{
         docIndex = "Lists"
       }
+      currentDoc.inDotz = currentDoc.inDotz.length + currentDoc.totalUpvotes.length;
       array = [currentDoc];
     }
 
