@@ -1,5 +1,3 @@
-_data = {};
-
 
 Template.dotShow.onCreated(function() {
 
@@ -10,36 +8,23 @@ Template.dotShow.onCreated(function() {
     // any subscription will be expire after 5 minute, if it's not subscribed again
     expireIn: 5
   });
-
   self.autorun(function() {
-
     if(!GoogleMaps.loaded()){
       GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
     }
-
     let dotSlug = FlowRouter.current().path.slice(1);
 
     if (dotSlug) {
-      self.subs.subscribe('dotShowByDotSlug', dotSlug);
-      _data.dotShow = Dotz.findOne({"dotSlug": dotSlug});
+      self.subscribe('dotShowByDotSlug', dotSlug);
+
       Session.set('dot', _data.dotShow);
     }
-
-    if (_data.dotShow) {
-
-      self.subs.subscribe('user', _data.dotShow.ownerUserId );
-      _data.dotShowUser = Meteor.users.findOne(_data.dotShow.ownerUserId);
-      if (_data.dotShow.connectedDotzArray) {
-        //subscribe all the relevant data for dotzConnectedByOwner:
-        self.subs.subscribe('smartRefToDotzCursor', _data.dotShow.connectedDotzArray);
-        self.subs.subscribe('smartRefToUsersCursor', _data.dotShow.connectedDotzArray);
-        //send smartRef to module:
-        //_data.dotzConnectedByOwnerObjectsArray = Modules.both.Dotz.smartRefToDataObject(_data.dotShow.dotzConnectedByOwner);
-      }
+    let currentDot = Dotz.findOne({"dotSlug": dotSlug});
+    if (currentDot){
+      self.subscribe('user', currentDot.ownerUserId );
     }
   });
 });
-
 
 Template.dotShow.onRendered(function(){
   window.scrollTo(0,0);
@@ -64,97 +49,74 @@ Template.dotShow.onDestroyed(function(){
 
 
 Template.dotShow.helpers({
-
-  data: function() {
-    _data.dotShow = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1) });
-    if (_data.dotShow) {
-      Session.set('whereIAm', _data.dotShow.title);
-      Session.set('hereWithImg', _data.dotShow.coverImageUrl);
-      _data.dotShowUser = Meteor.users.findOne(_data.dotShow.ownerUserId);
-      //return _data;
-    }
-    return _data;
+  dotShow: function() {
+    let dot = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1) });
+    let ownerUser = Meteor.users.findOne(dot.ownerUserId);
+    Session.set('whereIAm', dot.title);
+    Session.set('hereWithImg', dot.coverImageUrl);
+    let data = {
+      dot: dot,
+      ownerUser: ownerUser
+    };
+    return data;
   },
 
   isOpenDot: function() {
-    if (_data.dotShow) {
-      return _data.dotShow.isOpen;
-    }
-  },
-
-  dotHelper: function() {
-    if (_data.dotShow) {
-      return (_data.dotShow)
-    }
+    return this.dot.isOpen;
   },
 
   isListShow: function() {
-    if (_data.dotShow) {
-      return (_data.dotShow.dotType === "List")
-    }
+
+    return (this.dot.dotType === "List")
   },
 
   isMyDot: function() {
-    if (_data.dotShow) {
-      return (_data.dotShow.ownerUserId === Meteor.userId())
-    }
+
+    return (this.dot.ownerUserId === Meteor.userId())
   },
 
   actionDate: function(){
-    if (_data.dotShow) {
-      if (_data.dotShow.createdAtDate) {
-        return (moment(_data.dotShow.createdAtDate).fromNow())
-      }
-    }
+    return (moment(this.dot.createdAtDate).fromNow())
   },
 
   eventDate: function(){
-    if (_data.dotShow) {
-      if (_data.dotShow.startDateAndHour) {
-        return ( moment(_data.dotShow.startDateAndHour).fromNow());
-      }
-    }
+
+    return ( moment(this.dot.startDateAndHour).fromNow());
+
   },
 
   connectCounter: function() {
     //check if this dot is exist (to avoid some errors during delete action)
-    if ( _data.dotShow ) {
-        let counter;
-        let dot = Dotz.findOne( _data.dotShow._id);
-        if (dot) {
-          counter = dot.inDotz.length;
-        }
+      let counter = this.inDotz.length;
+      //counter show:
+      if (counter && counter === 0) {
+        return ("");
+      }
+      else if (counter) {
+        return ( "(" + counter + ")" );
+      }
 
-        //counter show:
-        if (counter && counter === 0) {
-          return ("");
-        }
-        else if (counter) {
-          return ( "(" + counter + ")" );
-        }
-    }
   },
-
   dotzNum: function() {
-    if ( _data.dotShow ) {
-        let connectedDotz = 0;
-        if (_data.dotShow.connectedDotzArray) {
-          connectedDotz = _data.dotShow.connectedDotzArray.length;
-        }
-        if (connectedDotz === 0) {
-          return false;
-        }
-        else {
-          return ("+ " + connectedDotz );
-        }
-    }
+
+      let connectedDotz = 0;
+      if (this.dot.connectedDotzArray) {
+        connectedDotz = this.dot.connectedDotzArray.length;
+      }
+      if (connectedDotz === 0) {
+        return false;
+      }
+      else {
+        return ("+ " + connectedDotz );
+      }
+
   },
 
   dotShowMapOptions: function(){
-    if (GoogleMaps.loaded() && _data.dotShow.locationLat) {
+    if (GoogleMaps.loaded() && this.dot.locationLat) {
       // Map initialization options
-      loc[0] = _data.dotShow.locationLat;
-      loc[1] = _data.dotShow.locationLng;
+      loc[0] = this.dot.location.latLng[0];
+      loc[1] = this.dot.location.latLng[1];
       return {
         center: new google.maps.LatLng(loc[0], loc[1]),
         zoom: 13
@@ -163,9 +125,7 @@ Template.dotShow.helpers({
   },
 
   connectedDotzArray: function() {
-    if (Session.get('dot')) {
-      return Modules.both.Dotz.smartRefToDataObject(Session.get('dot').connectedDotzArray);
-    }
+    return this.dot.connectedDotzArray;
   },
 
   iAmHere: function() {
@@ -177,7 +137,6 @@ Template.dotShow.helpers({
   }
 
 });
-
 
 Template.dotShow.events({
 

@@ -2,26 +2,40 @@
  * Created by avivhatzir on 17/11/2015.
  */
 Meteor.methods({
-  addOrEditObjectInAlgolia(dotOrUserSlug, index){
-    check(dotSlug, String);
-    check(index, String);
+  addOrEditObjectInAlgolia(docSlug, isUser){
+    let array;
+    let docIndex;
+    check(docSlug, String);
+    check(isUser, Boolean);
     var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
 
-    if (index === "Users"){
-      let currentDoc = Dotz.findOne({dotSlug: dotOrUserSlug});
+    if (isUser){
+      console.log("@@@@@@@@@@@@@@@@@@@" + docSlug);
+      let currentDoc = Meteor.users.findOne({"profile.userSlug": docSlug});
       currentDoc.objectID = currentDoc._id;
+      array = [{"objectID": currentDoc.objectID,"username": currentDoc.username, "profile": currentDoc.profile, "_id": currentDoc._id}]
+      docIndex = "Users"
+
     }
     else{
-      let currentDoc = Meteor.users.find({dotSlug: dotOrUserSlug});
+
+      let currentDoc = Dotz.findOne({dotSlug: docSlug});
       currentDoc.objectID = currentDoc._id;
+      if(currentDoc.dotType === "Dot"){
+        docIndex = "Dotz"
+      }
+      else{
+        docIndex = "Lists"
+      }
+      array = [currentDoc];
     }
 
 
 
-    var index = client.initIndex(index);
+    var index = client.initIndex(docIndex);
 
 // array contains the data you want to save in the index
-    let array = [currentDoc];
+
     index.saveObjects(array, function (error, content) {
       if (error) console.error('Error:', error);
       else console.log('Content:', content);

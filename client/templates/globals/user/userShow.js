@@ -1,5 +1,3 @@
-_data = {};
-
 Template.userShow.onCreated(function() {
 
   let self = this;
@@ -9,85 +7,56 @@ Template.userShow.onCreated(function() {
     // any subscription will be expire after 5 minute, if it's not subscribed again
     expireIn: 5
   });
-
-  //TBD:
-  //Tracker.autorun(function() {
-  //  if(subs.ready()) {
-  //    // all the subscriptions are ready to use.
-  //  }
-  //});
-
   self.autorun(function() {
-
       let userSlug = FlowRouter.getParam('userSlug');
       if (userSlug) {
           self.subs.subscribe('userByUserSlug', userSlug, function(){
-              _data.userShow = Meteor.users.findOne( {"profile.userSlug": userSlug});
-              var title = _data.userShow.username;
-              DocHead.setTitle("Dotz: " + title);
-              if (!_data.userShow){
+              let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
+              DocHead.setTitle("Dotz: " + user.username);
+              if (!user){
                 FlowRouter.go('/');
                 Bert.alert('Page does not exist', 'danger');
               }
               else{
-                Session.set('userSubscribeFinished', _data.userShow);
+                Session.set('userSubscribeFinished', user);
               }
           });
       }
-
       if (Session.get('userSubscribeFinished')) {
-          //if (_data.userShow.profile) {
-          //    let dotId =_data.userShow.profile.profileDotId;
           let dotId = Session.get('userSubscribeFinished').profile.profileDotId;
           if (dotId) {
-            self.subs.subscribe('dotShow', dotId);
-            _data.userShowDot = Dotz.findOne(dotId);
-            Session.set('dot', _data.userShowDot);
-          }
-          if (_data.userShowDot) {
-            //subscribe all the relevant data for connectedDotzArray:
-            self.subs.subscribe('smartRefToDotzCursor', _data.userShowDot.connectedDotzArray);
-            self.subs.subscribe('smartRefToUsersCursor', _data.userShowDot.connectedDotzArray);
-            //send smartRef to module:
+            //self.subs.subscribe('dotShow', dotId, function(){
+            //  Session.set('profileDot', Dotz.findOne(dotId));
+            //});
+          self.subs.subscribe('dotShow', dotId);
           }
       }
   });
 });
-
-
 Template.userShow.helpers({
-  data: function() {
-    _data.userShow = Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
-    return _data;
+  dataUser: function() {
+    return Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
   },
-
 //user counters:
   followingCounter: function(){
-    //return _data.userShow.profile.following.length;
-    if (_data.userShow) {
-      return Meteor.users.findOne(_data.userShow._id).profile.following.length;
-    }
+    return this.profile.following.length;
+
   },
   followersCounter: function(){
-    //return _data.userShow.profile.followers.length;
-    if (_data.userShow) {
-      return Meteor.users.findOne(_data.userShow._id).profile.followers.length;
-    }
+    return this.profile.followers.length;
+
   },
   dotNumCounter:  function(){
-    if (_data.userShow) {
-      return Meteor.users.findOne(_data.userShow._id).profile.createdByUserDotz.length;
-    }
+      return this.profile.createdByUserDotz.length;
+
   },
   connectivityNum:  function(){
-    if (_data.userShow) {
-      return Meteor.users.findOne(_data.userShow._id).profile.userConnections.length;
-    }
-  },
+      return this.profile.userConnections.length;
 
+  },
   myFollow: function(){
-    if (_data.userShow && Meteor.user().profile.following &&
-      Meteor.user().profile.following.indexOf(_data.userShow._id) > -1){
+    if (  Meteor.user().profile.following &&
+              Meteor.user().profile.following.indexOf(this._id) > -1){
       return true;
     }
     else{
@@ -95,8 +64,7 @@ Template.userShow.helpers({
     }
   },
   notMyProfile: function() {
-
-    if (_data.userShow && Meteor.userId() === _data.userShow._id) {
+    if ( Meteor.userId() === this._id) {
       return false;
     }
     else {
@@ -105,24 +73,13 @@ Template.userShow.helpers({
   },
 
   connectedDotzArray: function() {
-    let dot = Session.get('dot');
-    if ( dot && dot.connectedDotzArray ) {
-      return Modules.both.Dotz.smartRefToDataObject(dot.connectedDotzArray);
-    }
-  },
-
-
-  //TEST:
-  smartRefArray: function() {
-    let dot = Session.get('dot');
+    let dot = Dotz.findOne(this.profile.profileDotId);
     if ( dot && dot.connectedDotzArray ) {
       return dot.connectedDotzArray;
     }
   }
 
 });
-
-
 Template.userShow.events({
   'click .followersNum': function(){
     var userIds = this.userShow.profile.followers;

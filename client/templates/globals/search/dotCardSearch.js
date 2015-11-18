@@ -21,7 +21,14 @@ Template.dotCardSearch.helpers({
       return (moment(this.dot.createdAtDate).fromNow())
     }
   },
-
+  isListCard: function(){
+    if (this.dot.dotType === "List"){
+      return true
+    }
+    else{
+      return false;
+    }
+  },
   eventDate: function(){
     if (this.dot.startDateAndHour) {
       return ( moment(this.dot.startDateAndHour).fromNow());

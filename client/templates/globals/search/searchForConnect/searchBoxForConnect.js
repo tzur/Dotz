@@ -19,7 +19,7 @@ Template.searchBoxForConnect.helpers({
   },
   dotzResult: function(){
     if(Session.get('searchInput')){
-      Modules.client.searchByAlgolia("Dot", Session.get('searchInput'), function(error, content){
+      Modules.client.searchByAlgolia("Dotz", Session.get('searchInput'), function(error, content){
         if(content){
           Session.set('dotzResult', content);
         }
@@ -35,7 +35,7 @@ Template.searchBoxForConnect.helpers({
 
   listsResult: function(){
     if(Session.get('searchInput')){
-      Modules.client.searchByAlgolia("List", Session.get('searchInput'), function(error, content){
+      Modules.client.searchByAlgolia("Lists", Session.get('searchInput'), function(error, content){
         if(content){
           Session.set('listsResult', content);
         }
@@ -49,24 +49,8 @@ Template.searchBoxForConnect.helpers({
     }
   },
 
-  usersResult: function(){
-    if(Session.get('searchInput')){
-      Modules.client.searchByAlgolia("Dot", Session.get('searchInput'), function(error, content){
-        if(content){
-          Session.set('usersResult', content);
-        }
-        else{
-          console.log("Error, users search failed : " + error)
-        }
-      });
-      if(Session.get('usersResult')){
-        return Session.get('usersResult').hits;
-      }
-    }
-  },
-
   isAlreadyConnected: function(){
-    return Modules.client.Dotz.isConnectedToDot(_data.dotShow._id, this._id)
+    return Modules.client.Dotz.isConnectedToDot(Template.parentData().dot._id, this._id)
   }
 });
 
