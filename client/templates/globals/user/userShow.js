@@ -8,29 +8,30 @@ Template.userShow.onCreated(function() {
   //  expireIn: 5
   //});
   self.autorun(function() {
-      let userSlug = FlowRouter.getParam('userSlug');
-      if (userSlug) {
-          self.subscribe('userByUserSlug', userSlug, function(){
-              let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
-              DocHead.setTitle("Dotz: " + user.username);
-              if (!user){
-                FlowRouter.go('/');
-                Bert.alert('Page does not exist', 'danger');
-              }
-              else{
-                Session.set('userSubscribeFinished', user);
-              }
-          });
+    FlowRouter.watchPathChange();
+    let userSlug = FlowRouter.getParam('userSlug');
+    if (userSlug) {
+        self.subscribe('userByUserSlug', userSlug, function(){
+            let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
+            DocHead.setTitle("Dotz: " + user.username);
+            if (!user){
+              FlowRouter.go('/');
+              Bert.alert('Page does not exist', 'danger');
+            }
+            else{
+              Session.set('userSubscribeFinished', user);
+            }
+        });
+    }
+    if (Session.get('userSubscribeFinished')) {
+      let dotId = Session.get('userSubscribeFinished').profile.profileDotId;
+      if (dotId) {
+        //self.subs.subscribe('dotShow', dotId, function(){
+        //  Session.set('profileDot', Dotz.findOne(dotId));
+        //});
+        self.subscribe('dotShow', dotId);
       }
-      if (Session.get('userSubscribeFinished')) {
-          let dotId = Session.get('userSubscribeFinished').profile.profileDotId;
-          if (dotId) {
-            //self.subs.subscribe('dotShow', dotId, function(){
-            //  Session.set('profileDot', Dotz.findOne(dotId));
-            //});
-          self.subscribe('dotShow', dotId);
-          }
-      }
+    }
   });
 });
 Template.userShow.helpers({
@@ -100,14 +101,14 @@ Template.userShow.events({
   },
   'click .follow': function(){
     if(Meteor.user()) {
-      Modules.both.Dotz.followUser(Meteor.userId(), _data.userShow._id);
+      Modules.both.Dotz.followUser(Meteor.userId(), this._id);
     }
     else{
       Modal.show('signUpModal');
     }
   },
   'click .unFollow': function(){
-   Modules.both.Dotz.unFollowUser (Meteor.userId(), _data.userShow._id);
+   Modules.both.Dotz.unFollowUser (Meteor.userId(), this._id);
   },
 
   'click .editUserAccount-btn': function(){
