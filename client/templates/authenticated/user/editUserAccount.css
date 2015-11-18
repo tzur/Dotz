@@ -17,11 +17,7 @@
 }
 
 
-#profileImageUpload {
+#profileImageUpload, #coverImageUpload {
   height: 10vh;
 }
 
-
-#coverImageUpload {
-  height: 10vh;
-}

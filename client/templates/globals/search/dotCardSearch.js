@@ -1,34 +1,21 @@
-//Template.dotCardSearch.helpers({
-//  isMyDot: function(){
-//    return Meteor.userId() === this.dot.ownerUserId;
-//  }
-//});
-//Template.dotCardSearch.events({
-//  'click .toUser': function(){
-//    Router.go('/user/' + this.owner.userId);
-//  },
-//
-//  'click .connect': function(){
-//    Modal.show('connectDotModal',{
-//      data:{
-//        dotId: this.dot._id
-//      }
-//    });
-//  }
-//});
-
-Template.dotCardSearch.onRendered(function(){
-  console.log(this);
+Template.dotCardSearch.onCreated(function(){
+  Meteor.subscribe('user', this.data.ownerUserId);
 });
 
-
-
 Template.dotCardSearch.helpers({
-
+  cardData: function(){
+    let data = {
+      dot: this,
+      ownerUser: Meteor.users.findOne(this.ownerUserId)
+    };
+    return data;
+  },
   isMyDot: function() {
     return (this.dot.ownerUserId === Meteor.userId())
   },
-
+  personalDescriptionOrBodyText: function() {
+    return s.prune(this.dot.bodyText, 100);
+  },
   actionDate: function(){
     if (this.dot.createdAtDate) {
       return (moment(this.dot.createdAtDate).fromNow())
@@ -40,13 +27,6 @@ Template.dotCardSearch.helpers({
       return ( moment(this.dot.startDateAndHour).fromNow());
     }
   },
-
-  pruneBodyText: function() {
-    if (this.dot.bodyText) {
-      return s.prune(this.dot.bodyText, 100);
-    }
-  },
-
   dotzNum: function() {
     let ownerDotz = 0;
     if (this.dot.dotzConnectedByOwner) {
@@ -65,7 +45,6 @@ Template.dotCardSearch.helpers({
       return ("+ " + (ownerDotz + othersDotz) );
     }
   },
-
   dotOrDotz: function() {
     let ownerDotz = 0;
     if (this.dot.dotzConnectedByOwner) {
@@ -84,7 +63,6 @@ Template.dotCardSearch.helpers({
       return ("Dotz");
     }
   },
-
   connectCounter: function() {
     //check if this dot is exist (to avoid some errors during delete action)
     let counter;
@@ -92,7 +70,6 @@ Template.dotCardSearch.helpers({
     if (dot) {
       counter = dot.inDotz.length;
     }
-
     //counter show:
     if (counter && counter === 0) {
       return ("");
@@ -108,19 +85,23 @@ Template.dotCardSearch.helpers({
 
 });
 
-
-
 Template.dotCardSearch.events({
-
   'click .connect': function(){
-    Modal.show('connectDotModal',{
-      data:{
-        dotId: this.dot._id,
-        dot: this.dot
-      }
-    });
-  },
+    if(Meteor.user())
+    {
+      Modal.show('connectDotModal',{
+        data:{
+          dotId: this.dot._id,
+          dot: this.dot,
+          connectToMyLists: true
+        }
+      });
+    }
+    else{
+      Modal.show('signUpModal');
+    }
 
+  },
   'click .editBtn': function(){
     Modal.show('editDotModal', {
       data:{
@@ -129,17 +110,8 @@ Template.dotCardSearch.events({
       }
     });
   },
-
-  //TBD:
   'click .delete':function(event){
-    let searchSmartRef = {};
-    searchSmartRef.parentDot = Meteor.users.findOne(this.ownerUser.id).profile.profileDotId;
-    //console.log("searchSmartRef.parentDot is " + searchSmartRef.parentDot);
-    searchSmartRef.dotId = this.dot._id;
-    if (searchSmartRef.parentDot) {
-      Modules.both.Dotz.deleteDot(this.dot, searchSmartRef);
-    }
+    Modules.both.Dotz.deleteDot(this.dot, this.smartRef);
   }
-
 });
 
