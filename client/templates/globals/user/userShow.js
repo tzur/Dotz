@@ -1,16 +1,16 @@
 Template.userShow.onCreated(function() {
 
   let self = this;
-  self.subs = new SubsManager({
-    // maximum number of cache subscriptions
-    cacheLimit: 10,
-    // any subscription will be expire after 5 minute, if it's not subscribed again
-    expireIn: 5
-  });
+  //self.subs = new SubsManager({
+  //  // maximum number of cache subscriptions
+  //  cacheLimit: 10,
+  //  // any subscription will be expire after 5 minute, if it's not subscribed again
+  //  expireIn: 5
+  //});
   self.autorun(function() {
       let userSlug = FlowRouter.getParam('userSlug');
       if (userSlug) {
-          self.subs.subscribe('userByUserSlug', userSlug, function(){
+          self.subscribe('userByUserSlug', userSlug, function(){
               let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
               DocHead.setTitle("Dotz: " + user.username);
               if (!user){
@@ -28,7 +28,7 @@ Template.userShow.onCreated(function() {
             //self.subs.subscribe('dotShow', dotId, function(){
             //  Session.set('profileDot', Dotz.findOne(dotId));
             //});
-          self.subs.subscribe('dotShow', dotId);
+          self.subscribe('dotShow', dotId);
           }
       }
   });
@@ -73,10 +73,11 @@ Template.userShow.helpers({
   },
 
   connectedDotzArray: function() {
-    let dot = Dotz.findOne(this.profile.profileDotId);
-    if ( dot && dot.connectedDotzArray ) {
-      return dot.connectedDotzArray;
-    }
+    //let dot = Dotz.findOne(this.profile.profileDotId);
+    //if ( dot && dot.connectedDotzArray ) {
+    //  return dot.connectedDotzArray;
+    //}
+    return Dotz.findOne(this.profile.profileDotId).connectedDotzArray;
   }
 
 });
@@ -106,7 +107,7 @@ Template.userShow.events({
     }
   },
   'click .unFollow': function(){
-   Modules.both.Dotz.unFollowUser(Meteor.userId(), _data.userShow._id);
+   Modules.both.Dotz.unFollowUser (Meteor.userId(), _data.userShow._id);
   },
 
   'click .editUserAccount-btn': function(){
