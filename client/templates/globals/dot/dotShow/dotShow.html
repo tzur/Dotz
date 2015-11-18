@@ -187,10 +187,27 @@
 
 
 
+<!--navBar fixed bottom-->
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <nav class="navbar navbar-default navbar-fixed-bottom" id="navbar-bottom">
         <div class="container">
-            <h1>Footer!!!!!!!!</h1>
+            <!--<h1>Footer!!!!!!!!</h1>-->
+
+
+<div class="row">
+
+
+    <span class="pull-right">
+        <a href="{{dotShow.linkUrl}}" target="_blank">
+            <button type="button" class="btn btn-lead btn-md">
+                <i class="fa fa-globe"></i> Visit Site </button>
+        </a>
+    </span>
+
+
+</div>
+
+
         </div>
     </nav>
 
@@ -230,6 +247,8 @@
 </div>
 
 
+{{/if}}
+
 
 
 <div class="container-fluid" id="dotShowFooter">
@@ -241,44 +260,24 @@
     <!--</div>-->
 
 
-    <div class="row">
-        <!--<h4 class="title" id="addUserConnection">Search for Dotz you want to Connect</h4>-->
-        <div class="addButton">
-            <button id="addUserConnection" type="button" class="btn btn-success round btn-md dot-show-connect-btn">
-                Search for Dotz you want to Connect
-            </button>
-        </div>
-    </div>
+      <div class="row">
+          <!--<h4 class="title" id="addUserConnection">Search for Dotz you want to Connect</h4>-->
+          <!--<div class="addButton">-->
+              <!--<button id="addUserConnection" type="button" class="btn btn-success round btn-md dot-show-connect-btn">-->
+                  <!--Search for Dotz you want to Connect-->
+              <!--</button>-->
+
+
+          <!--</div>-->
+
+        {{>searchBoxForConnect}}
+
+      </div>
 
 
 </div>
 
 
-
-{{else}}
-
-<div class="container-fluid" id="emptyList">
-
-    <!--<div class="row col-xs-12 col-md-8 colCenter">-->
-
-    <!--<button  class="btn btn-success round btn-md dot-show-connect-btn colCenter">Add Your Dot</button>-->
-
-    <!--</div>-->
-
-
-    <div class="row">
-        <!--<h4 class="title" id="addUserConnection">Search for Dotz you want to Connect</h4>-->
-        <div class="addButton">
-            <button id="addUserConnection" type="button" class="btn btn-success round btn-md dot-show-connect-btn">
-                Search for Dotz you want to Connect
-            </button>
-        </div>
-    </div>
-
-
-</div>
-
-{{/if}}
 
 
 

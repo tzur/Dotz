@@ -390,6 +390,19 @@ pre {
 
 
 
+/*navbar-fixed-bottom*/
+
+#navbar-bottom {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+#navbar-bottom .container {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+
 /*connectedDotzArray area*/
 
 #connectedDotzArray {

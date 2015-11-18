@@ -1,4 +1,3 @@
-
 Template.dotCardSearch.onCreated(function(){
   Meteor.subscribe('user', this.data.ownerUserId);
 });
