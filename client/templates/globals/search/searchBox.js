@@ -16,22 +16,19 @@ Template.searchBox.onDestroyed(function(){
   Session.set('searchInput', undefined);
 });
 Template.searchBox.helpers({
-  findDotz: function() {
-    return (Session.get('searchInput'))
-  },
-
   result: function(){
     if(Session.get('searchInput')){
-      let resultArray = Modules.client.searchByAlgolia(Session.get('searchInput'), function(content, error){
+     Modules.client.searchByAlgolia(Session.get('searchInput'), function(content, error){
         if(content){
           console.log(content.hits);
-          return content.hits
+          Session.set("result", content.hits);
         }
         else{
           console.log("Error: " + error)
         }
       });
     }
+    return Session.get("result");
   }
 
 });

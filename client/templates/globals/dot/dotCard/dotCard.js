@@ -127,8 +127,6 @@ Template.dotCard.helpers({
 
 });
 
-
-
 Template.dotCard.events({
 
   'click .like': function(event){

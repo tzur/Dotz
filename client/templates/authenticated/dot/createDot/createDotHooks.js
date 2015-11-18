@@ -47,6 +47,7 @@ let dotHooks = {
     Modal.hide("createDotModal");
     Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
     console.log("############# THIS is " + this.currentDoc);
+    Meteor.call('addOrEditObjectInAlgolia', result);
     FlowRouter.go('/' + result);
   }
 };

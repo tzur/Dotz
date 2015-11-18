@@ -95,6 +95,11 @@ Template.editUserAccountModal.events({
     //console.log("im here");
     //Meteor.call('forceUpdate', Meteor.userId(),website, descriptoin);
 
+  },
+
+  'click #exitBtn': function(){
+    Modal.hide('createListModal');
   }
+
 
 });
