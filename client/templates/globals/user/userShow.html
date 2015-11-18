@@ -3,8 +3,8 @@
 </head>
 
 <template name="userShow">
-<!--{{#if Template.subscriptionsReady}}-->
-{{#with data}}
+{{#if Template.subscriptionsReady}}
+{{#with dataUser}}
         <div id="userBgImg" class="container-liquid">
             <div class="row imgCover" style="background-image: url('{{userShow.profile.coverImage}}')">
                 <div class="col-xs-12 colCenter">
@@ -19,7 +19,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div id="userData" class="col-sm-12 colCenter">
-                            <img id="userImgProfile" src="{{userShow.profile.profileImage}}">
+                            <img id="userImgProfile" src="{{profile.profileImage}}">
                         </div>
                     </div>
                 </div>
@@ -28,16 +28,16 @@
                     <div class="row">
                         <div id="userDescription" class="col-sm-12 col-md-9 colCenter txtMd">
 
-                            <h1 class="darkText">{{userShow.username}}</h1>
+                            <h1 class="darkText">{{username}}</h1>
 
-                            <p>{{userShow.profile.description}}</p>
+                            <p>{{profile.description}}</p>
 
                             <div class="iconsLinksEtc">
                                 <ul>
 
-                                    {{#if userShow.profile.location.googleMapsUrl}}
+                                    {{#if profile.location.googleMapsUrl}}
                                     <li class="locationWrapper inline-block">
-                                        <a href="{{userShow.profile.location.googleMapsUrl}}" target="_blank" class="mdGrey" rel="nofollow">
+                                        <a href="{{profile.location.googleMapsUrl}}" target="_blank" class="mdGrey" rel="nofollow">
                                         <i class="fa fa-map-marker mdGrey"></i></a>
                                     </li>
 
@@ -46,9 +46,9 @@
                                     </li>
                                     {{/if}}
 
-                                    {{#if userShow.profile.websiteUrl}}
+                                    {{#if profile.websiteUrl}}
                                     <li class="websiteWrapper inline-block">
-                                        <a href="{{userShow.profile.websiteUrl}}" target="_blank" class="mdGrey" rel="nofollow">
+                                        <a href="{{profile.websiteUrl}}" target="_blank" class="mdGrey" rel="nofollow">
                                           <i class="fa fa-globe mdGrey"></i>
                                         </a>
                                     </li>
@@ -58,23 +58,23 @@
                                     </li>
                                     {{/if}}
 
-                                   {{#if userShow.profile.facebookAccountUrl}}
+                                   {{#if profile.facebookAccountUrl}}
                                    <li class="inline-block">
-                                        <a href="{{userShow.profile.facebookAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                        <a href="{{profile.facebookAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
                                             <i class="fa fa-facebook-official mdGrey"></i></a>
                                     </li>
                                    {{/if}}
 
-                                    {{#if userShow.profile.twitterAccountUrl}}
+                                    {{#if profile.twitterAccountUrl}}
                                     <li class="inline-block">
-                                        <a href="{{userShow.profile.twitterAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                        <a href="{{profile.twitterAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
                                             <i class="fa fa-twitter-square mdGrey"></i></a>
                                     </li>
                                     {{/if}}
 
-                                    {{#if userShow.profile.googleAccountUrl}}
+                                    {{#if profile.googleAccountUrl}}
                                     <li class="inline-block">
-                                        <a href="{{userShow.profile.googleAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                        <a href="{{profile.googleAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
                                             <i class="fa fa-google-plus-square mdGrey"></i></a>
                                     </li>
                                     {{/if}}
@@ -164,8 +164,8 @@
 
 
 {{/with}}
-<!--{{else}}-->
-      <!--<p> Loading...</p>-->
+{{else}}
+      <p> Loading...</p>
   <!--&lt;!&ndash;to replace with a loading template&ndash;&gt;-->
-<!--{{/if}}-->
+{{/if}}
 </template>

@@ -1,22 +1,40 @@
-
+Template.dotCard.onCreated(function(){
+  let self = this;
+  self.autorun(function(){
+    self.subscribe('dotCard', self.data.dot._id);
+    self.subscribe('user', self.data.dot.ownerUserId);
+    self.subscribe('user', self.data.connection.connectedByUserId);
+  })
+});
 Template.dotCard.helpers({
+  dataCard: function(){
+    let data = {
+      dot: Dotz.findOne(this.dot._id),
+      smartRef: this,
+      ownerUser: Meteor.users.findOne(this.dot.ownerUserId),
+      connectedByUser: Meteor.users.findOne(this.connection.connectedByUserId)
+    };
 
+    return data;
+  },
   //create specific SESSION!!!! TBD
   isInOpenList: function() {
-    if (Template.parentData().userShowDot) {
-      return Template.parentData().userShowDot.isOpen;
+    if (Template.parentData(2).username) {
+      return false;
     }
-    else if (Template.parentData().dotShow) {
-      return Template.parentData().dotShow.isOpen;
+    else if (Template.parentData(2).dot.isOpen) {
+      return true;
     }
   },
 
   isInClosedList: function() {
-    if (Template.parentData().userShowDot) {
-      return !(Template.parentData().userShowDot.isOpen);
+    // We are at parent USER: so it's close list.
+    if (Template.parentData(2).username) {
+      return true;
     }
-    else if (Template.parentData().dotShow) {
-      return !(Template.parentData().dotShow.isOpen);
+    //NEED TO FIX IT FOR DOT SHOW
+    else if (!Template.parentData(2).dot.isOpen) {
+      return true;
     }
   },
 
@@ -35,7 +53,7 @@ Template.dotCard.helpers({
   },
 
   actionDate: function(){
-    if (this.dot.createdAtDate) {
+    if (this.dot && this.dot.createdAtDate) {
       return (moment(this.dot.createdAtDate).fromNow())
     }
   },
@@ -47,7 +65,7 @@ Template.dotCard.helpers({
   },
 
   shortenAdress: function(){
-    if (this.dot.location.address) {
+    if (this.dot.location && this.dot.location.address) {
       return s.prune(this.dot.location.address, 40);
     }
   },

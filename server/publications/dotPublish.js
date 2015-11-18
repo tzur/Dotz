@@ -50,10 +50,15 @@ Meteor.publish('profileDot', function(userId){
 //  }
 //});
 
+
 /*
- * This publish is publishing a whole Dot (only for show?):
+ * This publish is publishing for dot card NEED TO CUT FIELDS!!!!!!*******
  */
-Meteor.publish( 'dotShow', function( dotId ) {
+Meteor.publish('dotCard', function(dotId){
+  check(dotId, String);
+  return Dotz.find(dotId)
+});
+Meteor.publish('dotShow', function( dotId ) {
   if (dotId) {
     check(dotId, String);
     return Dotz.find(dotId);
