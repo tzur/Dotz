@@ -49,7 +49,6 @@ let dotHooks = {
     console.log("############# THIS is " + this.currentDoc);
     Meteor.call('addOrEditObjectInAlgolia', result, false);
     FlowRouter.go('/' + result);
-    Session.set('dotSlug', result);
   }
 };
 

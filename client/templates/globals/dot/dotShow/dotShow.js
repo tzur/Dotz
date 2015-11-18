@@ -12,11 +12,12 @@ Template.dotShow.onCreated(function() {
     if(!GoogleMaps.loaded()){
       GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
     }
-    Session.set('dotSlug', FlowRouter.current().path.slice(1));
-    if (Session.get('dotSlug')) {
-      self.subscribe('dotShowByDotSlug', Session.get('dotSlug'));
+    FlowRouter.watchPathChange();
+    let dotSlug = FlowRouter.current().path.slice(1);
+    if (dotSlug) {
+      self.subscribe('dotShowByDotSlug', dotSlug);
     }
-    let currentDot = Dotz.findOne({"dotSlug": Session.get('dotSlug')});
+    let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
       DocHead.setTitle("Dotz: " + currentDot.title);
       if (currentDot) {
@@ -24,6 +25,9 @@ Template.dotShow.onCreated(function() {
       }
     }
   });
+});
+Template.dotShow.onRendered(function(){
+  console.log((FlowRouter.current().path.slice(1)));
 });
 
 Template.dotShow.onRendered(function(){
@@ -50,7 +54,7 @@ Template.dotShow.onRendered(function(){
 
 Template.dotShow.helpers({
   dotShow: function() {
-    let dot = Dotz.findOne({ "dotSlug": Session.get('dotSlug')});
+    let dot = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1) });
     let ownerUser = Meteor.users.findOne(dot.ownerUserId);
     Session.set('whereIAm', dot.title);
     Session.set('hereWithImg', dot.coverImageUrl);
@@ -165,7 +169,8 @@ Template.dotShow.events({
   },
 
   'click .delete':function(event){
-      Modules.both.Dotz.deleteDot(this.dot);
+      Modules.both.Dotz.deleteDot(this.dot, this.dot.inDotz[0]);
+      FlowRouter.go("/" + Meteor.user().profile.userSlug);
   },
 
   'click #addUserConnection': function(){

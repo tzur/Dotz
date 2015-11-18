@@ -163,9 +163,9 @@ Template.dotCard.events({
   'click .unlike': function(event){
     Meteor.call('unLikePost', Meteor.userId(), this._id);
   },
-  'click .h2Title': function(event){
-    Session.set('dotSlug', this.dot.dotSlug);
-  },
+  //'click .h2Title': function(event){
+  //  Session.set('dotSlug', this.dot.dotSlug);
+  //},
   'click .connect': function(){
     if(Meteor.user())
     {

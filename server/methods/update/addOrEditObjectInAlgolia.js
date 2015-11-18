@@ -27,6 +27,7 @@ Meteor.methods({
       else{
         docIndex = "Lists"
       }
+      currentDoc.inDotz = currentDoc.inDotz.length + currentDoc.totalUpvotes.length;
       array = [currentDoc];
     }
 
@@ -37,6 +38,33 @@ Meteor.methods({
 // array contains the data you want to save in the index
 
     index.saveObjects(array, function (error, content) {
+      if (error) console.error('Error:', error);
+      else console.log('Content:', content);
+    });
+  },
+
+  deleteDotzFromAlgolia(dotId){
+    check(dotId, String);
+    var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
+    let objectIndex;
+    let dot;
+
+    dot = Dotz.findOne(dotId);
+    if(dot.dotType === 'List'){
+      objectIndex = "Lists"
+    }
+    else{
+      objectIndex = "Dotz"
+    }
+
+
+
+
+    var index = client.initIndex('Dotz');
+
+// array contains the data you want to save in the index
+
+    index.deleteObject(dotId, function (error, content) {
       if (error) console.error('Error:', error);
       else console.log('Content:', content);
     });
