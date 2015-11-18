@@ -20,7 +20,7 @@ let editDotHooks = {
     Session.set("locationObject", undefined);
     Modal.hide('editDotModal');
     let updatedDot = Dotz.findOne(this.currentDoc._id);
-    Meteor.call('addOrEditObjectInAlgolia', updatedDot._id, false);
+    Meteor.call('addOrEditObjectInAlgolia', updatedDot.dotSlug, false);
     //Modal.hide('createDotModal');
   }
 };

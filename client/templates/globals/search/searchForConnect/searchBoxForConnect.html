@@ -11,6 +11,13 @@
             </div>
         </div>
 
+        <form class="navbar-form txtMd" role="search">
+            <div class="form-group">
+                <input type="text" class="searchInput form-control lg-form" id="searchInput" placeholder="Search to Connect">
+            </div>
+            <i id="search-icon" class="fa fa-search"></i>
+        </form>
+
     </div>
 
 
@@ -32,39 +39,59 @@
                       <!-- Tab panes -->
                       <div class="tab-content">
                           <div role="tabpanel" class="tab-pane active" id="dotz">
-                            {{#if dotzResult}}
-                                <ul>
-                                  {{#each dotzResult}}
-                                      {{#if isAlreadyConnected}}
-                                      <div class="dot-card-search-wrapper">
-                                        {{> dotCardSearch}}
-                                      </div>
-                                      {{/if}}
-                                  {{/each}}
-                                </ul>
-                            {{else}}
-                                <h4 class="txtMd">Sorry :( Nothing Here</h4>
-                            {{/if}}
 
+                              <div class="container-fluid">
+                                  <div class="row">
+                                      <div class="col-xs-12 col-md-10 colCenter">
+
+
+                                        {{#if dotzResult}}
+                                            <ul>
+                                              {{#each dotzResult}}
+                                                  {{#if isAlreadyConnected}}
+                                                  <div class="dot-card-search-wrapper">
+                                                    {{> dotCardSearch}}
+                                                  </div>
+                                                  {{/if}}
+                                              {{/each}}
+                                            </ul>
+                                        {{else}}
+                                            <h4 class="txtMd">Sorry :( Nothing Here</h4>
+                                        {{/if}}
+
+                                      </div>
+                                  </div>
+                              </div>
 
                           </div>
+
                           <div role="tabpanel" class="tab-pane" id="lists">
-                            {{#if listsResult}}
 
-                                <ul>
-                                  {{#each listsResult}}
-                                    {{#if isAlreadyConnected}}
-                                            <div class="dot-card-search-wrapper">
-                                        {{> dotCardSearch}}
-                                      </div>
-                                    {{/if}}
-                                  {{/each}}
-                                </ul>
-                            {{else}}
-                                <h4 class="txtMd">Sorry :( Nothing Here</h4>
-                            {{/if}}
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-10 colCenter">
+
+                                        {{#if listsResult}}
+
+                                            <ul>
+                                              {{#each listsResult}}
+                                                {{#if isAlreadyConnected}}
+                                                        <div class="dot-card-search-wrapper">
+                                                    {{> dotCardSearch}}
+                                                  </div>
+                                                {{/if}}
+                                              {{/each}}
+                                            </ul>
+                                        {{else}}
+                                            <h4 class="txtMd">Sorry :( Nothing Here</h4>
+                                        {{/if}}
+
+                                    </div>
+                                </div>
+                            </div>
 
                           </div>
+
                       </div>
 
 

@@ -1,4 +1,4 @@
-<template name="dotCardSearch">
+<template name="dotCardSearchBackup">
 {{#with cardData}}
 
     <div class="row" id="listCard-box">
@@ -14,7 +14,6 @@
         </div>
         <!--check if is List or Dot:-->
       {{#if isListCard}}
-
           <div class="col-xs-11 col-sm-10" id="listCover">
               <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
                   <div class="filter">
@@ -50,6 +49,13 @@
                           </div>
 
 
+                              <!--{{#if dotzNum}}-->
+                          <!--<div class="dotConnectedDotzLastIcon">-->
+                          <!--<div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>-->
+                          <!--<div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>-->
+                          <!--</div>-->
+                              <!--{{/if}}-->
+
                       </div>
 
                   </div>
@@ -61,15 +67,23 @@
       {{else}} <!--  = is dotCard -->
 
           <div class="col-xs-11 col-sm-10" id="listCard">
-
               <a href="/{{dot.dotSlug}}">
-                  <div class="col-xs-12 col-sm-4 col-md-3" id="searchCardImgSide">
-                      <div class="container-fluid dot-container-img-searchCard" style="background-image: url('{{dot.coverImageUrl}}')"></div>
+                  <div class="col-xs-12 col-sm-4 col-md-3" id="listCardImgSide">
+                      <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
+                          <!--<div class="filter">-->
+                          <!--<div id="round-overlay">-->
+                              <!--<div class="imgSideSpacer">-->
+                              <!--</div>-->
+                          <!--</div>-->
+
+                          <!--</div>-->
+                      </div>
                   </div>
               </a>
 
 
-              <div class="col-xs-12 col-sm-8 col-md-9" id="searchCardTextSide">
+              <div class="col-xs-12 col-sm-8 col-md-9" id="listCardTextSide">
+
 
                   <div class="content">
 
@@ -82,10 +96,8 @@
                       <div class="listCardText">
                           <p class="personalDescriptionOrBodyText smTxt">{{personalDescriptionOrBodyText}}</p>
                       </div>
-
                   </div>
-
-                  <div class="serachCardIcons">
+                  <div class="listCardIcons">
 
                     {{#if shortenAdress}}
                         <span class="txtL dot-type">
@@ -112,11 +124,11 @@
                   </div> <!--end listCardIcons-->
 
 
-                  <div class="listCardFooter">
+                  <div class="row listCardFooter">
                       <hr>
 
 
-                      <div class="searchCardUser col-xs-6 col-md-8">
+                      <div class="listCardUser col-xs-6 col-md-8">
 
 
                             <a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon">
@@ -135,7 +147,7 @@
 
 
 
-                            <button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>
+                            <button type="button" class="connect btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i>
                                 Connect {{connectCounter}}</button>
 
 

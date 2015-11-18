@@ -258,7 +258,7 @@ pre {
 }
 
 .rowMb20 {
-  margin-bottom: 2em;
+  /*margin-bottom: 2em;*/
 }
 
 .dot-description {
@@ -393,8 +393,9 @@ pre {
 /*navbar-fixed-bottom*/
 
 #navbar-bottom {
-  background-color: transparent;
-  border-color: transparent;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23);
+  height: 7vh;
 }
 
 #navbar-bottom .container {
@@ -423,7 +424,7 @@ pre {
 }
 
 #dotShowFooter .row {
-  height: 20vh;
+  min-height: 30vh;
 }
 
 #dotShowFooter .addButton {

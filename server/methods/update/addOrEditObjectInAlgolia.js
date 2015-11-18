@@ -13,7 +13,7 @@ Meteor.methods({
       console.log("@@@@@@@@@@@@@@@@@@@" + docSlug);
       let currentDoc = Meteor.users.findOne({"profile.userSlug": docSlug});
       currentDoc.objectID = currentDoc._id;
-      array = [{"objectID": currentDoc.objectID,"name": currentDoc.username, "profile": currentDoc.profile, "_id": currentDoc._id}]
+      array = [{"objectID": currentDoc.objectID,"username": currentDoc.username, "profile": currentDoc.profile, "_id": currentDoc._id}]
       docIndex = "Users"
 
     }
