@@ -115,7 +115,7 @@
 
                                             <div class="container-fluid">
                                                 <div class="row">
-                                                    <div class="col-xs-12 txtMd">
+                                                    <div id="addDotImageWraper" class="col-xs-12 txtMd">
                                                         <i class="fa greyText fa-camera fa-3x btn-file">
                                                             <input type="file">
                                                         </i>
@@ -157,7 +157,7 @@
                                 <div class="btns-create-dot">
                                     <button id="createToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish</button>
                                     {{#if currentUser.profile.createdByUserLists}}
-                                      <button type="button" class="createBtn insert btn round btn-default toggle-form"
+                                      <button id="createToMyLists" type="button" class="createBtn insert btn round btn-default toggle-form"
                                               data-toggle="collapse" data-target="#createToOneOfMyLists">
                                           <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                                       </button>
