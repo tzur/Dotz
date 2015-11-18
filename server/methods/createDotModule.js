@@ -4,8 +4,12 @@
  */
 
 let _docValidation = (doc) => {
-  return ( doc.ownerUserId === Meteor.userId() &&
-           doc.inDotz.length === 1 )
+  if ( (doc.dotType === "List") && (doc.inDotz.length > 100) ) {
+      return false
+  }
+  else {
+    return ( doc.ownerUserId === Meteor.userId() && doc.inDotz.length === 1 )
+  }
 };
 
 //add an unique slug:
