@@ -2,6 +2,10 @@
  * Created by avivhatzir on 04/11/2015.
  */
 Template.editDotModal.onRendered(function(){
+  Session.set('coverImageUrl', undefined);
+});
+
+Template.editDotModal.onRendered(function(){
   Modules.client.Dotz.limitCharactersAndCounter('#editTitleField', 50, '#titleFieldFeedback');
 
 });
@@ -63,6 +67,14 @@ Template.editDotModal.events({
   },
 
   'change input[type="file"]' ( event, template ) {
+    Session.set('coverImageUrl', undefined);
+    Tracker.autorun(function(c) {
+      document.getElementById("submitEditDot").disabled = true;
+      if (Session.get('coverImageUrl')) {
+        c.stop();
+        document.getElementById("submitEditDot").disabled = false;
+      }
+    });
     Modules.client.uploadToAmazonS3( { event: event, template: template } );
   },
 
