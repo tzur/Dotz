@@ -7561,7 +7561,7 @@ var packageMetadata = {
                 },
                 "version": {
                   "type": "constant",
-                  "value": "74a5814dc1cbb067ecfc420f9c549d4131344a91"
+                  "value": "668f60f30f725ccb3fc77a6a3257f618e402fc37"
                 },
                 "PUBLIC_SETTINGS": {
                   "type": "object",
@@ -7575,6 +7575,15 @@ var packageMetadata = {
                             "trackingId": {
                               "type": "constant",
                               "value": "UA-63151429-1"
+                            }
+                          }
+                        },
+                        "Mixpanel": {
+                          "type": "object",
+                          "members": {
+                            "token": {
+                              "type": "constant",
+                              "value": "cecae4401aa6dfe91b5293f6050ca4e6"
                             }
                           }
                         }
@@ -7597,46 +7606,46 @@ var packageMetadata = {
           "members": {
             "use": {
               "type": "function",
-              "refID": 12
+              "refID": 13
             },
             "handle": {
               "type": "function",
-              "refID": 14
+              "refID": 15
             },
             "listen": {
               "type": "function",
-              "refID": 16
+              "refID": 17
             },
             "setMaxListeners": {
               "type": "function",
-              "refID": 18
+              "refID": 19
             },
             "emit": {
               "type": "function",
-              "refID": 20
+              "refID": 21
             },
             "addListener": {
               "type": "function",
-              "refID": 22
+              "refID": 23
             },
             "on": {
-              "ref": 22
+              "ref": 23
             },
             "once": {
               "type": "function",
-              "refID": 24
+              "refID": 25
             },
             "removeListener": {
               "type": "function",
-              "refID": 26
+              "refID": 27
             },
             "removeAllListeners": {
               "type": "function",
-              "refID": 28
+              "refID": 29
             },
             "listeners": {
               "type": "function",
-              "refID": 30
+              "refID": 31
             },
             "route": {
               "type": "constant",
@@ -7651,37 +7660,37 @@ var packageMetadata = {
           "type": "function",
           "members": {
             "use": {
-              "ref": 12
+              "ref": 13
             },
             "handle": {
-              "ref": 14
+              "ref": 15
             },
             "listen": {
-              "ref": 16
+              "ref": 17
             },
             "setMaxListeners": {
-              "ref": 18
+              "ref": 19
             },
             "emit": {
-              "ref": 20
+              "ref": 21
             },
             "addListener": {
-              "ref": 22
+              "ref": 23
             },
             "on": {
-              "ref": 22
+              "ref": 23
             },
             "once": {
-              "ref": 24
+              "ref": 25
             },
             "removeListener": {
-              "ref": 26
+              "ref": 27
             },
             "removeAllListeners": {
-              "ref": 28
+              "ref": 29
             },
             "listeners": {
-              "ref": 30
+              "ref": 31
             },
             "route": {
               "type": "constant",
@@ -7701,7 +7710,7 @@ var packageMetadata = {
             },
             "connections": {
               "type": "constant",
-              "value": 1
+              "value": 8
             },
             "timeout": {
               "type": "constant",
@@ -7732,28 +7741,28 @@ var packageMetadata = {
               "type": "function"
             },
             "setMaxListeners": {
-              "ref": 18
+              "ref": 19
             },
             "emit": {
-              "ref": 20
+              "ref": 21
             },
             "addListener": {
-              "ref": 22
+              "ref": 23
             },
             "on": {
-              "ref": 22
+              "ref": 23
             },
             "once": {
-              "ref": 24
+              "ref": 25
             },
             "removeListener": {
-              "ref": 26
+              "ref": 27
             },
             "removeAllListeners": {
-              "ref": 28
+              "ref": 29
             },
             "listeners": {
-              "ref": 30
+              "ref": 31
             }
           }
         },
@@ -8122,7 +8131,7 @@ var packageMetadata = {
             },
             "fibersCreated": {
               "type": "constant",
-              "value": 12
+              "value": 18
             },
             "prototype": {
               "type": "object",
@@ -22146,11 +22155,11 @@ var packageMetadata = {
                 },
                 "pid": {
                   "type": "constant",
-                  "value": 29090
+                  "value": 29344
                 },
                 "fout": {
                   "type": "constant",
-                  "value": 32
+                  "value": 34
                 },
                 "child": {
                   "type": "object",
@@ -22169,7 +22178,7 @@ var packageMetadata = {
                     },
                     "pid": {
                       "type": "constant",
-                      "value": 29090
+                      "value": 29344
                     },
                     "stdin": {
                       "type": "null",
@@ -22338,6 +22347,21 @@ var packageMetadata = {
       }
     }
   },
+  "acemtp:algolia": {
+    "AlgoliaSearch": {
+      "type": "function",
+      "members": {
+        "version": {
+          "type": "constant",
+          "value": "3.9.1"
+        },
+        "ua": {
+          "type": "constant",
+          "value": "Algolia for Node.js 3.9.1"
+        }
+      }
+    }
+  },
   "meteorhacks:async": {
     "Async": {
       "type": "object",
@@ -22358,11 +22382,11 @@ var packageMetadata = {
       "members": {
         "autoupdateVersion": {
           "type": "constant",
-          "value": "86b9dbcad254cb95c17d566856df2d8eb0bcde4b"
+          "value": "7604ca0c1dbe7cefc910b8fc0b477b39fda8e3c6"
         },
         "autoupdateVersionRefreshable": {
           "type": "constant",
-          "value": "a7948ed1215c52615f6be7422f2002df4e702de8"
+          "value": "4c05641a716e5ec006dce5d6b43f19e243bb9787"
         },
         "autoupdateVersionCordova": {
           "type": "constant",
