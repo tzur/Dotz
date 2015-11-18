@@ -1,49 +1,67 @@
 <template name="userCardSearch">
-<div class="col-xs-11 col-sm-10" id="listCover">
-    <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
-        <div class="filter">
-            <div class="listCoverContent">
-                <a href="/{{dot.dotSlug}}">
-                    <div class="listCardTitle">
-                        <a href="/{{dot.dotSlug}}"><h2 class="h2Title">{{dot.title}}</h2></a>
-                        <h2 class="listIcon"><i class="fa fa-list-ul"></i></h2>
-                    </div>
+    {{check}}
+    <div class="row" id="listCard-box">
+        <div class="col-xs-11 col-sm-10" id="userSearchCard">
+            <a href="/{{dot.dotSlug}}">
+                <div class="col-xs-12 col-sm-4 col-md-3" id="listCardImgSide">
+                    <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{profile.profileImage}}')">
+                        <!--<div class="filter">-->
+                        <div id="round-overlay">
+                            <div class="imgSideSpacer">
+                            </div>
+                        </div>
 
-                </a>
+                        <!--</div>-->
+                    </div>
+                </div>
+            </a>
+
+
+            <div class="col-xs-12 col-sm-8 col-md-9" id="listCardTextSide">
+
+
+                <div class="content">
+
+                    <a href="/{{profile.eserSlug}}">
+                        <div class="listCardTitle">
+                            <a href="/{{profile.eserSlug}}"><h2 class="h2Title">{{username}}</h2></a>
+                        </div>
+                    </a>
+
+                    <div class="listCardText">
+                        <p class="personalDescriptionOrBodyText">{{profile.description}}</p>
+                    </div>
+                </div>
+                <div class="listCardIcons">
+
+                      <span class="txtL dot-type">
+                                        <img id="type-icon" src="/place-icon-grey.png">
+                                        <span class="greyText smTxt">{{profile.location.name}}</span>
+                                      </span>
+
+
+                </div> <!--end listCardIcons-->
+
 
                 <div class="row listCardFooter">
+                    <hr>
 
-                    <div class="listCardUser col-xs-8">
+                    <div class="buttonsBar">
 
 
-                        <a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon">
-                            <img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">
-                        </a>
-                              <span class="smTxt"><a class="whiteTxt" href="/{{ownerUser.profile.userSlug}}">
-                                  <strong>{{ownerUser.username}}</strong></a></span>
-                        <!--<span class="whiteTxt smTxt"> · {{actionDate}}</span>-->
-                    </div> <!--end userListCard -->
 
-                    <!--<div class="btn-connect-div col-xs-4 pull-right">-->
-                    <div class="buttonsBar col-xs-4">
                         <button type="button" class="connect btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i>
                             Connect {{connectCounter}}</button>
+
+
 
                     </div>
 
                 </div>
-
-
-                    <!--{{#if dotzNum}}-->
-                <!--<div class="dotConnectedDotzLastIcon">-->
-                <!--<div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>-->
-                <!--<div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>-->
-                <!--</div>-->
-                    <!--{{/if}}-->
-
             </div>
 
-        </div>
+
+        </div> <!-- end listCard -->
+
     </div>
-</div>
 </template>
