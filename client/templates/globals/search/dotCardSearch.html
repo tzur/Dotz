@@ -1,263 +1,197 @@
 <template name="dotCardSearch">
-
-  {{#if Template.subscriptionsReady}}
-
-      <!-- full wrapper -->
-
-      <div>
-          <div class="row">
-              <div class="col-xs-12 col-sm-9 col-lg-9 colCenter">
-
-
-
-                  <div class="container-fluid longCardWrapper">
-                      <div class="row">
-
-                          <div class="col-sm-12">
-
-                              <div class="row">
-
-                                  <div class="col-md-4 visible-xs visible-sm">
-                                      <div class="container-fluid dot-container-img-card-mobile" style="background-image: url('{{dot.coverImageUrl}}')">
-                                          <div class="row" >
-                                            {{#if dotzNum}}
-                                                <div id="round-overlay-mobile"></div>
-                                                <div class="dotConnectedDotzLastIcon">
-                                                    <div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>
-                                                    <div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>
-                                                </div>
-                                            {{/if}}
-
-                                          </div>
-                                      </div>
-                                  </div>
-
-                                  <div class="col-md-4 liquidCol hidden-xs hidden-sm">
-
-                                      <div class="container-fluid dot-container-img-card" style="background-image: url('{{dot.coverImageUrl}}')">
-                                        {{#if dotzNum}}
-                                            <div class="dotConnectedDotzLastIcon">
-                                                <div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>
-                                                <div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>
-                                            </div>
-                                        {{/if}}
-                                      </div>
-                                  </div>
-
-
-                                  <div class="col-md-8">
-
-                                      <div class="spacerXs visible-xs visible-sm"></div>
-
-                                      <div class="cardDetails-mobile visible-xs visible-sm">
-
-                                          <div class="row cardTitleDiv">
-                                              <div class="col-xs-12 col-sm-12">
-                                                {{testHelper}}
-                                                  <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
-
-                                              </div>
-                                          </div>
-
-
-                                          <div class="row cardPersonalDesc">
-                                              <div class="col-xs-12">
-
-                                                {{#if dot.locationName}}
-                                                    <span class="txtL dot-type">
-                                                        <img id="type-icon" src="/place-icon-grey.png">
-                                                        <span class="greyText smTxt">{{dot.locationName}}</span>
-                                                    </span>
-                                                {{/if}}
-
-                                                {{#if eventDate}}
-                                                    <span class="txtL dot-type">
-                                                        <img id="type-icon" src="/event-icon-grey.png">
-                                                        <span class="greyText smTxt">{{eventDate}}</span>
-                                                    </span>
-                                                {{/if}}
-
-                                                {{#if dot.price}}
-                                                    <span class="txtL dot-type">
-                                                        <img id="type-icon" src="/price-icon-grey.png">
-                                                        <span class="greyText smTxt">{{dot.price}} <span>$</span></span>
-                                                    </span>
-                                                {{/if}}
-
-                                              </div>
-                                          </div>
-
-
-                                          <div class="row cardConnecterDiv-mobile">
-
-
-
-                                              <div class="col-xs-10 cardConnecterDiv greyText smTxt">
-
-
-
-                                                    <a href="/{{ownerUser.username}}" class="userImgIcon">
-                                                        <img class="userImgIcon" src="{{ownerUser.profileImage}}">
-                                                    </a>
-
-                                                    <a href="/{{ownerUser.username}}">
-                                                        <span class="align-icon-text">{{ownerUser.username}}</span>
-                                                    </a>
-
-                                                    <span>  <span>·</span> {{actionDate}}</span>
-
-
-                                              </div>
-
-                                              <div class="col-xs-1 pull-right">
-                                                  <button type="button" class="like btn btn-invisible btn-xs pull-right">
-
-                                                      <img class="like-btn-img pull-right" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png"> <br>
-                                                      <div class="smTxt">{{likeCounter}}</div>
-                                                  </button>
-                                              </div>
-
-                                          </div>
-
-
-
-                                          <div class="row">
-
-                                              <div class="user-personal-desc-details col-xs-11">
-                                                  <p class="user-personal-desc greyText limitP">{{pruneBodyText}}</p>
-                                              </div>
-
-                                          </div>
-
-
-
-                                          <div class="row">
-                                              <div class="col-md-12">
-                                                  <hr class="lightGrey">
-                                              </div>
-                                          </div>
-
-                                          <div class="row">
-                                              <div class="col-xs-6 col-sm-4 colCenter">
-                                                    <button type="button" class="connect btn btn-lead round btn-md ">Connect {{connectCounter}}</button>
-                                              </div>
-                                          </div>
-
-
-                                      </div>
-
-
-                                      <div class="cardDetails hidden-xs hidden-sm">
-
-                                          <div class="row cardTitleDiv">
-                                              <div class="col-md-9">
-                                                  <a href="/dot/{{dot._id}}"><h2 class="cardTitle">{{dot.title}}</h2></a>
-                                              </div>
-
-                                              <div class="col-md-3">
-                                                    <button type="button" class="connect btn btn-success round btn-xs pull-right">Connect {{connectCounter}}</button>
-                                              </div>
-                                          </div>
-
-                                          <div class="row cardPersonalDesc">
-                                              <div class="col-xs-12">
-
-                                                {{#if dot.locationName}}
-                                                    <span class="txtL dot-type">
-                                                        <img id="type-icon" src="/place-icon-grey.png">
-                                                        <span class="greyText smTxt">{{dot.locationName}}</span>
-                                                    </span>
-                                                {{/if}}
-
-                                                {{#if eventDate}}
-                                                    <span class="txtL dot-type">
-                                                        <img id="type-icon" src="/event-icon-grey.png">
-                                                        <span class="greyText smTxt">{{eventDate}}</span>
-                                                    </span>
-                                                {{/if}}
-
-                                                {{#if dot.price}}
-                                                    <span class="txtL dot-type">
-                                                        <img id="type-icon" src="/price-icon-grey.png">
-                                                        <span class="greyText smTxt">{{dot.price}} <span>$</span></span>
-                                                    </span>
-                                                {{/if}}
-
-                                              </div>
-                                          </div>
-
-
-                                          <div class="row card-btns-div">
-
-                                              <div class="col-md-12">
-                                                  <hr class="lightGrey">
-                                              </div>
-
-                                              <div class="col-md-10 cardConnecterDiv greyText smTxt">
-
-
-                                                    <a href="/{{ownerUser.username}}" class="userImgIcon">
-                                                        <img class="userImgIcon" src="{{ownerUser.profileImage}}">
-                                                    </a>
-
-                                                    <a href="/{{ownerUser.username}}">
-                                                        <span class="align-icon-text">{{ownerUser.username}}</span>
-                                                    </a>
-
-                                                    <span>  <span>·</span> {{actionDate}}</span>
-
-
-                                              </div>
-
-                                              <hr class="lightGrey">
-
-                                              <div class="spacer-xs-card-buttons"></div>
-
-                                              <div class="like-btn-text-div-mobile col-md-2 cardConnecterDiv">
-                                                  <button type="button" class="like btn btn-default round btn-xs midWidth pull-right">
-                                                      <span class="like-btn-lnt smTxt greyText">{{likeCounter}}</span>
-                                                      <img class="like-btn-img" src="http://s3.postimg.org/quvy1mbgf/like_icon_lg.png">
-                                                  </button>
-                                              </div>
-
-                                              <div class="user-personal-desc-details col-md-9">
-                                                  <p class="limitP user-personal-desc greyText">{{pruneBodyText}}</p>
-                                              </div>
-
-                                          </div>
-
-                                      </div>
-
-
-                                  </div>
+{{#with cardData}}
+
+    <div class="row" id="listCard-box">
+
+        <div class="col-xs-1 col-sm-1" id="listCardLikeSide">
+              <div class="pull-right" style="margin-bottom: 1em;">
+                <!--{{#if isMyDot}}-->
+                    <!--<a class="editBtn panelBtn"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>-->
+                    <!--<br>-->
+                    <!--<a class="delete panelBtn"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>-->
+                <!--{{/if}}-->
+              </div>
+        </div>
+        <!--check if is List or Dot:-->
+      {{#if isListCard}}
+          <div class="col-xs-11 col-sm-10" id="listCover">
+              <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
+                  <div class="filter">
+                      <div class="listCoverContent">
+                          <a href="/{{dot.dotSlug}}">
+                              <div class="listCardTitle">
+                                  <a href="/{{dot.dotSlug}}"><h2 class="h2Title">{{dot.title}}</h2></a>
+                                  <h2 class="listIcon"><i class="fa fa-list-ul"></i></h2>
+                              </div>
+
+                          </a>
+
+                          <div class="row listCardFooter">
+
+                              <div class="listCardUser col-xs-8">
+
+
+                                    <a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon">
+                                        <img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">
+                                    </a>
+                              <span class="smTxt"><a class="whiteTxt" href="/{{ownerUser.profile.userSlug}}">
+                                  <strong>{{ownerUser.username}}</strong></a></span>
+                                    <!--<span class="whiteTxt smTxt"> · {{actionDate}}</span>-->
+                              </div> <!--end userListCard -->
+
+                              <!--<div class="btn-connect-div col-xs-4 pull-right">-->
+                              <div class="buttonsBar col-xs-4">
+                                    <button type="button" class="connect btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i>
+                                        Connect {{connectCounter}}</button>
 
                               </div>
 
-
                           </div>
 
+
+                              <!--{{#if dotzNum}}-->
+                          <!--<div class="dotConnectedDotzLastIcon">-->
+                          <!--<div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>-->
+                          <!--<div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>-->
+                          <!--</div>-->
+                              <!--{{/if}}-->
+
+                      </div>
+
+                  </div>
+              </div>
+          </div> <!-- end listCard -->
+
+
+
+      {{else}} <!--  = is dotCard -->
+
+          <div class="col-xs-11 col-sm-10" id="listCard">
+              <a href="/{{dot.dotSlug}}">
+                  <div class="col-xs-12 col-sm-4 col-md-3" id="listCardImgSide">
+                      <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
+                          <!--<div class="filter">-->
+                          <div id="round-overlay">
+                              <div class="imgSideSpacer">
+                              </div>
+                          </div>
+
+                          <!--</div>-->
                       </div>
                   </div>
+              </a>
 
-                  <div style="margin-bottom: 1em;">
-                    {{#if isMyDot}}
-                        <a class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>
-                        <a class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
+
+              <div class="col-xs-12 col-sm-8 col-md-9" id="listCardTextSide">
+
+
+                  <div class="content">
+
+                      <a href="/{{dot.dotSlug}}">
+                          <div class="listCardTitle">
+                              <a href="/{{dot.dotSlug}}"><h2 class="h2Title">{{dot.title}}</h2></a>
+                          </div>
+                      </a>
+
+                      <div class="listCardText">
+                          <p class="personalDescriptionOrBodyText">{{personalDescriptionOrBodyText}}</p>
+                      </div>
+                  </div>
+                  <div class="listCardIcons">
+
+                    {{#if shortenAdress}}
+                        <span class="txtL dot-type">
+                                        <img id="type-icon" src="/place-icon-grey.png">
+                                        <span class="greyText smTxt">{{shortenAdress}}</span>
+                                      </span>
                     {{/if}}
+
+                    {{#if eventDate}}
+                        <span class="txtL dot-type">
+                                      <img id="type-icon" src="/event-icon-grey.png">
+                                      <span class="greyText smTxt">{{eventDate}}</span>
+                                  </span>
+                    {{/if}}
+
+
+                    {{#if dot.price}}
+                        <span class="txtL dot-type">
+                                          <img id="type-icon" src="/price-icon-grey.png">
+                                          <span class="greyText smTxt">{{dot.price}} <span>$</span></span>
+                                      </span>
+                    {{/if}}
+
+                  </div> <!--end listCardIcons-->
+
+
+                  <div class="row listCardFooter">
+                      <hr>
+
+
+                      <div class="listCardUser col-xs-6 col-md-8">
+
+
+                            <a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon">
+                                <img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">
+                            </a>
+                                          <span class="smTxt greyText">By <a class="greyText" href="/{{ownerUser.profile.userSlug}}">
+                                              <strong>{{ownerUser.username}}</strong></a></span>
+                            <span class="greyText smTxt"> · {{actionDate}}</span>
+
+                      </div> <!--end userListCard -->
+
+
+
+
+                      <div class="buttonsBar">
+
+
+
+                            <button type="button" class="connect btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i>
+                                Connect {{connectCounter}}</button>
+
+
+
+                      </div>
 
                   </div>
 
+
+
+
+
+
+
+
+
+                      <!--{{#if dotzNum}}-->
+                  <!--<div class="dotConnectedDotzLastIcon">-->
+                  <!--<div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>-->
+                  <!--<div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>-->
+                  <!--</div>-->
+                      <!--{{/if}}-->
 
 
 
               </div>
-          </div>
-      </div>
 
 
-  {{else}}
-      <p> Loading...</p>
-      <!--to replace with a loading template-->
+          </div> <!-- end listCard -->
 
-  {{/if}}
+
+
+      {{/if}}
+
+
+        <div class="col-xs-12 col-sm-1" id="listCardOtherSide">
+
+
+        </div>
+
+
+
+
+
+    </div>
+{{/with}}
 </template>
