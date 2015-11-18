@@ -112,29 +112,35 @@
   /*background-color: rgba(255, 255, 255, 0.95);*/
 }
 
-.dot-container-img-listCard {
+#listCardImgSide .dot-container-img-listCard {
   position: relative;
-  width: 100%;
-  height: 100%;
+  height: 22vh;
+  width: 22vh;
   /*overflow: hidden;*/
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
   /*border-radius: 4px;*/
   padding: 0;
-  /*border-radius: 50%;*/
+  border-radius: 50%;
   /*padding: 0.5em;*/
   /*margin-top: 3px;*/
 }
 
-#round-overlay {
-  background-image: radial-gradient(12.5vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 87%, rgba(255, 255, 255, 1) 87%, rgba(255, 255, 255, 1) 100%);
-  width: 100%;
+#listCardImgSide .dot-container-img-listCard:hover {
+  border-radius: 0;
   height: 22vh;
+  width: 100%;
+}
+
+#round-overlay {
+  /*background-image: radial-gradient(12.5vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 87%, rgba(255, 255, 255, 1) 87%, rgba(255, 255, 255, 1) 100%);*/
+  /*width: 100%;*/
+  /*height: 22vh;*/
 }
 
 #round-overlay:hover {
-  background-image: radial-gradient(12.5vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 100%);
+  /*background-image: radial-gradient(12.5vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 100%);*/
 }
 
 #listCard .content {
@@ -292,7 +298,15 @@
 
 
 #listCover .dot-container-img-listCard {
+  position: relative;
+  width: 100%;
   height: 100%;
+  /*overflow: hidden;*/
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  /*border-radius: 4px;*/
+  padding: 0;
 }
 
 

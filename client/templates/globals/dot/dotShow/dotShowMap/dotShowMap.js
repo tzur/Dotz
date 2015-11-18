@@ -19,21 +19,22 @@ Template.dotShowMap.onRendered(function(){
     let locationLatLng = [];
     if (GoogleMaps.loaded()) {
 
-
-      var dotShowMap = new google.maps.Map(document.getElementById('dotShowMap'), {
-        center: {lat: _data.dotShow.location.latLng[0], lng: _data.dotShow.location.latLng[1]},
-        zoom: 16,
-        disableDefaultUI: true
-      });
-
-      google.maps.event.addListenerOnce(dotShowMap, 'idle', function () {
-        // do something only the first time the map is loaded
-        var marker = new google.maps.Marker({
-          map: dotShowMap,
-          position: {lat: _data.dotShow.location.latLng[0], lng: _data.dotShow.location.latLng[1]}
+      //data is dotShow dot
+      let data = Template.parentData();
+      if (data) {
+        var dotShowMap = new google.maps.Map(document.getElementById('dotShowMap'), {
+          center: {lat: data.dot.location.latLng[0], lng: data.dot.location.latLng[1]},
+          zoom: 16,
+          disableDefaultUI: true
         });
-
-      });
+        google.maps.event.addListenerOnce(dotShowMap, 'idle', function () {
+          // do something only the first time the map is loaded
+          var marker = new google.maps.Marker({
+            map: dotShowMap,
+            position: {lat: data.dot.location.latLng[0], lng: data.dot.location.latLng[1]}
+          });
+        });
+      }
     }
   })
 
