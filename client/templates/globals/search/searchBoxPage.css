@@ -7,10 +7,10 @@
   margin-top: 2em;
 }
 
-.search-box {
+.search-row .search-box {
   color: #cccccc;
   background-color: #fff;
-  border-color: #ccc;
+  /*border-color: #ccc;*/
   display: inline-block;
   padding: 6px 1em;
   font-size: 1.5em;
@@ -24,7 +24,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: 1px solid #eeeeee;
+  border: 1px solid #ccc;
   border-radius: 24px;
 }
 
