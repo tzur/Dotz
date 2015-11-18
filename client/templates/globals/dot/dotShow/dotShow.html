@@ -161,23 +161,43 @@
     </div>
 
 
-    <div class="row map-div">
-      {{#if dotShow.location.address}}
-        <a href={{dotShow.location.googleMapsUrl}} target="_blank">
-
-          {{> dotShowMap}}
-        </a>
-      {{/if}}
-
+    <div class=" row map-div container-fluid">
+        <div class="col-xs-12">
+            {{#if dotShow.location.address}}
+             <a href={{dotShow.location.googleMapsUrl}} target="_blank">
+            {{> dotShowMap}}
+             </a>
+            {{/if}}
+        </div>
     </div>
 
+
   {{#if dotShow.connectedDotzArray}}
-          <div class="row dot-divider-hr">
+
+      <div class="dot-divider-hr container-fluid">
               <hr class="lightGrey">
-              <div class="dot-divider-box col-xs-4 colCenter">Connected Dotz by {{dotShowUser.username}}</div>
-          </div>
+        {{#if isOpenDot}}
+            <div class="dot-divider-box col-xs-4 colCenter">Connected Dotz:</div>
+        {{else}} <!--is Close list-->
+            <div class="dot-divider-box col-xs-4 colCenter">Connected Dotz by {{dotShowUser.username}}</div>
+        {{/if}}
+      </div>
 
   {{/if}}
+
+
+
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <h1>Footer!!!!!!!!</h1>
+        </div>
+    </nav>
+
+
+
+
+
 
 
 
@@ -199,6 +219,7 @@
             <div class="masonry-container">
 
               {{#each connectedDotzArray}}
+                {{data.title}}
                 {{>dotCard}}
               {{/each}}
 

@@ -77,6 +77,18 @@ Template.dotShow.helpers({
     return _data;
   },
 
+  isOpenDot: function() {
+    if (_data.dotShow) {
+      return _data.dotShow.isOpen;
+    }
+  },
+
+  dotHelper: function() {
+    if (_data.dotShow) {
+      return (_data.dotShow)
+    }
+  },
+
   isListShow: function() {
     if (_data.dotShow) {
       return (_data.dotShow.dotType === "List")
