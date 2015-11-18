@@ -114,10 +114,15 @@
                         <div class="col-sm-12 txtMd">
                           {{# if notMyProfile}}
                             {{#if myFollow}}
-                                <button type="button" class="unFollow btn btn-success btn-lg round">Following</button>
+                                <button type="button" class="unFollow btn btn-success btn-md">Following</button>
                             {{else}}
-                                <button type="button" class="follow btn btn-success btn-lg round">Follow</button>
+                                <button type="button" class="follow btn btn-success btn-md">Follow</button>
                             {{/if}}
+
+                          {{else}}
+
+                              <button type="button" class="editUserAccount-btn btn btn-default btn-md"><i class="fa fa-pencil"></i> Edit Profile</button>
+
                           {{/if}}
                         </div>
                     </div>

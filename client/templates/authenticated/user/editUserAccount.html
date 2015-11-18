@@ -31,7 +31,7 @@
                       <div class="container-fluid colCenter" id="createListFields">
                         {{#autoForm id="editUserAccountForm" schema= editUserAccountSchema type="method-update" meteormethod="editUserAccount" doc=selectedUserDoc}}
 
-                            <div class="listTitle col-xs-10 colCenter">
+                            <div class="listTitle col-md-10 colCenter">
 
                                 <div>
                                     <p><strong>User Name:</strong></p>
@@ -46,22 +46,38 @@
                             </div>
 
 
-                            <div id="form-body" class="col-xs-10 colCenter">
+                            <div id="form-body" class="col-md-10 colCenter">
 
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" role="tablist">
 
                                     <li role="presentation" class="active editTab">
-                                        <a href="#profileImage" aria-controls="coverImage" role="tab" data-toggle="tab"><i class="fa fa-camera"></i> Profile</a></li>
+                                        <a href="#profileImage" aria-controls="coverImage" role="tab" data-toggle="tab">
+                                            <i class="fa fa-camera"></i>
+                                            <span class="hidden-xs">Profile</span>
+                                        </a>
+                                    </li>
 
                                     <li role="presentation" class="editTab">
-                                        <a href="#coverImage" aria-controls="coverImage" role="tab" data-toggle="tab"><i class="fa fa-picture-o"></i> Cover</a></li>
+                                        <a href="#coverImage" aria-controls="coverImage" role="tab" data-toggle="tab">
+                                            <i class="fa fa-picture-o"></i>
+                                            <span class="hidden-xs">Cover</span>
+                                        </a>
+                                    </li>
 
                                     <li id="mapTab" role="presentation" class="editTab">
-                                        <a href="#location" aria-controls="location" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i> Address</a></li>
+                                        <a href="#location" aria-controls="location" role="tab" data-toggle="tab">
+                                            <i class="fa fa-map-marker"></i>
+                                            <span class="hidden-xs">Address</span>
+                                        </a>
+                                    </li>
 
                                     <li role="presentation" class="editTab">
-                                        <a href="#website" aria-controls="website" role="tab" data-toggle="tab"><i class="fa fa-globe"></i> Social</a></li>
+                                        <a href="#website" aria-controls="website" role="tab" data-toggle="tab">
+                                            <i class="fa fa-globe"></i>
+                                            <span class="hidden-xs">Social</span>
+                                        </a>
+                                    </li>
 
                                 </ul>
 
