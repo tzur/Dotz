@@ -13,12 +13,13 @@
   /*padding-right: 1vh;*/
 /*}*/
 
-/*.connectBtn {*/
-  /*height: 4vh;*/
-  /*border-radius: 24px;*/
-  /*width: auto;*/
-  /*padding: inherit;*/
-/*}*/
+.connectBtn {
+  height: 4vh;
+  margin: auto;
+  border-radius: 24px;
+  width: auto;
+  padding: inherit;
+}
 
 #listCardLikeSide {
   height: 22vh;
@@ -111,29 +112,35 @@
   /*background-color: rgba(255, 255, 255, 0.95);*/
 }
 
-.dot-container-img-listCard {
+#listCardImgSide .dot-container-img-listCard {
   position: relative;
-  width: 100%;
-  height: 100%;
+  height: 22vh;
+  width: 22vh;
   /*overflow: hidden;*/
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
   /*border-radius: 4px;*/
   padding: 0;
-  /*border-radius: 50%;*/
+  border-radius: 50%;
   /*padding: 0.5em;*/
   /*margin-top: 3px;*/
 }
 
-#round-overlay {
-  background-image: radial-gradient(12.5vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 87%, rgba(255, 255, 255, 1) 87%, rgba(255, 255, 255, 1) 100%);
-  width: 100%;
+#listCardImgSide .dot-container-img-listCard:hover {
+  border-radius: 0;
   height: 22vh;
+  width: 100%;
+}
+
+#round-overlay {
+  /*background-image: radial-gradient(12.5vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 87%, rgba(255, 255, 255, 1) 87%, rgba(255, 255, 255, 1) 100%);*/
+  /*width: 100%;*/
+  /*height: 22vh;*/
 }
 
 #round-overlay:hover {
-  background-image: radial-gradient(12.5vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 100%);
+  /*background-image: radial-gradient(12.5vh at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 115%, rgba(255, 255, 255, 0) 100%);*/
 }
 
 #listCard .content {
@@ -149,11 +156,12 @@
   /*padding: 0.2vh 0vh 0.3vh 0vh;*/
   padding-top: 1vh;
   /*line-height: 4vh;*/
+  margin-top: 0;
   margin-bottom: 0;
 }
 
 #listCard .content .listCardTitle .h2Title {
-  margin-top: 2vh;
+  margin: 0;
   font-weight: 400;
   font-size: 2.0rem;
   color: rgba(0, 0, 0, 0.8);
@@ -290,7 +298,15 @@
 
 
 #listCover .dot-container-img-listCard {
+  position: relative;
+  width: 100%;
   height: 100%;
+  /*overflow: hidden;*/
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  /*border-radius: 4px;*/
+  padding: 0;
 }
 
 
