@@ -150,6 +150,11 @@ Template.userShow.events({
   },
   'click .unFollow': function(){
    Modules.both.Dotz.unFollowUser(Meteor.userId(), _data.userShow._id);
+  },
+
+  'click .editUserAccount-btn': function(){
+    Modal.show('editUserAccountModal')
   }
+
 });
 
