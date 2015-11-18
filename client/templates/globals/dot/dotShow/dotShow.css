@@ -393,8 +393,8 @@ pre {
 /*navbar-fixed-bottom*/
 
 #navbar-bottom {
-  background-color: #FFFFFF;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23)
+  background-color: transparent;
+  border-color: transparent;
 }
 
 #navbar-bottom .container {
