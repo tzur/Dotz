@@ -2,9 +2,9 @@
  * Created by avivhatzir on 17/11/2015.
  */
 Meteor.methods({
-  addOrEditObjectInAlgolia(dotId){
-    check(dotId, String);
-    let currentDoc = Dotz.findOne(dotId);
+  addOrEditObjectInAlgolia(dotSlug){
+    check(dotSlug, String);
+    let currentDoc = Dotz.findOne({dotSlug: dotSlug});
     currentDoc.objectID = currentDoc._id;
     var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
 
