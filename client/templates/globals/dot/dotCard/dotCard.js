@@ -1,12 +1,22 @@
 
 Template.dotCard.helpers({
 
+  //create specific SESSION!!!! TBD
   isInOpenList: function() {
     if (Template.parentData().userShowDot) {
       return Template.parentData().userShowDot.isOpen;
     }
     else if (Template.parentData().dotShow) {
       return Template.parentData().dotShow.isOpen;
+    }
+  },
+
+  isInClosedList: function() {
+    if (Template.parentData().userShowDot) {
+      return !(Template.parentData().userShowDot.isOpen);
+    }
+    else if (Template.parentData().dotShow) {
+      return !(Template.parentData().dotShow.isOpen);
     }
   },
 
@@ -33,6 +43,12 @@ Template.dotCard.helpers({
   eventDate: function(){
     if (this.dot.startDateAndHour) {
       return ( moment(this.dot.startDateAndHour).fromNow());
+    }
+  },
+
+  shortenAdress: function(){
+    if (this.dot.location.address) {
+      return s.prune(this.dot.location.address, 40);
     }
   },
 
