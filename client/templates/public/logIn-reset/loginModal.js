@@ -3,14 +3,14 @@
  */
 
 
-Template.signUpModal.events({
+Template.loginModal.events({
 
 
   'click #exitBtn': function(){
     Modal.hide('createListModal');
   },
 
-  'click .login': function(){
+  'click .signup': function(){
     Modal.hide('createListModal');
   }
 
