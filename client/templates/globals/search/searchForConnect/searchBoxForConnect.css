@@ -4,5 +4,18 @@
 }
 
 .lg-form {
+  font-size: 1.5em;
+  line-height: 2em;
+  height: 40px;
+  padding: 1em;
+}
 
+.nav-pills .search-btns {
+  display: inline-block;
+  width: 15%;
+  margin-bottom: 2em;
+}
+
+.nav-pills li a {
+  border: #337AB7 solid 1px;
 }
