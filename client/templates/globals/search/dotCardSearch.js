@@ -17,6 +17,10 @@
 //  }
 //});
 
+Template.dotCardSearch.onRendered(function(){
+  console.log(this);
+});
+
 
 
 Template.dotCardSearch.helpers({
