@@ -62,6 +62,11 @@ let _handleSignup = ( template ) => {
               }
               else {
                 _createNewDotForDotProfile ( Meteor.userId() );
+                //tracking the event of singup user
+                analytics.identify( Meteor.userId(), {
+                  email: Meteor.user().emails[0].address,
+                  name: Meteor.user().username
+                });
               }
           });
     }

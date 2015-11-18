@@ -19,6 +19,7 @@ let editDotHooks = {
     Session.set("coverImageUrl", undefined);
     Session.set("locationObject", undefined);
     Modal.hide('editDotModal');
+    Meteor.call('addOrEditObjectInAlgolia', this.currentDoc._id);
     //Modal.hide('createDotModal');
   }
 };

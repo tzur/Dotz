@@ -5,7 +5,8 @@
 
   "public": {
     "analyticsSettings": {
-      "Google Analytics" : {"trackingId": "UA-63151429-1"}
+      "Google Analytics" : {"trackingId": "UA-63151429-1"},
+      "Mixpanel" : {"token": "cecae4401aa6dfe91b5293f6050ca4e6", "people": true}
     }
   }
 }
