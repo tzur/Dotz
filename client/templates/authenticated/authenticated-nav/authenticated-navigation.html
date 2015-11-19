@@ -21,7 +21,15 @@
 
     <ul class="nav navbar-nav navbar-right hidden-xs">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="navBarUserImgProfile" src="{{currentUser.profile.profileImage}}"><span class="caret"></span></a>
+
+            <!--<ul>-->
+                <!--<p>{{currentUser.profile.userSlug}}</p>-->
+            <!--</ul>-->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <img id="navBarUserImgProfile" src="{{currentUser.profile.profileImage}}">
+
+            </a>
+
             <ul class="dropdown-menu">
                 <li class="{{currentRoute 'user-show'}}"><a href="/{{currentUser.profile.userSlug}}">My Profile</a></li>
                 <li class="createDot"><a href="#">New Dot</a></li>
