@@ -2,12 +2,12 @@
 Template.dotShow.onCreated(function() {
 
   let self = this;
-  //self.subs = new SubsManager({
-  //  // maximum number of cache subscriptions
-  //  cacheLimit: 10,
-  //  // any subscription will be expire after 5 minute, if it's not subscribed again
-  //  expireIn: 5
-  //});
+  self.subs = new SubsManager({
+    // maximum number of cache subscriptions
+    cacheLimit: 10,
+    // any subscription will be expire after 5 minute, if it's not subscribed again
+    expireIn: 5
+  });
   self.autorun(function() {
     if(!GoogleMaps.loaded()){
       GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
@@ -15,13 +15,13 @@ Template.dotShow.onCreated(function() {
     FlowRouter.watchPathChange();
     let dotSlug = FlowRouter.current().path.slice(1);
     if (dotSlug) {
-      self.subscribe('dotShowByDotSlug', dotSlug);
+      self.subs.subscribe('dotShowByDotSlug', dotSlug);
     }
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
       DocHead.setTitle("Dotz: " + currentDot.title);
       if (currentDot) {
-        self.subscribe('user', currentDot.ownerUserId);
+        self.subs.subscribe('user', currentDot.ownerUserId);
       }
     }
   });
