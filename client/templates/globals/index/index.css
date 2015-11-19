@@ -1,0 +1,62 @@
+
+#landingPage .wrapper {
+  background-image: url("https://dotz-tlv-development.s3.amazonaws.com/wyxT5X8eccZnJtLTn/blurry-691240_1920.jpg");
+  background-size: cover;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  padding-top: 15vh;
+}
+
+#landingPage .container .motto {
+  height: 72vh;
+}
+
+.motto {
+  color: #FFFFFF;
+}
+
+.motto h1 {
+  font-size: 4em;
+}
+
+.motto h3 {
+  font-size: 2.5em;
+  font-weight: 100;
+}
+
+.container .motto .btn {
+  color: #FFFFFF;
+  border-color: #ffffff;
+  margin-right: 0.3vw;
+}
+
+.container .motto .signup {
+  background-color: rgba(0,0,0,0.6);
+}
+
+.container  .motto .signup:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.container .motto .login {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.container  .motto .login:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+/*.container*/
+
+#landingPage .footerLandingPage {
+  height: 5vh;
+  /*background-color: rgba(0,0,0,0.7);*/
+}
+
+#landingPage .footerLandingPage .copyright {
+  margin-top: 1vh;
+  color: #FFFFFF;
+}
+
+#landingPage .footerLandingPage .fa-heart {
+  color: red;
+}
