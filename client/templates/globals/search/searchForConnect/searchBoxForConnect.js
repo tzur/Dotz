@@ -62,7 +62,7 @@ Template.searchBoxForConnect.helpers({
   },
 
   isAlreadyConnected: function(){
-    return Modules.client.Dotz.isConnectedToDot(Template.parentData().dot._id, this._id)
+    return Modules.client.Dotz.canBeConnectedToDot(Template.parentData().dot._id, this._id)
   }
 });
 
