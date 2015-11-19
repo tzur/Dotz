@@ -50,3 +50,7 @@
 .noneWhere {
   display: none;
 }
+
+.navbar-form #search-icon {
+  font-size: 1em;
+}
