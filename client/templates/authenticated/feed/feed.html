@@ -3,25 +3,18 @@
 <div class="container-fluid">
 
 {{#if feedDotz}}
-    <!--{{#if Template.subscriptionsReady}}-->
 
-        <div class="row feed-cards">
-            <div class="col-xs-12">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
+
               {{#each feedDotz}}
                 {{> dotCard}}
               {{/each}}
+
             </div>
         </div>
-
-    <!--{{else}}-->
-
-        <!--<div class="row row-loading">-->
-            <!--<div class="col-xs-12">-->
-              <!--{{>loading2}}-->
-            <!--</div>-->
-        <!--</div>-->
-
-    <!--{{/if}}-->
+    </div><!-- end wrapper -->
 
 {{else}}
 
