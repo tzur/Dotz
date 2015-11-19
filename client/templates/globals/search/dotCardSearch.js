@@ -21,14 +21,10 @@ Template.dotCardSearch.helpers({
       return (moment(this.dot.createdAtDate).fromNow())
     }
   },
-  isListCard: function(){
-    if (this.dot.dotType === "List"){
-      return true
-    }
-    else{
-      return false;
-    }
-  },
+  isListCard: function() {
+    return (this.dot.dotType === "List")
+  }
+  ,
   eventDate: function(){
     if (this.dot.startDateAndHour) {
       return ( moment(this.dot.startDateAndHour).fromNow());
@@ -84,6 +80,10 @@ Template.dotCardSearch.helpers({
     else if (counter) {
       return ( "(" + counter + ")" );
     }
+  },
+
+  isNotSearchPage: function(){
+    return !(FlowRouter.current().path === "/main/search")
   }
 
   //likeCounter: function(){
@@ -98,9 +98,7 @@ Template.dotCardSearch.events({
     {
       Modal.show('connectDotModal',{
         data:{
-          dotId: this.dot._id,
-          dot: this.dot,
-          connectToMyLists: true
+          dot: this.dot
         }
       });
     }
@@ -119,6 +117,24 @@ Template.dotCardSearch.events({
   },
   'click .delete':function(event){
     Modules.both.Dotz.deleteDot(this.dot, this.smartRef);
+  },
+
+  'click #addDotToCurrentDot': function(){
+    let parentDot = Template.parentData().dot;
+    let currentDot = this.dot;
+    Meteor.call('checkIfUserAuthoriseForConnect', parentDot._id, function(error, result){
+      if(result === true){
+        Modal.show('addPersonalDescriptionModal', {
+          data:{
+            dot: currentDot,
+            parentDot: parentDot
+          }
+        });
+      }
+      else{
+        Modal.show('signUpModal');
+      }
+    })
   }
 });
 
