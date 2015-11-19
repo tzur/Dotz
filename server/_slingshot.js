@@ -7,7 +7,7 @@ Slingshot.fileRestrictions( "uploadToAmazonS3", {
 });
 
 Slingshot.createDirective( "uploadToAmazonS3", Slingshot.S3Storage, {
-  bucket: "dotz-tlv-development",
+  bucket: "dotz-deployment",
   acl: "public-read",
   authorize: function () {
     //let userFileCount = Files.find( { "userId": this.userId } ).count();

@@ -25,14 +25,14 @@ Template.createToOneOfMyLists.helpers({
 });
 
 Template.createToOneOfMyLists.events({
-  'click .publishHere': function () {
+  'click #publishToOneOfMyLists': function () {
     Session.set('parentDot', this._id);
-    $('#createToMyProfile').trigger('click');
+    $('#publishListToMyProfile').trigger('click');
   },
 
   'click .ConnectedByOwnerDotz': function () {
     Session.set('parentDot', this._id);
-    $('#createToMyProfile').trigger('click');
+    $('#publishListToMyProfile').trigger('click');
   }
 
 
