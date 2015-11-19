@@ -1,6 +1,10 @@
 /**
  * Created by avivhatzir on 19/11/2015.
  */
+
+Template.addPersonalDescriptionModal.onRendered(function(){
+  Modules.client.Dotz.limitCharactersAndCounter('#personalDescription', 100, '#descriptionFieldFeedback');
+})
 Template.addPersonalDescriptionModal.helpers({
 
   currentUserImageUrl: function () {
