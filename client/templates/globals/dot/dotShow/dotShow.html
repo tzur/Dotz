@@ -1,7 +1,4 @@
 <template name="dotShow">
-
-
-{{#if Template.subscriptionsReady}}
   {{#with dotShow}}
     {{#if isListShow}}
     <div class="container-fluid" id="listShowHeader">
@@ -202,12 +199,13 @@
 {{/if}} <!--end the check if is ListShow or DotShow-->
 
 
+  {{/with}}
 
     <!--Anchor-->
 <a name="connectedDotz"></a>
 
-
-{{#if dot.connectedDotzArray}}
+{{#with dotShow}}
+<!--{{#if dot.connectedDotzArray}}-->
 
 
 <div id="connectedDotzArray">
@@ -228,30 +226,18 @@
 </div>
 
 
-{{/if}}
+<!--{{/if}}-->
 
 
 
 <div class="container-fluid" id="dotShowFooter">
 
-    <!--<div class="row col-xs-12 col-md-8 colCenter">-->
-
-        <!--<button  class="btn btn-success round btn-md dot-show-connect-btn colCenter">Add Your Dot</button>-->
-
-    <!--</div>-->
-
 
       <div class="row">
-          <!--<h4 class="title" id="addUserConnection">Search for Dotz you want to Connect</h4>-->
-          <!--<div class="addButton">-->
-              <!--<button id="addUserConnection" type="button" class="btn btn-success round btn-md dot-show-connect-btn">-->
-                  <!--Search for Dotz you want to Connect-->
-              <!--</button>-->
 
-
-          <!--</div>-->
-
-        {{>searchBoxForConnect}}
+        {{# if addDotIsAvailable}}
+            {{>searchBoxForConnect}}
+        {{/if}}
 
       </div>
 
@@ -286,14 +272,5 @@
     <!--</div>-->
 <!--</nav>-->
 
-
-
-
 {{/with}}
-
-{{else}}
-    {{>loading2}}
-    <!--&lt;!&ndash;&lt;!&ndash;to replace with a loading template&ndash;&gt;&ndash;&gt;-->
-{{/if}}
-
 </template>

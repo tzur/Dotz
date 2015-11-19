@@ -3,7 +3,7 @@
 </head>
 
 <template name="userShow">
-{{#if Template.subscriptionsReady}}
+<!--{{#if subscriptionsReady}}-->
 {{#with dataUser}}
         <div id="userBgImg" class="container-liquid">
             <div class="row imgCover" style="background-image: url('{{profile.coverImage}}')">
@@ -165,8 +165,8 @@
 
 
 {{/with}}
-{{else}}
-     {{>loading2}}
-  <!--&lt;!&ndash;to replace with a loading template&ndash;&gt;-->
-{{/if}}
+<!--{{else}}-->
+     <!--{{>loading2}}-->
+  <!--&lt;!&ndash;&lt;!&ndash;to replace with a loading template&ndash;&gt;&ndash;&gt;-->
+<!--{{/if}}-->
 </template>

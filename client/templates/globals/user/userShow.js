@@ -1,42 +1,42 @@
 Template.userShow.onCreated(function() {
 
   let self = this;
-  //self.subs = new SubsManager({
-  //  // maximum number of cache subscriptions
-  //  cacheLimit: 10,
-  //  // any subscription will be expire after 5 minute, if it's not subscribed again
-  //  expireIn: 5
-  //});
+  self.userShowReady = new ReactiveVar();
+  self.profileDotReady = new ReactiveVar();
+
+  self.subs = new SubsManager({
+    // maximum number of cache subscriptions
+    cacheLimit: 10,
+    // any subscription will be expire after 5 minute, if it's not subscribed again
+    expireIn: 5
+  });
+
   self.autorun(function() {
     FlowRouter.watchPathChange();
     let userSlug = FlowRouter.getParam('userSlug');
-    if (userSlug) {
-        self.subscribe('userByUserSlug', userSlug, function(){
-            let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
-            DocHead.setTitle("Dotz: " + user.username);
-            if (!user){
-              FlowRouter.go('/');
-              Bert.alert('Page does not exist', 'danger');
-            }
-            else{
-              Session.set('userSubscribeFinished', user);
-            }
-        });
-    }
-    if (Session.get('userSubscribeFinished')) {
-      let dotId = Session.get('userSubscribeFinished').profile.profileDotId;
-      if (dotId) {
-        //self.subs.subscribe('dotShow', dotId, function(){
-        //  Session.set('profileDot', Dotz.findOne(dotId));
-        //});
-        self.subscribe('dotShow', dotId);
+    if (userSlug){
+      let handleUser = self.subs.subscribe('userByUserSlug', userSlug, function(){
+        let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
+        if (!user){
+          FlowRouter.go('/');
+          Bert.alert('Page does not exist', 'danger');
+        }
+        else{
+          DocHead.setTitle("Dotz: " + user.username);
+        }
+      });
+      if (handleUser.ready()){
+        self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId);
       }
     }
   });
 });
 Template.userShow.helpers({
   dataUser: function() {
-    return Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
+    let user = Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
+    if (user){
+      return user;
+    }
   },
 //user counters:
   followingCounter: function(){
@@ -74,11 +74,10 @@ Template.userShow.helpers({
   },
 
   connectedDotzArray: function() {
-    //let dot = Dotz.findOne(this.profile.profileDotId);
-    //if ( dot && dot.connectedDotzArray ) {
-    //  return dot.connectedDotzArray;
-    //}
-    return Dotz.findOne(this.profile.profileDotId).connectedDotzArray;
+    let profileDot = Dotz.findOne(this.profile.profileDotId);
+    if (profileDot){
+      return profileDot.connectedDotzArray;
+    }
   }
 
 });
