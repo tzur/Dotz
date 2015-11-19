@@ -139,6 +139,10 @@ Template.dotShow.helpers({
 
   hereWithImg: function() {
     return Session.get('hereWithImg');
+  },
+
+  addDotIsAvailable: function() {
+    return (this.dot.isOpen || (this.dot.ownerUserId === Meteor.userId) )
   }
 
 });
