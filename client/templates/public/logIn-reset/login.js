@@ -10,5 +10,9 @@ Template.login.events({
   //  Modal.show('signUpModal');
   //}
 
+  'click #switchToSignUp': function() {
+    Modal.show('signUpModal');
+  }
+
 
 });

@@ -11,12 +11,97 @@
         </div>
 
 
-        <div class="row search-row">
-            <div class="col-xs-12 txtMd">
+        <div class="container-fluid search-container">
 
-                <input type="text" class="searchInput search-box" id="searchInput" placeholder='"Eat", "Surf", "Dance" ...'>
+            <form class="navbar-form txtMd" role="search">
+                <div class="form-group">
+                    <input id="searchBoxInput" type="text" class="searchInput form-control lg-form" autocomplete="off"  placeholder='"Eat", "Surf", "Dance" ...'>
+                </div>
                 <i id="search-icon" class="fa fa-search"></i>
+            </form>
 
+        </div>
+
+
+
+
+        <div class="container-fluid">
+            <div class="row search-results-row">
+                <div class="col-xs-12">
+
+                  {{#if isSearched}}
+
+
+                      <div>
+
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-pills nav-justified txtMd" role="tablist">
+                              <li role="presentation" class="active search-btns"><a href="#dotz" aria-controls="dotz" role="tab" data-toggle="tab">Dotz</a></li>
+                              <li role="presentation" class="search-btns"><a href="#lists" aria-controls="lists" role="tab" data-toggle="tab">Lists</a></li>
+                          </ul>
+
+                          <!-- Tab panes -->
+                          <div class="tab-content">
+                              <div role="tabpanel" class="tab-pane active" id="dotz">
+
+                                  <div class="container-fluid">
+                                      <div class="row">
+                                          <div class="col-xs-12 col-md-10 colCenter">
+
+
+                                            {{#if dotzResult}}
+                                                <ul>
+                                                  {{#each dotzResult}}
+                                                    {{#if isAlreadyConnected}}
+                                                        <div class="dot-card-search-wrapper">
+                                                          {{> dotCardSearch}}
+                                                        </div>
+                                                    {{/if}}
+                                                  {{/each}}
+                                                </ul>
+                                            {{else}}
+                                                <h4 class="txtMd">Sorry :( Nothing Here</h4>
+                                            {{/if}}
+
+                                          </div>
+                                      </div>
+                                  </div>
+
+                              </div>
+
+                              <div role="tabpanel" class="tab-pane" id="lists">
+
+                                  <div class="container-fluid">
+                                      <div class="row">
+                                          <div class="col-xs-12 col-md-10 colCenter">
+
+                                            {{#if listsResult}}
+
+                                                <ul>
+                                                  {{#each listsResult}}
+                                                    {{#if isAlreadyConnected}}
+                                                        <div class="dot-card-search-wrapper">
+                                                          {{> dotCardSearch}}
+                                                        </div>
+                                                    {{/if}}
+                                                  {{/each}}
+                                                </ul>
+                                            {{else}}
+                                                <h4 class="txtMd">Sorry :( Nothing Here</h4>
+                                            {{/if}}
+
+                                          </div>
+                                      </div>
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+
+                      </div>
+                  {{/if}}
+                </div>
             </div>
         </div>
 
