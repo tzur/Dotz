@@ -38,8 +38,8 @@
   padding-bottom: 0em;
   height: 2em;
   width: 2em;
-  border-color: rgba(0,0,0,0.4);
-  border-width: 0.1em;
+  /*border-color: rgba(0,0,0,0.4);*/
+  /*border-width: 0.1em;*/
   border-style: solid;
   border-radius: 50%;
 }
