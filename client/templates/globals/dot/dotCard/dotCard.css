@@ -79,7 +79,7 @@
 }
 
 #listCardTextSide .listCardFooter {
-  padding: 0vh 2vh 0.5vh 2vh;
+  padding: 0 1em 0 1em;
   height: 4vh;
 }
 
@@ -173,10 +173,8 @@
 #listCard .content .listCardText {
   /*height: 9vh;*/
   padding-top: 1vh;
-  color: rgba(0, 0, 0, 0.4);
   line-height: 1.4;
-  font-size: 16px;
-  margin: 0;
+  width: 70%;
 }
 
 #listCard .content .listCardText > p {
@@ -188,7 +186,7 @@
 
 #listCard .listCardUser {
   /*height: 20%;*/
-  padding: 0.5vh 0.5vh 0.5vh 0vh;
+  padding: 0;
   /*vertical-align: top;*/
   /*background-color: rgba(255, 255, 255, 0.95);*/
 }
@@ -202,7 +200,6 @@
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
-  border: 1px solid #ffffff;
   border-radius: 50%;
 }
 
@@ -425,5 +422,20 @@
 }
 
 
+#pre-delete-menu {
+  top: auto;
+  right: auto;
+  left: auto;
+}
 
+.dropdown-menu li i {
+  padding-right: 1em;
+}
 
+#pre-delete-menu .delete i {
+  color: #d9534f;
+}
+
+#pre-delete-menu li a {
+  cursor: pointer;
+}
