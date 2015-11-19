@@ -1,0 +1,47 @@
+/* Imports for global scope */
+
+Accounts = Package['accounts-base'].Accounts;
+AccountsServer = Package['accounts-base'].AccountsServer;
+check = Package.check.check;
+Match = Package.check.Match;
+Bert = Package['themeteorchef:bert'].Bert;
+Template = Package['meteorhacks:ssr'].Template;
+SSR = Package['meteorhacks:ssr'].SSR;
+ECMAScript = Package.ecmascript.ECMAScript;
+faker = Package['digilord:faker'].faker;
+FlowRouter = Package['kadira:flow-router'].FlowRouter;
+BlazeLayout = Package['kadira:blaze-layout'].BlazeLayout;
+FastRender = Package['meteorhacks:fast-render'].FastRender;
+lodash = Package['stevezhu:lodash'].lodash;
+_ = Package.underscore._;
+ReactiveVar = Package['reactive-var'].ReactiveVar;
+ReactiveDict = Package['reactive-dict'].ReactiveDict;
+Tracker = Package.tracker.Tracker;
+Deps = Package.tracker.Deps;
+Slingshot = Package['edgee:slingshot'].Slingshot;
+moment = Package['mrt:moment'].moment;
+s = Package['underscorestring:underscore.string'].s;
+EasySearch = Package['easy:search'].EasySearch;
+SubsManager = Package['meteorhacks:subs-manager'].SubsManager;
+Spiderable = Package.spiderable.Spiderable;
+DDP = Package['ddp-client'].DDP;
+DDPServer = Package['ddp-server'].DDPServer;
+Hook = Package['callback-hook'].Hook;
+DocHead = Package['kadira:dochead'].DocHead;
+AlgoliaSearch = Package['acemtp:algolia'].AlgoliaSearch;
+Async = Package['meteorhacks:async'].Async;
+babelHelpers = Package['babel-runtime'].babelHelpers;
+Promise = Package.promise.Promise;
+Map = Package['ecmascript-collections'].Map;
+Set = Package['ecmascript-collections'].Set;
+Meteor = Package.meteor.Meteor;
+WebApp = Package.webapp.WebApp;
+main = Package.webapp.main;
+WebAppInternals = Package.webapp.WebAppInternals;
+SimpleSchema = Package['aldeed:simple-schema'].SimpleSchema;
+MongoObject = Package['aldeed:simple-schema'].MongoObject;
+MongoInternals = Package.mongo.MongoInternals;
+Mongo = Package.mongo.Mongo;
+BrowserPolicy = Package['browser-policy-common'].BrowserPolicy;
+Autoupdate = Package.autoupdate.Autoupdate;
+

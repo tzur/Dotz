@@ -1,0 +1,1 @@
+{"version":3,"sources":["meteor://💻app/server/startup.js"],"names":[],"mappings":";;;;;;;;AAAA,MAAM,CAAC,OAAO,CAAE;SAAM,OAAO,CAAC,MAAM,CAAC,OAAO,EAAE;CAAA,CAAE,CAAC,sE","file":"/server/startup.js","sourcesContent":["Meteor.startup( () => Modules.server.startup() );\n"]}
