@@ -6,17 +6,17 @@
 
                 <div class="modal-body">
 
-                  {{#with dotTarget}}
+
 
                    <div class="container-fluid chosen-dot-dot-modal">
                         <div class="row">
 
                             <div class="col-md-4">
-                                <div class="container-fluid dot-img-connect-modal" style="background-image: url('{{dot.coverImageUrl}}')"></div>
+                                <div class="container-fluid dot-img-connect-modal" style="background-image: url('{{data.dot.coverImageUrl}}')"></div>
                             </div>
 
                             <div class="col-md-8">
-                                <h2 class="cardTitle">{{dot.title}}</h2>
+                                <h2 class="cardTitle">{{data.dot.title}}</h2>
                                 <div class="userDetails-dot-modal">
                                     <img class="userImgIcon-dot-modal" src="{{currentUserImageUrl}}">
                                     <span class="align-icon-text username-dot-modal">{{currentUserUsername}}</span>
@@ -29,13 +29,13 @@
 
                         </div>
                     </div>
-                    {{/with}}
+
 
                     <div class="modal-header">
                         <h5 class="modal-title">Connect to List:</h5>
                     </div>
 
-                    {{#if isConnectedToUserProfileDot}}
+                    {{#if canBeConnectedToUserProfileDot}}
                       <!--<div class="container-fluid">-->
                         <div class="container-fluid ConnectedByOwnerDotz">
 

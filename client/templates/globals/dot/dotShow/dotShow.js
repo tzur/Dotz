@@ -1,10 +1,7 @@
 
 Template.dotShow.onCreated(function() {
-  let self = this;
-  //subscriptions variables.
-  //self.dotShowReady = new ReactiveVar();
-  //self.userShowReady = new ReactiveVar();
 
+  let self = this;
   self.subs = new SubsManager({
     // maximum number of cache subscriptions
     cacheLimit: 10,
@@ -18,8 +15,14 @@ Template.dotShow.onCreated(function() {
     FlowRouter.watchPathChange();
     let dotSlug = FlowRouter.current().path.slice(1);
     if (dotSlug) {
-      self.subs.subscribe('dotShowByDotSlug', dotSlug);
-
+      self.subs.subscribe('dotShowByDotSlug', dotSlug, function(){
+          let dotShow = Dotz.findOne({dotSlug: dotSlug});
+          if (!dotShow){
+            FlowRouter.go('/');
+            Bert.alert('Page does not exist', 'danger');
+          }
+        }
+      );
     }
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
@@ -33,30 +36,10 @@ Template.dotShow.onCreated(function() {
 
 Template.dotShow.onRendered(function(){
   window.scrollTo(0,0);
-
-  $(window).scroll(function() {
-    //if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-    //  document.getElementById("whereIAm").className = "showWhere";
-    //  //console.log("OK GO :)");
-    //} else {
-    //  document.getElementById("whereIAm").className = "noneWhere";
-    //  //console.log("Back!!!");
-    //}
-  });
-
 });
 
 
-//Template.dotShow.onDestroyed(function(){
-//  Session.set('whereIAm', undefined);
-//  Session.set('hereWithImg', undefined);
-//});
-
-
 Template.dotShow.helpers({
-  dotShowReady: function(){
-    return true;
-  },
   dotShow: function() {
     FlowRouter.watchPathChange();
     let dot = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1)});

@@ -13,8 +13,6 @@ Template.connectDotModal.onRendered(function() {
   Modules.client.Dotz.limitCharactersAndCounter('#personalDescription', 100, '#personalDescriptionFeedback');
 });
 
-
-
 Template.connectDotModal.helpers({
 
   currentUserImageUrl: function() {
@@ -24,25 +22,15 @@ Template.connectDotModal.helpers({
   currentUserUsername: function() {
     return Meteor.user().username;
   },
-
-  dotTarget: function() {
-    return this.data;
-  },
-
   userProfileDotzArray: function(){
-    Session.set('dotIdWishedToBeConnected', this.data.dotId);
+    Session.set('dotIdWishedToBeConnected', this.data.dot._id);
     Session.set('dotOwnerUserId', this.data.dot.ownerUserId);
-    if(Session.get('dotIdWishedToBeConnected')) {
-      return Modules.client.Dotz.getAvailableList(Session.get('dotIdWishedToBeConnected'))
-    }
-  },
-  isConnectedToUserProfileDot: function(){
-      return Modules.client.Dotz.isConnectedToDot(Meteor.user().profile.profileDotId, Session.get('dotIdWishedToBeConnected'))
-  },
-  connectBtn: function() {
-    return (Template.parentData())
-  }
+    return Modules.client.Dotz.getAvailableList(this.data.dot._id);
 
+  },
+  canBeConnectedToUserProfileDot: function(){
+      return Modules.client.Dotz.canBeConnectedToDot(Meteor.user().profile.profileDotId, this.data.dot._id);
+  }
 });
 
 Template.connectDotModal.events({
@@ -51,6 +39,8 @@ Template.connectDotModal.events({
     let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), Session.get('dotOwnerUserId'),
                   Meteor.user().profile.profileDotId, CONNECT_ACTION, Meteor.userId(),personalDescription);
     Modules.both.Dotz.connectDot(smartRef);
+    Modal.hide();
+
 
   },
   'click .connectBtn': function () {
@@ -58,7 +48,8 @@ Template.connectDotModal.events({
     let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), Session.get('dotOwnerUserId'),
       this._id, CONNECT_ACTION, Meteor.userId(),personalDescription);
     Modules.both.Dotz.connectDot(smartRef);
-    Modal.hide('createDotModal');
+    Modal.hide();
+
 
   }
 });
