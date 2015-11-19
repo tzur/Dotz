@@ -10,9 +10,24 @@
 	      </button>
 
 
-          <div class="logo">
-              <a class="navbar-brand" href="{{brandLink}}"><strong>Dotz:</strong></a>
-          </div>
+        <div>
+
+
+            <span class="logo">
+                <a class="navbar-brand" href="{{brandLink}}"><strong>Dotz:</strong></a>
+            </span>
+
+          <span>
+              <form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
+                  <div class="form-group">
+                      <input id="searchBoxNavBar" type="text" class="searchNav form-control" placeholder="Search" autocomplete="off">
+                  </div>
+                  <button id="searchBoxNavBarBtn" type="submit" class="btn unstyled-btn"><i class="fa fa-search mdTxt"></i></button>
+              </form>
+          </span>
+
+        </div>
+
 
         <!--&lt;!&ndash;show the current dot/list Show&ndash;&gt;-->
           <!--<div id="whereIAm" class="noneWhere">-->
@@ -32,13 +47,6 @@
 	      {{else}}
 	      	{{> publicNavigation}}
 	      {{/if}}
-
-          <form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
-              <div class="form-group">
-                  <input id="searchBoxNavBar" type="text" class="searchNav form-control" placeholder="Search">
-              </div>
-              <button id="searchBoxNavBarBtn" type="submit" class="btn unstyled-btn"><i class="fa fa-search mdTxt"></i></button>
-          </form>
 
 	    </div>
 
