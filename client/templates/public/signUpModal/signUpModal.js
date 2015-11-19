@@ -10,10 +10,10 @@ Template.signUpModal.events({
     Modal.hide('signUpModal');
   },
 
-  'click .login': function(){
-    Modal.hide('signUpModal');
-    Modal.show('loginModal');
-  }
+  //'click .login': function(){
+  //  Modal.hide('signUpModal');
+  //  Modal.show('loginModal');
+  //}
 
 
 });
