@@ -5,6 +5,5 @@ Template.feed.helpers({
     if (Meteor.user().profile.feedDotz){
       return Meteor.user().profile.feedDotz;
     }
-
   }
 });
