@@ -6,6 +6,18 @@ Template.searchBox.onCreated(function(){
   Session.set('listsResult', undefined);
 });
 
+Template.searchBox.onRendered(function(){
+  var self = this;
+  let currValue;
+  self.autorun(function() {
+    if (currValue = Session.get('searchBoxNavBar')) {
+      $('#searchInput').val(currValue).focus();
+      Session.set('searchInput', currValue);
+      Session.set('searchBoxNavBar', undefined)
+    }
+  });
+});
+
 Template.searchBox.onDestroyed(function(){
   Session.set('searchInput', undefined);
   Session.set('dotzResult', undefined);
