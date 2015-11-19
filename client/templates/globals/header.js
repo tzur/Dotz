@@ -25,10 +25,12 @@ Template.header.events({
       }
     });
   },
-  'keypress .searchNav': function(e){
+  'keypress #searchBoxNavBar': function(e){
     if (e.keyCode == 13){
-      Session.set('homeSearchInput', e.currentTarget.value);
-      FlowRouter.go('/main/search')
+      e.preventDefault();
+      Session.set('searchBoxNavBar', e.currentTarget.value);
+      FlowRouter.go('/main/search');
+      e.currentTarget.value = '';
     }
   }
 
