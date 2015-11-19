@@ -4,7 +4,7 @@
 
         <form class="navbar-form txtMd" role="search">
             <div class="form-group">
-                <input type="text" class="searchInput form-control lg-form" id="searchInput" placeholder="Search to Connect">
+                <input id="searchBoxInput" type="text" class="searchInput form-control lg-form" placeholder="Search to Connect" autocomplete="off">
             </div>
             <i id="search-icon" class="fa fa-search"></i>
         </form>
@@ -13,8 +13,8 @@
 
 
     <div class="container-fluid">
-        <div class="row search-results-row">
-            <div class="col-xs-12">
+        <!--<div class="row search-results-row">-->
+            <!--<div class="col-xs-12">-->
 
               {{#if isSearched}}
 
@@ -33,7 +33,7 @@
 
                               <div class="container-fluid">
                                   <div class="row">
-                                      <div class="col-xs-12 col-md-10 colCenter">
+                                      <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
 
 
                                         {{#if dotzResult}}
@@ -88,8 +88,8 @@
 
                   </div>
               {{/if}}
-            </div>
-        </div>
+            <!--</div>-->
+        <!--</div>-->
     </div>
 
 </div>

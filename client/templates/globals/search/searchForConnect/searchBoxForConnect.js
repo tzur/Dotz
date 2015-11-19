@@ -55,7 +55,10 @@ Template.searchBoxForConnect.helpers({
 });
 
 Template.searchBoxForConnect.events({
-  'keypress #searchInput': function(event){
+  'keyup #searchBoxInput': function(event){
+    if (event.keyCode == 13){
+      event.preventDefault();
+    }
     Session.set('searchInput', event.target.value);
   }
 });
