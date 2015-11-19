@@ -47,7 +47,7 @@
 
         <div class="pull-right" style="margin-bottom: 1em;">
           {{#if sortIsAvailable}}
-              <a class="upBtn panelBtn"><span class="glyphicon glyphicon-triangle-top smTxt" aria-hidden="true"> </span></a>
+              <a class="upBtn panelBtn"><span class="glyphicon glyphicon-triangle-top smTxt"  aria-hidden="true"> </span></a>
           <br>
               <a class="downBtn panelBtn"><span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span></a>
           <br>
@@ -55,8 +55,30 @@
           {{#if isMyDot}}
               <a class="editBtn panelBtn"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
           <br>
-              <a class="delete panelBtn"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>
+              <a class="panelBtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span>
+              </a>
+              <ul id="pre-delete-menu" class="dropdown-menu">
+                  <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="return-btn"><a><i class="mdGrey fa fa-reply"></i> Return</a></li>
+              </ul>
+
+              <!--<ul class="nav navbar-nav">-->
+                  <!--<li id="delete-dropdown">-->
+                      <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
+                          <!--<span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>-->
+
+                      <!--<ul class="dropdown-menu">-->
+                          <!--<li class="delete createDot"><a href="#">delete</a></li>-->
+                          <!--<li class="createList"><a href="#">return</a></li>-->
+                      <!--</ul>-->
+                  <!--</li>-->
+              <!--</ul>-->
           {{/if}}
+
+
+
         </div>
 
 {{/if}}
@@ -182,6 +204,7 @@
                                 <div class="listCardTitle">
                                     <a href="/{{dot.dotSlug}}"><h2 class="h2Title">{{dot.title}}</h2></a>
                                 </div>
+
                                 </a>
 
 
@@ -219,9 +242,10 @@
 
                             </div> <!--end listCardIcons-->
 
+                            <hr>
 
                           <div class="row listCardFooter">
-                              <hr>
+
 
 
                               <div class="listCardUser col-xs-6 col-md-8">
@@ -249,17 +273,19 @@
 
                                 {{/if}}
                               </div> <!--end userListCard -->
+
+
                                 <div class="buttonsBar">
 
                                   {{#if isConnected}}
 
-                                      <button type="button" class="connect btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i>
+                                      <button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>
                                           Connect {{connectCounter}}</button>
-                                      <button type="button" class="disConnect btn btn-delete btn-sm pull-right"><i class="fa fa-minus"></i></button>
+                                      <button type="button" class="disConnect btn btn-delete btn-xs pull-right"><i class="fa fa-minus"></i></button>
 
                                   {{else}}
 
-                                      <button type="button" class="connect btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i>
+                                      <button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>
                                           Connect {{connectCounter}}</button>
 
                                   {{/if}}
