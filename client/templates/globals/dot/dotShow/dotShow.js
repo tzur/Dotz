@@ -1,13 +1,16 @@
 
 Template.dotShow.onCreated(function() {
-
   let self = this;
-  //self.subs = new SubsManager({
-  //  // maximum number of cache subscriptions
-  //  cacheLimit: 10,
-  //  // any subscription will be expire after 5 minute, if it's not subscribed again
-  //  expireIn: 5
-  //});
+  //subscriptions variables.
+  //self.dotShowReady = new ReactiveVar();
+  //self.userShowReady = new ReactiveVar();
+
+  self.subs = new SubsManager({
+    // maximum number of cache subscriptions
+    cacheLimit: 10,
+    // any subscription will be expire after 5 minute, if it's not subscribed again
+    expireIn: 5
+  });
   self.autorun(function() {
     if(!GoogleMaps.loaded()){
       GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
@@ -16,18 +19,16 @@ Template.dotShow.onCreated(function() {
     let dotSlug = FlowRouter.current().path.slice(1);
     if (dotSlug) {
       self.subscribe('dotShowByDotSlug', dotSlug);
+
     }
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
       DocHead.setTitle("Dotz: " + currentDot.title);
       if (currentDot) {
-        self.subscribe('user', currentDot.ownerUserId);
+       self.subscribe('user', currentDot.ownerUserId);
       }
     }
   });
-});
-Template.dotShow.onRendered(function(){
-  console.log((FlowRouter.current().path.slice(1)));
 });
 
 Template.dotShow.onRendered(function(){
@@ -53,18 +54,20 @@ Template.dotShow.onRendered(function(){
 
 
 Template.dotShow.helpers({
-  dotShow: function() {
-    let dot = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1) });
-    let ownerUser = Meteor.users.findOne(dot.ownerUserId);
-    Session.set('whereIAm', dot.title);
-    Session.set('hereWithImg', dot.coverImageUrl);
-    let data = {
-      dot: dot,
-      ownerUser: ownerUser
-    };
-    return data;
+  dotShowReady: function(){
+    return true;
   },
-
+  dotShow: function() {
+    let dot = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1)});
+    if (dot){
+      let ownerUser = Meteor.users.findOne(dot.ownerUserId);
+      let data = {
+        dot: dot,
+        ownerUser: ownerUser
+      };
+      return data;
+    }
+  },
   isOpenDot: function() {
     return this.dot.isOpen;
   },
@@ -133,14 +136,9 @@ Template.dotShow.helpers({
     return this.dot.connectedDotzArray;
   },
 
-  iAmHere: function() {
-    return Session.get('whereIAm');
-  },
-
-  hereWithImg: function() {
-    return Session.get('hereWithImg');
+  addDotIsAvailable: function() {
+    return (this.dot.isOpen || (this.dot.ownerUserId === Meteor.userId) )
   }
-
 });
 
 Template.dotShow.events({

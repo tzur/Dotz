@@ -11,7 +11,7 @@ Template.searchBox.onRendered(function(){
   let currValue;
   self.autorun(function() {
     if (currValue = Session.get('searchBoxNavBar')) {
-      $('#searchInput').val(currValue).focus();
+      $('#searchBoxInput').val(currValue).focus();
       Session.set('searchInput', currValue);
       Session.set('searchBoxNavBar', undefined)
     }
@@ -80,7 +80,7 @@ Template.searchBox.helpers({
 
 });
 Template.searchBox.events({
-  'keyup #searchInput': function(event){
+  'keyup #searchBoxInput': function(event){
     Session.set('searchInput', event.target.value);
   }
 });

@@ -1,11 +1,23 @@
 Template.dotCard.onCreated(function(){
-      Meteor.subscribe('dotCard', this.data.dot._id);
-      Meteor.subscribe('user', this.data.dot.ownerUserId);
-      Meteor.subscribe('user', this.data.connection.connectedByUserId);
+         let self = this;
+        self.subs = new SubsManager({
+        // maximum number of cache subscriptions
+        cacheLimit: 10,
+        // any subscription will be expire after 5 minute, if it's not subscribed again
+        expireIn: 5
+      });
+       self.subs.subscribe('dotCard', this.data.dot._id);
+       self.subs.subscribe('user', this.data.dot.ownerUserId);
+       self.subs.subscribe('user', this.data.connection.connectedByUserId);
 });
 
 
 Template.dotCard.helpers({
+
+  //subscriptionsReady: function(){
+  //  return (Template.instance().dotCardReady.get() && Template.instance().ownerUserReady.get()
+  //                              && Template.instance().connectedUserReady.get());
+  //},
   dataCard: function(){
     if (this.dot){
       let data = {
@@ -71,23 +83,20 @@ Template.dotCard.helpers({
   },
 
   userIsTheDotCreator: function() {
-    return (this.ownerUser.username === this.connectedByUser.username)
+    if (this.ownerUser){
+      return (this.ownerUser.username === this.connectedByUser.username)
+    }
   },
 
   personalDescriptionOrBodyText: function() {
     if (this.dot){
       if (this.smartRef.connection.personalDescription) {
-        return s.prune(this.smartRef.connection.personalDescription, 100);
-      }
-      else if (this.connectedByUser.id === this.dot.ownerUserId) {
-
-        return s.prune(this.dot.bodyText, 100);
+        return ( ' " ' + s.prune(this.smartRef.connection.personalDescription, 100) + ' " ');
       }
       else {
-        return " ";
+        return s.prune(this.dot.bodyText, 100);
       }
     }
-
   },
 
   dotzNum: function() {

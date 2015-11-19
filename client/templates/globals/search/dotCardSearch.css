@@ -1,32 +1,14 @@
-/*/!*general*!/*/
-
-/*#listCard-box {*/
-  /*padding: 1vh;*/
-  /*margin-bottom: 1vh;*/
-/*}*/
-
-
-/*#listCardLikeSide {*/
-  /*height: 22vh;*/
-  /*padding-right: 2vh;*/
-/*}*/
-
-
-/*#listCardLikeSide .likeBtn {*/
-  /*background-color: transparent;*/
-  /*color: rgba(0, 0, 0, 0.6);*/
-  /*text-align: center;*/
-  /*width: 5vh;*/
-  /*font-size: 3rem;*/
-  /*margin-top: 7vh;*/
-  /*padding: 1vh;*/
-/*}*/
-
-/*#listCardLikeSide .likesCounter {*/
-  /*color: rgba(0, 0, 0, 0.6);*/
-  /*font-size: 1.5rem;*/
-  /*text-align: center;*/
-/*}*/
+#listCardLikeSide .addBtn {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  /*margin: 0 auto;*/
+  text-align: center;
+  width: 5vh;
+  /*vertical-align: middle;*/
+  font-size: 3rem;
+  margin-top: 7vh;
+  padding: 1vh;
+}
 
 
 #searchCardImgSide {
