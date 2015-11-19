@@ -4,13 +4,20 @@
     <div class="row" id="listCard-box">
 
         <div class="col-xs-1 col-sm-1" id="listCardLikeSide">
-              <div class="pull-right" style="margin-bottom: 1em;">
-                <!--{{#if isMyDot}}-->
-                    <!--<a class="editBtn panelBtn"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>-->
-                    <!--<br>-->
-                    <!--<a class="delete panelBtn"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>-->
-                <!--{{/if}}-->
-              </div>
+              <!--<div class="pull-right" style="margin-bottom: 1em;">-->
+                <!--&lt;!&ndash;{{#if isMyDot}}&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a class="editBtn panelBtn"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<br>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a class="delete panelBtn"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>&ndash;&gt;-->
+                <!--&lt;!&ndash;{{/if}}&ndash;&gt;-->
+              <!--</div>-->
+
+            <a href>
+                <i class="pull-right addBtn fa fa-plus-circle">
+                    <p class="likesCounter"><strong></strong></p>
+                </i>
+            </a>
+
         </div>
         <!--check if is List or Dot:-->
       {{#if isListCard}}

@@ -23,3 +23,7 @@
 .nav-pills .active {
   background-color: transparent;
 }
+
+#searchBoxInput {
+  margin-bottom: 5vh;
+}

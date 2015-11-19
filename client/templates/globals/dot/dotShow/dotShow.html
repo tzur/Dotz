@@ -212,7 +212,7 @@
 
       <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-md-8 colCenter">
+            <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
 
               {{#each connectedDotzArray}}
                 <!--{{data.title}}-->
@@ -232,24 +232,12 @@
 
 <div class="container-fluid" id="dotShowFooter">
 
-    <!--<div class="row col-xs-12 col-md-8 colCenter">-->
-
-        <!--<button  class="btn btn-success round btn-md dot-show-connect-btn colCenter">Add Your Dot</button>-->
-
-    <!--</div>-->
-
 
       <div class="row">
-          <!--<h4 class="title" id="addUserConnection">Search for Dotz you want to Connect</h4>-->
-          <!--<div class="addButton">-->
-              <!--<button id="addUserConnection" type="button" class="btn btn-success round btn-md dot-show-connect-btn">-->
-                  <!--Search for Dotz you want to Connect-->
-              <!--</button>-->
 
-
-          <!--</div>-->
-
-        {{>searchBoxForConnect}}
+        {{# if addDotIsAvailable}}
+            {{>searchBoxForConnect}}
+        {{/if}}
 
       </div>
 

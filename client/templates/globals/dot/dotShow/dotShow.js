@@ -133,10 +133,11 @@ Template.dotShow.helpers({
   },
 
   connectedDotzArray: function() {
-    //let dot = Dotz.findOne({dotSlug: FlowRouter.current().path.slice(1)});
-    //if (dot){
-      return this.dot.connectedDotzArray;
-    //}
+    return this.dot.connectedDotzArray;
+  },
+
+  addDotIsAvailable: function() {
+    return (this.dot.isOpen || (this.dot.ownerUserId === Meteor.userId) )
   }
 });
 

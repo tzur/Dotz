@@ -91,17 +91,12 @@ Template.dotCard.helpers({
   personalDescriptionOrBodyText: function() {
     if (this.dot){
       if (this.smartRef.connection.personalDescription) {
-        return s.prune(this.smartRef.connection.personalDescription, 100);
-      }
-      else if (this.connectedByUser.id === this.dot.ownerUserId) {
-
-        return s.prune(this.dot.bodyText, 100);
+        return ( ' " ' + s.prune(this.smartRef.connection.personalDescription, 100) + ' " ');
       }
       else {
-        return " ";
+        return s.prune(this.dot.bodyText, 100);
       }
     }
-
   },
 
   dotzNum: function() {
