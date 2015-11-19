@@ -7,11 +7,12 @@ Template.signUpModal.events({
 
 
   'click #exitBtn': function(){
-    Modal.hide('createListModal');
+    Modal.hide('signUpModal');
   },
 
   'click .login': function(){
-    Modal.hide('createListModal');
+    Modal.hide('signUpModal');
+    Modal.show('loginModal');
   }
 
 
