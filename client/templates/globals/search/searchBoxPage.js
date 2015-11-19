@@ -46,6 +46,12 @@ Template.searchBox.helpers({
     }
   },
 
+  dotzResultNumber: function(){
+    if(Session.get('dotzResult')){
+      return ( "(" + Session.get('dotzResult').hits.length + ")" );
+    }
+  },
+
   listsResult: function(){
     if(Session.get('searchInput')){
       Modules.client.searchByAlgolia("Lists", Session.get('searchInput'), function(error, content){
@@ -62,6 +68,13 @@ Template.searchBox.helpers({
     }
   },
 
+  listsResultNumber: function(){
+    if(Session.get('listsResult')){
+      return ( "(" + Session.get('listsResult').hits.length+ ")");
+    }
+  },
+
+
   usersResult: function(){
     if(Session.get('searchInput')){
       Modules.client.searchByAlgolia("Users", Session.get('searchInput'), function(error, content){
@@ -76,11 +89,24 @@ Template.searchBox.helpers({
         return Session.get('usersResult').hits;
       }
     }
+  },
+
+  usersResultNumber: function(){
+    if(Session.get('usersResult')){
+      return Session.get('usersResult').hits.length;
+    }
   }
 
 });
+
 Template.searchBox.events({
-  'keyup #searchBoxInput': function(event){
+  'keyup #searchBoxInput': function(e){
+    $('#searchBoxInput').bind("keypress", function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault();
+        return false;
+      }
+    });
     Session.set('searchInput', event.target.value);
   }
 });

@@ -33,6 +33,12 @@ Template.searchBoxForConnect.helpers({
     }
   },
 
+  dotzResultNumber: function(){
+    if(Session.get('dotzResult')){
+      return ("(" + Session.get('dotzResult').hits.length + ")");
+    }
+  },
+
   listsResult: function(){
     if(Session.get('searchInput')){
       Modules.client.searchByAlgolia("Lists", Session.get('searchInput'), function(error, content){
@@ -49,6 +55,12 @@ Template.searchBoxForConnect.helpers({
     }
   },
 
+  listsResultNumber: function(){
+    if(Session.get('listsResult')){
+      return ( "(" +Session.get('listsResult').hits.length + ")");
+    }
+  },
+
   isAlreadyConnected: function(){
     return Modules.client.Dotz.isConnectedToDot(Template.parentData().dot._id, this._id)
   }
@@ -56,9 +68,12 @@ Template.searchBoxForConnect.helpers({
 
 Template.searchBoxForConnect.events({
   'keyup #searchBoxInput': function(event){
-    if (event.keyCode == 13){
-      event.preventDefault();
-    }
+    $('#searchBoxInput').bind("keypress", function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault();
+        return false;
+      }
+    });
     Session.set('searchInput', event.target.value);
   }
 });

@@ -98,9 +98,7 @@ Template.dotCardSearch.events({
     {
       Modal.show('connectDotModal',{
         data:{
-          dotId: this.dot._id,
-          dot: this.dot,
-          connectToMyLists: true
+          dot: this.dot
         }
       });
     }
@@ -119,6 +117,24 @@ Template.dotCardSearch.events({
   },
   'click .delete':function(event){
     Modules.both.Dotz.deleteDot(this.dot, this.smartRef);
+  },
+
+  'click #addDotToCurrentDot': function(){
+    let parentDot = Template.parentData().dot;
+    let currentDot = this.dot;
+    Meteor.call('checkIfUserAuthoriseForConnect', parentDot._id, function(error, result){
+      if(result === true){
+        Modal.show('addPersonalDescriptionModal', {
+          data:{
+            dot: currentDot,
+            parentDot: parentDot
+          }
+        });
+      }
+      else{
+        Modal.show('signUpModal');
+      }
+    })
   }
 });
 

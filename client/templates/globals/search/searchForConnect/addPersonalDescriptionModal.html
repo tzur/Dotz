@@ -1,0 +1,43 @@
+<template name="addPersonalDescriptionModal">
+
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+
+                      <div class="container-fluid chosen-dot-dot-modal">
+                          <div class="row">
+
+                              <div class="col-md-4">
+                                  <div class="container-fluid dot-img-connect-modal" style="background-image: url('{{data.dot.coverImageUrl}}')"></div>
+                              </div>
+
+                              <div class="col-md-8">
+                                  <h2 class="cardTitle">{{data.dot.title}}</h2>
+                                  <div class="userDetails-dot-modal">
+                                      <img class="userImgIcon-dot-modal" src="{{currentUserImageUrl}}">
+                                      <span class="align-icon-text username-dot-modal">{{currentUserUsername}}</span>
+                                  </div>
+                                  <textarea id="personalDescription"  maxLength=100 placeholder="This dot is connected because.."></textarea>
+                                  <div id="personalDescriptionFeedback"></div>
+
+                              </div>
+
+
+                          </div>
+                      </div>
+
+                    <div class="modal-footer">
+                        <button id="addDotBtn" type="button" class="btn btn-success" data-dismiss="modal">Add</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+
+
