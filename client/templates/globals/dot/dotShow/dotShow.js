@@ -18,14 +18,14 @@ Template.dotShow.onCreated(function() {
     FlowRouter.watchPathChange();
     let dotSlug = FlowRouter.current().path.slice(1);
     if (dotSlug) {
-      self.subscribe('dotShowByDotSlug', dotSlug);
+      self.subs.subscribe('dotShowByDotSlug', dotSlug);
 
     }
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
       DocHead.setTitle("Dotz: " + currentDot.title);
       if (currentDot) {
-       self.subscribe('user', currentDot.ownerUserId);
+       self.subs.subscribe('user', currentDot.ownerUserId);
       }
     }
   });
@@ -58,6 +58,7 @@ Template.dotShow.helpers({
     return true;
   },
   dotShow: function() {
+    FlowRouter.watchPathChange();
     let dot = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1)});
     if (dot){
       let ownerUser = Meteor.users.findOne(dot.ownerUserId);

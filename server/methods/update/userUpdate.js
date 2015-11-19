@@ -2,8 +2,10 @@ let _userUpdate = (userId, updateOptions) => {
   try {
     check(updateOptions, Object);
     check(userId, String);
+    console.log(userId);
     Meteor.users.update({_id: userId}, updateOptions);
   } catch (exeption) {
+    console.log(exeption);
     return exeption;
   }
 };
@@ -22,11 +24,9 @@ Meteor.methods({
         checkInterval = user.profile.feedDotz.length - MAXIMUM_NUMBER_OF_FEED_DOTZ_TO_CHECK;
       }
       for (let i = checkInterval; i < user.profile.feedDotz.length; i++) {
-        console.log("^^^^^^^^^^^^^^^^");
-        if (user.profile.feedDotz[i].dotId === smartRef.dotId) {
-          console.log("IM HERE" + smartRef.dotId);
+        if (user.profile.feedDotz[i].dot._id === smartRef.dot._id) {
           let updateOptions = {
-            $pull: {"profile.feedDotz": {dotId: smartRef.dotId}}
+            $pull: {"profile.feedDotz": {"dot._id": smartRef.dot._id}}
           };
           _userUpdate(userId, updateOptions);
         }
