@@ -24,5 +24,13 @@ Template.header.events({
         Bert.alert( 'Logged out!', 'success' );
       }
     });
+  },
+  'keypress .searchNav': function(e){
+    if (e.keyCode == 13){
+      Session.set('homeSearchInput', e.currentTarget.value);
+      FlowRouter.go('/main/search')
+    }
   }
+
+
 });
