@@ -31,7 +31,8 @@
 #search-icon {
   font-size: 1.5em;
   color: #cccccc;
-  padding-left: 1em;
+  right: 10px;
+  top: 10px;
 }
 
 .search-row {
