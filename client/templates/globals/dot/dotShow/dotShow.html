@@ -1,7 +1,4 @@
 <template name="dotShow">
-
-
-{{#if Template.subscriptionsReady}}
   {{#with dotShow}}
     {{#if isListShow}}
     <div class="container-fluid" id="listShowHeader">
@@ -202,12 +199,13 @@
 {{/if}} <!--end the check if is ListShow or DotShow-->
 
 
+  {{/with}}
 
     <!--Anchor-->
 <a name="connectedDotz"></a>
 
-
-{{#if dot.connectedDotzArray}}
+{{#with dotShow}}
+<!--{{#if dot.connectedDotzArray}}-->
 
 
 <div id="connectedDotzArray">
@@ -228,7 +226,7 @@
 </div>
 
 
-{{/if}}
+<!--{{/if}}-->
 
 
 
@@ -286,14 +284,5 @@
     <!--</div>-->
 <!--</nav>-->
 
-
-
-
 {{/with}}
-
-{{else}}
-    {{>loading2}}
-    <!--&lt;!&ndash;&lt;!&ndash;to replace with a loading template&ndash;&gt;&ndash;&gt;-->
-{{/if}}
-
 </template>
