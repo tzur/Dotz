@@ -54,3 +54,7 @@
 .dot-card-search-wrapper {
   margin-bottom: 1.5em;
 }
+
+.search-results-row .tab-content {
+  border: transparent;
+}
