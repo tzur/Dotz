@@ -5,8 +5,8 @@ Template.signUpModal.events({
     Modal.hide('signUpModal');
   },
 
-  'click #switch-login-modal': function(){
-    Modal.hide('signUpModal');
-  }
+  //'click #switch-login-modal': function(){
+  //  Modal.hide('signUpModalj');
+  //}
 
 });
