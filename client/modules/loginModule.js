@@ -38,6 +38,7 @@ let _handleLogin = ( template ) => {
     if ( error ) {
       Bert.alert( error.reason, 'warning' );
     } else {
+      Modal.hide('loginModal');
       Bert.alert( 'Logged in!', 'success' );
       FlowRouter.go('/' + Meteor.user().profile.userSlug);
 

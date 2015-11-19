@@ -89,6 +89,7 @@ let _createNewDotForDotProfile = ( userId ) => {
         if (result){
             Meteor.call('updateUserProfileDotId', Meteor.userId(), result, function(error, result){
                 if (!error) {
+                  Modal.hide('signUpModal');
                   Bert.alert( 'Welcome!', 'success' );
                   FlowRouter.go('/' + Meteor.user().profile.userSlug);
                 }
