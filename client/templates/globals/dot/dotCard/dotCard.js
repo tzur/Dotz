@@ -31,25 +31,30 @@ Template.dotCard.helpers({
   },
   //create specific SESSION!!!! TBD
   isInOpenList: function() {
-    if (Template.parentData(2).username) {
-      return false;
+    //The big if is for Feed that doesn't have these data.
+    if (Template.parentData(2).username || Template.parentData(2).dot){
+      if (Template.parentData(2).username) {
+        return false;
+      }
+      else if (Template.parentData(2).dot.isOpen) {
+        return true;
+      }
     }
-    else if (Template.parentData(2).dot.isOpen) {
-      return true;
-    }
+
   },
 
   isInClosedList: function() {
     // We are at parent USER: so it's close list.
-    if (Template.parentData(2).username) {
-      return true;
-    }
-    //NEED TO FIX IT FOR DOT SHOW
-    else if (!Template.parentData(2).dot.isOpen) {
-      return true;
+    if (Template.parentData(2).username || Template.parentData(2).dot) {
+      if (Template.parentData(2).username) {
+        return true;
+      }
+      //NEED TO FIX IT FOR DOT SHOW
+      else if (!Template.parentData(2).dot.isOpen) {
+        return true;
+      }
     }
   },
-
   isListCard: function() {
     return (this.dot && this.dot.dotType === "List")
   },
@@ -83,7 +88,7 @@ Template.dotCard.helpers({
   },
 
   userIsTheDotCreator: function() {
-    if (this.ownerUser){
+    if (this.ownerUser && this.connectedByUser){
       return (this.ownerUser.username === this.connectedByUser.username)
     }
   },
@@ -180,7 +185,6 @@ Template.dotCard.events({
     {
       Modal.show('connectDotModal',{
         data:{
-          dotId: this.dot._id,
           dot: this.dot,
           connectToMyLists: true
         }

@@ -1,55 +1,49 @@
 
-let _checkList = function(dotId, dotIdWishedToConnectTo){
-  let _isValid = true;
-  let _dot = Dotz.findOne(dotId);
-  if(_dot.dotType === "List" && _dot._id != dotIdWishedToConnectTo) {
-    _dot.connectedDotzArray.forEach(function (smartRef){
-      if(smartRef.dot._id === dotIdWishedToConnectTo){
-        _isValid = false;
-      }
-    });
-    return _isValid;
-  }
-  else{
-    return false;
-  }
-
-};
 
 let getAvailableLists = function(dotIdWishedToConnectTo) {
-  let _createdByUserLists = Meteor.user().profile.createdByUserLists;
-  let _availableLists = [];
-  if (_createdByUserLists) {
-    _createdByUserLists.forEach(function (dotId) {
-      if(_checkList(dotId, dotIdWishedToConnectTo))
-        _availableLists.push(dotId);
+  let createdByUserLists = Meteor.user().profile.createdByUserLists;
+  let availableLists = [];
+  if (createdByUserLists) {
+    createdByUserLists.forEach(function (dotId) {
+      if(canBeConnectedToDot(dotId, dotIdWishedToConnectTo)){
+        availableLists.push(dotId);
+      }
     });
   }
-  console.log(_availableLists.length);
-  if (_availableLists.length > 0){
-    return Dotz.find({_id: {$in: _availableLists}}, {sort: {title: 1}});
+  console.log(availableLists.length);
+  if (availableLists.length > 0){
+    return Dotz.find({_id: {$in: availableLists}}, {sort: {title: 1}});
   }
   else{
     return false
   }
 };
 
-let isConnectedToDot = (parentDotId, dotIdWishedToConnectTo) => {
-  let _dot = Dotz.findOne(parentDotId);
-  let isNotConnected = true;
+let canBeConnectedToDot = (parentDotId, dotIdWishedToConnectTo) => {
+  let parentDot = Dotz.findOne(parentDotId);
+  let canBeConnected = true;
 
-  if(_dot && _dot._id != dotIdWishedToConnectTo)
-    if (_dot.connectedDotzArray){
-      _dot.connectedDotzArray.forEach(function(smartRef){
-        if(dotIdWishedToConnectTo && dotIdWishedToConnectTo === smartRef.dot._id) {
-          isNotConnected = false;
+  if(parentDot && parentDot._id != dotIdWishedToConnectTo){
+
+    if (parentDot.connectedDotzArray){
+      parentDot.connectedDotzArray.forEach(function(smartRef){
+        if( dotIdWishedToConnectTo === smartRef.dot._id) {
+          //if we got here than we cannot connect the dot because we are already there.
+          canBeConnected = false;
         }
       });
-      return isNotConnected;
-      }
+      return canBeConnected;
+    }
+    // if we are here the parent dot have no dotz inside her, so of course we can connect
     else{
       return true;
     }
+  }
+  /// if we are here then they are the same dot so we cannot connect...
+  else{
+    return false
+  }
+
 };
-Modules.client.Dotz.isConnectedToDot = isConnectedToDot;
+Modules.client.Dotz.canBeConnectedToDot = canBeConnectedToDot;
 Modules.client.Dotz.getAvailableList = getAvailableLists;

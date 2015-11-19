@@ -407,7 +407,7 @@ pre {
 /*connectedDotzArray area*/
 
 #connectedDotzArray {
-  min-height: 40vh;
+  /*min-height: 40vh;*/
   padding-top: 7vh;
 }
 

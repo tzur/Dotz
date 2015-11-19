@@ -49,7 +49,7 @@ Template.createListModal.helpers({
   dotzTags: function(){
     tagsArray = Tools.findOne({docName: "dotzTags"});
     return tagsArray.tags;
-  },
+  }
   //dotType: function(){
   //  console.log("im running");
   //  return
@@ -81,19 +81,7 @@ Template.createListModal.events({
   //},
 
   'change #addDotImage-list input[type="file"]': function(){
-    Tracker.autorun(function(c) {
-      document.getElementById("createToMyProfile").disabled = true;
-      if(document.getElementById("createToOneOfMyDotz")){
-        document.getElementById("createToOneOfMyDotz").disabled = true;
-      }
-      if (Session.get('coverImageUrl')) {
-        c.stop();
-        document.getElementById("createToMyProfile").disabled = false;
-        if(document.getElementById("createToOneOfMyDotz")){
-          document.getElementById("createToOneOfMyDotz").disabled = false;
-        }
-      }
-    });
+
   },
 
   'click #mapTab': function(){
@@ -105,6 +93,19 @@ Template.createListModal.events({
   },
 
   'change input[type="file"]' ( event, template ) {
+    Tracker.autorun(function(c) {
+      document.getElementById("publishListToMyProfile").disabled = true;
+      if(document.getElementById("publishListToMyLists")){
+        document.getElementById("publishListToMyLists").disabled = true;
+      }
+      if (Session.get('coverImageUrl')) {
+        c.stop();
+        document.getElementById("publishListToMyProfile").disabled = false;
+        if(document.getElementById("publishListToMyLists")){
+          document.getElementById("publishListToMyLists").disabled = false;
+        }
+      }
+    });
     Modules.client.uploadToAmazonS3( { event: event, template: template } );
   }
 
