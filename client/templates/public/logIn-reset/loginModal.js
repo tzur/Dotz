@@ -1,18 +1,15 @@
-/**
- * Created by avivhatzir on 15/11/2015.
- */
+
+//Template.loginModal.onRendered( () => {
+//  Modules.client.login( { form: "#login", template: Template.instance() } );
+//});
 
 
 Template.loginModal.events({
 
+  'submit form': ( event ) => event.preventDefault(),
 
-  'click #exitBtn': function(){
-    Modal.hide('createListModal');
-  },
-
-  'click .signup': function(){
-    Modal.hide('createListModal');
-  }
-
+  //'click #exitBtn': function(){
+  //  Modal.hide('loginModal');
+  //}
 
 });

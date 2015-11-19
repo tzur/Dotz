@@ -1,19 +1,18 @@
-/**
- * Created by avivhatzir on 15/11/2015.
- */
+
+//Template.signUpModal.onRendered( () => {
+//  Modules.client.signup({
+//    form: "#signup",
+//    template: Template.instance()
+//  });
+//});
 
 
 Template.signUpModal.events({
 
+  //'submit form': ( event ) => event.preventDefault(),
 
   'click #exitBtn': function(){
     Modal.hide('signUpModal');
-  },
-
-  'click .login': function(){
-    Modal.hide('signUpModal');
-    Modal.show('loginModal');
   }
-
 
 });
