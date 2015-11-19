@@ -31,7 +31,6 @@ Template.connectDotModal.helpers({
   canBeConnectedToUserProfileDot: function(){
       return Modules.client.Dotz.canBeConnectedToDot(Meteor.user().profile.profileDotId, this.data.dot._id);
   }
-
 });
 
 Template.connectDotModal.events({
