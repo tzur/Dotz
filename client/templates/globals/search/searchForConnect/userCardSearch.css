@@ -1,0 +1,19 @@
+#userSearchCard {
+  padding: 0;
+}
+
+#listCard-box .search-card-body-div {
+  background-color: #FFFFFF;
+  height: 22vh;
+}
+
+#listCardTextSide .userSearchCardFooter {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1.5vh;
+}
+
+.userSearchCardImgBg {
+  background-color: #ffffff;
+}
