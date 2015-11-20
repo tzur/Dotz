@@ -3,44 +3,55 @@
  */
 Meteor.methods({
   addOrEditObjectInAlgolia(docSlug, isUser){
-    let array;
-    let docIndex;
     check(docSlug, String);
     check(isUser, Boolean);
-    var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
+    if(process.env.NODE_ENV === "production"){
+      console.log("im in" + process.env.NODE_ENV)
 
-    if (isUser){
-      console.log("@@@@@@@@@@@@@@@@@@@" + docSlug);
-      let currentDoc = Meteor.users.findOne({"profile.userSlug": docSlug});
-      currentDoc.objectID = currentDoc._id;
-      array = [{"objectID": currentDoc.objectID,"username": currentDoc.username, "profile": currentDoc.profile, "_id": currentDoc._id}]
-      docIndex = "Users"
+      let array;
+      let docIndex;
+      check(docSlug, String);
+      check(isUser, Boolean);
+      var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
 
-    }
-    else{
+      if (isUser){
+        console.log("@@@@@@@@@@@@@@@@@@@" + docSlug);
+        let currentDoc = Meteor.users.findOne({"profile.userSlug": docSlug});
+        currentDoc.objectID = currentDoc._id;
+        array = [{"objectID": currentDoc.objectID,"username": currentDoc.username, "profile": currentDoc.profile, "_id": currentDoc._id}]
+        docIndex = "Users"
 
-      let currentDoc = Dotz.findOne({dotSlug: docSlug});
-      currentDoc.objectID = currentDoc._id;
-      if(currentDoc.dotType === "Dot"){
-        docIndex = "Dotz"
       }
       else{
-        docIndex = "Lists"
+
+        let currentDoc = Dotz.findOne({dotSlug: docSlug});
+        currentDoc.objectID = currentDoc._id;
+        if(currentDoc.dotType === "Dot"){
+          docIndex = "Dotz"
+        }
+        else{
+          docIndex = "Lists"
+        }
+        currentDoc.inDotz = currentDoc.inDotz.length + currentDoc.totalUpvotes.length;
+        array = [currentDoc];
       }
-      currentDoc.inDotz = currentDoc.inDotz.length + currentDoc.totalUpvotes.length;
-      array = [currentDoc];
-    }
 
 
 
-    var index = client.initIndex(docIndex);
+      var index = client.initIndex(docIndex);
 
 // array contains the data you want to save in the index
 
-    index.saveObjects(array, function (error, content) {
-      if (error) console.error('Error:', error);
-      else console.log('Content:', content);
-    });
+      index.saveObjects(array, function (error, content) {
+        if (error) console.error('Error:', error);
+        else console.log('Content:', content);
+      });
+    }
+    else{
+      console.log("im here" + process.env.NODE_ENV)
+      return false
+    }
+
   },
 
   deleteDotzFromAlgolia(dotId){

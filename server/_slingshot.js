@@ -6,8 +6,15 @@ Slingshot.fileRestrictions( "uploadToAmazonS3", {
   maxSize: 1 * 1024 * 1024
 });
 
+let amazonBucket;
+if(process.env.NODE_ENV === "production") {
+  amazonBucket = "dotz-deployment"
+}
+else{
+  amazonBucket= "dotz-dev-images"
+}
 Slingshot.createDirective( "uploadToAmazonS3", Slingshot.S3Storage, {
-  bucket: "dotz-deployment",
+  bucket: amazonBucket,
   acl: "public-read",
   authorize: function () {
     //let userFileCount = Files.find( { "userId": this.userId } ).count();

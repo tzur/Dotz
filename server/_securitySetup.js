@@ -4,7 +4,7 @@ BrowserPolicy.content.allowImageOrigin("https://csi.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("https://*.googleapis.com");
 BrowserPolicy.content.allowOriginForAll("https://maps.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("https://fonts.gstatic.com");
-BrowserPolicy.content.allowOriginForAll("https://dotz-tlv-development.s3.amazonaws.com");
+BrowserPolicy.content.allowOriginForAll("https://*.s3.amazonaws.com");
 
 //Temp:
 BrowserPolicy.content.allowImageOrigin("http://s2.postimg.org/6yq2vojd1/Location_icon_lg.png");
