@@ -93,7 +93,7 @@ Template.searchBox.helpers({
 
   usersResultNumber: function(){
     if(Session.get('usersResult')){
-      return Session.get('usersResult').hits.length;
+      return ( "(" + Session.get('usersResult').hits.length+ ")");
     }
   }
 
