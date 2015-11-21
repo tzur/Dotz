@@ -1,12 +1,12 @@
 {
   "AWSAccessKeyId": "AKIAIFKF7WSPFRS2LUAQ",
   "AWSSecretAccessKey": "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",
+  "AWSBucket": "dotz-dev-images",
 
 
   "public": {
     "analyticsSettings": {
-      "Google Analytics" : {"trackingId": "UA-63151429-1"},
-      "Mixpanel" : {"token": "cecae4401aa6dfe91b5293f6050ca4e6", "people": true}
+      "Google Analytics" : {"trackingId": "UA-63151429-1"}
     }
   }
 }
