@@ -30,7 +30,7 @@
                         <div class="col-xs-10 colCenter">
 
                             <div>
-                              {{> afQuickField id="titleField" name='title' label="Title" placeholder="Enter a Title"}}
+                              {{> afQuickField id="titleField" name='title' maxlength="50" label="Title" placeholder="Enter a Title"}}
                               <div id="titleFieldFeedback"></div>
                             </div>
 
@@ -154,7 +154,12 @@
                       </div>
 
                         {{#if isParentDotSet}}
-                            <button id="publishToMyProfile" type="submit" class="createBtn insert btn round btn-primary _publishToCurrentList">Publish Here</button>
+                            <div class="btns-create-dot-row">
+                                <div class="btns-create-dot">
+                                    <button id="publishToMyProfile" type="submit" class="createBtn insert btn round btn-primary _publishToCurrentList">Publish Here</button>
+                                </div>
+                            </div>
+
                         {{else}}
 
                             <div class="btns-create-dot-row">
