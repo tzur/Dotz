@@ -22,3 +22,6 @@ BrowserPolicy.content.allowConnectOrigin("http://localhost:5000");
 BrowserPolicy.framing.allowAll();
 BrowserPolicy.content.allowOriginForAll("www.google-analytics.com");
 BrowserPolicy.content.allowOriginForAll("cdn.mxpnl.com");
+BrowserPolicy.content.allowOriginForAll("https://player.vimeo.com");
+
+

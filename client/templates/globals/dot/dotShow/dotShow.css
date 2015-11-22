@@ -2,7 +2,7 @@
 
 #listShowHeader {
   padding: 0;
-  margin: 0;
+  margin: 6vh 0 0 0;
 }
 
 
@@ -12,7 +12,7 @@
 #listShowHeader .listCoverImg {
   position: relative;
   width: 100%;
-  height: 30vh;
+  height: 44vh;
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
@@ -23,7 +23,7 @@
 #listShowHeader .filter {
   position: absolute;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.46);
   /*top: 0;*/
   /*left: 0;*/
   width: 100%;
@@ -39,7 +39,7 @@
   text-align: center;
   color: #FFFFFF;
   font-size: 4rem;
-  margin-top: 8vh;
+  margin-top: 14vh;
   margin-bottom: 2vh;
 }
 
@@ -52,14 +52,12 @@
 #listShowHeader .description {
   text-align: center;
   color: rgba(255,255,255,0.7);
-  font-size: 2rem;
   margin-top: 2vh;
   margin-bottom: 5vh;
 }
 
 
 #listShowHeader .user {
-  width: 30vh;
   margin: auto;
 }
 
@@ -74,7 +72,9 @@
   text-align: center;
 }
 
-
+#listShowHeader .listShow-btns {
+  padding: 0.5em 0 0 0;
+}
 
 
 
@@ -351,8 +351,8 @@ pre {
 }
 
 .postUserImgProfile {
-  height: 2em;
-  width: 2em;
+  height: 3vh;
+  width: 3vh;
   border-radius: 50%;
 }
 
