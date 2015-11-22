@@ -38,8 +38,16 @@ Template.dotShow.onRendered(function(){
   window.scrollTo(0,0);
 });
 
+Template.dotShow.onDestroyed(function(){
+
+});
+
 
 Template.dotShow.helpers({
+
+  backToLastPath: function(){
+    return Session.get('lastPath');
+  },
   dotShow: function() {
     FlowRouter.watchPathChange();
     let dot = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1)});

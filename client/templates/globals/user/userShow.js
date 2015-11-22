@@ -31,6 +31,12 @@ Template.userShow.onCreated(function() {
     }
   });
 });
+
+Template.userShow.onDestroyed(function(){
+
+});
+
+
 Template.userShow.helpers({
   dataUser: function() {
     let user = Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );

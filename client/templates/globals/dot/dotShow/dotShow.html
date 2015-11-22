@@ -1,30 +1,64 @@
 <template name="dotShow">
   {{#with dotShow}}
+
+      <div>
+          <a href={{backToLastPath.slug}} >
+          <button type="button" class=" btn btn-success btn-md">Back to: {{backToLastPath.title}}</button>
+          </a>
+      </div>
     {{#if isListShow}}
     <div class="container-fluid" id="listShowHeader">
 
         <div class="row listCoverImg" style="background-image: url('{{dot.coverImageUrl}}')">
             <div class="filter">
 
-                <h1 class="title"><i class="fa fa-list-ul"></i> {{dot.title}}</h1>
-
-                <h5 class="description">{{dot.bodyText}}</h5>
-
-
-                <div class="user">
-
-                    <div class="iconDiv txtL">
-                        <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
-                        <a href="/{{ownerUser.profile.userSlug}}"><span class="userText">
-                          Connected By <strong>{{ownerUser.username}}</strong></span></a>
-
-                          {{#if isMyDot}}
-                              <a href="" class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"></span></a>
-                              <a href="" class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"></span></a>
-                          {{/if}}
-                    </div>
-
+                <div class="container-fluid">
+                    <h1 class="title col-xs-10 colCenter"><i class="fa fa-list-ul"></i> {{dot.title}}</h1>
                 </div>
+
+                <div class="container-fluid">
+                    <div class="col-xs-10 col-sm-6 col-md-4 colCenter">
+                      <h5 class="description mdTxt">{{dot.bodyText}}
+
+                          <div class="listShow-btns col-xs-10 col-sm-6 colCenter">
+                            {{#if isMyDot}}
+
+                                <a class="panelBtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span>
+                                </a>
+                                <ul id="pre-delete-menu" class="dropdown-menu">
+                                    <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="return-btn"><a><i class="mdGrey fa fa-reply"></i> Return</a></li>
+                                </ul>
+
+                                <a href="" class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"></span></a>
+
+                            {{/if}}
+                          </div>
+
+                      </h5>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="user col-xs-10 colCenter">
+
+                        <div class="iconDiv smTxt">
+                            <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
+                            <a href="/{{ownerUser.profile.userSlug}}"><span class="userText">
+                          Connected By <strong>{{ownerUser.username}}</strong></span></a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
 
 
             </div>
@@ -91,7 +125,7 @@
 
                       <br>
 
-                        <div class="">
+                        <div>
                             <button type="button" class="connect btn btn-success btn-md dot-show-connect-btn">Connect {{connectCounter}}</button>
                         </div>
 
