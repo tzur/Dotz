@@ -27,7 +27,7 @@ Template.createToOneOfMyLists.helpers({
 Template.createToOneOfMyLists.events({
   'click #publishToOneOfMyLists': function () {
     Session.set('parentDot', this._id);
-    $('#publishListToMyProfile').trigger('click');
+    $('#publishToMyProfile').trigger('click');
   },
 
   'click .ConnectedByOwnerDotz': function () {

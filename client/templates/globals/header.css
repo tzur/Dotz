@@ -51,6 +51,6 @@
   display: none;
 }
 
-.navbar-form #search-icon {
+.navbar .navbar-form #search-icon {
   font-size: 1em;
 }

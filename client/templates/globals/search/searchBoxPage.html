@@ -37,6 +37,7 @@
                     <ul class="nav nav-pills nav-justified txtMd" role="tablist">
                         <li role="presentation" class="active search-btns"><a href="#dotz" aria-controls="dotz" role="tab" data-toggle="tab">Dotz {{dotzResultNumber}}</a></li>
                         <li role="presentation" class="search-btns"><a href="#lists" aria-controls="lists" role="tab" data-toggle="tab">Lists {{listsResultNumber}}</a></li>
+                        <li role="presentation" class="search-btns"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Users {{usersResultNumber}}</a></li>
                     </ul>
 
                     <!-- Tab panes -->
@@ -53,9 +54,8 @@
                             {{else}}
                             <h4 class="txtMd">Sorry :( Nothing Here</h4>
                           {{/if}}
-
-
                         </div>
+
                         <div role="tabpanel" class="tab-pane" id="lists">
                           {{#if listsResult}}
 
@@ -69,23 +69,26 @@
                           {{else}}
                               <h4 class="txtMd">Sorry :( Nothing Here</h4>
                           {{/if}}
+                        </div>
+
+
+                        <div role="tabpanel" class="tab-pane" id="users">
+
+                          {{#if usersResult}}
+                             <ul>
+                              {{#each usersResult}}
+                                  <div class="dot-card-search-wrapper">
+                                    {{> userCardSearch}}
+                                  </div>
+                              {{/each}}
+                            </ul>
+                          {{else}}
+                              <h4 class="txtMd">Sorry :( Nothing Here</h4>
+                          {{/if}}
 
                         </div>
-                        <!--<div role="tabpanel" class="tab-pane" id="users">-->
 
-                          <!--{{#if usersResult}}-->
-                             <!--<ul>-->
-                              <!--{{#each usersResult}}-->
-                                  <!--<div class="dot-card-search-wrapper">-->
-                                    <!--{{> userCardSearch}}-->
-                                  <!--</div>-->
-                              <!--{{/each}}-->
-                            <!--</ul>-->
-                          <!--{{else}}-->
-                              <!--<h4 class="txtMd">Sorry :( Nothing Here</h4>-->
-                          <!--{{/if}}-->
 
-                        <!--</div>-->
                     </div>
 
 

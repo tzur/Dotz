@@ -18,6 +18,7 @@ Meteor.methods({
         console.log("@@@@@@@@@@@@@@@@@@@" + docSlug);
         let currentDoc = Meteor.users.findOne({"profile.userSlug": docSlug});
         currentDoc.objectID = currentDoc._id;
+
         array = [{"objectID": currentDoc.objectID,"username": currentDoc.username, "profile": currentDoc.profile, "_id": currentDoc._id}]
         docIndex = "Users"
 
@@ -33,6 +34,9 @@ Meteor.methods({
           docIndex = "Lists"
         }
         currentDoc.inDotz = currentDoc.inDotz.length + currentDoc.totalUpvotes.length;
+        if(currentDoc.location && currentDoc.location.latLng){
+          currentDoc._geoloc = {"lat":currentDoc.location.latLng[0], "lng":currentDoc.location.latLng[1]};
+        }
         array = [currentDoc];
       }
 

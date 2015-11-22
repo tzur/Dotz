@@ -42,6 +42,7 @@ let dotHooks = {
 
   onSuccess: function(update, result){
     Session.set("coverImageUrl", undefined);
+    Session.set("parentDot", undefined);
     Session.set("locationObject", undefined);
     Session.set("dotType", undefined);
     Modal.hide("createDotModal");
