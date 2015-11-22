@@ -12,12 +12,25 @@
 
         <div>
 
+{{#if currentUser}}
 
-            <span class="logo">
-                <a class="navbar-brand" href="{{pathFor 'index'}}"><strong>Dotz:</strong></a>
-            </span>
+    <span class="logo">
+        <a class="navbar-brand" href="/{{currentUser.profile.userSlug}}"><strong>Dotz:</strong></a>
+    </span>
 
-          <span>
+{{else}}
+
+    <span class="logo">
+        <a class="navbar-brand" href="{{pathFor 'index'}}"><strong>Dotz:</strong></a>
+    </span>
+
+{{/if}}
+
+
+
+
+
+        <span>
               <form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
                   <div class="form-group has-feedback">
                       <input id="searchBoxNavBar" type="text" class="searchNav form-control" placeholder="Search" autocomplete="off">
