@@ -1,7 +1,11 @@
 Template.index.onCreated( () => {
-  Template.instance().subscribe( 'template' );
-});
 
+  if ( Meteor.user() ) {
+    FlowRouter.go('/' + Meteor.user().profile.userSlug);
+  }
+  //Template.instance().subscribe( 'template' );
+
+});
 
 
 Template.index.events({

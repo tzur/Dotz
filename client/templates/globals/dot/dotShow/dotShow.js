@@ -18,7 +18,12 @@ Template.dotShow.onCreated(function() {
       self.subs.subscribe('dotShowByDotSlug', dotSlug, function(){
           let dotShow = Dotz.findOne({dotSlug: dotSlug});
           if (!dotShow){
-            FlowRouter.go('/');
+            if ( Meteor.loggingIn() ) {
+              FlowRouter.go('/' + Meteor.user().profile.userSlug);
+            }
+            else {
+              FlowRouter.go('index');
+            }
             Bert.alert('Page does not exist', 'danger');
           }
         }

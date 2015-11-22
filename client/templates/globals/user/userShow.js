@@ -17,11 +17,17 @@ Template.userShow.onCreated(function() {
     if (userSlug){
       let handleUser = self.subs.subscribe('userByUserSlug', userSlug, function(){
         let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
+
         if (!user){
-          FlowRouter.go('/');
-          Bert.alert('Page does not exist', 'danger');
+            if ( Meteor.loggingIn() ) {
+              FlowRouter.go('/' + Meteor.user().profile.userSlug);
+            }
+            else {
+              FlowRouter.go('index');
+            }
+            Bert.alert('Page does not exist', 'danger');
         }
-        else{
+        else {
           DocHead.setTitle("Dotz: " + user.username);
         }
       });
