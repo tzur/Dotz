@@ -112,6 +112,14 @@ Template.userShow.events({
 
   'click .editUserAccount-btn': function(){
     Modal.show('editUserAccountModal')
+  },
+
+  'click ._createDot': function(){
+      Modal.show('createDotModal');
+    },
+
+  'click ._createList': function(){
+    Modal.show('createListModal');
   }
 
 });
