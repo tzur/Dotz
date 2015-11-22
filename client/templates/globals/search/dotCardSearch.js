@@ -53,12 +53,10 @@ Template.dotCardSearch.helpers({
     if (this.dot.dotzConnectedByOwner) {
       ownerDotz = this.dot.dotzConnectedByOwner.length;
     }
-
     let othersDotz = 0;
     if (this.dot.dotzConnectedByOthers) {
       othersDotz = this.dot.dotzConnectedByOthers.length;
     }
-
     if ( (ownerDotz+othersDotz) === 1 ) {
       return ("Dot");
     }
@@ -66,12 +64,13 @@ Template.dotCardSearch.helpers({
       return ("Dotz");
     }
   },
+
   connectCounter: function() {
     //check if this dot is exist (to avoid some errors during delete action)
     let counter;
-    let dot = Dotz.findOne(this.dot._id);
+    let dot = this.dot;
     if (dot) {
-      counter = dot.inDotz.length;
+      counter = dot.inDotz;
     }
     //counter show:
     if (counter && counter === 0) {

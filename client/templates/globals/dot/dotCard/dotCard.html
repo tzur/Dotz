@@ -94,7 +94,8 @@
         <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
             <div class="filter">
                 <div class="listCoverContent">
-                    <a href="/{{dot.dotSlug}}">
+
+                    <a href="/{{dot.dotSlug}} class="_setCurrentPath">
                     <div class="listCardTitle">
                         <a href="/{{dot.dotSlug}}"><h2 class="h2Title"><i class="fa fa-list-ul"></i> {{dot.title}}</h2></a>
                     </div>
@@ -176,7 +177,7 @@
 
 
 
-                        <a href="/{{dot.dotSlug}}">
+                        <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3" id="listCardImgSide">
                             <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
                             <!--<div class="filter">-->
@@ -198,7 +199,7 @@
 
                             <div class="content">
 
-                                <a href="/{{dot.dotSlug}}">
+                                <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
 
                                 <div class="listCardTitle">
                                     <a href="/{{dot.dotSlug}}"><h2 class="h2Title">{{dot.title}}</h2></a>

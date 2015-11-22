@@ -42,13 +42,14 @@ Meteor.methods({
         if (!error) {
 
           let dotId = result;
-          let titleRegex = doc.title.replace(/ /g, "-");
+          let titleRegex = doc.title.replace(/ |!|"?"|–|'/gi, "-");
           let slug = (Meteor.user().profile.userSlug + '/' + doc.dotType + '/' + titleRegex).toLowerCase();
 
           //slug Process:
           if ( _slugUniquenessValidation (dotId, slug) ) {
             //TBD
           }
+
           let dotSlug = Dotz.findOne(result).dotSlug;
 
           let smartRef = new Modules.both.Dotz.smartRef(dotId, Meteor.userId() ,doc.inDotz[0], CREATE_ACTION, doc.ownerUserId);
