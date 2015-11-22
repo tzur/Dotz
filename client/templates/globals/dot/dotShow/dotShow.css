@@ -440,7 +440,7 @@ pre {
 
 #connectedDotzArray {
   /*min-height: 40vh;*/
-  padding-top: 7vh;
+  padding-top: 2em;
 }
 
 
@@ -503,3 +503,6 @@ pre {
 
 
 
+.createInShow {
+  padding: 2em 0 0 0;
+}

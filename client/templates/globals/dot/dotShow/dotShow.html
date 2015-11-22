@@ -245,23 +245,27 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-1 col-md-1 col-lg-1 colCenter txtMd">
 
 
+
+          {{#if isMyDot}}
               {{#if isListShow}}
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                      <div class="btn btn-default round nav-icon"><i class="fa fa-plus alignSub mdGrey"></i></div>
-                  </a>
+                  <div class="col-xs-12 txtMd createInShow">
 
-                  <ul class="dropdown-menu">
-                      <li id="_createDotFromList" class="createDot"><a href=""><i class="fa fa-circle-o"></i>Create Dot</a></li>
-                      <li id="_createListFromList" class="createList"><a href=""><i class="fa fa-list-ul"></i>Create List</a></li>
-                  </ul>
+                      <button type="button" id="_createDotFromList" class="createDot btn btn-default btn-md"><a href=""><i class="fa fa-circle-o"></i> Create Dot</a></button>
+
+                      <button type="button" id="_createListFromList" class="createList btn btn-default btn-md"><a href=""><i class="fa fa-list-ul"></i> Create List</a></button>
+
+                  </div>
               {{/if}}
+          {{/if}}
 
-            </div>
+
         </div>
     </div>
+
+
+
 
 
 <div id="connectedDotzArray">
