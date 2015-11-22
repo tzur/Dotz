@@ -10,6 +10,9 @@ body {
   margin-top: 6vh;
 }
 
+a button:active :after {
+  outline: none;
+}
 
 
 

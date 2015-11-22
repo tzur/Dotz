@@ -12,13 +12,13 @@
           {{# if isLikedByMe}}
               <a href>
               <i class="pull-right unlike likeBtn fa fa-chevron-circle-up">
-                  <p class="likesCounter"><strong>{{likeCounter}}</strong></p>
+                  <span class="likesCounter"><strong>{{likeCounter}}</strong></span>
               </i>
               </a>
           {{else}}
               <a href>
               <i class="pull-right like likeBtn fa fa-chevron-circle-up">
-                  <p class="likesCounter"><strong>{{likeCounter}}</strong></p>
+                  <span class="likesCounter"><strong>{{likeCounter}}</strong></span>
               </i>
               </a>
           {{/if}}
@@ -175,14 +175,14 @@
                                 <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
 
                                 <div class="listCardTitle">
-                                    <a href="/{{dot.dotSlug}}"><h2 class="h2Title">{{dot.title}}</h2></a>
+                                    <a href="/{{dot.dotSlug}}"><h2 class="h2Title">{{title}}</h2></a>
                                 </div>
 
                                 </a>
 
 
 
-                                <div class="listCardText col-xs-12 col-md-9 col-lg-7">
+                                <div class="listCardText col-xs-12 col-sm-8 col-lg-7">
                                     <p class="personalDescriptionOrBodyText">{{personalDescriptionOrBodyText}}</p>
                                 </div>
 

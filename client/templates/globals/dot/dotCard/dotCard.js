@@ -104,6 +104,12 @@ Template.dotCard.helpers({
     }
   },
 
+  title: function() {
+    if (this.dot){
+        return s.prune(this.dot.title, 45);
+    }
+  },
+
   dotzNum: function() {
     let connectedDotz = 0;
     if (this.dot && this.dot.connectedDotzArray) {
