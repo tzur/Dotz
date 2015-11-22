@@ -96,8 +96,7 @@
                 <div class="listCoverContent">
                     <a href="/{{dot.dotSlug}}">
                     <div class="listCardTitle">
-                        <a href="/{{dot.dotSlug}}"><h2 class="h2Title">{{dot.title}}</h2></a>
-                        <h2 class="listIcon"><i class="fa fa-list-ul"></i></h2>
+                        <a href="/{{dot.dotSlug}}"><h2 class="h2Title"><i class="fa fa-list-ul"></i> {{dot.title}}</h2></a>
                     </div>
                     </a>
                     <div class="row listCardFooter">
@@ -135,13 +134,13 @@
 
                           {{#if isConnected}}
 
-                              <button type="button" class="connect btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i>
+                              <button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>
                                   Connect {{connectCounter}}</button>
-                              <button type="button" class="disConnect btn btn-delete btn-sm pull-right"><i class="fa fa-minus"></i></button>
+                              <button type="button" class="disConnect btn btn-delete btn-xs pull-right"><i class="fa fa-minus"></i></button>
 
                           {{else}}
 
-                              <button type="button" class="connect btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i>
+                              <button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>
                                   Connect {{connectCounter}}</button>
 
                           {{/if}}
