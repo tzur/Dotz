@@ -26,6 +26,8 @@ Template.createToOneOfMyLists.helpers({
 
 Template.createToOneOfMyLists.events({
   'click #publishToOneOfMyLists': function () {
+    //let parentInfo = {slug: this.dotSlug, title: this.title, coverImage: this.coverImageUrl};
+    //Session.set('lastPath', parentInfo);
     Session.set('parentDot', this._id);
     $('#publishToMyProfile').trigger('click');
   },
