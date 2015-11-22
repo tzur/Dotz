@@ -95,13 +95,13 @@ Template.createDotModal.events({
   'change #addDotImageWraper input[type="file"]': function(){
     Session.set('coverImageUrl', undefined);
     Tracker.autorun(function(c) {
-      document.getElementById("createToMyProfile").disabled = true;
+      document.getElementById("publishToMyProfile").disabled = true;
       if(document.getElementById("createToMyLists")){
         document.getElementById("createToMyLists").disabled = true;
       }
       if (Session.get('coverImageUrl')) {
         c.stop();
-        document.getElementById("createToMyProfile").disabled = false;
+        document.getElementById("publishToMyProfile").disabled = false;
         if(document.getElementById("createToMyLists")){
           document.getElementById("createToMyLists").disabled = false;
         }

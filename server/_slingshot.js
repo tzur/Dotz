@@ -6,13 +6,8 @@ Slingshot.fileRestrictions( "uploadToAmazonS3", {
   maxSize: 1 * 1024 * 1024
 });
 
-let amazonBucket;
-if(process.env.NODE_ENV === "production") {
-  amazonBucket = "dotz-deployment"
-}
-else{
-  amazonBucket= "dotz-dev-images"
-}
+let amazonBucket = Meteor.settings.AWSBucket;
+
 Slingshot.createDirective( "uploadToAmazonS3", Slingshot.S3Storage, {
   bucket: amazonBucket,
   acl: "public-read",

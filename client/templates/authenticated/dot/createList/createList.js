@@ -94,13 +94,13 @@ Template.createListModal.events({
 
   'change input[type="file"]' ( event, template ) {
     Tracker.autorun(function(c) {
-      document.getElementById("publishListToMyProfile").disabled = true;
+      document.getElementById("publishToMyProfile").disabled = true;
       if(document.getElementById("publishListToMyLists")){
         document.getElementById("publishListToMyLists").disabled = true;
       }
       if (Session.get('coverImageUrl')) {
         c.stop();
-        document.getElementById("publishListToMyProfile").disabled = false;
+        document.getElementById("publishToMyProfile").disabled = false;
         if(document.getElementById("publishListToMyLists")){
           document.getElementById("publishListToMyLists").disabled = false;
         }
