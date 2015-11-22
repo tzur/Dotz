@@ -141,13 +141,10 @@ Template.dotCard.helpers({
     //check if this dot is exist (to avoid some errors during delete action)
     let counter;
     if (this.dot) {
-      console.log("IM HERE");
-
       let dot = Dotz.findOne(this.dot._id);
       if (dot) {
-        counter = dot.inDotz.length;
+        counter = dot.inDotz.length + dot.totalUpvotes.length;
       }
-
 
       //counter show:
       if (counter && counter === 0) {
