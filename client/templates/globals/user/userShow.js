@@ -50,6 +50,10 @@ Template.userShow.helpers({
       return user;
     }
   },
+
+  isMyProfile: function() {
+    return (this._id === Meteor.userId())
+  },
 //user counters:
   followingCounter: function(){
     if (this.profile.following.length === 0) {

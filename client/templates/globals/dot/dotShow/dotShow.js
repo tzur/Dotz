@@ -75,7 +75,6 @@ Template.dotShow.helpers({
   },
 
   isMyDot: function() {
-
     return (this.dot.ownerUserId === Meteor.userId())
   },
 
