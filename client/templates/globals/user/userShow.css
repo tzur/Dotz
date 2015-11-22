@@ -427,3 +427,13 @@ menu, ol, ul {
 .mdGrey {
     color: #9a9a9a;
 }
+
+
+#emptyProfile .card {
+  height: 25vh;
+}
+
+#emptyProfile .card .title {
+  margin-top: 5vh;
+  height: 10vh;
+}
