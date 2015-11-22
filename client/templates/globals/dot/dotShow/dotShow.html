@@ -20,10 +20,20 @@
                     <div class="col-xs-10 col-sm-6 col-md-4 colCenter">
                       <h5 class="description mdTxt">{{dot.bodyText}}
 
-                          <div class="listShow-btns">
+                          <div class="listShow-btns col-xs-10 col-sm-6 colCenter">
                             {{#if isMyDot}}
-                                <a href="" class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"></span></a>
+
+                                <a class="panelBtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span>
+                                </a>
+                                <ul id="pre-delete-menu" class="dropdown-menu">
+                                    <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="return-btn"><a><i class="mdGrey fa fa-reply"></i> Return</a></li>
+                                </ul>
+
                                 <a href="" class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"></span></a>
+
                             {{/if}}
                           </div>
 
