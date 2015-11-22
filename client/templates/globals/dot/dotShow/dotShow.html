@@ -1,5 +1,11 @@
 <template name="dotShow">
   {{#with dotShow}}
+
+      <div>
+          <a href={{backToLastPath.slug}} >
+          <button type="button" class=" btn btn-success btn-md">Back to: {{backToLastPath.title}}</button>
+          </a>
+      </div>
     {{#if isListShow}}
     <div class="container-fluid" id="listShowHeader">
 
@@ -91,7 +97,7 @@
 
                       <br>
 
-                        <div class="">
+                        <div>
                             <button type="button" class="connect btn btn-success btn-md dot-show-connect-btn">Connect {{connectCounter}}</button>
                         </div>
 
