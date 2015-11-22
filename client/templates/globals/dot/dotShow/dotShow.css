@@ -180,11 +180,16 @@ pre {
   font-size: 16px;
   line-height: 1.42857143;
   color: #333;
-  word-wrap: break-word;
   background-color: transparent;
   border: 0;
   border-radius: 0;
   padding: 0;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
 }
 
 .dot-show-header {
