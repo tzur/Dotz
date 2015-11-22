@@ -2,8 +2,8 @@
   {{#with dotShow}}
 
       <div>
-          <a href={{backToLastPath.slug}} >
-          <button type="button" class=" btn btn-success btn-md">Back to: {{backToLastPath.title}}</button>
+          <a>
+          <button id="_lastPathBtn" type="button" class=" btn btn-success btn-md">Back</button>
           </a>
       </div>
     {{#if isListShow}}
@@ -27,7 +27,13 @@
                           {{#if isMyDot}}
                               <a href="" class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"></span></a>
                               <a href="" class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"></span></a>
-                          {{/if}}
+                              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                  <div class="btn btn-default round nav-icon"><i class="fa fa-plus alignSub mdGrey"></i></div></a>
+
+                              <ul class="dropdown-menu">
+                                  <li id="_createDotFromList" class="createDot"><a href=""><i class="fa fa-circle-o"></i>Create Dot</a></li>
+                                  <li id="_createListFromList" class="createList"><a href=""><i class="fa fa-list-ul"></i>Create List</a></li>
+                              </ul>                          {{/if}}
                     </div>
 
                 </div>

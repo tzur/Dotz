@@ -135,6 +135,23 @@ Template.dotShow.helpers({
 
 Template.dotShow.events({
 
+  'click #_createDotFromList':function(){
+    Session.set('parentDot', this.dot._id);
+    //let parentDot = this.dot;
+    //let parentInfo = {slug: FlowRouter.current().path, title: parentDot.title, coverImage: parentDot.coverImageUrl};
+    Modal.show('createDotModal');
+
+  },
+
+  'click #_createListFromList':function(){
+    //Session.set('parentDot', this.dot._id);
+    //let parentDot = this.dot;
+    //let parentInfo = {slug: FlowRouter.current().path, title: parentDot.title, coverImage: parentDot.coverImageUrl};
+    Session.set('parentDot', this.dot._id);
+    Modal.show('createListModal');
+
+  },
+
   'click .connect': function(){
     if(Meteor.user()) {
       Modal.show('connectDotModal', {
@@ -170,6 +187,10 @@ Template.dotShow.events({
     else{
       Modal.show('signUpModal');
     }
+  },
+
+  'click #_lastPathBtn': function(){
+    window.history.back();
   }
 
 });

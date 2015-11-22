@@ -177,18 +177,18 @@ Template.dotCard.events({
   //'click .h2Title': function(event){
   //  Session.set('dotSlug', this.dot.dotSlug);
   //},
-  'click ._setCurrentPath': function(){
-    if(parentDot = Template.parentData().dot){
-      let parentDot = Template.parentData().dot;
-      let parentInfo = {slug: FlowRouter.current().path, title: parentDot.title, coverImage: parentDot.coverImageUrl};
-      Session.set('lastPath', parentInfo);
-    }
-    else{
-      let parentUser = Template.parentData();
-      let parentInfo = {slug: FlowRouter.current().path, title: parentUser.username, coverImage: parentUser.profile.coverImage};
-      Session.set('lastPath', parentInfo);
-    }
-  },
+  //'click ._setCurrentPath': function(){
+  //  if(parentDot = Template.parentData().dot){
+  //    let parentDot = Template.parentData().dot;
+  //    let parentInfo = {slug: FlowRouter.current().path, title: parentDot.title, coverImage: parentDot.coverImageUrl};
+  //    Session.set('lastPath', parentInfo);
+  //  }
+  //  else{
+  //    let parentUser = Template.parentData();
+  //    let parentInfo = {slug: FlowRouter.current().path, title: parentUser.username, coverImage: parentUser.profile.coverImage};
+  //    Session.set('lastPath', parentInfo);
+  //  }
+  //},
   'click .connect': function(){
     if(Meteor.user())
     {
