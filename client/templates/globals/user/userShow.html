@@ -98,14 +98,14 @@
                     </li>
 
               {{#if followingCounter}}
-                    <li class="menu-item " title="Following">
+                    <li class="_followingCounter menu-item " title="Following">
                         <button class="button button--chromeless" data-action="show-follow-list" data-action-value="following">
                           {{followingCounter}}<small class="menu-label">Following</small></button>
                     </li>
               {{/if}}
 
                {{#if followersCounter}}
-                    <li class="menu-item js-socialMenuFollowers" title="Followers">
+                    <li class="_followersCounter menu-item js-socialMenuFollowers" title="Followers">
                         <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
                           {{followersCounter}}<small class="menu-label">Followers</small></button>
                     </li>
