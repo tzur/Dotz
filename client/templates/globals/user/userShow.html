@@ -26,7 +26,7 @@
 
                 <div class="container-fluid">
                     <div class="row">
-                        <div id="userDescription" class="col-sm-12 col-md-9 colCenter txtMd">
+                        <div id="userDescription" class="col-xs-12 col-md-9 col-lg-7 colCenter txtMd">
 
                             <h1 class="darkText">{{username}}</h1>
 
@@ -97,15 +97,20 @@
                           {{connectivityNum}}<small class="menu-label">Connections</small></button>
                     </li>
 
+              {{#if followingCounter}}
                     <li class="menu-item " title="Following">
                         <button class="button button--chromeless" data-action="show-follow-list" data-action-value="following">
                           {{followingCounter}}<small class="menu-label">Following</small></button>
                     </li>
+              {{/if}}
 
+               {{#if followersCounter}}
                     <li class="menu-item js-socialMenuFollowers" title="Followers">
                         <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
                           {{followersCounter}}<small class="menu-label">Followers</small></button>
                     </li>
+               {{/if}}
+
                 </ul>
 
 
