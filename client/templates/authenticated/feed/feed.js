@@ -15,4 +15,11 @@ Template.feed.helpers({
       return oppositeArray;
     }
   }
+
+});
+
+Template.feed.events({
+  'click #findUsersTofollow': function(){
+    Modal.show('findUsersToFollowModal');
+  }
 });
