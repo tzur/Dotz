@@ -448,3 +448,12 @@
 #pre-delete-menu li a {
   cursor: pointer;
 }
+
+a span {
+  cursor: pointer;
+  color: #ccc;
+}
+
+a span:hover {
+  color: #337ab7;
+}
