@@ -1,5 +1,11 @@
 /*ListShowHeader*/
 
+.backToLastPath {
+  position: absolute;
+  top: 10vh;
+  z-index: 1;
+}
+
 #listShowHeader {
   padding: 0;
   margin: 6vh 0 0 0;
