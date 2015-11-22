@@ -4,7 +4,7 @@
 
 <div class="row" id="listCard-box">
 
-    <div class="col-xs-1 col-sm-1" id="listCardLikeSide">
+    <div class="col-xs-1 col-sm-1 hidden-xs" id="listCardLikeSide">
 
 {{#if isInOpenList}}
 
@@ -22,20 +22,6 @@
               </i>
               </a>
           {{/if}}
-
-          <!--{{#if isMyDot}}-->
-              <!--<a class="editBtn panelBtn"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>-->
-              <!--<br>-->
-              <!--<a class="delete panelBtn"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>-->
-          <!--{{/if}}-->
-
-<!--<div class="connctIcon">-->
-
-    <!--<div class="plusIcon pull-right">-->
-        <!--<i class="fa fa-plus-circle"></i>-->
-    <!--</div>-->
-
-<!--</div>-->
 
 {{/if}}
 
@@ -64,20 +50,7 @@
                   <li class="return-btn"><a><i class="mdGrey fa fa-reply"></i> Return</a></li>
               </ul>
 
-              <!--<ul class="nav navbar-nav">-->
-                  <!--<li id="delete-dropdown">-->
-                      <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
-                          <!--<span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span></a>-->
-
-                      <!--<ul class="dropdown-menu">-->
-                          <!--<li class="delete createDot"><a href="#">delete</a></li>-->
-                          <!--<li class="createList"><a href="#">return</a></li>-->
-                      <!--</ul>-->
-                  <!--</li>-->
-              <!--</ul>-->
           {{/if}}
-
-
 
         </div>
 
@@ -90,7 +63,7 @@
 {{#if isListCard}}
 
 
-    <div class="col-xs-11 col-sm-10" id="listCover">
+    <div class="col-xs-12 col-sm-10" id="listCover">
         <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
             <div class="filter">
                 <div class="listCoverContent">
@@ -102,7 +75,7 @@
                     </a>
                     <div class="row listCardFooter">
 
-                        <div class="listCardUser col-xs-8">
+                        <div class="listCardUser col-xs-7">
 
                           {{#if userIsTheDotCreator}}
 
@@ -131,7 +104,7 @@
 
 
                         <!--<div class="btn-connect-div col-xs-4 pull-right">-->
-                        <div class="buttonsBar col-xs-4">
+                        <div class="buttonsBar pull-right col-xs-5 listCardBtns">
 
                           {{#if isConnected}}
 
@@ -172,7 +145,7 @@
 
 
 
-    <div class="col-xs-11 col-sm-10" id="listCard">
+    <div class="col-xs-12 col-sm-10" id="listCard">
 
 
 
@@ -209,7 +182,7 @@
 
 
 
-                                <div class="listCardText">
+                                <div class="listCardText col-xs-12 col-md-9 col-lg-7">
                                     <p class="personalDescriptionOrBodyText">{{personalDescriptionOrBodyText}}</p>
                                 </div>
 
@@ -324,7 +297,7 @@
 {{/if}}
 
 
-    <div class="col-xs-12 col-sm-1" id="listCardOtherSide">
+    <div class="hidden-xs col-sm-1" id="listCardOtherSide">
 
 
     </div>

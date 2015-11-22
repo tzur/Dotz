@@ -73,3 +73,12 @@
 .nav .dropdown .active {
    background-color: transparent;
 }
+
+/*.navbar, .navbar-collapse {*/
+  /*height: 6vh;*/
+  /*min-height: 6vh;*/
+/*}*/
+
+/*.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {*/
+  /*max-height: 6vh;*/
+/*}*/

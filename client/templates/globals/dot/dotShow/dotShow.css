@@ -1,5 +1,32 @@
 /*ListShowHeader*/
 
+.backToLastPath {
+  position: fixed;
+  top: 10vh;
+  z-index: 999;
+  width: 4em;
+  height: 3em;
+  background-color: rgba(245, 245, 245, 0.6);
+  border-radius: 0 24px 24px 0;
+}
+
+.backToLastPath .btn-default {
+  margin: 0.5em 0 0 1em;
+  color: #333;
+  background-color: rgba(245, 245, 245, 0);
+  border-color: #333;
+}
+
+.backToLastPath .btn-default:hover {
+  background-color: #ccc;
+  outline: none;
+}
+
+.backToLastPath button {
+  outline: none;
+}
+
+
 #listShowHeader {
   padding: 0;
   margin: 6vh 0 0 0;
@@ -39,7 +66,7 @@
   text-align: center;
   color: #FFFFFF;
   font-size: 4rem;
-  margin-top: 14vh;
+  margin-top: 9vh;
   margin-bottom: 2vh;
 }
 
@@ -198,7 +225,7 @@ pre {
 }
 
 .dot-show-main-details {
-  padding: 3vh 2em 2em 2em;
+  padding: 4vh 2em 2em 2em;
   height: 26em;
 }
 
@@ -413,7 +440,7 @@ pre {
 
 #connectedDotzArray {
   /*min-height: 40vh;*/
-  padding-top: 7vh;
+  padding-top: 2em;
 }
 
 
@@ -476,3 +503,6 @@ pre {
 
 
 
+.createInShow {
+  padding: 2em 0 0 0;
+}

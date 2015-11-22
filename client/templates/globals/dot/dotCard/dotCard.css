@@ -175,7 +175,7 @@
   /*height: 9vh;*/
   padding-top: 1vh;
   line-height: 1.4;
-  width: 70%;
+  padding-left: 0;
 }
 
 #listCard .content .listCardText > p {
@@ -365,6 +365,10 @@
   /*background-color: rgba(255,255,255,1);*/
   /*background-color: rgba(0,0,0,0.5);*/
   margin: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1.5vh;
 }
 
 
@@ -419,7 +423,11 @@
 }
 
 #listCover .listCardUser {
-  padding: 0.5vh 0.5vh 0.5vh 0vh;
+  padding: 1vh 0 0 0;
+}
+
+#listCover .listCardBtns {
+  padding: 1vh 0 0 0;
 }
 
 
