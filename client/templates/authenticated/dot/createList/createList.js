@@ -22,6 +22,9 @@ Template.createListModal.onDestroyed(function(){
   Session.set('mapTabActive', undefined);
   Session.set('coverImageUrl', undefined);
   Session.set('dotType', undefined);
+  Session.set('parentDot', undefined);
+
+
 
 });
 
