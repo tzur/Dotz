@@ -1,11 +1,10 @@
 <template name="userCardSearch">
-    {{check}}
     <div class="row" id="listCard-box">
         <div class="col-xs-11 col-sm-10 colCenter" id="userSearchCard">
 
 
 
-            <a href="/{{dot.dotSlug}}">
+            <a href="/{{profile.userSlug}}">
             <div class="col-xs-12 col-sm-4 col-md-3 col-lg-4 userSearchCardImgBg" id="listCardImgSide">
                 <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{profile.profileImage}}')">
                     <!--<div class="filter">-->
@@ -25,16 +24,16 @@
 
                 <div class="content">
 
-                    <a href="/{{profile.eserSlug}}">
+                    <a href="/{{profile.userSlug}}">
                         <div class="listCardTitle">
-                            <a href="/{{profile.eserSlug}}">
+                            <a href="/{{profile.userSlug}}">
                                 <h4 class="h2Title">{{username}}</h4>
                             </a>
                         </div>
                     </a>
 
                     <div class="listCardText">
-                        <p class="personalDescriptionOrBodyText">{{profile.description}}ahskdjah dkja shkj dhkasj hdkjas hdkja shkj dhkasj dhkasj dk! ahksdj ashkdj ashkj dhkasj da</p>
+                        <p class="personalDescriptionOrBodyText">{{profile.description}}</p>
                     </div>
                 </div>
 
@@ -42,8 +41,15 @@
 
                     <div class="buttonsBar">
 
-                        <button type="button" class="follow btn btn-success btn-xs pull-right">
-                            Follow {{connectCounter}}</button>
+                  {{# if isNotMe}}
+                    {{#if myFollow}}
+                            <button type="button" class="unFollow btn btn-success btn-md">Following {{followersCounter}}</button>
+                    {{else}}
+                            <button type="button" class="follow btn btn-success btn-md">Follow {{followersCounter}}</button>
+                    {{/if}}
+
+                  {{/if}}
+
 
                     </div>
 
