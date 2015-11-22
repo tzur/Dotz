@@ -49,6 +49,10 @@ Template.createListModal.helpers({
   dotzTags: function(){
     tagsArray = Tools.findOne({docName: "dotzTags"});
     return tagsArray.tags;
+  },
+
+  isParentDotSet: function(){
+    return (Session.get('parentDot')) ;
   }
   //dotType: function(){
   //  console.log("im running");
@@ -67,6 +71,11 @@ Template.createListModal.events({
       }
     })
   },
+
+  //'click ._publishToCurrentList': function(){
+  //  let parentInfo = this.data.lastPath;
+  //  Session.set('lastPath', parentInfo);
+  //},
 
   'click .createBtn': function() {
     $('#form-body').slideToggle(700);

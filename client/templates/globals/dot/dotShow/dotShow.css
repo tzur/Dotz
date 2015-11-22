@@ -1,28 +1,28 @@
 /*ListShowHeader*/
 
 .backToLastPath {
-  position: absolute;
+  position: fixed;
   top: 10vh;
-  z-index: 1;
+  z-index: 999;
   width: 4em;
   height: 3em;
-  background-color: #f5f5f5;
+  background-color: rgba(245, 245, 245, 0.6);
   border-radius: 0 24px 24px 0;
 }
 
 .backToLastPath .btn-default {
   margin: 0.5em 0 0 1em;
-  color: #ccc;
-  background-color: #F5F5F5;
-  border-color: #ccc;
+  color: #333;
+  background-color: rgba(245, 245, 245, 0);
+  border-color: #333;
 }
 
 .backToLastPath .btn-default:hover {
-  background-color: #fff;
+  background-color: #ccc;
   outline: none;
 }
 
-.backToLastPath .btn-default:active {
+.backToLastPath button {
   outline: none;
 }
 
@@ -66,7 +66,7 @@
   text-align: center;
   color: #FFFFFF;
   font-size: 4rem;
-  margin-top: 14vh;
+  margin-top: 9vh;
   margin-bottom: 2vh;
 }
 
@@ -225,7 +225,7 @@ pre {
 }
 
 .dot-show-main-details {
-  padding: 3vh 2em 2em 2em;
+  padding: 4vh 2em 2em 2em;
   height: 26em;
 }
 
