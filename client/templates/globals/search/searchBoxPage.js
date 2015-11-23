@@ -1,10 +1,10 @@
 
 Template.searchBox.onCreated(function(){
   DocHead.setTitle("Dotz: " + "Search");
-  Session.set('searchInput', undefined);
-  Session.set('dotzResult', undefined);
-  Session.set('usersResult', undefined);
-  Session.set('listsResult', undefined);
+  //Session.set('searchInput', undefined);
+  //Session.set('dotzResult', undefined);
+  //Session.set('usersResult', undefined);
+  //Session.set('listsResult', undefined);
 });
 
 Template.searchBox.onRendered(function(){
@@ -20,10 +20,10 @@ Template.searchBox.onRendered(function(){
 });
 
 Template.searchBox.onDestroyed(function(){
-  Session.set('searchInput', undefined);
-  Session.set('dotzResult', undefined);
-  Session.set('usersResult', undefined);
-  Session.set('listsResult', undefined);
+  //Session.set('searchInput', undefined);
+  //Session.set('dotzResult', undefined);
+  //Session.set('usersResult', undefined);
+  //Session.set('listsResult', undefined);
 
 });
 
