@@ -16,11 +16,7 @@ Template.findUsersToFollowModal.onCreated(function(){
     if(telAvivGlobal){
       Modules.both.Dotz.followUser(Meteor.userId(), telAvivGlobal._id)
     }
-
-
   });
-
-
 });
 
 Template.findUsersToFollowModal.helpers({
@@ -45,6 +41,6 @@ Template.findUsersToFollowModal.helpers({
 
 Template.findUsersToFollowModal.events({
   'click #exitBtn': function(){
-    Modal.hide()
+    Modal.hide();
   }
 });
