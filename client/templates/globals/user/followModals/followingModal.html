@@ -17,7 +17,7 @@
 
                             <div class="row">
 
-                                <h3 class="txtMd">Followers</h3>
+                                <h3 class="txtMd">Following</h3>
 
                             </div>
 
@@ -28,19 +28,25 @@
 
 
 
-                    <div class="row">
 
+                    <div class="row">
                         <div class="container-fluid colCenter" id="">
 
-                          {{#each following}}
+                          {{#if userFollowingArray}}
 
-                            {{> userCardSearch}}
+                            {{#each userFollowingArray}}
+                              {{#with userData}}
+                                {{> userCardSearch}}
+                              {{/with}}
+                            {{/each}}
 
-                          {{/each}}
+                          {{else}} <!--No Followers-->
 
+                              <p class="txtMd">Not following anyone yet :(</p>
+
+                          {{/if}}
 
                         </div>
-
                     </div>
 
 
