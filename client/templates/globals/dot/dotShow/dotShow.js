@@ -36,9 +36,6 @@ Template.dotShow.onCreated(function() {
 
 Template.dotShow.onRendered(function(){
   window.scrollTo(0,0);
-
-
-  Session.set('redirectAfterCreate', undefined)
 });
 
 Template.dotShow.onDestroyed(function(){

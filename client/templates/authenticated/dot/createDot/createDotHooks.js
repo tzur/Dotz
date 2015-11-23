@@ -54,7 +54,7 @@ let dotHooks = {
     FlowRouter.go('/' + (Session.get('redirectAfterCreate')));
     setTimeout(function(){
       var n = $(document).height();
-      $('html, body').animate({ scrollTop: n }, 50);
+      $('html, body').animate({ scrollTop: n }, 1000);
     }, 1000);
     Session.set('redirectAfterCreate', undefined )
   }
