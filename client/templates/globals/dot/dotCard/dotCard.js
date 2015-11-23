@@ -1,5 +1,5 @@
 Template.dotCard.onCreated(function(){
-         let self = this;
+        let self = this;
         self.subs = new SubsManager({
         // maximum number of cache subscriptions
         cacheLimit: 10,

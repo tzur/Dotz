@@ -1,6 +1,7 @@
 <template name="feed">
 
 <div class="container-fluid" id="feed">
+    <button id="findUsersTofollow">find users to follow</button>
 
 {{#if feedDotz}}
     <br>
@@ -11,7 +12,9 @@
             <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
 
               {{#each feedDotz}}
-                {{> dotCard}}
+                {{#if isDotValid}}
+                  {{> dotCard}}
+                {{/if}}
               {{/each}}
 
             </div>

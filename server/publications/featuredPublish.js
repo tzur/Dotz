@@ -9,6 +9,5 @@ Meteor.publish('featuredUsersDoc', function() {
 
 Meteor.publish('featuredUsers', function() {
   let usersArray = Tools.findOne({name: "featuredUsers"});
-  usersArray
   return Meteor.users.find({_id: {$in: usersArray.featuredUsers}});
 });
