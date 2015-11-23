@@ -74,6 +74,11 @@
    background-color: transparent;
 }
 
+.visible-xs i {
+  padding: 0 1em;
+}
+
+
 /*.navbar, .navbar-collapse {*/
   /*height: 6vh;*/
   /*min-height: 6vh;*/

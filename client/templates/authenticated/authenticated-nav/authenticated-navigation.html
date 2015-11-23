@@ -5,14 +5,14 @@
         <!--<li class="dropdown">-->
         <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="navBarUserImgProfile" src="{{currentUser.profile.profileImage}}"><span class="caret"></span></a>-->
         <!--<ul class="dropdown-menu">-->
-        <li data-toggle="collapse" data-target="#navbar-collapse" class="{{currentRoute 'user-show'}} navbar-menu-collapse"><a href="/{{currentUser.profile.userSlug}}">My Profile</a></li>
-        <li data-toggle="collapse" data-target="#navbar-collapse" class="createDot"><a href="#">New Dot</a></li>
-        <li data-toggle="collapse" data-target="#navbar-collapse" class="createList"><a href="#">New List</a></li>
-        <li data-toggle="collapse" data-target="#navbar-collapse" class="{{currentRoute 'feed'}}"><a href="{{pathFor 'feed'}}">Feed</a></li>
+        <li data-toggle="collapse" data-target="#navbar-collapse" class="{{currentRoute 'user-show'}} navbar-menu-collapse"><a href="/{{currentUser.profile.userSlug}}"><i class="fa fa-user"></i> My Profile</a></li>
+        <li data-toggle="collapse" data-target="#navbar-collapse" class="createDot"><a href="#"><i class="fa fa-circle-o"></i> New Dot</a></li>
+        <li data-toggle="collapse" data-target="#navbar-collapse" class="createList"><a href="#"><i class="fa fa-list-ul"></i> New List</a></li>
+        <li data-toggle="collapse" data-target="#navbar-collapse" class="{{currentRoute 'feed'}}"><a href="{{pathFor 'feed'}}"><i class="fa fa-rss"></i> Feed</a></li>
         <li role="separator" class="divider"></li>
-        <li data-toggle="collapse" data-target="#navbar-collapse" class="editUserAccount"><a href="#">Edit Account</a></li>
+        <li data-toggle="collapse" data-target="#navbar-collapse" class="editUserAccount hidden-xs"><a href="#"><i class="fa fa-cog"></i> Edit Account</a></li>
         <li role="separator" class="divider"></li>
-        <li data-toggle="collapse" data-target="#navbar-collapse" class="logout"><a href="#">Logout</a></li>
+        <li data-toggle="collapse" data-target="#navbar-collapse" class="logout"><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
         <!--</ul>-->
         <!--</li>-->
     </ul>
