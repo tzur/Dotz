@@ -94,7 +94,7 @@ Template.dotCard.helpers({
 
   shortenAdress: function(){
     if (this.dot && this.dot.location && this.dot.location.address) {
-      return s.prune(this.dot.location.address, 40);
+      return s.prune(this.dot.location.address, 30);
     }
   },
 

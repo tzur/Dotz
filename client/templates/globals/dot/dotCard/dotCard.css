@@ -377,10 +377,9 @@
 }
 
 
-#listCover .listCardFooter .connect {
-  /*background-color: #FFFFFF;*/
-  /*color: #FFFFFF;*/
-  /*border-color: #FFFFFF;*/
+#listCover .listCardFooter .white {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
 }
 
 #listCover .listCardFooter .disConnect {
@@ -456,4 +455,20 @@ a span {
 
 a span:hover {
   color: #337ab7;
+}
+
+
+/* mobile adaption for card */
+
+@media (max-width: 768px) {
+
+#listCard .content {
+  /*height: 20vh;*/
+  /*width: 40%;*/
+  /*padding: 1vh 1vh 1vh 1vh;*/
+  height: 15vh;
+  /*background-color: rgba(255, 255, 255, 0.4);*/
+}
+
+
 }

@@ -506,3 +506,22 @@ pre {
 .createInShow {
   padding: 2em 0 0 0;
 }
+
+
+/* mobile adaption for dot show */
+
+@media (max-width: 768px) {
+
+  #listShowHeader .title {
+    margin-top: 6vh;
+    font-size: 2em;
+    margin-bottom: 1.5vh;
+  }
+
+  #listShowHeader .description {
+    margin-bottom: 3vh;
+  }
+
+}
+
+
