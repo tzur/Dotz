@@ -1,0 +1,6 @@
+#findUsersToFollowModal .search-results-row {
+  height: 30vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: transparent;
+}
