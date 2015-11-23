@@ -34,13 +34,13 @@
                             <div class="listTitle col-md-10 colCenter">
 
                                 <div>
-                                    <p><strong>User Name:</strong></p>
-                                   {{> afQuickField name='username'}}
-                                </div>
+                                    <p><strong>User Name:</strong><span class="pull-right lightGrey" id="userTitleFieldFeedback"></span></p>
+                                   {{> afQuickField id="editTitleField" name='username'}}
+                                                                    </div>
 
                                 <div>
-                                    <p><strong>Description:</strong></p>
-                                    {{> afQuickField name='profile.description' maxlength="250" rows=6}}
+                                    <p><strong>Description:</strong><span class="pull-right lightGrey" id="userDescriptionFieldFeedback"></span></p>
+                                    {{> afQuickField id='ProfileDescription' name='profile.description' maxlength="250" rows=6}}
                                 </div>
 
                             </div>
