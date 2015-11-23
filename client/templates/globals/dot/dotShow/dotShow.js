@@ -18,12 +18,7 @@ Template.dotShow.onCreated(function() {
       self.subs.subscribe('dotShowByDotSlug', dotSlug, function(){
           let dotShow = Dotz.findOne({dotSlug: dotSlug});
           if (!dotShow){
-            if ( Meteor.loggingIn() ) {
-              FlowRouter.go('/' + Meteor.user().profile.userSlug);
-            }
-            else {
-              FlowRouter.go('index');
-            }
+            FlowRouter.go('/');
             Bert.alert('Page does not exist', 'danger');
           }
         }
@@ -50,9 +45,6 @@ Template.dotShow.onDestroyed(function(){
 
 Template.dotShow.helpers({
 
-  backToLastPath: function(){
-    return Session.get('lastPath');
-  },
   dotShow: function() {
     FlowRouter.watchPathChange();
     let dot = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1)});
@@ -181,7 +173,6 @@ Template.dotShow.events({
 
   'click .delete':function(event){
       Modules.both.Dotz.deleteDot(this.dot, this.dot.inDotz[0]);
-      FlowRouter.go("/" + Meteor.user().profile.userSlug);
   },
 
   'click #addUserConnection': function(){

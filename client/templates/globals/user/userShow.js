@@ -17,17 +17,13 @@ Template.userShow.onCreated(function() {
     if (userSlug){
       let handleUser = self.subs.subscribe('userByUserSlug', userSlug, function(){
         let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
-
         if (!user){
-            if ( Meteor.loggingIn() ) {
-              FlowRouter.go('/' + Meteor.user().profile.userSlug);
-            }
-            else {
-              FlowRouter.go('index');
-            }
-            Bert.alert('Page does not exist', 'danger');
+          Bert.alert('Page does not exist', 'danger');
+          //Back to the previews page:
+          setTimeout(function(){ window.history.back(); }, 2000);
+          //FlowRouter.go('/');
         }
-        else {
+        else if (user) {
           DocHead.setTitle("Dotz: " + user.username);
         }
       });
@@ -147,6 +143,14 @@ Template.userShow.events({
 
   'click ._createList': function(){
     Modal.show('createListModal');
+  },
+
+  'click ._followingCounter': function() {
+    Modal.show('followingModal');
+  },
+
+  'click ._followersCounter': function() {
+    Modal.show('followersModal');
   }
 
 });
