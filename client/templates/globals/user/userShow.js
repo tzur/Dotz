@@ -18,10 +18,12 @@ Template.userShow.onCreated(function() {
       let handleUser = self.subs.subscribe('userByUserSlug', userSlug, function(){
         let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
         if (!user){
-          FlowRouter.go('/');
           Bert.alert('Page does not exist', 'danger');
+          //Back to the previews page:
+          setTimeout(function(){ window.history.back(); }, 2000);
+          //FlowRouter.go('/');
         }
-        else{
+        else if (user) {
           DocHead.setTitle("Dotz: " + user.username);
         }
       });
@@ -44,13 +46,28 @@ Template.userShow.helpers({
       return user;
     }
   },
+
+  isMyProfile: function() {
+    return (this._id === Meteor.userId())
+  },
 //user counters:
   followingCounter: function(){
-    return this.profile.following.length;
+    if (this.profile.following.length === 0) {
+      return false;
+    }
+    else {
+      return this.profile.following.length;
+    }
 
   },
   followersCounter: function(){
-    return this.profile.followers.length;
+    if (this.profile.followers.length === 0) {
+      return false;
+    }
+    else {
+      return this.profile.followers.length;
+    }
+
 
   },
   dotNumCounter:  function(){
@@ -126,6 +143,24 @@ Template.userShow.events({
 
   'click ._createList': function(){
     Modal.show('createListModal');
+  },
+
+  'click ._followingCounter': function() {
+    Modal.show('followingModal', {
+      data: {
+        'following': this.profile.following,
+        'userId': this._id
+      }
+    });
+  },
+
+  'click ._followersCounter': function() {
+    Modal.show('followersModal', {
+      data: {
+        'followers': this.profile.followers,
+        'userId': this._id
+      }
+    });
   }
 
 });

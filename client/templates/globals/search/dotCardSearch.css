@@ -337,5 +337,23 @@
 /*}*/
 
 
+@media (max-width: 768px) {
 
+  .tab-content {
+    border: none;
+  }
+
+  .tab-content .tab-pane {
+    padding: 0;
+  }
+
+  #listCard #searchCardTextSide {
+    height: 100%;
+  }
+
+  .nav-pills .search-btns {
+    width: 30%;
+  }
+
+}
 

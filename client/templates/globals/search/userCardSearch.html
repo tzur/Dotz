@@ -1,13 +1,12 @@
 <template name="userCardSearch">
-    {{check}}
     <div class="row" id="listCard-box">
-        <div class="col-xs-11 col-sm-10 colCenter" id="userSearchCard">
+        <div class="col-xs-12" id="userSearchCard">
 
 
 
-            <a href="/{{dot.dotSlug}}">
-            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-4 userSearchCardImgBg" id="listCardImgSide">
-                <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{profile.profileImage}}')">
+            <a href="/{{profile.userSlug}}">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 userSearchCardImgBg" id="userCardImgSide">
+                <div class="container-fluid dot-container-img-userCard" style="background-image: url('{{profile.profileImage}}')">
                     <!--<div class="filter">-->
                     <div id="round-overlay">
                         <div class="imgSideSpacer">
@@ -20,34 +19,44 @@
             </a>
 
 
-            <div class="col-xs-12 col-sm-8 col-md-9 col-lg-8 search-card-body-div" id="listCardTextSide">
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-10 search-card-body-div" id="listCardTextSide">
 
 
                 <div class="content">
 
-                    <a href="/{{profile.eserSlug}}">
-                        <div class="listCardTitle">
-                            <a href="/{{profile.eserSlug}}">
+                    <a href="/{{profile.userSlug}}">
+                        <div class="listCardTitle user-card-search-title col-xs-12 col-sm-8">
+                            <a href="/{{profile.userSlug}}">
                                 <h4 class="h2Title">{{username}}</h4>
                             </a>
                         </div>
                     </a>
 
-                    <div class="listCardText">
-                        <p class="personalDescriptionOrBodyText">{{profile.description}}ahskdjah dkja shkj dhkasj hdkjas hdkja shkj dhkasj dhkasj dk! ahksdj ashkdj ashkj dhkasj da</p>
+                    <div class="buttonsBar col-xs-12 col-sm-4 user-card-search-btns">
+
+                      {{# if isNotMe}}
+                        {{#if myFollow}}
+                            <button type="button" class="unFollow btn btn-success btn-xs pull-right"><i class="fa fa-check fa-lg"></i></button>
+                        {{else}}
+                            <button type="button" class="follow btn btn-lead btn-xs pull-right">Follow {{followersCounter}}</button>
+                        {{/if}}
+
+                      {{/if}}
+
+
+                    </div>
+
+                    <div class="listCardText smTxt p-align col-xs-12 col-lg-12 hidden-xs">
+                        <p class="personalDescriptionOrBodyText">{{profileDescription}}</p>
                     </div>
                 </div>
 
-                <div class="userSearchCardFooter">
 
-                    <div class="buttonsBar">
+                <!--<div class="userSearchCardFooter">-->
 
-                        <button type="button" class="follow btn btn-success btn-xs pull-right">
-                            Follow {{connectCounter}}</button>
+                    <!---->
 
-                    </div>
-
-                </div>
+                <!--</div>-->
 
             </div>
 

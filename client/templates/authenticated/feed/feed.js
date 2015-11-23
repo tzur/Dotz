@@ -1,4 +1,5 @@
 Template.feed.onCreated(function(){
+  DocHead.setTitle("Dotz: " + "Feed");
 
 });
 Template.feed.helpers({
@@ -14,5 +15,32 @@ Template.feed.helpers({
       }
       return oppositeArray;
     }
+    else{
+      Modal.show('findUsersToFollowModal');
+    }
+  },
+
+  //TBD do it
+  isDotValid: function(){
+    let self = this;
+    self.subs = new SubsManager({
+      // maximum number of cache subscriptions
+      cacheLimit: 10,
+      // any subscription will be expire after 5 minute, if it's not subscribed again
+      expireIn: 5
+    });
+    self.subs.subscribe('dotCard', this.dot._id);
+    let dot = Dotz.findOne(this.dot._id)
+
+    if(dot){
+      return true;
+    }
+  }
+
+});
+
+Template.feed.events({
+  'click #findUsersTofollow': function(){
+    Modal.show('findUsersToFollowModal');
   }
 });

@@ -3,8 +3,8 @@
 }
 
 #listCard-box .search-card-body-div {
-  background-color: #FFFFFF;
-  height: 22vh;
+  background-color: transparent;
+  height: 11vh;
 }
 
 #listCardTextSide .userSearchCardFooter {
@@ -14,6 +14,42 @@
   padding: 1.5vh;
 }
 
+#userCardImgSide .dot-container-img-userCard {
+  position: relative;
+  height: 10.5vh;
+  width: 10.5vh;
+  margin-top: 0.25vh;
+  margin-bottom: 0.25vh;
+  padding: 0;
+  /*overflow: hidden;*/
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  border-radius: 50%;
+}
+
+#userCardImgSide .dot-container-img-userCard:hover {
+  /*border-radius: 0;*/
+  /*height: 100%;*/
+  /*width: 100%;*/
+  /*margin-top: 0;*/
+}
+
 .userSearchCardImgBg {
-  background-color: #ffffff;
+  /*background-color: #ffffff;*/
+}
+
+#userCardImgSide {
+  padding: 0;
+  height: 11vh;
+  /*background-color: #337ab7;*/
+}
+
+.p-align {
+  padding-left: 0;
+}
+
+.user-card-search-wrapper {
+  margin-bottom: 1.5em;
+  border-bottom: #eee solid 1px;
 }

@@ -26,7 +26,7 @@
 
                 <div class="container-fluid">
                     <div class="row">
-                        <div id="userDescription" class="col-sm-12 col-md-9 colCenter txtMd">
+                        <div id="userDescription" class="col-xs-12 col-md-9 col-lg-7 colCenter txtMd">
 
                             <h1 class="darkText">{{username}}</h1>
 
@@ -97,15 +97,20 @@
                           {{connectivityNum}}<small class="menu-label">Connections</small></button>
                     </li>
 
-                    <li class="menu-item " title="Following">
+              {{#if followingCounter}}
+                    <li class="_followingCounter menu-item " title="Following">
                         <button class="button button--chromeless" data-action="show-follow-list" data-action-value="following">
                           {{followingCounter}}<small class="menu-label">Following</small></button>
                     </li>
+              {{/if}}
 
-                    <li class="menu-item js-socialMenuFollowers" title="Followers">
+               {{#if followersCounter}}
+                    <li class="_followersCounter menu-item js-socialMenuFollowers" title="Followers">
                         <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
                           {{followersCounter}}<small class="menu-label">Followers</small></button>
                     </li>
+               {{/if}}
+
                 </ul>
 
 
@@ -121,7 +126,7 @@
 
                           {{else}}
 
-                              <button type="button" class="editUserAccount-btn btn btn-default btn-md"><i class="fa fa-pencil"></i> Edit Profile</button>
+                              <button type="button" class="editUserAccount-btn btn btn-default btn-md hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>
 
                           {{/if}}
                         </div>
@@ -131,48 +136,60 @@
             </div>
 
 
-            <div>
-                <div class="row user-profile-cards">
+<div>
+    <div class="row user-profile-cards">
 
-<br>
-
+<!--<br>-->
 
       <div class="container-fluid">
           <div class="row">
               <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
 
-              {{#if connectedDotzArray}}
+{{#if connectedDotzArray}}
 
                   {{#each connectedDotzArray}}
                     {{> dotCard}}
                   {{/each}}
 
-              {{else}}
+{{else}}
 
-              <div class="col-xs-12 txtMd">
+                <!--fake ListCard-->
+<hr>
+<br>
 
-                  <hr>
-                  <br>
-                  <button type="button" class="_createDot btn btn-default btn-md"><i class="fa fa-circle-o"></i> Create Dot</button>
+<div class="col-xs-12 col-sm-10 colCenter" id="emptyProfile">
 
-                  <button type="button" class="_createList btn btn-default btn-md"><i class="fa fa-list-ul"></i> Create List</button>
+{{#if isMyProfile}}
+    <div class="card col-xs-12 colCenter" id="listCover">
+        <div class="container-fluid dot-container-img-listCard"
+             style="background-image: url('https://dotz-dev-images.s3.amazonaws.com/sXLnHX3sr8vbeh8KB/dotz_How.jpg')">
+            <div class="filter">
+                <a href="/dotz">
+                <div class="listCoverContent">
+                        <div class="title">
+                            <a href="/dotz"><h2 class="whiteTxt txtMd">This Is How We Do It</h2></a>
+                        </div>
+                        <div class="col-xs-12 txtMd">
+                            <a href="/dotz">
+                                <button type="button" class="btn btn-primary btn-md">Check It Out</button>
+                            </a>
+                        </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div> <!-- end listCard -->
+{{/if}}
 
-                  <a href="{{pathFor 'search'}}" class="{{currentRoute 'search'}}">
-                      <button type="button" class="btn btn-default btn-md"><i class="fa fa-search"></i> Search Dotz</button>
-                  </a>
+</div>
 
+    <div class="col-xs-12 txtMd">
+        <div class="brJo">
+            <br><br><br>
+        </div>
+    </div>
 
-
-                  <!--<iframe src="https://player.vimeo.com/video/102349505" width="500" height="281" frameborder="0"-->
-                          <!--webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-                  <!--&lt;!&ndash;<p><a href="https://vimeo.com/102349505">Katy Perry - This Is How We Do (Official Music Video)</a>&ndash;&gt;-->
-                      <!--&lt;!&ndash;from <a href="https://vimeo.com/musicvideostv">Music Videos</a> on <a href="https://vimeo.com">Vimeo</a>.</p>&ndash;&gt;-->
-<!--<br>-->
-                  <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/7RMQksXpQSk" frameborder="0" allowfullscreen></iframe>-->
-
-              </div>
-
-              {{/if}}
+{{/if}}
 
               </div>
           </div>

@@ -1,7 +1,12 @@
 Template.index.onCreated( () => {
-  Template.instance().subscribe( 'template' );
-});
+  DocHead.setTitle("Dotz");
 
+  if ( Meteor.user() ) {
+    FlowRouter.go('/' + Meteor.user().profile.userSlug);
+  }
+  //Template.instance().subscribe( 'template' );
+
+});
 
 
 Template.index.events({

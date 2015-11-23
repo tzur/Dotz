@@ -3,7 +3,11 @@
  */
 Template.editUserAccountModal.onRendered(function(){
 
+  Modules.client.Dotz.limitCharactersAndCounter('#editTitleField', 50, '#userTitleFieldFeedback');
+  Modules.client.Dotz.limitCharactersAndCounter('#ProfileDescription', 250, '#userDescriptionFieldFeedback');
+
 });
+
 Template.editUserAccountModal.onDestroyed(function(){
   Session.set("mapTabActive", undefined);
   Session.set('coverImageUrl', undefined);

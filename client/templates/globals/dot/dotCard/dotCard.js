@@ -1,5 +1,5 @@
 Template.dotCard.onCreated(function(){
-         let self = this;
+        let self = this;
         self.subs = new SubsManager({
         // maximum number of cache subscriptions
         cacheLimit: 10,
@@ -20,6 +20,8 @@ Template.dotCard.onCreated(function(){
         });
 
 });
+
+
 Template.dotCard.helpers({
 
   //subscriptionsReady: function(){
@@ -35,8 +37,9 @@ Template.dotCard.helpers({
         ownerUser: Meteor.users.findOne(this.dot.ownerUserId),
         connectedByUser: Meteor.users.findOne(this.connection.connectedByUserId)
       };
-      if (!data.dot){
-        Session.set('createdData', this);
+
+      if(!data.dot){
+        Session.set('dotInsideToListsBug', this);
       }
       return data;
     }
@@ -95,7 +98,7 @@ Template.dotCard.helpers({
 
   shortenAdress: function(){
     if (this.dot && this.dot.location && this.dot.location.address) {
-      return s.prune(this.dot.location.address, 40);
+      return s.prune(this.dot.location.address, 30);
     }
   },
 
@@ -113,6 +116,12 @@ Template.dotCard.helpers({
       else {
         return s.prune(this.dot.bodyText, 100);
       }
+    }
+  },
+
+  title: function() {
+    if (this.dot){
+        return s.prune(this.dot.title, 45);
     }
   },
 

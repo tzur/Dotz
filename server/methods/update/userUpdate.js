@@ -2,7 +2,6 @@ let _userUpdate = (userId, updateOptions) => {
   try {
     check(updateOptions, Object);
     check(userId, String);
-    console.log(userId);
     Meteor.users.update({_id: userId}, updateOptions);
   } catch (exeption) {
       console.log(exeption);
@@ -47,5 +46,49 @@ Meteor.methods({
         console.log("ERROR" + error);
       }
     });
+  },
+
+  _addRecentDotzWhenFollowing(followingUserId, followedUserId){
+    check(followingUserId, String);
+    check(followedUserId, String);
+    console.log("############################################# im in _addRecentDotzWhenFollowing");
+
+    let followedUser = Meteor.users.findOne(followedUserId);
+    let dotzIdArray = [];
+
+    let listsCreatedByUser = followedUser.profile.createdByUserLists;
+    let dotzCreatedByUser = followedUser.profile.createdByUserDotz;
+
+    if(listsCreatedByUser.length > 1){
+      dotzIdArray.push(listsCreatedByUser[listsCreatedByUser.length -2]);
+      dotzIdArray.push(listsCreatedByUser[listsCreatedByUser.length - 1])
+    }
+
+    if(dotzCreatedByUser.length > 0){
+      dotzIdArray.push(dotzCreatedByUser[dotzCreatedByUser.length -1]);
+    }
+
+    if(dotzIdArray){
+      dotzIdArray.forEach(function(dotId){
+        let dot;
+        dot = Dotz.findOne(dotId);
+        console.log(dot);
+        if(dot){
+          let smartRef = new Modules.both.Dotz.smartRef(dotId, dot.ownerUserId, followedUser.profile.profileDotId, CREATE_ACTION, followedUserId);
+          if(smartRef) {
+            Meteor.call('updateFeed', smartRef, followingUserId);
+          }
+        }
+
+          //console.log(smartRef);
+          //let updateOptions = {
+          //  $addToSet: {"profile.feedDotz": smartRef}
+          //};
+          //_userUpdate(Meteor.userId(), updateOptions)
+
+      });
+
+
+    }
   }
 });

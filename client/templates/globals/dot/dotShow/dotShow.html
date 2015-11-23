@@ -1,11 +1,13 @@
 <template name="dotShow">
   {{#with dotShow}}
 
-      <div>
-          <a>
-          <button id="_lastPathBtn" type="button" class=" btn btn-success btn-md">Back</button>
-          </a>
+
+      <div class="backToLastPath">
+
+          <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-times"></i></button>
+
       </div>
+
     {{#if isListShow}}
     <div class="container-fluid" id="listShowHeader">
 
@@ -20,7 +22,7 @@
                     <div class="col-xs-10 col-sm-6 col-md-4 colCenter">
                       <h5 class="description mdTxt">{{dot.bodyText}}
 
-                          <div class="listShow-btns col-xs-10 col-sm-6 colCenter">
+                          <div class="listShow-btns col-xs-10 col-sm-6 colCenter ">
                             {{#if isMyDot}}
 
                                 <a class="panelBtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,7 +34,7 @@
                                     <li class="return-btn"><a><i class="mdGrey fa fa-reply"></i> Return</a></li>
                                 </ul>
 
-                                <a href="" class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"></span></a>
+                                <a href="" class="editBtn editbtn-muted hidden-xs hidden-sm"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"></span></a>
 
                             {{/if}}
                           </div>
@@ -87,8 +89,16 @@
                         <h2 class="dot-show-title">{{dot.title}}
                           <small>
                           {{#if isMyDot}}
-                                  <a href="" class="delete deletebtn-muted"><span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"></span></a>
-                                  <a href="" class="editBtn editbtn-muted"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"></span></a>
+                                  <a class="panelBtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span>
+                                  </a>
+                                  <ul id="pre-delete-menu" class="dropdown-menu">
+                                      <li class="delete"><a href=""><i class="fa fa-trash-o"></i> Delete</a></li>
+                                      <li role="separator" class="divider"></li>
+                                      <li class="return-btn"><a><i class="mdGrey fa fa-reply"></i> Return</a></li>
+                                  </ul>
+
+                                  <a href="" class="editBtn editbtn-muted hidden-xs hidden-sm"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"></span></a>
                           {{/if}}
                           </small>
                         </h2>
@@ -239,24 +249,29 @@
 {{#with dotShow}}
 <!--{{#if dot.connectedDotzArray}}-->
 
-    <div class="container-fluid">
+    <div class="container-fluid hidden-xs hidden-sm">
         <div class="row">
-            <div class="col-xs-1 col-md-1 col-lg-1 colCenter txtMd">
 
+
+
+          {{#if isMyDot}}
               {{#if isListShow}}
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                      <div class="btn btn-default round nav-icon"><i class="fa fa-plus alignSub mdGrey"></i></div>
-                  </a>
+                  <div class="col-xs-12 txtMd createInShow">
 
-                  <ul class="dropdown-menu">
-                      <li id="_createDotFromList" class="createDot"><a href=""><i class="fa fa-circle-o"></i>Create Dot</a></li>
-                      <li id="_createListFromList" class="createList"><a href=""><i class="fa fa-list-ul"></i>Create List</a></li>
-                  </ul>
+                      <button type="button" id="_createDotFromList" class="createDot btn btn-default btn-md"><a href=""><i class="fa fa-circle-o"></i> Create Dot</a></button>
+
+                      <button type="button" id="_createListFromList" class="createList btn btn-default btn-md"><a href=""><i class="fa fa-list-ul"></i> Create List</a></button>
+
+                  </div>
               {{/if}}
+          {{/if}}
 
-            </div>
+
         </div>
     </div>
+
+
+
 
 
 <div id="connectedDotzArray">

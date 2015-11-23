@@ -37,7 +37,7 @@
                                   </div>
 
                                   <div class="col-xs-12 col-sm-9">
-                                    {{> afQuickField id="titleField" name='title' label="Title" placeholder="Romantic Night Out / Hipster day in TLV / etc..."}}
+                                    {{> afQuickField id="titleField" name='title' label="Title" maxlength="50" placeholder="Romantic Night Out / Hipster day in TLV / etc..."}}
                                       <div id="titleFieldFeedback"></div>
                                   </div>
 
@@ -124,38 +124,38 @@
 
 
                             {{#if isParentDotSet}}
-                                <button id="publishToMyProfile" type="submit" class="createBtn insert btn round btn-primary _publishToCurrentList">Publish Here</button>
+                                <div class="btns-create-dot-row">
+                                    <div class="btns-create-dot">
+                                        <button id="publishToMyProfile" type="submit" class="createBtn insert btn round btn-primary _publishToCurrentList">Publish Here</button>
+                                    </div>
+                                </div>
+
                             {{else}}
 
-                                <div>
-                                  <div>
-                                      <div class="col-xs-12 btns-create-dot-row">
+
+                                <div class="col-xs-12 btns-create-dot-row">
+                                    <div class="btns-create-dot">
+
+                                      <button id="publishToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish</button>
+
+                                        {{#if currentUser.profile.createdByUserLists}}
+
+                                          <button id="publishListToMyLists" type="button" class="createBtn insert btn round btn-default"
+                                                  data-toggle="collapse" data-target="#createToOneOfMyLists">
+                                              <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                                          </button>
+
+                                        {{/if}}
+
+                                    </div>
+                                </div>
 
 
-
-                            <div class="btns-create-dot">
-
-
-                                    <button id="publishToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish</button>
-                                            {{#if currentUser.profile.createdByUserLists}}
-
-                                                <button id="publishListToMyLists" type="button" class="createBtn insert btn round btn-default"
-                                                        data-toggle="collapse" data-target="#createToOneOfMyLists">
-                                                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                                                </button>
-
-                                            {{/if}}
-                                          </div>
-
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div class="publishToMyLists container-fluid">
-                                      <div id="createToOneOfMyLists" class="collapse col-xs-12">
-                                        {{> createToOneOfMyLists}}
-                                      </div>
-                              </div>
+                                <div class="publishToMyLists container-fluid">
+                                    <div id="createToOneOfMyLists" class="collapse col-xs-12">
+                                      {{> createToOneOfMyLists}}
+                                    </div>
+                                </div>
 
                         {{/if}}
 
