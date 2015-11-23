@@ -9,16 +9,12 @@ Template.followersModal.onCreated(function() {
     expireIn: 5
   });
 
-  //self.autorun(function() {
-
   if (this.data) {
     self.subs.subscribe('user', this.data.data.userId);
     this.data.data.followers.forEach(function(userId){
       self.subs.subscribe('user', userId);
     });
   }
-
-  //});
 });
 
 
@@ -39,24 +35,7 @@ Template.followersModal.helpers({
     if (user) {
       return user
     }
-
-    //let userId = this;
-    ////let user;
-    //
-    //Tracker.autorun(function() {
-    //  return Meteor.users.findOne(userId);
-    //
-    //  //if (user) {
-    //  //  return user
-    //  //}
-    //
-    //});
-
-
-
   }
-
-
 });
 
 
