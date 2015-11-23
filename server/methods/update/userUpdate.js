@@ -73,15 +73,19 @@ Meteor.methods({
         let dot;
         dot = Dotz.findOne(dotId);
         console.log(dot);
-        let smartRef = new Modules.both.Dotz.smartRef(dotId, dot.ownerUserId, followedUser.profile.profileDotId, CREATE_ACTION, followedUserId);
-        if(smartRef){
-          Meteor.call('updateFeed', smartRef, followingUserId);
+        if(dot){
+          let smartRef = new Modules.both.Dotz.smartRef(dotId, dot.ownerUserId, followedUser.profile.profileDotId, CREATE_ACTION, followedUserId);
+          if(smartRef) {
+            Meteor.call('updateFeed', smartRef, followingUserId);
+          }
+        }
+
           //console.log(smartRef);
           //let updateOptions = {
           //  $addToSet: {"profile.feedDotz": smartRef}
           //};
           //_userUpdate(Meteor.userId(), updateOptions)
-        }
+
       });
 
 
