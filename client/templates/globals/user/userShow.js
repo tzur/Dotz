@@ -143,6 +143,14 @@ Template.userShow.events({
 
   'click ._createList': function(){
     Modal.show('createListModal');
+  },
+
+  'click ._followingCounter': function() {
+    Modal.show('followingModal');
+  },
+
+  'click ._followersCounter': function() {
+    Modal.show('followersModal');
   }
 
 });

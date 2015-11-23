@@ -1,4 +1,5 @@
 Template.index.onCreated( () => {
+  DocHead.setTitle("Dotz");
 
   if ( Meteor.user() ) {
     FlowRouter.go('/' + Meteor.user().profile.userSlug);

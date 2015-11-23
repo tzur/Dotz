@@ -9,6 +9,14 @@ Template.dotCard.onCreated(function(){
        self.subs.subscribe('dotCard', this.data.dot._id);
        self.subs.subscribe('user', this.data.dot.ownerUserId);
        self.subs.subscribe('user', this.data.connection.connectedByUserId);
+       self.autorun(function(){
+         if(Session.get('dotInsideToListsBug')){
+           self.subs.subscribe('dotCard', Session.get('dotInsideToListsBug').dot._id);
+           self.subs.subscribe('user', Session.get('dotInsideToListsBug').dot.ownerUserId);
+           self.subs.subscribe('user', Session.get('dotInsideToListsBug').connection.connectedByUserId);
+           Session.set('dotInsideToListsBug', false)
+         }
+       })
 });
 
 
@@ -26,6 +34,9 @@ Template.dotCard.helpers({
         ownerUser: Meteor.users.findOne(this.dot.ownerUserId),
         connectedByUser: Meteor.users.findOne(this.connection.connectedByUserId)
       };
+      if(!data.dot){
+        Session.set('dotInsideToListsBug', this);
+      }
       return data;
     }
   },

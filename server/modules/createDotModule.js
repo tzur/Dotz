@@ -42,7 +42,10 @@ Meteor.methods({
         if (!error) {
 
           let dotId = result;
-          let titleRegex = doc.title.replace(/ |!|"?"|–|'/gi, "-");
+          //let titleRegex = doc.title.replace(/ |!|"?"|–|'/gi, "-");
+          let titleRegex = doc.title.replace(/[ –&\/\\#,+()$~%.'":*?<>{}]/gi, "-");
+
+
           let slug = (Meteor.user().profile.userSlug + '/' + doc.dotType + '/' + titleRegex).toLowerCase();
 
           //slug Process:

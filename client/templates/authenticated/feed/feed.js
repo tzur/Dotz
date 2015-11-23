@@ -1,4 +1,5 @@
 Template.feed.onCreated(function(){
+  DocHead.setTitle("Dotz: " + "Feed");
 
 });
 Template.feed.helpers({
