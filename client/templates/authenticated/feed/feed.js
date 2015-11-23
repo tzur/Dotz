@@ -6,9 +6,9 @@ Template.feed.helpers({
   feedDotz: function(){
     if (Meteor.user().profile.feedDotz){
       //Reverse the array in the fastest way according to stackOverFlow:
-      let tempArray = Meteor.user().profile.feedDotz;
+      let tempArray = Meteor.user().profile;
       let oppositeArray = [];
-      let i = tempArray.length -1;
+      let i = tempArray.feedDotz.length -1;
       while(i > -1){
         oppositeArray.push(tempArray[i]);
         i--;
