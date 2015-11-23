@@ -1,17 +1,28 @@
-.feed-cards {
-  padding-top: 2em;
-  background-color: #fafafa;
-  border-top: #ccc solid 1px;
+
+#feed {
   min-height: 100vh;
 }
 
-.row-loading {
-  padding-top: 4em;
-  background-color: #ffffff;
-  min-height: 100vh;
-}
 
-.jumbotron {
-  background-color: #fafafa;
-  height: 100vh;
-}
+
+
+
+/*old*/
+
+/*.feed-cards {*/
+  /*padding-top: 2em;*/
+  /*background-color: #fafafa;*/
+  /*border-top: #ccc solid 1px;*/
+  /*min-height: 100vh;*/
+/*}*/
+
+/*.row-loading {*/
+  /*padding-top: 4em;*/
+  /*background-color: #ffffff;*/
+  /*min-height: 100vh;*/
+/*}*/
+
+/*.jumbotron {*/
+  /*background-color: #fafafa;*/
+  /*height: 100vh;*/
+/*}*/
