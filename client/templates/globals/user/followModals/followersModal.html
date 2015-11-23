@@ -26,16 +26,24 @@
                     </div>
 
 
-
-
                     <div class="row">
+                        <div class="container-fluid colCenter" id="">
 
-                        <div class="container-fluid colCenter" id="createListFields">
+                        {{#if userFollowersArray}}
 
+                          {{#each userFollowersArray}}
+                            {{#with userData}}
+                              {{> userCardSearch}}
+                            {{/with}}
+                          {{/each}}
 
+                        {{else}} <!--No Followers-->
+
+                            <p class="txtMd">Not followers (yet) :(</p>
+
+                        {{/if}}
 
                         </div>
-
                     </div>
 
 

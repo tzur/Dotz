@@ -146,11 +146,21 @@ Template.userShow.events({
   },
 
   'click ._followingCounter': function() {
-    Modal.show('followingModal');
+    Modal.show('followingModal', {
+      data: {
+        'following': this.profile.following,
+        'userId': this._id
+      }
+    });
   },
 
   'click ._followersCounter': function() {
-    Modal.show('followersModal');
+    Modal.show('followersModal', {
+      data: {
+        'followers': this.profile.followers,
+        'userId': this._id
+      }
+    });
   }
 
 });
