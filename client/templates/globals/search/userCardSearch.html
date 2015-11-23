@@ -1,11 +1,11 @@
 <template name="userCardSearch">
     <div class="row" id="listCard-box">
-        <div class="col-xs-11 col-sm-10 colCenter" id="userSearchCard">
+        <div class="col-xs-12" id="userSearchCard">
 
 
 
             <a href="/{{profile.userSlug}}">
-            <div class="col-xs-3 col-sm-2 col-md-3 col-lg-2 userSearchCardImgBg" id="userCardImgSide">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 userSearchCardImgBg" id="userCardImgSide">
                 <div class="container-fluid dot-container-img-userCard" style="background-image: url('{{profile.profileImage}}')">
                     <!--<div class="filter">-->
                     <div id="round-overlay">
@@ -19,41 +19,44 @@
             </a>
 
 
-            <div class="col-xs-9 col-sm-10 col-md-9 col-lg-10 search-card-body-div" id="listCardTextSide">
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-10 search-card-body-div" id="listCardTextSide">
 
 
                 <div class="content">
 
                     <a href="/{{profile.userSlug}}">
-                        <div class="listCardTitle">
+                        <div class="listCardTitle user-card-search-title col-xs-12 col-sm-8">
                             <a href="/{{profile.userSlug}}">
                                 <h4 class="h2Title">{{username}}</h4>
                             </a>
                         </div>
                     </a>
 
-                    <div class="listCardText p-align col-xs-10 hidden-xs hidden-sm">
-                        <p class="personalDescriptionOrBodyText">{{profile.description}}</p>
-                    </div>
-                </div>
+                    <div class="buttonsBar col-xs-12 col-sm-4 user-card-search-btns">
 
-                <div class="userSearchCardFooter">
+                      {{# if isNotMe}}
+                        {{#if myFollow}}
+                            <button type="button" class="unFollow btn btn-lead btn-xs pull-right">Following {{followersCounter}}</button>
+                        {{else}}
+                            <button type="button" class="follow btn btn-success btn-xs pull-right">Follow {{followersCounter}}</button>
+                        {{/if}}
 
-                    <div class="buttonsBar">
-
-                  {{# if isNotMe}}
-                    {{#if myFollow}}
-                            <button type="button" class="unFollow btn btn-success btn-xs">Following {{followersCounter}}</button>
-                    {{else}}
-                            <button type="button" class="follow btn btn-success btn-xs">Follow {{followersCounter}}</button>
-                    {{/if}}
-
-                  {{/if}}
+                      {{/if}}
 
 
                     </div>
 
+                    <div class="listCardText smTxt p-align col-xs-12 col-lg-12 hidden-xs">
+                        <p class="personalDescriptionOrBodyText">{{profileDescription}}</p>
+                    </div>
                 </div>
+
+
+                <!--<div class="userSearchCardFooter">-->
+
+                    <!---->
+
+                <!--</div>-->
 
             </div>
 

@@ -59,3 +59,19 @@
 .search-results-row .tab-content {
   border: transparent;
 }
+
+a h1,h2,h3,h4,h5,h6 {
+  color: #333;
+}
+
+.user-card-search-title {
+  padding-left: 0;
+}
+
+.user-card-search-btns {
+  padding-right: 0;
+}
+
+.user-card-search-title .h2Title {
+  margin-top: 0.125em;
+}
