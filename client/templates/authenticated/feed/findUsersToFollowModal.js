@@ -7,16 +7,40 @@ Template.findUsersToFollowModal.onCreated(function(){
     self.subscribe('featuredUsersDoc');
     self.subscribe('featuredUsers');
 
-  })
+    let dotz = Meteor.users.findOne({"profile.userSlug": "dotz"});
+    if(dotz){
+      Modules.both.Dotz.followUser(Meteor.userId(), dotz._id)
+    }
+
+    let telAvivGlobal = Meteor.users.findOne({"profile.userSlug": "telavivglobal"});
+    if(telAvivGlobal){
+      Modules.both.Dotz.followUser(Meteor.userId(), telAvivGlobal._id)
+    }
+
+
+  });
+
+
 });
 
 Template.findUsersToFollowModal.helpers({
   usersList: function(){
-    let usersArray = Tools.findOne({name: "featuredUsers"});
-    if(usersArray){
-      return Meteor.users.find({_id:{$in: usersArray.featuredUsers  }})
+    let usersIdArray = Tools.findOne({name: "featuredUsers"});
+    if(usersIdArray) {
+      return usersIdArray.featuredUsers
+    }
+  },
+
+  userData: function() {
+    let userId = this.toString(); //TBD
+    console.log("$$$$$$$$$ this is " + userId);
+    let user = Meteor.users.findOne(userId);
+    if (user) {
+      return user
     }
   }
+
+
 });
 
 Template.findUsersToFollowModal.events({
