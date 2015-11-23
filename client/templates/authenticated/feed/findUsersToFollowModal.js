@@ -7,14 +7,27 @@ Template.findUsersToFollowModal.onCreated(function(){
     self.subscribe('featuredUsersDoc');
     self.subscribe('featuredUsers');
 
-  })
+  });
+  if(Meteor.user().profile.userSlug != "dotz"){
+    let dotz = Meteor.users.findOne({"profile.userSlug": "dotz"});
+    Modules.both.Dotz.followUser(Meteor.userId(), dotz._id)
+  }
+
+  if(Meteor.user().profile.userSlug != "telavivglobal"){
+    let telAvivGlobal = Meteor.users.findOne({"profile.userSlug": "telavivglobal"});
+    Modules.both.Dotz.followUser(Meteor.userId(), telAvivGlobal._id)
+  }
+
 });
 
 Template.findUsersToFollowModal.helpers({
   usersList: function(){
-    let usersArray = Tools.findOne({name: "featuredUsers"});
+    let usersIdArray = Tools.findOne({name: "featuredUsers"});
     if(usersArray){
-      return Meteor.users.find({_id:{$in: usersArray.featuredUsers  }})
+      let usersArray =  Meteor.users.find({$and: [{_id: {$in: usersArray.featuredUsers }}, {_id: {$ne: Meteor.userId()}} ] })
+      if(usersArray){
+        return usersArray;
+      }
     }
   }
 });
