@@ -1,33 +1,41 @@
-<!-- !!!!@@###### if you want to change the name change it also in connectDotCard helpers-->
 <template name="findUsersToFollowModal">
-    <div class="modal fade" data-keyboard="false" data-backdrop="static">
+    <div class="modal fade" data-keyboard="false">
+        <!--data-backdrop="static"-->
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
 
-                <div id="create-dot-modal" class="container-fluid">
+                <div id="findUsersToFollowModal" class="container-fluid">
 
-                    <div class="exit-btn">
-                        <a href="#"><button class="btn round btn-delete btn-sm" id="exitBtn"><i class="fa fa-times"></i></button></a>
-                    </div>
+                    <!--<div class="row">-->
 
-                    <div class="row">
+                        <div class="col-xs-12 colCenter">
 
-                        <div class="modal-title col-xs-12 colCenter">
+                            <br>
+                            <h4><strong>Suggestions just for you:</strong></h4>
 
                             <div class="row">
-                                <h3 class="txtMd">Find Users To Follow</h3>
-                            </div>
 
+                                <div class="col-xs-12 col-sm-8">
+                                    <p>Welcome :)  Here are some suggestions for you. We recommend following all of them!</p>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-4 pull-right">
+                                    <a href=""><button class="btn round btn-primary btn-sm pull-right" id="exitBtn">
+                                        Follow All & continue
+                                    </button></a>
+
+                                </div>
+
+                                <br>
+
+                            </div>
                         </div>
 
 
                         <div class="container-fluid">
-                            <div class="row search-results-row">
+                            <div class="row search-results-row" id="users">
                                 <div class="col-xs-12 col-sm-10 col-md-8 colCenter">
-
-                                  <h5>Popular Users: </h5>
-                                  <hr><br>
 
                                       <div>
 
@@ -45,12 +53,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+
+
+                    <!--</div>-->
                 </div>
 
 
             </div>
         </div>
     </div>
-
 </template>

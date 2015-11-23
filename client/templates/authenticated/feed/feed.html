@@ -1,40 +1,32 @@
 <template name="feed">
-
 <div class="container-fluid" id="feed">
-    <button id="findUsersTofollow">find users to follow</button>
 
-{{#if feedDotz}}
-    <br>
-    <br>
-    <br>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
+    <!--<button id="findUsersTofollow">find users to follow</button>-->
 
-              {{#each feedDotz}}
-                {{#if isDotValid}}
-                  {{> dotCard}}
-                {{/if}}
-              {{/each}}
+    {{#if feedDotz}}
+        <br>
+        <br>
+        <br>
 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
+
+                  {{#each feedDotz}}
+                    {{#if isDotValid}}
+                      {{> dotCard}}
+                    {{/if}}
+                  {{/each}}
+
+                </div>
             </div>
-        </div>
-    </div><!-- end wrapper -->
+        </div><!-- end wrapper -->
 
-{{else}}
+    {{else}}
 
-  {{> searchBox}}
-    <!--<div class="jumbotron text-center" style="padding: 20px;">-->
-        <!--<h2>Welcome Dotz :)</h2>-->
-        <!--<br>-->
-        <!--&lt;!&ndash;<p>Welcome :)</p>&ndash;&gt;-->
-        <!--<p><a class="btn btn-success" href="/main/search" role="button">Start Discover The City</a></p>-->
-        <!--&lt;!&ndash;<p style="font-size: 16px; color: #aaa;">Tel Aviv</p>&ndash;&gt;-->
-    <!--</div>-->
+      {{> searchBox}}
 
-{{/if}}
+    {{/if}}
 
 </div>
-
-
 </template>

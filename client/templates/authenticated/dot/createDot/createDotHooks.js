@@ -23,9 +23,12 @@ let dotHooks = {
 
       if(Session.get('parentDot')){
         doc.inDotz = [Session.get('parentDot')];
+        let parentDot = Dotz.findOne(doc.inDotz[0])
+        Session.set('redirectAfterCreate', parentDot.dotSlug )
       }
       else{
-        doc.inDotz = [Meteor.user().profile.profileDotId]
+        doc.inDotz = [Meteor.user().profile.profileDotId];
+        Session.set('redirectAfterCreate', Meteor.user().profile.userSlug )
       }
 
       doc.ownerUserId = Meteor.userId();
@@ -48,7 +51,12 @@ let dotHooks = {
     Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
     console.log("############# THIS is " + this.currentDoc);
     Meteor.call('addOrEditObjectInAlgolia', result, false);
-    FlowRouter.go('/' + result);
+    FlowRouter.go('/' + (Session.get('redirectAfterCreate')));
+    setTimeout(function(){
+      var n = $(document).height();
+      $('html, body').animate({ scrollTop: n }, 1000);
+    }, 1000);
+    Session.set('redirectAfterCreate', undefined )
   }
 };
 

@@ -11,6 +11,8 @@ Template.createToOneOfMyLists.onCreated(function(){
 Template.createToOneOfMyLists.onCreated(function(){
   let self = this;
   self.autorun(function () {
+    //This sub is being used in:
+    // 1. redirectSession with the parent Dot
     self.subscribe('createByUserDotz');
   });
 
