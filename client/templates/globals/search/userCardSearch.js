@@ -12,6 +12,10 @@ Template.userCardSearch.helpers({
       Meteor.user().profile.following.indexOf(this._id) > -1)
   },
 
+  profileDescription: function() {
+    return s.prune(this.profile.description, 140);
+  },
+
   isNotMe: function(){
     return (Meteor.userId() != this._id)
   }
