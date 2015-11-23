@@ -5,7 +5,7 @@ let _userUpdate = (userId, updateOptions) => {
     console.log(userId);
     Meteor.users.update({_id: userId}, updateOptions);
   } catch (exeption) {
-    console.log(exeption);
+      console.log(exeption);
     return exeption;
   }
 };

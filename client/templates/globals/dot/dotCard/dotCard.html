@@ -1,5 +1,5 @@
 <template name="dotCard">
-  {{#if Template.subscriptionsReady}}
+  <!--{{#if Template.subscriptionsReady}}-->
     {{#with dataCard}}
 
 <div class="row" id="listCard-box">
@@ -98,6 +98,7 @@
                     <a href="/{{dot.dotSlug}}" class="_setCurrentPath">
                     <div class="listCardTitle">
                         <a href="/{{dot.dotSlug}}"><h2 class="h2Title"><i class="fa fa-list-ul"></i> {{dot.title}}</h2></a>
+
                     </div>
                     </a>
                     <div class="row listCardFooter">
@@ -335,7 +336,7 @@
 
 </div>
     {{/with}}
-     {{else}}
-            <h2>LOADING</h2>
-    {{/if }}
+     <!--{{else}}-->
+            <!--<h2>LOADING</h2>-->
+    <!--{{/if }}-->
 </template>
