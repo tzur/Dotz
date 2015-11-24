@@ -3,8 +3,7 @@
  */
 
 Template.searchBoxForConnect.onCreated(function(){
-  Session.set('searchInput',undefined);
-  Session.set('searchResult',undefined);
+    Session.set('searchInput',undefined);
 });
 
 
@@ -14,7 +13,9 @@ Template.searchBoxForConnect.onRendered(function(){
 
 Template.searchBoxForConnect.onDestroyed(function(){
   Session.set('searchInput',undefined);
-  Session.set('searchResult',undefined);
+  Session.set('listsResult',undefined);
+  Session.set('dotzResult',undefined);
+
 });
 
 
