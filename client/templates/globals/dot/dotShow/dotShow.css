@@ -456,7 +456,7 @@ pre {
 }
 
 #dotShowFooter .row {
-  min-height: 5vh;
+  min-height: 20vh;
 }
 
 #dotShowFooter .addButton {
