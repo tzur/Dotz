@@ -452,11 +452,11 @@ pre {
   /*background-color: rgba(0, 0, 0, 0.1);*/
   margin-top: 5vh;
   padding: 2vh;
-
+  min-height: 20vh;
 }
 
 #dotShowFooter .row {
-  min-height: 20vh;
+  /*min-height: 5vh;*/
 }
 
 #dotShowFooter .addButton {
