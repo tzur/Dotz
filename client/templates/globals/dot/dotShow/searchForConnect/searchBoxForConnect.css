@@ -1,0 +1,53 @@
+
+#searchToConnect .search-results-row {
+  background-color: transparent;
+}
+
+
+#_createFromList {
+  height: 3.9vh;
+  font-size: 1em;
+}
+
+#searchToConnect .md-form {
+  font-size: 1em;
+  /*line-height: 2em;*/
+  height: 4vh;
+  padding: 1em;
+}
+
+
+.search #search-icon {
+  font-size: 1em;
+  color: #cccccc;
+  right: 10px;
+  top: 10px;
+}
+
+.nav-pills .search-btns {
+  display: inline-block;
+  width: 25%;
+  margin: 0.5em;
+}
+
+.nav-pills li a {
+  border: #337AB7 solid 1px;
+}
+
+.nav-pills .active {
+  background-color: transparent;
+}
+
+#searchBoxInput {
+  /*margin-bottom: 5vh;*/
+}
+
+#searchResults {
+  min-height: 30vh;
+}
+
+
+#searchResults .tab-content {
+ border:none;
+}
+

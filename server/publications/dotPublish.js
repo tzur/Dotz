@@ -99,12 +99,4 @@ Meteor.publish('smartRefToDotzCursor', function(smartRefArray) {
   return Dotz.find({_id: {$in: dotIds}}, {fields: {"services.password": 0, "services.loginTokens": 0, "emails.address": 0, "emails.verified": 0}});
 });
 
-Meteor.publish('smartRefToDotzCursor', function(smartRefArray) {
-  check(smartRefArray, Array);
-  let dotIds = [];
-  smartRefArray.forEach(function (smartRef) {
-    dotIds.push(smartRef.dot._id);
-  });
-  return Dotz.find({_id: {$in: dotIds}}, {fields: {"services.password": 0, "services.loginTokens": 0, "emails.address": 0, "emails.verified": 0}});
-});
 

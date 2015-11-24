@@ -39,9 +39,10 @@ let _handleLogin = ( template ) => {
       Bert.alert( error.reason, 'warning' );
     } else {
       Modal.hide('loginModal');
-      Bert.alert( 'Logged in!', 'success' );
       FlowRouter.go('/' + Meteor.user().profile.userSlug);
+      Bert.alert( 'Logged in!', 'success' );
 
+      //MixPanel:
       analytics.identify( Meteor.userId(), {
         email: Meteor.user().emails[0].address,
         name: Meteor.user().username

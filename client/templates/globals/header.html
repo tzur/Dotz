@@ -15,13 +15,14 @@
 {{#if currentUser}}
 
     <span class="logo">
-        <a class="navbar-brand" href="/{{currentUser.profile.userSlug}}"><strong>Dotz:</strong></a>
+        <a class="navbar-brand" href="/dotz"><strong>Dotz:</strong></a>
     </span>
+
 
 {{else}}
 
     <span class="logo">
-        <a class="navbar-brand" href="{{pathFor 'index'}}"><strong>Dotz:</strong></a>
+        <a class="navbar-brand" href="/dotz"><strong>Dotz:</strong></a>
     </span>
 
 {{/if}}
