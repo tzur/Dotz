@@ -45,3 +45,9 @@
 #searchResults {
   min-height: 30vh;
 }
+
+
+#searchResults .tab-content {
+ border:none;
+}
+
