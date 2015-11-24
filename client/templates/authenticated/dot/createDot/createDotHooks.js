@@ -44,7 +44,7 @@ let dotHooks = {
   },
 
   after: {
-    update: function(error, result) {
+    method: function(error, result) {
       if(!error){
         Modal.hide("createDotModal");
       }

@@ -456,7 +456,7 @@ pre {
 }
 
 #dotShowFooter .row {
-  min-height: 30vh;
+  min-height: 5vh;
 }
 
 #dotShowFooter .addButton {
@@ -479,33 +479,31 @@ pre {
 
 /*dotShow with emptyList*/
 
-#emptyList {
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 2vh;
 
+
+#emptyList {
+  padding: 2vh;
+  min-height: 10vh;
 }
 
 #emptyList .row {
-  height: 65vh;
   padding-top: 10vh;
 }
 
-#emptyList .addButton {
-  width: 35vh;
-  margin: auto;
-}
+/*#emptyList .addButton {*/
+  /*width: 35vh;*/
+  /*margin: auto;*/
+/*}*/
 
-#emptyList .addButton button {
-  width: 35vh;
-  margin-right: auto;
-  margin-left: auto;
-}
+/*#emptyList .addButton button {*/
+  /*width: 35vh;*/
+  /*margin-right: auto;*/
+  /*margin-left: auto;*/
+/*}*/
 
-
-
-.createInShow {
-  padding: 2em 0 0 0;
-}
+/*.createInShow {*/
+  /*padding: 2em 0 0 0;*/
+/*}*/
 
 
 /* mobile adaption for dot show */
