@@ -84,9 +84,8 @@
 .connectBtn, .createToBtn, .connectToUserProfile, .publishHere  {
   margin-top: 0.5em;
   height: 4vh;
-  border-radius: 24px;
   width: auto;
-  padding: inherit;
+  padding: 0 1em;
 }
 
 .checkBtn  {
@@ -133,6 +132,6 @@
 }
 
 
-.ConnectedByOwnerDotz .connectBtn {
+.ConnectedByOwnerDotz .connectBtnsDiv {
   padding-left: 0;
 }
