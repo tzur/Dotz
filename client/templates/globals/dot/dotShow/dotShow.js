@@ -35,7 +35,12 @@ Template.dotShow.onCreated(function() {
 });
 
 Template.dotShow.onRendered(function(){
-  window.scrollTo(0,0);
+
+  Tracker.autorun(function () {
+      FlowRouter.watchPathChange();
+      window.scrollTo(0,0);
+  });
+
 });
 
 Template.dotShow.onDestroyed(function(){
