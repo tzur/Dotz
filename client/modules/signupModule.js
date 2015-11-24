@@ -61,13 +61,11 @@ let _handleSignup = ( template ) => {
                 Bert.alert( 'Username Slug (aka url address ;) already exists ', 'danger' ); //TBD
               }
               else {
+                //TBD: this steps here (for better ux) OR later (for batter safety/stability)
                 _createNewDotForDotProfile ( Meteor.userId() );
-                //tracking the event of singup user
-                analytics.identify( Meteor.userId(), {
-                  email: Meteor.user().emails[0].address,
-                  name: Meteor.user().username
-                });
-                Meteor.call('addOrEditObjectInAlgolia', Meteor.user().profile.userSlug, true);
+                Modal.hide('signUpModal');
+                FlowRouter.go('/' + Meteor.user().profile.userSlug);
+                Bert.alert( 'Welcome!', 'success' );
               }
           });
     }
@@ -89,14 +87,29 @@ let _createNewDotForDotProfile = ( userId ) => {
         if (result){
             Meteor.call('updateUserProfileDotId', Meteor.userId(), result, function(error, result){
                 if (!error) {
-                  Modal.hide('signUpModal');
-                  Bert.alert( 'Welcome!', 'success' );
-                  FlowRouter.go('/' + Meteor.user().profile.userSlug);
-                }
-                else{
+
+                    //APIs:
+
+                    //Mixpanel tracking the event of singup user
+                    analytics.identify( Meteor.userId(), {
+                      email: Meteor.user().emails[0].address,
+                      name: Meteor.user().username
+                    });
+
+                    //Algolia:
+                    Meteor.call('addOrEditObjectInAlgolia', Meteor.user().profile.userSlug, true, function(error, result){
+                        if (error) {
+                          console.log(" addOrEditObjectInAlgolia Error >> " + error);
+                        }
+                    });
+
+                } else {
+                  //TBD: We need to give a good solution for this error :(
                   console.log(" updateUserProfileDotId Error >> " + error);
                 }
             });
+        } else {
+          console.log(" insertDot Error >> " + error);
         }
     });
 };

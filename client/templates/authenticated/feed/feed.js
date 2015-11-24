@@ -30,7 +30,7 @@ Template.feed.helpers({
       expireIn: 5
     });
     self.subs.subscribe('dotCard', this.dot._id);
-    let dot = Dotz.findOne(this.dot._id)
+    let dot = Dotz.findOne(this.dot._id);
 
     if(dot){
       return true;

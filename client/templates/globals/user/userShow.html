@@ -145,21 +145,20 @@
           <div class="row">
               <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
 
-{{#if connectedDotzArray}}
 
                   {{#each connectedDotzArray}}
                     {{> dotCard}}
                   {{/each}}
 
-{{else}}
 
-                <!--fake ListCard-->
+
+{{#if myProfileIsEmpty}}<!--fake ListCard-->
+
 <hr>
 <br>
 
 <div class="col-xs-12 col-sm-10 colCenter" id="emptyProfile">
 
-{{#if isMyProfile}}
     <div class="card col-xs-12 colCenter" id="listCover">
         <div class="container-fluid dot-container-img-listCard"
              style="background-image: url('https://dotz-dev-images.s3.amazonaws.com/sXLnHX3sr8vbeh8KB/dotz_How.jpg')">
@@ -179,17 +178,17 @@
             </div>
         </div>
     </div> <!-- end listCard -->
+</div>
+
 {{/if}}
 
-</div>
 
     <div class="col-xs-12 txtMd">
         <div class="brJo">
-            <br><br><br>
+            <br><br><br><br>
         </div>
     </div>
 
-{{/if}}
 
               </div>
           </div>

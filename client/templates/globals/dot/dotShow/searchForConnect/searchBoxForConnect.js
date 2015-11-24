@@ -5,13 +5,18 @@
 Template.searchBoxForConnect.onCreated(function(){
   Session.set('searchInput',undefined);
   Session.set('searchResult',undefined);
+});
 
+
+Template.searchBoxForConnect.onRendered(function(){
+  $('.btn-tooltip').tooltip();
 });
 
 Template.searchBoxForConnect.onDestroyed(function(){
   Session.set('searchInput',undefined);
   Session.set('searchResult',undefined);
 });
+
 
 Template.searchBoxForConnect.helpers({
   isSearched: function(){
@@ -64,9 +69,26 @@ Template.searchBoxForConnect.helpers({
   isAlreadyConnected: function(){
     return Modules.client.Dotz.canBeConnectedToDot(Template.parentData().dot._id, this._id)
   }
+
 });
 
 Template.searchBoxForConnect.events({
+
+  'click ._createDot':function(){
+    Session.set('parentDot', this.dot._id);
+    //let parentDot = this.dot;
+    //let parentInfo = {slug: FlowRouter.current().path, title: parentDot.title, coverImage: parentDot.coverImageUrl};
+    Modal.show('createDotModal');
+  },
+
+  'click ._createList':function(){
+    //Session.set('parentDot', this.dot._id);
+    //let parentDot = this.dot;
+    //let parentInfo = {slug: FlowRouter.current().path, title: parentDot.title, coverImage: parentDot.coverImageUrl};
+    Session.set('parentDot', this.dot._id);
+    Modal.show('createListModal');
+  },
+
   'keyup #searchBoxInput': function(event){
     $('#searchBoxInput').bind("keypress", function(e) {
       if (e.keyCode == 13) {
@@ -76,5 +98,6 @@ Template.searchBoxForConnect.events({
     });
     Session.set('searchInput', event.target.value);
   }
+
 });
 
