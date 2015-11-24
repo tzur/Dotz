@@ -4,11 +4,11 @@ Template.feed.onCreated(function(){
 });
 Template.feed.helpers({
   feedDotz: function(){
-    if (Meteor.user().profile.feedDotz){
+    if (Meteor.user().profile && Meteor.user().profile.feedDotz){
       //Reverse the array in the fastest way according to stackOverFlow:
-      let tempArray = Meteor.user().profile;
+      let tempArray = Meteor.user().profile.feedDotz;
       let oppositeArray = [];
-      let i = tempArray.feedDotz.length -1;
+      let i = tempArray.length -1;
       while(i > -1){
         oppositeArray.push(tempArray[i]);
         i--;
@@ -30,7 +30,7 @@ Template.feed.helpers({
       expireIn: 5
     });
     self.subs.subscribe('dotCard', this.dot._id);
-    let dot = Dotz.findOne(this.dot._id)
+    let dot = Dotz.findOne(this.dot._id);
 
     if(dot){
       return true;
