@@ -251,6 +251,12 @@ Template.dotCard.events({
 
   'click .delete':function(event){
     Modules.both.Dotz.deleteDot(this.dot, this.smartRef.connection.toParentDotId);
+  },
+
+  //TBD - reset the search in page result in other way
+  'click ._setCurrentPath': function(){
+    Session.set('searchInput',undefined);
+    $('#searchBoxInput').val("")
   }
 
 });
