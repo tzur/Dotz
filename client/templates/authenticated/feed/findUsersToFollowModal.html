@@ -20,10 +20,21 @@
                                     <p>Welcome :)  Here are some suggestions for you. We recommend following all of them!</p>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-4 pull-right">
-                                    <a href=""><button class="btn round btn-primary btn-sm pull-right" id="exitBtn">
-                                        Follow All & continue
+                                <div class="col-xs-12 col-sm-6 pull-right">
+                                    <a href=""><button class="btn round btn-primary btn-sm pull-right" id="continueBtn">
+                                      {{numberOfUsersToFollow}}
                                     </button></a>
+                                  {{#unless isUserAlreadySelectedAll}}
+                                    <a href=""><button class="btn round btn-default btn-sm pull-right" id="selectAllUsersToFollow">
+                                        <i class="fa fa-square-o"></i> Select All
+                                    </button></a>
+
+                                  {{else}}
+                                      <a href=""><button class="btn round btn-default btn-sm pull-right" id="deSelectAllUsersToFollow">
+                                          <i class="fa fa-check-square-o"></i> Select All
+                                      </button></a>
+                                  {{/unless}}
+
 
                                 </div>
 
