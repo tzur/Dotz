@@ -5,6 +5,6 @@ Meteor.methods({
   checkIfUserAuthoriseForConnect(dotId){
     check(dotId, String);
     let dot = Dotz.findOne(dotId);
-    return (dot.isOpen || dot.ownerUserId)
+    return ( dot.isOpen || ( dot.ownerUserId === Meteor.userId() ) )
   }
 });

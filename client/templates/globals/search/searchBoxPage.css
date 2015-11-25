@@ -28,8 +28,21 @@
   border-radius: 24px;
 }
 
+.search-container {
+  padding: 4vh;
+}
+
+
+.search-container .lg-form {
+  font-size: 1em;
+  /*line-height: 2em;*/
+  height: 4vh;
+  padding: 1em;
+  min-width: 40vh;
+}
+
 #search-icon {
-  font-size: 1.5em;
+  font-size: 1em;
   color: #cccccc;
   right: 10px;
   top: 10px;
@@ -41,9 +54,6 @@
   min-height: 20vh;
 }
 
-.search-container {
-  padding-top: 3em;
-}
 
 
 .search-results-row {

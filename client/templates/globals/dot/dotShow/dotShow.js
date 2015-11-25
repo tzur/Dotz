@@ -35,7 +35,12 @@ Template.dotShow.onCreated(function() {
 });
 
 Template.dotShow.onRendered(function(){
-  window.scrollTo(0,0);
+
+  Tracker.autorun(function () {
+      FlowRouter.watchPathChange();
+      window.scrollTo(0,0);
+  });
+
 });
 
 Template.dotShow.onDestroyed(function(){
@@ -64,6 +69,10 @@ Template.dotShow.helpers({
   isListShow: function() {
 
     return (this.dot.dotType === "List")
+  },
+
+  isEmptyList: function() {
+    return ( (this.dot.dotType === "List") && (this.dot.connectedDotzArray.length === 0) )
   },
 
   isMyDot: function() {
@@ -125,28 +134,20 @@ Template.dotShow.helpers({
   },
 
   addDotIsAvailable: function() {
-    return (this.dot.isOpen || (this.dot.ownerUserId === Meteor.userId) )
+    return (this.dot.isOpen || ( this.dot.ownerUserId === Meteor.userId() ) )
+  },
+
+  dataForCreateHere: function() {
+      return ( {
+        dot: {_id: this.dot._id}
+      });
   }
+
 });
 
 Template.dotShow.events({
 
-  'click #_createDotFromList':function(){
-    Session.set('parentDot', this.dot._id);
-    //let parentDot = this.dot;
-    //let parentInfo = {slug: FlowRouter.current().path, title: parentDot.title, coverImage: parentDot.coverImageUrl};
-    Modal.show('createDotModal');
-
-  },
-
-  'click #_createListFromList':function(){
-    //Session.set('parentDot', this.dot._id);
-    //let parentDot = this.dot;
-    //let parentInfo = {slug: FlowRouter.current().path, title: parentDot.title, coverImage: parentDot.coverImageUrl};
-    Session.set('parentDot', this.dot._id);
-    Modal.show('createListModal');
-
-  },
+  //
 
   'click .connect': function(){
     if(Meteor.user()) {

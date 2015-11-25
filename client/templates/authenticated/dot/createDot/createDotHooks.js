@@ -43,13 +43,23 @@ let dotHooks = {
 
   },
 
+  after: {
+    method: function(error, result) {
+      if(!error){
+        Modal.hide("createDotModal");
+      }
+      else{
+        console.log("Create dot failed in after hook: Error: " + error)
+      }
+    }
+  },
+
   onSuccess: function(update, result){
+    Session.set('searchInput', undefined);
     Session.set("parentDot", undefined);
     Session.set("locationObject", undefined);
     Session.set("dotType", undefined);
-    Modal.hide("createDotModal");
     Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
-    console.log("############# THIS is " + this.currentDoc);
     Meteor.call('addOrEditObjectInAlgolia', result, false);
     FlowRouter.go('/' + (Session.get('redirectAfterCreate')));
     setTimeout(function(){
@@ -57,6 +67,8 @@ let dotHooks = {
       $('html, body').animate({ scrollTop: n }, 1000);
     }, 1000);
     Session.set('redirectAfterCreate', undefined )
+
+
   }
 };
 
