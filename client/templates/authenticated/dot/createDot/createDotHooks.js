@@ -54,6 +54,12 @@ let dotHooks = {
     }
   },
 
+  onError: function(method, error){
+    if(error){
+      Session.set('parentDot', undefined)
+    }
+  },
+
   onSuccess: function(update, result){
     Session.set('searchInput', undefined);
     Session.set("parentDot", undefined);
