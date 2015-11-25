@@ -1,4 +1,5 @@
 Template.createDotModal.onCreated(function(){
+  Session.set('spinnerOn', false);
   var self = this;
   self.autorun(function(){
     if(Meteor.userId()){
@@ -17,6 +18,7 @@ Template.createDotModal.onRendered(function(){
   Session.set("dotType", "Dot");
   //tagsArray = Tools.findOne({docName: "dotzTags"});
   //Meteor.typeahead(".typeahead", tagsArray.tags);
+
 
 
   //$('#myTabs a').click(function (e) {
@@ -40,6 +42,7 @@ Template.createDotModal.onDestroyed(function(){
   Session.set('coverImageUrl', undefined);
   Session.set('dotType', undefined);
   Session.set('parentDot', undefined);
+  Session.set('spinnerOn', false);
 
 
 });
@@ -71,7 +74,10 @@ Template.createDotModal.helpers({
   },
 
   isParentDotSet: function(){
-   return (Session.get('parentDot')) ;
+   return (Session.get('parentDot'));
+  },
+  isSpinnerOn: function(){
+    return Session.get('spinnerOn');
   }
 });
 
@@ -105,13 +111,13 @@ Template.createDotModal.events({
   'change #addDotImageWraper input[type="file"]': function(){
     Session.set('coverImageUrl', undefined);
     Tracker.autorun(function(c) {
-      document.getElementById("publishToMyProfile").disabled = true;
+      document.getElementById("publishButton").disabled = true;
       if(document.getElementById("createToMyLists")){
         document.getElementById("createToMyLists").disabled = true;
       }
       if (Session.get('coverImageUrl')) {
         c.stop();
-        document.getElementById("publishToMyProfile").disabled = false;
+        document.getElementById("publishButton").disabled = false;
         if(document.getElementById("createToMyLists")){
           document.getElementById("createToMyLists").disabled = false;
         }
@@ -129,6 +135,9 @@ Template.createDotModal.events({
 
   'change input[type="file"]' ( event, template ) {
     Modules.client.uploadToAmazonS3( { event: event, template: template } );
+  },
+  'click #publishButton': function(){
+    Session.set('spinnerOn', true);
   }
 
 });

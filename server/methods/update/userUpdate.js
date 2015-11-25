@@ -51,7 +51,6 @@ Meteor.methods({
   _addRecentDotzWhenFollowing(followingUserId, followedUserId){
     check(followingUserId, String);
     check(followedUserId, String);
-    console.log("############################################# im in _addRecentDotzWhenFollowing");
 
     let followedUser = Meteor.users.findOne(followedUserId);
     let dotzIdArray = [];
@@ -72,14 +71,12 @@ Meteor.methods({
       dotzIdArray.forEach(function(dotId){
         let dot;
         dot = Dotz.findOne(dotId);
-        console.log(dot);
         if(dot){
           let smartRef = new Modules.both.Dotz.smartRef(dotId, dot.ownerUserId, followedUser.profile.profileDotId, CREATE_ACTION, followedUserId);
           if(smartRef) {
             Meteor.call('updateFeed', smartRef, followingUserId);
           }
         }
-
           //console.log(smartRef);
           //let updateOptions = {
           //  $addToSet: {"profile.feedDotz": smartRef}

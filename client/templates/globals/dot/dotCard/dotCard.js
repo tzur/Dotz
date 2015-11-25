@@ -11,11 +11,11 @@ Template.dotCard.onCreated(function(){
         self.subs.subscribe('user', self.data.connection.connectedByUserId);
 
         self.autorun(function(){
-          if (Session.get('createdData')){
-            self.subs.subscribe('dotCard', Session.get('createdData').dot._id);
-            self.subs.subscribe('user', Session.get('createdData').dot.ownerUserId);
-            self.subs.subscribe('user', Session.get('createdData').connection.connectedByUserId);
-            Session.set('createdData', false);
+          if (Session.get('dotInsideToListsBug')){
+            self.subs.subscribe('dotCard', Session.get('dotInsideToListsBug').dot._id);
+            self.subs.subscribe('user', Session.get('dotInsideToListsBug').dot.ownerUserId);
+            self.subs.subscribe('user', Session.get('dotInsideToListsBug').connection.connectedByUserId);
+            Session.set('dotInsideToListsBug', false);
           }
         });
 

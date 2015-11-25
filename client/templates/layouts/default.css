@@ -15,29 +15,3 @@ a button:active :after {
 }
 
 
-/*  spinners division */
-
-.spinner {
-  display: inline-block;
-  opacity: 0;
-  max-width: 0;
-
-  -webkit-transition: opacity 0.25s, max-width 0.45s;
-  -moz-transition: opacity 0.25s, max-width 0.45s;
-  -o-transition: opacity 0.25s, max-width 0.45s;
-  transition: opacity 0.25s, max-width 0.45s fast;
-
-  -webkit-animation: spin 1000ms infinite linear;
-  animation: spin 1000ms infinite linear;
-  /* Duration fixed since we animate additional hidden width */
-}
-
-.has-spinner.active {
-  cursor:progress;
-}
-
-.has-spinner.active .spinner {
-  opacity: 1;
-  max-width: 50px; /* More than it will ever come, notice that this affects on animation duration */
-}
-

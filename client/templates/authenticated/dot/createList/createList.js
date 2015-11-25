@@ -1,5 +1,6 @@
 Template.createListModal.onCreated(function(){
   var self = this;
+  Session.set('spinnerOn', false);
   self.autorun(function(){
     if(Meteor.userId()){
       self.subscribe('profileDot', Meteor.userId());
@@ -10,7 +11,6 @@ Template.createListModal.onCreated(function(){
     }
   });
 });
-
 
 Template.createListModal.onRendered(function(){
   Session.set("dotType", "List");
@@ -23,9 +23,7 @@ Template.createListModal.onDestroyed(function(){
   Session.set('coverImageUrl', undefined);
   Session.set('dotType', undefined);
   Session.set('parentDot', undefined);
-
-
-
+  Session.set('spinnerOn', false);
 });
 
 
@@ -56,6 +54,9 @@ Template.createListModal.helpers({
 
   isParentDotSet: function(){
     return (Session.get('parentDot')) ;
+  },
+  isSpinnerOn: function(){
+    return Session.get('spinnerOn');
   }
   //dotType: function(){
   //  console.log("im running");
@@ -106,20 +107,22 @@ Template.createListModal.events({
 
   'change input[type="file"]' ( event, template ) {
     Tracker.autorun(function(c) {
-      document.getElementById("publishToMyProfile").disabled = true;
-      if(document.getElementById("publishListToMyLists")){
-        document.getElementById("publishListToMyLists").disabled = true;
+      document.getElementById("publishButton").disabled = true;
+      if(document.getElementById("publishButton")){
+        document.getElementById("publishButton").disabled = true;
       }
       if (Session.get('coverImageUrl')) {
         c.stop();
-        document.getElementById("publishToMyProfile").disabled = false;
-        if(document.getElementById("publishListToMyLists")){
-          document.getElementById("publishListToMyLists").disabled = false;
+        document.getElementById("publishButton").disabled = false;
+        if(document.getElementById("publishButton")){
+          document.getElementById("publishButton").disabled = false;
         }
       }
     });
     Modules.client.uploadToAmazonS3( { event: event, template: template } );
+  },
+  'click #publishButton': function(){
+    Session.set('spinnerOn', true);
   }
-
 });
 

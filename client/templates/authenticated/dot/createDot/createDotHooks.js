@@ -43,16 +43,16 @@ let dotHooks = {
 
   },
 
-
-
   onError: function(method, error){
     if(error){
       Session.set('parentDot', undefined)
     }
+    Session.set('spinnerOn', false);
   },
 
   onSuccess: function(update, result){
     Modal.hide();
+    Session.set('spinnerOn', false);
     Session.set('searchInput', undefined);
     Session.set("parentDot", undefined);
     Session.set("locationObject", undefined);

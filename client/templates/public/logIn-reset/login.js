@@ -1,15 +1,20 @@
 Template.login.onRendered( () => {
   Modules.client.login( { form: "#login", template: Template.instance() } );
 });
-
+Template.login.onCreated(function(){
+  Session.set('spinnerOn', false);
+});
+Template.login.helpers({
+  isSpinnerOn: function(){
+    return Session.get('spinnerOn');
+  }
+});
 Template.login.events({
-  'submit form': ( event ) => event.preventDefault(),
+  'click #loginButton': function(event){
+  //event.preventDefault();
+  Session.set('spinnerOn', true);
 
-  //'click #switch-signup-modal': function(){
-  //  Modal.hide('loginModal');
-  //  Modal.show('signUpModal');
-  //}
-
+  } ,
   'click #switchToSignUp': function() {
     Modal.show('signUpModal');
   }

@@ -451,7 +451,8 @@ pre {
 #dotShowFooter {
   /*background-color: rgba(0, 0, 0, 0.1);*/
   margin-top: 5vh;
-  padding: 2vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   min-height: 20vh;
 }
 
