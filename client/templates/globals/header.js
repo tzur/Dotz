@@ -17,10 +17,14 @@ Template.header.helpers({
 
 Template.header.events({
   'click .logout' () {
+    Bert.alert( 'Logging out...', 'success' );
     Meteor.logout( ( error ) => {
       if ( error ) {
         Bert.alert( error.reason, 'warning' );
       } else {
+        setTimeout(function(){
+          window.location.reload();
+        },700);
         Bert.alert( 'Logged out!', 'success' );
       }
     });

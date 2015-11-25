@@ -35,7 +35,6 @@ Template.dotShow.onCreated(function() {
 });
 
 Template.dotShow.onRendered(function(){
-
   Tracker.autorun(function () {
       if(FlowRouter.watchPathChange()){
         window.scrollTo(0,0);
@@ -173,10 +172,9 @@ Template.dotShow.events({
     });
   },
 
-  'click .delete':function(event){
+  'click .deleteShow':function(event){
       Modules.both.Dotz.deleteDot(this.dot, this.dot.inDotz[0]);
       window.history.back();
-
   },
 
   'click #addUserConnection': function(){

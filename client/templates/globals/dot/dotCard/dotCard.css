@@ -329,6 +329,7 @@
   color: #FFFFFF;
   font-size: 1.5em;
   text-align: center;
+  text-transform: uppercase;
 }
 
 
@@ -437,6 +438,9 @@
 }
 
 #pre-delete-menu .delete i {
+  color: #d9534f;
+}
+#pre-delete-menu .deleteShow i {
   color: #d9534f;
 }
 
