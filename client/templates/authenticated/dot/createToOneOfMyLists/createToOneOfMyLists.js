@@ -32,12 +32,5 @@ Template.createToOneOfMyLists.events({
     //Session.set('lastPath', parentInfo);
     Session.set('parentDot', this._id);
     $('#publishToMyProfile').trigger('click');
-  },
-
-  'click .ConnectedByOwnerDotz': function () {
-    Session.set('parentDot', this._id);
-    $('#publishListToMyProfile').trigger('click');
   }
-
-
 });
