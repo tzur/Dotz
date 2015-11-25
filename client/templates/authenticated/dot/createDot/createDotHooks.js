@@ -42,15 +42,11 @@ let dotHooks = {
     }
 
   },
-
-
-
   onError: function(method, error){
     if(error){
       Session.set('parentDot', undefined)
     }
   },
-
   onSuccess: function(update, result){
     Modal.hide();
     Session.set('searchInput', undefined);
