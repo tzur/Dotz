@@ -21,16 +21,30 @@
                                 </div>
 
                                 <div class="col-xs-12 col-sm-6 pull-right">
-                                    <a href=""><button class="btn round btn-primary btn-sm pull-right" id="continueBtn">
-                                      {{numberOfUsersToFollow}}
-                                    </button></a>
+                                    <a href="">
+
+                            {{#if spinnerIsOn}}
+                                <button class="btn round btn-primary btn-xs has-spinner active pull-right" id="continueBtn">{{numberOfUsersToFollow}}</button>
+
+
+                            {{else}}
+
+                                <button class="btn transparent round btn-primary btn-xs has-spinner active pull-right" id="continueBtn">
+                                    <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>{{numberOfUsersToFollow}}</button>
+
+                            {{/if}}
+
+                                    </a>
+
+
+
                                   {{#unless isUserAlreadySelectedAll}}
-                                    <a href=""><button class="btn round btn-default btn-sm pull-right" id="selectAllUsersToFollow">
+                                    <a href=""><button class="btn round btn-default btn-xs pull-right" id="selectAllUsersToFollow">
                                         <i class="fa fa-square-o"></i> Select All
                                     </button></a>
 
                                   {{else}}
-                                      <a href=""><button class="btn round btn-default btn-sm pull-right" id="deSelectAllUsersToFollow">
+                                      <a href=""><button class="btn round btn-default btn-xs pull-right" id="deSelectAllUsersToFollow">
                                           <i class="fa fa-check-square-o"></i> Select All
                                       </button></a>
                                   {{/unless}}

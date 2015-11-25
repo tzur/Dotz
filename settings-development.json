@@ -2,11 +2,15 @@
   "AWSAccessKeyId": "AKIAIFKF7WSPFRS2LUAQ",
   "AWSSecretAccessKey": "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",
   "AWSBucket": "dotz-dev-images",
-
-
   "public": {
     "analyticsSettings": {
-      "Google Analytics" : {"trackingId": "UA-63151429-1"}
+      "Google Analytics": {
+        "trackingId": "UA-63151429-1"
+      }
     }
+  },
+  "kadira": {
+    "appId": "gT2NKqsZAve8TPD5S",
+    "appSecret": "75e89035-b332-45c0-9865-e4321a5de1a7"
   }
 }

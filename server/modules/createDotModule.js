@@ -57,7 +57,6 @@ Meteor.methods({
 
           let smartRef = new Modules.both.Dotz.smartRef(dotId, Meteor.userId() ,doc.inDotz[0], CREATE_ACTION, doc.ownerUserId);
           Modules.both.Dotz.connectDot(smartRef);
-
           if( dotSlug && (doc.dotType === "List") ){
             Meteor.call('updateCreatedByUserLists', Meteor.userId(), dotId, function (error, result) {
               if (error) {

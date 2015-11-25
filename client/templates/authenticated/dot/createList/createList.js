@@ -16,6 +16,9 @@ Template.createListModal.onRendered(function(){
   Session.set("dotType", "List");
   Modules.client.Dotz.limitCharactersAndCounter('#titleField', 50, '#titleFieldFeedback');
   Modules.client.Dotz.limitCharactersAndCounter('#descriptionField', 100, '#descriptionFieldFeedback');
+
+
+
 });
 
 Template.createListModal.onDestroyed(function(){
