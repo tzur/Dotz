@@ -19,6 +19,7 @@ Template.createDotModal.onRendered(function(){
   //Meteor.typeahead(".typeahead", tagsArray.tags);
 
 
+
   //$('#myTabs a').click(function (e) {
   //  e.preventDefault();
   //  $(this).tab('show')

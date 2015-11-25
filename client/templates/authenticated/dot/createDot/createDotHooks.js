@@ -48,10 +48,17 @@ let dotHooks = {
       if(!error){
         Modal.hide("createDotModal");
       }
-      else{
+      else if (error){
+        Session.set("parentDot", undefined);
         console.log("Create dot failed in after hook: Error: " + error)
       }
     }
+  },
+
+
+  onError: function (method, error) {
+    Session.set("parentDot", undefined);
+    console.log("sission " + Session.set("parentDot", undefined) );
   },
 
   onSuccess: function(update, result){

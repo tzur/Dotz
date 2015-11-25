@@ -17,6 +17,18 @@ Template.createToOneOfMyLists.onCreated(function(){
   });
 
 });
+
+Template.createToOneOfMyLists.onRendered(function(){
+
+  // spinner
+  $(function(){
+    $('a, button').click(function() {
+      $(this).toggleClass('active');
+    });
+  });
+
+});
+
 Template.createToOneOfMyLists.helpers({
 
   userProfileListsArray: function() {
@@ -32,11 +44,6 @@ Template.createToOneOfMyLists.events({
     //Session.set('lastPath', parentInfo);
     Session.set('parentDot', this._id);
     $('#publishToMyProfile').trigger('click');
-  },
-
-  'click .ConnectedByOwnerDotz': function () {
-    Session.set('parentDot', this._id);
-    $('#publishListToMyProfile').trigger('click');
   }
 
 
