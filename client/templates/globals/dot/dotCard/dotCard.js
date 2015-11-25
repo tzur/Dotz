@@ -1,5 +1,6 @@
 Template.dotCard.onCreated(function(){
         let self = this;
+        Session.set('dotInsideToListsBug', false);
         self.subs = new SubsManager({
         // maximum number of cache subscriptions
         cacheLimit: 10,
@@ -9,15 +10,6 @@ Template.dotCard.onCreated(function(){
         self.subs.subscribe('dotCard', self.data.dot._id);
         self.subs.subscribe('user', self.data.dot.ownerUserId);
         self.subs.subscribe('user', self.data.connection.connectedByUserId);
-
-        self.autorun(function(){
-          if (Session.get('dotInsideToListsBug')){
-            self.subs.subscribe('dotCard', Session.get('dotInsideToListsBug').dot._id);
-            self.subs.subscribe('user', Session.get('dotInsideToListsBug').dot.ownerUserId);
-            self.subs.subscribe('user', Session.get('dotInsideToListsBug').connection.connectedByUserId);
-            Session.set('dotInsideToListsBug', false);
-          }
-        });
 
 });
 
@@ -37,9 +29,11 @@ Template.dotCard.helpers({
         ownerUser: Meteor.users.findOne(this.dot.ownerUserId),
         connectedByUser: Meteor.users.findOne(this.connection.connectedByUserId)
       };
-
+      let subsManager = Template.instance();
       if(!data.dot){
-        Session.set('dotInsideToListsBug', this);
+        subsManager.subs.subscribe('dotCard', this.dot._id);
+        subsManager.subs.subscribe('user', this.dot.ownerUserId);
+        subsManager.subs.subscribe('user', this.connection.connectedByUserId);
       }
       return data;
     }
