@@ -43,37 +43,28 @@ let dotHooks = {
 
   },
 
-  after: {
-    method: function(error, result) {
-      if(!error){
-        Modal.hide("createDotModal");
-      }
-      else if (error){
-        Session.set("parentDot", undefined);
-        console.log("Create dot failed in after hook: Error: " + error)
-      }
+  onError: function(method, error){
+    if(error){
+      Session.set('parentDot', undefined)
     }
   },
 
-
-  onError: function (method, error) {
-    Session.set("parentDot", undefined);
-    console.log("sission " + Session.set("parentDot", undefined) );
-  },
-
   onSuccess: function(update, result){
+    Modal.hide();
     Session.set('searchInput', undefined);
     Session.set("parentDot", undefined);
     Session.set("locationObject", undefined);
     Session.set("dotType", undefined);
     Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
     Meteor.call('addOrEditObjectInAlgolia', result, false);
+
     FlowRouter.go('/' + (Session.get('redirectAfterCreate')));
     setTimeout(function(){
       var n = $(document).height();
       $('html, body').animate({ scrollTop: n }, 1000);
     }, 1000);
     Session.set('redirectAfterCreate', undefined )
+    console.log("on success end");
 
 
   }

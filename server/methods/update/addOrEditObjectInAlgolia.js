@@ -6,7 +6,7 @@ Meteor.methods({
     check(docSlug, String);
     check(isUser, Boolean);
     if(process.env.NODE_ENV === "production"){
-      console.log("im in" + process.env.NODE_ENV)
+      console.log("im in" + process.env.NODE_ENV);
 
       let array;
       let docIndex;
@@ -15,7 +15,6 @@ Meteor.methods({
       var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
 
       if (isUser){
-        console.log("@@@@@@@@@@@@@@@@@@@" + docSlug);
         let currentDoc = Meteor.users.findOne({"profile.userSlug": docSlug});
         currentDoc.objectID = currentDoc._id;
 
@@ -52,30 +51,26 @@ Meteor.methods({
       });
     }
     else{
-      console.log("im here" + process.env.NODE_ENV)
+      console.log("im here" + process.env.NODE_ENV);
       return false
     }
 
   },
 
-  deleteDotzFromAlgolia(dotId){
+  deleteDotzFromAlgolia(dotId, dotType){
     check(dotId, String);
     var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
     let objectIndex;
     let dot;
+    let index;
 
-    dot = Dotz.findOne(dotId);
-    if(dot.dotType === 'List'){
-      objectIndex = "Lists"
+    if(dotType === "Dot"){
+      index = client.initIndex("Dotz");
     }
     else{
-      objectIndex = "Dotz"
+      index = client.initIndex("Lists");
     }
 
-
-
-
-    var index = client.initIndex('Dotz');
 
 // array contains the data you want to save in the index
 

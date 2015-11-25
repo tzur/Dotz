@@ -45,6 +45,4 @@ Template.createToOneOfMyLists.events({
     Session.set('parentDot', this._id);
     $('#publishToMyProfile').trigger('click');
   }
-
-
 });

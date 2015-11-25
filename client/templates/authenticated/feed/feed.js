@@ -1,6 +1,16 @@
 Template.feed.onCreated(function(){
   DocHead.setTitle("Dotz: " + "Feed");
+  Session.set('feedDotzNumber', 10);
 
+});
+Template.feed.onRendered(function(){
+  let currentScrollVar = 1000;
+  $(window).scroll(function() {
+    if (document.body.scrollTop > currentScrollVar ) {
+      currentScrollVar += 1000;
+      Session.set('feedDotzNumber', Session.get('feedDotzNumber') + 10);
+    }
+  })
 });
 Template.feed.helpers({
   feedDotz: function(){
@@ -13,13 +23,18 @@ Template.feed.helpers({
         oppositeArray.push(tempArray[i]);
         i--;
       }
-      return oppositeArray;
+      Session.set('feedArray', oppositeArray);
+      if (Session.get('feedArray')){
+        return true
+      }
     }
     else{
       Modal.show('findUsersToFollowModal');
     }
   },
-
+  renderFeedDotz: function(){
+    return Session.get('feedArray').slice(0, Session.get('feedDotzNumber'));
+  },
   //TBD do it
   isDotValid: function(){
     let self = this;
@@ -30,8 +45,8 @@ Template.feed.helpers({
       expireIn: 5
     });
     self.subs.subscribe('dotCard', this.dot._id);
+    self.subs.subscribe('user', this.dot.ownerUserId);
     let dot = Dotz.findOne(this.dot._id);
-
     if(dot){
       return true;
     }
