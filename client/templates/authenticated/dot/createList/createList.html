@@ -128,12 +128,12 @@
                                 <div class="btns-create-dot-row">
                                     <div class="btns-create-dot">
 
-                                {{#if spinnerIsOn}}
+                                {{#if isSpinnerOn}}
 
-                                        <button id="publishToMyProfile" type="submit" class="createBtn insert transparent btn round btn-primary _publishToCurrentList has-spinner active">
+                                        <button id="publishButton" type="submit" class="createBtn insert transparent btn round btn-primary _publishToCurrentList has-spinner active">
                                             <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>Publish Here</button>
                                 {{else}}
-                                        <button id="publishToMyProfile" type="submit" class="createBtn insert btn round btn-primary _publishToCurrentList">Publish Here</button>
+                                        <button id="publishButton" type="submit" class="createBtn insert btn round btn-primary _publishToCurrentList">Publish Here</button>
                                 {{/if}}
 
                                     </div>
@@ -145,13 +145,13 @@
                                 <div class="col-xs-12 btns-create-dot-row">
                                     <div class="btns-create-dot">
 
-                                {{#if spinnerIsOn}}
+                                {{#if isSpinnerOn}}
 
-                                      <button id="publishToMyProfile" type="submit" class="createBtn transparent insert btn round btn-primary has-spinner active">
+                                      <button id="publishButton" type="submit" class="createBtn transparent insert btn round btn-primary has-spinner active">
                                           <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>Publish</button>
 
                                 {{else}}
-                                      <button id="publishToMyProfile" type="submit" class="createBtn insert btn round btn-primary">Publish</button>
+                                      <button id="publishButton" type="submit" class="createBtn insert btn round btn-primary">Publish</button>
                                 {{/if}}
 
                                         {{#if currentUser.profile.createdByUserLists}}
