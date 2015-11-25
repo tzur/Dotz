@@ -6,17 +6,19 @@ Template.dotCard.onCreated(function(){
         // any subscription will be expire after 5 minute, if it's not subscribed again
         expireIn: 5
       });
-       self.subs.subscribe('dotCard', this.data.dot._id);
-       self.subs.subscribe('user', this.data.dot.ownerUserId);
-       self.subs.subscribe('user', this.data.connection.connectedByUserId);
-       self.autorun(function(){
-         if(Session.get('dotInsideToListsBug')){
-           self.subs.subscribe('dotCard', Session.get('dotInsideToListsBug').dot._id);
-           self.subs.subscribe('user', Session.get('dotInsideToListsBug').dot.ownerUserId);
-           self.subs.subscribe('user', Session.get('dotInsideToListsBug').connection.connectedByUserId);
-           Session.set('dotInsideToListsBug', false)
-         }
-       })
+        self.subs.subscribe('dotCard', self.data.dot._id);
+        self.subs.subscribe('user', self.data.dot.ownerUserId);
+        self.subs.subscribe('user', self.data.connection.connectedByUserId);
+
+        self.autorun(function(){
+          if (Session.get('createdData')){
+            self.subs.subscribe('dotCard', Session.get('createdData').dot._id);
+            self.subs.subscribe('user', Session.get('createdData').dot.ownerUserId);
+            self.subs.subscribe('user', Session.get('createdData').connection.connectedByUserId);
+            Session.set('createdData', false);
+          }
+        });
+
 });
 
 
@@ -28,12 +30,14 @@ Template.dotCard.helpers({
   //},
   dataCard: function(){
     if (this.dot){
+
       let data = {
         dot: Dotz.findOne(this.dot._id),
         smartRef: this,
         ownerUser: Meteor.users.findOne(this.dot.ownerUserId),
         connectedByUser: Meteor.users.findOne(this.connection.connectedByUserId)
       };
+
       if(!data.dot){
         Session.set('dotInsideToListsBug', this);
       }
