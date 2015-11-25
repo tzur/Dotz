@@ -59,6 +59,7 @@ Meteor.methods({
 
   deleteDotzFromAlgolia(dotId, dotType){
     check(dotId, String);
+    check(dotType, String);
     var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
     let objectIndex;
     let dot;

@@ -54,7 +54,7 @@ let _handleSignup = ( template ) => {
 
       else {
           let username = Meteor.user().username;
-          let slug = username.replace(/ /g, "").toLowerCase();
+          let slug = username.replace(/ /g, "-").toLowerCase();
           Meteor.call('updateUserSlug', Meteor.userId(), slug, function(error, result) {
               //TBD:
               if (error) {
