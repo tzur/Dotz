@@ -1,0 +1,60 @@
+.modal-sm {
+  width: 300px;
+}
+
+#login {
+  padding-top: 2vh;
+}
+
+#loginButton{
+  width: 100%;
+  height: 5vh;
+}
+
+
+#login .or-wrapper {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  position: relative;
+  display: block;
+  /*margin-bottom: 30px;*/
+  margin-top: 0;
+  margin-bottom: 3vh;
+}
+
+#login .or-text {
+  position: absolute;
+  left: 46%;
+  top: 0;
+  background: #fff;
+  padding: 10px;
+}
+
+.loginWithBtn {
+  width: 100%;
+  height: 5vh;
+  margin-bottom: 1vh;
+}
+
+#loginFacebookBtn {
+  background: linear-gradient(to bottom,#3f5fa3 0,#3B5998 100%);
+  border: 1px solid #324c82;
+  color: #fff;
+  text-shadow: 0 0 1px rgba(0,0,0,.3);
+}
+
+#loginGoogleBtn {
+  background: linear-gradient(#f87474, #e65858);
+  border: 1px solid #e34242;
+  /*border-top-color: #e65858;*/
+  color: #fff;
+  text-shadow: 0 0 1px rgba(0,0,0,.3);
+}
+
+#loginTwitterkBtn {
+  background: linear-gradient(to bottom,#63b3ef 0,#55acee 100%);
+  border: 1px solid #399eeb;
+  color: #fff;
+  text-shadow: 0 0 1px rgba(0,0,0,.3);
+}
+

@@ -1,4 +1,6 @@
 <template name="dotShow">
+
+
 {{#with dotShow}}
 
       <div></div>
@@ -45,6 +47,9 @@
 
                     <div class="col-xs-4 col-md-5 col-md-4 pull-right txtR">
 
+                <!--<a class="closeToOpen"> GO TO TOPEN</a>-->
+                <!--<a class="openToClose">GO TO CLOSEEEE</a>-->
+
                       {{#if isMyDot}}
                           <span>
                             <a class="panelBtn dropdown-toggle btn btn-default btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,6 +80,7 @@
 
                 </div>
 
+
             </div>
 
 
@@ -92,7 +98,8 @@
             <div class="col-sm-7 postImgCover" style="background-image: url('{{dot.coverImageUrl}}')">
 
             </div>
-
+            <!--<a class="closeToOpen"> GO TO OPEN</a>-->
+            <!--<a class="openToClose">GO TO CLOSE</a>-->
             <div class="col-sm-4 dot-show-main-details">
 
                 <div class="row dot-title">

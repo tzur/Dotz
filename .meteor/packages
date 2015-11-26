@@ -58,4 +58,8 @@ dfischer:phantomjs
 kadira:dochead
 acemtp:algolia
 mdg:geolocation
+service-configuration
+http
+email
+coffeescript
 meteorhacks:kadira

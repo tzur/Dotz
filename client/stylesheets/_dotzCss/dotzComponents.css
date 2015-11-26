@@ -27,7 +27,7 @@
 }
 
 .has-spinner.active {
-  cursor:progress;
+  cursor: progress;
   position: relative;
 }
 

@@ -32,6 +32,7 @@ let _handleRecovery = ( template ) => {
       Bert.alert( error.reason, 'warning' );
     } else {
       Bert.alert( 'Check your inbox for a reset link!', 'success' );
+      Modal.hide();
     }
   });
 };
