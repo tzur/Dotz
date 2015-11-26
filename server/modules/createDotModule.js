@@ -30,6 +30,9 @@ Meteor.methods({
 
   createDot(doc){
     check(doc, Schema.dotSchema);
+    if (!Meteor.userId()){
+      return false;
+    }
     if(doc.location){
       check(doc.location, Schema.location);
     }
