@@ -110,8 +110,11 @@ Template.dotShow.helpers({
       if (connectedDotz === 0) {
         return false;
       }
-      else {
-        return ( connectedDotz );
+      else if (connectedDotz === 1) {
+        return ("1 Dot")
+      }
+      else if (connectedDotz > 1) {
+        return ( connectedDotz + " Dotz" );
       }
 
   },
