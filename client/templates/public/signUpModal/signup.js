@@ -4,13 +4,19 @@ Template.signup.onRendered( () => {
     template: Template.instance()
   });
 });
-
+Template.signup.onCreated(function(){
+  Session.set('spinnerOn', false);
+});
+Template.signup.helpers({
+  isSpinnerOn: function(){
+    return Session.get('spinnerOn');
+  }
+});
 Template.signup.events({
-  'submit form': ( event ) => event.preventDefault(),
-
-
-
-  //Discover 3rd part accounts: https://themeteorchef.com/recipes/roll-your-own-authentication/
+  'click #signUpButton': function(event){
+  }
+});
+      //Discover 3rd part accounts: https://themeteorchef.com/recipes/roll-your-own-authentication/
 
   //'click .btn-facebook': () => {
   //  return Meteor.loginWithFacebook({
@@ -38,4 +44,3 @@ Template.signup.events({
   //  });
   //}
 
-});

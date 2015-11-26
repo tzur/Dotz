@@ -19,8 +19,14 @@
           <input type="password" name="password" class="form-control" placeholder="Password">
         </div>
 
-        <div class="form-group">
-          <input type="submit" class="btn signupBtn" value="Sign Up">
+        <div class="form-group txtMd">
+          <!--<input type="submit" class="btn signupBtn" value="Sign Up">-->
+          {{#if isSpinnerOn}}
+              <button id="signUpButton" type="submit" class="createBtn transparent insert btn  btn-primary has-spinner active">
+                  <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>Sign Up</button>
+          {{else}}
+              <button id="signUpButton" type="submit" class="createBtn insert btn  btn-primary">Sign Up</button>
+          {{/if}}
         </div>
 
       </form>

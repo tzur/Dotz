@@ -1,4 +1,6 @@
-
+Template.loginModal.onDestroyed(function(){
+  Session.set('spinnerOn', false);
+});
 Template.loginModal.events({
 
 
