@@ -38,11 +38,9 @@
   max-width: 50px;
 }
 
-#createToOneOfMyLists, #findUsersToFollowModal .has-spinner.active .spinner {
+.btn-xs .has-spinner.active .spinner {
   left: 34%;
 }
-
-
 
 @-webkit-keyframes spin {
   0% {

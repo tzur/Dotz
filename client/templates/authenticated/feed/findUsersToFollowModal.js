@@ -3,6 +3,7 @@
  */
 Template.findUsersToFollowModal.onCreated(function(){
   let self = this;
+  Session.set('spinnerOn', false);
   self.autorun(function(){
     self.subscribe('featuredUsersDoc');
     self.subscribe('featuredUsers');
@@ -26,7 +27,6 @@ Template.findUsersToFollowModal.helpers({
       return usersIdArray.featuredUsers
     }
   },
-
   userData: function() {
     let userId = this.toString(); //TBD
     console.log("$$$$$$$$$ this is " + userId);

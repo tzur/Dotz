@@ -329,6 +329,7 @@
   color: #FFFFFF;
   font-size: 1.5em;
   text-align: center;
+  text-transform: uppercase;
 }
 
 
@@ -439,6 +440,9 @@
 #pre-delete-menu .delete i {
   color: #d9534f;
 }
+#pre-delete-menu .deleteShow i {
+  color: #d9534f;
+}
 
 #pre-delete-menu li a {
   cursor: pointer;
@@ -452,8 +456,6 @@ a span {
 a span:hover {
   color: #337ab7;
 }
-
-
 /* mobile adaption for card */
 
 @media (max-width: 768px) {
