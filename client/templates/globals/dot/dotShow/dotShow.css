@@ -26,6 +26,9 @@
   outline: none;
 }
 
+.lgTxt {
+  font-size: 1.5em;
+}
 
 #listShowHeader {
   padding: 0;
@@ -33,7 +36,11 @@
 }
 
 
-
+.list-show-btns-div {
+  background-color: white;
+  height: 8vh;
+  padding-top: 1.5vh;
+}
 
 
 #listShowHeader .listCoverImg {
