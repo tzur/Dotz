@@ -111,7 +111,7 @@ Template.dotShow.helpers({
         return false;
       }
       else {
-        return ("+ " + connectedDotz );
+        return ( connectedDotz );
       }
 
   },
