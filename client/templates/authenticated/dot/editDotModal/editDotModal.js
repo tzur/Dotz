@@ -26,7 +26,7 @@ Template.editDotModal.helpers({
   },
 
   selectedDotDoc: function () {
-    return Dotz.findOne({_id: this.data.dot._id});
+    return Dotz.findOne({_id: this.dta.dot._id});
   },
 
   isImageUrl: function(){
