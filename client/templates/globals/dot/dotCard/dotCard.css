@@ -428,7 +428,7 @@
 
 
 #pre-delete-menu {
-
+  top: initial;
 }
 
 .dropdown-menu li i {
