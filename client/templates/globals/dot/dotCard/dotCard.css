@@ -456,8 +456,6 @@ a span {
 a span:hover {
   color: #337ab7;
 }
-
-
 /* mobile adaption for card */
 
 @media (max-width: 768px) {

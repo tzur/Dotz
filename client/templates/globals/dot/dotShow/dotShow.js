@@ -40,7 +40,6 @@ Template.dotShow.onRendered(function(){
     window.scrollTo(0,0);
 
   });
-
 });
 
 Template.dotShow.onDestroyed(function(){
