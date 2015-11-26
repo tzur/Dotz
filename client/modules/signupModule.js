@@ -41,6 +41,7 @@ let validation = ( template ) => {
 };
 
 let _handleSignup = ( template ) => {
+  Session.set('spinnerOn', true);
   let user = {
     username: template.find( '[name="userName"]' ).value,
     email: template.find( '[name="emailAddress"]' ).value,
@@ -50,6 +51,7 @@ let _handleSignup = ( template ) => {
   Accounts.createUser( user, ( error ) => {
       if ( error ) {
         Bert.alert( error.reason, 'danger' );
+        Session.set('spinnerOn', false);
       }
 
       else {

@@ -35,8 +35,6 @@ accounts-google
 accounts-twitter
 edgee:slingshot
 fortawesome:fontawesome
-aldeed:autoform-bs-datetimepicker
-tsega:bootstrap3-datetimepicker@=3.1.3_3
 mrt:moment-timezone
 rajit:bootstrap3-datepicker
 aldeed:autoform-bs-datepicker
@@ -63,3 +61,5 @@ http
 email
 coffeescript
 meteorhacks:kadira
+tsega:bootstrap3-datetimepicker@=3.1.3_3
+aldeed:autoform-bs-datetimepicker

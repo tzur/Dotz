@@ -4,15 +4,23 @@ Template.signup.onRendered( () => {
     template: Template.instance()
   });
 });
-
+Template.signup.onCreated(function(){
+  Session.set('spinnerOn', false);
+});
+Template.signup.helpers({
+  isSpinnerOn: function(){
+    return Session.get('spinnerOn');
+  }
+});
 Template.signup.events({
-  'submit form': ( event ) => event.preventDefault(),
+  'click #signUpButton': function(event){
+  },
 
   'click #switch-login-modal': function() {
-    Modal.hide('loginModal');
+    Modal.hide('signUpModal');
     setTimeout(function(){ Modal.show('loginModal'); }, 500);
   }
-
+});
 
 
   //Discover 3rd part accounts: https://themeteorchef.com/recipes/roll-your-own-authentication/
@@ -43,4 +51,3 @@ Template.signup.events({
   //  });
   //}
 
-});
