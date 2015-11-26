@@ -44,6 +44,9 @@ Template.followingModal.events({
 
   'click #exitBtn': function(){
     Modal.hide('followingModal');
+  },
+  'click .directToUser': function(){
+    Modal.hide('followingModal');
   }
 
 });
