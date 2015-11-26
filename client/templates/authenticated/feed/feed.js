@@ -3,11 +3,11 @@ Template.feed.onCreated(function(){
   Session.set('feedDotzNumber', 10);
 });
 Template.feed.onRendered(function(){
-  let currentScrollVar = 1000;
   $(window).scroll(function() {
-    if (document.body.scrollTop > currentScrollVar ) {
-      currentScrollVar += 1000;
-      Session.set('feedDotzNumber', Session.get('feedDotzNumber') + 10);
+    if (Meteor.user().profile.feedDotz.length > Session.get('feedDotzNumber')){
+      if (document.body.scrollTop + (2*$(window).height()) >= $(document).height()) {
+        Session.set('feedDotzNumber', Session.get('feedDotzNumber') + 10);
+      }
     }
   })
 });
@@ -42,9 +42,11 @@ Template.feed.helpers({
       // any subscription will be expire after 5 minute, if it's not subscribed again
       expireIn: 5
     });
+    let self = this;
     subsManager.subscribe('dotCard', this.dot._id);
     subsManager.subscribe('user', this.dot.ownerUserId);
-    let dot = Dotz.findOne(this.dot._id);
+
+    let dot = Dotz.findOne(self.dot._id);
     if(dot){
       return true;
     }

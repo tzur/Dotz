@@ -43,6 +43,9 @@ Template.followersModal.events({
 
   'click #exitBtn': function(){
     Modal.hide('followersModal');
+  },
+  'click .directToUser': function(){
+    Modal.hide('followersModal');
   }
 
 });
