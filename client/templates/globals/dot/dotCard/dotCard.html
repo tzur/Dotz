@@ -39,15 +39,14 @@
           <br>
           {{/if}}
           {{#if isMyDot}}
-              <a class="editBtn panelBtn"><span class="glyphicon glyphicon-pencil smTxt" aria-hidden="true"> </span></a>
-          <br>
+
               <a class="panelBtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="glyphicon glyphicon-trash smTxt" aria-hidden="true"> </span>
+                  <span><i class="fa fa-cog" aria-hidden="true"></i></span>
               </a>
               <ul id="pre-delete-menu" class="dropdown-menu">
-                  <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                  <li class="editBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>
                   <li role="separator" class="divider"></li>
-                  <li class="return-btn"><a><i class="mdGrey fa fa-reply"></i> Return</a></li>
+                  <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
               </ul>
 
           {{/if}}

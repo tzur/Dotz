@@ -56,6 +56,10 @@ dfischer:phantomjs
 kadira:dochead
 acemtp:algolia
 mdg:geolocation
+service-configuration
+http
+email
+coffeescript
 meteorhacks:kadira
 tsega:bootstrap3-datetimepicker@=3.1.3_3
 aldeed:autoform-bs-datetimepicker

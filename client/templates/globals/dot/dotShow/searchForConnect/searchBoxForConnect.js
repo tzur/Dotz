@@ -5,8 +5,6 @@
 Template.searchBoxForConnect.onCreated(function(){
     Session.set('searchInput',undefined);
 });
-
-
 Template.searchBoxForConnect.onRendered(function(){
   $('.btn-tooltip').tooltip();
 });
@@ -21,6 +19,7 @@ Template.searchBoxForConnect.onDestroyed(function(){
 
 Template.searchBoxForConnect.helpers({
   isSearched: function(){
+
     return Session.get('searchInput');
   },
   dotzResult: function(){
@@ -77,15 +76,10 @@ Template.searchBoxForConnect.events({
 
   'click ._createDot':function(){
     Session.set('parentDot', this.dot._id);
-    //let parentDot = this.dot;
-    //let parentInfo = {slug: FlowRouter.current().path, title: parentDot.title, coverImage: parentDot.coverImageUrl};
     Modal.show('createDotModal');
   },
 
   'click ._createList':function(){
-    //Session.set('parentDot', this.dot._id);
-    //let parentDot = this.dot;
-    //let parentInfo = {slug: FlowRouter.current().path, title: parentDot.title, coverImage: parentDot.coverImageUrl};
     Session.set('parentDot', this.dot._id);
     Modal.show('createListModal');
   },
@@ -98,6 +92,12 @@ Template.searchBoxForConnect.events({
       }
     });
     Session.set('searchInput', event.target.value);
+    setTimeout(function() {
+      $('html,body').animate({
+          scrollTop: $(event.currentTarget).offset().top - 100
+        },
+        'slow');
+    }, 1000);
   }
 
 });
