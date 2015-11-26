@@ -3,6 +3,13 @@ let locationObject;
 let editDotHooks = {
   before: {
     "method-update": function(doc){
+      let docFields = ["bodyText", "linkUrl", "price", "tags"];
+      docFields.forEach(function(fieldName){
+        if(!doc.$set[fieldName]){
+          doc.$set[fieldName] = null
+        }
+      });
+
       if(Session.get('coverImageUrl')){
         doc.$set.coverImageUrl = Session.get('coverImageUrl');
       }

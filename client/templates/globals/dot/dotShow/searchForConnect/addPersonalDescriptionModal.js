@@ -3,8 +3,8 @@
  */
 
 Template.addPersonalDescriptionModal.onRendered(function(){
-  Modules.client.Dotz.limitCharactersAndCounter('#personalDescription', 100, '#descriptionFieldFeedback');
-})
+  Modules.client.Dotz.limitCharactersAndCounter('#personalDescription', 100, '#_connectBySearchDescriptionFeedback');
+});
 Template.addPersonalDescriptionModal.helpers({
 
   currentUserImageUrl: function () {

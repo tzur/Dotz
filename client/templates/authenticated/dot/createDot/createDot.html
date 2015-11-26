@@ -139,8 +139,11 @@
                                     </div>
 
                                     <div role="tabpanel" class="tab-pane tab-height" id="price">
-                                        <div class="price optional-field in-tab-wrapper">
-                                          {{> afQuickField name='price' label="Price" placeholder="Price in US Dollars ..."}}
+                                        <div class="col-xs-4 col-xs-offset-3 price optional-field in-tab-wrapper">
+                                          {{> afQuickField name='price' label="Price" placeholder= "E.g. 15 " }}
+                                        </div>
+                                        <div class="col-xs-2 price optional-field in-tab-wrapper">
+                                          {{> afQuickField id="currencyField" name='currency'}}
                                         </div>
                                     </div>
 
