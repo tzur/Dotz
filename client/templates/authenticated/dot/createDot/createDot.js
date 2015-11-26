@@ -83,18 +83,6 @@ Template.createDotModal.helpers({
 
 
 Template.createDotModal.events({
-  //'click #createToOneOfMyDotz': function(e){
-  //  e.preventDefault();
-  //  Modal.show('createToOneOfMyDotzModal', {
-  //    data:{
-  //      isActionTypeCreate: true
-  //    }
-  //  })
-  //},
-  //'click ._publishToCurrentList': function(){
-  //  let parentInfo = this.data.lastPath;
-  //  Session.set('lastPath', parentInfo);
-  //},
 
   'click #exitBtn': function(){
     Modal.hide('createDotModal');

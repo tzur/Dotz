@@ -384,6 +384,12 @@ a:hover {
   border-color: #d43f3a;
 }
 
+.btn-delete:after {
+  color: #d93dd3;
+  background-color: #3563ff;
+  border-color: #d421ac;
+}
+
 .shareicon {
   height: 1em;
   width: 1.5em;

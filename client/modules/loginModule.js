@@ -37,8 +37,10 @@ let _handleLogin = ( template ) => {
   Meteor.loginWithPassword( email, password, ( error ) => {
     if ( error ) {
       Bert.alert( error.reason, 'warning' );
+      Session.set('spinnerOn', false);
     } else {
       Modal.hide('loginModal');
+      Session.set('spinnerOn', false);
       FlowRouter.go('/' + Meteor.user().profile.userSlug);
       Bert.alert( 'Logged in!', 'success' );
 
