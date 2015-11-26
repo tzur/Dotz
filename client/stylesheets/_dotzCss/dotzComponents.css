@@ -16,7 +16,7 @@
   -webkit-transition: opacity 0.25s, max-width 0.45s;
   -moz-transition: opacity 0.25s, max-width 0.45s;
   -o-transition: opacity 0.25s, max-width 0.45s;
-  transition: opacity 0.25s, max-width 0.45s fast;
+  transition: opacity 0.25s, max-width 0.45s ;
 
   /* Duration fixed since we animate additional hidden width */
 }
@@ -40,6 +40,10 @@
 
 .btn-xs .has-spinner.active .spinner {
   left: 34%;
+}
+
+.buttonsBar .has-spinner.active .spinner{
+  left: inherit;
 }
 
 @-webkit-keyframes spin {
