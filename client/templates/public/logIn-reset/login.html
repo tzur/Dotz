@@ -4,13 +4,30 @@
 
         <form id="login" class="login">
 
+            <button id="loginFacebookBtn" class="loginWithBtn insert btn  btn-primary">
+                Login with Facebook
+            </button>
+
+            <!--<button id="loginGoogleBtn" class="loginWithBtn insert btn  btn-primary">-->
+                <!--Login with Google-->
+            <!--</button>-->
+
+            <!--<button id="loginTwitterkBtn" class="loginWithBtn insert btn  btn-primary">-->
+                <!--Login with Twitter-->
+            <!--</button>-->
+
+
+            <span class="or-wrapper">
+                <span class="or-text greyText">or</span>
+            </span>
+
             <div class="form-group">
-                <label for="emailAddress">Email Address</label>
+                <!--<label for="emailAddress">Email Address</label>-->
                 <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">
             </div>
 
             <div class="form-group">
-                <label for="password"><span class="pull-left">Password</span> <a class="pull-right" href="{{pathFor 'recover-password'}}">Forgot Password?</a></label>
+                <!--<label for="password"><span class="pull-left">Password</span></label>-->
                 <input type="password" name="password" class="form-control" placeholder="Password">
             </div>
 
@@ -24,7 +41,12 @@
             </div>
 
         </form>
-        <!--<p class="alreadyText">Don't have an account? <a href="#" id="switchToSignUp"><strong>Sign Up</strong></a>.</p>-->
+        <p class="greyText smTxt txtMd">
+            Don't have an account? <a href="" id="switchToSignUp">Sign Up</a>.
+            <br>
+            <a class="" href="" id="recoverPassword">Forgot Password?</a>
+            <!--{pathFor 'recover-password'}}-->
+        </p>
 
     </div>
 

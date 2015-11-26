@@ -8,6 +8,11 @@ Template.signup.onRendered( () => {
 Template.signup.events({
   'submit form': ( event ) => event.preventDefault(),
 
+  'click #switch-login-modal': function() {
+    Modal.hide('loginModal');
+    setTimeout(function(){ Modal.show('loginModal'); }, 500);
+  }
+
 
 
   //Discover 3rd part accounts: https://themeteorchef.com/recipes/roll-your-own-authentication/

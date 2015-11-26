@@ -1,4 +1,4 @@
-Template.index.events(
+Template.login.events(
   'click .btn-facebook': ->
     Meteor.loginWithFacebook(
       requestPermissions: ['email']
