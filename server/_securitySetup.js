@@ -24,4 +24,9 @@ BrowserPolicy.content.allowOriginForAll("www.google-analytics.com");
 BrowserPolicy.content.allowOriginForAll("cdn.mxpnl.com");
 BrowserPolicy.content.allowOriginForAll("https://player.vimeo.com");
 
+//Temp TBD
+BrowserPolicy.content.allowOriginForAll("https://stats.g.doubleclick.net");
+
+
+
 
