@@ -14,9 +14,16 @@ Template.signup.helpers({
 });
 Template.signup.events({
   'click #signUpButton': function(event){
+  },
+
+  'click #switch-login-modal': function() {
+    Modal.hide('signUpModal');
+    setTimeout(function(){ Modal.show('loginModal'); }, 500);
   }
 });
-      //Discover 3rd part accounts: https://themeteorchef.com/recipes/roll-your-own-authentication/
+
+
+  //Discover 3rd part accounts: https://themeteorchef.com/recipes/roll-your-own-authentication/
 
   //'click .btn-facebook': () => {
   //  return Meteor.loginWithFacebook({
