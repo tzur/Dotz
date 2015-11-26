@@ -36,8 +36,9 @@ Template.dotShow.onCreated(function() {
 
 Template.dotShow.onRendered(function(){
   Tracker.autorun(function () {
-      FlowRouter.watchPathChange();
-      window.scrollTo(0,0);
+    FlowRouter.watchPathChange()
+    window.scrollTo(0,0);
+
   });
 });
 

@@ -54,3 +54,7 @@
 .navbar .navbar-form #search-icon {
   font-size: 1em;
 }
+
+.logout:focus {
+  cursor:progress;
+}
