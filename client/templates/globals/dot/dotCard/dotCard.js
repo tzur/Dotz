@@ -1,4 +1,5 @@
 Template.dotCard.onCreated(function(){
+        Session.set('spinnerOn', false);
         let self = this;
         Session.set('dotInsideToListsBug', false);
         self.subs = new SubsManager({
@@ -178,7 +179,10 @@ Template.dotCard.helpers({
   }
 
 });
-
+Template.dotCard.onDestroyed(function(){
+  $('.disConnect').removeClass('active');
+  $('.fa').removeClass('transparent');
+});
 Template.dotCard.events({
 
   'click .like': function(event){
@@ -220,7 +224,10 @@ Template.dotCard.events({
 
   },
 
-  'click .disConnect': function(){
+  'click .disConnect': function(event){
+    $(event.currentTarget).toggleClass('active');
+    $(event.currentTarget.childNodes[1]).toggleClass('transparent');
+    $(event.currentTarget).css("outline", "none");
     Modules.both.Dotz.disConnectDot(this.smartRef);
   },
 

@@ -7,7 +7,6 @@ Template.editDotModal.onRendered(function(){
 
 Template.editDotModal.onRendered(function(){
   Modules.client.Dotz.limitCharactersAndCounter('#editTitleField', 50, '#titleFieldFeedback');
-  Modules.client.Dotz.limitCharactersAndCounter('#bodyText', 140, '#descriptionFieldFeedback');
 });
 
 

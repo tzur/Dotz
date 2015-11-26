@@ -31,6 +31,11 @@ let dotHooks = {
         Session.set('redirectAfterCreate', Meteor.user().profile.userSlug )
       }
 
+      if(doc.price <= 0 ){
+        doc.price = null;
+        doc.currency = null;
+      }
+
       doc.ownerUserId = Meteor.userId();
       doc.createdAtDate = new Date();
       doc.dotType = Session.get("dotType");

@@ -106,15 +106,19 @@
                         <!--<div class="btn-connect-div col-xs-4 pull-right">-->
                         <div class="buttonsBar pull-right col-xs-5 listCardBtns">
 
+
                           {{#if isConnected}}
 
-                              <button type="button" class="connect btn btn-success btn-xs btn-white pull-right"><i class="fa fa-plus"></i>
+                              <button type="button" class="connect btn   btn-success btn-xs btn-white pull-right"><i class="fa fa-plus"></i>
                                   Connect {{connectCounter}}</button>
-                              <button type="button" class="disConnect btn btn-delete btn-xs pull-right"><i class="fa fa-minus"></i></button>
+
+                              <button type="button" class="disConnect btn btn-delete btn-xs pull-right has-spinner "><span class="spinner">
+                                      <i class="fa fa-spinner lightGrey fa-spin-custom mdGrey"></i></span><i class="fa lightGrey fa-minus"></i></button>
+
 
                           {{else}}
 
-                              <button type="button" class="connect btn btn-success btn-xs btn-white pull-right"><i class="fa fa-plus"></i>
+                              <button type="button" class="connect btn btn-success btn-xs btn-white pull-right"><i class="fa lightGrey fa-plus"></i>
                                   Connect {{connectCounter}}</button>
 
                           {{/if}}
@@ -122,7 +126,6 @@
                         </div>
 
                     </div>
-
 
                         <!--{{#if dotzNum}}-->
                     <!--<div class="dotConnectedDotzLastIcon">-->
@@ -251,14 +254,15 @@
                                 <div class="buttonsBar">
 
                                   {{#if isConnected}}
-
                                       <button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>
                                           Connect {{connectCounter}}</button>
-                                      <button type="button" class="disConnect btn btn-delete btn-xs pull-right"><i class="fa fa-minus"></i></button>
+                                        <button type="button" class="disConnect btn btn-delete btn-xs pull-right has-spinner"><span class="spinner">
+                                      <i class="fa fa-spinner lightGrey fa-spin-custom mdGrey"></i></span><i class="fa lightGrey fa-minus"></i></button>
+
 
                                   {{else}}
 
-                                      <button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>
+                                      <button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa lightGrey fa-plus"></i>
                                           Connect {{connectCounter}}</button>
 
                                   {{/if}}
@@ -266,12 +270,6 @@
                                 </div>
 
                           </div>
-
-
-
-
-
-
 
 
 
@@ -307,7 +305,9 @@
 
 
 </div>
+
     {{/with}}
+
      <!--{{else}}-->
             <!--<h2>LOADING</h2>-->
     <!--{{/if }}-->
