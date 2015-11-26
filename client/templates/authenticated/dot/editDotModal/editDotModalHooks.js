@@ -3,7 +3,13 @@ let locationObject;
 let editDotHooks = {
   before: {
     "method-update": function(doc){
-      let docFields = ["bodyText", "linkUrl", "price", "tags"];
+
+      if(doc.$set["price"] <= 0 || !doc.$set.price ){
+        doc.$set["price"] = null;
+        doc.$set["currency"] = null;
+      }
+
+      let docFields = ["bodyText", "linkUrl", "tags"];
       docFields.forEach(function(fieldName){
         if(!doc.$set[fieldName]){
           doc.$set[fieldName] = null
