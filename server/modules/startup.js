@@ -1,6 +1,7 @@
 let startup = () => {
   _setBrowserPolicies();
   _generateAccounts();
+  //process.env.MAIL_URL = "smtp://postmaster%40dotz.city.mailgun.org:TLVbeta123@smtp.mailgun.org:587";
 };
 
 var _setBrowserPolicies = () => {};
