@@ -248,6 +248,7 @@ Template.dotCard.events({
   },
 
   'click .delete':function(event){
+    event.preventDefault();
     Modules.both.Dotz.deleteDot(this.dot, this.smartRef.connection.toParentDotId);
   },
 
