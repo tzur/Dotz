@@ -187,7 +187,12 @@ Template.dotCard.events({
 
   'click .like': function(event){
     event.preventDefault();
-    Modules.both.Dotz.likeDot(this.smartRef, Meteor.userId());
+    if ( Meteor.user() ) {
+      Modules.both.Dotz.likeDot(this.smartRef, Meteor.userId());
+    }
+    else{
+      Modal.show('signUpModal');
+    }
   },
 
   'click .unlike': function(event){

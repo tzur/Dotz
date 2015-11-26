@@ -136,7 +136,7 @@ Template.dotShow.helpers({
   },
 
   addDotIsAvailable: function() {
-    return (this.dot.isOpen || ( this.dot.ownerUserId === Meteor.userId() ) )
+    return ( Meteor.user() && ( this.dot.isOpen || (this.dot.ownerUserId === Meteor.userId()) ) )
   },
 
   dataForCreateHere: function() {
