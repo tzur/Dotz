@@ -426,6 +426,9 @@
   padding: 1vh 0 0 0;
 }
 
+#listCardLikeSide .left {
+  left: 0;
+}
 
 #pre-delete-menu {
   top: initial;
