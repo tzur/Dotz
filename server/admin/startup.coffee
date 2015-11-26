@@ -23,7 +23,7 @@ createServiceConfiguration = (service,clientId,secret)->
     else ServiceConfiguration.configurations.insert(config.generic)
 
 
-createServiceConfiguration('facebook', 'Insert your appId here.', 'Insert your secret here.')
+createServiceConfiguration('facebook', '937922069633455', '603a8b65656b6b0306f2219aad2b72df')
 createServiceConfiguration('github', 'Insert your clientId here.', 'Insert your secret here.')
 createServiceConfiguration('google', 'Insert your clientId here.', 'Insert your secret here.')
 createServiceConfiguration('twitter', 'Insert your consumerKey here.', 'Insert your secret here.')

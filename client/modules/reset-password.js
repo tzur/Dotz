@@ -41,6 +41,7 @@ let _handleReset = ( template ) => {
     if ( error ) {
       Bert.alert( error.reason, 'danger' );
     } else {
+      FlowRouter.go('/');
       Bert.alert( 'Password reset!', 'success' );
     }
   });
