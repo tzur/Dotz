@@ -20,9 +20,10 @@ BrowserPolicy.content.allowOriginForAll("localhost:*");
 BrowserPolicy.content.allowConnectOrigin("ws://localhost:5000");
 BrowserPolicy.content.allowConnectOrigin("http://localhost:5000");
 BrowserPolicy.framing.allowAll();
-BrowserPolicy.content.allowOriginForAll("www.google-analytics.com");
+BrowserPolicy.content.allowOriginForAll("https://*.google-analytics.com");
 BrowserPolicy.content.allowOriginForAll("cdn.mxpnl.com");
 BrowserPolicy.content.allowOriginForAll("https://player.vimeo.com");
+BrowserPolicy.content.allowOriginForAll("https://*.gstatic.com");
 
 //Temp TBD
 BrowserPolicy.content.allowOriginForAll("https://stats.g.doubleclick.net");
