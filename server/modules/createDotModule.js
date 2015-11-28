@@ -12,18 +12,35 @@ let _docValidation = (doc) => {
   }
 };
 
+//add an url-format slug:
+let _formatSlug = function(value) {
+  let formatted = value
+    .toLowerCase()
+    .replace(/ /g,'-')
+    .replace(/[-]+/g, '-')
+    .replace(/[^\w\x80-\xFF-]+/g,'');
+  return formatted;
+};
+
 //add an unique slug:
 let _slugUniquenessValidation = (dotId , slug) => {
+  let uniqueSlug;
   Meteor.call('updateDotSlug', dotId, slug, function(error, result) {
-    //TBD:
-    if (error) {
-      newSlug = slug + '-2';
-      _slugUniquenessValidation ( dotId, newSlug );
-    }
-    else {
-      return slug; //TBD
-    }
+      //TBD:
+      if (error) {
+        newSlug = slug + '-2';
+        _slugUniquenessValidation ( dotId, newSlug );
+      }
+      else {
+        //TBD
+        uniqueSlug = slug;
+      }
   });
+
+  if (uniqueSlug) {
+      return uniqueSlug
+  }
+
 };
 
 Meteor.methods({
@@ -45,18 +62,14 @@ Meteor.methods({
         if (!error) {
 
           let dotId = result;
-          //let titleRegex = doc.title.replace(/ |!|"?"|–|'/gi, "-");
-          let titleRegex = doc.title.replace(/[ –&\/\\#,+()$~%.`’'":*!?<>{}]/gi, "-");
-
-
-          let slug = (Meteor.user().profile.userSlug + '/' + doc.dotType + '/' + titleRegex).toLowerCase();
 
           //slug Process:
-          if ( _slugUniquenessValidation (dotId, slug) ) {
-            //TBD
-          }
+          let formattedSlug = _formatSlug(doc.title);
+          let fullSlug = (Meteor.user().profile.userSlug + '/' + doc.dotType.toLowerCase() + '/' + formattedSlug);
+          let dotSlug = _slugUniquenessValidation (dotId, fullSlug);
 
-          let dotSlug = Dotz.findOne(result).dotSlug;
+          //TBD:
+          //let dotSlug = Dotz.findOne(result).dotSlug;
 
           let smartRef = new Modules.both.Dotz.smartRef(dotId, Meteor.userId() ,doc.inDotz[0], CREATE_ACTION, doc.ownerUserId);
           Modules.both.Dotz.connectDot(smartRef);
