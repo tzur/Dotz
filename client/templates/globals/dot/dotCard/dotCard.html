@@ -69,7 +69,17 @@
 
                     <a href="/{{dot.dotSlug}}" class="_setCurrentPath">
                     <div class="listCardTitle">
-                        <a href="/{{dot.dotSlug}}"><h2 class="h2Title"><i class="fa fa-list-ul"></i> {{dot.title}}</h2></a>
+                        <a href="/{{dot.dotSlug}}">
+                            <h2 class="h2Title">{{dot.title}}
+                                {{#if dotzNum}}
+
+                              <div>
+                                  <span class="label label-dotz label-xs">{{dotzNum}} {{dotOrDotz}}</span>
+                              </div>
+
+                                {{/if}}
+                            </h2>
+                        </a>
 
                     </div>
                     </a>
