@@ -87,7 +87,7 @@ Template.userShow.helpers({
 
   },
   myFollow: function(){
-    if (  Meteor.user().profile.following &&
+    if (  Meteor.user() && Meteor.user().profile.following &&
               Meteor.user().profile.following.indexOf(this._id) > -1){
       return true;
     }

@@ -129,7 +129,7 @@ Template.dotCard.helpers({
       return false;
     }
     else{
-      return ("+ " + connectedDotz );
+      return (connectedDotz );
     }
 
 

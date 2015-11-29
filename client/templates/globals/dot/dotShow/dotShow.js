@@ -87,9 +87,9 @@ Template.dotShow.helpers({
   },
 
   eventDate: function(){
-
-    return ( moment(this.dot.startDateAndHour).fromNow());
-
+    if (this.dot.startDateAndHour) {
+        return ( moment(this.dot.startDateAndHour).fromNow());
+    }
   },
 
   connectCounter: function() {

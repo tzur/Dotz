@@ -69,7 +69,17 @@
 
                     <a href="/{{dot.dotSlug}}" class="_setCurrentPath">
                     <div class="listCardTitle">
-                        <a href="/{{dot.dotSlug}}"><h2 class="h2Title"><i class="fa fa-list-ul"></i> {{dot.title}}</h2></a>
+                        <a href="/{{dot.dotSlug}}">
+                            <h2 class="h2Title">{{dot.title}}
+                                {{#if dotzNum}}
+
+                              <div>
+                                  <span class="label label-dotz label-xs">{{dotzNum}} {{dotOrDotz}}</span>
+                              </div>
+
+                                {{/if}}
+                            </h2>
+                        </a>
 
                     </div>
                     </a>
@@ -154,7 +164,7 @@
 
 
                         <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3" id="listCardImgSide">
+                        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3" id="listCardImgSide">
                             <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
                             <!--<div class="filter">-->
 
@@ -170,7 +180,7 @@
                         </a>
 
 
-                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9" id="listCardTextSide">
+                        <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9" id="listCardTextSide">
 
 
                             <div class="content">
