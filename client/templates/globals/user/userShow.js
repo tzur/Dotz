@@ -30,6 +30,10 @@ Template.userShow.onCreated(function() {
       if (handleUser.ready()){
         self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId);
       }
+
+      analytics.page("User show: " + user.username, {
+        title: user.username
+      });
     }
   });
 });

@@ -28,7 +28,10 @@ Template.dotShow.onCreated(function() {
     if (currentDot) {
       DocHead.setTitle("Dotz: " + currentDot.title);
       if (currentDot) {
-       self.subs.subscribe('user', currentDot.ownerUserId);
+        self.subs.subscribe('user', currentDot.ownerUserId);
+        analytics.page("Dot show: " + currentDot.title, {
+          title: currentDot.title
+        });
       }
     }
   });
@@ -36,8 +39,9 @@ Template.dotShow.onCreated(function() {
 
 Template.dotShow.onRendered(function(){
   Tracker.autorun(function () {
-    FlowRouter.watchPathChange()
+    FlowRouter.watchPathChange();
     window.scrollTo(0,0);
+
 
   });
 });
