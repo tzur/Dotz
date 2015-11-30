@@ -2,7 +2,7 @@
 
     <div class="col-xs-12 colCenter">
 
-      <form id="signup" class="signup">
+      <form id="signup" class="signup-div">
 
 
           <!--<button id="loginFacebookBtn" class="loginWithBtn btn-facebook btn btn-primary">-->
@@ -21,21 +21,24 @@
           <!--<span class="or-text greyText">or</span>-->
           <!--</span>-->
 
-        <br>
 
-        <div class="form-group">
-            <label for="userName">User Name</label>
-            <input type="text" name="userName" class="form-control" placeholder="User Name">
+
+        <div class="form-group has-feedback">
+            <label for="userName">Full Name</label>
+            <input type="text" name="userName" class="form-control" placeholder="Full Name">
+            <i class="fa fa-user form-control-feedback"></i>
         </div>
 
-        <div class="form-group">
-        <label for="emailAddress">Email Address</label>
-        <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">
+        <div class="form-group has-feedback">
+            <label for="emailAddress">Email</label>
+            <input type="email" name="emailAddress" class="form-control" placeholder="Email">
+            <i class="fa fa-envelope form-control-feedback"></i>
         </div>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" class="form-control" placeholder="Password">
+        <div class="form-group has-feedback">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password">
+            <i class="fa fa-key form-control-feedback"></i>
         </div>
 
         <div class="form-group txtMd">
@@ -50,7 +53,7 @@
 
       </form>
 
-      <p class="greyText smTxt txtMd">Already have an account? <a id="switch-login-modal" href="#">Log In</a>.</p>
+      <p class="switch-to greyText smTxt txtMd">Already have an account? <a id="switch-login-modal" href="#">Log In</a>.</p>
 
     </div>
 
