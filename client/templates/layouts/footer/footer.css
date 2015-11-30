@@ -1,7 +1,12 @@
-.signup-bar-title {
-  font-weight: 600;
-}
 
 #signUp-nav-bar {
   background-color: #ffffff;
+}
+
+#signUp-div {
+  /*z-index: 1000;*/
+}
+
+.signup-bar-title {
+  font-weight: 600;
 }
