@@ -4,14 +4,18 @@
         <div class="landing-overlayer"></div>
         <div class="row upper-row">
             <div class="col-sm-2 pull-left">
+                <a href="/">
                 <div class="landing-page-logo">
                     <img id="landing-page-logo" src="/dotz-logo-trans1.png">
                 </div>
+                </a>
 
             </div>
 
             <div class="col-sm-4 pull-right txtR">
-                <div>New to Dotz? <button class="signup-landing btn square btn-trans btn-md">SignUp</button></div>
+                <div>New to Dotz?
+                    <a href="{{pathFor 'signup'}}"><button class="signup-landing btn square btn-trans btn-md">SignUp</button></a>
+                </div>
             </div>
         </div>
 
@@ -32,7 +36,6 @@
         <div id="signup-login-bottom-links-div" class="row">
             <div class="col-sm-4 pull-right txtR">
                 <!--<a><span>About Us</span></a>-->
-                <a><span>Explore</span></a>
             </div>
         </div>
 
