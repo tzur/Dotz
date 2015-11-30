@@ -1,0 +1,46 @@
+<template name="index-signup">
+
+    <div id="landingPage-body" class="container-fluid" style="background-image: url('/dotz_landing_1.jpg')">
+        <div class="landing-overlayer"></div>
+        <div class="row upper-row">
+            <div class="col-sm-2 pull-left">
+                <div class="landing-page-logo">
+                    <img id="landing-page-logo" src="/dotz-logo-trans1.png">
+                </div>
+
+            </div>
+
+            <div class="col-sm-4 pull-right txtR">
+                <div>Already a part of Dotz? <button class="login btn square btn-trans btn-md">Login</button></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8 colCenter txtMd">
+                <h2>Dotz is the ultimate place to: <span>Plan a vacation</span></h2>
+                <h5>Save Places, Things to-do, Events & more in custom-made lists.</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 colCenter">
+                {{>signup}}
+
+                <div class="txtMd">
+                    <span id="signup-terms">Creating an account means you’re okay with our Terms of Service.</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="signup-login-bottom-links-div" class="row">
+            <div class="col-sm-4 pull-right txtR">
+                <!--<a><span>About Us</span></a>-->
+                <a><span>Explore</span></a>
+            </div>
+        </div>
+
+    </div>
+
+
+</template>

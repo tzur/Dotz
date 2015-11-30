@@ -30,3 +30,46 @@
 #landingPage-body .switch-to {
   display: none;
 }
+
+#signup-terms {
+  font-size: 10px;
+}
+
+#signup-login-bottom-links-div {
+  font-weight: 700;
+  position: absolute;
+  bottom: 3vh;
+  width: 100%;
+}
+
+#signup-login-bottom-links-div a span {
+  color: #ffffff;
+  padding-left: 1em;
+}
+
+#landingPage-body .form-group input {
+  border-radius: 0px;
+  border: 0px solid #ccc;
+}
+
+#landingPage-body .form-group {
+  margin-bottom: 0px;
+}
+
+#landingPage-body .form-control {
+  height: 38px;
+}
+
+#landingPage-body .form-group button {
+  margin-top: 1.5em;
+  border-radius: 0px;
+  border: none;
+  margin-bottom: 0.5em;
+}
+
+#landingPage-body .login, #landingPage-body .signup-landing {
+  margin-top: 0;
+  margin-left: 1em;
+}
+
+
