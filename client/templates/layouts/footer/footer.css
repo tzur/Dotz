@@ -1,12 +1,72 @@
 
 #signUp-nav-bar {
-  background-color: #ffffff;
+  background-color: #337ab7;
+  /*5bc0de*/
+  height: 18vh;
+  border: 0px solid #337ab7;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@media (max-width: 767px) {
+
+  #signUp-nav-bar {
+    height: 25vh;
+  }
+
 }
 
 #signUp-div {
   /*z-index: 1000;*/
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+#_signInExitBtn {
+  background-color: transparent;
+  border: 0px solid transparent;
+  position: absolute;
+  padding: 0;
+  margin-top: 1vh;
+}
+
+#_signInExitBtn:hover {
+  color: #FFFFFF;
+}
+
+.signup-div-content {
+  padding-right: 2vh;
+  padding-left: 2vh;
+  /*width: 95%;*/
+  margin: auto;
 }
 
 .signup-bar-title {
   font-weight: 600;
+}
+
+#_signUpBtn {
+  margin: 1vh;
+  background-color: #FFFFFF;
+  color: #337ab7;
+  border: transparent;
+  border-radius: 0;
+}
+
+#_signUpBtn:hover {
+  margin: 1vh;
+  background-color: rgba(255,255,255,0.05);
+  color: #FFFFFF;
+  border: transparent;
+  border-radius: 0;
+}
+
+#_loginBtn {
+  margin: 1vh;
+  background-color: transparent;
+  color: #FFFFFF;
+  border: transparent;
+  border-radius: 0;
 }

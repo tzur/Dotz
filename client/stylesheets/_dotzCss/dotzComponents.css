@@ -1,3 +1,31 @@
+          /*  buttons division */
+
+.btn-trans {
+  color: #fff;
+  background-color: rgba(255,255,255,0.2);
+  border-color: #fff;
+}
+
+.btn-trans:hover {
+  color: #333;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.square {
+  border-radius: 0px;
+}
+
+          /*  links division */
+
+
+
+a h4, a h5, a h6 {
+  color: #333;
+}
+
+
+
           /*  labels division */
 
 .label-dotz {

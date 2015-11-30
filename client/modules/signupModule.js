@@ -24,16 +24,16 @@ let validation = ( template ) => {
     },
     messages: {
       userName: {
-        required: 'Need a User Name here.',
+        required: "Don't be shy... What is your name?",
         minlength: 'Use at least 3 characters, please.'
       },
       emailAddress: {
-        required: 'Need an email address here.',
+        required: "Don't forget to add your email.",
         email: 'Is this email address legit?'
       },
       password: {
-        required: 'Need a password here.',
-        minlength: 'Use at least six characters, please.'
+        required: 'Psssss... You forgot to add a password',
+        minlength: 'Use at least 6 characters, please.'
       }
     },
   submitHandler() { _handleSignup( template ); }

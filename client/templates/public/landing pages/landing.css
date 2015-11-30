@@ -1,0 +1,87 @@
+#landingPage-body {
+  height: 100vh;
+  background-size: cover;
+  background-position: 50%;
+  color: #ffffff;
+}
+
+#landing-page-logo {
+  height: 11vh;
+}
+
+#landingPage-body .upper-row {
+  padding-top: 3vh;
+}
+
+.landing-overlayer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(25, 29, 34, 0.75);
+}
+
+#landingPage-body .form-group label{
+  display: none;
+}
+
+#landingPage-body .switch-to {
+  display: none;
+}
+
+#signup-terms {
+  font-size: 10px;
+}
+
+#signup-login-bottom-links-div {
+  font-weight: 700;
+  position: absolute;
+  bottom: 3vh;
+  width: 100%;
+}
+
+#signup-login-bottom-links-div a span {
+  color: #ffffff;
+  padding-left: 1em;
+}
+
+#landingPage-body .form-group input {
+  border-radius: 0px;
+  border: 0px solid #ccc;
+}
+
+#landingPage-body .form-group {
+  margin-bottom: 0px;
+}
+
+#landingPage-body .form-control {
+  height: 38px;
+}
+
+#landingPage-body .form-group button {
+  margin-top: 1.5em;
+  border-radius: 0px;
+  border: none;
+  margin-bottom: 0.5em;
+}
+
+#landingPage-body .login, #landingPage-body .signup-landing {
+  margin-top: 0;
+  margin-left: 1em;
+}
+
+#landing-body {
+  padding-top: 6vh;
+}
+
+#signup .form-control-feedback, #login .form-control-feedback  {
+  color: #ccc;
+  top: 25%;
+
+}
+
+.signup-div, .login-div {
+  margin-top: 5vh;
+}
+

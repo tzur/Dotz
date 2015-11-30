@@ -58,3 +58,11 @@
   text-shadow: 0 0 1px rgba(0,0,0,.3);
 }
 
+#recoverPassword {
+  color: #ffffff;
+}
+
+#recoverPassword:hover {
+  color: #286090;
+}
+

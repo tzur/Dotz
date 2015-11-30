@@ -5,13 +5,13 @@
 Template.publicNavigation.events({
 
 
-'click .signup': function() {
-    Modal.show('signUpModal');
-},
-
-'click .login': function() {
-    Modal.show('loginModal');
-}
+//'click .signup': function() {
+//    Modal.show('signUpModal');
+//},
+//
+//'click .login': function() {
+//    Modal.show('loginModal');
+//}
 
 
 });

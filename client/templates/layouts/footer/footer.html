@@ -15,24 +15,40 @@
 <!--</div>-->
 
 
-    <nav id="signUp-nav-bar" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-        <div class="container" id="signUp-div">
-            <!--<div class="navbar-header">-->
+    <nav id="signUp-nav-bar" class="navbar navbar-default navbar-fixed-bottom col-xs-12" role="navigation">
+        <div class="container-fluid" id="signUp-div">
 
     {{#if iAmAHotel}}
 
-                <div class="col-xs-8">
-                   <h4 class="signup-bar-title">Welcome to Dotz</h4>
-                   <h5>Engage with your guests by making inspiring connections.</h5>
+        <!--<div class="row">-->
+
+            <div class="col-xs-12 col-sm-1">
+                <button id="_signInExitBtn" type="button" class="btn btn-lg whiteTxt">X</button>
+            </div>
+
+                <div class="txtMd signup-div-content">
+                    <!--<h3 class="signup-bar-title whiteTxt">Welcome to Dotz</h3>-->
+                  <br>
+                    <h4 class="whiteTxt">Engage with your guests by making inspiring connections.</h4>
+                  <br>
+
+                    <a href="{{pathFor 'signup'}}">
+                        <button type="button" id="_signUpBtn" class="btn">GET STARTED - FREE FOREVER</button>
+                    </a>
+
+                    <a href="{{pathFor 'login'}}">
+                        <button type="button" id="_loginBtn" class="hidden-xs btn">LOGIN</button>
+                    </a>
+
                 </div>
-                <div class="col-xs-4">
-                    <button type="button" id="_signInBtn" class="btn btn-primary navbar-btn navbar-right">Sign in</button>
-                </div>
+
+        <!--</div>-->
+
 
     {{/if}}
 
 
-                <!--</div>-->
+
             </div>
         </nav>
 

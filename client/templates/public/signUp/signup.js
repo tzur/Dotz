@@ -1,17 +1,24 @@
+
+Template.signup.onCreated(function(){
+  Session.set('spinnerOn', false);
+});
+
+
 Template.signup.onRendered( () => {
   Modules.client.signup({
     form: "#signup",
     template: Template.instance()
   });
 });
-Template.signup.onCreated(function(){
-  Session.set('spinnerOn', false);
-});
+
+
 Template.signup.helpers({
   isSpinnerOn: function(){
     return Session.get('spinnerOn');
   }
 });
+
+
 Template.signup.events({
   'click #signUpButton': function(event){
   },
