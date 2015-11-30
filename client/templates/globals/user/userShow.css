@@ -16,6 +16,8 @@
     position: fixed;
     left: 0;
     right: 0;
+    /*TBD - Z-index ?*/
+    z-index: 1;
     /*display: block;*/
     /*transform: translateY(0);*/
 }
@@ -39,12 +41,14 @@
   margin-bottom: 2em;
 }
 
-#followDiv {
+#userShowMainDiv {
     position: relative;
     top: 40vh;
     min-height: 60vh;
     padding-top: 4em;
     background-color: #fafafa;
+    /*TBD - Z-index ?*/
+    z-index: 2;
 }
 
 .user-profile-cards {
