@@ -75,3 +75,13 @@
   padding-top: 6vh;
 }
 
+#signup .form-control-feedback, #login .form-control-feedback  {
+  color: #ccc;
+  top: 25%;
+
+}
+
+.signup-div, .login-div {
+  margin-top: 5vh;
+}
+
