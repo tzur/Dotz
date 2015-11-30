@@ -1,0 +1,32 @@
+#landingPage-body {
+  margin-top: 8vh;
+  height: 92vh;
+  background-size: cover;
+  background-position: 50%;
+  color: #ffffff;
+}
+
+#landing-page-logo {
+  height: 11vh;
+}
+
+#landingPage-body .upper-row {
+  padding-top: 3vh;
+}
+
+.landing-overlayer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(25, 29, 34, 0.75);
+}
+
+#landingPage-body .form-group label{
+  display: none;
+}
+
+#landingPage-body .switch-to {
+  display: none;
+}
