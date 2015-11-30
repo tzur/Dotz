@@ -99,4 +99,12 @@ Meteor.publish('smartRefToDotzCursor', function(smartRefArray) {
   return Dotz.find({_id: {$in: dotIds}}, {fields: {"services.password": 0, "services.loginTokens": 0, "emails.address": 0, "emails.verified": 0}});
 });
 
+Meteor.publish('createdByUserListsForAutoGenerate', function(userName) {
+  check(userName, String)
+  let currentUser = Meteor.users.findOne({username: userName});
+  let createByUserLists = currentUser.profile.createdByUserLists;
+  createByUserLists.push(currentUser.profile.profileDotId);
+  return Dotz.find({_id: {$in: createByUserLists}});
+});
+
 

@@ -33,7 +33,20 @@ Template.userShow.onCreated(function() {
         }
       });
       if (handleUser.ready()){
-        self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId);
+        let handleDot = self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId, function(){
+          if(Meteor.user().profile.userSlug === userSlug){
+            let dot = Dotz.findOne(Meteor.user().profile.profileDotId);
+            if(!dot.connectedDotzArray.length){
+              self.subs.subscribe('createdByUserListsForAutoGenerate', "Sample Hotel");
+
+            }
+          }
+        });
+
+        if(handleDot.ready){
+
+          self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId)
+        }
       }
 
 
@@ -172,6 +185,10 @@ Template.userShow.events({
         'userId': this._id
       }
     });
+  },
+
+  'click #_generateAutoLists': function(){
+    Modules.client.autoGenerateNewLists("Sample Hotel");
   }
 
 });
