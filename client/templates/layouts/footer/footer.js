@@ -1,10 +1,10 @@
 
 Template.footer.onDestroyed(function(){
 
-  //This sessions also destroyed by the event-listeners (below) + by the defaultTemplate:
-  Session.set('joinUsDivOn', false);
-  Session.set('iAmAHotel', false); //TBD
-  Session.set('footerIsWelcome', false);
+  ////This sessions also destroyed by the event-listeners (below) + by the defaultTemplate:
+  //Session.set('joinUsDivOn', false);
+  //Session.set('iAmAHotel', false); //TBD
+  //Session.set('footerIsWelcome', false);
 
 });
 
