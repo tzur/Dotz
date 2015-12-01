@@ -33,21 +33,7 @@ Template.userShow.onCreated(function() {
         }
       });
       if (handleUser.ready()){
-        let handleDot = self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId, function(){
-
-          if( Meteor.userId() && Meteor.user().profile.userSlug === userSlug ){
-            let dot = Dotz.findOne(Meteor.user().profile.profileDotId);
-            if(!dot.connectedDotzArray.length){
-              self.subs.subscribe('createdByUserListsForAutoGenerate', "Sample Hotel");
-            }
-          }
-
-        });
-
-        if(handleDot.ready){
-
-          self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId)
-        }
+        self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId);
       }
 
 
@@ -126,6 +112,10 @@ Template.userShow.helpers({
     if (profileDot){
       return profileDot.connectedDotzArray;
     }
+  },
+
+  canGenerateAutoLists: function(){
+    return (Meteor.user().profile.createdByUserLists.length === 0 && Meteor.user().profile.createdByUserDotz.length === 0)
   }
 
 });
@@ -189,7 +179,11 @@ Template.userShow.events({
   },
 
   'click #_generateAutoLists': function(){
-    Modules.client.autoGenerateNewLists("Sample Hotel");
+    Meteor.call('autoGenerateNewLists', "Sample Hotel", function(error){
+      if(error){
+        console.log("autoGenerateNewLists didnt work")
+      }
+    });
   }
 
 });
