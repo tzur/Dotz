@@ -34,13 +34,14 @@ Template.userShow.onCreated(function() {
       });
       if (handleUser.ready()){
         let handleDot = self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId, function(){
-          if(Meteor.user().profile.userSlug === userSlug){
+
+          if( Meteor.userId() && Meteor.user().profile.userSlug === userSlug ){
             let dot = Dotz.findOne(Meteor.user().profile.profileDotId);
             if(!dot.connectedDotzArray.length){
               self.subs.subscribe('createdByUserListsForAutoGenerate', "Sample Hotel");
-
             }
           }
+
         });
 
         if(handleDot.ready){

@@ -1,4 +1,5 @@
 <template name="landingLogin">
+  {{>bertAlert}}
 
     <div id="landingPage-body" class="container-fluid" style="background-image: url('/dotz_landing_1.jpg')">
         <div class="landing-overlayer"></div>
@@ -14,14 +15,14 @@
 
             <div class="col-sm-4 pull-right txtR">
                 <div>New to Dotz?
-                    <a href="{{pathFor 'signup'}}"><button class="signup-landing btn square btn-trans btn-md">SignUp</button></a>
+                    <a href="{{pathFor 'signup'}}"><button class="signup-landing btn square btn-trans btn-md">Sign Up</button></a>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm-8 colCenter txtMd">
-                <h2>Dotz is the ultimate place to: <span>Plan a vacation</span></h2>
+                <h1>Dotz is the ultimate place to: <span>Plan a vacation</span></h1>
                 <h5>Save Places, Things to-do, Events & more in custom-made lists.</h5>
             </div>
         </div>
