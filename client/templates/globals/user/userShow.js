@@ -115,7 +115,7 @@ Template.userShow.helpers({
   },
 
   canGenerateAutoLists: function(){
-    return (!Meteor.user().profile.createdByUserLists && !Meteor.user().profile.createdByUserLists)
+    return (Meteor.user().profile.createdByUserLists.length === 0 && Meteor.user().profile.createdByUserDotz.length === 0)
   }
 
 });
