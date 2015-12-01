@@ -20,32 +20,59 @@
 
     {{#if iAmAHotel}}
 
-        <!--<div class="row">-->
-
             <div class="col-xs-12 col-sm-1">
                 <button id="_signInExitBtn" type="button" class="btn btn-lg whiteTxt">X</button>
             </div>
 
-                <div class="txtMd signup-div-content">
-                    <!--<h3 class="signup-bar-title whiteTxt">Welcome to Dotz</h3>-->
-                  <br>
-                    <h4 class="whiteTxt">Engage with your guests by making inspiring connections.</h4>
-                  <br>
+            <div class="txtMd signup-div-content">
+                <!--<h3 class="signup-bar-title whiteTxt">Welcome to Dotz</h3>-->
+              <br>
+                <h4 class="whiteTxt">Engage with your guests by making inspiring connections.</h4>
+              <br>
 
-                    <a href="{{pathFor 'signup'}}">
-                        <button type="button" id="_signUpBtn" class="btn">Get Started - Free Forever</button>
-                    </a>
+                <a href="{{pathFor 'signup'}}">
+                    <button type="button" id="_signUpBtn" class="btn">Get Started - Free Forever</button>
+                </a>
 
-                    <a href="{{pathFor 'login'}}">
-                        <button type="button" id="_loginBtn" class="hidden-xs btn">Login</button>
-                    </a>
+                <a href="{{pathFor 'login'}}">
+                    <button type="button" id="_loginBtn" class="hidden-xs btn">Login</button>
+                </a>
 
-                </div>
-
-        <!--</div>-->
-
+            </div>
 
     {{/if}}
+
+
+
+    {{#if iAmFromTheHomePage}}
+
+        <div class="col-xs-12 col-sm-1">
+            <button id="_signInExitBtn" type="button" class="btn btn-lg whiteTxt">X</button>
+        </div>
+
+        <div class="txtMd signup-div-content">
+            <!--<h3 class="signup-bar-title whiteTxt">Welcome to Dotz :)</h3>-->
+            <br>
+            <h4 class="whiteTxt">Sign up to discover the city with Dotz.</h4>
+
+            <a href="{{pathFor 'signup'}}">
+                <button type="button" id="_signUpBtn" class="btn">Sign Up</button>
+            </a>
+
+            <a href="{{pathFor 'login'}}">
+                <button type="button" id="_loginBtn" class="hidden-xs btn">Login</button>
+            </a>
+
+        </div>
+
+    {{/if}}
+
+
+
+
+
+
+
 
 
 
