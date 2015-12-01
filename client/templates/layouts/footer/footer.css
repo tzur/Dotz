@@ -70,3 +70,11 @@
   border: transparent;
   border-radius: 0;
 }
+
+.showFooter {
+
+}
+
+.noneFooter {
+ display: none;
+}

@@ -151,6 +151,10 @@ Template.dotShow.helpers({
       return ( {
         dot: {_id: this.dot._id}
       });
+  },
+
+  workingOnQuickStart: function() {
+    return Session.get('workingOnQuickStart');
   }
 
 });
@@ -215,11 +219,25 @@ Template.dotShow.events({
   },
 
   'click #_generateAutoDotz': function() {
-    Meteor.call('autoGenerateContentInsideList', this.dot.quickStartListId, this.dot._id, function (error) {
-      if (error) {
-        console.log("autoGenerateContentInsideList failed")
-      }
-    })
+    Session.set('workingOnQuickStart', true);
+
+    let self = this;
+
+    setTimeout(function(){
+
+      Meteor.call('autoGenerateContentInsideList', self.dot.quickStartListId, self.dot._id, function (error) {
+        if (error) {
+          console.log("autoGenerateContentInsideList failed");
+          Session.set('workingOnQuickStart', false)
+        } else {
+          Session.set('workingOnQuickStart', false)
+        }
+      });
+
+    }, 3000);
+
+
+
   }
 
 });
