@@ -33,7 +33,7 @@ Template.userShow.onCreated(function() {
         }
       });
       if (handleUser.ready()){
-        let handleDot = self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId);
+        self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId);
       }
 
 
