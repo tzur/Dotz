@@ -2,7 +2,7 @@
 #signUp-nav-bar {
   background-color: #337ab7;
   /*5bc0de*/
-  height: 18vh;
+  height: 21vh;
   border: 0px solid #337ab7;
   padding-right: 0;
   padding-left: 0;
@@ -37,6 +37,7 @@
 }
 
 .signup-div-content {
+  padding-top: 1.5vh;
   padding-right: 2vh;
   padding-left: 2vh;
   /*width: 95%;*/
