@@ -16,7 +16,7 @@ Template.default.onDestroyed(function(){
 
   //This sessions also destroyed by the footerTemplate:
   Session.set('joinUsDivOn', false);
-  Session.set('iAmAHotel', false); //TBD
+  //Session.set('iAmAHotel', false); //TBD
   Session.set('footerIsWelcome', false);
 
 });
