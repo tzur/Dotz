@@ -457,6 +457,11 @@ a span {
 a span:hover {
   color: #337ab7;
 }
+
+.buttonsBar {
+  padding-right: 0;
+}
+
 /* mobile adaption for card */
 
 @media (max-width: 767px) {
