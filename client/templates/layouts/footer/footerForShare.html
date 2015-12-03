@@ -1,0 +1,33 @@
+<template name="footerForShare">
+
+    <nav id="signUp-nav-bar" class="navbar navbar-default navbar-fixed-bottom col-xs-12" role="navigation">
+        <div class="container-fluid" id="signUp-div">
+            <p>Amount of dotz that are connected: {{amountOfDotzToShare}}</p>
+            <div class="row">
+                <form id='email-form'>
+                    <div class="col-md-2">
+                      <input type='text' class='form-control' placeholder='Email Address' required>
+                    </div>
+                    <div class="col-md-2">
+                        <input type='text' class='form-control' placeholder='Tourist name (Optional)'>
+                    </div>
+                    <div class="col-xs-1">
+                      {{#if isSpinnerOn}}
+                          <button   class="transparent  btn round btn-primary  has-spinner active">
+                              <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>Send</button>
+                      {{else}}
+                          <button  class=" btn round btn-primary ">Send</button>
+                      {{/if}}
+                    </div>
+
+                </form>
+            </div>
+          <div class="row">
+              <div class="col-xs-12 col-sm-1">
+                  <button  type="button" class="btn exit whiteTxt">X</button>
+              </div>
+          </div>
+
+        </div>
+    </nav>
+</template>

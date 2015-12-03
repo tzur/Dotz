@@ -30,12 +30,12 @@
   <div id="main">
 		{{> Template.dynamic template=yield}}
 	</div>
-
-
   {{#if joinUsDivOn}}
       {{>footer}}
   {{/if}}
-
+  {{#if shareFooterOn}}
+    {{> footerForShare}}
+  {{/if}}
 
 </body>
 

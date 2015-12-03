@@ -23,10 +23,14 @@ Template.default.onDestroyed(function(){
 
 
 Template.default.helpers({
-
   joinUsDivOn: function() {
     if ( Session.get('joinUsDivOn') ) {
       return Session.get('footerIsWelcome');
+    }
+  },
+  shareFooterOn: function(){
+    if (Session.get('shareListActive')){
+      return true;
     }
   }
 

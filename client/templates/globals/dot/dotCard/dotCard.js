@@ -176,6 +176,22 @@ Template.dotCard.helpers({
     if (this.smartRef.connection.likes.length > 0) {
       return this.smartRef.connection.likes.length;
     }
+  },
+  shareList: function(){
+    return Session.get('shareListActive');
+  },
+  alreadyShared: function(){
+    let sharedDot = Dotz.findOne(Session.get('shareListActive'));
+    let alreadyAdded = false;
+    let self = this;
+    if (sharedDot && sharedDot.connectedDotzArray){
+      sharedDot.connectedDotzArray.forEach(function(smartRef){
+        if (smartRef.dot._id === self.dot._id){
+          alreadyAdded = true;
+        }
+      });
+    }
+    return alreadyAdded;
   }
 
 });
@@ -274,6 +290,72 @@ Template.dotCard.events({
   'click ._setCurrentPath': function(){
     Session.set('searchInput',undefined);
     $('#searchBoxInput').val("")
+  },
+  'click .shareListInstant': function(event){
+    event.preventDefault();
+    let dotId = this.dot._id;
+    if (Session.get('shareListActive')){
+      let smartRef = new Modules.both.Dotz.smartRef(dotId,Meteor.userId(),Session.get('shareListActive'), CONNECT_ACTION, Meteor.userId());
+      Meteor.call('addDotToConnectedDotzArray', smartRef, function (error, result) {
+        if (error) {
+          console.log(error);
+        }
+        else{
+          console.log('success');
+        }
+      });
+    }
+  },
+  'click .shareList': function(event) {
+    event.preventDefault();
+    let dotId = this.dot._id;
+    let doc = {
+      title: "Share",
+      dotType: "shareList",
+      createdAtDate: new Date(),
+      ownerUserId: Meteor.userId(),
+      inDotz: [Meteor.userId().shareDotId],
+      isOpen: false,
+      coverImageUrl: "https://dotz-dev-images.s3.amazonaws.com/jRZGh5cHJ3CmLqopk/SendDotzList.jpg"
+    };
+      Meteor.call('insertDot', doc, function (error, result) {
+        if (error) {
+          console.log(error);
+      }
+      else {
+        let shareDotId = result;
+        let smartRef = new Modules.both.Dotz.smartRef(result, Meteor.userId(), Meteor.user().profile.shareDotId, CONNECT_ACTION, Meteor.userId());
+        if (!error) {
+          Meteor.call('addDotToConnectedDotzArray', smartRef, function (error, result) {
+            if (error) {
+              console.log(error);
+            }
+            else {
+              Meteor.call('createDotSlug',doc, shareDotId, (Math.random()).toString(),function(error,result){
+                if (error){
+                  console.log(error);
+                }
+                else{
+                  console.log(result);
+                  let smartRef = new Modules.both.Dotz.smartRef(dotId, Meteor.userId(),shareDotId, CONNECT_ACTION, Meteor.userId());
+                  Meteor.call('addDotToConnectedDotzArray', smartRef, function (error, result) {
+                    if (error) {
+                      console.log(error);
+                    }
+                    else{
+                      Session.set('shareListActive', shareDotId);
+                    }
+                  });
+                }
+              })
+            }
+          });
+        }
+        else {
+          console.log("Error" + error);
+        }
+      }
+    });
   }
 
 });

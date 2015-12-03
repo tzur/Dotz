@@ -44,7 +44,6 @@ let _slugUniquenessValidation = (dotId , slug) => {
 };
 
 Meteor.methods({
-
   createDot(doc){
     check(doc, Schema.dotSchema);
     if (!Meteor.userId()){
@@ -64,38 +63,40 @@ Meteor.methods({
           let dotId = result;
 
           //slug Process:
-          let formattedSlug = _formatSlug(doc.title);
-          let fullSlug = (Meteor.user().profile.userSlug + '/' + doc.dotType.toLowerCase() + '/' + formattedSlug);
-          let dotSlug = _slugUniquenessValidation (dotId, fullSlug);
-
+          Meteor.call('createDotSlug',doc, dotId, doc.title, function(error, result){
+            if (error){
+              console.log('error' + error);
+            }
+            else{
+              let dotSlug = result;
+              let smartRef = new Modules.both.Dotz.smartRef(dotId, Meteor.userId() ,doc.inDotz[0], CREATE_ACTION, doc.ownerUserId);
+              Modules.both.Dotz.connectDot(smartRef);
+              if( dotSlug && (doc.dotType === "List") ){
+                Meteor.call('updateCreatedByUserLists', Meteor.userId(), dotId, function (error, result) {
+                  if (error) {
+                    console.log("THE ERROR IS:" + error);
+                    myFuture.throw(error);
+                  }
+                  else if (!error) {
+                    myFuture.return(dotSlug);
+                  }
+                });
+              }
+              else if ( dotSlug && (doc.dotType === "Dot") ) {
+                Meteor.call('updateCreatedByUserDotz', Meteor.userId(), dotId, function (error, result) {
+                  if (error) {
+                    console.log("THE ERROR IS:" + error);
+                    myFuture.throw(error);
+                  }
+                  else if (!error) {
+                    myFuture.return(dotSlug);
+                  }
+                });
+              }
+            }
+          });
           //TBD:
           //let dotSlug = Dotz.findOne(result).dotSlug;
-
-          let smartRef = new Modules.both.Dotz.smartRef(dotId, Meteor.userId() ,doc.inDotz[0], CREATE_ACTION, doc.ownerUserId);
-          Modules.both.Dotz.connectDot(smartRef);
-          if( dotSlug && (doc.dotType === "List") ){
-            Meteor.call('updateCreatedByUserLists', Meteor.userId(), dotId, function (error, result) {
-              if (error) {
-                console.log("THE ERROR IS:" + error);
-                myFuture.throw(error);
-              }
-              else if (!error) {
-                myFuture.return(dotSlug);
-              }
-            });
-          }
-          else if ( dotSlug && (doc.dotType === "Dot") ) {
-            Meteor.call('updateCreatedByUserDotz', Meteor.userId(), dotId, function (error, result) {
-              if (error) {
-                console.log("THE ERROR IS:" + error);
-                myFuture.throw(error);
-              }
-              else if (!error) {
-                myFuture.return(dotSlug);
-              }
-            });
-          }
-
         }
         else{
           console.log("ASD ASD ASD ASD ASD ASD");
