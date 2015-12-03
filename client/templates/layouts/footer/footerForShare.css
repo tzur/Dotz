@@ -1,0 +1,39 @@
+#share-nav-bar {
+  background-color: rgba(51, 122, 183, 0.87);
+  height: 18vh;
+  border: 0px solid #337ab7;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+#round-share-counter {
+  border-radius: 50%;
+  border: #fff solid 2px;
+  height: 10vh;
+  width: 10vh;
+  padding: 0.5em;
+  float: right;
+}
+
+#share-footer-main {
+  padding-top: 4vh;
+}
+
+#share-footer-main form {
+padding-top: 2vh;
+}
+
+#email-form label {
+  font-weight: 100;
+  padding-right: 0.5em;
+}
+
+#share-counter {
+  color: #ffffff;
+  font-size: 2em;
+}
+#share-counter-text {
+  color: #ffffff;
+  font-size: 1em;
+  padding: 0 0.25em 0 0;
+}

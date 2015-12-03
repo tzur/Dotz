@@ -1,32 +1,55 @@
 <template name="footerForShare">
 
-    <nav id="signUp-nav-bar" class="navbar navbar-default navbar-fixed-bottom col-xs-12" role="navigation">
-        <div class="container-fluid" id="signUp-div">
-            <p>Amount of dotz that are connected: {{amountOfDotzToShare}}</p>
+    <nav id="share-nav-bar" class="navbar navbar-default navbar-fixed-bottom hidden-xs hidden-sm" role="navigation">
+        <div class="container-fluid">
             <div class="row">
-                <form id='email-form'>
-                    <div class="col-md-2">
-                      <input type='text' class='form-control' placeholder='Email Address' required>
-                    </div>
-                    <div class="col-md-2">
-                        <input type='text' class='form-control' placeholder='Tourist name (Optional)'>
-                    </div>
-                    <div class="col-xs-1">
-                      {{#if isSpinnerOn}}
-                          <button   class="transparent  btn round btn-primary  has-spinner active">
-                              <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>Send</button>
-                      {{else}}
-                          <button  class=" btn round btn-primary ">Send</button>
-                      {{/if}}
+
+                <div class="col-sm-1">
+                    <button id="_signInExitBtn" type="button" class="btn exit whiteTxt">X</button>
+                </div>
+
+            </div>
+
+          <div class="row">
+
+                <div id="share-footer-main" class="col-sm-12 col-md-11 colCenter">
+
+                    <div class="col-sm-2 col-md-3 txtMd">
+                      <div id="round-share-counter">
+                          <span id="share-counter">{{amountOfDotzToShare}}</span>
+                      </div>
                     </div>
 
-                </form>
+                    <form class="form form-inline" id='email-form'>
+
+                        <div class="col-sm-9 no-left-pad">
+
+                          <span id="share-counter-text">Dotz</span>
+
+                          <label for="rg-from" class="whiteTxt">to share with: </label>
+                          <div class="form-group">
+                              <input type='text' class='form-control' placeholder='Full Name (Optional)'>
+                          </div>
+
+                          <div class="form-group">
+                              <input type='email' class='form-control' placeholder='Email' required>
+                          </div>
+
+                          {{#if isSpinnerOn}}
+                              <button class="transparent btn round btn-full-trans has-spinner active">
+                                  <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span><i class="fa lgTxt fa-paper-plane"></i></button>
+                          {{else}}
+                              <button  class="btn round btn-full-trans"><i class="fa lgTxt fa-paper-plane"></i></button>
+                          {{/if}}
+
+                        </div>
+
+                    </form>
+
+                </div>
+
             </div>
-          <div class="row">
-              <div class="col-xs-12 col-sm-1">
-                  <button  type="button" class="btn exit whiteTxt">X</button>
-              </div>
-          </div>
+
 
         </div>
     </nav>

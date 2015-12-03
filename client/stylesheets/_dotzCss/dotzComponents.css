@@ -12,6 +12,18 @@
   border-color: #fff;
 }
 
+.btn-full-trans {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-full-trans:hover {
+  color: #ccc;
+  background-color: transparent;
+  border-color: transparent;
+}
+
 .square {
   border-radius: 0px;
 }
@@ -50,7 +62,9 @@ button, a, button:hover, button:focus button:active {
 
           /*  alignment division */
 
-
+.no-left-pad {
+  padding-left: 0;
+}
 
 
 
