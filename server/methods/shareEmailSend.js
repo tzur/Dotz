@@ -7,11 +7,6 @@ Meteor.methods({
     check(shareListLink, String);
     check(hotelName, String);
     check(touristName,String);
-
-    if (touristName === ""){
-      let userNameIndex = emailAddress.indexOf('@');
-      touristName = emailAddress.substring(0, userNameIndex);
-    }
     let emailData= {
       shareListLink:shareListLink,
       hotelName: hotelName,
@@ -20,9 +15,9 @@ Meteor.methods({
     SSR.compileTemplate('htmlEmail', Assets.getText('html-email.html'));
     try{
       Email.send({
-        to: "zurtene@gmail.com",
+        to: emailAddress,
         from: "info@dotz.city",
-        subject: "WOOOW2",
+        subject: hotelName +" Shared with you the following Dotz",
         html: SSR.render('htmlEmail',emailData)
       })
     }

@@ -1,5 +1,5 @@
 Template.userShow.onCreated(function() {
-
+  Session.set('showShareDotz', false);
   let self = this;
   self.userShowReady = new ReactiveVar();
   self.profileDotReady = new ReactiveVar();
@@ -34,7 +34,9 @@ Template.userShow.onCreated(function() {
       });
       if (handleUser.ready()){
         self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.profileDotId);
+        self.subs.subscribe('dotShow', Meteor.users.findOne({"profile.userSlug": userSlug}).profile.shareDotId);
       }
+
 
 
     }
@@ -112,8 +114,18 @@ Template.userShow.helpers({
     if (profileDot){
       return profileDot.connectedDotzArray;
     }
-  },
 
+  },
+  sharedDotzArray: function(){
+    let sharedDot = Dotz.findOne(this.profile.shareDotId);
+    if (sharedDot){
+      return sharedDot.connectedDotzArray;
+    }
+
+  },
+  shareMode: function(){
+    return Session.get('showShareDotz');
+  },
   canGenerateAutoLists: function(){
     return (Meteor.user().profile.createdByUserLists.length === 0 && Meteor.user().profile.createdByUserDotz.length === 0)
   }
@@ -184,6 +196,12 @@ Template.userShow.events({
         console.log("autoGenerateNewLists didnt work")
       }
     });
+  },
+  'click .goToShareMode': function(){
+      Session.set('showShareDotz', true);
+  },
+  'click .goToProfileMode': function(){
+    Session.set('showShareDotz', false);
   }
 
 });

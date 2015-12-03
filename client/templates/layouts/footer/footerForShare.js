@@ -9,13 +9,13 @@ Template.footerForShare.onCreated(function(){
   self.subs.subscribe('dotCard',Session.get('shareListActive'));
 });
 Template.footerForShare.onDestroyed(function(){
-    Session.set('shareDotSlug', undefined);
+    Session.set('shareDot', undefined);
 });
 Template.footerForShare.helpers({
   amountOfDotzToShare: function(){
     let shareDot = Dotz.findOne(Session.get('shareListActive'));
     if (shareDot){
-      Session.set('shareDotSlug', shareDot.dotSlug);
+      Session.set('shareDot', shareDot);
       return shareDot.connectedDotzArray.length;
     }
   },
@@ -28,19 +28,40 @@ Template.footerForShare.events({
   'submit #email-form': function(event){
     event.preventDefault();
     Session.set('spinnerOn', true);
-    Meteor.call("sendEmail",event.currentTarget[0].value, Session.get('shareDotSlug'), Meteor.user().username,
-                      event.currentTarget[1].value ,function(error, result){
+    let emailAddress = event.currentTarget[0].value;
+    let touristName = event.currentTarget[1].value;
+    if (touristName === ""){
+      let userNameIndex = emailAddress.indexOf('@');
+      touristName = emailAddress.substring(0, userNameIndex);
+    }
+    let updateOptions= {
+      $set: {title: touristName + "'s List"}
+    };
+    Meteor.call('updateDot',  updateOptions, Session.get('shareDot')._id, function(error, result){
       if (error){
-        Bert.alert('Something went wrong, please try again', 'danger');
-        Session.set('spinnerOn', false);
-      }
-      else{
-        Bert.alert('Email-was Sent','success');
-        Session.set('shareListActive', false);
-        Session.set('spinnerOn', false);
+        console.log(error);
       }
     });
-
+    Meteor.call('updateDotSlug', Session.get('shareDot'),Session.get('shareDot')._id, touristName + "'s List", function(error, result){
+      if (!error){
+        let dotSlug = result;
+        Meteor.call("sendEmail",emailAddress, dotSlug, Meteor.user().username,
+          touristName ,function(error, result){
+            if (error){
+              Bert.alert('Something went wrong, please try again', 'danger');
+              Session.set('spinnerOn', false);
+            }
+            else{
+              Bert.alert('Email-was Sent','success');
+              Session.set('shareListActive', false);
+              Session.set('spinnerOn', false);
+            }
+          });
+      }
+      else{
+        console.log(error);
+      }
+    });
   },
   'click .exit':function(event){
     event.preventDefault();

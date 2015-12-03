@@ -63,7 +63,7 @@ Meteor.methods({
           let dotId = result;
 
           //slug Process:
-          Meteor.call('createDotSlug',doc, dotId, doc.title, function(error, result){
+          Meteor.call('updateDotSlug',doc, dotId, doc.title, function(error, result){
             if (error){
               console.log('error' + error);
             }
