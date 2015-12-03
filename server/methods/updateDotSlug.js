@@ -1,3 +1,5 @@
+
+
 let Future = Meteor.npmRequire('fibers/future');
 let _formatSlug = function(value) {
   let formatted = value
@@ -9,8 +11,7 @@ let _formatSlug = function(value) {
 };
 let _slugUniquenessValidation = (dotId , slug)  => {
   let uniqueSlug;
-  Meteor.call('updateDotSlug', dotId, slug, function(error, result) {
-    //TBD:
+  Meteor.call('makeUpdateDotSlug', dotId, slug, function(error, result) {
     if (error) {
       let newSlug = slug + "-2";
       _slugUniquenessValidation ( dotId, newSlug );
@@ -23,7 +24,7 @@ let _slugUniquenessValidation = (dotId , slug)  => {
 };
 
 Meteor.methods({
-  createDotSlug(doc, dotId, dotFirstSlug){
+  updateDotSlug(doc, dotId, dotFirstSlug){
     check(doc, Object);
     check(dotId, String);
     check(dotFirstSlug, String)

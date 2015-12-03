@@ -8,10 +8,7 @@ Meteor.methods({
     check(hotelName, String);
     check(touristName,String);
 
-    if (touristName === ""){
-      let userNameIndex = emailAddress.indexOf('@');
-      touristName = emailAddress.substring(0, userNameIndex);
-    }
+
     let emailData= {
       shareListLink:shareListLink,
       hotelName: hotelName,
