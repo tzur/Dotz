@@ -45,9 +45,9 @@
 
 #listShowHeader .listCoverImg {
   position: relative;
-  width: 100%;
   height: 44vh;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: repeat-x;
   background-position-y: 50%;
   background-position-x: 50%;
   margin: 0;
@@ -265,7 +265,9 @@ pre {
 
 .postImgCover {
   height: 26em;
-  background-size: cover;
+  background-size: contain;
+  background-color: rgba(0, 0, 0, 0.83);
+  background-repeat: no-repeat;
   background-position-y: 50%;
   background-position-x: 50%;
 }
