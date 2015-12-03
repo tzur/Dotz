@@ -19,6 +19,9 @@ BrowserPolicy.content.allowImageOrigin("https://dotz-dev-images.s3.amazonaws.com
 BrowserPolicy.content.allowOriginForAll("http://fonts.googleapis.com");
 BrowserPolicy.content.allowOriginForAll("http://fonts.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("localhost:*");
+BrowserPolicy.content.allowOriginForAll("http://connect.facebook.net/*");
+BrowserPolicy.content.allowOriginForAll("http://platform.twitter.com/*");
+BrowserPolicy.content.allowOriginForAll("http://connect.facebook.net/en_US/sdk.js");
 BrowserPolicy.content.allowConnectOrigin("ws://localhost:5000");
 BrowserPolicy.content.allowConnectOrigin("http://localhost:5000");
 //BrowserPolicy.framing.allowAll();

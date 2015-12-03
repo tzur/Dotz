@@ -68,6 +68,7 @@ kadira:blaze-layout@2.1.0
 kadira:dochead@1.1.0
 kadira:flow-router@2.6.2
 lai:collection-extensions@0.1.4
+liberation:shareit@1.1.1
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
