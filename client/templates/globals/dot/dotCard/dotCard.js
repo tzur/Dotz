@@ -193,7 +193,6 @@ Template.dotCard.helpers({
     }
     return alreadyAdded;
   }
-
 });
 Template.dotCard.onDestroyed(function(){
   $('.disConnect').removeClass('active');
