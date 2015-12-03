@@ -161,10 +161,17 @@ Template.dotShow.helpers({
 
   workingOnQuickStart: function() {
     return Session.get('workingOnQuickStart');
+  },
+  dataForShare: function() {
+    return {
+      title: this.dot.title,
+      author: "The author",
+      summary: "Something",
+      thumbnail: this.dot.coverImageUrl
+    };
   }
 
 });
-
 Template.dotShow.events({
 
   //

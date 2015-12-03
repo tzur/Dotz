@@ -1,6 +1,3 @@
-
-
-
 Meteor.methods({
   sendEmail: function(emailAddress, shareListLink, hotelName, touristName){
     check(emailAddress, String);
