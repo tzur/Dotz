@@ -38,7 +38,6 @@ fortawesome:fontawesome
 mrt:moment-timezone
 rajit:bootstrap3-datepicker
 aldeed:autoform-bs-datepicker
-browser-policy
 msavin:mongol
 dburles:google-maps
 jeremy:geocomplete
@@ -63,3 +62,4 @@ coffeescript
 meteorhacks:kadira
 tsega:bootstrap3-datetimepicker@=3.1.3_3
 aldeed:autoform-bs-datetimepicker
+browser-policy
