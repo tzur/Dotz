@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <div id="followDiv" class="container-fluid">
+        <div id="userShowMainDiv" class="container-fluid">
 
             <div class="profile-user-data-row">
 
@@ -151,32 +151,31 @@
 
 
 {{#if myProfileIsEmpty}}<!--fake ListCard-->
+    <h2 class="txtMd lightGrey">Your profile is empty :(</h2>
 
-<hr>
-<br>
+  {{#if canGenerateAutoLists}}
+    <hr>
+    <br>
 
-<div class="col-xs-12 col-sm-10 colCenter" id="emptyProfile">
+    <div class="col-xs-12 col-sm-10 colCenter" id="emptyProfile">
 
-    <div class="card col-xs-12 colCenter" id="listCover">
-        <div class="container-fluid dot-container-img-listCard"
-             style="background-image: url('https://dotz-dev-images.s3.amazonaws.com/sXLnHX3sr8vbeh8KB/dotz_How.jpg')">
-            <div class="filter">
-                <a href="/dotz">
-                <div class="listCoverContent">
-                        <div class="title">
-                            <a href="/dotz"><h2 class="whiteTxt txtMd">This Is How We Do It</h2></a>
-                        </div>
-                        <div class="col-xs-12 txtMd">
-                            <a href="/dotz">
-                                <button type="button" class="btn btn-primary btn-md">Check It Out</button>
-                            </a>
-                        </div>
+        <div class="card col-xs-12 colCenter" id="listCover">
+            <div class="container-fluid dot-container-img-listCard"
+                 style="background-image: url('https://dotz-dev-images.s3.amazonaws.com/sXLnHX3sr8vbeh8KB/dotz_How.jpg')">
+                <div class="filter">
+                    <div class="listCoverContent">
+                            <div class="title">
+                                <h2 class="whiteTxt txtMd">This Is How We Do It</h2>
+                            </div>
+                            <div class="col-xs-12 txtMd">
+                                    <button id= "_generateAutoLists" type="button" class="btn btn-primary btn-md">Quick Start!</button>
+                            </div>
+                    </div>
                 </div>
-                </a>
             </div>
-        </div>
-    </div> <!-- end listCard -->
+        </div> <!-- end listCard -->
 </div>
+    {{/if}}
 
 {{/if}}
 

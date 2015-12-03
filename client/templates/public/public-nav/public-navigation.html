@@ -1,8 +1,30 @@
 <template name="publicNavigation">
-  <ul class="nav navbar-nav navbar-right">
-      <!--<li class="{{currentRoute 'search'}}"><a href="{{pathFor 'search'}}">Search</a></li>-->
-      <li class="login"><a href="#"><strong>Login</strong></a></li>
-      <li class="signup"><a href="#"><strong>Sign Up</strong></a></li>
 
-  </ul>
+  <!--<ul class="nav navbar-nav navbar-right">-->
+      <!--&lt;!&ndash;<li class="{{currentRoute 'search'}}"><a href="{{pathFor 'search'}}">Search</a></li>&ndash;&gt;-->
+
+      <!--<li class="login"><a href="{{pathFor 'login'}}"><strong>Login</strong></a></li>-->
+
+      <!--<li class="signup"><a href="{{pathFor 'signup'}}">-->
+          <!--<button class="signup-landing btn square btn-trans btn-md">Sign Up</button>-->
+      <!--</a></li>-->
+
+
+      <!--<div class="col-sm-4 pull-right txtR">-->
+          <!--<div>-->
+              <!--<a href="{{pathFor 'login'}}"><strong>Login</strong></a>-->
+              <!--<a href="{{pathFor 'signup'}}"><button class="signup-landing btn square btn-trans btn-md">SignUp</button></a>-->
+          <!--</div>-->
+      <!--</div>-->
+
+  <!--</ul>-->
+
+
+    <div id="loginSignupDiv" class="col-sm-4 pull-right txtR">
+        <div>
+            <a href="{{pathFor 'login'}}" class="login"><strong>Login</strong></a>
+            <a href="{{pathFor 'signup'}}"><button class="signup btn btn-primary square btn-md">Sign Up</button></a>
+        </div>
+    </div>
+
 </template>

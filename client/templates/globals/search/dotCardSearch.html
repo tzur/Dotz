@@ -24,7 +24,7 @@
         <!--check if is List or Dot:-->
       {{#if isListCard}}
 
-          <div class="col-xs-12 col-sm-10" id="listCover">
+          <div class="col-xs-12 col-sm-12 col-md-10" id="listCover">
               <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
                   <div class="filter">
                       <div class="listCoverContent">
@@ -69,16 +69,16 @@
 
       {{else}} <!--  = is dotCard -->
 
-          <div class="col-xs-12 col-sm-10" id="listCard">
+          <div class="col-xs-12 col-sm-12 col-md-10" id="listCard">
 
               <a href="/{{dot.dotSlug}}">
-                  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-4" id="searchCardImgSide">
+                  <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4" id="searchCardImgSide">
                       <div class="container-fluid dot-container-img-searchCard" style="background-image: url('{{dot.coverImageUrl}}')"></div>
                   </div>
               </a>
 
 
-              <div class="col-xs-12 col-sm-8 col-md-9 col-lg-8" id="searchCardTextSide">
+              <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8" id="searchCardTextSide">
 
                   <div class="content">
 
@@ -181,7 +181,7 @@
       {{/if}}
 
 
-        <div class="col-xs-12 col-sm-1" id="listCardOtherSide">
+        <div class="hidden-xs hidden-sm col-md-1" id="listCardOtherSide">
 
 
         </div>

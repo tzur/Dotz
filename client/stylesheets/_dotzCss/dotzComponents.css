@@ -1,3 +1,59 @@
+          /*  buttons division */
+
+.btn-trans {
+  color: #fff;
+  background-color: rgba(255,255,255,0.2);
+  border-color: #fff;
+}
+
+.btn-trans:hover {
+  color: #333;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.square {
+  border-radius: 0px;
+}
+
+          /*  links division */
+
+
+
+a h4, a h5, a h6 {
+  color: #333;
+}
+
+
+
+          /*  labels division */
+
+.label-dotz {
+  border: #fff solid 1px;
+  font-size: 50%;
+  font-weight: 100;
+  text-transform: capitalize;
+  margin-left: 1em;
+}
+
+.label-dotz:hover {
+  color: #fff;
+}
+
+          /*  general division */
+
+button, a, button:hover, button:focus button:active {
+  outline: none !important;
+}
+
+
+
+          /*  alignment division */
+
+
+
+
+
           /*  text-color division */
 
 .transparent {

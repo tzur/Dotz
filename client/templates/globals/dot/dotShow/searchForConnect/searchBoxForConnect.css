@@ -5,14 +5,14 @@
 
 
 #_createFromList {
-  height: 3.9vh;
+  /*height: 3.9vh;*/
   font-size: 1em;
 }
 
 #searchToConnect .md-form {
   font-size: 1em;
   /*line-height: 2em;*/
-  height: 4vh;
+  /*height: 4vh;*/
   padding: 1em;
 }
 

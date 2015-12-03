@@ -426,6 +426,9 @@
   padding: 1vh 0 0 0;
 }
 
+#listCardLikeSide .left {
+  left: 0;
+}
 
 #pre-delete-menu {
   top: initial;
@@ -454,9 +457,14 @@ a span {
 a span:hover {
   color: #337ab7;
 }
+
+.buttonsBar {
+  padding-right: 0;
+}
+
 /* mobile adaption for card */
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
 #listCard .content {
   /*height: 20vh;*/

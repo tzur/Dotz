@@ -1,0 +1,82 @@
+<template name="footer">
+
+<!--<div>-->
+
+    <!--{{#if currentUser}}-->
+
+        <!--<div class="contectUs">-->
+
+            <!---->
+
+        <!--</div>-->
+
+    <!--{{/if}}-->
+
+<!--</div>-->
+
+
+    <nav id="signUp-nav-bar" class="navbar navbar-default navbar-fixed-bottom col-xs-12" role="navigation">
+        <div class="container-fluid" id="signUp-div">
+
+    {{#if iAmAHotel}}
+
+            <div class="col-xs-12 col-sm-1">
+                <button id="_signInExitBtn" type="button" class="btn btn-lg whiteTxt">X</button>
+            </div>
+
+            <div class="txtMd signup-div-content">
+                <!--<h3 class="signup-bar-title whiteTxt">Welcome to Dotz</h3>-->
+                <h3 class="whiteTxt">MAKE YOUR GUESTS HAPPIER WITH DOTZ</h3>
+                <h5 class="whiteTxt">Create & Share beautiful recommendations lists with your guests.</h5>
+
+                <a href="{{pathFor 'signup'}}">
+                    <button type="button" id="_signUpBtn" class="btn">Get Started - Free Forever</button>
+                </a>
+
+                <a href="{{pathFor 'login'}}">
+                    <button type="button" id="_loginBtn" class="hidden-xs btn">Login</button>
+                </a>
+
+            </div>
+
+    {{/if}}
+
+
+
+    {{#if iAmFromTheHomePage}}
+
+        <div class="col-xs-12 col-sm-1">
+            <button id="_signInExitBtn" type="button" class="btn btn-lg whiteTxt">X</button>
+        </div>
+
+        <div class="txtMd signup-div-content">
+            <!--<h3 class="signup-bar-title whiteTxt">Welcome to Dotz :)</h3>-->
+            <br>
+            <h4 class="whiteTxt">Sign up to discover the city with Dotz.</h4>
+
+            <a href="{{pathFor 'signup'}}">
+                <button type="button" id="_signUpBtn" class="btn">Sign Up</button>
+            </a>
+
+            <a href="{{pathFor 'login'}}">
+                <button type="button" id="_loginBtn" class="hidden-xs btn">Login</button>
+            </a>
+
+        </div>
+
+    {{/if}}
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </nav>
+
+
+</template>

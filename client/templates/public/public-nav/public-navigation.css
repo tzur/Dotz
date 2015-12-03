@@ -1,9 +1,21 @@
 
 .login {
-  margin-top: 0.5vh;
+  /*margin-top: 0.5vh;*/
+  color: #337ab7;
+  margin-right: 0.5em;
+  font-weight: 600;
 }
 
 
 .signup {
-  margin-top: 0.5vh;
+  /*margin-top: 0.5vh;*/
+  /*background-color: #333333;*/
+  /*color: #FFFFFF;*/
+  font-weight: 600;
+  border: transparent;
 }
+
+#loginSignupDiv {
+  margin-top: 1vh;
+}
+

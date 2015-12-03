@@ -24,19 +24,19 @@ let validation = ( template ) => {
     },
     messages: {
       userName: {
-        required: 'Need a User Name here.',
+        required: "Don't be shy... What is your name?",
         minlength: 'Use at least 3 characters, please.'
       },
       emailAddress: {
-        required: 'Need an email address here.',
+        required: "Don't forget to add your email.",
         email: 'Is this email address legit?'
       },
       password: {
-        required: 'Need a password here.',
-        minlength: 'Use at least six characters, please.'
+        required: 'Psssss... You forgot to add a password',
+        minlength: 'Use at least 6 characters, please.'
       }
     },
-    submitHandler() { _handleSignup( template ); }
+  submitHandler() { _handleSignup( template ); }
   };
 };
 
@@ -56,22 +56,36 @@ let _handleSignup = ( template ) => {
 
       else {
           let username = Meteor.user().username;
-          let slug = username.replace(/ /g, "-").toLowerCase();
+          let slug = _formatSlug(username);
+
+          //
+          _createNewDotForDotProfile ( Meteor.userId() );
+
           Meteor.call('updateUserSlug', Meteor.userId(), slug, function(error, result) {
-              //TBD:
-              if (error) {
-                Bert.alert( 'Username Slug (aka url address ;) already exists ', 'danger' ); //TBD
-              }
-              else {
-                //TBD: this steps here (for better ux) OR later (for batter safety/stability)
-                _createNewDotForDotProfile ( Meteor.userId() );
-                Modal.hide('signUpModal');
-                FlowRouter.go('/' + Meteor.user().profile.userSlug);
-                Bert.alert( 'Welcome!', 'success' );
-              }
-          });
+                //TBD:
+                if (error) {
+                  Session.set('spinnerOn', false);
+                  Bert.alert( 'Username Slug (aka url address ;) already exists ', 'danger' ); //TBD
+                }
+                else {
+                  //TBD: this steps here (for better ux) OR later (for batter safety/stability)
+                  Modal.hide('signUpModal');
+                  FlowRouter.go('/' + Meteor.user().profile.userSlug);
+                  Bert.alert( 'Welcome!', 'success' );
+                }
+            });
     }
   });
+};
+
+//add an url-format for UserSlug:
+let _formatSlug = function(value) {
+  let formatted = value
+    .toLowerCase()
+    .replace(/ /g,'-')
+    .replace(/[-]+/g, '-')
+    .replace(/[^\w\x80-\xFF-]+/g,'');
+  return formatted;
 };
 
 //Create new dot + add the new dot ID to the profileDotId field:
@@ -90,7 +104,7 @@ let _createNewDotForDotProfile = ( userId ) => {
             Meteor.call('updateUserProfileDotId', Meteor.userId(), result, function(error, result){
                 if (!error) {
 
-                    //APIs:
+                  //APIs:
 
                     //Mixpanel tracking the event of singup user
                     analytics.identify( Meteor.userId(), {

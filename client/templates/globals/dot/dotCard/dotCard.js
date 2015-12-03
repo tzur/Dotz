@@ -129,7 +129,7 @@ Template.dotCard.helpers({
       return false;
     }
     else{
-      return ("+ " + connectedDotz );
+      return (connectedDotz );
     }
 
 
@@ -222,9 +222,15 @@ Template.dotCard.events({
           connectToMyLists: true
         }
       });
+      analytics.track( 'Viewed Connect Modal to connect' + this.dot.title, {
+        title: 'Connect Modal Page'
+      });
     }
     else{
       Modal.show('signUpModal');
+      analytics.track( 'Tried to Connect' + this.dot.title+  'while not connected', {
+        title: 'Connect Modal Page'
+      });
     }
 
   },

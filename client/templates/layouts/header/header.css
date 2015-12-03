@@ -1,5 +1,11 @@
 .navbar {
   margin-bottom: 0;
+  background-color: #fafafa;
+  border-color: #fafafa;
+}
+
+.navbar-collapse {
+  background-color: #fafafa;
 }
 
 .navbar .navbar-brand{

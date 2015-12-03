@@ -25,6 +25,17 @@ BrowserPolicy.content.allowOriginForAll("cdn.mxpnl.com");
 BrowserPolicy.content.allowOriginForAll("https://player.vimeo.com");
 BrowserPolicy.content.allowOriginForAll("https://*.gstatic.com");
 
+//css
+BrowserPolicy.content.allowOriginForAll("http://css-spinners.com/css/spinner/dots.css");
+BrowserPolicy.content.allowOriginForAll("http://www.css-spinners.com/css/spinner/dots.css");
+
+//ZOPIM:
+BrowserPolicy.content.allowOriginForAll("http://v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi");
+BrowserPolicy.content.allowOriginForAll("http://*.zopim.com");
+BrowserPolicy.content.allowOriginForAll("data:application/font-woff");
+//BrowserPolicy.content.allowOriginForAll("");
+
+
 //Temp TBD
 BrowserPolicy.content.allowOriginForAll("https://stats.g.doubleclick.net");
 

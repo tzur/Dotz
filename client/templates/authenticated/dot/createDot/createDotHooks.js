@@ -57,12 +57,12 @@ let dotHooks = {
 
   onSuccess: function(update, result){
     Modal.hide();
-    Session.set('spinnerOn', false);
     Session.set('searchInput', undefined);
     Session.set("parentDot", undefined);
     Session.set("locationObject", undefined);
     Session.set("dotType", undefined);
     Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
+    Session.set('spinnerOn', false);
     Meteor.call('addOrEditObjectInAlgolia', result, false);
 
     FlowRouter.go('/' + (Session.get('redirectAfterCreate')));

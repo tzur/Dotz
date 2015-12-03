@@ -4,9 +4,6 @@
   "AWSBucket": "dotz-dev-images",
   "public": {
     "analyticsSettings": {
-      "Google Analytics": {
-        "trackingId": "UA-63151429-1"
-      }
     }
   },
   "kadira": {
