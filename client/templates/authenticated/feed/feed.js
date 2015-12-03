@@ -51,7 +51,6 @@ Template.feed.helpers({
       return true;
     }
   }
-
 });
 
 Template.feed.events({
