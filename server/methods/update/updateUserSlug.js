@@ -18,7 +18,7 @@ let _slugUniquenessValidation = (userId , slug)  => {
       _slugUniquenessValidation ( userId, newSlug );
     }
     else {
-      myFutureSlug.return(slug);
+      myFutureUserSlug.return(slug);
     }
   });
 };
@@ -27,15 +27,13 @@ Meteor.methods({
   createUserSlug(slug){
     check(slug, String);
     let userId = Meteor.userId();
-    myFutureSlug = new Future();
+    myFutureUserSlug = new Future();
     let formattedSlug = _formatSlug(slug);
     //let fullSlug = (Meteor.user().profile.userSlug + '/' + doc.dotType.toLowerCase() + '/' + formattedSlug);
     _slugUniquenessValidation (userId, formattedSlug);
-    return myFutureSlug.wait();
+    return myFutureUserSlug.wait();
   },
 
-  //TBD: special method for user-signUp process:
-  // Does not work with try/exception..
   setUserSlug(slug){
     check(slug, String);
     let userId = Meteor.userId();
