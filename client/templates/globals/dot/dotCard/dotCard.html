@@ -237,7 +237,7 @@
 
 
 
-                              <div class="listCardUser col-xs-6 col-md-8">
+                              <div class="listCardUser col-xs-9 col-sm-9 col-md-8">
 
                                 {{#if userIsTheDotCreator}}
 
@@ -256,7 +256,7 @@
                                     </a>
                                     <span class="smTxt greyText"><a class="greyText" href="/{{connectedByUser.profile.userSlug}}"><strong>{{connectedByUser.username}}</strong></a></span>
                                     <span class="greyText smTxt">connected</span>
-                                    <a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon">
+                                    <a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon hidden-xs hidden-sm">
                                         <img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">
                                     </a>
                                     <span class="smTxt greyText"><a class="greyText" href="/{{ownerUser.profile.userSlug}}"><strong>{{ownerUser.username}}</strong></a></span>
@@ -267,7 +267,7 @@
                               </div> <!--end userListCard -->
 
 
-                                <div class="buttonsBar">
+                                <div class="buttonsBar col-xs-3 col-sm-3 col-md-4">
 
                                   {{#if isConnected}}
                                       <button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>
