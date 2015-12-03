@@ -66,7 +66,7 @@ Template.dotCard.helpers({
     }
   },
   isListCard: function() {
-    return (this.dot && this.dot.dotType === "List")
+    return (this.dot && this.dot.dotType === "List" || this.dot && this.dot.dotType === "shareList");
   },
 
   isMyDot: function() {
@@ -184,7 +184,7 @@ Template.dotCard.helpers({
     let sharedDot = Dotz.findOne(Session.get('shareListActive'));
     let alreadyAdded = false;
     let self = this;
-    if (sharedDot && sharedDot.connectedDotzArray){
+    if (self.dot && sharedDot && sharedDot.connectedDotzArray){
       sharedDot.connectedDotzArray.forEach(function(smartRef){
         if (smartRef.dot._id === self.dot._id){
           alreadyAdded = true;
@@ -331,7 +331,7 @@ Template.dotCard.events({
               console.log(error);
             }
             else {
-              Meteor.call('createDotSlug',doc, shareDotId, (Math.random()).toString(),function(error,result){
+              Meteor.call('updateDotSlug',doc, shareDotId, (Math.random()).toString(),function(error,result){
                 if (error){
                   console.log(error);
                 }
