@@ -192,6 +192,7 @@
   position: relative;
   /*top: 1vh;*/
   /*bottom: 1vh;*/
+  background-color: #fafafa;
   height: 3vh;
   width: 3vh;
   background-size: cover;
