@@ -27,7 +27,7 @@ Template.feed.helpers({
         return true
       }
     }
-    else{
+    else if (Meteor.user().profile && !Meteor.user().profile.feedDotz){
       Modal.show('findUsersToFollowModal');
     }
   },
