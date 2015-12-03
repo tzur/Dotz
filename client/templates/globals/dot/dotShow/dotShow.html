@@ -57,7 +57,7 @@
                 <!--<a class="openToClose">GO TO CLOSEEEE</a>-->
 
                       <button type="button" class="connect btn btn-success btn-sm dot-show-connect-btn">Connect List {{connectCounter}}</button>
-
+                      {{> shareit dataForShare}}
                       {{#if isMyDot}}
                         <span class="hidden-xs">
                             <a class="panelBtn dropdown-toggle btn btn-default btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -142,7 +142,7 @@
                         <div>
 
                            <button type="button" class="connect btn btn-success btn-md dot-show-connect-btn">Connect {{connectCounter}}</button>
-
+                          {{> shareit dataForShare}}
                           {{#if isMyDot}}
 
                             <span>
@@ -444,4 +444,5 @@
 
 
 {{/with}}
+
 </template>
