@@ -55,7 +55,4 @@ Template.feed.helpers({
 });
 
 Template.feed.events({
-  'click #findUsersTofollow': function(){
-    Modal.show('findUsersToFollowModal');
-  }
 });

@@ -7,9 +7,6 @@ BrowserPolicy.content.allowOriginForAll("https://fonts.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("https://*.s3.amazonaws.com");
 
 //Temp:
-BrowserPolicy.content.allowInlineScripts("http://w.sharethis.com/button/buttons.js");
-BrowserPolicy.content.allowEval("http://w.sharethis.com/button/buttons.js");
-BrowserPolicy.content.allowOriginForAll("http://w.sharethis.com/button/buttons.js");
 
 
 BrowserPolicy.content.allowImageOrigin("http://s2.postimg.org/6yq2vojd1/Location_icon_lg.png");
