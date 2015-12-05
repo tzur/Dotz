@@ -260,7 +260,15 @@ pre {
 }
 
 .dot-show-connect-btn {
-  width: 75%;
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+
+  .dot-show-connect-btn {
+    width: 75%;
+  }
+
 }
 
 .postImgCover {
@@ -486,6 +494,9 @@ pre {
   text-align: center;
 }
 
+#listShow-share-btn {
+  margin-left: 0.25em;
+}
 
 
 /*dotShow with emptyList*/
