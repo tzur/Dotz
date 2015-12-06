@@ -46,8 +46,15 @@ Template.userShow.onCreated(function() {
   });
 });
 
-Template.userShow.onDestroyed(function(){
 
+Template.userShow.onRendered(function() {
+  //Session.set('showShareDotz', false);
+  Session.set('changeListener', true);
+});
+
+
+Template.userShow.onDestroyed(function(){
+  Session.set('changeListener', true);
 });
 
 
@@ -113,6 +120,8 @@ Template.userShow.helpers({
   },
 
   connectedDotzArray: function() {
+    Session.get('changeListener');
+    Session.get('showShareDotz');
     let profileDot = Dotz.findOne(this.profile.profileDotId);
     if (profileDot){
       return profileDot.connectedDotzArray;
