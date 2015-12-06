@@ -35,10 +35,22 @@ BrowserPolicy.content.allowOriginForAll("http://css-spinners.com/css/spinner/dot
 BrowserPolicy.content.allowOriginForAll("http://www.css-spinners.com/css/spinner/dots.css");
 
 //ZOPIM:
-BrowserPolicy.content.allowOriginForAll("http://v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi");
+//BrowserPolicy.content.allowOriginForAll("http://v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi"); //TBD
 BrowserPolicy.content.allowOriginForAll("http://*.zopim.com");
-BrowserPolicy.content.allowOriginForAll("data:application/font-woff");
+//BrowserPolicy.content.allowOriginForAll("data:application/font-woff"); //TBD
 //BrowserPolicy.content.allowOriginForAll("");
+
+//Share:
+BrowserPolicy.content.allowOriginForAll("http://connect.facebook.net/en_US/sdk.js");
+BrowserPolicy.content.allowOriginForAll("http://connect.facebook.net/en_US/sdk.js");
+BrowserPolicy.content.allowOriginForAll("http://connect.facebook.net/en_US/sdk.js");
+BrowserPolicy.content.allowOriginForAll("http://*.facebook.net");
+BrowserPolicy.content.allowOriginForAll("https://*.facebook.net");
+BrowserPolicy.content.allowOriginForAll("http://*.facebook.com");
+BrowserPolicy.content.allowOriginForAll("https://*.facebook.com");
+BrowserPolicy.content.allowOriginForAll("http://*.twitter.com");
+BrowserPolicy.content.allowOriginForAll("https://*.twitter.com");
+
 
 
 //Temp TBD

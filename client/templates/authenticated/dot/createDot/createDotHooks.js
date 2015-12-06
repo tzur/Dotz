@@ -58,9 +58,6 @@ let dotHooks = {
   onSuccess: function(update, result){
     Modal.hide();
     Session.set('searchInput', undefined);
-    Session.set("parentDot", undefined);
-    Session.set("locationObject", undefined);
-    Session.set("dotType", undefined);
     Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
     Session.set('spinnerOn', false);
     Meteor.call('addOrEditObjectInAlgolia', result, false);
@@ -70,8 +67,16 @@ let dotHooks = {
       var n = $(document).height();
       $('html, body').animate({ scrollTop: n }, 1000);
     }, 1000);
-    Session.set('redirectAfterCreate', undefined )
+    Session.set('redirectAfterCreate', undefined );
     console.log("on success end");
+    analytics.track("Dot Created", {
+      isDotWithOutLocation: Session.equals("locationObject", null),
+      dotType: Session.get("dotType")
+    });
+    Session.set("parentDot", undefined);
+    Session.set("locationObject", undefined);
+    Session.set("dotType", undefined);
+
 
 
   }

@@ -111,5 +111,6 @@ Meteor.methods({
         "          doc.ownerUserId, doc.inDotz.length, doc.dotzConnectedByOthers.length ")
     }
     return myFuture.wait();
+
   }
 });

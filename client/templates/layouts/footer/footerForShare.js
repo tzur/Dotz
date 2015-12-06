@@ -28,8 +28,9 @@ Template.footerForShare.events({
   'submit #email-form': function(event){
     event.preventDefault();
     Session.set('spinnerOn', true);
-    let emailAddress = event.currentTarget[0].value;
-    let touristName = event.currentTarget[1].value;
+    let touristName = event.currentTarget[0].value;
+    let emailAddress = event.currentTarget[1].value;
+    //console.log("emailAddress is " + emailAddress);
     if (touristName === ""){
       let userNameIndex = emailAddress.indexOf('@');
       touristName = emailAddress.substring(0, userNameIndex);

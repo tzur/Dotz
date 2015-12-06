@@ -317,6 +317,37 @@ Template.dotCard.events({
   'click .shareList': function(event) {
     event.preventDefault();
     let dotId = this.dot._id;
+
+    //Temp process:
+    let createNewDotForShare = (userId) =>{
+      let shareDotDoc = {
+        dotType: "shareList",
+        ownerUserId: userId,
+        title: Meteor.user().username + " Share",
+        createdAtDate: new Date(),
+        isOpen: false
+      };
+      Meteor.call('insertDot', shareDotDoc, function(error, result){
+        if (!error){
+          Meteor.call('updateUserShareDotId', Meteor.userId(), result, function(error, result){
+            if (error){
+              console.log("error" + error);
+            }
+          });
+        }
+        else{
+          console.log("error" + error);
+        }
+
+      })
+    };
+
+    if ( !Meteor.user().shareDotId ) {
+      createNewDotForShare(Meteor.userId());
+    }
+
+
+    //Normal process:
     let doc = {
       title: "Share",
       dotType: "shareList",
