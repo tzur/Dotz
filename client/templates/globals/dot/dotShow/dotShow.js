@@ -251,6 +251,9 @@ Template.dotShow.events({
       });
 
     }, 3000);
+    analytics.track("Auto Generate Dotz", {
+      title: "Auto Generate Dotz From: " + this.dot.title
+    })
   },
   'click .shareCurrentList': function(){
     Session.set('shareListActive', this.dot._id);

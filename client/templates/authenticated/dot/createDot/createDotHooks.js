@@ -70,7 +70,7 @@ let dotHooks = {
     Session.set('redirectAfterCreate', undefined );
     console.log("on success end");
     analytics.track("Dot Created", {
-      isDotWithOutLocation: Session.equals("locationObject", null),
+      isDotWithOutLocation: Session.equals("locationObject", undefined),
       dotType: Session.get("dotType")
     });
     Session.set("parentDot", undefined);
