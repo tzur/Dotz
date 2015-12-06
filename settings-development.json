@@ -4,6 +4,7 @@
   "AWSBucket": "dotz-dev-images",
   "public": {
     "analyticsSettings": {
+      "Mixpanel" : {"token": "cecae4401aa6dfe91b5293f6050ca4e6", "people": true}
     }
   },
   "kadira": {

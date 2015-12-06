@@ -29,9 +29,12 @@ Template.dotShow.onCreated(function() {
       DocHead.setTitle("Dotz: " + currentDot.title);
       if (currentDot) {
         self.subs.subscribe('user', currentDot.ownerUserId);
-        analytics.page("Dot show: " + currentDot.title, {
-          title: currentDot.title
-        });
+        if(currentDot.dotType === "List"){
+          analytics.page('List Show');
+        }
+        else{
+          analytics.page('Dot Show')
+        }
       }
     }
 
