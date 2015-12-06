@@ -60,7 +60,7 @@ let _handleSignup = ( template ) => {
 
           //
           _createNewDotForDotProfile ( Meteor.userId() );
-
+          createNewDotForShare(Meteor.userId());
           Meteor.call('updateUserSlug', Meteor.userId(), slug, function(error, result) {
                 //TBD:
                 if (error) {
@@ -90,6 +90,28 @@ let _formatSlug = function(value) {
 
 //Create new dot + add the new dot ID to the profileDotId field:
 //We need to move this function to the server (and to include some security checks):
+let createNewDotForShare = (userId) =>{
+  let shareDotDoc = {
+    dotType: "shareList",
+    ownerUserId: userId,
+    title: Meteor.user().username + " Share",
+    createdAtDate: new Date(),
+    isOpen: false
+  };
+  Meteor.call('insertDot', shareDotDoc, function(error, result){
+    if (!error){
+      Meteor.call('updateUserShareDotId', Meteor.userId(), result, function(error, result){
+        if (error){
+          console.log("error" + error);
+        }
+      });
+    }
+    else{
+      console.log("error" + error);
+    }
+
+  })
+};
 let _createNewDotForDotProfile = ( userId ) => {
     let profileDotDoc = {
         dotType: "_profileDot",
@@ -131,3 +153,4 @@ let _createNewDotForDotProfile = ( userId ) => {
 };
 
 Modules.client.signup = signup;
+Modules.client.createNewDotForShare = createNewDotForShare;

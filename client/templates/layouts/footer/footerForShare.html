@@ -1,0 +1,56 @@
+<template name="footerForShare">
+
+    <nav id="share-nav-bar" class="navbar navbar-default navbar-fixed-bottom hidden-xs" role="navigation">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-1">
+                    <button id="_signInExitBtn" type="button" class="btn exit whiteTxt">X</button>
+                </div>
+
+            </div>
+
+          <div class="row">
+
+                <div id="share-footer-main" class="col-sm-12 col-md-11 colCenter">
+
+                    <div class="col-sm-2 col-md-3 txtMd">
+                      <div id="round-share-counter">
+                          <span id="share-counter">{{amountOfDotzToShare}}</span>
+                      </div>
+                    </div>
+
+                    <form class="form form-inline" id='email-form'>
+
+                        <div class="col-sm-9 no-left-pad">
+
+                          <span id="share-counter-text">Dotz</span>
+
+                          <label for="rg-from" class="whiteTxt">to share with: </label>
+                          <div class="form-group">
+                              <input type='text' class='form-control' placeholder='Full Name (Optional)'>
+                          </div>
+
+                          <div class="form-group">
+                              <input type='email' class='form-control' placeholder='Email' required>
+                          </div>
+
+                          {{#if isSpinnerOn}}
+                              <button class="transparent btn round btn-full-trans has-spinner active">
+                                  <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span><i class="fa lgTxt fa-paper-plane"></i></button>
+                          {{else}}
+                              <button  class="btn round btn-full-trans"><i class="fa lgTxt fa-paper-plane"></i></button>
+                          {{/if}}
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </nav>
+</template>

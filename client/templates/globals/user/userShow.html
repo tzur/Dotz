@@ -123,9 +123,12 @@
                             {{/if}}
 
                           {{else}}
-
                               <button type="button" class="editUserAccount-btn btn btn-default btn-md hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>
-
+                              {{#if shareMode}}
+                                  <button type="button" class="goToProfileMode btn btn-default btn-md hidden-xs"><i class="fa fa-user"></i> Back to Profile</button>
+                              {{else}}
+                              <button type="button" class="goToShareMode btn btn-default btn-md hidden-xs"><i class="fa fa-sitemap"></i> Shared Lists</button>
+                              {{/if}}
                           {{/if}}
                         </div>
                     </div>
@@ -143,11 +146,16 @@
           <div class="row">
               <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
 
+                {{#if shareMode}}
+                  {{#each sharedDotzArray}}
+                    {{> dotCard}}
+                  {{/each}}
+                {{else}}
 
                   {{#each connectedDotzArray}}
                     {{> dotCard}}
                   {{/each}}
-
+                {{/if}}
 
 
 {{#if myProfileIsEmpty}}<!--fake ListCard-->
@@ -182,7 +190,8 @@
 
     <div class="col-xs-12 txtMd">
         <div class="brJo">
-            <br><br><br><br>
+            <br><br><br>
+            <br><br><br>
         </div>
     </div>
 

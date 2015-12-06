@@ -143,6 +143,7 @@
   /*height: 20vh;*/
   /*width: 40%;*/
   /*padding: 1vh 1vh 1vh 1vh;*/
+  position: relative;
   height: 12.5vh;
   /*background-color: rgba(255, 255, 255, 0.4);*/
 }
@@ -192,6 +193,7 @@
   position: relative;
   /*top: 1vh;*/
   /*bottom: 1vh;*/
+  background-color: #fafafa;
   height: 3vh;
   width: 3vh;
   background-size: cover;
@@ -272,6 +274,11 @@
   /*text-align: center;*/
 }
 
+.dotCard-check-share {
+  position: absolute;
+  top: 0.5em;
+  right: 0;
+}
 
 
 /*ListCover*/

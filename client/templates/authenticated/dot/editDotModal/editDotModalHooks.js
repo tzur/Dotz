@@ -25,8 +25,6 @@ let editDotHooks = {
       return (doc);
     }
   },
-
-
   onSuccess: function(update, result){
     //Router.go("/post/"+ result);
     Session.set("coverImageUrl", undefined);
@@ -35,6 +33,21 @@ let editDotHooks = {
     let updatedDot = Dotz.findOne(this.currentDoc._id);
     if(updatedDot.location && updatedDot.location.latLng){
       updatedDot._geoloc = {"lat":updatedDot.location.latLng[0], "lng":updatedDot.location.latLng[1]};
+    }
+    let formatted = updatedDot.title
+      .toLowerCase()
+      .replace(/ /g,'-')
+      .replace(/[-]+/g, '-')
+      .replace(/[^\w\x80-\xFF-]+/g,'');
+    let relaventDotSlugStartIndex = updatedDot.dotSlug.lastIndexOf('/') + 1;
+    let relaventDotSlugEndIndex = updatedDot.dotSlug.indexOf('-2');
+    let relaventDotSlug = updatedDot.dotSlug.substring(relaventDotSlugStartIndex,relaventDotSlugEndIndex);
+    if (relaventDotSlug.indexOf(formatted) != 0){
+      Meteor.call('updateDotSlug', updatedDot, updatedDot._id, formatted, function(error,result){
+        if (error){
+          console.log(error);
+        }
+      });
     }
     Meteor.call('addOrEditObjectInAlgolia', updatedDot.dotSlug, false);
     //Modal.hide('createDotModal');

@@ -12,6 +12,40 @@
   border-color: #fff;
 }
 
+.btn-full-trans {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-full-trans:hover {
+  color: #ccc;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-share-check {
+  color: #4C8ABF;
+  background-color: transparent;
+  border-color: #4C8ABF;
+}
+
+.btn-share-check:hover {
+  color: #fff;
+  background-color: #4C8ABF;
+}
+
+.btn-share-checked {
+  color: #fff;
+  background-color: #4C8ABF;
+  border-color: #4C8ABF;
+}
+
+.btn-share-checked:hover {
+  color: #4C8ABF;
+  background-color: #fff;
+}
+
 .square {
   border-radius: 0px;
 }
@@ -50,7 +84,9 @@ button, a, button:hover, button:focus button:active {
 
           /*  alignment division */
 
-
+.no-left-pad {
+  padding-left: 0;
+}
 
 
 

@@ -86,6 +86,7 @@
 #userImgProfile {
     height: 8em;
     width: 8em;
+    background-color: #fafafa;
     border-radius: 50%;
 }
 
