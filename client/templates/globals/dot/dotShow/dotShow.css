@@ -46,8 +46,8 @@
 #listShowHeader .listCoverImg {
   position: relative;
   height: 44vh;
-  background-size: contain;
-  background-repeat: repeat-x;
+  background-size: cover;
+  /*background-repeat: repeat-x;*/
   background-position-y: 50%;
   background-position-x: 50%;
   margin: 0;
