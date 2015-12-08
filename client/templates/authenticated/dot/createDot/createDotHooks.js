@@ -39,6 +39,11 @@ let dotHooks = {
       doc.ownerUserId = Meteor.userId();
       doc.createdAtDate = new Date();
       doc.dotType = Session.get("dotType");
+
+      //Open Dotz:
+      if (doc.dotType === "Dot") {
+        doc.isOpen = true;
+      }
       //if (!doc.isOpen){
       //  doc.isOpen = true
       //}
