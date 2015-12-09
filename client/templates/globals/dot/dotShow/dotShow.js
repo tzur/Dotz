@@ -200,7 +200,7 @@ Template.dotShow.events({
   },
 
   'click .deleteShow':function(event){
-      Modules.both.Dotz.deleteDot(this.dot, this.dot.inDotz[0]);
+      Meteor.call('deleteDot', this.dot, this.dot.inDotz[0]);
       window.history.back();
   },
 

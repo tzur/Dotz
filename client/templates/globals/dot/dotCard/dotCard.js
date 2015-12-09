@@ -254,7 +254,7 @@ Template.dotCard.events({
     $(event.currentTarget).toggleClass('active');
     $(event.currentTarget.childNodes[1]).toggleClass('transparent');
     $(event.currentTarget).css("outline", "none");
-    Modules.both.Dotz.disConnectDot(this.smartRef);
+    Meteor.call('disConnectDot',this.smartRef);
   },
 
   'click .upBtn':function(event){
@@ -282,7 +282,7 @@ Template.dotCard.events({
 
   'click .delete':function(event){
     event.preventDefault();
-    Modules.both.Dotz.deleteDot(this.dot, this.smartRef.connection.toParentDotId);
+    Meteor.call('deleteDot', this.dot, this.smartRef.connection.toParentDotId);
   },
 
   //TBD - reset the search in page result in other way
@@ -336,7 +336,6 @@ Template.dotCard.events({
     if ( !Meteor.user().shareDotId ) {
       createNewDotForShare(Meteor.userId());
     }
-
 
     //Normal process:
     let doc = {

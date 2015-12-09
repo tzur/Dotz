@@ -115,7 +115,7 @@ Template.dotCardSearch.events({
     });
   },
   'click .delete':function(event){
-    Modules.both.Dotz.deleteDot(this.dot, this.smartRef);
+    Meteor.call('deleteDot', this.dot, this.smartRef);
   },
 
   'click #addDotToCurrentDot': function(){
