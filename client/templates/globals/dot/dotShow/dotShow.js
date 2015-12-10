@@ -102,8 +102,27 @@ Template.dotShow.helpers({
   },
 
   eventDate: function(){
-    if (this.dot.startDateAndHour) {
-        return ( moment(this.dot.startDateAndHour).fromNow());
+    if (this.dot && this.dot.startDateAndHour) {
+      return ( moment(this.dot.startDateAndHour).format('dddd DD MMMM, h:mm A') );
+    }
+    else if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
+      let textForMultipleEvents;
+      if (this.dot.multipleEventsNote) {
+        textForMultipleEvents = "Multiple Events: " + this.dot.multipleEventsNote;
+      } else {
+        textForMultipleEvents = "Multiple Events";
+      }
+      return (textForMultipleEvents + " (" + moment(this.dot.startRepeatedDate).format('dddd DD MMM')
+      + " - " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
+    }
+    else if (this.dot && this.dot.multipleEventsNote ) {
+      return ("Multiple Events (" + this.dot.multipleEventsNote + ")");
+    }
+    else if ( this.dot && this.dot.endRepeatedDate ) {
+      return ("Multiple Events (until " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
+    }
+    else if ( this.dot && this.dot.startRepeatedDate ) {
+      return ("Multiple Events (from " + moment(this.dot.startRepeatedDate).format('dddd DD MMM') + ")");
     }
   },
 
@@ -185,16 +204,17 @@ Template.dotShow.helpers({
     return alreadyAdded;
   }
 });
+
 Template.dotShow.events({
 
-  'click .shareDialog': function(event){
+  'click ._shareFacebookDialog': function(event){
     event.preventDefault();
-
     FB.ui({
       method: 'share',
-      href: 'https://tlvtest-56523.onmodulus.net/'+ this.dot.dotSlug
+      href: 'https://dotz.city/'+ this.dot.dotSlug
     }, function(response){});
   },
+
   'click .connect': function(){
     if(Meteor.user()) {
       Modal.show('connectDotModal', {

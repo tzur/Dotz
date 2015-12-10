@@ -421,17 +421,11 @@ menu, ol, ul {
     display: inline-block;
 }
 
-.lightGrey {
-    color: #e5e5e5;
-}
 
 .userMenuIcons {
     height: 1em;
 }
 
-.mdGrey {
-    color: #9a9a9a;
-}
 
 
 #emptyProfile .card {

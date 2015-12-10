@@ -57,10 +57,9 @@
                       <button type="button" class="connect btn btn-success btn-sm dot-show-connect-btn">Connect List {{connectCounter}}</button>
 
                         <!--TBD: Share-->
+                        <a href="#" target="_blank" class="btn btn-facebook _shareFacebookDialog">
+                            <i class="fa fa-facebook-official"></i></a>
 
-                        <a href="#"  target="_blank" class="btn btn-facebook shareDialog">
-                            <i class="fa fa-facebook"></i>
-                        </a>
                       {{#if isMyDot}}
                         <span class="hidden-xs">
                             <a class="panelBtn dropdown-toggle btn btn-default btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -77,7 +76,7 @@
                       {{/if}}
                       {{#if shareList}}
                         {{#if alreadyShared}}
-                            <button type="button" class="btn btn-share-checked btn-sm pull-right"><i class="fa fa-check mdTxt"></i></button>
+                            <button type="button" class="btn btn-share-checked btn-sm pull-right"><i class="fa fa-check smTxt"></i></button>
                         {{else}}
                             <button type="button" class="shareListInstant btn btn-share-check btn-sm pull-right"><i class="fa fa-share-alt mdTxt"></i></button>
                         {{/if}}
@@ -85,9 +84,18 @@
                       {{else}}
                           <a href="#" id="listShow-share-btn" class="dropdown-toggle pull-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                               <div class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i></div></a>
+
                           <ul class="dropdown-menu">
-                              <!--<li class="shareOnFaceBook"><a href="#"><i class="fa fa-facebook-official"></i>Share on facebook</a></li>-->
-                              <li class="shareCurrentList"><a href="#"><i class="fa fa-list-ul"></i>Share multi Dotz</a></li>
+                              <li class="shareOnFaceBook">
+                                  <a href="#" class="btn btn-facebook _shareFacebookDialog">
+                                      <i class="fa fa-facebook-official"></i>Share on facebook</a>
+                              </li>
+                              <li class="shareCurrentList">
+                                  <a href="#"><i class="fa fa-paper-plane"></i>Share multi Dotz</a>
+                              </li>
+                              <!--<a href="{{shareDotOnFacebookLink}}" target="_blank" class="btn btn-facebook">-->
+                                  <!--<i class="fa fa-facebook"></i>-->
+                              <!--</a>-->
                           </ul>
                       {{/if}}
                     </div>
@@ -116,7 +124,7 @@
             </div>
             <!--<a class="closeToOpen"> GO TO OPEN</a>-->
             <!--<a class="openToClose">GO TO CLOSE</a>-->
-            <div class="col-sm-4 dot-show-main-details">
+            <div class="col-sm-5 dot-show-main-details">
 
                 <div class="row dot-title">
                     <div class="toDot col-xs-12">
@@ -130,23 +138,23 @@
                       {{#if dot.location.address}}
                         <div class="txtL dot-show-type">
                             <a href="{{dot.location.googleMapsUrl}}" target="_blank">
-                            <img class="type-icon-dot-show" src="/place-icon-grey.png">
-                            <span class="dot-type greyText mdTxt alignSub">{{dot.location.address}}</span>
+                            <i class="fa fa-map-marker fa-lg mdGrey"></i>
+                            <span class="dot-type greyText mdTxt alignSub"> {{dot.location.address}}</span>
                             </a>
                         </div>
                       {{/if}}
 
                       {{#if eventDate}}
                         <div class="txtL dot-show-type">
-                            <img class="type-icon-dot-show" src="/event-icon-grey.png">
+                            <i class="fa fa-calendar fa-lg mdGrey"></i>
                             <span class="dot-type greyText mdTxt alignSub">{{eventDate}}</span>
                         </div>
                       {{/if}}
 
                       {{#if dot.price}}
                         <div class="txtL dot-show-type">
-                            <img class="type-icon-dot-show" src="/price-icon-grey.png">
-                            <span class="dot-type greyText mdTxt alignSub">{{dot.price}} $ </span>
+                            <img class="type-icon-dot-show fa" src="/price-icon-grey.png">
+                            <span class="dot-type greyText mdTxt alignSub"> {{dot.price}} $ </span>
                         </div>
                       {{/if}}
 
@@ -174,9 +182,9 @@
 
                           {{#if shareList}}
                             {{#if alreadyShared}}
-                                <button type="button" class="btn btn-share-checked btn-md "><i class="fa fa-check mdTxt"></i></button>
+                                <button type="button" class="btn btn-share-checked btn-md"><i class="fa fa-check smTxt"></i></button>
                             {{else}}
-                                <button type="button" class="shareListInstant btn btn-share-check btn-md "><i class="fa fa-share-alt mdTxt"></i></button>
+                                <button type="button" class="shareListInstant btn btn-share-check btn-md"><i class="fa fa-share-alt mdTxt"></i></button>
                             {{/if}}
 
                           {{else}}
@@ -184,12 +192,16 @@
                               <a href="#" id="listShow-share-btn" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                   <div class="btn btn-default btn-md"><i class="fa fa-share-alt"></i></div></a>
                               <ul class="dropdown-menu">
-                                  <!--<li class="shareOnFaceBook"><a href="#"><i class="fa fa-facebook-official"></i>Share on facebook</a></li>-->
-                                  <li class="shareCurrentList"><a href="#"><i class="fa fa-list-ul"></i>Share multi Dotz</a></li>
+                                  <li class="shareOnFaceBook">
+                                      <a href="#" class="btn btn-facebook _shareFacebookDialog">
+                                          <i class="fa fa-facebook-official"></i>Share on facebook</a>
+                                  </li>
+                                  <li class="shareCurrentList">
+                                      <a href="#"><i class="fa fa-paper-plane"></i>Share multi Dotz</a>
+                                  </li>
                               </ul>
                             </span>
                           {{/if}}
-
 
                         </div>
 
