@@ -24,7 +24,6 @@ Template.userShow.onCreated(function() {
           //FlowRouter.go('/');
         }
         else if (user) {
-          DocHead.setTitle("Dotz: " + user.username);
           let userPageInfo = "User show: " + user.username;
           let userPageTitle = user.username;
           analytics.page(userPageInfo , {

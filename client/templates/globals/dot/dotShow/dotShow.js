@@ -26,29 +26,18 @@ Template.dotShow.onCreated(function() {
     }
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
-      DocHead.setTitle("Dotz: " + currentDot.title);
-      if (currentDot) {
         self.subs.subscribe('user', currentDot.ownerUserId);
         analytics.page("Dot show: " + currentDot.title, {
           title: currentDot.title
         });
-      }
     }
-
-
-
-
-
   });
 });
 
 Template.dotShow.onRendered(function(){
-
   Tracker.autorun(function () {
     FlowRouter.watchPathChange();
     window.scrollTo(0,0);
-
-
   });
 });
 
@@ -162,14 +151,7 @@ Template.dotShow.helpers({
   workingOnQuickStart: function() {
     return Session.get('workingOnQuickStart');
   },
-  dataForShare: function() {
-    return {
-      title: this.dot.title,
-      author: "The author",
-      summary: "Something",
-      thumbnail: this.dot.coverImageUrl
-    };
-  },
+
   shareList: function(){
     return Session.get('shareListActive');
   },
@@ -185,6 +167,9 @@ Template.dotShow.helpers({
       });
     }
     return alreadyAdded;
+  },
+  shareDotOnFacebookLink: function(){
+    return 'https://www.facebook.com/sharer/sharer.php?&u=' + this.dot.dotSlug;
   }
 });
 Template.dotShow.events({

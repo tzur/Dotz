@@ -1,7 +1,7 @@
 Template.feed.onCreated(function(){
-  DocHead.setTitle("Dotz: " + "Feed");
   Session.set('feedDotzNumber', 10);
 });
+
 Template.feed.onRendered(function(){
   $(window).scroll(function() {
     if (Meteor.user().profile.feedDotz.length > Session.get('feedDotzNumber')){
