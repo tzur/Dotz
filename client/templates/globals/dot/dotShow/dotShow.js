@@ -26,28 +26,18 @@ Template.dotShow.onCreated(function() {
     }
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
-      if (currentDot) {
         self.subs.subscribe('user', currentDot.ownerUserId);
         analytics.page("Dot show: " + currentDot.title, {
           title: currentDot.title
         });
-      }
     }
-
-
-
-
-
   });
 });
 
 Template.dotShow.onRendered(function(){
-
   Tracker.autorun(function () {
     FlowRouter.watchPathChange();
     window.scrollTo(0,0);
-
-
   });
 });
 
