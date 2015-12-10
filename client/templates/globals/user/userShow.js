@@ -35,12 +35,10 @@ Template.userShow.onCreated(function() {
       if (handleUser.ready()){
           let user =  Meteor.users.findOne({"profile.userSlug": userSlug});
           if (user) {
-              self.subs.subscribe('dotShow', user.profile.profileDotId);
-              self.subs.subscribe('dotShow', user.profile.shareDotId);
+              self.subs.subscribe('dotCard', user.profile.profileDotId.toString());
+              self.subs.subscribe('dotCard', user.profile.shareDotId.toString());
           }
       }
-
-
 
     }
   });

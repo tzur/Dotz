@@ -72,6 +72,16 @@
                             </ul>
                         </span>
                           <!--TBD: Share-->
+
+                      {{/if}}
+                      {{#if shareList}}
+                        {{#if alreadyShared}}
+                            <button type="button" class="btn btn-share-checked btn-sm pull-right"><i class="fa fa-check mdTxt"></i></button>
+                        {{else}}
+                            <button type="button" class="shareListInstant btn btn-share-check btn-sm pull-right"><i class="fa fa-share-alt mdTxt"></i></button>
+                        {{/if}}
+
+                      {{else}}
                           <a href="#" id="listShow-share-btn" class="dropdown-toggle pull-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                               <div class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i></div></a>
                           <ul class="dropdown-menu">
@@ -79,7 +89,6 @@
                               <li class="shareCurrentList"><a href="#"><i class="fa fa-list-ul"></i>Share multi Dotz</a></li>
                           </ul>
                       {{/if}}
-
                     </div>
 
 
@@ -162,6 +171,23 @@
 
                           {{/if}}
 
+                          {{#if shareList}}
+                            {{#if alreadyShared}}
+                                <button type="button" class="btn btn-share-checked btn-md "><i class="fa fa-check mdTxt"></i></button>
+                            {{else}}
+                                <button type="button" class="shareListInstant btn btn-share-check btn-md "><i class="fa fa-share-alt mdTxt"></i></button>
+                            {{/if}}
+
+                          {{else}}
+                            <span>
+                              <a href="#" id="listShow-share-btn" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                  <div class="btn btn-default btn-md"><i class="fa fa-share-alt"></i></div></a>
+                              <ul class="dropdown-menu">
+                                  <!--<li class="shareOnFaceBook"><a href="#"><i class="fa fa-facebook-official"></i>Share on facebook</a></li>-->
+                                  <li class="shareCurrentList"><a href="#"><i class="fa fa-list-ul"></i>Share multi Dotz</a></li>
+                              </ul>
+                            </span>
+                          {{/if}}
 
 
                         </div>
