@@ -47,10 +47,11 @@ let editDotHooks = {
         if (error){
           console.log(error);
         }
+        else{
+          Meteor.call('addOrEditObjectInAlgolia', result, false);
+        }
       });
     }
-    Meteor.call('addOrEditObjectInAlgolia', updatedDot.dotSlug, false);
-    //Modal.hide('createDotModal');
   }
 };
 

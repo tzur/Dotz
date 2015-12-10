@@ -59,15 +59,15 @@ Meteor.publish('dotCard', function(dotId){
   return Dotz.find(dotId)
 });
 Meteor.publish('dotShow', function( dotId ) {
+  check(dotId, String);
   if (dotId) {
-    check(dotId, String);
     return Dotz.find(dotId);
   }
 });
 
 Meteor.publish( 'dotShowByDotSlug', function( dotSlug ) {
+  check(dotSlug, String);
   if (dotSlug) {
-    check(dotSlug, String);
     return Dotz.find({"dotSlug": dotSlug});
   }
 });

@@ -308,42 +308,13 @@ Template.dotCard.events({
   'click .shareList': function(event) {
     event.preventDefault();
     let dotId = this.dot._id;
-
-    //Temp process:
-    let createNewDotForShare = (userId) =>{
-      let shareDotDoc = {
-        dotType: "shareList",
-        ownerUserId: userId,
-        title: Meteor.user().username + " Share",
-        createdAtDate: new Date(),
-        isOpen: false
-      };
-      Meteor.call('insertDot', shareDotDoc, function(error, result){
-        if (!error){
-          Meteor.call('updateUserShareDotId', Meteor.userId(), result, function(error, result){
-            if (error){
-              console.log("error" + error);
-            }
-          });
-        }
-        else{
-          console.log("error" + error);
-        }
-
-      })
-    };
-
-    if ( !Meteor.user().shareDotId ) {
-      createNewDotForShare(Meteor.userId());
-    }
-
     //Normal process:
     let doc = {
       title: "Share",
       dotType: "shareList",
       createdAtDate: new Date(),
       ownerUserId: Meteor.userId(),
-      inDotz: [Meteor.userId().shareDotId],
+      inDotz: [Meteor.user().profile.shareDotId],
       isOpen: false,
       coverImageUrl: "https://dotz-dev-images.s3.amazonaws.com/jRZGh5cHJ3CmLqopk/SendDotzList.jpg"
     };
@@ -352,6 +323,7 @@ Template.dotCard.events({
           console.log(error);
       }
       else {
+        Session.set('shareListActive', result);
         let shareDotId = result;
         let smartRef = new Modules.both.Dotz.smartRef(result, Meteor.userId(), Meteor.user().profile.shareDotId, CONNECT_ACTION, Meteor.userId());
         if (!error) {
@@ -372,7 +344,6 @@ Template.dotCard.events({
                       console.log(error);
                     }
                     else{
-                      Session.set('shareListActive', shareDotId);
                     }
                   });
                 }
