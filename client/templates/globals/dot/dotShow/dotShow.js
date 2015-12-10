@@ -39,6 +39,22 @@ Template.dotShow.onRendered(function(){
     FlowRouter.watchPathChange();
     window.scrollTo(0,0);
   });
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: '904084409705076',
+      xfbml: true,
+      version: 'v2.5'
+    });
+  };
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  fbAsyncInit();
 });
 
 Template.dotShow.onDestroyed(function(){
@@ -167,15 +183,18 @@ Template.dotShow.helpers({
       });
     }
     return alreadyAdded;
-  },
-  shareDotOnFacebookLink: function(){
-    return 'https://www.facebook.com/sharer/sharer.php?&u=' + this.dot.dotSlug;
   }
 });
 Template.dotShow.events({
 
-  //
+  'click .shareDialog': function(event){
+    event.preventDefault();
 
+    FB.ui({
+      method: 'share',
+      href: 'https://tlvtest-56523.onmodulus.net/'+ this.dot.dotSlug
+    }, function(response){});
+  },
   'click .connect': function(){
     if(Meteor.user()) {
       Modal.show('connectDotModal', {
