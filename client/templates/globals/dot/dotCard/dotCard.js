@@ -15,6 +15,12 @@ Template.dotCard.onCreated(function(){
 });
 
 
+Template.dotCard.onDestroyed(function(){
+  $('.disConnect').removeClass('active');
+  $('.fa').removeClass('transparent');
+});
+
+
 Template.dotCard.helpers({
 
   //subscriptionsReady: function(){
@@ -208,20 +214,20 @@ Template.dotCard.helpers({
       });
     }
     return alreadyAdded;
-  },
-
-  shareDotOnFacebookLink: function(){
-    if (this.dot) {
-      return 'https://www.facebook.com/sharer/sharer.php?&u=' + this.dot.dotSlug;
-    }
   }
 
 });
-Template.dotCard.onDestroyed(function(){
-  $('.disConnect').removeClass('active');
-  $('.fa').removeClass('transparent');
-});
+
+
 Template.dotCard.events({
+
+  'click ._shareFacebookDialog': function(event){
+    event.preventDefault();
+    FB.ui({
+      method: 'share',
+      href: 'https://dotz.city/'+ this.dot.dotSlug
+    }, function(response){});
+  },
 
   'click .like': function(event){
     event.preventDefault();
