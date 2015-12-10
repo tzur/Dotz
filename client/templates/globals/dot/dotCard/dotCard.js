@@ -88,14 +88,20 @@ Template.dotCard.helpers({
 
   eventDate: function(){
     if (this.dot && this.dot.startDateAndHour) {
-      return ( moment(this.dot.startDateAndHour).fromNow());
+      return ( moment(this.dot.startDateAndHour).format('dddd DD MMMM, h:mm A') );
     }
-
     else if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
-      return ("Multiple Events (From " + moment(this.dot.startRepeatedDate).calendar() + " Until " + moment(this.dot.endRepeatedDate).calendar() + ")");
+      return ("Multiple Events (" + moment(this.dot.startRepeatedDate).format('dddd DD MMM')
+      + " - " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
     }
     else if (this.dot && this.dot.multipleEventsNote ) {
       return ("Multiple Events (" + this.dot.multipleEventsNote + ")");
+    }
+    else if ( this.dot && this.dot.endRepeatedDate ) {
+      return ("Multiple Events (until " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
+    }
+    else if ( this.dot && this.dot.startRepeatedDate ) {
+      return ("Multiple Events (from " + moment(this.dot.startRepeatedDate).format('dddd DD MMM') + ")");
     }
   },
 
@@ -185,9 +191,11 @@ Template.dotCard.helpers({
       return this.smartRef.connection.likes.length;
     }
   },
+
   shareList: function(){
     return Session.get('shareListActive');
   },
+
   alreadyShared: function(){
     let sharedDot = Dotz.findOne(Session.get('shareListActive'));
     let alreadyAdded = false;
@@ -200,7 +208,14 @@ Template.dotCard.helpers({
       });
     }
     return alreadyAdded;
+  },
+
+  shareDotOnFacebookLink: function(){
+    if (this.dot) {
+      return 'https://www.facebook.com/sharer/sharer.php?&u=' + this.dot.dotSlug;
+    }
   }
+
 });
 Template.dotCard.onDestroyed(function(){
   $('.disConnect').removeClass('active');
