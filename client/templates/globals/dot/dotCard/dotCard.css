@@ -347,10 +347,10 @@
   margin: auto;
 }
 
-#listCover .fa-list-ul {
-  color: #FFFFFF;
+#listCover .fa {
+  /*color: #FFFFFF;*/
   text-align: center;
-  font-size: 2rem;
+  /*font-size: 2rem;*/
   margin: auto;
 }
 

@@ -213,7 +213,7 @@ Template.dotShow.events({
     event.preventDefault();
     FB.ui({
       method: 'share',
-      href: 'https://dotz.city/'+ this.dot.dotSlug
+      href: 'http://dotz.city/'+ this.dot.dotSlug
     }, function(response){});
   },
 
