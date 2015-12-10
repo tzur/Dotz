@@ -58,8 +58,10 @@
                       <button type="button" class="connect btn btn-success btn-sm dot-show-connect-btn">Connect List {{connectCounter}}</button>
 
                         <!--TBD: Share-->
-                      <!--{{> shareit dataForShare}}-->
 
+                        <a href="{{shareDotOnFacebookLink}}" target="_blank" class="btn btn-facebook">
+                            <i class="fa fa-facebook"></i>
+                        </a>
                       {{#if isMyDot}}
                         <span class="hidden-xs">
                             <a class="panelBtn dropdown-toggle btn btn-default btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -77,3 +77,7 @@ Template.footerForShare.events({
     Session.set('shareListActive', false);
   }
 });
+
+
+
+

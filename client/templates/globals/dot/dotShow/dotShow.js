@@ -162,14 +162,7 @@ Template.dotShow.helpers({
   workingOnQuickStart: function() {
     return Session.get('workingOnQuickStart');
   },
-  dataForShare: function() {
-    return {
-      title: this.dot.title,
-      author: "The author",
-      summary: "Something",
-      thumbnail: this.dot.coverImageUrl
-    };
-  },
+
   shareList: function(){
     return Session.get('shareListActive');
   },
@@ -185,6 +178,9 @@ Template.dotShow.helpers({
       });
     }
     return alreadyAdded;
+  },
+  shareDotOnFacebookLink: function(){
+    return 'https://www.facebook.com/sharer/sharer.php?&u=' + this.dot.dotSlug;
   }
 });
 Template.dotShow.events({
