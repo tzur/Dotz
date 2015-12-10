@@ -26,7 +26,6 @@ Template.dotShow.onCreated(function() {
     }
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
-      DocHead.setTitle("Dotz: " + currentDot.title);
       if (currentDot) {
         self.subs.subscribe('user', currentDot.ownerUserId);
         analytics.page("Dot show: " + currentDot.title, {

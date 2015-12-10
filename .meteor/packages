@@ -52,7 +52,6 @@ spiderable
 ddp
 callback-hook
 dfischer:phantomjs
-kadira:dochead
 acemtp:algolia
 mdg:geolocation
 service-configuration
