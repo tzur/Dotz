@@ -88,14 +88,14 @@ Template.dotCard.helpers({
 
   eventDate: function(){
     if (this.dot && this.dot.startDateAndHour) {
-      //return ( moment(this.dot.startDateAndHour).fromNow());
-      return ( moment(this.dot.startDateAndHour).calendar() + " - " + moment(this.dot.startDateAndHour).fromNow() );
+      return ( moment(this.dot.startDateAndHour).fromNow());
     }
-    else if (this.dot && this.dot.endRepeatedDate ) {
-      return ("Multiple Events (until" + moment(this.dot.startDateAndHour).calendar() + " - " + moment(this.dot.startDateAndHour).fromNow() );
+
+    else if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
+      return ("Multiple Events (From " + moment(this.dot.startRepeatedDate).calendar() + " Until " + moment(this.dot.endRepeatedDate).calendar() + ")");
     }
     else if (this.dot && this.dot.multipleEventsNote ) {
-      return ("Multiple Events (" + moment(this.dot.startDateAndHour).calendar() + " - " + moment(this.dot.startDateAndHour).fromNow() );
+      return ("Multiple Events (" + this.dot.multipleEventsNote + ")");
     }
   },
 

@@ -1,0 +1,47 @@
+
+/*Text Sizes*/
+
+.smTxt {
+  font-size: 0.7em;
+}
+
+.mdTxt {
+  font-size: 1.125em;
+}
+
+.lgTxt {
+  font-size: 1.5em;
+}
+
+
+/*colors*/
+
+.whiteTxt {
+  color: #ffffff;
+}
+
+
+/*darkTexts*/
+
+.midDarkText {
+  color: #777
+}
+
+.darkText {
+  color: #333;
+}
+
+
+/*greyTexts*/
+
+.lightGrey {
+  color: #e5e5e5;
+}
+
+.mdGrey {
+  color: #9a9a9a;
+}
+
+.greyText {
+  color: #9B998D;
+}

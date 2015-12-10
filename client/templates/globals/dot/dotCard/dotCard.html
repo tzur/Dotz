@@ -242,14 +242,16 @@
 
                               {{#if shortenAdress}}
                                   <span class="txtL dot-type">
-                                        <img id="type-icon" src="/place-icon-grey.png">
+                                        <!--<img id="type-icon" src="/place-icon-grey.png">-->
+                                        <i class="fa fa-map-marker mdGrey"></i>
                                         <span class="greyText smTxt">{{shortenAdress}}</span>
                                       </span>
                               {{/if}}
 
                               {{#if eventDate}}
                                   <span class="txtL dot-type">
-                                      <img id="type-icon" src="/event-icon-grey.png">
+                                      <!--<img id="type-icon" src="/event-icon-grey.png">-->
+                                      <i class="fa fa-calendar mdGrey"></i>
                                       <span class="greyText smTxt">{{eventDate}}</span>
                                   </span>
                               {{/if}}
@@ -258,7 +260,9 @@
                               {{#if dot.price}}
                                   <span class="txtL dot-type">
                                           <img id="type-icon" src="/price-icon-grey.png">
-                                          <span class="greyText smTxt">{{dot.price}} <span>$</span></span>
+                                    <!--TBD: This fa fa icon does not work :/ -->
+                                          <!--<i class="fa fa-shopping-bag greyText"></i>-->
+                                          <span class="greyText smTxt">{{dot.price}} <span>{{dot.currency}}</span></span>
                                       </span>
                               {{/if}}
 
