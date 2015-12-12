@@ -37,8 +37,20 @@ BrowserPolicy.content.allowOriginForAll("http://www.css-spinners.com/css/spinner
 //ZOPIM:
 //BrowserPolicy.content.allowOriginForAll("http://v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi"); //TBD
 BrowserPolicy.content.allowOriginForAll("http://*.zopim.com");
+BrowserPolicy.content.allowDataUrlForAll();
 //BrowserPolicy.content.allowOriginForAll("data:application/font-woff"); //TBD
+//BrowserPolicy.content.allowOriginForAll("data:application"); //TBD
+//BrowserPolicy.content.allowScriptDataUrl();
 //BrowserPolicy.content.allowOriginForAll("");
+
+//Intercom:
+//BrowserPolicy.content.allowOriginForAll("https://*.intercomcdn.com");
+//BrowserPolicy.content.allowOriginForAll("https://js.intercomcdn.com");
+//BrowserPolicy.content.allowOriginForAll("https://widget.intercom.io");
+//BrowserPolicy.content.allowOriginForAll("https://widget.intercom.io/widget/ty914nuw");
+//BrowserPolicy.content.allowOriginForAll("https://js.intercomcdn.com/intercom.167a86f8.js");
+//BrowserPolicy.content.allowOriginForAll("https://js.intercomcdn.com/intercom.167a86f8.js");
+
 
 //Share:
 BrowserPolicy.content.allowOriginForAll("http://connect.facebook.net/en_US/sdk.js");

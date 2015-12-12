@@ -3,24 +3,42 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="fragment" content="!">
     <link rel="stylesheet" href="http://css-spinners.com/css/spinner/dots.css" type="text/css">
 
 
-  <!--{{#if currentUser}}-->
-    <!--&lt;!&ndash;Start of Zopim Live Chat Script&ndash;&gt;-->
-        <!--<script type="text/javascript">-->
+    <!--Start of Zopim Live Chat Script-->
+        <script type="text/javascript">
+        window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+                d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+                _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+            $.src="//v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi";z.t=+new Date;$.
+                    type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+    </script>
+    <!--End of Zopim Live Chat Script-->
+
+
+    <!--<script type=”text/javascript”>-->
+        <!--var ua = navigator.userAgent.toLowerCase(),-->
+        <!--platform = navigator.platform.toLowerCase();-->
+        <!--platformName = ua.match(/ip(?:ad|od|hone)/) ? ‘ios’ : (ua.match(/(?:webos|android)/) || platform.match(/mac|win|linux/) || [‘other’])[0],-->
+        <!--isMobile = /ios|android|webos/.test(platformName);-->
+        <!--if (!isMobile) {-->
+        <!--//place the Zopim chat widget code here without the <script> tags-->
+
         <!--window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=-->
                 <!--d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.-->
                 <!--_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");-->
             <!--$.src="//v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi";z.t=+new Date;$.-->
                     <!--type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");-->
+
+        <!--}-->
     <!--</script>-->
-    <!--&lt;!&ndash;End of Zopim Live Chat Script&ndash;&gt;-->
-  <!--{{/if}}-->
+
 
 
 </head>
+
 
 <body>
 
@@ -36,6 +54,15 @@
   {{#if shareFooterOn}}
     {{> footerForShare}}
   {{/if}}
+
+  <!--Intercom widget-->
+  <!--<script>-->
+      <!--window.intercomSettings = {-->
+          <!--app_id: "ty914nuw"-->
+      <!--};-->
+  <!--</script>-->
+  <!--<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ty914nuw';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>-->
+
 
 </body>
 

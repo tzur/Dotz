@@ -15,6 +15,12 @@ Template.dotCard.onCreated(function(){
 });
 
 
+Template.dotCard.onDestroyed(function(){
+  $('.disConnect').removeClass('active');
+  $('.fa').removeClass('transparent');
+});
+
+
 Template.dotCard.helpers({
 
   //subscriptionsReady: function(){
@@ -65,6 +71,7 @@ Template.dotCard.helpers({
       }
     }
   },
+
   isListCard: function() {
     return (this.dot && this.dot.dotType === "List" || this.dot && this.dot.dotType === "shareList");
   },
@@ -87,7 +94,20 @@ Template.dotCard.helpers({
 
   eventDate: function(){
     if (this.dot && this.dot.startDateAndHour) {
-      return ( moment(this.dot.startDateAndHour).fromNow());
+      return ( moment(this.dot.startDateAndHour).format('dddd DD MMMM, h:mm A') );
+    }
+    else if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
+      return ("Multiple Events (" + moment(this.dot.startRepeatedDate).format('dddd DD MMM')
+      + " - " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
+    }
+    else if (this.dot && this.dot.multipleEventsNote ) {
+      return ("Multiple Events (" + this.dot.multipleEventsNote + ")");
+    }
+    else if ( this.dot && this.dot.endRepeatedDate ) {
+      return ("Multiple Events (until " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
+    }
+    else if ( this.dot && this.dot.startRepeatedDate ) {
+      return ("Multiple Events (from " + moment(this.dot.startRepeatedDate).format('dddd DD MMM') + ")");
     }
   },
 
@@ -177,9 +197,11 @@ Template.dotCard.helpers({
       return this.smartRef.connection.likes.length;
     }
   },
+
   shareList: function(){
     return Session.get('shareListActive');
   },
+
   alreadyShared: function(){
     let sharedDot = Dotz.findOne(Session.get('shareListActive'));
     let alreadyAdded = false;
@@ -193,12 +215,19 @@ Template.dotCard.helpers({
     }
     return alreadyAdded;
   }
+
 });
-Template.dotCard.onDestroyed(function(){
-  $('.disConnect').removeClass('active');
-  $('.fa').removeClass('transparent');
-});
+
+
 Template.dotCard.events({
+
+  'click ._shareFacebookDialog': function(event){
+    event.preventDefault();
+    FB.ui({
+      method: 'share',
+      href: 'https://dotz.city/'+ this.dot.dotSlug
+    }, function(response){});
+  },
 
   'click .like': function(event){
     event.preventDefault();
@@ -254,7 +283,7 @@ Template.dotCard.events({
     $(event.currentTarget).toggleClass('active');
     $(event.currentTarget.childNodes[1]).toggleClass('transparent');
     $(event.currentTarget).css("outline", "none");
-    Modules.both.Dotz.disConnectDot(this.smartRef);
+    Meteor.call('disConnectDot',this.smartRef);
   },
 
   'click .upBtn':function(event){
@@ -282,7 +311,7 @@ Template.dotCard.events({
 
   'click .delete':function(event){
     event.preventDefault();
-    Modules.both.Dotz.deleteDot(this.dot, this.smartRef.connection.toParentDotId);
+    Meteor.call('deleteDot', this.dot, this.smartRef.connection.toParentDotId);
   },
 
   //TBD - reset the search in page result in other way
@@ -308,43 +337,13 @@ Template.dotCard.events({
   'click .shareList': function(event) {
     event.preventDefault();
     let dotId = this.dot._id;
-
-    //Temp process:
-    let createNewDotForShare = (userId) =>{
-      let shareDotDoc = {
-        dotType: "shareList",
-        ownerUserId: userId,
-        title: Meteor.user().username + " Share",
-        createdAtDate: new Date(),
-        isOpen: false
-      };
-      Meteor.call('insertDot', shareDotDoc, function(error, result){
-        if (!error){
-          Meteor.call('updateUserShareDotId', Meteor.userId(), result, function(error, result){
-            if (error){
-              console.log("error" + error);
-            }
-          });
-        }
-        else{
-          console.log("error" + error);
-        }
-
-      })
-    };
-
-    if ( !Meteor.user().shareDotId ) {
-      createNewDotForShare(Meteor.userId());
-    }
-
-
     //Normal process:
     let doc = {
       title: "Share",
       dotType: "shareList",
       createdAtDate: new Date(),
       ownerUserId: Meteor.userId(),
-      inDotz: [Meteor.userId().shareDotId],
+      inDotz: [Meteor.user().profile.shareDotId],
       isOpen: false,
       coverImageUrl: "https://dotz-dev-images.s3.amazonaws.com/jRZGh5cHJ3CmLqopk/SendDotzList.jpg"
     };
@@ -353,6 +352,7 @@ Template.dotCard.events({
           console.log(error);
       }
       else {
+        Session.set('shareListActive', result);
         let shareDotId = result;
         let smartRef = new Modules.both.Dotz.smartRef(result, Meteor.userId(), Meteor.user().profile.shareDotId, CONNECT_ACTION, Meteor.userId());
         if (!error) {
@@ -373,7 +373,6 @@ Template.dotCard.events({
                       console.log(error);
                     }
                     else{
-                      Session.set('shareListActive', shareDotId);
                     }
                   });
                 }

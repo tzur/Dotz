@@ -39,6 +39,11 @@ let dotHooks = {
       doc.ownerUserId = Meteor.userId();
       doc.createdAtDate = new Date();
       doc.dotType = Session.get("dotType");
+
+      //Open Dotz:
+      if (doc.dotType === "Dot") {
+        doc.isOpen = true;
+      }
       //if (!doc.isOpen){
       //  doc.isOpen = true
       //}
@@ -56,24 +61,14 @@ let dotHooks = {
   },
 
   onSuccess: function(update, result){
-    Modal.hide();
     Session.set('searchInput', undefined);
     Session.set("parentDot", undefined);
     Session.set("locationObject", undefined);
     Session.set("dotType", undefined);
-    Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
     Session.set('spinnerOn', false);
     Meteor.call('addOrEditObjectInAlgolia', result, false);
-
-    FlowRouter.go('/' + (Session.get('redirectAfterCreate')));
-    setTimeout(function(){
-      var n = $(document).height();
-      $('html, body').animate({ scrollTop: n }, 1000);
-    }, 1000);
-    Session.set('redirectAfterCreate', undefined )
+    Session.set('redirectAfterCreate', undefined );
     console.log("on success end");
-
-
   }
 };
 

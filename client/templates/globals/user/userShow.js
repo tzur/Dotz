@@ -24,7 +24,6 @@ Template.userShow.onCreated(function() {
           //FlowRouter.go('/');
         }
         else if (user) {
-          DocHead.setTitle("Dotz: " + user.username);
           let userPageInfo = "User show: " + user.username;
           let userPageTitle = user.username;
           analytics.page(userPageInfo , {
@@ -35,19 +34,24 @@ Template.userShow.onCreated(function() {
       if (handleUser.ready()){
           let user =  Meteor.users.findOne({"profile.userSlug": userSlug});
           if (user) {
-              self.subs.subscribe('dotShow', user.profile.profileDotId);
-              self.subs.subscribe('dotShow', user.profile.shareDotId);
+              self.subs.subscribe('dotCard', user.profile.profileDotId.toString());
+              self.subs.subscribe('dotCard', user.profile.shareDotId.toString());
           }
       }
-
-
 
     }
   });
 });
 
-Template.userShow.onDestroyed(function(){
 
+Template.userShow.onRendered(function() {
+  //Session.set('showShareDotz', false);
+  Session.set('changeListener', true);
+});
+
+
+Template.userShow.onDestroyed(function(){
+  Session.set('changeListener', true);
 });
 
 
@@ -113,6 +117,8 @@ Template.userShow.helpers({
   },
 
   connectedDotzArray: function() {
+    Session.get('changeListener');
+    Session.get('showShareDotz');
     let profileDot = Dotz.findOne(this.profile.profileDotId);
     if (profileDot){
       return profileDot.connectedDotzArray;
