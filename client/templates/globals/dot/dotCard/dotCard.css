@@ -314,7 +314,7 @@
 
 #listCover .filter {
   position: absolute;
-  z-index: 2;
+  /*z-index: 2;*/
   background-color: rgba(0, 0, 0, 0.3);
   /*top: 0;*/
   /*left: 0;*/
