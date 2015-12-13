@@ -24,22 +24,19 @@ Template.userShow.onCreated(function() {
           //FlowRouter.go('/');
         }
         else if (user) {
-          DocHead.setTitle("Dotz: " + user.username);
-          let userPageTitle = user.username;
+          let userPageInfo = "User show: " + user.username;
           analytics.page("User Show" , {
-            title: userPageTitle
+            title: userPageInfo
           });
         }
       });
       if (handleUser.ready()){
           let user =  Meteor.users.findOne({"profile.userSlug": userSlug});
           if (user) {
-              self.subs.subscribe('dotShow', user.profile.profileDotId);
-              self.subs.subscribe('dotShow', user.profile.shareDotId);
+              self.subs.subscribe('dotCard', user.profile.profileDotId.toString());
+              self.subs.subscribe('dotCard', user.profile.shareDotId.toString());
           }
       }
-
-
 
     }
   });

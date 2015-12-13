@@ -26,8 +26,6 @@ Template.dotShow.onCreated(function() {
     }
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
-      DocHead.setTitle("Dotz: " + currentDot.title);
-      if (currentDot) {
         self.subs.subscribe('user', currentDot.ownerUserId);
         if(currentDot.dotType === "List"){
           analytics.page('List Show');
@@ -36,23 +34,30 @@ Template.dotShow.onCreated(function() {
           analytics.page('Dot Show')
         }
       }
-    }
-
-
-
-
-
   });
 });
 
 Template.dotShow.onRendered(function(){
-
   Tracker.autorun(function () {
     FlowRouter.watchPathChange();
     window.scrollTo(0,0);
-
-
   });
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: '904084409705076',
+      xfbml: true,
+      version: 'v2.5'
+    });
+  };
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  fbAsyncInit();
 });
 
 Template.dotShow.onDestroyed(function(){
@@ -100,8 +105,27 @@ Template.dotShow.helpers({
   },
 
   eventDate: function(){
-    if (this.dot.startDateAndHour) {
-        return ( moment(this.dot.startDateAndHour).fromNow());
+    if (this.dot && this.dot.startDateAndHour) {
+      return ( moment(this.dot.startDateAndHour).format('dddd DD MMMM, h:mm A') );
+    }
+    else if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
+      let textForMultipleEvents;
+      if (this.dot.multipleEventsNote) {
+        textForMultipleEvents = "Multiple Events: " + this.dot.multipleEventsNote;
+      } else {
+        textForMultipleEvents = "Multiple Events";
+      }
+      return (textForMultipleEvents + " (" + moment(this.dot.startRepeatedDate).format('dddd DD MMM')
+      + " - " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
+    }
+    else if (this.dot && this.dot.multipleEventsNote ) {
+      return ("Multiple Events (" + this.dot.multipleEventsNote + ")");
+    }
+    else if ( this.dot && this.dot.endRepeatedDate ) {
+      return ("Multiple Events (until " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
+    }
+    else if ( this.dot && this.dot.startRepeatedDate ) {
+      return ("Multiple Events (from " + moment(this.dot.startRepeatedDate).format('dddd DD MMM') + ")");
     }
   },
 
@@ -165,19 +189,34 @@ Template.dotShow.helpers({
   workingOnQuickStart: function() {
     return Session.get('workingOnQuickStart');
   },
-  dataForShare: function() {
-    return {
-      title: this.dot.title,
-      author: "The author",
-      summary: "Something",
-      thumbnail: this.dot.coverImageUrl
-    };
-  }
 
+  shareList: function(){
+    return Session.get('shareListActive');
+  },
+  alreadyShared: function(){
+    let sharedDot = Dotz.findOne(Session.get('shareListActive'));
+    let alreadyAdded = false;
+    let self = this;
+    if (self.dot && sharedDot && sharedDot.connectedDotzArray){
+      sharedDot.connectedDotzArray.forEach(function(smartRef){
+        if (smartRef.dot._id === self.dot._id){
+          alreadyAdded = true;
+        }
+      });
+    }
+    return alreadyAdded;
+  }
 });
+
 Template.dotShow.events({
 
-  //
+  'click ._shareFacebookDialog': function(event){
+    event.preventDefault();
+    FB.ui({
+      method: 'share',
+      href: 'https://dotz.city/'+ this.dot.dotSlug
+    }, function(response){});
+  },
 
   'click .connect': function(){
     if(Meteor.user()) {
@@ -203,7 +242,7 @@ Template.dotShow.events({
   },
 
   'click .deleteShow':function(event){
-      Modules.both.Dotz.deleteDot(this.dot, this.dot.inDotz[0]);
+      Meteor.call('deleteDot', this.dot, this.dot.inDotz[0]);
       window.history.back();
   },
 
@@ -255,8 +294,72 @@ Template.dotShow.events({
       title: "Auto Generate Dotz From: " + this.dot.title
     })
   },
+  'click .shareListInstant': function(event){
+    event.preventDefault();
+    let dotId = this.dot._id;
+    if (Session.get('shareListActive')){
+      let smartRef = new Modules.both.Dotz.smartRef(dotId,Meteor.userId(),Session.get('shareListActive'), CONNECT_ACTION, Meteor.userId());
+      Meteor.call('addDotToConnectedDotzArray', smartRef, function (error, result) {
+        if (error) {
+          console.log(error);
+        }
+        else{
+          console.log('success');
+        }
+      });
+    }
+  },
   'click .shareCurrentList': function(){
-    Session.set('shareListActive', this.dot._id);
+    event.preventDefault();
+    let dotId = this.dot._id;
+    //Normal process:
+    let doc = {
+      title: "Share",
+      dotType: "shareList",
+      createdAtDate: new Date(),
+      ownerUserId: Meteor.userId(),
+      inDotz: [Meteor.userId().shareDotId],
+      isOpen: false,
+      coverImageUrl: "https://dotz-dev-images.s3.amazonaws.com/jRZGh5cHJ3CmLqopk/SendDotzList.jpg"
+    };
+    Meteor.call('insertDot', doc, function (error, result) {
+      if (error) {
+        console.log(error);
+      }
+      else {
+        Session.set('shareListActive', result);
+        let shareDotId = result;
+        let smartRef = new Modules.both.Dotz.smartRef(result, Meteor.userId(), Meteor.user().profile.shareDotId, CONNECT_ACTION, Meteor.userId());
+        if (!error) {
+          Meteor.call('addDotToConnectedDotzArray', smartRef, function (error, result) {
+            if (error) {
+              console.log(error);
+            }
+            else {
+              Meteor.call('updateDotSlug',doc, shareDotId, (Math.random()).toString(),function(error,result){
+                if (error){
+                  console.log(error);
+                }
+                else{
+                  console.log(result);
+                  let smartRef = new Modules.both.Dotz.smartRef(dotId, Meteor.userId(),shareDotId, CONNECT_ACTION, Meteor.userId());
+                  Meteor.call('addDotToConnectedDotzArray', smartRef, function (error, result) {
+                    if (error) {
+                      console.log(error);
+                    }
+                    else{
+                    }
+                  });
+                }
+              })
+            }
+          });
+        }
+        else {
+          console.log("Error" + error);
+        }
+      }
+    });
   }
 
 });

@@ -16,7 +16,15 @@ Template.footerForShare.helpers({
     let shareDot = Dotz.findOne(Session.get('shareListActive'));
     if (shareDot){
       Session.set('shareDot', shareDot);
-      return shareDot.connectedDotzArray.length;
+      if (shareDot.connectedDotzArray.length === 0){
+        return ("...");
+      }
+      else{
+        return shareDot.connectedDotzArray.length;
+      }
+    }
+    else{
+      return("...");
     }
   },
   isSpinnerOn: function(){
@@ -69,3 +77,7 @@ Template.footerForShare.events({
     Session.set('shareListActive', false);
   }
 });
+
+
+
+

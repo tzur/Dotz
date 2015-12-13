@@ -25,7 +25,7 @@ Template.addPersonalDescriptionModal.events({
     let smartRef = new Modules.both.Dotz.smartRef(currentDot._id, currentDot.ownerUserId,
                         parentDot._id, CONNECT_ACTION, Meteor.userId(), personalDescription);
 
-    Modules.both.Dotz.connectDot(smartRef);
+    Meteor.call('connectDot', smartRef);
     Modal.hide('createDotModal');
 
 

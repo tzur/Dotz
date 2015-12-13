@@ -39,7 +39,7 @@ Template.connectDotModal.events({
     let personalDescription = $('#personalDescription').val();
     let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), Session.get('dotOwnerUserId'),
                   Meteor.user().profile.profileDotId, CONNECT_ACTION, Meteor.userId(),personalDescription);
-    Modules.both.Dotz.connectDot(smartRef);
+    Meteor.call('connectDot', smartRef);
     Modal.hide();
     analytics.track('Enter Connect Modal', {
       title: 'Connected: ' + this.dot.title,
@@ -53,7 +53,7 @@ Template.connectDotModal.events({
     let personalDescription = $('#personalDescription').val();
     let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), Session.get('dotOwnerUserId'),
       this._id, CONNECT_ACTION, Meteor.userId(),personalDescription);
-    Modules.both.Dotz.connectDot(smartRef);
+    Meteor.call('connectDot', smartRef);
     Modal.hide();
     analytics.track('Connect', {
       title: 'Connected: ' + Session.get('dotTitleWishedToBeConnected'),

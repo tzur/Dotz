@@ -61,29 +61,17 @@ let dotHooks = {
   },
 
   onSuccess: function(update, result){
-    Modal.hide();
-    Session.set('searchInput', undefined);
-    Bert.alert( 'Created :)', 'success', 'growl-bottom-left' );
+    Session.set('searchInput', undefined)
+    Session.set("parentDot", undefined);
+    Session.set("locationObject", undefined);
+    Session.set("dotType", undefined);
     Session.set('spinnerOn', false);
     Meteor.call('addOrEditObjectInAlgolia', result, false);
-
-    FlowRouter.go('/' + (Session.get('redirectAfterCreate')));
-    setTimeout(function(){
-      var n = $(document).height();
-      $('html, body').animate({ scrollTop: n }, 1000);
-    }, 1000);
     Session.set('redirectAfterCreate', undefined );
-    console.log("on success end");
     analytics.track("Dot Created", {
       isDotWithOutLocation: Session.equals("locationObject", undefined),
       dotType: Session.get("dotType")
     });
-    Session.set("parentDot", undefined);
-    Session.set("locationObject", undefined);
-    Session.set("dotType", undefined);
-
-
-
   }
 };
 

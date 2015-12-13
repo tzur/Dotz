@@ -52,7 +52,6 @@ spiderable
 ddp
 callback-hook
 dfischer:phantomjs
-kadira:dochead
 acemtp:algolia
 mdg:geolocation
 service-configuration
@@ -64,3 +63,5 @@ tsega:bootstrap3-datetimepicker@=3.1.3_3
 aldeed:autoform-bs-datetimepicker
 browser-policy
 liberation:shareit
+meteorhacks:picker
+kadira:dochead

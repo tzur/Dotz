@@ -121,21 +121,6 @@ a:hover {
 }
 
 
-.mdTxt {
-  font-size: 1.125em;
-}
-
-.lgTxt {
-  font-size: 1.5em;
-}
-
-.midDarkText {
-  color: #777
-}
-
-.whiteTxt {
-  color: #ffffff;
-}
 .cardWrapper {
   background-color: #FFFFFF;
   border: 1px solid #edeeee;
@@ -438,19 +423,7 @@ a:hover {
   margin-bottom: 0;
 }
 
-.darkText {
-  color: #333;
-}
 
-.smTxt {
-  font-size: 0.75em;
-}
-
-
-
-.greyText {
-  color: #9B998D;
-}
 
 #connectionCounter {
   margin-right: 0.5em;

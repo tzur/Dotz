@@ -1,7 +1,7 @@
 <template name="editDotModal">
 
 
-
+<!--is editList-->
 {{#if isList}}
     <div class="modal fade" data-keyboard="false">
         <div class="modal-dialog modal-md">
@@ -161,10 +161,8 @@
 
 
 
-
-
-  {{else}}
-
+<!--is editDot-->
+{{else}}
 
     <div class="modal fade" data-keyboard="false">
         <div class="modal-dialog modal-md">
@@ -260,12 +258,31 @@
 
                                               <button id="repeated-btn" class="btn btn-default btn-sm round" href="#repeated" data-toggle="collapse">Repeated ?</button>
 
+                                              <!--<div id="repeated" class="collapse">-->
+                                                  <!--<div type="bootstrap-datetimepicker" class="eventDetails row">-->
+                                                      <!--<div class="col-xs-6">{{> afQuickField name='repeated' firstOption='None'}}</div>-->
+                                                      <!--<div class="col-xs-6">{{> afQuickField name='endRepeatedDate' placeholder="Pick Repeated End Date"}}</div>-->
+                                                  <!--</div>-->
+                                              <!--</div>-->
+
+
+
                                               <div id="repeated" class="collapse">
                                                   <div type="bootstrap-datetimepicker" class="eventDetails row">
-                                                      <div class="col-xs-6">{{> afQuickField name='repeated' firstOption='None'}}</div>
-                                                      <div class="col-xs-6">{{> afQuickField name='endRepeatedDate' placeholder="Pick Repeated End Date"}}</div>
+                                                      <!--<div class="col-xs-12 col-sm-3"><p><strong>Occurs from:</strong></p></div>-->
+                                                      <div class="col-xs-6 col-sm-6"><p><strong>Occurs from:</strong></p>{{> afQuickField name='startRepeatedDate' placeholder="Starts (Date)"}}</div>
+                                                      <!--<div class="col-xs-6 col-sm-3"><p><strong>Until:</strong></p></div>-->
+                                                      <div class="col-xs-6 col-sm-6"><p><strong>Until:</strong></p>{{> afQuickField name='endRepeatedDate' placeholder="Ends (Date)"}}</div>
+
+                                                      <!--<div class="col-xs-12 col-sm-6"><p><strong>How often does this event occur?</strong></p></div>-->
+                                                      <div class="col-xs-12"><p><strong>How often does this event occur?</strong></p></div>
+                                                      <div class="col-xs-12">{{> afQuickField name='multipleEventsNote' placeholder="E.g. 'Every Sunday at 15:00' "}}</div>
                                                   </div>
                                               </div>
+
+
+
+
 
 
                                           </div>
@@ -338,8 +355,6 @@
                                   </div>
                               </div>
                           </div>
-
-
 
 
                       {{/autoForm}}
