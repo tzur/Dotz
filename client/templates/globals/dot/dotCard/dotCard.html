@@ -4,7 +4,7 @@
 
 <div class="row" id="listCard-box">
 
-    <div class="col-xs-1 col-sm-1 hidden-xs" id="listCardLikeSide">
+    <div class="col-xs-1 col-sm-1 hidden-xs hidden-sm" id="listCardLikeSide">
 
 {{#if isInOpenList}}
 
@@ -62,7 +62,7 @@
 {{#if isListCard}}
 
 
-    <div class="col-xs-12 col-sm-10" id="listCover">
+    <div class="col-xs-12 col-sm-12 col-md-10" id="listCover">
         <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
             <div class="filter">
                 <div class="listCoverContent">
@@ -85,7 +85,7 @@
                     </a>
                     <div class="row listCardFooter">
 
-                        <div class="listCardUser col-xs-7">
+                        <div class="listCardUser col-xs-8 col-lg-7">
 
                           {{#if userIsTheDotCreator}}
 
@@ -117,7 +117,7 @@
 
 
                         <!--<div class="btn-connect-div col-xs-4 pull-right">-->
-                        <div class="buttonsBar pull-right col-xs-5 listCardBtns">
+                        <div class="buttonsBar pull-right col-xs-4 col-lg-5 listCardBtns">
 
                           {{#if shareList}}
                             {{#if alreadyShared}}
@@ -184,13 +184,13 @@
 
 
 
-    <div class="col-xs-12 col-sm-10" id="listCard">
+    <div class="col-xs-12 col-sm-12 col-md-10" id="listCard">
 
 
 
 
                         <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4" id="listCardImgSide">
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="listCardImgSide">
                             <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
                             <!--<div class="filter">-->
 
@@ -206,7 +206,7 @@
                         </a>
 
 
-                        <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8" id="listCardTextSide">
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" id="listCardTextSide">
 
 
                             <div class="content">
@@ -280,7 +280,8 @@
 
 
 
-                              <div class="listCardUser pull-left col-xs-8 col-sm-6 col-md-8">
+                              <div class="listCardUser pull-left col-xs-8 col-sm-8 col-md-8 col-lg-7">
+
 
                                 {{#if userIsTheDotCreator}}
 
@@ -297,12 +298,13 @@
                                     <a href="/{{connectedByUser.profile.userSlug}}" class="userImgIcon">
                                         <img class="userImgIcon" src="{{connectedByUser.profile.profileImage}}">
                                     </a>
-                                    <span class="smTxt greyText"><a class="greyText" href="/{{connectedByUser.profile.userSlug}}"><strong>{{connectedByUser.username}}</strong></a></span>
-                                    <span class="greyText smTxt">connected</span>
+                                    <span class="smTxt greyText Connections-text-top"><a class="greyText" href="/{{connectedByUser.profile.userSlug}}"><strong>{{connectedByUser.username}}</strong></a></span>
+                                    <span class="greyText smTxt Connections-text-top">connected</span>
+                                    <!--<i class="greyText smTxt fa fa-plus-circle greyText smTxt hidden-md hidden-lg"></i>-->
                                     <a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon hidden-xs hidden-sm">
                                         <img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">
                                     </a>
-                                    <span class="smTxt greyText"><a class="greyText" href="/{{ownerUser.profile.userSlug}}"><strong>{{ownerUser.username}}</strong></a></span>
+                                    <span class="smTxt greyText Connections-text-bottom"><a class="greyText" href="/{{ownerUser.profile.userSlug}}"><strong>{{ownerUser.username}}</strong></a></span>
                                     <span class="greyText smTxt">Dot</span>
                                     <!--<span class="greyText smTxt"> · {{actionDate}}</span>-->
 
@@ -310,7 +312,9 @@
                               </div> <!--end userListCard -->
 
 
-                              <div class="buttonsBar pull-right col-xs-4 col-sm-6 col-md-4">
+
+                              <div class="buttonsBar pull-right col-xs-4 col-sm-4 col-md-4 col-lg-5">
+
 
                                 {{#if shareList}}
                                 {{#if alreadyShared}}
