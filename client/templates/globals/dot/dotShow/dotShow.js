@@ -27,10 +27,13 @@ Template.dotShow.onCreated(function() {
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
         self.subs.subscribe('user', currentDot.ownerUserId);
-        analytics.page("Dot show: " + currentDot.title, {
-          title: currentDot.title
-        });
-    }
+        if(currentDot.dotType === "List"){
+          analytics.page('List Show');
+        }
+        else{
+          analytics.page('Dot Show')
+        }
+      }
   });
 });
 
@@ -289,6 +292,9 @@ Template.dotShow.events({
       });
 
     }, 3000);
+    analytics.track("Auto Generate Dotz", {
+      title: "Auto Generate Dotz From: " + this.dot.title
+    })
   },
   'click .shareListInstant': function(event){
     event.preventDefault();
