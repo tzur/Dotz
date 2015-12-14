@@ -100,9 +100,13 @@ Template.dotCardSearch.events({
           dot: this.dot
         }
       });
+      Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect(From Dot Search Card): ',this.dot._id, this.dot.title, this.dot.dotType);
+
     }
     else{
       Modal.show('signUpModal');
+      Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect(From Dot Search Card): ',this.dot._id, this.dot.title, this.dot.dotType);
+
     }
 
   },
