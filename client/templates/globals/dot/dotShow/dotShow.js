@@ -107,10 +107,7 @@ Template.dotShow.helpers({
   },
 
   eventDate: function(){
-    if (this.dot && this.dot.startDateAndHour) {
-      return ( moment(this.dot.startDateAndHour).format('dddd DD MMMM, h:mm A') );
-    }
-    else if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
+    if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
       let textForMultipleEvents;
       if (this.dot.multipleEventsNote) {
         textForMultipleEvents = "Multiple Events: " + this.dot.multipleEventsNote;
@@ -128,6 +125,9 @@ Template.dotShow.helpers({
     }
     else if ( this.dot && this.dot.startRepeatedDate ) {
       return ("Multiple Events (from " + moment(this.dot.startRepeatedDate).format('dddd DD MMM') + ")");
+    }
+    else if (this.dot && this.dot.startDateAndHour) {
+      return ( moment(this.dot.startDateAndHour).format('dddd DD MMMM, h:mm A') );
     }
   },
 
