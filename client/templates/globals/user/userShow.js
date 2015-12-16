@@ -89,25 +89,23 @@ Template.userShow.helpers({
     }
   },
 //user counters:
-  followingCounter: function(){
-    if (this.profile.following.length === 0) {
-      return false;
-    }
-    else {
-      return this.profile.following.length;
-    }
-
-  },
-  followersCounter: function(){
-    if (this.profile.followers.length === 0) {
-      return false;
-    }
-    else {
-      return this.profile.followers.length;
-    }
-
-
-  },
+  //  followingCounter: function(){
+  //    if (this.profile.following.length === 0) {
+  //      return false;
+  //    }
+  //    else {
+  //      return this.profile.following.length;
+  //    }
+  //
+  //  },
+  //  followersCounter: function(){
+  //    if (this.profile.followers.length === 0) {
+  //      return false;
+  //    }
+  //    else {
+  //      return this.profile.followers.length;
+  //    }
+  //  },
 
   dotNumCounter:  function(){
       return this.profile.createdByUserDotz.length;
