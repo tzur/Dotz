@@ -1,5 +1,7 @@
 
 Template.searchBox.onCreated(function(){
+  var title = "Dotz: " + "Search";
+  DocHead.setTitle(title);
 
   //Session.set('searchInput', undefined);
   //Session.set('dotzResult', undefined);
