@@ -39,13 +39,7 @@ Template.dotShow.onRendered(function(){
     FlowRouter.watchPathChange();
     window.scrollTo(0,0);
   });
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId: '904084409705076',
-      xfbml: true,
-      version: 'v2.5'
-    });
-  };
+
   (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {return;}
@@ -54,7 +48,12 @@ Template.dotShow.onRendered(function(){
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-  fbAsyncInit();
+    FB.init({
+      appId: '904084409705076',
+      xfbml: true,
+      version: 'v2.5'
+    });
+
 });
 
 Template.dotShow.onDestroyed(function(){
