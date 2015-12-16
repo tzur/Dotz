@@ -89,33 +89,34 @@ Template.userShow.helpers({
     }
   },
 //user counters:
-  followingCounter: function(){
-    if (this.profile.following.length === 0) {
-      return false;
-    }
-    else {
-      return this.profile.following.length;
-    }
+  //  followingCounter: function(){
+  //    if (this.profile.following.length === 0) {
+  //      return false;
+  //    }
+  //    else {
+  //      return this.profile.following.length;
+  //    }
+  //
+  //  },
+  //  followersCounter: function(){
+  //    if (this.profile.followers.length === 0) {
+  //      return false;
+  //    }
+  //    else {
+  //      return this.profile.followers.length;
+  //    }
+  //  },
 
-  },
-  followersCounter: function(){
-    if (this.profile.followers.length === 0) {
-      return false;
-    }
-    else {
-      return this.profile.followers.length;
-    }
-
-
-  },
   dotNumCounter:  function(){
       return this.profile.createdByUserDotz.length;
-
   },
-  connectivityNum:  function(){
-      return this.profile.userConnections.length;
 
+  connectionsCounter:  function(){
+    if (this.profile) {
+      return (this.profile.following.length + this.profile.followers.length + this.profile.userConnections.length);
+    }
   },
+
   myFollow: function(){
     if (  Meteor.user() && Meteor.user().profile.following &&
               Meteor.user().profile.following.indexOf(this._id) > -1){
