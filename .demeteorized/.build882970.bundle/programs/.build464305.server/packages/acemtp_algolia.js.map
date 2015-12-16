@@ -1,0 +1,1 @@
+{"version":3,"sources":["meteor://💻app/packages/acemtp_algolia/server.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;AAAA;AACA,yE","file":"/packages/acemtp_algolia.js","sourcesContent":["AlgoliaSearch = algoliasearch = Npm.require('algoliasearch');\n"]}
