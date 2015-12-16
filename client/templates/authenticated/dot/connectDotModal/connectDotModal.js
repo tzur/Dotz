@@ -42,7 +42,7 @@ Template.connectDotModal.events({
     Meteor.call('connectDot', smartRef);
     Modal.hide();
     analytics.track('Enter Connect Modal', {
-      title: 'Connected: ' + this.dot.title,
+      title: 'Connected: ' + this.data.dot.title,
       connectTarget: "Profile Dot"
     })
 

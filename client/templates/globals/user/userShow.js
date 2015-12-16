@@ -18,6 +18,8 @@ Template.userShow.onCreated(function() {
       let handleUser = self.subs.subscribe('userByUserSlug', userSlug, function(){
         let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
         if (!user){
+          var title = "Dotz: " + user.username;
+          DocHead.setTitle(title);
           Bert.alert('Page does not exist', 'danger');
           //Back to the previews page:
           setTimeout(function(){ window.history.back(); }, 2000);

@@ -5,6 +5,15 @@ BrowserPolicy.content.allowOriginForAll("https://*.googleapis.com");
 BrowserPolicy.content.allowOriginForAll("https://maps.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("https://fonts.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("https://*.s3.amazonaws.com");
+BrowserPolicy.content.allowOriginForAll("http://*.segment.com");
+BrowserPolicy.content.allowOriginForAll("http://*.googletagmanager.com");
+BrowserPolicy.content.allowOriginForAll("http://*.google-analytics.com");
+BrowserPolicy.content.allowOriginForAll("https://widget.intercom.io");
+BrowserPolicy.content.allowEval("https://widget.intercom.io");
+BrowserPolicy.content.allowOriginForAll("https://js.intercomcdn.com");
+
+
+
 
 //Temp:
 
