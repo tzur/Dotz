@@ -14,7 +14,7 @@ Meteor.methods({
       console.log(newSmartRef);
 
 
-      Modules.both.Dotz.connectDot(newSmartRef)
+      Meteor.call('connectDot',(newSmartRef));
     });
   },
 
