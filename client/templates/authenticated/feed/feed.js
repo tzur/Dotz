@@ -1,5 +1,7 @@
 Template.feed.onCreated(function(){
   Session.set('feedDotzNumber', 10);
+  var title = "Dotz: " + "Feed";
+  DocHead.setTitle(title);
 });
 
 Template.feed.onRendered(function(){

@@ -21,6 +21,10 @@ Template.dotShow.onCreated(function() {
             FlowRouter.go('/');
             Bert.alert('Page does not exist', 'danger');
           }
+          else{
+            var title = "Dotz: " + dotShow.title;
+            DocHead.setTitle(title);
+          }
         }
       );
     }

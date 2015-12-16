@@ -2,33 +2,34 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8;FF=3;OtherUA=4"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="fragment" content="!">
     <link rel="stylesheet" href="http://css-spinners.com/css/spinner/dots.css" type="text/css">
 
 
 <!--browser-update.org script-->
-    <script>
-        var $buoop = {c:2};
-        function $buo_f(){
-            var e = document.createElement("script");
-            e.src = "//browser-update.org/update.min.js";
-            document.body.appendChild(e);
-        };
-        try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
-        catch(e){window.attachEvent("onload", $buo_f)}
-    </script>
+    <!--<script type="text/javascript">-->
+        <!--var $buoop = {c:2};-->
+        <!--function $buo_f(){-->
+            <!--var e = document.createElement("script");-->
+            <!--e.src = "//browser-update.org/update.min.js";-->
+            <!--document.body.appendChild(e);-->
+        <!--};-->
+        <!--try {document.addEventListener("DOMContentLoaded", $buo_f,false)}-->
+        <!--catch(e){window.attachEvent("onload", $buo_f)}-->
+    <!--</script>-->
 <!--ebd browser-update.org-->
 
 
 <!--Start of Zopim Live Chat Script-->
-    <script type="text/javascript">
-    window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
-            d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
-            _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
-        $.src="//v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi";z.t=+new Date;$.
-                type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
-</script>
+    <!--<script type="text/javascript">-->
+    <!--window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=-->
+            <!--d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.-->
+            <!--_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");-->
+        <!--$.src="//v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi";z.t=+new Date;$.-->
+                <!--type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");-->
+   <!--</script>-->
 <!--End of Zopim Live Chat Script-->
 
 
@@ -49,14 +50,12 @@
         <!--}-->
     <!--</script>-->
 
-
-
-
-
 </head>
 
 
 <body>
+
+
 
   {{>bertAlert}}
 	{{>header}}
@@ -72,12 +71,45 @@
   {{/if}}
 
   <!--Intercom widget-->
-  <!--<script>-->
+  <!--<script type=”text/javascript”>-->
       <!--window.intercomSettings = {-->
           <!--app_id: "ty914nuw"-->
       <!--};-->
   <!--</script>-->
   <!--<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ty914nuw';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>-->
+
+
+  <!--[if lt IE 10]>
+
+<nav id="ie9sucks" class="signUp-nav-bar navbar navbar-default navbar-fixed-bottom hidden-xs col-sm-12" role="navigation">
+  <div class="container-fluid" id="signUp-div">
+
+      <div class="col-xs-12 col-sm-1">
+          <button id="_ie9ExitBtn" type="button" class="btn btn-lg whiteTxt">X</button>
+      </div>
+
+      <div class="txtMd signup-div-content">
+          <h4 class="whiteTxt"><strong>We are very sorry, but your browser is out-of-date and not fully supported.</strong></h4>
+          <h5 class="whiteTxt">Please download one of these up-to-date, free and excellent browsers:</h5>
+          <br>
+          <a href="http://browser-update.org/update-browser.html" target="_blank">
+              <button type="button" id="_updateBtn" class="btn">Update Now</button>
+          </a>
+      </div>
+
+  </div>
+</nav>
+
+  <script >
+      var exitBtn = document.getElementById('_ie9ExitBtn');
+      exitBtn.addEventListener('click', turnOffFooter);
+      function turnOffFooter() {
+          var footer = document.getElementById('ie9sucks');
+          footer.style.display = 'none';
+      }
+  </script>
+
+<![endif]-->
 
 
 </body>

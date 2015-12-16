@@ -46,7 +46,6 @@ momentjs:moment
 underscorestring:underscore.string
 easy:search
 yogiben:autoform-tags
-okgrow:analytics
 meteorhacks:subs-manager
 spiderable
 ddp
@@ -65,3 +64,5 @@ browser-policy
 liberation:shareit
 meteorhacks:picker
 kadira:dochead
+percolatestudio:segment.io@=2.0.0_1
+tmeasday:html5-history-api
