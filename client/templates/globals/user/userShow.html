@@ -85,29 +85,29 @@
                 </div>
 
                 <ul class="menu js-socialMenu txtMd" data-user-id="42824e6543f3">
-                    <li class="menu-item js-socialMenuFollowers hidden-xs" title="Followers">
+                    <li class="menu-item js-socialMenuFollowers" title="Followers">
                         <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
                           {{dotNumCounter}}<small class="menu-label">Dotz</small></button>
                     </li>
 
                     <li class="menu-item js-socialMenuFollowers" title="Followers">
                         <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
-                          {{connectivityNum}}<small class="menu-label">Connections</small></button>
+                          {{connectionsCounter}}<small class="menu-label">Connections</small></button>
                     </li>
 
-              {{#if followingCounter}}
-                    <li class="_followingCounter menu-item " title="Following">
-                        <button class="button button--chromeless" data-action="show-follow-list" data-action-value="following">
-                          {{followingCounter}}<small class="menu-label">Following</small></button>
-                    </li>
-              {{/if}}
+              <!--{{#if followingCounter}}-->
+                    <!--<li class="_followingCounter menu-item " title="Following">-->
+                        <!--<button class="button button-chromeless" data-action="show-follow-list" data-action-value="following">-->
+                          <!--{{followingCounter}}<small class="menu-label">Following</small></button>-->
+                    <!--</li>-->
+              <!--{{/if}}-->
 
-               {{#if followersCounter}}
-                    <li class="_followersCounter menu-item js-socialMenuFollowers" title="Followers">
-                        <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
-                          {{followersCounter}}<small class="menu-label">Followers</small></button>
-                    </li>
-               {{/if}}
+               <!--{{#if followersCounter}}-->
+                    <!--<li class="_followersCounter menu-item js-socialMenuFollowers" title="Followers">-->
+                        <!--<button class="button button-chromeless" data-action="show-follow-list" data-action-value="followers">-->
+                          <!--{{followersCounter}}<small class="menu-label">Followers</small></button>-->
+                    <!--</li>-->
+               <!--{{/if}}-->
 
                 </ul>
 
@@ -117,9 +117,9 @@
                         <div class="col-sm-12 txtMd">
                           {{# if notMyProfile}}
                             {{#if myFollow}}
-                                <button type="button" class="unFollow btn btn-success btn-md">Following</button>
+                                <button type="button" class="unFollow btn btn-success btn-md">Connecting</button>
                             {{else}}
-                                <button type="button" class="follow btn btn-success btn-md">Follow</button>
+                                <button type="button" class="follow btn btn-success btn-md">Connect</button>
                             {{/if}}
 
                           {{else}}

@@ -108,14 +108,17 @@ Template.userShow.helpers({
 
 
   },
+
   dotNumCounter:  function(){
       return this.profile.createdByUserDotz.length;
-
   },
-  connectivityNum:  function(){
-      return this.profile.userConnections.length;
 
+  connectionsCounter:  function(){
+    if (this.profile) {
+      return (this.profile.following.length + this.profile.followers.length + this.profile.userConnections.length);
+    }
   },
+
   myFollow: function(){
     if (  Meteor.user() && Meteor.user().profile.following &&
               Meteor.user().profile.following.indexOf(this._id) > -1){
