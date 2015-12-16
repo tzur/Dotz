@@ -5,7 +5,7 @@ BrowserPolicy.content.allowOriginForAll("https://*.googleapis.com");
 BrowserPolicy.content.allowOriginForAll("https://maps.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("https://fonts.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("https://*.s3.amazonaws.com");
-
+BrowserPolicy.content.allowOriginForAll("https://fbcdn-profile-a.akamaihd.net/*");
 //Temp:
 
 
