@@ -2,33 +2,34 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8;FF=3;OtherUA=4"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="fragment" content="!">
     <link rel="stylesheet" href="http://css-spinners.com/css/spinner/dots.css" type="text/css">
 
 
 <!--browser-update.org script-->
-    <script>
-        var $buoop = {c:2};
-        function $buo_f(){
-            var e = document.createElement("script");
-            e.src = "//browser-update.org/update.min.js";
-            document.body.appendChild(e);
-        };
-        try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
-        catch(e){window.attachEvent("onload", $buo_f)}
-    </script>
+    <!--<script type="text/javascript">-->
+        <!--var $buoop = {c:2};-->
+        <!--function $buo_f(){-->
+            <!--var e = document.createElement("script");-->
+            <!--e.src = "//browser-update.org/update.min.js";-->
+            <!--document.body.appendChild(e);-->
+        <!--};-->
+        <!--try {document.addEventListener("DOMContentLoaded", $buo_f,false)}-->
+        <!--catch(e){window.attachEvent("onload", $buo_f)}-->
+    <!--</script>-->
 <!--ebd browser-update.org-->
 
 
 <!--Start of Zopim Live Chat Script-->
-    <script type="text/javascript">
-    window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
-            d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
-            _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
-        $.src="//v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi";z.t=+new Date;$.
-                type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
-</script>
+    <!--<script type="text/javascript">-->
+    <!--window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=-->
+            <!--d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.-->
+            <!--_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");-->
+        <!--$.src="//v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi";z.t=+new Date;$.-->
+                <!--type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");-->
+   <!--</script>-->
 <!--End of Zopim Live Chat Script-->
 
 
@@ -49,7 +50,25 @@
         <!--}-->
     <!--</script>-->
 
+<!--[if lt IE 10]>
 
+<script>
+window.alert("We are very sorry, But your browser is not fully supported :/
+Please update.")
+</script>
+
+<script type="text/javascript">
+        var $buoop = {c:2};
+        function $buo_f(){
+            var e = document.createElement("script");
+            e.src = "//browser-update.org/update.min.js";
+            document.body.appendChild(e);
+        };
+        try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+        catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+
+<![endif]-->
 
 
 
@@ -57,6 +76,10 @@
 
 
 <body>
+
+<!--[if lt IE 10]>
+<p>We are very sorry, But your browser is not supported. We are very sorry, But your browser is not supported</p>
+<![endif]-->
 
   {{>bertAlert}}
 	{{>header}}
@@ -72,7 +95,7 @@
   {{/if}}
 
   <!--Intercom widget-->
-  <!--<script>-->
+  <!--<script type=”text/javascript”>-->
       <!--window.intercomSettings = {-->
           <!--app_id: "ty914nuw"-->
       <!--};-->

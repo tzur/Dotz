@@ -66,7 +66,7 @@ jquery@1.11.4
 jsx@0.1.6
 kadira:blaze-layout@2.1.0
 kadira:dochead@1.1.0
-kadira:flow-router@2.6.2
+kadira:flow-router@2.9.0
 lai:collection-extensions@0.1.4
 liberation:shareit@1.1.1
 livedata@1.0.15
@@ -129,6 +129,7 @@ templating@1.1.4
 templating-tools@1.0.0
 themeteorchef:bert@1.1.0
 themeteorchef:jquery-validation@1.14.0
+tmeasday:html5-history-api@4.1.2
 tracker@1.0.9
 tsega:bootstrap3-datetimepicker@3.1.3_3
 twbs:bootstrap@3.3.5

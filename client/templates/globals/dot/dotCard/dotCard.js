@@ -214,6 +214,14 @@ Template.dotCard.helpers({
       });
     }
     return alreadyAdded;
+  },
+
+  omgAllowed: function(){
+    if (Meteor.userId()) {
+      if ( Meteor.user().username === ( "Dotz" || "Otni" || "Aviv Hatzir" || "Yoav Sibony" || "Zur Tene") ) {
+        return true
+      }
+    }
   }
 
 });
@@ -226,6 +234,10 @@ Template.dotCard.events({
       method: 'share',
       href: 'http://dotz.city/'+ this.dot.dotSlug
     }, function(response){});
+  },
+
+  'click ._omgBtn': function(event){
+    Meteor.call('omgCall', Meteor.user().username, this.smartRef);
   },
 
   'click .like': function(event){
