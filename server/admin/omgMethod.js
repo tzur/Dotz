@@ -5,7 +5,7 @@ Meteor.methods({
 
   //  security check:
 
-    if
+    //if
 
   //
 
