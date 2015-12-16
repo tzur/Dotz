@@ -25,9 +25,8 @@ Template.userShow.onCreated(function() {
         }
         else if (user) {
           let userPageInfo = "User show: " + user.username;
-          let userPageTitle = user.username;
-          analytics.page(userPageInfo , {
-            title: userPageTitle
+          analytics.page("User Show" , {
+            title: userPageInfo
           });
         }
       });
@@ -47,6 +46,25 @@ Template.userShow.onCreated(function() {
 Template.userShow.onRendered(function() {
   //Session.set('showShareDotz', false);
   Session.set('changeListener', true);
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: '904084409705076',
+      xfbml: true,
+      version: 'v2.5'
+    });
+  };
+
+  fbAsyncInit();
+
 });
 
 
@@ -160,13 +178,29 @@ Template.userShow.events({
   'click .follow': function(){
     if(Meteor.user()) {
       Modules.both.Dotz.followUser(Meteor.userId(), this._id);
+      analytics.track("Follow User", {
+        title: "Follow User From User Show Page",
+        followedUserName: this.username
+      })
     }
     else{
       Modal.show('signUpModal');
+      analytics.track("Follow User", {
+        title: "Follow User From User Show Page",
+        followedUserName: this.username
+      })
+      analytics.track("Follow User", {
+        title: "User is Not Logged In",
+        followedUserName: this.username
+      });
     }
   },
   'click .unFollow': function(){
-   Modules.both.Dotz.unFollowUser (Meteor.userId(), this._id);
+    Modules.both.Dotz.unFollowUser (Meteor.userId(), this._id);
+    analytics.track("UnFollow User", {
+      title: "UnFollow User From User Show Page",
+      followedUserName: this.username
+    })
   },
 
   'click .editUserAccount-btn': function(){
@@ -174,11 +208,21 @@ Template.userShow.events({
   },
 
   'click ._createDot': function(){
-      Modal.show('createDotModal');
+    Modal.show('createDotModal');
+    analytics.track("Open Create Dot Modal", {
+      title: "Open Create Dot Modal from Dot Show",
+      currentList: this.title,
+      isOpenList: this.isOpen
+    })
     },
 
   'click ._createList': function(){
     Modal.show('createListModal');
+    analytics.track("Open Create List Modal", {
+      title: "Open Create List Modal from User Profile",
+      currentList: "Profile",
+      isOpenList: "False"
+    })
   },
 
   'click ._followingCounter': function() {
@@ -205,9 +249,14 @@ Template.userShow.events({
         console.log("autoGenerateNewLists didnt work")
       }
     });
+    analytics.track("Auto Generate Lists", {
+      title: "Auto Generate Lists From: Profile"
+    })
   },
-  'click .goToShareMode': function(){
-      Session.set('showShareDotz', true);
+  'click ._goToShareMode': function(){
+    Session.set('showShareDotz', true);
+    analytics.track("Show Shared Lists Page", {
+    })
   },
   'click .goToProfileMode': function(){
     Session.set('showShareDotz', false);

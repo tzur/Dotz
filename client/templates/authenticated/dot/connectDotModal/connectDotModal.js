@@ -25,6 +25,7 @@ Template.connectDotModal.helpers({
   userProfileDotzArray: function(){
     Session.set('dotIdWishedToBeConnected', this.data.dot._id);
     Session.set('dotOwnerUserId', this.data.dot.ownerUserId);
+    Session.set('dotTitleWishedToBeConnected', this.data.dot.title);
     return Modules.client.Dotz.getAvailableList(this.data.dot._id);
 
   },
@@ -40,6 +41,11 @@ Template.connectDotModal.events({
                   Meteor.user().profile.profileDotId, CONNECT_ACTION, Meteor.userId(),personalDescription);
     Meteor.call('connectDot', smartRef);
     Modal.hide();
+    analytics.track('Enter Connect Modal', {
+      title: 'Connected: ' + this.dot.title,
+      connectTarget: "Profile Dot"
+    })
+
 
 
   },
@@ -49,6 +55,10 @@ Template.connectDotModal.events({
       this._id, CONNECT_ACTION, Meteor.userId(),personalDescription);
     Meteor.call('connectDot', smartRef);
     Modal.hide();
+    analytics.track('Connect', {
+      title: 'Connected: ' + Session.get('dotTitleWishedToBeConnected'),
+      connectTarget: this.title
+    })
 
 
   }

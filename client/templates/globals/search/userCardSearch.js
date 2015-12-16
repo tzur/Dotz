@@ -26,13 +26,25 @@ Template.userCardSearch.events({
   'click .follow': function(){
     if(Meteor.user()) {
       Modules.both.Dotz.followUser(Meteor.userId(), this._id);
+      analytics.track("Follow User", {
+        title: "Follow User From User Search Card",
+        followedUserName: this.username
+      })
     }
     else{
       Modal.show('signUpModal');
+      analytics.track("Follow User", {
+        title: "Follow User From User Search Card - User is Not Logged In",
+        followedUserName: this.username
+      });
     }
   },
   'click .unFollow': function(){
     Modules.both.Dotz.unFollowUser (Meteor.userId(), this._id);
+    analytics.track("UnFollow User", {
+      title: "UnFollow User From User Search Card",
+      followedUserName: this.username
+    })
   }
 
 });

@@ -202,6 +202,33 @@
   border-radius: 50%;
 }
 
+@media (max-width: 767px) {
+
+  .userImgIcon > img {
+    position: relative;
+    /*top: 1vh;*/
+    /*bottom: 1vh;*/
+    background-color: #fafafa;
+    height: 4vh;
+    width: 4vh;
+    background-size: cover;
+    background-position-y: 50%;
+    background-position-x: 50%;
+    border-radius: 50%;
+  }
+
+  .Connections-text-top {
+    vertical-align: super;
+  }
+
+  .Connections-text-bottom {
+    left: 5vh;
+    position: absolute;
+    bottom: 0;
+  }
+
+}
+
 #listCard .listCardUser .smTxt {
   position: relative;
   /*top: -0.7em;*/
@@ -314,7 +341,7 @@
 
 #listCover .filter {
   position: absolute;
-  z-index: 2;
+  /*z-index: 2;*/
   background-color: rgba(0, 0, 0, 0.3);
   /*top: 0;*/
   /*left: 0;*/
@@ -347,10 +374,10 @@
   margin: auto;
 }
 
-#listCover .fa-list-ul {
-  color: #FFFFFF;
+#listCover .fa {
+  /*color: #FFFFFF;*/
   text-align: center;
-  font-size: 2rem;
+  /*font-size: 2rem;*/
   margin: auto;
 }
 
@@ -467,7 +494,10 @@ a span:hover {
 
 .buttonsBar {
   padding-right: 0;
+  padding-left: 0;
 }
+
+
 
 /* mobile adaption for card */
 

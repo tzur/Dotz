@@ -218,30 +218,36 @@ Template.dotCard.helpers({
 
 });
 
-
 Template.dotCard.events({
 
   'click ._shareFacebookDialog': function(event){
     event.preventDefault();
     FB.ui({
       method: 'share',
-      href: 'https://dotz.city/'+ this.dot.dotSlug
+      href: 'http://dotz.city/'+ this.dot.dotSlug
     }, function(response){});
   },
 
   'click .like': function(event){
     event.preventDefault();
+
     if ( Meteor.user() ) {
       Modules.both.Dotz.likeDot(this.smartRef, Meteor.userId());
+      Modules.client.Dotz.dotCardAnalyticsEvents('Like', 'Liked: ',this.dot._id, this.dot.title, this.dot.dotType)
     }
     else{
       Modal.show('signUpModal');
+      Modules.client.Dotz.dotCardAnalyticsEvents('Like', 'Liked: ',this.dot._id, this.dot.title, this.dot.dotType);
     }
+
   },
 
   'click .unlike': function(event){
     Meteor.call('unLikePost', Meteor.userId(), this._id);
+    Modules.client.Dotz.dotCardAnalyticsEvents('Unliked', 'Unliked: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
+
+
   //'click .h2Title': function(event){
   //  Session.set('dotSlug', this.dot.dotSlug);
   //},
@@ -258,23 +264,18 @@ Template.dotCard.events({
   //  }
   //},
   'click .connect': function(){
-    if(Meteor.user())
-    {
+    if(Meteor.user()) {
       Modal.show('connectDotModal',{
         data:{
           dot: this.dot,
           connectToMyLists: true
         }
       });
-      analytics.track( 'Viewed Connect Modal to connect' + this.dot.title, {
-        title: 'Connect Modal Page'
-      });
+      Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect: ',this.dot._id, this.dot.title, this.dot.dotType);
     }
-    else{
+    else {
       Modal.show('signUpModal');
-      analytics.track( 'Tried to Connect' + this.dot.title+  'while not connected', {
-        title: 'Connect Modal Page'
-      });
+      Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect: ',this.dot._id, this.dot.title, this.dot.dotType);
     }
 
   },
@@ -284,6 +285,8 @@ Template.dotCard.events({
     $(event.currentTarget.childNodes[1]).toggleClass('transparent');
     $(event.currentTarget).css("outline", "none");
     Meteor.call('disConnectDot',this.smartRef);
+    Modules.client.Dotz.dotCardAnalyticsEvents('Disconnect', 'Disconnected: ',this.dot._id, this.dot.title, this.dot.dotType);
+
   },
 
   'click .upBtn':function(event){
@@ -291,6 +294,7 @@ Template.dotCard.events({
     let smartRef = this.smartRef;
     let sortValue = 1;
     Modules.both.Dotz.sortDotz(smartRef, sortValue);
+    Modules.client.Dotz.dotCardAnalyticsEvents('User sort: Up', 'Moved Up: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 
   'click .downBtn':function(event){
@@ -298,6 +302,7 @@ Template.dotCard.events({
     let smartRef = this.smartRef;
     let sortValue = -1;
     Modules.both.Dotz.sortDotz(smartRef, sortValue);
+    Modules.client.Dotz.dotCardAnalyticsEvents('User sort: Down', 'Moved Down: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 
   'click .editBtn': function(){
@@ -307,11 +312,14 @@ Template.dotCard.events({
         'actionTypeEdit': true
       }
     });
+    Modules.client.Dotz.dotCardAnalyticsEvents('Edit Dot', 'Start Edit: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 
   'click .delete':function(event){
     event.preventDefault();
+
     Meteor.call('deleteDot', this.dot, this.smartRef.connection.toParentDotId);
+    Modules.client.Dotz.dotCardAnalyticsEvents('Delete', 'Deleted: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 
   //TBD - reset the search in page result in other way
@@ -386,5 +394,4 @@ Template.dotCard.events({
       }
     });
   }
-
 });

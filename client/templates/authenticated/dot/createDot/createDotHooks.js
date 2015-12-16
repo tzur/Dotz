@@ -61,14 +61,17 @@ let dotHooks = {
   },
 
   onSuccess: function(update, result){
-    Session.set('searchInput', undefined);
+    Session.set('searchInput', undefined)
     Session.set("parentDot", undefined);
     Session.set("locationObject", undefined);
     Session.set("dotType", undefined);
     Session.set('spinnerOn', false);
     Meteor.call('addOrEditObjectInAlgolia', result, false);
     Session.set('redirectAfterCreate', undefined );
-    console.log("on success end");
+    analytics.track("Dot Created", {
+      isDotWithOutLocation: Session.equals("locationObject", undefined),
+      dotType: Session.get("dotType")
+    });
   }
 };
 

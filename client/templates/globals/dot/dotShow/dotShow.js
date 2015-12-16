@@ -27,10 +27,13 @@ Template.dotShow.onCreated(function() {
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
         self.subs.subscribe('user', currentDot.ownerUserId);
-        analytics.page("Dot show: " + currentDot.title, {
-          title: currentDot.title
-        });
-    }
+        if(currentDot.dotType === "List"){
+          analytics.page('List Show');
+        }
+        else{
+          analytics.page('Dot Show')
+        }
+      }
   });
 });
 
@@ -48,12 +51,15 @@ Template.dotShow.onRendered(function(){
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-    FB.init({
-      appId: '904084409705076',
-      xfbml: true,
-      version: 'v2.5'
-    });
 
+  window.fbAsyncInit = function() {
+      FB.init({
+        appId: '904084409705076',
+        xfbml: true,
+        version: 'v2.5'
+      });
+  };
+  fbAsyncInit();
 });
 
 Template.dotShow.onDestroyed(function(){
@@ -101,10 +107,7 @@ Template.dotShow.helpers({
   },
 
   eventDate: function(){
-    if (this.dot && this.dot.startDateAndHour) {
-      return ( moment(this.dot.startDateAndHour).format('dddd DD MMMM, h:mm A') );
-    }
-    else if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
+    if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
       let textForMultipleEvents;
       if (this.dot.multipleEventsNote) {
         textForMultipleEvents = "Multiple Events: " + this.dot.multipleEventsNote;
@@ -122,6 +125,9 @@ Template.dotShow.helpers({
     }
     else if ( this.dot && this.dot.startRepeatedDate ) {
       return ("Multiple Events (from " + moment(this.dot.startRepeatedDate).format('dddd DD MMM') + ")");
+    }
+    else if (this.dot && this.dot.startDateAndHour) {
+      return ( moment(this.dot.startDateAndHour).format('dddd DD MMMM, h:mm A') );
     }
   },
 
@@ -210,7 +216,7 @@ Template.dotShow.events({
     event.preventDefault();
     FB.ui({
       method: 'share',
-      href: 'https://dotz.city/'+ this.dot.dotSlug
+      href: 'http://dotz.city/'+ this.dot.dotSlug
     }, function(response){});
   },
 
@@ -286,6 +292,9 @@ Template.dotShow.events({
       });
 
     }, 3000);
+    analytics.track("Auto Generate Dotz", {
+      title: "Auto Generate Dotz From: " + this.dot.title
+    })
   },
   'click .shareListInstant': function(event){
     event.preventDefault();
