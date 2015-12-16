@@ -4,12 +4,13 @@ let editDotHooks = {
   before: {
     "method-update": function(doc){
 
-      if(doc.$set["price"] <= 0 || !doc.$set.price ){
-        doc.$set["price"] = null;
-        doc.$set["currency"] = null;
-      }
+      //if(doc.$set["price"] <= 0 || !doc.$set.price ){
+      //  doc.$set["price"] = null;
+      //  doc.$set["currency"] = null;
+      //}
 
-      let docFields = ["bodyText", "linkUrl", "tags"];
+      let docFields = ["bodyText", "linkUrl", "price", "tags", "startDateAndHour", "endDateAndHour", "multipleEventsNote",
+                          "startRepeatedDate", "endRepeatedDate"];
       docFields.forEach(function(fieldName){
         if(!doc.$set[fieldName]){
           doc.$set[fieldName] = null

@@ -1,7 +1,7 @@
 <template name="landingSignup">
   {{>bertAlert}}
 
-    <div id="landingPage-body" class="container-fluid" style="background-image: url('/dotz_landing_2.jpg')">
+    <div id="landingPage-body" class="container-fluid" style="background-image: url('https://dotz-deployment.s3.amazonaws.com/LbioLJaWMBKnqbtrm/dotz_city_cover.jpg')">
         <div class="landing-overlayer"></div>
         <div class="row upper-row">
             <div class="col-sm-2 pull-left">
@@ -32,14 +32,15 @@
                 {{>signup}}
 
                 <div class="txtMd">
-                    <span id="signup-terms">Creating an account means you’re okay with our Terms of Service.</span>
+                    <p id="signup-terms">Creating an account means you’re okay with our Terms of Service.</p>
+                    <p id="signup-terms">We will never spam you.</p>
                 </div>
             </div>
 
         </div>
 
         <div id="signup-login-bottom-links-div" class="row">
-            <div id="_exploreBtn" class="col-sm-4 pull-right txtR">
+            <div id="_exploreBtn" class="pull-left txtR">
                 <!--<a><span>About Us</span></a>-->
                 <a href="/dotz">
                     <span>Explore</span>

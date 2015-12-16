@@ -31,7 +31,7 @@
 
                         <div class="iconDiv smTxt">
                             <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
-                            <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">By <strong>{{ownerUser.username}}</strong></span></a>
+                            <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Created By <strong>{{ownerUser.username}}</strong></span></a>
                         </div>
 
                     </div>
@@ -237,9 +237,11 @@
 
                     <div id="ownerPostDiv" class="row dot-creator">
                         <div class="col-xs-9 iconDiv txtL">
-                            <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
-                            <a href="/{{ownerUser.profile.userSlug}}"><span class="align-icon-text">{{ownerUser.username}}</span></a>
-                            <span class="greyText"><span>·</span> {{actionDate}} </span>
+                            <a href="/{{ownerUser.profile.userSlug}}">
+                                <img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}">
+                                <span class="align-icon-text greyText smTxt">Created By <strong>{{ownerUser.username}}</strong></span>
+                            </a>
+                            <span class="mdGrey smTxt"><span>·</span> {{actionDate}} </span>
                         </div>
 
                         <!--<div class="col-xs-3">-->
