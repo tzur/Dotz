@@ -16,4 +16,42 @@ a button:active :after {
   outline: none;
 }
 
+#ie9sucks {
+  background-color: #f0ad4e ;
+  /*5bc0de*/
+  height: 23vh;
+  border: 0px solid #f0ad4e ;
+  padding-right: 0;
+  padding-left: 0;
+}
 
+#_ie9ExitBtn {
+  background-color: transparent;
+  border: 0px solid transparent;
+  position: absolute;
+  padding: 0;
+  margin-top: 1vh;
+  z-index: 9999;
+}
+
+#_ie9ExitBtn:hover {
+  color: #FFFFFF;
+}
+
+#_updateBtn {
+  height: 5vh;
+  margin: 1vh;
+  background-color: #FFFFFF;
+  color: #f0ad4e;
+  border: transparent;
+  border-radius: 0;
+  font-weight: 600;
+}
+
+#_updateBtn:hover {
+  margin: 1vh;
+  background-color: rgba(255,255,255,0.05);
+  color: #FFFFFF;
+  border: transparent;
+  border-radius: 0;
+}
