@@ -1,1 +1,0 @@
-{"version":3,"sources":["meteor://💻app/lib/both/_constans.js"],"names":[],"mappings":";;;;;;;;AAAA,aAAa,GAAG,QAAQ,CAAC;AACzB,cAAc,GAAG,SAAS,CAAC;AAC3B,oCAAoC,GAAG,EAAE,CAAC,iC","file":"/lib/both/_constans.js","sourcesContent":["CREATE_ACTION = \"Create\";\nCONNECT_ACTION = \"Connect\";\nMAXIMUM_NUMBER_OF_FEED_DOTZ_TO_CHECK = 15;\n"]}

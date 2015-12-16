@@ -1,1 +1,0 @@
-{"version":3,"sources":["meteor://💻app/lib/collections/schemas/_schema.js"],"names":[],"mappings":";;;;;;;;AAAA,MAAM,GAAG,EAAE,CAAC,+D","file":"/lib/collections/schemas/_schema.js","sourcesContent":["Schema = {};\n"]}

@@ -1,1 +1,0 @@
-{"version":3,"sources":["meteor://💻app/server/methods/shareList.js"],"names":[],"mappings":";;;;;;;;AAAA,MAAM,CAAC,OAAO,CAAC;AACb,iBAAe,YAAC,KAAK,EAAC,EAErB;CACF,CAAC,CAAC,sE","file":"/server/methods/shareList.js","sourcesContent":["Meteor.methods({\n  createShareList(dotId){\n\n  }\n});\n"]}

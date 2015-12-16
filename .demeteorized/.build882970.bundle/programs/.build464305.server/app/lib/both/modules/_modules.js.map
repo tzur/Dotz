@@ -1,1 +1,0 @@
-{"version":3,"sources":["meteor://💻app/lib/both/modules/_modules.js"],"names":[],"mappings":";;;;;;;;AAAA,OAAO,GAAQ,EAAE,CAAC;AAClB,OAAO,CAAC,IAAI,GAAG,EAAE,CAAC;AAClB,OAAO,CAAC,IAAI,CAAC,IAAI,GAAG,EAAE,CAAC,oD","file":"/lib/both/modules/_modules.js","sourcesContent":["Modules      = {};\nModules.both = {};\nModules.both.Dotz = {};\n"]}
