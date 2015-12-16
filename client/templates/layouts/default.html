@@ -81,31 +81,31 @@
 
   <!--[if lt IE 10]>
 
-  <nav id="ie9sucks" class="signUp-nav-bar navbar navbar-default navbar-fixed-bottom hidden-xs col-sm-12" role="navigation">
-    <div class="container-fluid" id="signUp-div">
+<nav id="ie9sucks" class="signUp-nav-bar navbar navbar-default navbar-fixed-bottom hidden-xs col-sm-12" role="navigation">
+  <div class="container-fluid" id="signUp-div">
 
-            <div class="col-xs-12 col-sm-1">
-                <button id="_ie9ExitBtn" type="button" class="btn btn-lg whiteTxt">X</button>
-            </div>
+      <div class="col-xs-12 col-sm-1">
+          <button id="_ie9ExitBtn" type="button" class="btn btn-lg whiteTxt">X</button>
+      </div>
 
-            <div class="txtMd signup-div-content">
-                <h4 class="whiteTxt"><strong>We are very sorry, but your browser is out-of-date and not fully supported.</strong></h4>
-                <h5 class="whiteTxt">Please download one of these up-to-date, free and excellent browsers:</h5>
-                <br>
-                <a href="http://browser-update.org/update-browser.html" target="_blank">
-                    <button type="button" id="_updateBtn" class="btn">Update Now</button>
-                </a>
-            </div>
+      <div class="txtMd signup-div-content">
+          <h4 class="whiteTxt"><strong>We are very sorry, but your browser is out-of-date and not fully supported.</strong></h4>
+          <h5 class="whiteTxt">Please download one of these up-to-date, free and excellent browsers:</h5>
+          <br>
+          <a href="http://browser-update.org/update-browser.html" target="_blank">
+              <button type="button" id="_updateBtn" class="btn">Update Now</button>
+          </a>
+      </div>
 
-    </div>
+  </div>
 </nav>
 
-  <script type=”text/javascript”>
-      var footer = document.getElementById('ie9sucks');
+  <script >
       var exitBtn = document.getElementById('_ie9ExitBtn');
       exitBtn.addEventListener('click', turnOffFooter);
       function turnOffFooter() {
-          footer.style.display = "none";
+          var footer = document.getElementById('ie9sucks');
+          footer.style.display = 'none';
       }
   </script>
 
