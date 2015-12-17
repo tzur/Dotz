@@ -10,7 +10,7 @@ Meteor.methods({
         let user = Meteor.user();
         let facebookUserName = user.services.facebook.name.toString();
         let facebookProfilePicture ="http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
-        Meteor.call('insertUserName', facebookUserName, facebookProfilePicture, function(error, result){
+        Meteor.call('insertUserNameAndProfilePic', facebookUserName, facebookProfilePicture, function(error, result){
           if (!error){
             Meteor.call('updateUserAfterSignUp',function(error, result){
               if (error){
