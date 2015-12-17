@@ -18,9 +18,32 @@ Template.login.helpers({
 Template.login.events({
   'click #loginButton': function(event){
   //event.preventDefault();
-  Session.set('spinnerOn', true);
+  Session.set('spinnerOn', true)
+  },
 
-  } ,
+  'click .btn-facebook': () => {
+    return Meteor.loginWithFacebook({
+      requestPermissions: ['email']
+    }, function(error,result) {
+      if (error) {
+        return console.log(error.reason);
+      }
+      else{
+        Meteor.call('signInWithFaceBook', function(error,result){
+          if (error){
+            console.log(error);
+          }
+          else{
+            Modal.hide('signUpModal');
+            console.log(result + "  facebook slug");
+            FlowRouter.go('/' + Meteor.user().profile.userSlug);
+            Bert.alert( 'Welcome!', 'success' );
+          }
+        })
+      }
+    });
+  },
+
   'click #switchToSignUp': function() {
     Modal.hide('loginModal');
     setTimeout(function(){ Modal.show('signUpModal'); }, 500);

@@ -13,13 +13,13 @@
 
 
 #login .or-wrapper {
-  border-bottom: 1px solid #eee;
+  /*border-bottom: 1px solid #eee;*/
   padding: 10px 0;
   position: relative;
   display: block;
   /*margin-bottom: 30px;*/
-  margin-top: 0;
-  margin-bottom: 3vh;
+  /*margin-top: 0;*/
+  /*margin-bottom: 3vh;*/
 }
 
 #login .or-text {
@@ -34,11 +34,12 @@
   width: 100%;
   height: 5vh;
   margin-bottom: 1vh;
+  border-radius: 0;
 }
 
 #loginFacebookBtn {
   background: linear-gradient(to bottom,#3f5fa3 0,#3B5998 100%);
-  border: 1px solid #324c82;
+  border: 0px solid #324c82;
   color: #fff;
   text-shadow: 0 0 1px rgba(0,0,0,.3);
 }
