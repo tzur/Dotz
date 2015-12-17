@@ -57,11 +57,14 @@ Template.dotShow.onRendered(function(){
 
 
   window.fbAsyncInit = function() {
+    if (typeof(FB) != 'undefined'
+      && FB != null ) {
       FB.init({
         appId: '904084409705076',
         xfbml: true,
         version: 'v2.5'
       });
+    }
   };
   fbAsyncInit();
 });

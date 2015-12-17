@@ -58,11 +58,14 @@ Template.userShow.onRendered(function() {
   }(document, 'script', 'facebook-jssdk'));
 
   window.fbAsyncInit = function() {
-    FB.init({
-      appId: '904084409705076',
-      xfbml: true,
-      version: 'v2.5'
-    });
+    if (typeof(FB) != 'undefined'
+      && FB != null ) {
+      FB.init({
+        appId: '904084409705076',
+        xfbml: true,
+        version: 'v2.5'
+      });
+    }
   };
 
   fbAsyncInit();
