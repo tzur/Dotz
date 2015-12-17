@@ -1,5 +1,5 @@
 #loginPage {
-  background-image: url("https://dotz-tlv-development.s3.amazonaws.com/8tLTFXTFJg5snurhX/dotz _tlv_city.jpg");
+  /*background-image: url("https://dotz-tlv-development.s3.amazonaws.com/8tLTFXTFJg5snurhX/dotz _tlv_city.jpg");*/
   background-size: cover;
   background-position-x: 50%;
   background-position-y: 50%;
@@ -9,8 +9,9 @@
 .loginBtn {
   width: 100%;
   color: #FFFFFF;
-  background-color: #337ab7;
+  background-color: #09c;
   border-color: #ffffff;
+  height: 5vh;
 }
 .loginBtn:hover {
   color: #FFFFFF;
@@ -25,7 +26,7 @@
 /*signupPage*/
 
 #signupPage {
-  background-image: url("https://dotz-tlv-development.s3.amazonaws.com/8tLTFXTFJg5snurhX/dotz _tlv_city.jpg");
+  /*background-image: url("https://dotz-tlv-development.s3.amazonaws.com/8tLTFXTFJg5snurhX/dotz _tlv_city.jpg");*/
   background-size: cover;
   background-position-x: 50%;
   background-position-y: 50%;
@@ -36,8 +37,9 @@
 .signupBtn {
   width: 100%;
   color: #FFFFFF;
-  background-color: #337ab7;
+  background-color: #09c;
   border-color: #ffffff;
+  height: 5vh;
 }
 .signupBtn:hover {
   color: #FFFFFF;
