@@ -1,0 +1,59 @@
+<template name="superShareModal">
+    <div class="modal fade" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+
+
+                <div class="container-fluid">
+
+                    <div class="exit-btn">
+                        <a href="#"><button class="btn round btn-delete btn-sm" id="_exitBtnSuperShare"><i class="fa fa-times"></i></button></a>
+                    </div>
+                    <div class="row">
+                        <div class="modal-titleSuper col-xs-12 colCenter">
+                            <div class="row">
+                                <h3 class="txtMd">Share your profile with guests</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <form id="superShareForm">
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label for ="subject">Subject of the Email (optional)</label>
+                                <input name="subject" type="text" class="form-control" id="subject">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for ="description">Description (Optional)</label>
+                                <textarea  name="description" class="form-control" rows="5" id="description"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for ="emails">Emails</label>
+                                <input name="emails" type="text" class="form-control" placeholder="mail@example.com, tel-aviv@example.com " id="emails" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group txtMd">
+                                  {{#if isSpinnerOn}}
+                                      <button id="superEmailSend" type="submit" class="createBtn transparent insert btn  btn-primary has-spinner active">
+                                          <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>Send</button>
+                                  {{else}}
+                                      <button id="superEmailSend" type="submit" class="createBtn insert btn  btn-primary">Send</button>
+                                  {{/if}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

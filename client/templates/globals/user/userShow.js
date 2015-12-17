@@ -165,6 +165,17 @@ Template.userShow.helpers({
 
 });
 Template.userShow.events({
+  'click ._shareUserOnFB': function(event){
+    event.preventDefault();
+    FB.ui({
+      method: 'share',
+      href: 'http://dotz.city/'+ this.profile.userSlug
+    }, function(response){});
+  },
+  'click ._superShareEmail': function(event){
+    event.preventDefault();
+    Modal.show('superShareModal');
+  },
   'click .followersNum': function(){
     var userIds = this.userShow.profile.followers;
     Modal.show('followModal', {
