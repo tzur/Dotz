@@ -50,6 +50,7 @@ let editDotHooks = {
         }
         else{
           Meteor.call('addOrEditObjectInAlgolia', result, false);
+          FlowRouter.go( '/' + result);
         }
       });
     }
