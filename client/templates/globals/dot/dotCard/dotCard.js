@@ -218,7 +218,8 @@ Template.dotCard.helpers({
 
   omgAllowed: function(){
     if (Meteor.userId()) {
-      if ( Meteor.user().username === "Dotz" || "Otni" || "Aviv Hatzir" || "Yoav Sibony" || "Zur Tene" ) {
+      let username = Meteor.user().username;
+      if ( username === "Dotz" || username === "Otni" || username === "Aviv Hatzir" || username === "Yoav Sibony" || username === "Zur Tene" ) {
         return true
       }
     }

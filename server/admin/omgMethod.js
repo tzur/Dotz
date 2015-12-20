@@ -6,8 +6,9 @@ Meteor.methods({
     check(smartRef, Schema.dotSmartRef);
 
     //  security check:
-    if ( Meteor.user().username === "Dotz" || "Otni" || "Aviv Hatzir" || "Yoav Sibony" || "Zur Tene" ) {
-        //TBD
+    let username = Meteor.user().username;
+    if ( username === "Dotz" || username === "Otni" || username === "Aviv Hatzir" || username === "Yoav Sibony" || username === "Zur Tene" ) {
+      //TBD
     } else {
       return false
     }
