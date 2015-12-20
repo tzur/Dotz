@@ -3,61 +3,56 @@ Meteor.methods({
 
   omgCall(smartRef){
 
-    console.log("########################## in 1");
-
     check(smartRef, Schema.dotSmartRef);
 
     //  security check:
     if ( Meteor.user().username === "Dotz" || "Otni" || "Aviv Hatzir" || "Yoav Sibony" || "Zur Tene" ) {
-      console.log("########################## in 2");
+
+        let theFakeLake = [
+            "Omer Lev",
+            "Ben Lo",
+            "Andi Dagan",
+            "Laura Melrose",
+            "Michal Rinat",
+            "Tori Null",
+            "Will Anderson",
+            "Laura Kirsh",
+            "Paloma Hernandez",
+            "Jackie Melrose",
+            "Luis van Beuren",
+            "Leo Kalderon",
+            "Rose Shine",
+            "Tom James",
+            "Bob Geller",
+            "Nill Watson",
+            "TLV Events",
+            "Rotem Levy",
+            "John Galt",
+            "Ben Mor",
+            "Leo Kalderon",
+            "Nill Ezra",
+            "Tom Jones",
+            "Hotel",
+            "Rose Shine",
+            "Johen",
+            "Sample Hostel"
+        ];
+
+        //Chose a random user from th list above:
+        let i = Math.floor((Math.random() * theFakeLake.length) + 1);
+        let userId = Meteor.users.findOne({username: theFakeLake[i]})._id;
+
     } else {
       return false
     }
-
-    let theFakeLake = [
-      "Omer Lev",
-      "Ben Lo",
-      "Andi Dagan",
-      "Laura Melrose",
-      "Michal Rinat",
-      "Tori Null",
-      "Will Anderson",
-      "Laura Kirsh",
-      "Paloma Hernandez",
-      "Jackie Melrose",
-      "Luis van Beuren",
-      "Leo Kalderon",
-      "Rose Shine",
-      "Tom James",
-      "Bob Geller",
-      "Nill Watson",
-      "TLV Events",
-      "Rotem Levy",
-      "John Galt",
-      "Ben Mor",
-      "Leo Kalderon",
-      "Nill Ezra",
-      "Tom Jones",
-      "Hotel",
-      "Rose Shine",
-      "Johen",
-      "Sample Hostel"
-    ];
-
-    //Chose a random user from th list above:
-    let i = Math.floor((Math.random() * theFakeLake.length) + 1);
-    let userId = Meteor.users.findOne({username: theFakeLake[i]})._id;
-    console.log("########################## userId is " + userId);
-
-    //Dotz.update({_id: smartRef.connection.toParentDotId, "connectedDotzArray.dot._id": smartRef.dot._id}, {
-    //  $addToSet: {"connectedDotzArray.$.connection.likes": userId}})
 
     //Call to fake method (see below) because the security check:
     Meteor.call('fakeLikeDot', smartRef.connection.toParentDotId, smartRef.dot._id, userId, function(error, result){
       if (error){
         console.log("Error "+ error);
       }
-      else{
+      else {
+        //Continue with the regular methods:
         Meteor.call('updateTotalUpvotes', smartRef.dot._id, smartRef.connection.toParentDotId, function(error, result){
           if(error){
             console.log("Error in 'updateTotalUpvotes': " + error)
