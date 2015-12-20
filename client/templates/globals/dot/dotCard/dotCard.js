@@ -136,7 +136,7 @@ Template.dotCard.helpers({
 
   title: function() {
     if (this.dot){
-        return s.prune(this.dot.title, 45);
+        return s.prune(this.dot.title, 50);
     }
   },
 
