@@ -218,7 +218,7 @@ Template.dotCard.helpers({
 
   omgAllowed: function(){
     if (Meteor.userId()) {
-      if ( Meteor.user().username === ( "Dotz" || "Otni" || "Aviv Hatzir" || "Yoav Sibony" || "Zur Tene") ) {
+      if ( Meteor.user().username === "Dotz" || "Otni" || "Aviv Hatzir" || "Yoav Sibony" || "Zur Tene" ) {
         return true
       }
     }
@@ -237,7 +237,7 @@ Template.dotCard.events({
   },
 
   'click ._omgBtn': function(event){
-    Meteor.call('omgCall', Meteor.user().username, this.smartRef);
+    Meteor.call('omgCall', this.smartRef);
   },
 
   'click .like': function(event){
