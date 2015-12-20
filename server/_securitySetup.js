@@ -11,6 +11,8 @@ BrowserPolicy.content.allowOriginForAll("http://*.googletagmanager.com");
 BrowserPolicy.content.allowOriginForAll("http://*.google-analytics.com");
 BrowserPolicy.content.allowOriginForAll("https://widget.intercom.io");
 BrowserPolicy.content.allowEval("https://widget.intercom.io");
+BrowserPolicy.content.allowOriginForAll("https://*.intercomassets.com");
+
 BrowserPolicy.content.allowOriginForAll("https://js.intercomcdn.com");
 
 
