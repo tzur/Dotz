@@ -15,8 +15,7 @@ Meteor.methods({
     }
 
     let theFakeLake = [
-      "Otni",
-      "Dotz",
+      "Omer Lev",
       "Ben Lo",
       "Andi Dagan",
       "Laura Melrose",
@@ -31,7 +30,18 @@ Meteor.methods({
       "Rose Shine",
       "Tom James",
       "Bob Geller",
-      "Nill Watson"
+      "Nill Watson",
+      "TLV Events",
+      "Rotem Levy",
+      "John Galt",
+      "Ben Mor",
+      "Leo Kalderon",
+      "Nill Ezra",
+      "Tom Jones",
+      "Hotel",
+      "Rose Shine",
+      "Johen",
+      "Sample Hostel"
     ];
 
     //Chose a random user from th list above:
@@ -105,21 +115,6 @@ Meteor.methods({
     catch(exception){
       return exception;
     }
-
-  },
-
-  fakeUpdateTotalUpvotes(dotId, parentDotId){
-    check(dotId, String);
-    check(parentDotId, String);
-    let totalUpvotes = {
-      parentDot: parentDotId,
-      userId: Meteor.userId()
-    };
-    check(parentDotId, String);
-    let updateOptions = {
-      $addToSet: {totalUpvotes: totalUpvotes}
-    };
-    _dotUpdate(dotId, updateOptions)
 
   }
 
