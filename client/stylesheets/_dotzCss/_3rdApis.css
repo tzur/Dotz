@@ -6,3 +6,7 @@
 
 
 }
+
+#intercom-container .intercom-launcher-hovercard{
+  display: none;
+}
