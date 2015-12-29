@@ -3,6 +3,7 @@
 #listCard-box {
   padding: 1vh;
   margin-bottom: 1vh;
+  overflow-x: hidden;
 }
 
 /*#listCard-box .connect > button {*/

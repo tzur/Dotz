@@ -45,3 +45,9 @@
 .greyText {
   color: #9B998D;
 }
+
+/*text wieghts*/
+
+.bold {
+  font-weight: 600;
+}
