@@ -112,9 +112,9 @@ Template.userShow.helpers({
   //    }
   //  },
 
-  dotNumCounter:  function(){
-      return this.profile.createdByUserDotz.length;
-  },
+  //dotNumCounter:  function(){
+  //    return this.profile.createdByUserDotz.length;
+  //},
 
   connectionsCounter:  function(){
     if (this.profile) {

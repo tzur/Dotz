@@ -1,4 +1,4 @@
-Template.oldDotCard.onCreated(function(){
+Template.profileDotCard.onCreated(function(){
         Session.set('spinnerOn', false);
         let self = this;
         Session.set('dotInsideToListsBug', false);
@@ -15,13 +15,13 @@ Template.oldDotCard.onCreated(function(){
 });
 
 
-Template.oldDotCard.onDestroyed(function(){
+Template.profileDotCard.onDestroyed(function(){
   $('.disConnect').removeClass('active');
   $('.fa').removeClass('transparent');
 });
 
 
-Template.oldDotCard.helpers({
+Template.profileDotCard.helpers({
 
   //subscriptionsReady: function(){
   //  return (Template.instance().dotCardReady.get() && Template.instance().ownerUserReady.get()
@@ -227,7 +227,7 @@ Template.oldDotCard.helpers({
 
 });
 
-Template.oldDotCard.events({
+Template.profileDotCard.events({
 
   'click ._shareFacebookDialog': function(event){
     event.preventDefault();

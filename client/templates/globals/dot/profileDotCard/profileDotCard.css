@@ -1,0 +1,89 @@
+/*profileDotCard css*/
+
+#profileDotCard-Box {
+  height: 42vh;
+}
+
+.profileDotCardImg {
+  position: relative;
+  height: 30vh;
+  width: 30vh;
+  margin-top: 0.25vh;
+  /*margin-bottom: 0.25vh;*/
+  padding: 0;
+  /*overflow: hidden;*/
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  border-radius: 50%;
+}
+
+.profileDotCardTitle {
+  color: #4b4f54;
+  margin-top: 1.5vh;
+  /*display: block;*/
+  font-size: 1.3em;
+  /*-webkit-margin-before: 0.83em;*/
+  /*-webkit-margin-after: 0.83em;*/
+  /*-webkit-margin-start: 0px;*/
+  /*-webkit-margin-end: 0px;*/
+  /*font-weight: bold;*/
+  font-weight: 400;
+}
+
+a span {
+  cursor: pointer;
+  color: #ccc;
+}
+
+a span:hover {
+  color: #337ab7;
+}
+
+
+
+
+/*dropDown menu */
+
+
+#pre-delete-menu {
+  top: initial;
+}
+
+.dropdown-menu li i {
+  padding-right: 1em;
+}
+
+#pre-delete-menu .delete i {
+  color: #d9534f;
+}
+#pre-delete-menu .deleteShow i {
+  color: #d9534f;
+}
+
+#pre-delete-menu li a {
+  cursor: pointer;
+}
+
+a span {
+  cursor: pointer;
+  color: #ccc;
+}
+
+a span:hover {
+  color: #337ab7;
+}
+
+.buttonsBar {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+
+
+
+
+
+
+
