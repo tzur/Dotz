@@ -1,6 +1,103 @@
+
+/*Top part*/
+
+
+
+#circleImgsRow-mobileDotShow {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#imgCoverFilter-mobileDotShow {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+  /*top: 0;*/
+  /*left: 0;*/
+  width: 100%;
+  height: 100%;
+  /*/!*text-align: center;*!/*/
+  /*opacity: 0.3;*/
+  /*filter: alpha(opacity=0);*/
+}
+
+#dotCircleImg-mobileDotShow {
+  position: relative;
+  padding: 0;
+  margin-top: 10vw;
+  margin-left: auto;
+  margin-right: auto;
+  height: 27vw;
+  width: 27vw;
+  border-radius: 50%;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+}
+
+.dotSmallAndCircleImgs-mobileDotShow {
+  position: relative;
+  /*padding: 5vw;*/
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 19vw;
+  height: 10vw;
+  width: 10vw;
+  border-radius: 50%;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  min-height: 1px;
+  /*margin: auto;*/
+  float: inherit;
+}
+
+.leftCircles-col-mobileDotShow {
+  width: 10vw;
+  position: relative;
+  min-height: 1px;
+  /*margin: auto;*/
+  float: left;
+  margin-top: 20vh;
+}
+
+#centerCircle-col-mobileDotShow {
+  width: 30vw;
+  position: relative;
+  min-height: 1px;
+  margin: auto;
+}
+
+.rightCircles-col-mobileDotShow {
+  width: 10vw;
+  position: relative;
+  min-height: 1px;
+  /*margin: auto;*/
+  float: right;
+  margin-top: 20vh;
+}
+
+
+
+#title-mobileDotShow {
+  margin-top: 4vh;
+  font-size: 2em;
+  margin-bottom: 1.5vh;
+  text-align: center;
+  color: #ffffff;
+}
+
+
+
+
+
+
+/*List part*/
+
 #verticalLine {
   position: absolute;
   height: 100vh;
   width: 14vw;
   border-right: 1px solid #eeeeee;
 }
+

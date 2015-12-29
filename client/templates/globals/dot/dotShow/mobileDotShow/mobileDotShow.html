@@ -7,21 +7,72 @@
 
         <div class="container-fluid" id="listShowHeader">
 
-            <div class="row listCoverImg" style="background-image: url('{{dot.coverImageUrl}}')">
-                <div class="filter">
+            <div id="backgroundImg-mobileDotShow" class="row listCoverImg" style="background-image: url('{{dot.coverImageUrl}}')">
+                <div id="imgCoverFilter-mobileDotShow">
 
-                    <div class="container-fluid">
-                        <h1 class="title col-xs-10 colCenter">{{dot.title}}</h1>
+
+                    <!--<div class="row">-->
+
+                        <!--<div class="leftCircles-col-mobileDotShow">-->
+                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>-->
+                        <!--</div>-->
+
+                        <!--<div class="leftCircles-col-mobileDotShow">-->
+                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>-->
+                        <!--</div>-->
+
+                      <!--<div id="centerCircle-col-mobileDotShow">-->
+                          <!--<div id="dotCircleImg-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>-->
+                      <!--</div>-->
+
+                        <!--<div class="rightCircles-col-mobileDotShow">-->
+                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>-->
+                        <!--</div>-->
+
+                        <!--<div class="rightCircles-col-mobileDotShow">-->
+                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+
+                    <div id="circleImgsRow-mobileDotShow" class="row">
+
+                    <div class="col-xs-2">
+                        <div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>
                     </div>
 
-                    <div class="container-fluid">
-                        <div class="col-xs-10 col-sm-6 col-md-4 colCenter">
-                            <h5 class="description mdTxt">{{dot.bodyText}}</h5>
-                        </div>
+                    <div class="col-xs-2">
+                        <div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>
                     </div>
 
+                    <div class="col-xs-4 noPadding">
+                        <div id="dotCircleImg-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>
+                    </div>
+
+                    <div class="col-xs-2">
+                        <div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>
+                    </div>
+
+                    <div class="col-xs-2">
+                        <div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>
+                    </div>
+
+                    </div>
+
+
+
                     <div class="container-fluid">
-                        <div class="user col-xs-10 colCenter">
+                        <h2 id="title-mobileDotShow" class="col-xs-12">{{dot.title}}</h2>
+                    </div>
+
+                    <!--<div class="container-fluid">-->
+                        <!--<div class="col-xs-10 col-sm-6 col-md-4 colCenter">-->
+                            <!--<h5 class="description mdTxt">{{dot.bodyText}}</h5>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <div class="container-fluid">
+                        <div class="user col-xs-12 colCenter">
 
                             <div class="iconDiv smTxt">
                                 <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
