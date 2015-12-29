@@ -197,7 +197,13 @@
                       <div>
 
                           <div id="mobileDotCardImg" class="container-fluid" style="background-image: url('{{dot.coverImageUrl}}')">
-                              <div id="mobileDotCardFirstImg-overlayer">+23</div>
+                              <div id="mobileDotCard-connectedDotz">+23</div>
+                                  <!--{{#if dotzNum}}-->
+                              <!--<div class="dotConnectedDotzLastIcon">-->
+                              <!--<div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>-->
+                              <!--<div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>-->
+                              <!--</div>-->
+                                  <!--{{/if}}-->
                           </div>
 
                       </div>
@@ -251,7 +257,7 @@
 
                 </div>
 
-                <div id="mobileDotCard-col-3dots">
+                <div id="mobileDotCard-col-3dots" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
                     <h2 class="lightGrey">...</h2>
                 </div>
 
@@ -259,47 +265,68 @@
             </div> <!-- end listCard -->
 
 
+            <div class="collapse" id="collapseButtons-{{dot._id}}">
+                <div id="mobileDotCard-collapseButtons">
 
-                <div class="col-xs-12" id="mobileDotCardFooter">
-
-                        <div class="listCardText">
-                            <p class="personalDescriptionOrBodyText txtMd">{{personalDescriptionOrBodyText}}</p>
-                        </div>
-
-                    <div class="row listCardFooter">
-
-                        <div class="buttonsBar col-xs-10">
-
-                          {{#if isConnected}}
-                              <button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>
-                                  <span class="hidden-xs"></span> {{connectCounter}}</button>
-                              <button type="button" class="disConnect btn btn-delete btn-xs pull-right has-spinner"><span class="spinner">
-                                    <i class="fa fa-spinner lightGrey fa-spin-custom mdGrey"></i></span><i class="fa lightGrey fa-bookmark-o"></i></button>
-
-
-                          {{else}}
-
-                              <button type="button" class="connect btn btn-success btn-sm pull-right"><i class="fa fa-bookmark"></i>
-                                  <span class="hidden-xs">Connect</span> {{connectCounter}}</button>
-
-                          {{/if}}
-
-                              <button type="button" id="mobileDotCardActionButton" class="btn btn-xs pull-right">Read on Muzli.com</button>
-
-                        </div>
-
+                    <div class="col-xs-3 txtMd">
+                        <i type="button" class="mobileDotCard-Buttons fa fa-share">
+                            <h6>Share</h6>
+                        </i>
                     </div>
-                        <!--{{#if dotzNum}}-->
-                    <!--<div class="dotConnectedDotzLastIcon">-->
-                    <!--<div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>-->
-                    <!--<div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>-->
-                    <!--</div>-->
-                        <!--{{/if}}-->
 
+                    <div class="col-xs-3 txtMd">
+                        <i type="button" class="mobileDotCard-Buttons fa fa-minus-circle">
+                            <h6>Disconnect</h6>
+                        </i>
+                    </div>
 
+                    <div class="col-xs-3 txtMd">
+                        <i type="button" class="mobileDotCard-Buttons fa fa-plus-circle">
+                            <h6>Connect</h6>
+                        </i>
+                    </div>
 
+                    <div class="col-xs-3 txtMd">
+                        <i type="button" class="mobileDotCard-Buttons fa fa-book">
+                            <h6>Read</h6>
+                        </i>
+                    </div>
 
                 </div>
+            </div>
+
+
+                <!--<div class="col-xs-12" id="mobileDotCardFooter">-->
+
+                        <!--<div class="listCardText">-->
+                            <!--<p class="personalDescriptionOrBodyText txtMd">{{personalDescriptionOrBodyText}}</p>-->
+                        <!--</div>-->
+
+                    <!--<div class="row listCardFooter">-->
+
+                        <!--<div class="buttonsBar col-xs-10">-->
+
+                          <!--{{#if isConnected}}-->
+                              <!--<button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>-->
+                                  <!--<span class="hidden-xs"></span> {{connectCounter}}</button>-->
+                              <!--<button type="button" class="disConnect btn btn-delete btn-xs pull-right has-spinner"><span class="spinner">-->
+                                    <!--<i class="fa fa-spinner lightGrey fa-spin-custom mdGrey"></i></span><i class="fa lightGrey fa-bookmark-o"></i></button>-->
+
+
+                          <!--{{else}}-->
+
+                              <!--<button type="button" class="connect btn btn-success btn-sm pull-right"><i class="fa fa-bookmark"></i>-->
+                                  <!--<span class="hidden-xs">Connect</span> {{connectCounter}}</button>-->
+
+                          <!--{{/if}}-->
+
+                              <!--<button type="button" id="mobileDotCardActionButton" class="btn btn-xs pull-right">Read on Muzli.com</button>-->
+
+                        <!--</div>-->
+
+                    <!--</div>-->
+                    <!---->
+                <!--</div>-->
 
 
 
