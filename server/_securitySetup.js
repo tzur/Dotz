@@ -14,6 +14,9 @@ BrowserPolicy.content.allowEval("https://widget.intercom.io");
 BrowserPolicy.content.allowOriginForAll("https://*.intercomassets.com");
 
 BrowserPolicy.content.allowOriginForAll("https://js.intercomcdn.com");
+BrowserPolicy.content.allowOriginForAll("http://*.embed.ly");
+BrowserPolicy.content.allowImageOrigin("*");
+
 
 
 
