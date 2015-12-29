@@ -1,4 +1,17 @@
 
+
+
+/*Links*/
+
+a:hover {
+  color: #4c4c4c;
+  text-decoration: none;
+}
+
+
+
+
+
 /*Text Sizes*/
 
 .smTxt {
@@ -44,4 +57,10 @@
 
 .greyText {
   color: #9B998D;
+}
+
+/*text wieghts*/
+
+.bold {
+  font-weight: 600;
 }
