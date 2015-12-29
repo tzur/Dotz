@@ -110,9 +110,8 @@
 }
 
 #mobileDotCard-collapseButtons {
-  height: 5em;
+  height: 6em;
   padding: 1em 0;
-  margin-bottom: 20px;
   background-color: #eee;
 }
 
@@ -127,10 +126,9 @@
 
 
 .mobileDotCard-Buttons {
-  margin-right: 5vw;
   font-size: 2em;
   padding: 1vw 2vw;
-  color: #777;
+  /*color: #777;*/
   border-color: #ccc;
 }
 
