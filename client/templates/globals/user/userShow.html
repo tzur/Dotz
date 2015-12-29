@@ -85,10 +85,10 @@
                 </div>
 
                 <ul class="menu js-socialMenu txtMd" data-user-id="42824e6543f3">
-                    <li class="menu-item js-socialMenuFollowers" title="Followers">
-                        <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
-                          {{dotNumCounter}}<small class="menu-label">Dotz</small></button>
-                    </li>
+                    <!--<li class="menu-item js-socialMenuFollowers" title="Followers">-->
+                        <!--<button class="button button   ?? chromeless" data-action="show-follow-list" data-action-value="followers">-->
+                          <!--{{dotNumCounter}}<small class="menu-label">Dotz</small></button>-->
+                    <!--</li>-->
 
                     <li class="menu-item js-socialMenuFollowers" title="Followers">
                         <button class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
@@ -262,6 +262,7 @@
           <div class="row">
               <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
 
+
                 {{#if shareMode}}
 
                   {{#each sharedDotzArray}}
@@ -271,7 +272,7 @@
                 {{else}}
 
                   {{#each connectedDotzArray}}
-                    {{> dotCard}}
+                    {{> profileDotCard}}
                   {{/each}}
                 {{/if}}
 
@@ -322,6 +323,7 @@
         </div>
     </div>
 </div>
+
 
 
 {{/with}}
