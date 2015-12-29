@@ -1,4 +1,4 @@
-Template.MOBILEDESKTOP.onCreated(function(){
+Template.DESKTOPDC.onCreated(function(){
   Session.set('spinnerOn', false);
   let self = this;
   Session.set('dotInsideToListsBug', false);
@@ -15,13 +15,13 @@ Template.MOBILEDESKTOP.onCreated(function(){
 });
 
 
-Template.MOBILEDESKTOP.onDestroyed(function(){
+Template.DESKTOPDC.onDestroyed(function(){
   $('.disConnect').removeClass('active');
   $('.fa').removeClass('transparent');
 });
 
 
-Template.MOBILEDESKTOP.helpers({
+Template.DESKTOPDC.helpers({
 
   //subscriptionsReady: function(){
   //  return (Template.instance().dotCardReady.get() && Template.instance().ownerUserReady.get()
@@ -227,7 +227,7 @@ Template.MOBILEDESKTOP.helpers({
 
 });
 
-Template.MOBILEDESKTOP.events({
+Template.DESKTOPDC.events({
 
   'click ._shareFacebookDialog': function(event){
     event.preventDefault();

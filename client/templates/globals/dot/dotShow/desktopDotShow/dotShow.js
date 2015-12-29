@@ -1,5 +1,5 @@
 
-Template.dotShow.onCreated(function() {
+Template.desktopDotShow.onCreated(function() {
 
   let self = this;
   self.subs = new SubsManager({
@@ -41,7 +41,7 @@ Template.dotShow.onCreated(function() {
   });
 });
 
-Template.dotShow.onRendered(function(){
+Template.desktopDotShow.onRendered(function(){
   Tracker.autorun(function () {
     FlowRouter.watchPathChange();
     window.scrollTo(0,0);
@@ -69,12 +69,12 @@ Template.dotShow.onRendered(function(){
   fbAsyncInit();
 });
 
-Template.dotShow.onDestroyed(function(){
+Template.desktopDotShow.onDestroyed(function(){
 
 });
 
 
-Template.dotShow.helpers({
+Template.desktopDotShow.helpers({
 
   dotShow: function() {
     FlowRouter.watchPathChange();
@@ -217,7 +217,7 @@ Template.dotShow.helpers({
   }
 });
 
-Template.dotShow.events({
+Template.desktopDotShow.events({
 
   'click ._shareFacebookDialog': function(event){
     event.preventDefault();
