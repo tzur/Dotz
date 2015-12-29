@@ -10,12 +10,37 @@ Template.createDotModal.onCreated(function(){
       self.subscribe('availableDotzForCreate', profileDot);
     }
   });
+
 });
 
 
 Template.createDotModal.onRendered(function(){
   Modules.client.Dotz.limitCharactersAndCounter('#titleField', 50, '#titleFieldFeedback');
   Session.set("dotType", "Dot");
+
+  var embedlyScript = 'http://cdn.embed.ly/jquery.embedly-3.0.5.min.js';
+  DocHead.loadScript(embedlyScript);
+
+  var embedlyPreviewScript = 'http://cdn.embed.ly/jquery.preview-0.3.2.min.js';
+  DocHead.loadScript(embedlyPreviewScript, function(){
+    $('#url').preview({
+      key:'ac95ba6487c94c12a42edafe22cff281',
+      success: function(){
+        Session.set("embedlyObj", $('#url').data('preview') )
+        Tracker.autorun(function () {
+          let embedlyObj = Session.get("embedlyObj");
+            $("#titleField").val(embedlyObj.title);
+            $("#descriptionField").val(embedlyObj.description);
+            Session.set("coverImageUrl", embedlyObj.thumbnail_url)
+        });
+      }
+      });
+  });
+
+
+
+// On submit add hidden inputs to the form.
+
   //tagsArray = Tools.findOne({docName: "dotzTags"});
   //Meteor.typeahead(".typeahead", tagsArray.tags);
 
@@ -127,6 +152,8 @@ Template.createDotModal.events({
   'click #publishButton': function(){
     Session.set('spinnerOn', true);
   }
+
+
 
 });
 

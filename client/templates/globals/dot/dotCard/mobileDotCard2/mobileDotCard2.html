@@ -1,0 +1,349 @@
+<template name="mobileDotCard2">
+<!--{{#if Template.subscriptionsReady}}-->
+  {{#with dataCard}}
+
+      <div class="row" id="listCard-box">
+
+          <div class="col-xs-1 col-sm-1 hidden-xs hidden-sm" id="listCardLikeSide">
+
+            {{#if isInOpenList}}
+
+                <!--TBD: add a session to fix it!!! -->
+              {{# if isLikedByMe}}
+                  <a href>
+                      <i class="pull-right unlike likeBtn fa fa-chevron-circle-up">
+                          <span class="likesCounter"><strong>{{likeCounter}}</strong></span>
+                      </i>
+                  </a>
+              {{else}}
+                  <a href>
+                      <i class="pull-right like likeBtn fa fa-chevron-circle-up">
+                          <span class="likesCounter"><strong>{{likeCounter}}</strong></span>
+                      </i>
+                  </a>
+              {{/if}}
+
+              {{#if omgAllowed}}
+                  <button type="button" class="_omgBtn btn btn-success">OMG</button>
+              {{/if}}
+
+
+            {{/if}}
+
+              <!--else-->
+
+            {{#if isInClosedList}}
+                <!--TBD: add a session to fix it!!! -->
+
+
+                <div class="pull-right" style="margin-bottom: 1em;">
+                  {{#if sortIsAvailable}}
+                      <a class="upBtn panelBtn"><span class="glyphicon glyphicon-triangle-top smTxt"  aria-hidden="true"> </span></a>
+                      <br>
+                      <a class="downBtn panelBtn"><span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span></a>
+                      <br>
+                  {{/if}}
+                  {{#if isMyDot}}
+
+                      <a class="panelBtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span><i class="fa fa-cog" aria-hidden="true"></i></span>
+                      </a>
+                      <ul id="pre-delete-menu" class="dropdown-menu left">
+                          <li class="editBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                      </ul>
+
+                  {{/if}}
+
+                </div>
+
+            {{/if}}
+
+
+          </div>
+
+          <!--check if is List or Dot:-->
+        {{#if isListCard}}
+
+
+            <div class="col-xs-12 col-sm-12 col-md-10" id="listCover">
+                <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
+                    <div class="filter">
+                        <div class="listCoverContent">
+
+                            <a href="/{{dot.dotSlug}}" class="_setCurrentPath">
+                                <div class="listCardTitle">
+                                    <a href="/{{dot.dotSlug}}">
+                                        <h2 class="h2Title">{{dot.title}}
+                                          {{#if dotzNum}}
+
+                                              <div>
+                                                  <span class="label label-dotz label-xs">{{dotzNum}} {{dotOrDotz}}</span>
+                                              </div>
+
+                                          {{/if}}
+                                        </h2>
+                                    </a>
+
+                                </div>
+                            </a>
+                            <div class="row listCardFooter">
+
+                                <div class="listCardUser col-xs-8 col-lg-7">
+
+                                  {{#if userIsTheDotCreator}}
+
+                                      <a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon">
+                                          <img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">
+                                      </a>
+                              <span class="smTxt"><a class="whiteTxt" href="/{{ownerUser.profile.userSlug}}">
+                                  <strong>{{ownerUser.username}}</strong></a></span>
+                                      <!--<span class="whiteTxt smTxt"> · {{actionDate}}</span>-->
+
+                                  {{else}}
+
+                                      <!--userIsTheDotConnector-->
+                                      <a href="/{{connectedByUser.profile.userSlug}}" class="userImgIcon">
+                                          <img class="userImgIcon" src="{{connectedByUser.profile.profileImage}}">
+                                      </a>
+
+                                      <span class="smTxt whiteTxt"><a class="whiteTxt" href="/{{connectedByUser.profile.userSlug}}"><strong>{{connectedByUser.username}}</strong></a></span>
+                                      <span class="whiteTxt smTxt">connected</span>
+                                      <a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon">
+                                          <img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">
+                                      </a>
+                                      <span class="smTxt whiteTxt"><a class="whiteTxt" href="/{{ownerUser.profile.userSlug}}"><strong>{{ownerUser.username}}</strong></a></span>
+                                      <span class="whiteTxt smTxt">List</span>
+                                      <!--<span class="whiteTxt smTxt"> · {{actionDate}}</span>-->
+
+                                  {{/if}}
+                                </div> <!--end userListCard -->
+
+
+                                <!--<div class="btn-connect-div col-xs-4 pull-right">-->
+                                <div class="buttonsBar pull-right col-xs-4 col-lg-5 listCardBtns">
+
+                                  {{#if shareList}}
+                                    {{#if alreadyShared}}
+                                        <button type="button" class="btn btn-share-checked btn-xs pull-right"><i class="fa fa-check mdTxt"></i></button>
+                                    {{else}}
+                                        <button type="button" class="shareListInstant btn btn-share-check btn-xs pull-right"><i class="fa fa-share-alt mdTxt"></i></button>
+                                    {{/if}}
+
+                                  {{else}}
+                                      <a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                          <div class="btn btn-default btn-xs"><i class="fa fa-share-alt"></i></div></a>
+                                      <ul class="dropdown-menu">
+                                          <li class="shareOnFaceBook">
+                                              <a href="#"  target="_blank" class="btn btn-facebook _shareFacebookDialog">
+                                                  <i class="fa fa-facebook"></i>Share on facebook</a>
+                                          </li>
+                                          <!--TBD-->
+                                          <!--<li class="shareOnFaceBook"><a href="#"><i class="fa fa-facebook-official"></i>Share on facebook</a></li>-->
+                                          <li class="shareList">
+                                              <a href="#"><i class="fa fa-paper-plane"></i>Share multi Dotz</a>
+                                          </li>
+                                      </ul>
+                                  {{/if}}
+
+
+                                  {{#if isConnected}}
+
+                                      <button type="button" class="connect btn   btn-success btn-xs btn-white pull-right"><i class="fa fa-plus"></i>
+                                        {{connectCounter}}</button>
+
+                                      <button type="button" class="disConnect btn btn-delete btn-xs pull-right has-spinner "><span class="spinner">
+                                      <i class="fa fa-spinner lightGrey fa-spin-custom mdGrey"></i></span><i class="fa lightGrey fa-minus"></i></button>
+
+
+                                  {{else}}
+
+                                      <button type="button" class="connect btn btn-success btn-xs btn-white pull-right"><i class="fa fa-plus"></i>
+                                          Connect {{connectCounter}}</button>
+
+                                  {{/if}}
+
+                                </div>
+
+                            </div>
+
+                                <!--{{#if dotzNum}}-->
+                            <!--<div class="dotConnectedDotzLastIcon">-->
+                            <!--<div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>-->
+                            <!--<div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>-->
+                            <!--</div>-->
+                                <!--{{/if}}-->
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div> <!-- end listCard -->
+
+
+
+        {{else}} <!--  = is dotCard -->
+
+
+
+            <div id="mobileDotCard" class="row">
+
+                <div id="mobileDotCard-col-img">
+
+                  <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                      <div>
+
+                          <div id="mobileDotCardImg" class="container-fluid" style="background-image: url('{{dot.coverImageUrl}}')">
+                              <div id="mobileDotCard-connectedDotz">+23</div>
+                                  <!--{{#if dotzNum}}-->
+                              <!--<div class="dotConnectedDotzLastIcon">-->
+                              <!--<div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>-->
+                              <!--<div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>-->
+                              <!--</div>-->
+                                  <!--{{/if}}-->
+                          </div>
+
+                      </div>
+                  </a>
+
+                </div>
+
+                <div id="mobileDotCard-col-text">
+
+                    <div id="mobileDotCard-col-title">
+
+                        <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                            <div id="mobileDotCardTitle">
+                                <a href="/{{dot.dotSlug}}"><h5 class="bold">{{title}}</h5></a>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <div id="mobileDotCard-col-credit">
+
+                        <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                            <div id="mobileDotCardCredit">
+                                <a href="/{{dot.dotSlug}}"><h6 class="lightGrey">On Facebook.com</h6></a>
+                            </div>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div id="mobileDotCard-col-like">
+
+                  {{#if isInOpenList}}
+
+                        <!--TBD: add a session to fix it!!! -->
+                      {{# if isLikedByMe}}
+                          <a href>
+                              <i class="unlike lightGrey likeBtn fa fa-heart"></i>
+                                  <h5 class="likesCounter lightGrey">{{likeCounter}}</h5>
+                          </a>
+                      {{else}}
+                          <a href>
+                              <i class="like lightGrey likeBtn fa fa-heart-o"></i>
+                                  <h5 class="likesCounter lightGrey">{{likeCounter}}</h5>
+                          </a>
+                      {{/if}}
+
+                  {{/if}}
+
+                </div>
+
+                <div id="mobileDotCard-col-3dots" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
+                    <h2 class="lightGrey">...</h2>
+                </div>
+
+
+            </div> <!-- end listCard -->
+
+
+            <div class="row collapse" id="collapseButtons-{{dot._id}}">
+                <div id="mobileDotCard-collapseButtons">
+
+                    <div class="col-xs-2 col-xs-offset-1 noPadding txtMd greyText">
+                        <i type="button" class="mobileDotCard-Buttons fa fa-share-alt"></i>
+                            <h6>Share</h6>
+                    </div>
+
+                    <div class="col-xs-3 noPadding txtMd greyText">
+                        <i type="button" class="mobileDotCard-Buttons fa fa-minus-circle"></i>
+                            <h6>Disconnect</h6>
+                    </div>
+
+                    <div class="col-xs-3 noPadding txtMd greyText">
+                        <i type="button" class="mobileDotCard-Buttons fa fa-plus-circle"></i>
+                            <h6>Connect</h6>
+                    </div>
+
+                    <div class="col-xs-2 noPadding txtMd greyText">
+                        <i type="button" class="mobileDotCard-Buttons fa fa-globe"></i>
+                            <h6>Read</h6>
+                    </div>
+
+                </div>
+            </div>
+
+
+                <!--<div class="col-xs-12" id="mobileDotCardFooter">-->
+
+                        <!--<div class="listCardText">-->
+                            <!--<p class="personalDescriptionOrBodyText txtMd">{{personalDescriptionOrBodyText}}</p>-->
+                        <!--</div>-->
+
+                    <!--<div class="row listCardFooter">-->
+
+                        <!--<div class="buttonsBar col-xs-10">-->
+
+                          <!--{{#if isConnected}}-->
+                              <!--<button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>-->
+                                  <!--<span class="hidden-xs"></span> {{connectCounter}}</button>-->
+                              <!--<button type="button" class="disConnect btn btn-delete btn-xs pull-right has-spinner"><span class="spinner">-->
+                                    <!--<i class="fa fa-spinner lightGrey fa-spin-custom mdGrey"></i></span><i class="fa lightGrey fa-bookmark-o"></i></button>-->
+
+
+                          <!--{{else}}-->
+
+                              <!--<button type="button" class="connect btn btn-success btn-sm pull-right"><i class="fa fa-bookmark"></i>-->
+                                  <!--<span class="hidden-xs">Connect</span> {{connectCounter}}</button>-->
+
+                          <!--{{/if}}-->
+
+                              <!--<button type="button" id="mobileDotCardActionButton" class="btn btn-xs pull-right">Read on Muzli.com</button>-->
+
+                        <!--</div>-->
+
+                    <!--</div>-->
+                    <!---->
+                <!--</div>-->
+
+
+
+        {{/if}}
+
+
+          <div class="hidden-xs col-sm-1" id="listCardOtherSide">
+
+
+          </div>
+
+
+
+
+
+      </div>
+
+  {{/with}}
+
+        <!--{{else}}-->
+    <!--<h2>LOADING</h2>-->
+        <!--{{/if }}-->
+
+</template>
