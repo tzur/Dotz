@@ -84,6 +84,10 @@
   float: right;
 }
 
+#mobileDotCard-col-3dots h2{
+  margin: 0;
+}
+
 .likesCounter {
   margin: 0;
 }

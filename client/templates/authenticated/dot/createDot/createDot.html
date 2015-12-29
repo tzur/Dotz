@@ -23,11 +23,13 @@
 
                         <!--{{#if dotType}}-->
 
-
-
-                            {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
+                      {{#autoForm id="InsertDotForm" collection="Dotz" type="method" meteormethod="createDot"}}
 
                         <div class="col-xs-10 colCenter">
+
+                            <div>
+                              {{> afQuickField id="url" name='linkUrl' label="Link" placeholder="Add a link   e.g. http://www.website.com"}}
+                            </div>
 
                             <div>
                               {{> afQuickField id="titleField" name='title' maxlength="50" label="Title" placeholder="Add a Title"}}
@@ -36,12 +38,10 @@
 
 
                             <div>
-                              {{> afQuickField name='bodyText' label="Note" rows=4 placeholder="Add a Description"}}
+                              {{> afQuickField id="descriptionField" name='bodyText' label="Note" rows=4 placeholder="Add a Description"}}
                             </div>
 
-                            <div>
-                              {{> afQuickField name='linkUrl' label="Link" placeholder="Add a link   e.g. http://www.website.com"}}
-                            </div>
+
 
                         </div>
 
