@@ -2,7 +2,7 @@
 <!--{{#if Template.subscriptionsReady}}-->
   {{#with dataCard}}
 
-      <div class="row" id="listCard-box">
+      <div class="row" id="mobileDotCard-box">
 
           <div class="col-xs-1 col-sm-1 hidden-xs hidden-sm" id="listCardLikeSide">
 
@@ -243,13 +243,13 @@
                         <!--TBD: add a session to fix it!!! -->
                       {{# if isLikedByMe}}
                           <a href>
-                              <i class="unlike lightGrey likeBtn fa fa-heart"></i>
-                                  <h5 class="likesCounter lightGrey">{{likeCounter}}</h5>
+                              <i class="unlike greyText likeBtn fa fa-heart lgTxt"></i>
+                                  <h5 class="likesCounter greyText">{{likeCounter}}</h5>
                           </a>
                       {{else}}
                           <a href>
-                              <i class="like lightGrey likeBtn fa fa-heart-o"></i>
-                                  <h5 class="likesCounter lightGrey">{{likeCounter}}</h5>
+                              <i class="like greyText likeBtn fa fa-heart-o lgTxt"></i>
+                                  <h5 class="likesCounter greyText">{{likeCounter}}</h5>
                           </a>
                       {{/if}}
 
