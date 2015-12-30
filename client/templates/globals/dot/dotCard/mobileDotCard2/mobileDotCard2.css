@@ -109,6 +109,20 @@
   margin: 0;
 }
 
+#arrow-up-div {
+  background-color: #fafafa;
+  position: relative;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  margin-right: 2vw;
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;
+  border-bottom: 1em solid #EEEEEE;
+}
+
 #mobileDotCard-collapseButtons {
   height: 6em;
   padding: 1em 0;
