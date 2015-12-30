@@ -12,6 +12,7 @@ Meteor.startup(function () {
   //});
   Meteor.call('convertUsersToRoleOwner', 'Connector', Roles.GLOBAL_GROUP);
   //Meteor.call('addCategoryToDotzByOwner');
+  Meteor.call('updateUsersRolesToAlgolia');
 
 });
 
@@ -54,6 +55,16 @@ Meteor.methods({
           }
         });
       }
+    })
+  },
+  updateUsersRolesToAlgolia(){
+    let users = Meteor.users.find().fetch();
+    users.forEach(function(user){
+      Meteor.call('addOrEditObjectInAlgolia', user.profile.userSlug, true, function(error){
+        if(!error){
+          console.log(user.username + " has been updated in algola")
+        }
+      })
     })
   }
 });

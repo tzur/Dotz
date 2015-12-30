@@ -64,3 +64,9 @@ a:hover {
 .bold {
   font-weight: 600;
 }
+
+/*line heights*/
+
+.line-h-md {
+  line-height: 1.45;
+}
