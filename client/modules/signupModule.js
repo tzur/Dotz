@@ -63,6 +63,16 @@ let _handleSignup = ( template ) => {
             console.log(result);
             FlowRouter.go('/' + Meteor.user().profile.userSlug);
             Bert.alert( 'Welcome!', 'success' );
+            Meteor.call('convertUsersToRoleOwner', Session.get('landingPageCategory'), 'firstGroup', Meteor.userId() , function(error){
+              if(!error){
+                //Algolia:
+                Meteor.call('addOrEditObjectInAlgolia', Meteor.user().profile.userSlug, true, function(error, result){
+                  if (error) {
+                    console.log(" addOrEditObjectInAlgolia Error >> " + error);
+                  }
+                });
+              }
+            })
           }
         })
     }
