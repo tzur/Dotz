@@ -12,6 +12,14 @@ body {
   margin-top: 6vh;
 }
 
+@media (max-width: 767px) {
+
+  #main {
+    background-color: #fff;
+  }
+
+}
+
 a button:active :after {
   outline: none;
 }

@@ -1,9 +1,5 @@
 <template name="mobileDotShow">
-
-
   {{#with dotShow}}
-
-    {{#if isListShow}}
 
         <div class="container-fluid" id="listShowHeader">
 
@@ -89,7 +85,7 @@
 
             <div class="container-fluid list-show-btns-div">
 
-                <div class="col-xs-12 col-sm-11 col-md-9 col-lg-7 colCenter">
+                <div class="row">
 
                     <div class="col-xs-5 col-sm-4 col-md-5 col-lg-4 pull-left">
                         <div>
@@ -154,7 +150,6 @@
 
         </div>
 
-    {{/if}}
 
   <div id="verticalLine" class="col-xs-1">
 
@@ -176,6 +171,27 @@
 
       </div>
 
-  {{/with}}
 
+
+  <!--the dotShow FIX footer-->
+      <nav id="fixedFooter-mobileDotShow" class="navbar navbar-default navbar-fixed-bottom visible-xs" role="navigation">
+          <div class="container-fluid">
+
+              <div class="col-xs-2">
+                  <div class="dotSmallImgFooter-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>
+              </div>
+
+
+              <div class="col-xs-10">
+                  <div>
+                      <span class="lgTxt mdGrey">{{dotzNum}}</span>
+                  </div>
+              </div>
+
+          </div>
+      </nav>
+
+
+
+{{/with}}
 </template>

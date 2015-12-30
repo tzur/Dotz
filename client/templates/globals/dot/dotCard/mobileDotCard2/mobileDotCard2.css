@@ -1,3 +1,9 @@
+#mobileDotCard-box {
+  padding: 1vh;
+  margin-bottom: 3vh;
+  overflow-x: hidden;
+}
+
 #mobileDotCard {
   position: relative;
   padding: 0;
@@ -12,24 +18,26 @@
 }
 
 #mobileDotCard-col-img{
-  width: 35vw;
+  width: 33vw;
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 2vw;
+  padding-left: 5vw;
   margin: auto;
   float: left;
 }
 
 #mobileDotCardImg {
   padding: 0;
-  height: 25vw;
+  height: 26vw;
   border-radius: 50%;
-  width: 25vw;
+  width: 26vw;
   background-size: cover;
+  background-color: #eee;
   position: relative;
   background-position-y: 50%;
   background-position-x: 50%;
+  border: #eee solid 2px;
 }
 
 #mobileDotCard-connectedDotz {
@@ -42,9 +50,10 @@
 }
 
 #mobileDotCard-col-text {
-  width: 55vw;
+  width: 58vw;
+  padding-top: 1vw;
   position: relative;
-  height: 25vw;
+  height: 23vw;
   padding-right: 15px;
   margin: auto;
   float: left;
@@ -53,8 +62,9 @@
 #mobileDotCard-col-title {
   width: 55vw;
   position: relative;
-  min-height: 1px;
-  padding-right: 15px;
+  max-height: 20vw;
+  overflow-y: hidden;
+  padding: 0 1vw;
   margin: auto;
   float: left;
 }
@@ -65,16 +75,13 @@
 
 #mobileDotCard-col-credit {
   width: 55vw;
-  position: absolute;
-  bottom: 0;
-  min-height: 1px;
-  padding-right: 15px;
+  padding: 0 1vw;
   margin: auto;
   float: left;
 }
 
 #mobileDotCard-col-credit h6 {
-  margin: 0 0 0.125em 0;
+  margin: 1vw 0 0 0;
 }
 
 #mobileDotCardCredit {
@@ -85,6 +92,7 @@
 
 #mobileDotCard-col-like {
   width: 10vw;
+  padding-top: 1vw;
   position: relative;
   min-height: 1px;
   /*padding-right: 15px;*/
@@ -107,6 +115,21 @@
 
 #mobileDotCard-col-3dots h2{
   margin: 0;
+}
+
+#arrow-up-div {
+  background-color: #ffffff;
+  position: relative;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  margin-bottom: -1px;
+  margin-right: 2vw;
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;
+  border-bottom: 1em solid #EEEEEE;
 }
 
 #mobileDotCard-collapseButtons {
