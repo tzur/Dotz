@@ -42,6 +42,7 @@ let dotHooks = {
       if(Session.get("embedlyObj")){
         doc.embedlyObj = Session.get("embedlyObj")
       }
+      doc.category = Meteor.user().roles.firstGroup;
 
       //Open Dotz:
       if (doc.dotType === "Dot") {
