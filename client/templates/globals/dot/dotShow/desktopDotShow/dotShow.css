@@ -42,6 +42,16 @@
   padding-top: 1.5vh;
 }
 
+@media (max-width: 767px) {
+
+  .list-show-btns-div {
+    background-color: #fafafa;
+    height: 8vh;
+    padding-top: 1.5vh;
+  }
+
+}
+
 
 #listShowHeader .listCoverImg {
   position: relative;
