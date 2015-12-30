@@ -11,7 +11,7 @@
 #imgCoverFilter-mobileDotShow {
   position: absolute;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   /*top: 0;*/
   /*left: 0;*/
   width: 100%;
@@ -50,6 +50,13 @@
   min-height: 1px;
   /*margin: auto;*/
   float: inherit;
+}
+
+.dotSmallAndCircleImgsFilter-mobileDotShow {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 10vw;
+  width: 10vw;
+  border-radius: 50%;
 }
 
 .leftCircles-col-mobileDotShow {
