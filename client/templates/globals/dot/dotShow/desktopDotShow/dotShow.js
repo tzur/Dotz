@@ -31,6 +31,9 @@ Template.desktopDotShow.onCreated(function() {
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
         self.subs.subscribe('user', currentDot.ownerUserId);
+        if(!Session.get('landingPageCategory')){
+          Session.set('landingPageCategory', currentDot.category[0])
+        }
         if(currentDot.dotType === "List"){
           analytics.page('List Show');
         }
@@ -214,6 +217,11 @@ Template.desktopDotShow.helpers({
       });
     }
     return alreadyAdded;
+  },
+  isUserAllowToConnect: function(){
+    if(Roles.userIsInRole( Meteor.userId(), 'Connector') || this.dot.ownerUserId === Meteor.userId() ){
+      return true;
+    }
   }
 });
 

@@ -35,7 +35,7 @@ Template.searchBox.helpers({
   },
   dotzResult: function(){
     if(Session.get('searchInput')){
-      Modules.client.searchByAlgolia("Dotz", Session.get('searchInput'), function(error, content){
+      Modules.client.searchByAlgolia(Meteor.user().roles.firstGroup[0] + "Dotz", Session.get('searchInput'), function(error, content){
         if(content){
           Session.set('dotzResult', content);
         }
@@ -57,7 +57,7 @@ Template.searchBox.helpers({
 
   listsResult: function(){
     if(Session.get('searchInput')){
-      Modules.client.searchByAlgolia("Lists", Session.get('searchInput'), function(error, content){
+      Modules.client.searchByAlgolia(Meteor.user().roles.firstGroup[0] + "Lists", Session.get('searchInput'), function(error, content){
         if(content){
           Session.set('listsResult', content);
         }
@@ -80,7 +80,7 @@ Template.searchBox.helpers({
 
   usersResult: function(){
     if(Session.get('searchInput')){
-      Modules.client.searchByAlgolia("Users", Session.get('searchInput'), function(error, content){
+      Modules.client.searchByAlgolia(Meteor.user().roles.firstGroup[0] + "Users", Session.get('searchInput'), function(error, content){
         if(content){
           Session.set('usersResult', content);
         }

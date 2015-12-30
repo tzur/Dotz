@@ -33,7 +33,7 @@ Template.searchBoxForConnect.helpers({
   },
   dotzResult: function(){
     if(Session.get('searchInput')){
-      Modules.client.searchByAlgolia("Dotz", Session.get('searchInput'), function(error, content){
+      Modules.client.searchByAlgolia(Meteor.user().roles.firstGroup[0] + "Dotz", Session.get('searchInput'), function(error, content){
         if(content){
           Session.set('dotzResult', content);
         }
@@ -55,7 +55,7 @@ Template.searchBoxForConnect.helpers({
 
   listsResult: function(){
     if(Session.get('searchInput')){
-      Modules.client.searchByAlgolia("Lists", Session.get('searchInput'), function(error, content){
+      Modules.client.searchByAlgolia(Meteor.user().roles.firstGroup[0] + "Lists", Session.get('searchInput'), function(error, content){
         if(content){
           Session.set('listsResult', content);
         }
