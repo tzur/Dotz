@@ -41,7 +41,10 @@ let dotHooks = {
       doc.dotType = Session.get("dotType");
       if(Session.get("embedlyObj")){
         doc.embedlyObj = Session.get("embedlyObj");
-        doc.
+      }
+      else if(Session.get('fbPostAuthorData')){
+        doc.linkAuthorName = Session.get('fbPostAuthorData').name;
+        doc.linkAuthorUrl = 'https://www.facebook.com/' + Session.get('fbPostAuthorData').id;
       }
       doc.category = Meteor.user().roles.firstGroup;
 
