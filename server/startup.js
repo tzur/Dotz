@@ -10,7 +10,7 @@ Meteor.startup(function () {
   //    console.log('all user have been updated')
   //  }
   //});
-  //Meteor.call('convertUsersToRoleOwner', 'Connector', Roles.GLOBAL_GROUP);
+  Meteor.call('convertUsersToRoleOwner', 'Connector', Roles.GLOBAL_GROUP);
   //Meteor.call('addCategoryToDotzByOwner');
   Meteor.call('updateUsersRolesToAlgolia');
 
@@ -37,8 +37,8 @@ Meteor.methods({
         Roles.setUserRoles(userId  ,role, group );
       });
     }
-
   },
+
   addCategoryToDotzByOwner(){
     let dotz = Dotz.find().fetch();
     dotz.forEach(function(dot){

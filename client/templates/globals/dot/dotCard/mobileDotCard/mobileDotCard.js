@@ -198,6 +198,14 @@ Template.mobileDotCard.helpers({
     }
   },
 
+  isLikedByMe: function(){
+    let likersArray = this.smartRef.connection.likes;
+    if ( likersArray.indexOf( Meteor.userId() ) >= 0 ) {
+      return true
+    }
+
+  },
+
   shareList: function(){
     return Session.get('shareListActive');
   },
@@ -340,6 +348,7 @@ Template.mobileDotCard.events({
     Session.set('searchInput',undefined);
     $('#searchBoxInput').val("")
   },
+
   'click .shareListInstant': function(event){
     event.preventDefault();
     let dotId = this.dot._id;
@@ -355,6 +364,7 @@ Template.mobileDotCard.events({
       });
     }
   },
+
   'click .shareList': function(event) {
     event.preventDefault();
     let dotId = this.dot._id;
