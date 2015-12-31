@@ -24,10 +24,10 @@ createServiceConfiguration = (service,clientId,secret)->
 
 
 #PRODUCTION MODE:
-#createServiceConfiguration('facebook', '904084409705076', 'ed2840e1d563040cb0120317808e6524')
+createServiceConfiguration('facebook', '904084409705076', 'ed2840e1d563040cb0120317808e6524')
 
 #DEVELOPMENT MODE:
-createServiceConfiguration('facebook', '554866124661986', '7f5f4623bf587798b18740174ee3d765')
+#createServiceConfiguration('facebook', '554866124661986', '7f5f4623bf587798b18740174ee3d765')
 
 createServiceConfiguration('github', 'Insert your clientId here.', 'Insert your secret here.')
 createServiceConfiguration('google', 'Insert your clientId here.', 'Insert your secret here.')
