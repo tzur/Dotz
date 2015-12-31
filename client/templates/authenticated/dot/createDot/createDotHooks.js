@@ -6,7 +6,8 @@ let dotHooks = {
   before: {
     method: function (doc){
       if(Session.get("coverImageUrl")){
-        doc.coverImageUrl = Session.get("coverImageUrl");
+        let convertUrl = Session.get("coverImageUrl");
+        doc.coverImageUrl = convertUrl.replace('dotz-deployment.s3.amazonaws.com', 'dotz.imgix.net');
       }
       if(locationObject = Session.get("locationObject")){
         let locationSchemaObject = {};
