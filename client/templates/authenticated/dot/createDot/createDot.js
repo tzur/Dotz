@@ -12,8 +12,6 @@ Template.createDotModal.onCreated(function(){
   });
 
 });
-
-
 Template.createDotModal.onRendered(function(){
   Modules.client.Dotz.limitCharactersAndCounter('#titleField', 50, '#titleFieldFeedback');
   Session.set("dotType", "Dot");
@@ -26,14 +24,37 @@ Template.createDotModal.onRendered(function(){
     $('#url').preview({
       key:'ac95ba6487c94c12a42edafe22cff281',
       success: function(){
-        Session.set("embedlyObj", $('#url').data('preview') )
-        Tracker.autorun(function () {
-          let embedlyObj = Session.get("embedlyObj");
+          Session.set("embedlyObj", $('#url').data('preview') );
+          Tracker.autorun(function () {
+            let embedlyObj = Session.get("embedlyObj");
             $("#titleField").val(embedlyObj.title);
             $("#descriptionField").val(embedlyObj.description);
             Session.set("coverImageUrl", embedlyObj.thumbnail_url)
-        });
+          });
+      },
+      error: function(obj){
+        if (obj.provider_url.indexOf('https://www.facebook.com') > -1){
+          var url = $('#url').val();
+
+          if (url.substring(url.lastIndexOf('/')+1) === ''){
+            url = url.substring(0,url.length-1)
+          }
+          url = url.substring(url.lastIndexOf('/')+1);
+          Meteor.call('getUserData', url,function(error, data){
+            if (error){
+              console.log(error + " received error");
+            }
+            else{
+              var dataParser = JSON.stringify(data);
+              console.log('success');
+              $("#descriptionField").val(data.message);
+              Session.set('fbPostAuthorData', data.from);
+            }
+          })
+        }
+
       }
+
       });
   });
 

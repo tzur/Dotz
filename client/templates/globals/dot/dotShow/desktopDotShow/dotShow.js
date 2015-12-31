@@ -222,6 +222,12 @@ Template.desktopDotShow.helpers({
     if(Roles.userIsInRole( Meteor.userId(), 'Connector') || this.dot.ownerUserId === Meteor.userId() ){
       return true;
     }
+  },
+  facebookDot: function(){
+    return this.dot.linkAuthorUrl;
+  },
+  authorFbProfile: function(){
+    return 'http://graph.facebook.com/'+ this.dot.facebookAuthorId + '/picture/?type=large';
   }
 });
 

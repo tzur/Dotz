@@ -31,6 +31,9 @@
                         <div class="iconDiv smTxt">
                             <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
                             <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Created By <strong>{{ownerUser.username}}</strong></span></a>
+                          {{#if facebookDot}}
+                            <a href="/{{dot.linkAuthorUrl}}"><img class="postUserImgProfile" src="{{authorFbProfile}}"></a>
+                          {{/if}}
                         </div>
 
                     </div>
@@ -238,8 +241,14 @@
                         <div class="col-xs-9 iconDiv txtL">
                             <a href="/{{ownerUser.profile.userSlug}}">
                                 <img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}">
-                                <span class="align-icon-text greyText smTxt">Created By <strong>{{ownerUser.username}}</strong></span>
+                                <span class="align-icon-text greyText smTxt"><strong>{{ownerUser.username}}</strong> Connected </span>
                             </a>
+                          {{#if facebookDot}}
+                              <span class="align-icon-text greyText smTxt"> <strong>{{dot.linkAuthorName}}</strong> dot</span>
+                              <a href="{{dot.linkAuthorUrl}}"><img class="postUserImgProfile" src="{{authorFbProfile}}">
+
+                              </a>
+                          {{/if}}
                             <span class="mdGrey smTxt"><span>·</span> {{actionDate}} </span>
                         </div>
 
