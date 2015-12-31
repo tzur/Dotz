@@ -7,21 +7,6 @@
 
                 <div id="imgCoverFilter-mobileDotShow">
 
-                    <div id="connectedByTextDiv-mobileDotShow" class="row">
-                        <div id="connectedByText-mobileDotShow" class="col-xs-8 colCenter">
-                            <div class="user">
-
-                                <div class="iconDiv smTxt">
-                                    <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
-                                    <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Connected By <strong>{{ownerUser.username}}</strong></span></a>
-                                </div>
-
-                            </div>
-
-                            <p>ajkdja shkd jah kjdh akjs dhkaj shkdj ahskjdhka jshkdj ahkdj ahksj dhka sjdh kaj</p>
-                        </div>
-                    </div>
-
                     <div id="circleImgsRow-mobileDotShow" class="row">
 
                         <div class="col-xs-2 noPadding">
@@ -58,24 +43,83 @@
                         <h2 id="title-mobileDotShow" class="col-xs-12">{{dot.title}}</h2>
                     </div>
 
-                </div>
-
-
-                <div id="imgCoverFilter2-mobileDotShow">
-
-                    <div class="container-fluid">
-                        {{#if showFullBodyText}}
-                            <h5 class="description line-h-md greyText mdTxt">{{dot.bodyText}} <span class="lightGrey readLess">Show Less</span></h5>
-                        {{else}}
-                            <h5 class="description line-h-md greyText mdTxt readMore">{{shortenBodyText}} <span class="lightGrey readMore">Read More</span></h5>
-                        {{/if}}
+                    <div class="container-fluid txtMd">
+                        <button id="connectButton-mobileDotShow" type="button" class="btn btn-success round btn-xs"><i class="fa fa-plus-circle"></i> ReConnect (294)</button>
                     </div>
 
                 </div>
 
-
             </div><!--end row listCoverImg-->
+
+            <div id="imgCoverFilter2-mobileDotShow">
+
+                <div class="container-fluid">
+                  {{#if showFullBodyText}}
+                      <h5 class="description line-h-md greyText mdTxt">{{dot.bodyText}} <small class="lightGrey readLess">Show Less</small></h5>
+                  {{else}}
+                      <h5 class="description line-h-md greyText mdTxt readMore">{{shortenBodyText}} <small class="lightGrey readMore">Show More</small></h5>
+                  {{/if}}
+                </div>
+
+            </div>
+
+            <div id="buttonsRow-mobileDotShow" class="container-fluid noPadding">
+
+                <div class="col-xs-12 txtMd">
+                    <button type="button" class="btn btn-default btn-xs mdGrey"><i class="fa fa-share-alt mdGrey"></i></button>
+                    <button type="button" class="btn btn-default btn-xs mdGrey"><i class="fa fa-external-link mdGrey"></i> Read on jerusalempost.com</button>
+                </div>
+
+                <!--<div class="col-xs-2">-->
+                    <!--<button type="button" class="btn btn-default btn-xs"><i class="fa fa-heart"></i> 24</button>-->
+                <!--</div>-->
+
+                <!--<div class="col-xs-3">-->
+                    <!--<button type="button" class="btn btn-default btn-xs"><i class="fa fa-plus-circle"></i> ReConnect</button>-->
+                <!--</div>-->
+
+            </div>
+
+            <div id="connectedByTextDiv-mobileDotShow" class="container-fluid">
+                <div id="connectedByText-mobileDotShow" class="container-fluid">
+
+                    <div class="row">
+
+                        <div class="user col-xs-9">
+                            <div class="iconDiv smTxt">
+                                <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
+                                <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Connected By <strong>{{ownerUser.username}}</strong></span></a>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-3">
+                            <button type="button" class="btn btn-default btn-xs"><i class="fa fa-heart"></i> 24</button>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                           <p>ajkdja shkd jah kjdh akjs dhkaj shkdj ahskjdhka jshkdj ahkdj ahksj dhka sjdh kaj</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
+
+      <nav id="fixedFooter-mobileDotShow" class="navbar navbar-default navbar-bottom visible-xs" role="navigation">
+
+          <div class="col-xs-10">
+              <span class="lgTxt mdGrey">{{dotzNum}} Connected</span>
+          </div>
+
+          <div class="col-xs-2">
+              <i class="fa fa-arrow-circle-down mdGrey fa-2x"></i>
+          </div>
+
+      </nav>
 
 
   <div id="verticalLine" class="col-xs-1">
@@ -101,22 +145,7 @@
 
 
   <!--the dotShow FIX footer-->
-      <nav id="fixedFooter-mobileDotShow" class="navbar navbar-default navbar-fixed-bottom visible-xs" role="navigation">
-          <div class="container-fluid">
 
-              <div class="col-xs-2">
-                  <div class="dotSmallImgFooter-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>
-              </div>
-
-
-              <div class="col-xs-10">
-                  <div>
-                      <span class="lgTxt mdGrey">{{dotzNum}}</span>
-                  </div>
-              </div>
-
-          </div>
-      </nav>
 
 
 

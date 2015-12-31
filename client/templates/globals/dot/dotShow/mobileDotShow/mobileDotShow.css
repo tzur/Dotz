@@ -3,12 +3,12 @@
 
 #header-mobileDotShow {
   padding: 0;
-  min-height: 79vh;
+  min-height: 71vh;
 }
 
 #coverImg-mobileDotShow {
   position: relative;
-  height: 57vh;
+  /*height: 30vh;*/
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
@@ -17,10 +17,11 @@
 
 #connectedByTextDiv-mobileDotShow{
   padding-top: 4vh;
+  padding-bottom: 2vh;
 }
 
 #connectedByText-mobileDotShow {
-  background-color: rgba(250, 250, 250, 0.78);
+  background-color: #eee;
   color: #333;
   padding-top: 3vw;
   padding-bottom: 1vw;
@@ -32,7 +33,7 @@
   border-bottom: #fff solid 1px;
   z-index: 2;
   width: inherit;
-  height: inherit;
+  /*height: 31vh;*/
 }
 
 #imgCoverFilter2-mobileDotShow {
@@ -41,7 +42,7 @@
   border-bottom: #fff solid 1px;
   z-index: 2;
   width: inherit;
-  margin-top: -1vh;
+  /*margin-top: -1vh;*/
 }
 
 #circleImgsRow-mobileDotShow {
@@ -120,6 +121,11 @@
   color: #333;
 }
 
+#connectButton-mobileDotShow {
+  margin: 1vh 0;
+  padding-right: 3vw;
+  padding-left: 3vw;
+}
 
 
 
@@ -138,7 +144,7 @@
 
 #fixedFooter-mobileDotShow {
   background-color: #F8F7F7;
-  height: 10vh;
+  padding: 2vh 0;
 }
 
 #dotSmallImgFooter-mobileDotShow {
