@@ -31,6 +31,9 @@
                         <div class="iconDiv smTxt">
                             <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
                             <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Created By <strong>{{ownerUser.username}}</strong></span></a>
+                          {{#if facebookDot}}
+                            <a href="/{{dot.linkAuthorUrl}}"><img class="postUserImgProfile" src="{{authorFbProfile}}"></a>
+                          {{/if}}
                         </div>
 
                     </div>
