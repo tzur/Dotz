@@ -1,5 +1,19 @@
 
 Template.default.onRendered(function() {
+
+  let imgixSrc = 'https://www.imgix.com/libraries/imgix.js';
+  DocHead.loadScript(imgixSrc, function() {
+    console.log("imgix has been loaded")
+    imgix.onready(function() {
+      // Applied to images that contain the imgix-fluid class
+      // Can take an options object to set more specific behaviors
+      imgix.fluid();
+    });
+  });
+
+  //var spinnerSrc = {rel: "stylesheet", type: "text/css", href: "http://css-spinners.com/css/spinner/dots.css"};
+  //DocHead.addLink(spinnerSrc);
+
   if ( !Meteor.userId() && Session.get('joinUsDivOn') ) {
       $(window).scroll(function() {
           if (document.body.scrollTop > 400) {
