@@ -68,8 +68,6 @@ Template.mobileDotShow.onRendered(function(){
   };
   fbAsyncInit();
 
-  Session.set('showFullBodyText', false);
-
 });
 
 Template.mobileDotShow.onDestroyed(function(){
@@ -216,26 +214,10 @@ Template.mobileDotShow.helpers({
       });
     }
     return alreadyAdded;
-  },
-
-  showFullBodyText: function(){
-      return Session.get('showFullBodyText');
-  },
-
-  shortenBodyText: function(){
-      return s.prune(this.dot.bodyText, 100);
   }
 });
 
 Template.mobileDotShow.events({
-
-  'click .readMore': function(){
-    Session.set('showFullBodyText', true);
-  },
-
-  'click .readLess': function(){
-    Session.set('showFullBodyText', false);
-  },
 
   'click ._shareFacebookDialog': function(event){
     event.preventDefault();
