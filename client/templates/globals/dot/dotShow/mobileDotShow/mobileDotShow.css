@@ -3,7 +3,6 @@
 
 #header-mobileDotShow {
   padding: 0;
-  margin: 6vh 0 0 0;
   min-height: 79vh;
 }
 
@@ -31,7 +30,6 @@
   border-bottom: #fff solid 1px;
   z-index: 2;
   width: inherit;
-  height: inherit;
   margin-top: -1vh;
 }
 
@@ -67,12 +65,10 @@
   background-position-y: 50%;
   background-position-x: 50%;
   min-height: 1px;
-  /*margin: auto;*/
-  float: inherit;
 }
 
 .dotSmallAndCircleImgsFilter-mobileDotShow {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
   height: 10vw;
   width: 10vw;
   border-radius: 50%;

@@ -16,6 +16,3 @@ Meteor.startup(function () {
   //Meteor.call('convertImagesToImgixUrl');
 
 });
-
-
-

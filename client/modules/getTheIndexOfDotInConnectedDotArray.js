@@ -6,16 +6,17 @@
  */
 //Move to client side.
 
-let getDotIndexInConnectedDotArray = (currentDotId, parentDotId) => {
-  let parentDot = Dotz.findOne(parentDotId);
-  let indexCount = 0;
-  if(parentDot.connectedDotzArray){
-    while (currentDotId != parentDot.connectedDotzArray[indexCount].dot._id){
-      indexCount++
-    }
-  }
-  return indexCount +1;
+//Comment Out by Otni on 30.12.15
 
-
-};
-Modules.client.Dotz.getDotIndexInConnectedDotArray = getDotIndexInConnectedDotArray;
+//let getDotIndexInConnectedDotArray = (currentDotId, parentDotId) => {
+//  let parentDot = Dotz.findOne(parentDotId);
+//  let indexCount = 0;
+//  if(parentDot.connectedDotzArray){
+//    while (currentDotId != parentDot.connectedDotzArray[indexCount].dot._id){
+//      indexCount++
+//    }
+//  }
+//  return indexCount +1;
+//};
+//
+//Modules.client.Dotz.getDotIndexInConnectedDotArray = getDotIndexInConnectedDotArray;
