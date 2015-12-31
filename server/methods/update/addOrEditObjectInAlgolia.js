@@ -19,7 +19,7 @@ Meteor.methods({
         currentDoc.objectID = currentDoc._id;
 
         array = [{"objectID": currentDoc.objectID,"username": currentDoc.username, "profile": currentDoc.profile, "_id": currentDoc._id}]
-        docIndex = "Users"
+        docIndex = currentDoc.roles.firstGroup[0] + "Users"
 
       }
       else{
@@ -27,10 +27,10 @@ Meteor.methods({
         let currentDoc = Dotz.findOne({dotSlug: docSlug});
         currentDoc.objectID = currentDoc._id;
         if(currentDoc.dotType === "Dot"){
-          docIndex = "Dotz"
+          docIndex = currentDoc.category[0] + "Dotz"
         }
         else{
-          docIndex = "Lists"
+          docIndex = currentDoc.category[0] + "Lists"
         }
         currentDoc.inDotz = currentDoc.inDotz.length + currentDoc.totalUpvotes.length;
         if(currentDoc.location && currentDoc.location.latLng){
@@ -62,14 +62,14 @@ Meteor.methods({
     check(dotType, String);
     var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
     let objectIndex;
-    let dot;
+    let dot = Dotz.findOne("dotId");
     let index;
 
     if(dotType === "Dot"){
-      index = client.initIndex("Dotz");
+      index = client.initIndex(dot.category[0] + "Dotz");
     }
     else{
-      index = client.initIndex("Lists");
+      index = client.initIndex(dot.category[0] + "Lists");
     }
 
 

@@ -82,12 +82,6 @@ Meteor.methods({
           mySlugFuture.throw(error);
       }
       else {
-        //Algolia:
-        Meteor.call('addOrEditObjectInAlgolia', Meteor.user().profile.userSlug, true, function(error, result){
-          if (error) {
-            console.log(" addOrEditObjectInAlgolia Error >> " + error);
-          }
-        });
         mySlugFuture.return(result);
       }
     });
