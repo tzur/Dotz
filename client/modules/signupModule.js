@@ -79,7 +79,7 @@ let _handleSignup = ( template ) => {
                   }
                 });
               }
-            })
+            });
           }
         })
     }

@@ -44,6 +44,23 @@ Template.signup.events({
             console.log(result + "  facebook slug");
             FlowRouter.go('/' + Meteor.user().profile.userSlug);
             Bert.alert( 'Welcome!', 'success' );
+            let userCategory;
+            if(!Session.get('landingPageCategory')){
+              userCategory = "Tech"
+            }
+            else{
+              userCategory = Session.get('landingPageCategory');
+            }
+            Meteor.call('convertUsersToRoleOwner', userCategory, 'firstGroup', Meteor.userId() , function(error){
+              if(!error){
+                //Algolia:
+                Meteor.call('addOrEditObjectInAlgolia', Meteor.user().profile.userSlug, true, function(error, result){
+                  if (error) {
+                    console.log(" addOrEditObjectInAlgolia Error >> " + error);
+                  }
+                });
+              }
+            });
           }
         })
       }
