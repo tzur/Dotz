@@ -4,8 +4,23 @@
         <div class="container-fluid" id="header-mobileDotShow">
 
             <div id="coverImg-mobileDotShow" class="row" style="background-image: url('{{dot.coverImageUrl}}')">
+
                 <div id="imgCoverFilter-mobileDotShow">
 
+                    <div id="connectedByTextDiv-mobileDotShow" class="row">
+                        <div id="connectedByText-mobileDotShow" class="col-xs-8 colCenter">
+                            <div class="user">
+
+                                <div class="iconDiv smTxt">
+                                    <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
+                                    <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Connected By <strong>{{ownerUser.username}}</strong></span></a>
+                                </div>
+
+                            </div>
+
+                            <p>ajkdja shkd jah kjdh akjs dhkaj shkdj ahskjdhka jshkdj ahkdj ahksj dhka sjdh kaj</p>
+                        </div>
+                    </div>
 
                     <div id="circleImgsRow-mobileDotShow" class="row">
 
@@ -39,13 +54,9 @@
 
                     </div>
 
-
-
                     <div class="container-fluid">
                         <h2 id="title-mobileDotShow" class="col-xs-12">{{dot.title}}</h2>
                     </div>
-
-
 
                 </div>
 
@@ -58,17 +69,6 @@
                         {{else}}
                             <h5 class="description line-h-md greyText mdTxt readMore">{{shortenBodyText}} <span class="lightGrey readMore">Read More</span></h5>
                         {{/if}}
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user col-xs-12 colCenter">
-
-                            <div class="iconDiv smTxt">
-                                <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
-                                <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Created By <strong>{{ownerUser.username}}</strong></span></a>
-                            </div>
-
-                        </div>
                     </div>
 
                 </div>

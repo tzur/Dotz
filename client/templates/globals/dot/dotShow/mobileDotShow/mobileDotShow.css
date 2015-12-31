@@ -8,11 +8,22 @@
 
 #coverImg-mobileDotShow {
   position: relative;
-  height: 37vh;
+  height: 57vh;
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
   margin: 0;
+}
+
+#connectedByTextDiv-mobileDotShow{
+  padding-top: 4vh;
+}
+
+#connectedByText-mobileDotShow {
+  background-color: rgba(250, 250, 250, 0.78);
+  color: #333;
+  padding-top: 3vw;
+  padding-bottom: 1vw;
 }
 
 #imgCoverFilter-mobileDotShow {
