@@ -1,6 +1,7 @@
 Meteor.methods({
   signInWithFaceBook(){
     if (Meteor.user().username){
+      console.log("im herererere")
       return "REDIRECT";
     }
     else{
