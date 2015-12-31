@@ -27,7 +27,7 @@ Template.userShow.onCreated(function() {
           var title = "Dotz: " + user.username;
           DocHead.setTitle(title);
           let userPageInfo = "User show: " + user.username;
-          if(!Session.get('landingPageCategory')){
+          if(!Session.get('landingPageCategory') && user.roles){
             Session.set('landingPageCategory', user.roles.firstGroup)
           }
           analytics.page("User Show" , {

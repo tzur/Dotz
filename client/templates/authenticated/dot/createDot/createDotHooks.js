@@ -21,10 +21,9 @@ let dotHooks = {
         };
         doc.location = locationSchemaObject;
       }
-
       if(Session.get('parentDot')){
         doc.inDotz = [Session.get('parentDot')];
-        let parentDot = Dotz.findOne(doc.inDotz[0])
+        let parentDot = Dotz.findOne(doc.inDotz[0]);
         Session.set('redirectAfterCreate', parentDot.dotSlug )
       }
       else{
@@ -41,7 +40,12 @@ let dotHooks = {
       doc.createdAtDate = new Date();
       doc.dotType = Session.get("dotType");
       if(Session.get("embedlyObj")){
-        doc.embedlyObj = Session.get("embedlyObj")
+        doc.embedlyObj = Session.get("embedlyObj");
+      }
+      else if(Session.get('fbPostAuthorData')){
+        doc.linkAuthorName = Session.get('fbPostAuthorData').name;
+        doc.linkAuthorUrl = 'https://www.facebook.com/' + Session.get('fbPostAuthorData').id;
+        doc.facebookAuthorId = Session.get('fbPostAuthorData').id;
       }
       doc.category = Meteor.user().roles.firstGroup;
 

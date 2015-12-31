@@ -23,7 +23,7 @@ Template.login.events({
 
   'click .btn-facebook': () => {
     return Meteor.loginWithFacebook({
-      requestPermissions: ['email']
+      requestPermissions: ['email', 'user_friends', 'user_posts']
     }, function(error,result) {
       if (error) {
         return console.log(error.reason);
