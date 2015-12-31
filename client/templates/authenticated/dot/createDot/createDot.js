@@ -48,7 +48,7 @@ Template.createDotModal.onRendered(function(){
               var dataParser = JSON.stringify(data);
               console.log('success');
               $("#descriptionField").val(data.message);
-              Session.set('fbPostCreator')
+              Session.set('fbPostAuthorData', data.from);
             }
           })
         }

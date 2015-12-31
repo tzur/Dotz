@@ -20,10 +20,9 @@ let dotHooks = {
         };
         doc.location = locationSchemaObject;
       }
-
       if(Session.get('parentDot')){
         doc.inDotz = [Session.get('parentDot')];
-        let parentDot = Dotz.findOne(doc.inDotz[0])
+        let parentDot = Dotz.findOne(doc.inDotz[0]);
         Session.set('redirectAfterCreate', parentDot.dotSlug )
       }
       else{
@@ -40,7 +39,8 @@ let dotHooks = {
       doc.createdAtDate = new Date();
       doc.dotType = Session.get("dotType");
       if(Session.get("embedlyObj")){
-        doc.embedlyObj = Session.get("embedlyObj")
+        doc.embedlyObj = Session.get("embedlyObj");
+        doc.
       }
       doc.category = Meteor.user().roles.firstGroup;
 

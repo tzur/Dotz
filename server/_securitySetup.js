@@ -48,8 +48,6 @@ BrowserPolicy.content.allowOriginForAll("https://*.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("https://facebook.com/");
 BrowserPolicy.content.allowOriginForAll("https://*.facebook.com/*");
 BrowserPolicy.content.allowOriginForAll("https://facebook.com/");
-BrowserPolicy.content.allowOriginForAll("http://*.ynet.co.il/*");
-BrowserPolicy.content.allowOriginForAll("http://www.ynet.co.il/");
 
 //css'
 BrowserPolicy.content.allowOriginForAll("http://css-spinners.com/css/spinner/dots.css");
