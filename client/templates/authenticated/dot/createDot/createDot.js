@@ -29,7 +29,8 @@ Template.createDotModal.onRendered(function(){
             let embedlyObj = Session.get("embedlyObj");
             $("#titleField").val(embedlyObj.title);
             $("#descriptionField").val(embedlyObj.description);
-            Session.set("coverImageUrl", embedlyObj.thumbnail_url)
+            //Session.set("coverImageUrl", embedlyObj.thumbnail_url)
+            Modules.client.uploadToAmazonViaUrl(embedlyObj.thumbnail_url);
           });
       },
       error: function(obj){

@@ -8,7 +8,19 @@ a:hover {
   text-decoration: none;
 }
 
+/*Text Alignment*/
 
+.txtMd {
+  text-align: center;
+}
+
+.txtR {
+  text-align: right;
+}
+
+.txtL {
+  text-align: left;
+}
 
 
 
