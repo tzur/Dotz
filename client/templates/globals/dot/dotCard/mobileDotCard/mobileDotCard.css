@@ -1,7 +1,7 @@
 #mobileDotCard-box {
   padding: 1vh;
   margin-bottom: 3vh;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 #mobileDotCard {
@@ -18,11 +18,11 @@
 }
 
 #mobileDotCard-col-img{
-  width: 33vw;
+  width: 28vw;
   position: relative;
   min-height: 1px;
-  padding-right: 2vw;
-  padding-left: 5vw;
+  padding-right: 1vw;
+  padding-left: 1vw;
   margin: auto;
   float: left;
 }
@@ -50,11 +50,11 @@
 }
 
 #mobileDotCard-col-text {
-  width: 58vw;
+  width: 60vw;
   padding-top: 1vw;
   position: relative;
-  height: 23vw;
-  padding-right: 15px;
+  height: 19vw;
+  /*padding-right: 15px;*/
   margin: auto;
   float: left;
 }
@@ -91,36 +91,56 @@
 
 
 #mobileDotCard-col-like {
-  width: 10vw;
-  padding-top: 1vw;
+  width: 8vw;
+  /* padding-top: 1vw; */
   position: relative;
-  min-height: 1px;
-  /*padding-right: 15px;*/
-  /*padding-left: 15px;*/
-  margin: auto;
+  /* min-height: 1px; */
+  margin-top: 8vw;
+  /* padding-left: 2vw; */
+  /* padding-right: 15px; */
+  /* padding-left: 15px; */
+  /* margin: auto; */
   float: left;
   text-align: center;
 }
 
 
-#mobileDotCard-col-3dots {
-  position: absolute;
-  bottom: 0;
-  right: 6vw;
-  width: 10vw;
-  margin: auto;
+#mobileDotCard-buttons {
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  /*right: 6vw;*/
+  /*width: 22vw;*/
+  /*margin: auto;*/
   text-align: center;
   float: right;
 }
 
-#mobileDotCard-col-3dots h2{
-  margin: 0;
+#mobileDotCard-3dots {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
+/*#mobileDotCard-col-3dots h2{*/
+  /*margin: 0;*/
+/*}*/
+
 #mobileDotCard-collapseButtons {
-  height: 6em;
+  /*height: 6em;*/
   padding: 1em 0;
   background-color: #eee;
+}
+
+#connectedByTextDiv-mobileDotCard{
+  /*padding-top: 2vh;*/
+  padding-bottom: 2vh;
+}
+
+#connectedByText-mobileDotCard {
+  /*background-color: #eee;*/
+  color: #333;
+  /*padding-top: 3vw;*/
+  /*padding-bottom: 1vw;*/
 }
 
 .likesCounter {

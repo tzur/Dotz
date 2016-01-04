@@ -149,7 +149,7 @@
 #verticalLine {
   position: absolute;
   height: 100vh;
-  width: 16vw;
+  width: 24vw;
   border-right: 2px solid #eeeeee;
 }
 
