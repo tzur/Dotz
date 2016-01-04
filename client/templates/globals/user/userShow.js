@@ -280,6 +280,9 @@ Template.userShow.events({
   },
   'click .goToProfileMode': function(){
     Session.set('showShareDotz', false);
+  },
+  'click #_userConnectivity': function(){
+    Modal.show('userConnectivity');
   }
 
 });
