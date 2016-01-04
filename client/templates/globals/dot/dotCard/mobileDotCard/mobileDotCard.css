@@ -121,19 +121,28 @@
   right: 0;
 }
 
+#mobileDotCard-3dots .dropdown-menu > li > a {
+  padding-left: 0;
+}
+
 /*#mobileDotCard-col-3dots h2{*/
   /*margin: 0;*/
 /*}*/
 
 #mobileDotCard-collapseButtons {
   /*height: 6em;*/
+  position: relative;
   padding: 1em 0;
   background-color: #eee;
 }
 
 #connectedByTextDiv-mobileDotCard{
   /*padding-top: 2vh;*/
-  padding-bottom: 2vh;
+  /*padding-bottom: 2vh;*/
+}
+
+#connectedBy-connectorLine-mobileDotCard {
+  padding-bottom: 1em;
 }
 
 #connectedByText-mobileDotCard {
