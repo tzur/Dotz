@@ -1,8 +1,9 @@
-
-Template.fb.events({
-  'click #btn-fb': function(e){
-    Meteor.call('getUserData', function(error, data){
-      $('#result').text(JSON.stringify(data))
-    })
-  }
-});
+//
+//Template.fb.events({
+//  'click #btn-fb': function(e){
+//
+//
+//
+//let _uploadFileToAmazon = ( file ) => {
+//
+//};
