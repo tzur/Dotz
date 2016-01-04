@@ -104,8 +104,8 @@ Template.desktopDotShow.helpers({
     return ( this.dot.ownerUserId === Meteor.userId() && this.dot.quickStartListId )
   },
 
-  isEmptyList: function() {
-    return ( (this.dot.dotType === "List") && (this.dot.connectedDotzArray.length === 0) )
+  thereIsNoConnectionsToThisDot: function() {
+    return (this.dot.connectedDotzArray.length === 0)
   },
 
   isMyDot: function() {

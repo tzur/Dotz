@@ -1,0 +1,511 @@
+<template name="desktopDotShow">
+
+
+{{#with dotShow}}
+      <div></div>
+      <div class="backToLastPath">
+
+          <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-times"></i></button>
+
+      </div>
+
+    <!--{{#if isListShow}}-->
+    <div class="container-fluid" id="listShowHeader">
+
+        <div class="row listCoverImg" style="background-image: url('{{dot.coverImageUrl}}')">
+            <div class="filter">
+
+                <div class="container-fluid">
+                    <h1 class="title col-xs-10 colCenter">{{dot.title}}</h1>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="col-xs-10 col-sm-6 col-md-4 colCenter">
+                      <h5 class="description mdTxt">{{dot.bodyText}}</h5>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="user col-xs-10 colCenter">
+
+                        <div class="iconDiv smTxt">
+                            <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
+                            <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Created By <strong>{{ownerUser.username}}</strong></span></a>
+                          {{#if facebookDot}}
+                            <a href="/{{dot.linkAuthorUrl}}"><img class="postUserImgProfile" src="{{authorFbProfile}}"></a>
+                          {{/if}}
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div><!--end row listCoverImg-->
+
+            <div class="container-fluid list-show-btns-div">
+
+                <div class="col-xs-12 col-sm-11 col-md-9 col-lg-7 colCenter">
+
+                    <div class="col-xs-5 col-sm-4 col-md-5 col-lg-4 pull-left">
+                        <div>
+                            <span class="lgTxt mdGrey">{{dotzNum}}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-7 col-sm-8 col-md-7 col-lg-8 pull-right txtR">
+
+                <!--<a class="closeToOpen"> GO TO TOPEN</a>-->
+                <!--<a class="openToClose">GO TO CLOSEEEE</a>-->
+
+                      <button type="button" class="connect btn btn-success btn-sm dot-show-connect-btn">Connect List {{connectCounter}}</button>
+
+                      {{#if isMyDot}}
+                        <span class="hidden-xs">
+                            <a class="panelBtn dropdown-toggle btn btn-default btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span><i class="fa mdGrey fa-cog" aria-hidden="true"></i></span>
+                            </a>
+                            <ul id="pre-delete-menu" class="dropdown-menu pull-right">
+                                <li class="editBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="deleteShow"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                            </ul>
+                        </span>
+                          <!--TBD: Share-->
+
+                      {{/if}}
+                      {{#if shareList}}
+                        {{#if alreadyShared}}
+                            <button type="button" class="btn btn-share-checked btn-sm pull-right"><i class="fa fa-check smTxt"></i></button>
+                        {{else}}
+                            <button type="button" class="shareListInstant btn btn-share-check btn-sm pull-right"><i class="fa fa-share-alt mdTxt"></i></button>
+                        {{/if}}
+
+                      {{else}}
+                          <a href="#" id="listShow-share-btn" class="dropdown-toggle pull-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                              <div class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i></div></a>
+
+                          <ul class="dropdown-menu">
+                              <li class="shareOnFaceBook">
+                                  <a href="#" class="btn btn-facebook _shareFacebookDialog">
+                                      <i class="fa fa-facebook-official"></i>Share on facebook</a>
+                              </li>
+                              <li class="shareCurrentList">
+                                  <a href="#"><i class="fa fa-paper-plane"></i>Share multi Dotz</a>
+                              </li>
+                              <!--<a href="{{shareDotOnFacebookLink}}" target="_blank" class="btn btn-facebook">-->
+                                  <!--<i class="fa fa-facebook"></i>-->
+                              <!--</a>-->
+                          </ul>
+                      {{/if}}
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+
+    </div>
+
+
+
+
+
+<!--{{else}} &lt;!&ndash;this is a dotShow&ndash;&gt;-->
+
+    <!--<div class="container-fluid dot-show-header" id="dotShowHeader">-->
+        <!--<div class="row">-->
+
+            <!--<div class="col-sm-7 postImgCover" style="background-image: url('{{dot.coverImageUrl}}')">-->
+
+            <!--</div>-->
+            <!--&lt;!&ndash;<a class="closeToOpen"> GO TO OPEN</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a class="openToClose">GO TO CLOSE</a>&ndash;&gt;-->
+            <!--<div class="col-sm-5 dot-show-main-details">-->
+
+                <!--<div class="row dot-title">-->
+                    <!--<div class="toDot col-xs-12">-->
+                        <!--<h2 class="dot-show-title">{{dot.title}}</h2>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="row dot-show-type-div">-->
+                    <!--<div class="col-sm-12">-->
+
+                      <!--{{#if dot.location.address}}-->
+                        <!--<div class="txtL dot-show-type">-->
+                            <!--<a href="{{dot.location.googleMapsUrl}}" target="_blank">-->
+                            <!--<i class="fa fa-map-marker fa-lg mdGrey"></i>-->
+                            <!--<span class="dot-type greyText mdTxt alignSub"> {{dot.location.address}}</span>-->
+                            <!--</a>-->
+                        <!--</div>-->
+                      <!--{{/if}}-->
+
+                      <!--{{#if eventDate}}-->
+                        <!--<div class="txtL dot-show-type">-->
+                            <!--<i class="fa fa-calendar fa-lg mdGrey"></i>-->
+                            <!--<span class="dot-type greyText mdTxt alignSub">{{eventDate}}</span>-->
+                        <!--</div>-->
+                      <!--{{/if}}-->
+
+                      <!--{{#if dot.price}}-->
+                        <!--<div class="txtL dot-show-type">-->
+                            <!--<img class="type-icon-dot-show" src="/price-icon-grey.png">-->
+                            <!--<span class="dot-type greyText mdTxt alignSub">{{dot.price}} {{dot.currency}} </span>-->
+
+                        <!--</div>-->
+                      <!--{{/if}}-->
+
+                      <!--<br>-->
+
+                        <!--<div>-->
+
+                           <!--<button type="button" class="connect btn btn-success btn-md dot-show-connect-btn">Connect {{connectCounter}}</button>-->
+                            <!--&lt;!&ndash;TBD: Share&ndash;&gt;-->
+                            <!--&lt;!&ndash;{{> shareit dataForShare}}&ndash;&gt;-->
+                          <!--{{#if isMyDot}}-->
+
+                            <!--<span>-->
+                            <!--<a class="panelBtn dropdown-toggle btn btn-default btn-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                                <!--<span><i class="fa mdGrey fa-cog" aria-hidden="true"></i></span>-->
+                            <!--</a>-->
+                            <!--<ul id="pre-delete-menu" class="dropdown-menu pull-right">-->
+                                <!--<li class="editBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>-->
+                                <!--<li role="separator" class="divider"></li>-->
+                                <!--<li class="deleteShow"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>-->
+                            <!--</ul>-->
+                            <!--</span>-->
+
+                          <!--{{/if}}-->
+
+                          <!--{{#if shareList}}-->
+                            <!--{{#if alreadyShared}}-->
+                                <!--<button type="button" class="btn btn-share-checked btn-md"><i class="fa fa-check smTxt"></i></button>-->
+                            <!--{{else}}-->
+                                <!--<button type="button" class="shareListInstant btn btn-share-check btn-md"><i class="fa fa-share-alt mdTxt"></i></button>-->
+                            <!--{{/if}}-->
+
+                          <!--{{else}}-->
+                            <!--<span>-->
+                              <!--<a href="#" id="listShow-share-btn" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
+                                  <!--<div class="btn btn-default btn-md"><i class="fa fa-share-alt"></i></div></a>-->
+                              <!--<ul class="dropdown-menu">-->
+                                  <!--<li class="shareOnFaceBook">-->
+                                      <!--<a href="#" class="btn btn-facebook _shareFacebookDialog">-->
+                                          <!--<i class="fa fa-facebook-official"></i>Share on facebook</a>-->
+                                  <!--</li>-->
+                                  <!--<li class="shareCurrentList">-->
+                                      <!--<a href="#"><i class="fa fa-paper-plane"></i>Share multi Dotz</a>-->
+                                  <!--</li>-->
+                              <!--</ul>-->
+                            <!--</span>-->
+                          <!--{{/if}}-->
+
+                        <!--</div>-->
+
+
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="row">-->
+
+                <!--&lt;!&ndash;{{#if dotzNum}}&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="col-sm-12 col-md-8 dot-show-btn">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#connectedDotz"><button type="button" class="btn btn-success round btn-md dot-show-connect-btn"> {{dotzNum}} Connected Dotz</button></a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;{{/if}}&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<span class="">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="{{dot.linkUrl}}" target="_blank">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<button type="button" class="btn btn-lead btn-md">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<i class="fa fa-globe"></i> Visit Site </button>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+
+                <!--</div>-->
+
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="container-fluid dot-owner-description-div">-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-6 col-sm-offset-1">-->
+
+                <!--<div>-->
+
+                    <!--<div id="ownerPostDiv" class="row dot-creator">-->
+                        <!--<div class="col-xs-9 iconDiv txtL">-->
+                            <!--<a href="/{{ownerUser.profile.userSlug}}">-->
+                                <!--<img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}">-->
+                                <!--<span class="align-icon-text greyText smTxt"><strong>{{ownerUser.username}}</strong> Connected </span>-->
+                            <!--</a>-->
+                          <!--{{#if facebookDot}}-->
+                              <!--<span class="align-icon-text greyText smTxt"> <strong>{{dot.linkAuthorName}}</strong> dot</span>-->
+                              <!--<a href="{{dot.linkAuthorUrl}}"><img class="postUserImgProfile" src="{{authorFbProfile}}">-->
+
+                              <!--</a>-->
+                          <!--{{/if}}-->
+                            <!--<span class="mdGrey smTxt"><span>·</span> {{actionDate}} </span>-->
+                        <!--</div>-->
+
+                        <!--&lt;!&ndash;<div class="col-xs-3">&ndash;&gt;-->
+                          <!--&lt;!&ndash;{{#if myFollow}}&ndash;&gt;-->
+                              <!--&lt;!&ndash;<button type="button" class="unFollow btn btn-lead btn-sm round pull-right">Following</button>&ndash;&gt;-->
+                          <!--&lt;!&ndash;{{else}}&ndash;&gt;-->
+                              <!--&lt;!&ndash;<button type="button" class="follow btn btn-success btn-sm round pull-right">Follow</button>&ndash;&gt;-->
+                          <!--&lt;!&ndash;{{/if}}&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                    <!--</div>-->
+
+                    <!--<div class="row dot-description">-->
+                        <!--<div class="col-xs-12 iconDivDetails">-->
+                            <!--<pre class="greyText mdTxt limiText dot-desc-left-pad">{{dot.bodyText}}</pre>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--{{#if dot.linkUrl}}-->
+                    <!--<br>-->
+                    <!--<div class="col-xs-4 col-sm-3 colCenter">-->
+                        <!--<a href="{{dot.linkUrl}}" target="_blank">-->
+                        <!--<button type="button" class="btn btn-success btn-md">-->
+                            <!--<i class="fa fa-globe"></i> Visit Site </button>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <!--<br>-->
+                    <!--{{/if}}-->
+
+
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+  <!--{{#if dot.location.address}}-->
+    <!--<div class="row map-div container-fluid">-->
+        <!--<div class="col-xs-12">-->
+             <!--<a href={{dot.location.googleMapsUrl}} target="_blank">-->
+            <!--{{#with dot.location}}-->
+                <!--{{> dotShowMap}}-->
+            <!--{{/with}}-->
+             <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+  <!--{{/if}}-->
+
+
+
+  <!--{{#if dot.connectedDotzArray}}-->
+
+      <!--<div class="dot-divider-hr container-fluid">-->
+              <!--<hr class="lightGrey">-->
+        <!--{{#if isOpenDot}}-->
+            <!--<div class="dot-divider-box col-xs-4 colCenter">Connected Dotz:</div>-->
+        <!--{{else}} &lt;!&ndash;is Close list&ndash;&gt;-->
+            <!--<div class="dot-divider-box col-xs-4 colCenter">Connected Dotz by {{ownerUser.username}}</div>-->
+        <!--{{/if}}-->
+      <!--</div>-->
+
+  <!--{{/if}}-->
+
+
+<!--{{/if}} &lt;!&ndash;end the check if is ListShow or DotShow&ndash;&gt;-->
+
+
+  {{/with}}
+
+    <!--Anchor-->
+<a name="connectedDotz"></a>
+
+{{#with dotShow}}
+<!--{{#if dot.connectedDotzArray}}-->
+
+
+
+
+<div id="connectedDotzArray">
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
+
+              {{#each connectedDotzArray}}
+                {{>dotCard}}
+              {{/each}}
+
+            </div>
+        </div>
+    </div><!-- end container-fluid -->
+
+</div>
+
+
+
+<div class="container-fluid hidden-xs hidden-sm">
+    <div class="row">
+
+
+
+      {{#if isMyDot}}
+        {{#if isListShow}}
+
+        <!--<div class="container-fluid">-->
+        <!--<div class="row">-->
+        <!--<div class="col-xs-12 col-md-10 col-lg-8 colCenter">-->
+
+            <!--<div class="col-xs-12 txtMd createInShow">-->
+
+                <!--<button type="button" id="_createDotFromList" class="createDot btn btn-default btn-md"><a href=""><i class="fa fa-circle-o"></i> Create Dot</a></button>-->
+
+                <!--<button type="button" id="_createListFromList" class="createList btn btn-default btn-md"><a href=""><i class="fa fa-list-ul"></i> Create List</a></button>-->
+
+            <!--</div>-->
+
+
+
+            <!--<div class="col-xs-12 col-sm-10 colCenter" id="emptyProfile">-->
+
+                <!--<div class="card col-xs-12 colCenter" id="listCover">-->
+                    <!--<div class="container-fluid dot-container-img-listCard"-->
+                         <!--style="background-image: url('https://dotz-dev-images.s3.amazonaws.com/sXLnHX3sr8vbeh8KB/dotz_How.jpg')">-->
+                        <!--<div class="filter">-->
+                            <!--<a href="/dotz">-->
+                                <!--<div class="listCoverContent">-->
+                                    <!--<div class="title">-->
+                                        <!--<a href="/dotz"><h2 class="whiteTxt txtMd">This Is How We Do It</h2></a>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-xs-12 txtMd">-->
+                                        <!--<a href="/dotz">-->
+                                            <!--<button type="button" class="btn btn-primary btn-md">Check It Out</button>-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div> &lt;!&ndash; end listCard &ndash;&gt;-->
+
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        {{/if}}
+      {{/if}}
+
+
+    </div>
+</div>
+
+
+{{#if thereIsNoConnectionsToThisDot}}
+  <div id="emptyList">
+      <h2 class="txtMd mdGrey">Let's Create somethings awesome</h2>
+
+      <br>
+
+      <div id="deadEnd-desktopDotShow" class="container-fluid" style="background-image: url('http://i.imgur.com/luFoSme.gif')"></div>
+
+      <br>
+
+      <h4 class="txtMd mdGrey">Start by connecting the first Dot</h4>
+      <h2 class="txtMd"><i class="fa fa-arrow-down mdGrey"></i></h2>
+
+      <!--<hr>-->
+      <br>
+  {{#if userCanAutoGenerateDotz}}
+      {{#if workingOnQuickStart}}
+
+
+          <h2 class="txtMd lightGrey">We are working on it...</h2>
+          <br>
+          <div class="col-xs-12 txtMd">
+              <div class="dots-loader">
+                  Loading…
+              </div>
+          </div>
+          <br><br><br>
+
+      {{else}}
+
+          <div class="col-xs-12 txtMd">
+              <button id= "_generateAutoDotz" type="button" class="btn btn-primary btn-md">
+                  Kickstart with popular Dotz
+              </button>
+            <br><br>
+              <!--<span class="txtMd mdGrey"> With the most popular Dotz <strong>OR</strong> Do it yourself:</span>-->
+              <span class="txtMd smTxt mdGrey">- OR DO IT YOURSELF -</span>
+          </div>
+          <br><br>
+
+      {{/if}}
+    {{/if}}
+
+  </div>
+{{/if}}
+
+
+
+<!--{{/if}}-->
+
+
+{{#if isUserAllowToConnect}}
+
+<div class="container-fluid" id="dotShowFooter">
+
+      <div class="row">
+
+        {{# if addDotIsAvailable}}
+          {{#with dataForCreateHere}}
+
+            {{>searchBoxForConnect}}
+
+          {{/with}}
+        {{/if}}
+
+      </div>
+
+</div>
+
+  {{/if}}
+
+
+
+
+<!--navBar fixed bottom-->
+
+<!--<nav class="navbar navbar-default navbar-fixed-bottom" id="navbar-bottom">-->
+    <!--<div class="container">-->
+
+        <!--<div class="row">-->
+
+            <!--&lt;!&ndash;show the current dot/list Show&ndash;&gt;-->
+            <!--<div class="hidden-xs col-sm-8 col-md-8">-->
+                <!--<div id="whereIAm" class="noneWhere">-->
+                    <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                    <!--<img class="hereWithImg" src="{{dot.coverImageUrl}}">-->
+                    <!--<span class="iAmHere">{{dot.title}}</span>-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="col-sm-2 col-md-2">-->
+                <!--<button type="button" class="connect btn btn-success btn-md dot-show-connect-btn">Connect {{connectCounter}}</button>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</nav>-->
+
+
+
+{{/with}}
+
+</template>
