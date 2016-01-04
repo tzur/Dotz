@@ -6,15 +6,16 @@ Meteor.startup(function () {
 
 
 
-  //Meteor.call('convertUsersToRoleOwner', 'Tourism', 'firstGroup', function(error){
-  //  if(!error){
-  //    console.log('all user have been updated')
-  //  }
-  //});
-  //
-  //Meteor.call('convertUsersToRoleOwner', 'Connector', Roles.GLOBAL_GROUP);
-  //Meteor.call('addCategoryToDotzByOwner');
-  //Meteor.call('updateUsersRolesToAlgolia');
-  //Meteor.call('convertImagesToImgixUrl');
 
+  //Migration methods calls - use if needed
+
+  //****Convert user to connector*****
+  //Meteor.call('convertUsersToRoleOwner', 'Connector', Roles.GLOBAL_GROUP);
+
+  //****Convert User from tourism to tech and vise versa
+  //Meteor.call('convertUsersToRoleOwner', 'Tourism', 'firstGroup', function(error){
+    //  if(!error){
+    //    console.log('all user have been updated')
+    //  }
+    //});
 });
