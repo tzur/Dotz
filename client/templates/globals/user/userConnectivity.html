@@ -1,13 +1,62 @@
 <template name="userConnectivity">
         <div class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
+            <div id="modalDialog-userConnectivity" class="modal-dialog">
+                <div id="modalContent-userConnectivity" class="modal-content">
                     <div class="modal-body">
-                        <div class="row">
 
-                        </div>
+                        <div class="container-fluid">
 
-                        <div class="row">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="active">
+                                    <a href="#createdByUserDotz" role="tab" data-toggle="tab">
+                                        <icon class="fa fa-home"></icon> Home
+                                    </a>
+                                </li>
+                                <li><a href="#dotzConnectedByUser" role="tab" data-toggle="tab">
+                                    <i class="fa fa-user"></i> Profile
+                                </a>
+                                </li>
+                                <li>
+                                    <a href="#peopleConnectedUserDotz" role="tab" data-toggle="tab">
+                                        <i class="fa fa-envelope"></i> Messages
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#userFollowers" role="tab" data-toggle="tab">
+                                        <i class="fa fa-cog"></i> Settings
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#userFollowing" role="tab" data-toggle="tab">
+                                        <i class="fa fa-cog"></i> Settings
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade active in" id="createdByUserDotz">
+                                    <h2>createdByUserDotz Home Content Goes Here</h2>
+                                    <img src="http://lorempixel.com/400/400/cats/1" alt="Cats"/>
+                                </div>
+                                <div class="tab-pane fade" id="dotzConnectedByUser">
+                                    <h2>dotzConnectedByUser Profile Content Goes Here</h2>
+                                    <img src="http://lorempixel.com/400/400/cats/2" alt="Cats"/>
+                                </div>
+                                <div class="tab-pane fade" id="peopleConnectedUserDotz">
+                                    <h2>peopleConnectedUserDotz Messages Content Goes Here</h2>
+                                    <img src="http://lorempixel.com/400/400/cats/3" alt="Cats"/>
+                                </div>
+                                <div class="tab-pane fade" id="userFollowers">
+                                    <h2>userFollowers Settings Content Goes Here</h2>
+                                    <img src="http://lorempixel.com/400/400/cats/4" alt="Cats"/>
+                                </div>
+                                <div class="tab-pane fade" id="userFollowing">
+                                    <h2>userFollowing Settings Content Goes Here</h2>
+                                    <img src="http://lorempixel.com/400/400/cats/4" alt="Cats"/>
+                                </div>
+                            </div>
 
                         </div>
 

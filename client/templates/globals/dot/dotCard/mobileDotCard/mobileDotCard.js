@@ -8,8 +8,8 @@ Template.mobileDotCard.onCreated(function(){
         // any subscription will be expire after 5 minute, if it's not subscribed again
         expireIn: 5
       });
-        self.subs.subscribe('dotCard', self.data.dot._id);
-        self.subs.subscribe('user', self.data.dot.ownerUserId);
+        self.subs.subscribe('mobileDotCard', self.data.dot._id, self.data.dot.ownerUserId);
+        //self.subs.subscribe('user', self.data.dot.ownerUserId);
         self.subs.subscribe('user', self.data.connection.connectedByUserId);
 
 });
