@@ -70,7 +70,7 @@ Template.mobileDotShow.onRendered(function(){
   fbAsyncInit();
 
   //Link to the source: http://jsfiddle.net/yeco/4EcFf/
-  //TBD: we need to reduce the jQeury queries... :
+  //TBD: we need to reduce the jQuery queries... :
   $(document).scroll(function () {
       var menu = $('#placeHolder');
       var origOffsetY = menu.offset().top - $(window).height();
