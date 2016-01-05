@@ -14,27 +14,6 @@
                     <hr id="mobileDotCard-connectLine">
                 </div>
 
-                <!--<div id="mobileDotCard-col-like">-->
-
-                  <!--{{#if isInOpenList}}-->
-
-                      <!--&lt;!&ndash;TBD: add a session to fix it!!! &ndash;&gt;-->
-                    <!--{{# if isLikedByMe}}-->
-                        <!--<a href>-->
-                            <!--<i class="unlike darkText likeBtn fa fa-heart mdTxt"></i>-->
-                            <!--<h5 class="likesCounter bold darkText">{{likeCounter}}</h5>-->
-                        <!--</a>-->
-                    <!--{{else}}-->
-                        <!--<a href>-->
-                            <!--<i class="like darkText likeBtn fa fa-heart-o mdTxt"></i>-->
-                            <!--<h5 class="likesCounter bold darkText">{{likeCounter}}</h5>-->
-                        <!--</a>-->
-                    <!--{{/if}}-->
-
-                  <!--{{/if}}-->
-
-                <!--</div>-->
-
                 <div id="mobileDotCard-col-img">
 
                   <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
@@ -58,6 +37,12 @@
                         </div>
                     </div>
 
+                    <div id="mobileDotCard-col-title">
+                        <div id="mobileDotCardTitle">
+                            <h5>Learn how to create websites by structuring and</h5>
+                        </div>
+                    </div>
+
                     <div id="mobileDotCard-col-credit">
                         <div id="mobileDotCardCredit">
                           <h6 class="lightGrey">{{dot.linkName}}</h6>
@@ -67,31 +52,57 @@
                   </a>
                 </div>
 
+                <div id="mobileDotCard-3dots" class="dropdown">
+                    <button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <h4 class="txtVertical bold">...</h4>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                        <li><a href="#" class="no-left-pad"><i class="fa fa-plus"></i> Connect to profile</a></li>
+                        <li><a href="#" class="no-left-pad"><i class="fa fa-book"></i> Read on facebook.com</a></li>
+                        <li><a href="#" class="no-left-pad"><i class="fa fa-share"></i> Share</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#" class="no-left-pad"><i class="fa fa-flag"></i>Report</a></li>
+                    </ul>
+                </div>
+
                 <div id="mobileDotCard-buttons">
 
-                    <!--<button class="btn btn-default btn-xs mdGrey">-->
-                        <!--<i class="fa fa-external-link"></i>-->
-                    <!--</button>-->
+                    <div id="mobileDotCard-col-like">
 
-                    <div id="mobileDotCard-3dots" class="dropdown">
-                        <button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <h4 class="txtVertical bold">...</h4>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-                            <li><a href="#" class="no-left-pad"><i class="fa fa-plus"></i> Connect to profile</a></li>
-                            <li><a href="#" class="no-left-pad"><i class="fa fa-book"></i> Read on facebook.com</a></li>
-                            <li><a href="#" class="no-left-pad"><i class="fa fa-share"></i> Share</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#" class="no-left-pad"><i class="fa fa-flag"></i>Report</a></li>
-                        </ul>
+                        {{#if isInOpenList}}
+
+                    <!--TBD: add a session to fix it!!! -->
+                        {{# if isLikedByMe}}
+                        <a href>
+                        <i class="unlike mdGrey likeBtn fa fa-heart"></i>
+                        <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
+                        </a>
+                            {{else}}
+                        <a href>
+                        <i class="like mdGrey likeBtn fa fa-heart-o"></i>
+                        <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
+                        </a>
+                            {{/if}}
+
+                        {{/if}}
+
                     </div>
+
+
+
+                    <button class="btn btn-full-trans btn-xs sm2Txt mdGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
+
+                        @otni levi <i class="fa fa-comment-o mdTxt"></i>
+                    </button>
+
+
 
                     <!--<button class="btn btn-default btn-xs mdGrey">-->
                         <!--<i class="fa fa-plus"></i>-->
                     <!--</button>-->
 
-                    <button class="btn btn-full-trans btn-xs lightGrey" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
-                        <i class="fa fa-comment"></i>
+                    <button class="btn btn-full-trans btn-xs mdGrey pull-right">
+                        <i class="fa fa-bookmark-o mdTxt mdGrey"></i>
                     </button>
 
                 </div>
@@ -106,9 +117,9 @@
 
             <div class="collapse mobileDotCard-collapseConnectorDiv" id="collapseButtons-{{dot._id}}">
 
-                <!--<div id="arrow-up-div" class="container-fluid">-->
-                    <!--<div class="arrow-up pull-right"></div>-->
-                <!--</div>-->
+                <div id="arrow-up-div" class="container-fluid">
+                    <div class="arrow-up pull-right"></div>
+                </div>
 
               <div id="mobileDotCard-collapseConnector">
 
@@ -119,7 +130,7 @@
                         <div id="connectedBy-connectorLine-mobileDotCard" class="user">
                             <div class="iconDiv smTxt">
                                 <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
-                                <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt mdGrey">Connected By <strong>{{ownerUser.username}}</strong></span></a>
+                                <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt mdGrey"><strong>{{ownerUser.username}}</strong></span></a>
                             </div>
                         </div>
 
