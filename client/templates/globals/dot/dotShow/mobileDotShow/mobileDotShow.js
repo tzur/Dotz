@@ -76,10 +76,10 @@ Template.mobileDotShow.onRendered(function(){
       var origOffsetY = menu.offset().top - $(window).height();
       if ($(window).scrollTop() > origOffsetY) {
           $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
-          console.log("removeClass");
+          //console.log("removeClass");
       } else {
           $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
-          console.log("addClass");
+          //console.log("addClass");
       }
   });
 

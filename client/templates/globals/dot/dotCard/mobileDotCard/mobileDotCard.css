@@ -1,26 +1,39 @@
 #mobileDotCard-box {
-  padding: 0 1vh 0 1vh;
-  /*margin-bottom: 3vh;*/
-  /*overflow-x: hidden;*/
+  padding: 5vh 1vh 0 0;
+  margin-left: 1vw;
+  /* margin-bottom: 3vh; */
+  /* overflow-x: hidden; */
+  border-left: 2px solid #e5e5e5;
 }
 
-#mobileDotCard-lineDiv {
-  position: relative;
-  width: 100%;
-  height: 5vh;
-}
+/*#mobileDotCard-lineDiv {*/
+  /*position: relative;*/
+  /*width: 100%;*/
+  /*height: 5vh;*/
+/*}*/
 
-#mobileDotCard-line {
-  /*position: absolute;*/
-  height: inherit;
-  width: 18vw;
-  border-right: 2px solid #e5e5e5;
-}
+/*#mobileDotCard-line {*/
+  /*/!*position: absolute;*!/*/
+  /*height: inherit;*/
+  /*width: 18vw;*/
+  /*border-right: 2px solid #e5e5e5;*/
+/*}*/
 
 #mobileDotCard {
   position: relative;
   padding: 0;
+}
 
+#mobileDotCard-col-connectLine {
+  width: 5vw;
+  position: relative;
+  margin-top: 6vw;
+  float: left;
+  text-align: center;
+}
+
+#mobileDotCard-connectLine {
+  border-top: 2px #e5e5e5 solid;
 }
 
 #mobileDotCardHorizonalLine {
@@ -31,11 +44,11 @@
 }
 
 #mobileDotCard-col-img{
-  width: 28vw;
+  width: 27vw;
   position: relative;
   min-height: 1px;
   padding-right: 1vw;
-  padding-left: 1vw;
+  /*padding-left: 1vw;*/
   margin: auto;
   float: left;
 }
@@ -63,7 +76,7 @@
 }
 
 #mobileDotCard-col-text {
-  width: 60vw;
+  width: 59vw;
   padding-top: 1vw;
   position: relative;
   height: 19vw;

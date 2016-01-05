@@ -162,18 +162,18 @@
   padding: 2vh 0;
 }
 
-#mobileDotShow-lineDiv {
-  position: relative;
-  width: 100%;
-  height: 5vh;
-}
+/*#mobileDotShow-lineDiv {*/
+  /*position: relative;*/
+  /*width: 100%;*/
+  /*height: 5vh;*/
+/*}*/
 
-#mobileDotShow-line {
-  /*position: absolute;*/
-  height: inherit;
-  width: 20vw;
-  border-right: 2px solid #e5e5e5;
-}
+/*#mobileDotShow-line {*/
+  /*/!*position: absolute;*!/*/
+  /*height: inherit;*/
+  /*width: 20vw;*/
+  /*border-right: 2px solid #e5e5e5;*/
+/*}*/
 
 #dotSmallImgFooter-mobileDotShow {
   position: relative;
