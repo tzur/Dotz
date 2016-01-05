@@ -59,6 +59,7 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
   let data = [
     Dotz.find(dotId,
       {fields: {
+        "isOpen": 1,
         "title": 1,
         "bodyText": 1,
         "ownerUserId": 1,
