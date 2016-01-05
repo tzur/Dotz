@@ -41,7 +41,9 @@ Template.mobileDotShow.onCreated(function() {
   });
 });
 
+
 Template.mobileDotShow.onRendered(function(){
+
   Tracker.autorun(function () {
     FlowRouter.watchPathChange();
     window.scrollTo(0,0);
@@ -55,7 +57,6 @@ Template.mobileDotShow.onRendered(function(){
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-
   window.fbAsyncInit = function() {
     if (typeof(FB) != 'undefined'
       && FB != null ) {
@@ -68,7 +69,22 @@ Template.mobileDotShow.onRendered(function(){
   };
   fbAsyncInit();
 
+  //Link to the source: http://jsfiddle.net/yeco/4EcFf/
+  //TBD: we need to reduce the jQuery queries... :
+  $(document).scroll(function () {
+      var menu = $('#placeHolder');
+      var origOffsetY = menu.offset().top - $(window).height();
+      if ($(window).scrollTop() > origOffsetY) {
+          $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
+          //console.log("removeClass");
+      } else {
+          $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
+          //console.log("addClass");
+      }
+  });
+
 });
+
 
 Template.mobileDotShow.onDestroyed(function(){
 });
