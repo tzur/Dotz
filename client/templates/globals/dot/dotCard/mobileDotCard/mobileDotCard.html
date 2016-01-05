@@ -3,7 +3,32 @@
 
       <div class="row" id="mobileDotCard-box">
 
-            <div id="mobileDotCard" class="row">
+            <!--<div id="mobileDotCard-lineDiv" class="container-fluid">-->
+                <!--<div id="mobileDotCard-line"></div>-->
+            <!--</div>-->
+
+            <div id="mobileDotCard" class="container-fluid">
+
+                <div id="mobileDotCard-col-like">
+
+                  {{#if isInOpenList}}
+
+                      <!--TBD: add a session to fix it!!! -->
+                    {{# if isLikedByMe}}
+                        <a href>
+                            <i class="unlike darkText likeBtn fa fa-heart mdTxt"></i>
+                            <h5 class="likesCounter bold darkText">{{likeCounter}}</h5>
+                        </a>
+                    {{else}}
+                        <a href>
+                            <i class="like darkText likeBtn fa fa-heart-o mdTxt"></i>
+                            <h5 class="likesCounter bold darkText">{{likeCounter}}</h5>
+                        </a>
+                    {{/if}}
+
+                  {{/if}}
+
+                </div>
 
                 <div id="mobileDotCard-col-img">
 
@@ -37,65 +62,101 @@
                   </a>
                 </div>
 
+                <div id="mobileDotCard-buttons">
 
-                <div id="mobileDotCard-col-like">
+                    <!--<button class="btn btn-default btn-xs mdGrey">-->
+                        <!--<i class="fa fa-external-link"></i>-->
+                    <!--</button>-->
 
-                  {{#if isInOpenList}}
+                    <div id="mobileDotCard-3dots" class="dropdown">
+                        <button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <h4 class="txtVertical bold">...</h4>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                            <li><a href="#" class="no-left-pad"><i class="fa fa-plus"></i> Connect to profile</a></li>
+                            <li><a href="#" class="no-left-pad"><i class="fa fa-book"></i> Read on facebook.com</a></li>
+                            <li><a href="#" class="no-left-pad"><i class="fa fa-share"></i> Share</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" class="no-left-pad"><i class="fa fa-flag"></i>Report</a></li>
+                        </ul>
+                    </div>
 
-                        <!--TBD: add a session to fix it!!! -->
-                      {{# if isLikedByMe}}
-                          <a href>
-                              <i class="unlike greyText likeBtn fa fa-heart lgTxt"></i>
-                                  <h5 class="likesCounter greyText">{{likeCounter}}</h5>
-                          </a>
-                      {{else}}
-                          <a href>
-                              <i class="like greyText likeBtn fa fa-heart-o lgTxt"></i>
-                                  <h5 class="likesCounter greyText">{{likeCounter}}</h5>
-                          </a>
-                      {{/if}}
+                    <!--<button class="btn btn-default btn-xs mdGrey">-->
+                        <!--<i class="fa fa-plus"></i>-->
+                    <!--</button>-->
 
-                  {{/if}}
+                    <button class="btn btn-full-trans btn-xs lightGrey" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
+                        <i class="fa fa-comment"></i>
+                    </button>
 
-                </div>
-
-                <div id="mobileDotCard-col-3dots" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
-                    <h2 class="lightGrey">...</h2>
                 </div>
 
 
             </div> <!-- end listCard -->
 
+            <div id="mobileDotCard-lineDiv" class="container-fluid">
+                <div id="mobileDotCard-line"></div>
+            </div>
 
-            <div class="row collapse" id="collapseButtons-{{dot._id}}">
 
-                <div id="arrow-up-div" class="container-fluid">
-                    <div class="arrow-up pull-right"></div>
+            <div class="collapse mobileDotCard-collapseConnectorDiv" id="collapseButtons-{{dot._id}}">
+
+                <!--<div id="arrow-up-div" class="container-fluid">-->
+                    <!--<div class="arrow-up pull-right"></div>-->
+                <!--</div>-->
+
+              <div id="mobileDotCard-collapseConnector">
+
+                <div id="connectedByTextDiv-mobileDotCard" class="container-fluid">
+
+                    <div>
+
+                        <div id="connectedBy-connectorLine-mobileDotCard" class="user">
+                            <div class="iconDiv smTxt">
+                                <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
+                                <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt mdGrey">Connected By <strong>{{ownerUser.username}}</strong></span></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="connectedByText-mobileDotCard">
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>ajkdja shkd jah kjdh akjs dhkaj shkdj ahskjdhka jshkdj ahkdj ahksj dhka sjdh kaj</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
-                <div id="mobileDotCard-collapseButtons">
+              </div>
 
-                    <div class="col-xs-2 col-xs-offset-1 noPadding txtMd greyText">
-                        <i type="button" class="mobileDotCard-Buttons fa fa-share-alt"></i>
-                            <h6>Share</h6>
-                    </div>
+                <!--<div id="mobileDotCard-collapseButtons">-->
 
-                    <div class="col-xs-3 noPadding txtMd greyText">
-                        <i type="button" class="mobileDotCard-Buttons fa fa-minus-circle"></i>
-                            <h6>Disconnect</h6>
-                    </div>
+                    <!--<div class="col-xs-2 col-xs-offset-1 noPadding txtMd greyText">-->
+                        <!--<i type="button" class="mobileDotCard-Buttons fa fa-share-alt"></i>-->
+                            <!--<h6>Share</h6>-->
+                    <!--</div>-->
 
-                    <div class="col-xs-3 noPadding txtMd greyText">
-                        <i type="button" class="mobileDotCard-Buttons fa fa-plus-circle"></i>
-                            <h6>Connect</h6>
-                    </div>
+                    <!--<div class="col-xs-3 noPadding txtMd greyText">-->
+                        <!--<i type="button" class="mobileDotCard-Buttons fa fa-minus-circle"></i>-->
+                            <!--<h6>Disconnect</h6>-->
+                    <!--</div>-->
 
-                    <div class="col-xs-2 noPadding txtMd greyText">
-                        <i type="button" class="mobileDotCard-Buttons fa fa-globe"></i>
-                            <h6>Read</h6>
-                    </div>
+                    <!--<div class="col-xs-3 noPadding txtMd greyText">-->
+                        <!--<i type="button" class="mobileDotCard-Buttons fa fa-plus-circle"></i>-->
+                            <!--<h6>Connect</h6>-->
+                    <!--</div>-->
 
-                </div>
+                    <!--<div class="col-xs-2 noPadding txtMd greyText">-->
+                        <!--<i type="button" class="mobileDotCard-Buttons fa fa-globe"></i>-->
+                            <!--<h6>Read</h6>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+
             </div>
 
 

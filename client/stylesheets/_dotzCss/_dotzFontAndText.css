@@ -22,6 +22,12 @@ a:hover {
   text-align: left;
 }
 
+.txtVertical {
+  transform: rotate(90deg);
+  transform-origin: right;
+}
+
+
 
 
 /*Text Sizes*/
@@ -53,7 +59,7 @@ a:hover {
 }
 
 .darkText {
-  color: #333;
+  color: #555;
 }
 
 
@@ -82,3 +88,5 @@ a:hover {
 .line-h-md {
   line-height: 1.45;
 }
+
+

@@ -68,6 +68,38 @@ Template.mobileDotShow.onRendered(function(){
   };
   fbAsyncInit();
 
+  $(document).ready(function () {
+
+    //var menu = $('#fixedFooter-mobileDotShow');
+    console.log("a");
+    if($('#fixedFooter-mobileDotShow').lenght > 0){
+      let menu = $('#fixedFooter-mobileDotShow');
+      var origOffsetY = menu.offset().top;
+    }
+    //function scroll() {
+    //  if ($(window).scrollTop() >= origOffsetY) {
+    //    $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
+    //
+    //  } else {
+    //    $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
+    //
+    //  }
+    //
+    //
+    //}
+
+    //document.onscroll = scroll;
+    $(window).scroll(function(){
+      if ($(window).scrollTop() >= origOffsetY) {
+        $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
+
+      } else {
+        $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
+
+      }
+    })
+  });
+
 });
 
 Template.mobileDotShow.onDestroyed(function(){
