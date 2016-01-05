@@ -51,6 +51,43 @@ Meteor.publish('profileDot', function(userId){
 //});
 
 
+Meteor.publish('mobileDotCard', function(dotId, ownerUserId){
+  check(dotId, String);
+  check(ownerUserId, String);
+
+  //let data = ;
+
+
+
+  return [
+    Dotz.find(dotId, {fields: {"title": 1, "ownerUserId": 1, "coverImageUrl": 1, "linkName": 1, "connectedDotzArray": 1}}),
+    Meteor.users.find(ownerUserId, {fields: {"username": 1, "profile.userSlug": 1, "profile.profileImage": 1}})
+  ];
+});
+
+Meteor.publish( 'inbox', function( chatUserStatus ) {
+  check( chatUserStatus, Boolean );
+
+  var userId = this.userId,
+    data = [
+      Email.find( { "owner": userId } ),
+      ChatUsers.find( { "online": chatUserStatus }, {
+        fields: {
+          "name": 1,
+          "online": 1,
+          "avatar": 1
+        }
+      })
+    ];
+
+  if ( data ) {
+    return data;
+  }
+
+  return this.ready();
+});
+
+
 /*
  * This publish is publishing for dot card NEED TO CUT FIELDS!!!!!!*******
  */
@@ -58,6 +95,7 @@ Meteor.publish('dotCard', function(dotId){
   check(dotId, String);
   return Dotz.find(dotId)
 });
+
 Meteor.publish('dotShow', function( dotId ) {
   check(dotId, String);
   if (dotId) {
@@ -100,7 +138,7 @@ Meteor.publish('smartRefToDotzCursor', function(smartRefArray) {
 });
 
 Meteor.publish('createdByUserListsForAutoGenerate', function(userName) {
-  check(userName, String)
+  check(userName, String);
   let currentUser = Meteor.users.findOne({username: userName});
   let createByUserLists = currentUser.profile.createdByUserLists;
   createByUserLists.push(currentUser.profile.profileDotId);
