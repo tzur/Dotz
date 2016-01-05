@@ -51,57 +51,56 @@ Meteor.publish('profileDot', function(userId){
 //});
 
 
-Meteor.publish('mobileDotCard', function(dotId, ownerUserId){
+Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
   check(dotId, String);
   check(ownerUserId, String);
+  check(connectedByUserId, String);
 
-  //let data = ;
-
-
-
-  return [
-    Dotz.find(dotId, {fields: {"title": 1, "ownerUserId": 1, "coverImageUrl": 1, "linkName": 1, "connectedDotzArray": 1}}),
-    Meteor.users.find(ownerUserId, {fields: {"username": 1, "profile.userSlug": 1, "profile.profileImage": 1}})
-  ];
-});
-
-Meteor.publish( 'inbox', function( chatUserStatus ) {
-  check( chatUserStatus, Boolean );
-
-  var userId = this.userId,
-    data = [
-      Email.find( { "owner": userId } ),
-      ChatUsers.find( { "online": chatUserStatus }, {
-        fields: {
-          "name": 1,
-          "online": 1,
-          "avatar": 1
-        }
+  let data = [
+    Dotz.find(dotId,
+      {fields: {
+        "title": 1,
+        "bodyText": 1,
+        "ownerUserId": 1,
+        "coverImageUrl": 1,
+        "linkUrl": 1,
+        "linkName": 1,
+        "connectedDotzArray": 1}
+      }),
+    Meteor.users.find(ownerUserId,
+      {fields: {
+        "username": 1,
+        "profile.userSlug": 1,
+        "profile.profileImage": 1}
       })
-    ];
+  ];
 
   if ( data ) {
     return data;
   }
 
   return this.ready();
-});
 
+  //return [
+  //  Dotz.find(dotId, {fields: {"title": 1, "ownerUserId": 1, "coverImageUrl": 1, "linkName": 1, "connectedDotzArray": 1}}),
+  //  Meteor.users.find(ownerUserId, {fields: {"username": 1, "profile.userSlug": 1, "profile.profileImage": 1}})
+  //];
+});
 
 /*
  * This publish is publishing for dot card NEED TO CUT FIELDS!!!!!!*******
  */
-Meteor.publish('dotCard', function(dotId){
-  check(dotId, String);
-  return Dotz.find(dotId)
-});
+//Meteor.publish('dotCard', function(dotId){
+//  check(dotId, String);
+//  return Dotz.find(dotId)
+//});
 
-Meteor.publish('dotShow', function( dotId ) {
-  check(dotId, String);
-  if (dotId) {
-    return Dotz.find(dotId);
-  }
-});
+//Meteor.publish('dotShow', function( dotId ) {
+//  check(dotId, String);
+//  if (dotId) {
+//    return Dotz.find(dotId);
+//  }
+//});
 
 Meteor.publish( 'dotShowByDotSlug', function( dotSlug ) {
   check(dotSlug, String);
