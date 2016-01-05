@@ -9,26 +9,31 @@
 
             <div id="mobileDotCard" class="container-fluid">
 
-                <div id="mobileDotCard-col-like">
 
-                  {{#if isInOpenList}}
-
-                      <!--TBD: add a session to fix it!!! -->
-                    {{# if isLikedByMe}}
-                        <a href>
-                            <i class="unlike darkText likeBtn fa fa-heart mdTxt"></i>
-                            <h5 class="likesCounter bold darkText">{{likeCounter}}</h5>
-                        </a>
-                    {{else}}
-                        <a href>
-                            <i class="like darkText likeBtn fa fa-heart-o mdTxt"></i>
-                            <h5 class="likesCounter bold darkText">{{likeCounter}}</h5>
-                        </a>
-                    {{/if}}
-
-                  {{/if}}
-
+                <div id="mobileDotCard-col-connectLine">
+                    <hr id="mobileDotCard-connectLine">
                 </div>
+
+                <!--<div id="mobileDotCard-col-like">-->
+
+                  <!--{{#if isInOpenList}}-->
+
+                      <!--&lt;!&ndash;TBD: add a session to fix it!!! &ndash;&gt;-->
+                    <!--{{# if isLikedByMe}}-->
+                        <!--<a href>-->
+                            <!--<i class="unlike darkText likeBtn fa fa-heart mdTxt"></i>-->
+                            <!--<h5 class="likesCounter bold darkText">{{likeCounter}}</h5>-->
+                        <!--</a>-->
+                    <!--{{else}}-->
+                        <!--<a href>-->
+                            <!--<i class="like darkText likeBtn fa fa-heart-o mdTxt"></i>-->
+                            <!--<h5 class="likesCounter bold darkText">{{likeCounter}}</h5>-->
+                        <!--</a>-->
+                    <!--{{/if}}-->
+
+                  <!--{{/if}}-->
+
+                <!--</div>-->
 
                 <div id="mobileDotCard-col-img">
 
@@ -94,9 +99,9 @@
 
             </div> <!-- end listCard -->
 
-            <div id="mobileDotCard-lineDiv" class="container-fluid">
-                <div id="mobileDotCard-line"></div>
-            </div>
+            <!--<div id="mobileDotCard-lineDiv" class="container-fluid">-->
+                <!--<div id="mobileDotCard-line"></div>-->
+            <!--</div>-->
 
 
             <div class="collapse mobileDotCard-collapseConnectorDiv" id="collapseButtons-{{dot._id}}">

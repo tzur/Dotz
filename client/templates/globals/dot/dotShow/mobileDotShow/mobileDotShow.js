@@ -68,7 +68,7 @@ Template.mobileDotShow.onRendered(function(){
   };
   fbAsyncInit();
 
-  $(document).ready(function () {
+  $('#fixedFooter-mobileDotShow').ready(function () {
 
     //var menu = $('#fixedFooter-mobileDotShow');
     console.log("a");
