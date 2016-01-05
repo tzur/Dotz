@@ -51,19 +51,56 @@ Meteor.publish('profileDot', function(userId){
 //});
 
 
+Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
+  check(dotId, String);
+  check(ownerUserId, String);
+  check(connectedByUserId, String);
+
+  let data = [
+    Dotz.find(dotId,
+      {fields: {
+        "title": 1,
+        "bodyText": 1,
+        "ownerUserId": 1,
+        "coverImageUrl": 1,
+        "linkUrl": 1,
+        "linkName": 1,
+        "connectedDotzArray": 1}
+      }),
+    Meteor.users.find(ownerUserId,
+      {fields: {
+        "username": 1,
+        "profile.userSlug": 1,
+        "profile.profileImage": 1}
+      })
+  ];
+
+  if ( data ) {
+    return data;
+  }
+
+  return this.ready();
+
+  //return [
+  //  Dotz.find(dotId, {fields: {"title": 1, "ownerUserId": 1, "coverImageUrl": 1, "linkName": 1, "connectedDotzArray": 1}}),
+  //  Meteor.users.find(ownerUserId, {fields: {"username": 1, "profile.userSlug": 1, "profile.profileImage": 1}})
+  //];
+});
+
 /*
  * This publish is publishing for dot card NEED TO CUT FIELDS!!!!!!*******
  */
-Meteor.publish('dotCard', function(dotId){
-  check(dotId, String);
-  return Dotz.find(dotId)
-});
-Meteor.publish('dotShow', function( dotId ) {
-  check(dotId, String);
-  if (dotId) {
-    return Dotz.find(dotId);
-  }
-});
+//Meteor.publish('dotCard', function(dotId){
+//  check(dotId, String);
+//  return Dotz.find(dotId)
+//});
+
+//Meteor.publish('dotShow', function( dotId ) {
+//  check(dotId, String);
+//  if (dotId) {
+//    return Dotz.find(dotId);
+//  }
+//});
 
 Meteor.publish( 'dotShowByDotSlug', function( dotSlug ) {
   check(dotSlug, String);
@@ -100,7 +137,7 @@ Meteor.publish('smartRefToDotzCursor', function(smartRefArray) {
 });
 
 Meteor.publish('createdByUserListsForAutoGenerate', function(userName) {
-  check(userName, String)
+  check(userName, String);
   let currentUser = Meteor.users.findOne({username: userName});
   let createByUserLists = currentUser.profile.createdByUserLists;
   createByUserLists.push(currentUser.profile.profileDotId);
