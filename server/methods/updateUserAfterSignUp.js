@@ -34,6 +34,11 @@ let _createNewDotForDotProfile = ( userId ) => {
     if (result){
       Meteor.call('updateUserProfileDotId', Meteor.userId(), result, function(error, result){
         if (!error) {
+          Meteor.call('updateUserConnectivityDoc', function(error){
+            if(error){
+              console.log('Error in updateUserConnectivityDoc: ' + error)
+            }
+          });
           //APIs:
           //Mixpanel tracking the event of singup user
           //if (Meteor.isClient){
