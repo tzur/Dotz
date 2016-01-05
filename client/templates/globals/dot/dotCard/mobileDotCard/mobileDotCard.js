@@ -8,7 +8,7 @@ Template.mobileDotCard.onCreated(function(){
         // any subscription will be expire after 5 minute, if it's not subscribed again
         expireIn: 5
       });
-        self.subs.subscribe('mobileDotCard', self.data.dot._id, self.data.dot.ownerUserId);
+        self.subs.subscribe('mobileDotCard', self.data.dot._id, self.data.dot.ownerUserId, self.data.connection.connectedByUserId);
         //self.subs.subscribe('user', self.data.dot.ownerUserId);
         //self.subs.subscribe('user', self.data.connection.connectedByUserId);
 
@@ -41,7 +41,7 @@ Template.mobileDotCard.helpers({
         subsManager.subs.subscribe('mobileDotCard', this.dot._id, this.dot.ownerUserId, this.connection.connectedByUserId);
         //subsManager.subs.subscribe('dotCard', this.dot._id);
         //subsManager.subs.subscribe('user', this.dot.ownerUserId);
-        subsManager.subs.subscribe('user', this.connection.connectedByUserId);
+        //subsManager.subs.subscribe('user', this.connection.connectedByUserId);
       }
       return data;
     }

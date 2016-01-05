@@ -52,8 +52,8 @@ Meteor.publish('profileDot', function(userId){
 
 
 Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
-  check(dotId, String);
-  check(ownerUserId, String);
+  check(dotId, String, Object);
+  check(ownerUserId, String); //TBD ()
   check(connectedByUserId, String);
 
   let data = [
@@ -67,8 +67,8 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
         "linkName": 1,
         "connectedDotzArray": 1}
       }),
-    Meteor.users.find(ownerUserId,
-      {fields: {
+    Meteor.users.find({_id: { $in: [ownerUserId,connectedByUserId] }}, //TBD..
+    {fields: {
         "username": 1,
         "profile.userSlug": 1,
         "profile.profileImage": 1}
@@ -80,20 +80,15 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
   }
 
   return this.ready();
-
-  //return [
-  //  Dotz.find(dotId, {fields: {"title": 1, "ownerUserId": 1, "coverImageUrl": 1, "linkName": 1, "connectedDotzArray": 1}}),
-  //  Meteor.users.find(ownerUserId, {fields: {"username": 1, "profile.userSlug": 1, "profile.profileImage": 1}})
-  //];
 });
 
 /*
  * This publish is publishing for dot card NEED TO CUT FIELDS!!!!!!*******
  */
-//Meteor.publish('dotCard', function(dotId){
-//  check(dotId, String);
-//  return Dotz.find(dotId)
-//});
+Meteor.publish('dotCard', function(dotId){
+  check(dotId, String);
+  return Dotz.find(dotId)
+});
 
 //Meteor.publish('dotShow', function( dotId ) {
 //  check(dotId, String);
