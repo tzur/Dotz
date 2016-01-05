@@ -68,37 +68,183 @@ Template.mobileDotShow.onRendered(function(){
   };
   fbAsyncInit();
 
-  $(document).ready(function () {
 
-    //var menu = $('#fixedFooter-mobileDotShow');
-    console.log("a");
-    if($('#fixedFooter-mobileDotShow').lenght > 0){
-      let menu = $('#fixedFooter-mobileDotShow');
-      var origOffsetY = menu.offset().top;
-    }
-    //function scroll() {
-    //  if ($(window).scrollTop() >= origOffsetY) {
-    //    $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
-    //
-    //  } else {
-    //    $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
-    //
-    //  }
-    //
-    //
+
+
+
+  //$(document).ready(function () {
+  //
+  //  var menu = $('.menu');
+  //  var origOffsetY = menu.offset().top;
+  //
+  //  function scroll() {
+  //    if ($(window).scrollTop() >= origOffsetY) {
+  //      $('.menu').addClass('sticky');
+  //      $('.content').addClass('menu-padding');
+  //    } else {
+  //      $('.menu').removeClass('sticky');
+  //      $('.content').removeClass('menu-padding');
+  //    }
+  //
+  //
+  //  }
+  //
+  //  document.onscroll = scroll;
+  //
+  //});
+
+
+
+
+  $(document).scroll(function () {
+
+    //This IF helps to reduce the jQeury queries... :
+    //if (document.body.scrollTop > 200) {
+
+      //console.log("hello");
+      var menu = $('#placeHolder');
+      var origOffsetY = menu.offset().top - $(window).height();
+      //console.log("origOffsetY is " + origOffsetY);
+
+      //if ( $(window).scrollTop() > origOffsetY-100 || $(window).scrollTop() < origOffsetY+100 ) {
+
+        //let height = $('#fixedFooter-mobileDotShow').height();
+
+        if ($(window).scrollTop() > origOffsetY) {
+          $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
+          console.log("removeClass");
+        } else {
+          $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
+          console.log("addClass");
+        }
+
+      //}
+
     //}
 
+
+
+    //$(window).scroll(function() {
+    //  if ($(window).scrollTop() >= origOffsetY) {
+    //    $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
+    //    console.log("removeClass");
+    //  } else {
+    //    $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
+    //    console.log("addClass");
+    //  }
+
+
+      //if ( document.body.scrollTop >= origOffsetY) {
+      //  $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
+      //  console.log("removeClass");
+      //  //$('.content').addClass('menu-padding');
+      //} else if ( document.body.scrollTop < origOffsetY) {
+      //  $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
+      //  //$('.content').removeClass('menu-padding');
+      //  console.log("addClass");
+      //}
+
+
+    //});
+
     //document.onscroll = scroll;
-    $(window).scroll(function(){
-      if ($(window).scrollTop() >= origOffsetY) {
-        $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
 
-      } else {
-        $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
-
-      }
-    })
   });
+
+
+  //
+  //$(window).scroll(function() {
+  //
+  //  //if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+  //
+  //    let menu = $('#placeHolder');
+  //    var origOffsetY = menu.offset().top;
+  //    //document.getElementById("whereIAm").className = "showWhere";
+  //    console.log("OK GO :) + " + origOffsetY);
+  //
+  //
+  //    $(window).scroll(function(){
+  //      console.log("########222222");
+  //
+  //      //if ($(window).scrollTop() < origOffsetY) {
+  //      //  $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
+  //      //
+  //      //  } else {
+  //      //    $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
+  //      //
+  //      //  }
+  //
+  //
+  //      if ( document.body.scrollTop > origOffsetY) {
+  //        $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
+  //
+  //      }
+  //      //else {
+  //      //  $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
+  //      //
+  //      //}
+  //
+  //      //} else if ($(window).scrollTop() < origOffsetY) {
+  //      //  $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
+  //      //}
+  //
+  //
+  //    })
+
+    //}
+
+    //else {
+    //  document.getElementById("whereIAm").className = "noneWhere";
+    //  console.log("Back!!!");
+    //}
+  //});
+
+  //
+  //
+  //$(document).ready(function () {
+  //
+  //  if (document.body.scrollTop > 50  || document.documentElement.scrollTop > 50 ) {
+  //    console.log("########1111111");
+  //    let menu = $('#fixedFooter-mobileDotShow');
+  //    var origOffsetY = menu.offset().top;
+  //
+  //
+  //    $(window).scroll(function(){
+  //      console.log("########222222");
+  //
+  //      if ($(window).scrollTop() >= origOffsetY) {
+  //        $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
+  //
+  //      } else {
+  //        $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
+  //
+  //      }
+  //    })
+  //
+  //  }
+  //
+  //  //var menu = $('#fixedFooter-mobileDotShow');
+  //  console.log("a");
+  //  //if($('#fixedFooter-mobileDotShow').lenght > 0){
+  //  //  let menu = $('#fixedFooter-mobileDotShow');
+  //  //  var origOffsetY = menu.offset().top;
+  //  //}
+  //
+  //  //function scroll() {
+  //  //  if ($(window).scrollTop() >= origOffsetY) {
+  //  //    $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
+  //  //
+  //  //  } else {
+  //  //    $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
+  //  //
+  //  //  }
+  //  //
+  //  //
+  //  //}
+  //
+  //  //document.onscroll = scroll;
+  //
+  //});
 
 });
 
