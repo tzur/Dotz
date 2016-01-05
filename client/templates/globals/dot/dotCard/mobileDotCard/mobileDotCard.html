@@ -16,13 +16,13 @@
                       <!--TBD: add a session to fix it!!! -->
                     {{# if isLikedByMe}}
                         <a href>
-                            <i class="unlike greyText likeBtn fa fa-heart mdTxt"></i>
-                            <h5 class="likesCounter greyText">{{likeCounter}}</h5>
+                            <i class="unlike darkText likeBtn fa fa-heart mdTxt"></i>
+                            <h5 class="likesCounter bold darkText">{{likeCounter}}</h5>
                         </a>
                     {{else}}
                         <a href>
-                            <i class="like greyText likeBtn fa fa-heart-o mdTxt"></i>
-                            <h5 class="likesCounter greyText">{{likeCounter}}</h5>
+                            <i class="like darkText likeBtn fa fa-heart-o mdTxt"></i>
+                            <h5 class="likesCounter bold darkText">{{likeCounter}}</h5>
                         </a>
                     {{/if}}
 
@@ -69,8 +69,8 @@
                     <!--</button>-->
 
                     <div id="mobileDotCard-3dots" class="dropdown">
-                        <button class="btn btn-full-trans btn-xs mdGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <h4 class="txtVertical">...</h4>
+                        <button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <h4 class="txtVertical bold">...</h4>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
                             <li><a href="#" class="no-left-pad"><i class="fa fa-plus"></i> Connect to profile</a></li>
@@ -85,7 +85,7 @@
                         <!--<i class="fa fa-plus"></i>-->
                     <!--</button>-->
 
-                    <button class="btn btn-full-trans btn-xs mdGrey" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
+                    <button class="btn btn-full-trans btn-xs lightGrey" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
                         <i class="fa fa-comment"></i>
                     </button>
 
@@ -99,13 +99,13 @@
             </div>
 
 
-            <div class="collapse" id="collapseButtons-{{dot._id}}">
+            <div class="collapse mobileDotCard-collapseConnectorDiv" id="collapseButtons-{{dot._id}}">
 
                 <!--<div id="arrow-up-div" class="container-fluid">-->
                     <!--<div class="arrow-up pull-right"></div>-->
                 <!--</div>-->
 
-              <div id="mobileDotCard-collapseButtons">
+              <div id="mobileDotCard-collapseConnector">
 
                 <div id="connectedByTextDiv-mobileDotCard" class="container-fluid">
 

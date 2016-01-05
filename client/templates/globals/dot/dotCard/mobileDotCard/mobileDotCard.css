@@ -11,10 +11,10 @@
 }
 
 #mobileDotCard-line {
-  position: absolute;
+  /*position: absolute;*/
   height: inherit;
   width: 18vw;
-  border-right: 2px solid #eeeeee;
+  border-right: 2px solid #e5e5e5;
 }
 
 #mobileDotCard {
@@ -27,7 +27,7 @@
   position: absolute;
   top: 22.5vw;
   width: 100%;
-  border-bottom: 1px #eee solid;
+  border-bottom: 1px #e5e5e5 solid;
 }
 
 #mobileDotCard-col-img{
@@ -46,11 +46,11 @@
   border-radius: 50%;
   width: 26vw;
   background-size: cover;
-  background-color: #eee;
+  background-color: #e5e5e5;
   position: relative;
   background-position-y: 50%;
   background-position-x: 50%;
-  border: #eee solid 2px;
+  border: #e5e5e5 solid 2px;
 }
 
 #mobileDotCard-connectedDotz {
@@ -142,7 +142,11 @@
   /*margin: 0;*/
 /*}*/
 
-#mobileDotCard-collapseButtons {
+.mobileDotCard-collapseConnectorDiv {
+  margin-top: -1vh;
+}
+
+#mobileDotCard-collapseConnector {
   /*height: 6em;*/
   position: relative;
   padding: 1em 0;
