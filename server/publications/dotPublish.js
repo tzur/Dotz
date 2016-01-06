@@ -52,7 +52,7 @@ Meteor.publish('profileDot', function(userId){
 
 
 Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
-  check(dotId, String, Object);
+  check(dotId, String);
   check(ownerUserId, String); //TBD ()
   check(connectedByUserId, String);
 
@@ -61,6 +61,7 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
       {fields: {
         "isOpen": 1,
         "title": 1,
+        "dotSlug": 1,
         "bodyText": 1,
         "ownerUserId": 1,
         "coverImageUrl": 1,
@@ -82,6 +83,34 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
 
   return this.ready();
 });
+
+
+
+Meteor.publish('profileDotCard', function(dotId){
+  check(dotId, String);
+
+  let data = [
+    Dotz.find(dotId,
+      {fields: {
+        "isOpen": 1,
+        "title": 1,
+        "dotSlug": 1,
+        "bodyText": 1,
+        "ownerUserId": 1,
+        "coverImageUrl": 1,
+        "linkUrl": 1,
+        "linkName": 1,
+        "connectedDotzArray": 1}
+      })
+  ];
+
+  if ( data ) {
+    return data;
+  }
+
+  return this.ready();
+});
+
 
 /*
  * This publish is publishing for dot card NEED TO CUT FIELDS!!!!!!*******
