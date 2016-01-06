@@ -1,14 +1,19 @@
 /*profileDotCard css*/
 
 #profileDotCard-Box {
-  height: 42vh;
+  height: 27vw;
   /*max-width: 37vh;*/
+}
+@media (max-width: 767px) {
+  #profileDotCard-Box {
+    height: 32vw;
+  }
 }
 
 .profileDotCardImg {
   position: relative;
-  height: 30vh;
-  width: 30vh;
+  height: 19vw;
+  width: 19vw;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.25vh;
@@ -23,11 +28,11 @@
 
 .profileDotCardTitle {
   color: #4b4f54;
-  margin-top: 1.5vh;
+  margin-top: 1.2vh;
   /*margin-left: 0.5vh;*/
   /*margin-right: 0.5vh;*/
   /*display: block;*/
-  font-size: 1.3em;
+  font-size: 1.5em;
   /*-webkit-margin-before: 0.83em;*/
   /*-webkit-margin-after: 0.83em;*/
   /*-webkit-margin-start: 0px;*/
@@ -35,6 +40,12 @@
   /*font-weight: bold;*/
   text-align: center;
   font-weight: 400;
+}
+@media (max-width: 767px) {
+  .profileDotCardTitle {
+    font-size: 0.8em;
+    margin-top: 0.7vh;
+  }
 }
 
 a span {
