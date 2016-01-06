@@ -121,7 +121,13 @@ Template.userShow.helpers({
 
   connectionsCounter:  function(){
     if (this.profile) {
-      return (this.profile.following.length + this.profile.followers.length + this.profile.userConnections.length);
+       let userConnectivity = this.profile.userConnectionsCounter.peopleLikedMyConnections +
+                              this.profile.userConnectionsCounter.peopleConnectedMyDotz+
+                              this.profile.userConnectionsCounter.peopleLikedMyDotz;
+      let userConnection = this.profile.userConnectionsCounter.connectionsMadeByUser + this.profile.userConnectionsCounter.likesMadeByUser
+                            + this.profile.createdByUserDotz.length +
+                           this.profile.createdByUserLists.length;
+      return ((userConnectivity * 2) + userConnection)
     }
   },
 
@@ -282,7 +288,11 @@ Template.userShow.events({
     Session.set('showShareDotz', false);
   },
   'click #_userConnectivity': function(){
-    Modal.show('userConnectivity');
+    Modal.show('userConnectivity',{
+      data: {
+        userId: this.this._id
+      }
+      });
   }
 
 });

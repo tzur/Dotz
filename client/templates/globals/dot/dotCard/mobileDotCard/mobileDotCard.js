@@ -135,6 +135,10 @@ Template.mobileDotCard.helpers({
     }
   },
 
+  personalDescription: function() {
+    return this.smartRef.connection.personalDescription;
+  },
+
   title: function() {
     if (this.dot){
         return s.prune(this.dot.title, 40);
