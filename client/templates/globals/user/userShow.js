@@ -290,7 +290,7 @@ Template.userShow.events({
   'click #_userConnectivity': function(){
     Modal.show('userConnectivity',{
       data: {
-        userId: this.this._id
+        userConnections: this.userConnections
       }
       });
   }

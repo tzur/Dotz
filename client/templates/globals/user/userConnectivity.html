@@ -10,30 +10,28 @@
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="active">
                                     <a href="#createdByUserDotz" role="tab" data-toggle="tab">
-                                        <icon class="fa fa-home"></icon> Connected By User
+                                        <icon class="fa fa-home"></icon>Dotz
                                     </a>
                                 </li>
+
+                                <li><a href="#createdByUserLists" role="tab" data-toggle="tab">
+                                    <i class="fa fa-user"></i>Lists
+                                </a>
+                                </li>
+
                                 <li><a href="#dotzConnectedByUser" role="tab" data-toggle="tab">
-                                    <i class="fa fa-user"></i> Created By User Dotz
+                                    <i class="fa fa-user"></i>Connected
                                 </a>
                                 </li>
-                                <li><a href="#listsConnectedByUser" role="tab" data-toggle="tab">
-                                    <i class="fa fa-user"></i> Created By User Lists
+
+                                <li><a href="#userLikes" role="tab" data-toggle="tab">
+                                    <i class="fa fa-user"></i>Likes
                                 </a>
                                 </li>
+
                                 <li>
                                     <a href="#peopleConnectedUserDotz" role="tab" data-toggle="tab">
-                                        <i class="fa fa-envelope"></i> Messages
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#userFollowers" role="tab" data-toggle="tab">
-                                        <i class="fa fa-cog"></i> Settings
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#userFollowing" role="tab" data-toggle="tab">
-                                        <i class="fa fa-cog"></i> Settings
+                                        <i class="fa fa-envelope"></i>Connectivity
                                     </a>
                                 </li>
                             </ul>
@@ -45,25 +43,27 @@
                                     <img src="http://lorempixel.com/400/400/cats/1" alt="Cats"/>
                                 </div>
 
-                                <div class="tab-pane fade active in" id="listsConnectedByUser">
+                                <div class="tab-pane fade active in" id="createdByUserLists">
                                     <h2>listsConnectedByUser Home Content Goes Here</h2>
                                     <img src="http://lorempixel.com/400/400/cats/1" alt="Cats"/>
                                 </div>
+
                                 <div class="tab-pane fade" id="dotzConnectedByUser">
-                                    <h2>dotzConnectedByUser Profile Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/2" alt="Cats"/>
+                                    <h2>connectionsMadeByUserData:</h2>
+                                    <br>
+                                  {{#each connectionsMadeByUserData}}
+                                    {{>dotCard}}
+                                  {{/each}}
+
                                 </div>
+
+                                <div class="tab-pane fade active in" id="userLikes">
+                                    <h2>User likes</h2>
+                                    <img src="http://lorempixel.com/400/400/cats/1" alt="Cats"/>
+                                </div>
+
                                 <div class="tab-pane fade" id="peopleConnectedUserDotz">
-                                    <h2>peopleConnectedUserDotz Messages Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/3" alt="Cats"/>
-                                </div>
-                                <div class="tab-pane fade" id="userFollowers">
-                                    <h2>userFollowers Settings Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/4" alt="Cats"/>
-                                </div>
-                                <div class="tab-pane fade" id="userFollowing">
-                                    <h2>userFollowing Settings Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/4" alt="Cats"/>
+                                    <h2>Connectivity</h2>
                                 </div>
                             </div>
 
