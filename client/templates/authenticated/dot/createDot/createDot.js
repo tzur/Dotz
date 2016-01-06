@@ -14,6 +14,7 @@ Template.createDotModal.onCreated(function(){
 });
 Template.createDotModal.onRendered(function(){
   Modules.client.Dotz.limitCharactersAndCounter('#titleField', 50, '#titleFieldFeedback');
+  Modules.client.autoTagger(Template.instance());
   Session.set("dotType", "Dot");
 
   var embedlyScript = 'http://cdn.embed.ly/jquery.embedly-3.0.5.min.js';
