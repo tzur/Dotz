@@ -124,7 +124,8 @@ Template.userShow.helpers({
        let userConnectivity = this.profile.userConnectionsCounter.peopleLikedMyConnections +
                               this.profile.userConnectionsCounter.peopleConnectedMyDotz+
                               this.profile.userConnectionsCounter.peopleLikedMyDotz;
-      let userConnection = this.profile.connectionsMadeByUser.length + this.profile.createdByUserDotz.length +
+      let userConnection = this.profile.userConnectionsCounter.connectionsMadeByUser + this.profile.userConnectionsCounter.likesMadeByUser
+                            + this.profile.createdByUserDotz.length +
                            this.profile.createdByUserLists.length;
       return ((userConnectivity * 2) + userConnection)
     }

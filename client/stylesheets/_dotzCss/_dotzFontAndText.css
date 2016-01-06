@@ -36,6 +36,14 @@ a:hover {
   font-size: 0.7em;
 }
 
+.sm2Txt {
+  font-size: 0.8em;
+}
+
+.normalTxt {
+  font-size: 1em;
+}
+
 .mdTxt {
   font-size: 1.125em;
 }

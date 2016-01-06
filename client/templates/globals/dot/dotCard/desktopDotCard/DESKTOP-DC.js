@@ -9,8 +9,8 @@ Template.DESKTOPDC.onCreated(function(){
     expireIn: 5
   });
   //self.subs.subscribe('dotCard', self.data.dot._id);
-  self.subs.subscribe('user', self.data.dot.ownerUserId);
-  self.subs.subscribe('user', self.data.connection.connectedByUserId);
+  //self.subs.subscribe('user', self.data.dot.ownerUserId);
+  //self.subs.subscribe('user', self.data.connection.connectedByUserId);
 
 });
 
@@ -39,8 +39,8 @@ Template.DESKTOPDC.helpers({
       let subsManager = Template.instance();
       if(!data.dot){
         //subsManager.subs.subscribe('dotCard', this.dot._id);
-        subsManager.subs.subscribe('user', this.dot.ownerUserId);
-        subsManager.subs.subscribe('user', this.connection.connectedByUserId);
+        //subsManager.subs.subscribe('user', this.dot.ownerUserId);
+        //subsManager.subs.subscribe('user', this.connection.connectedByUserId);
       }
       return data;
     }

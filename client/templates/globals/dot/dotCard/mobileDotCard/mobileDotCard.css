@@ -79,7 +79,7 @@
   width: 59vw;
   padding-top: 1vw;
   position: relative;
-  height: 19vw;
+  min-height: 28vw;
   /*padding-right: 15px;*/
   margin: auto;
   float: left;
@@ -107,7 +107,7 @@
 }
 
 #mobileDotCard-col-credit h6 {
-  margin: 1vw 0 0 0;
+  margin: 0 0 0 0;
 }
 
 #mobileDotCardCredit {
@@ -117,28 +117,34 @@
 
 
 #mobileDotCard-col-like {
-  width: 8vw;
+  width: 26vw;
+  margin-left: 5vw;
+  padding-left: 11vw;
   /* padding-top: 1vw; */
   position: relative;
-  /* min-height: 1px; */
-  margin-top: 8vw;
-  /* padding-left: 2vw; */
-  /* padding-right: 15px; */
-  /* padding-left: 15px; */
-  /* margin: auto; */
   float: left;
-  text-align: center;
+  text-align: left;
 }
 
 
 #mobileDotCard-buttons {
+  width: 100%;
+  padding-top: 1vw;
+  position: relative;
+  /* height: 19vw; */
+  /* padding-right: 15px; */
+  margin: auto;
+  float: left;
   /*position: absolute;*/
   /*bottom: 0;*/
   /*right: 6vw;*/
   /*width: 22vw;*/
   /*margin: auto;*/
   text-align: center;
-  float: right;
+}
+
+#mobileDotCard-buttons .btn-full-trans i {
+  font-size: 1.25em;
 }
 
 #mobileDotCard-3dots {
@@ -161,9 +167,11 @@
 
 #mobileDotCard-collapseConnector {
   /*height: 6em;*/
+  width: 88vw;
+  margin-left: 3vw;
   position: relative;
   padding: 1em 0;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   background-color: #eee;
 }
 
