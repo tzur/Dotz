@@ -1,0 +1,23 @@
+#mobileDotCard-lastDot-box {
+  margin-left: 1vw;
+  border-left: transparent;
+  padding: 0 1vh 0 0;
+}
+
+
+#mobileDotCard-lastDot {
+  padding: 7vw 0 0 0;
+  position: relative;
+}
+
+
+#mobileDotCard-lastDot-col-connectLine {
+  width: 5vw;
+  position: relative;
+  float: left;
+  text-align: center;
+  border-left: 2px solid #e5e5e5;
+  padding-top: 20vw;
+  margin-top: -7vw;
+  border-bottom: 2px solid #e5e5e5;
+}
