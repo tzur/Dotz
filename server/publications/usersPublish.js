@@ -25,3 +25,20 @@ Meteor.publish('dotzArrayToUserCursor',function(dotzArray){
   });
   return Meteor.users.find({_id: {$in: userIds}}, {fields: {"services.password": 0, "services.loginTokens": 0, "emails.address": 0, "emails.verified": 0, "profile.feedDotz": 0}} );
 });
+
+Meteor.publish('userConnectivity', function(userId){
+  check(userId, String);
+
+  let data = UserConnections.find({userId: userId});
+
+  if ( data ) {
+    return data;
+  }
+
+  return this.ready();
+
+  //return [
+  //  Dotz.find(dotId, {fields: {"title": 1, "ownerUserId": 1, "coverImageUrl": 1, "linkName": 1, "connectedDotzArray": 1}}),
+  //  Meteor.users.find(ownerUserId, {fields: {"username": 1, "profile.userSlug": 1, "profile.profileImage": 1}})
+  //];
+});

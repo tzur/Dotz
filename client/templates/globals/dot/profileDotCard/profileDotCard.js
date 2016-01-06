@@ -45,6 +45,16 @@ Template.profileDotCard.helpers({
       return data;
     }
   },
+
+  shortenTitle: function() {
+    if (this.dot){
+      return s.prune(this.dot.title, 25);
+    }
+  },
+
+
+
+
   //create specific SESSION!!!! TBD
   isInOpenList: function() {
     //The big if is for Feed that doesn't have these data.
