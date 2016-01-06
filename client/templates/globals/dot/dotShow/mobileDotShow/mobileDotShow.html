@@ -5,66 +5,71 @@
 
             <div id="coverImg-mobileDotShow" class="row" style="background-image: url('{{dot.coverImageUrl}}')">
 
-                <div id="imgCoverFilter-mobileDotShow">
+                <!--<div id="imgCoverFilter-mobileDotShow">-->
 
-                    <div id="circleImgsRow-mobileDotShow" class="row">
+                    <!--<div id="circleImgsRow-mobileDotShow" class="row">-->
 
-                        <div class="col-xs-2 noPadding">
-                            <div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">
-                                <div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>
-                            </div>
-                        </div>
+                        <!--<div class="col-xs-2 noPadding">-->
+                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">-->
+                                <!--<div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
-                        <div class="col-xs-2 noPadding">
-                            <div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">
-                                <div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>
-                            </div>
-                        </div>
+                        <!--<div class="col-xs-2 noPadding">-->
+                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">-->
+                                <!--<div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
-                        <div class="col-xs-4 noPadding">
-                            <div id="dotCircleImg-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>
-                        </div>
+                        <!--<div class="col-xs-4 noPadding">-->
+                            <!--<div id="dotCircleImg-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>-->
+                        <!--</div>-->
 
-                        <div class="col-xs-2 noPadding">
-                            <div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">
-                                <div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>
-                            </div>
-                        </div>
+                        <!--<div class="col-xs-2 noPadding">-->
+                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">-->
+                                <!--<div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
-                        <div class="col-xs-2 noPadding">
-                            <div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">
-                                <div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>
-                            </div>
-                        </div>
+                        <!--<div class="col-xs-2 noPadding">-->
+                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">-->
+                                <!--<div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
-                    </div>
+                    <!--</div>-->
 
-                    <div class="container-fluid">
-                        <h4 id="title-mobileDotShow" class="col-xs-12">{{dot.title}}</h4>
-                    </div>
 
-                    <div class="container-fluid txtMd">
-                        <a href="{{dot.linkUrl}}">
-                            <button type="button" class="btn btn-default btn-xs mdGrey"><i class="fa fa-external-link mdGrey"></i> Read on {{dot.linkName}}</button>
-                        </a>
-                        <button id="connectButton-mobileDotShow" type="button" class="btn btn-success btn-xs"><i class="fa fa-plus-circle"></i> ReConnect (294)</button>
-                    </div>
 
-                </div>
+                <!--</div>-->
 
             </div><!--end row listCoverImg-->
 
+
+
+            <div class="container-fluid">
+                <h4 id="title-mobileDotShow" class="col-xs-12">{{dot.title}}</h4>
+            </div>
+
+            <div class="container-fluid txtMd">
+                <a href="{{dot.linkUrl}}">
+                    <button type="button" class="btn btn-default btn-xs mdGrey"><i class="fa fa-external-link mdGrey"></i> Read on {{dot.linkName}}</button>
+                </a>
+                <button id="connectButton-mobileDotShow" type="button" class="btn btn-success btn-xs"><i class="fa fa-plus-circle"></i> ReConnect (294)</button>
+            </div>
+
             <div id="imgCoverFilter2-mobileDotShow">
 
-              {{#if dot.bodyText}}
-                  <div class="divSubtitle-mobileDotShow container-fluid">
-                      <h5 class="bold">Description</h5>
-                  </div>
+              <!--{{#if dot.bodyText}}-->
+                  <!--<div class="divSubtitle-mobileDotShow container-fluid">-->
+                      <!--<h5 class="bold">Description</h5>-->
+                  <!--</div>-->
 
                   <div class="container-fluid">
                       <h5 class="description line-h-md greyText mdTxt">{{dot.bodyText}}</h5>
                   </div>
-              {{/if}}
+
+              <!--{{/if}}-->
 
             </div>
 
@@ -164,6 +169,7 @@
                     {{#each connectedDotzArray}}
                       {{>mobileDotCard}}
                     {{/each}}
+                     {{>mobileDotCardLastDot}}
 
                   <!--</div>-->
               <!--</div>-->
