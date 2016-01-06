@@ -257,6 +257,20 @@ Template.mobileDotShow.events({
     }
   },
 
+  'click .like': function(event){
+    event.preventDefault();
+
+    if ( Meteor.user() ) {
+      Modules.both.Dotz.likeDot(this.smartRef, Meteor.userId());
+      Modules.client.Dotz.dotCardAnalyticsEvents('Like', 'Liked: ',this.dot._id, this.dot.title, this.dot.dotType)
+    }
+    else{
+      Modal.show('signUpModal');
+      Modules.client.Dotz.dotCardAnalyticsEvents('Like', 'Liked: ',this.dot._id, this.dot.title, this.dot.dotType);
+    }
+
+  },
+
   'click .editBtn': function(){
     Modal.show('editDotModal', {
       data:{
