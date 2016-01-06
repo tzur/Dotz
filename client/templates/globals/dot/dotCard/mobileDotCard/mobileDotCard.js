@@ -137,7 +137,13 @@ Template.mobileDotCard.helpers({
 
   title: function() {
     if (this.dot){
-        return s.prune(this.dot.title, 50);
+        return s.prune(this.dot.title, 40);
+    }
+  },
+
+  bodyText: function() {
+    if (this.dot){
+      return s.prune(this.dot.bodyText, 45);
     }
   },
 
