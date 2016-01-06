@@ -35,13 +35,13 @@ Template.userShow.onCreated(function() {
           });
         }
       });
-      if (handleUser.ready()){
-          let user =  Meteor.users.findOne({"profile.userSlug": userSlug});
-          if (user) {
-              self.subs.subscribe('dotCard', user.profile.profileDotId.toString());
-              self.subs.subscribe('dotCard', user.profile.shareDotId.toString());
-          }
-      }
+      //if (handleUser.ready()){
+      //    let user =  Meteor.users.findOne({"profile.userSlug": userSlug});
+      //    if (user) {
+      //        self.subs.subscribe('dotCard', user.profile.profileDotId.toString());
+      //        self.subs.subscribe('dotCard', user.profile.shareDotId.toString());
+      //    }
+      //}
 
     }
   });
