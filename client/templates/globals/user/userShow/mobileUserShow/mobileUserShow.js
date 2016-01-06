@@ -1,4 +1,4 @@
-Template.userShow.onCreated(function() {
+Template.mobileUserShow.onCreated(function() {
   Session.set('showShareDotz', false);
   let self = this;
   self.userShowReady = new ReactiveVar();
@@ -48,7 +48,7 @@ Template.userShow.onCreated(function() {
 });
 
 
-Template.userShow.onRendered(function() {
+Template.mobileUserShow.onRendered(function() {
   //Session.set('showShareDotz', false);
   Session.set('changeListener', true);
 
@@ -76,12 +76,12 @@ Template.userShow.onRendered(function() {
 });
 
 
-Template.userShow.onDestroyed(function(){
+Template.mobileUserShow.onDestroyed(function(){
   Session.set('changeListener', true);
 });
 
 
-Template.userShow.helpers({
+Template.mobileUserShow.helpers({
   dataUser: function() {
     let user = Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
     if (user){
@@ -173,7 +173,7 @@ Template.userShow.helpers({
   }
 
 });
-Template.userShow.events({
+Template.mobileUserShow.events({
   'click ._shareUserOnFB': function(event){
     event.preventDefault();
     FB.ui({
