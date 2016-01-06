@@ -135,17 +135,13 @@ Template.mobileDotCard.helpers({
     }
   },
 
-  personalDescription: function() {
-    return this.smartRef.connection.personalDescription;
-  },
-
-  title: function() {
+  shortenTitle: function() {
     if (this.dot){
         return s.prune(this.dot.title, 40);
     }
   },
 
-  bodyText: function() {
+  shortenBodyText: function() {
     if (this.dot){
       return s.prune(this.dot.bodyText, 45);
     }
