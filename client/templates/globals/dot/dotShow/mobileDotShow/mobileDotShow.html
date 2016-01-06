@@ -52,10 +52,23 @@
             </div>
 
             <div class="container-fluid txtMd">
-                <a href="{{dot.linkUrl}}">
-                    <button type="button" class="btn btn-default btn-xs mdGrey"><i class="fa fa-external-link mdGrey"></i> Read on {{dot.linkName}}</button>
+                <a href="{{dot.linkUrl}}" target="_blank">
+                    <button type="button" class="btn btn-default btn-xs mdGrey"><i class="fa fa-external-link mdGrey"></i> {{dot.linkName}}</button>
                 </a>
-                <button id="connectButton-mobileDotShow" type="button" class="btn btn-success btn-xs"><i class="fa fa-plus-circle"></i> ReConnect (294)</button>
+                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-success btn-xs"><i class="fa fa-bookmark-o"></i> Connect to profile</button>
+
+              {{# if isLikedByMe}}
+                  <button class="unlike btn btn-default btn-xs mdGrey">
+                      <i class="mdGrey likeBtn fa fa-heart"></i>
+                      <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
+                  </button>
+              {{else}}
+                  <button class="like btn btn-default btn-xs mdGrey">
+                      <i class="mdGrey likeBtn fa fa-heart-o"></i>
+                      <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
+                  </button>
+              {{/if}}
+
             </div>
 
             <div id="imgCoverFilter2-mobileDotShow">

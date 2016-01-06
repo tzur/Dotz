@@ -2,11 +2,10 @@
   <!--{{#if Template.subscriptionsReady}}-->
 {{#with dataCard}}
 
-<div id="profileDotCard-Box" class="col-xs-12 col-sm-6 col-md-4">
+<div id="profileDotCard-Box" class="col-xs-4">
 
   {{#if isInClosedList}}
-      <div class="pull-left">
-
+      <div class="hidden-xs pull-left ">
         {{#if sortIsAvailable}}
             <a class="upBtn panelBtn">
                 <i class="fa fa-arrow-circle-left lightGrey"></i>
@@ -30,13 +29,12 @@
                 <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
             </ul>
         {{/if}}
-
       </div>
   {{/if}}
 
     <a href="/{{dot.dotSlug}}" class="_setCurrentPath">
         <div class="container-fluid profileDotCardImg" style="background-image: url('{{dot.coverImageUrl}}')"></div>
-        <h2 class="txtMd profileDotCardTitle">{{dot.title}}</h2>
+        <h2 class="txtMd profileDotCardTitle">{{shortenTitle}}</h2>
     </a>
 
 </div>

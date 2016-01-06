@@ -7,56 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="fragment" content="!">
     <!--<link rel="stylesheet" href="http://css-spinners.com/css/spinner/dots.css" type="text/css">-->
-
-
-<!--browser-update.org script-->
-    <!--<script type="text/javascript">-->
-        <!--var $buoop = {c:2};-->
-        <!--function $buo_f(){-->
-            <!--var e = document.createElement("script");-->
-            <!--e.src = "//browser-update.org/update.min.js";-->
-            <!--document.body.appendChild(e);-->
-        <!--};-->
-        <!--try {document.addEventListener("DOMContentLoaded", $buo_f,false)}-->
-        <!--catch(e){window.attachEvent("onload", $buo_f)}-->
-    <!--</script>-->
-<!--ebd browser-update.org-->
-
-
-<!--Start of Zopim Live Chat Script-->
-    <!--<script type="text/javascript">-->
-    <!--window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=-->
-            <!--d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.-->
-            <!--_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");-->
-        <!--$.src="//v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi";z.t=+new Date;$.-->
-                <!--type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");-->
-   <!--</script>-->
-<!--End of Zopim Live Chat Script-->
-
-
-    <!--<script type=”text/javascript”>-->
-        <!--var ua = navigator.userAgent.toLowerCase(),-->
-        <!--platform = navigator.platform.toLowerCase();-->
-        <!--platformName = ua.match(/ip(?:ad|od|hone)/) ? ‘ios’ : (ua.match(/(?:webos|android)/) || platform.match(/mac|win|linux/) || [‘other’])[0],-->
-        <!--isMobile = /ios|android|webos/.test(platformName);-->
-        <!--if (!isMobile) {-->
-        <!--//place the Zopim chat widget code here without the <script> tags-->
-
-        <!--window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=-->
-                <!--d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.-->
-                <!--_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");-->
-            <!--$.src="//v2.zopim.com/?3VHcUUxOehxuZrvBy2WXoYIxKkNNjkXi";z.t=+new Date;$.-->
-                    <!--type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");-->
-
-        <!--}-->
-    <!--</script>-->
-
 </head>
 
 
 <body>
-
-
 
   {{>bertAlert}}
 	{{>header}}
@@ -64,21 +18,14 @@
   <div id="main">
 		{{> Template.dynamic template=yield}}
 	</div>
+
   {{#if joinUsDivOn}}
       {{>footer}}
   {{/if}}
+
   {{#if shareFooterOn}}
     {{> footerForShare}}
   {{/if}}
-
-  <!--Intercom widget-->
-  <!--<script type=”text/javascript”>-->
-      <!--window.intercomSettings = {-->
-          <!--app_id: "ty914nuw"-->
-      <!--};-->
-  <!--</script>-->
-  <!--<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ty914nuw';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>-->
-
 
   <!--[if lt IE 10]>
 
@@ -108,23 +55,35 @@
 
 <![endif]-->
 
-  <script>
-      if(Meteor.userId()) {
-          window.intercomSettings = {
-              app_id: "abxdt7kt",
-              name: Meteor.user().username, // Full name
-              email: Meteor.user().emails[0].address, // Email address
-              created_at: new Date(Meteor.user().createdAt).getTime() / 1000 // Signup date as a Unix timestamp
-          };
-      }
-      else{
-          window.intercomSettings = {
-              app_id: "abxdt7kt"
-          };
-      }
-  </script>
-  <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/abxdt7kt';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+  <!--Intercom-->
+  <div class="hidden-xs">
+      {{>Intercome}}
+  </div>
+<!--end Intercom-->
+
 
 </body>
+</template>
 
+
+
+<template name="Intercome">
+    <!--Intercom-->
+        <script>
+            if(Meteor.userId()) {
+                window.intercomSettings = {
+                    app_id: "abxdt7kt",
+                    name: Meteor.user().username, // Full name
+                    email: Meteor.user().emails[0].address, // Email address
+                    created_at: new Date(Meteor.user().createdAt).getTime() / 1000 // Signup date as a Unix timestamp
+                };
+            }
+            else{
+                window.intercomSettings = {
+                    app_id: "abxdt7kt"
+                };
+            }
+        </script>
+        <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/abxdt7kt';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+    <!--end Intercom-->
 </template>

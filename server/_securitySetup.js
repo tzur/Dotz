@@ -37,6 +37,8 @@ BrowserPolicy.content.allowOriginForAll("http://fonts.googleapis.com");
 BrowserPolicy.content.allowOriginForAll("http://fonts.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("localhost:*");
 BrowserPolicy.content.allowOriginForAll("http://connect.facebook.net/*");
+BrowserPolicy.content.allowOriginForAll("http://*.twitter.com");
+BrowserPolicy.content.allowOriginForAll("http://platform.twitter.com");
 BrowserPolicy.content.allowOriginForAll("http://platform.twitter.com/*");
 BrowserPolicy.content.allowOriginForAll("http://connect.facebook.net/en_US/sdk.js");
 BrowserPolicy.content.allowConnectOrigin("ws://localhost:5000");
