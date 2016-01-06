@@ -287,7 +287,11 @@ Template.userShow.events({
     Session.set('showShareDotz', false);
   },
   'click #_userConnectivity': function(){
-    Modal.show('userConnectivity');
+    Modal.show('userConnectivity',{
+      data: {
+        userId: this.this._id
+      }
+      });
   }
 
 });
