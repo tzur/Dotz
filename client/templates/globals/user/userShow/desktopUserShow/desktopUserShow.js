@@ -51,7 +51,7 @@ Template.desktopUserShow.onCreated(function() {
 Template.desktopUserShow.onRendered(function() {
   //Session.set('showShareDotz', false);
   Session.set('changeListener', true);
-
+  Session.set('spinnerOn', false);
   (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {return;}
@@ -95,6 +95,10 @@ Template.desktopUserShow.helpers({
       //"this" is the user:
       return ( (Meteor.userId() === this._id) && (profileDot.connectedDotzArray.length === 0) )
     }
+  },
+
+  isUserFBGroupAdmin: function() {
+    return (Roles.userIsInRole(Meteor.userId(), ROLES.FB_GROUP_ADMIN));
   },
 //user counters:
   //  followingCounter: function(){
@@ -170,6 +174,9 @@ Template.desktopUserShow.helpers({
   },
   canGenerateAutoLists: function(){
     return (Meteor.user().profile.createdByUserLists.length === 0 && Meteor.user().profile.createdByUserDotz.length === 0)
+  },
+  isSpinnerOn: function(){
+    return Session.get('spinnerOn12');
   }
 
 });
@@ -293,6 +300,38 @@ Template.desktopUserShow.events({
         userId: this.this._id
       }
       });
+  },
+  'click #_userFbGroupAdmin': function(event){
+    event.preventDefault();
+    let currentText = event.currentTarget.textContent;
+    if (currentText === "I will add my group later..."){
+      //$("#btnAddProfile").attr('value', 'Save');
+      $('#_userFbGroupAdmin').html("Get your facebook group posts!");
+      $('#_FBGroupForm').hide();
+    }
+    else{
+      $('#_userFbGroupAdmin').html("I will add my group later...");
+      $('#_FBGroupForm').show();
+    }
+  },
+  'click #_getFBData': function(event){
+    event.preventDefault();
+    Session.set('spinnerOn12', true);
+    Meteor.call('createGroupList', $('#_fbGroupIdInput').val(), function(error, result){
+      if (error){
+        Session.set('spinnerOn12', false);
+        Bert.alert("Sorry something went Wrong, try again", 'danger');
+      }
+      else{
+        Meteor.call('tagFacebookDotz', result, function(error, result){
+          if (error){
+            console.log(error);
+          }
+          Bert.alert("Everything is ready! Go ahead!", 'success');
+          Session.set('spinnerOn12', false);
+        })
+      }
+    })
   }
 
 });

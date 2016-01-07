@@ -1,6 +1,7 @@
 Meteor.methods({
   convertUserToFBGroupAdmin(userId){
-    Meteor.call('convertUsersToRoleOwner', 'FBGroupAdmin', Roles.GLOBAL_GROUP, userId);
+    check(userId, String);
+    Meteor.call('convertUsersToRoleOwner', ROLES.FB_GROUP_ADMIN, Roles.GLOBAL_GROUP, userId);
   }
 });
 

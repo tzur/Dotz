@@ -105,7 +105,7 @@ Meteor.methods({
    */
   createGroupList(FBGroupKey){
     //First we will create the facebook group:
-    check(FBGroupKey,Number);
+    check(FBGroupKey,String);
     let fbFuture = Meteor.npmRequire('fibers/future');
     let fbResult = new fbFuture();
     let groupInfo = fbQuery(FBGroupKey +'/?fields=name,description,cover', Meteor.user().services.facebook.accessToken);

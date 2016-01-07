@@ -10,7 +10,12 @@
     /*-webkit-transform: translateZ(0);*/
     /*transform: translateZ(0);*/
 /*}*/
-
+#_FBGroupForm{
+  display: none
+}
+#_fbGroupIdInput{
+  margin-top: 10px;
+}
 #userBgImg {
     background-color: #fafafa;
     position: fixed;
