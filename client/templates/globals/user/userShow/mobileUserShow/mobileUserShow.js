@@ -119,16 +119,19 @@ Template.mobileUserShow.helpers({
   //    return this.profile.createdByUserDotz.length;
   //},
 
-  connectionsCounterERRORS:  function(){
-    if (this.profile) {
-       let userConnectivity = this.profile.userConnectionsCounter.peopleLikedMyConnections +
-                              this.profile.userConnectionsCounter.peopleConnectedMyDotz+
-                              this.profile.userConnectionsCounter.peopleLikedMyDotz;
-      let userConnection = this.profile.userConnectionsCounter.connectionsMadeByUser + this.profile.userConnectionsCounter.likesMadeByUser
-                            + this.profile.createdByUserDotz.length +
-                           this.profile.createdByUserLists.length;
-      return ((userConnectivity * 2) + userConnection)
-    }
+  connectionsCounter:  function(){
+      if (this.profile) {
+        let userConnectionsCounters = UserConnections.findOne({userId: this._id})
+        if(userConnectionsCounters) {
+          let userConnectivity = userConnectionsCounters.peopleLikedMyConnectionsCounter +
+            userConnectionsCounters.peopleConnectedMyDotzCounter +
+            userConnectionsCounters.peopleLikedMyDotzCounter;
+          let userConnection = userConnectionsCounters.connectionsMadeByUserCounter + userConnectionsCounters.likesMadeByUserCounter
+            + userConnectionsCounters.createdByUserDotzCounter +
+            this.profile.createdByUserLists.length;
+          return ((userConnectivity * 2) + userConnection)
+        }
+      }
   },
 
   myFollow: function(){
@@ -169,7 +172,7 @@ Template.mobileUserShow.helpers({
     return Session.get('showShareDotz');
   },
   canGenerateAutoLists: function(){
-    return (Meteor.user().profile.createdByUserLists.length === 0 && Meteor.user().profile.createdByUserDotz.length === 0)
+    return (Meteor.user().profile.createdByUserLists.length === 0)
   }
 
 });
@@ -214,7 +217,7 @@ Template.mobileUserShow.events({
       analytics.track("Follow User", {
         title: "Follow User From User Show Page",
         followedUserName: this.username
-      })
+      });
       analytics.track("Follow User", {
         title: "User is Not Logged In",
         followedUserName: this.username
@@ -290,7 +293,8 @@ Template.mobileUserShow.events({
   'click #_userConnectivity': function(){
     Modal.show('userConnectivity',{
       data: {
-        userId: this.this._id
+        userId: this._id
+
       }
       });
   }

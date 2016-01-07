@@ -123,15 +123,18 @@ Template.desktopUserShow.helpers({
   //    return this.profile.createdByUserDotz.length;
   //},
 
-  connectionsCounterERRORS:  function(){
+  connectionsCounter:  function(){
     if (this.profile) {
-       let userConnectivity = this.profile.userConnectionsCounter.peopleLikedMyConnections +
-                              this.profile.userConnectionsCounter.peopleConnectedMyDotz+
-                              this.profile.userConnectionsCounter.peopleLikedMyDotz;
-      let userConnection = this.profile.userConnectionsCounter.connectionsMadeByUser + this.profile.userConnectionsCounter.likesMadeByUser
-                            + this.profile.createdByUserDotz.length +
-                           this.profile.createdByUserLists.length;
-      return ((userConnectivity * 2) + userConnection)
+      let userConnectionsCounters = UserConnections.findOne({userId: this._id})
+      if(userConnectionsCounters) {
+        let userConnectivity = userConnectionsCounters.peopleLikedMyConnections.length +
+          userConnectionsCounters.peopleConnectedMyDotz.length +
+          userConnectionsCounters.peopleLikedMyDotz.length;
+        let userConnection = userConnectionsCounters.connectionsMadeByUser.length + userConnectionsCounters.likesMadeByUser.length
+          + userConnectionsCounters.createdByUserDotz.length +
+          this.profile.createdByUserLists.length;
+        return ((userConnectivity * 2) + userConnection)
+      }
     }
   },
 
@@ -173,10 +176,10 @@ Template.desktopUserShow.helpers({
     return Session.get('showShareDotz');
   },
   canGenerateAutoLists: function(){
-    return (Meteor.user().profile.createdByUserLists.length === 0 && Meteor.user().profile.createdByUserDotz.length === 0)
+    return (Meteor.user().profile.createdByUserLists.length === 0 )
   },
   isSpinnerOn: function(){
-    return Session.get('spinnerOn12');
+    return Session.get('FBSpinnerOn');
   }
 
 });
@@ -297,7 +300,7 @@ Template.desktopUserShow.events({
   'click #_userConnectivity': function(){
     Modal.show('userConnectivity',{
       data: {
-        userId: this.this._id
+        userId: this._id
       }
       });
   },
@@ -316,10 +319,10 @@ Template.desktopUserShow.events({
   },
   'click #_getFBData': function(event){
     event.preventDefault();
-    Session.set('spinnerOn12', true);
+    Session.set('FBSpinnerOn', true);
     Meteor.call('createGroupList', $('#_fbGroupIdInput').val(), function(error, result){
       if (error){
-        Session.set('spinnerOn12', false);
+        Session.set('FBSpinnerOn', false);
         Bert.alert("Sorry something went Wrong, try again", 'danger');
       }
       else{
@@ -328,7 +331,7 @@ Template.desktopUserShow.events({
             console.log(error);
           }
           Bert.alert("Everything is ready! Go ahead!", 'success');
-          Session.set('spinnerOn12', false);
+          Session.set('FBSpinnerOn', false);
         })
       }
     })

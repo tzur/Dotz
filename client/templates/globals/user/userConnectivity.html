@@ -10,60 +10,77 @@
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="active">
                                     <a href="#createdByUserDotz" role="tab" data-toggle="tab">
-                                        <icon class="fa fa-home"></icon> Connected By User
+                                        Dotz ({{createdByUserDotzData.length}})
                                     </a>
                                 </li>
+
+                                <li><a href="#createdByUserLists" role="tab" data-toggle="tab">
+                                   Lists ({{createdByUserListsData.length}})
+                                </a>
+                                </li>
+
                                 <li><a href="#dotzConnectedByUser" role="tab" data-toggle="tab">
-                                    <i class="fa fa-user"></i> Created By User Dotz
+                                    Connected ({{createdByUserDotzData.length}})
                                 </a>
                                 </li>
-                                <li><a href="#listsConnectedByUser" role="tab" data-toggle="tab">
-                                    <i class="fa fa-user"></i> Created By User Lists
+
+                                {{#if likesMadeByUserData}}
+
+                                <li><a href="#userLikes" role="tab" data-toggle="tab">
+                                   Likes ({{likesMadeByUserData.length}})
                                 </a>
                                 </li>
+                                {{/if}}
+
+                                {{#if connectivityData}}
                                 <li>
                                     <a href="#peopleConnectedUserDotz" role="tab" data-toggle="tab">
-                                        <i class="fa fa-envelope"></i> Messages
+                                       Connectivity  ({{connectivityData.length}})
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#userFollowers" role="tab" data-toggle="tab">
-                                        <i class="fa fa-cog"></i> Settings
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#userFollowing" role="tab" data-toggle="tab">
-                                        <i class="fa fa-cog"></i> Settings
-                                    </a>
-                                </li>
+                                {{/if}}
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="createdByUserDotz">
-                                    <h2>createdByUserDotz Home Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/1" alt="Cats"/>
+                                  {{#each createdByUserDotzData.smartRefArray}}
+                                    {{#if isDotStillActive}}
+                                      {{>dotCard}}
+                                    {{/if}}
+                                  {{/each}}
                                 </div>
 
-                                <div class="tab-pane fade active in" id="listsConnectedByUser">
-                                    <h2>listsConnectedByUser Home Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/1" alt="Cats"/>
-                                </div>
+                                <div class="tab-pane fade" id="createdByUserLists">
+                                  {{#each createdByUserListsData.smartRefArray}}
+                                    {{#if isDotStillActive}}
+                                      {{>dotCard}}
+                                    {{/if}}
+                                  {{/each}}                                </div>
+
                                 <div class="tab-pane fade" id="dotzConnectedByUser">
-                                    <h2>dotzConnectedByUser Profile Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/2" alt="Cats"/>
+                                  {{#each connectionsMadeByUserData.smartRefArray}}
+                                    {{#if isDotStillActive}}
+                                      {{>dotCard}}
+                                    {{/if}}
+                                  {{/each}}
+
                                 </div>
+
+                                <div class="tab-pane fade" id="userLikes">
+                                  {{#each likesMadeByUserData.smartRefArray}}
+                                    {{#if isDotStillActive}}
+                                      {{>dotCard}}
+                                    {{/if}}
+                                  {{/each}}                                </div>
+
                                 <div class="tab-pane fade" id="peopleConnectedUserDotz">
-                                    <h2>peopleConnectedUserDotz Messages Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/3" alt="Cats"/>
-                                </div>
-                                <div class="tab-pane fade" id="userFollowers">
-                                    <h2>userFollowers Settings Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/4" alt="Cats"/>
-                                </div>
-                                <div class="tab-pane fade" id="userFollowing">
-                                    <h2>userFollowing Settings Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/4" alt="Cats"/>
+                                  {{#each connectivityData.smartRefArray}}
+                                    {{#if isDotStillActive}}
+
+                                      {{>dotCard}}
+                                    {{/if}}
+                                  {{/each}}
                                 </div>
                             </div>
 

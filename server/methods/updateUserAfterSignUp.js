@@ -87,6 +87,14 @@ Meteor.methods({
         mySlugFuture.return(result);
       }
     });
+
+    if(Meteor.isServer){
+      Meteor.call('insertNewUserConnectionsCollection', function(error){
+        if(error){
+          console.log('Error in insertNewUserConnectionsCollection: ' + error)
+        }
+      })
+    }
     return mySlugFuture.wait();
   }
 });
