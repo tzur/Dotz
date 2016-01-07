@@ -1,18 +1,65 @@
-Meteor.publish( 'user', function( userId ) {
+Meteor.publish( 'user-OLD', function( userId ) {
   check(userId, String, Object);
   if (userId) {
     return Meteor.users.find(userId, {fields: {"services.password": 0, "emails.address": 0, "services.loginTokens": 0, "emails.verified": 0, "profile.feedDotz": 0}});
   }
 });
 
-//Users.find({}, {fields: {password: 0, hash: 0}})
-
-Meteor.publish( 'userByUserSlug', function( userSlug ) {
+Meteor.publish( 'userByUserSlug1-OLD', function( userSlug ) {
   if (userSlug) {
     check(userSlug, String);
     return Meteor.users.find( {"profile.userSlug": userSlug}, {fields: {"services.password": 0, "services.loginTokens": 0, "emails.address": 0, "emails.verified": 0, "profile.feedDotz": 0}});
   }
   //return this.ready();
+});
+
+Meteor.publish('userByUserSlug', function(userSlug){
+  check(userSlug, String);
+  let user = Meteor.users.findOne({"profile.userSlug": userSlug});
+  console.log(user.username)
+  let data = [
+    Meteor.users.find({"profile.userSlug": userSlug},
+      {fields: {
+        "username": 1,
+        "profile.userSlug": 1,
+        "profile.description": 1,
+        "profile.profileImage": 1,
+        "profile.coverImage": 1,
+        "profile.userType": 1,
+        "profile.shareDotId": 1, //TBD..
+        "profile.profileDotId": 1,
+        "profile.createdByUserLists": 1,
+        "profile.location": 1,
+        "profile.userAddress": 1,
+        "profile.websiteUrl": 1,
+        "profile.facebookAccountUrl": 1,
+        "profile.twitterAccountUrl": 1,
+        "profile.googleAccountUrl": 1
+      }
+      }),
+    Dotz.find({_id: { $in: [user.profile.profileDotId, user.profile.shareDotId] }}, //TBD..
+      {fields: {
+        "isOpen": 1,
+        "connectedDotzArray": 1}
+    }),
+
+    UserConnections.find({userId: user._id}
+      //{fields: {
+      //  userId: 1,
+      //  likesMadeByUserCounter: 1,
+      //  connectionsMadeByUserCounter:1,
+      //  peopleConnectedMyDotzCounter: 1,
+      //  peopleLikedMyConnectionsCounter:1,
+      //  peopleLikedMyDotzCounter: 1,
+      //  createdByUserDotzCounter: 1
+      //  }
+      //}
+    )
+  ];
+  if ( data ) {
+    return data;
+  }
+  return this.ready();
 });
 
 Meteor.publish('dotzArrayToUserCursor',function(dotzArray){

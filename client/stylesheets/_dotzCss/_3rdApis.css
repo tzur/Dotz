@@ -1,12 +1,19 @@
-@media (max-width: 991px) {
+@media (max-width: 756px) {
 
  .zopim {
    display: none !important;
  }
 
+  .intercom-launcher-button {
+    display: none !important;
+  }
+
+  #intercom-container {
+    display: none !important;
+  }
 
 }
 
-#intercom-container .intercom-launcher-hovercard{
-  display: none;
+#intercom-container .intercom-launcher-hovercard {
+  display: none !important;
 }

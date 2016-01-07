@@ -39,14 +39,16 @@
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="createdByUserDotz">
-                                    <h2>createdByUserDotz Home Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/1" alt="Cats"/>
-                                </div>
+                                    <h2>My Dotz</h2>
+                                  {{#each createdByUserDotzData}}
+                                    {{>dotCard}}
+                                  {{/each}}                                </div>
 
                                 <div class="tab-pane fade active in" id="createdByUserLists">
-                                    <h2>listsConnectedByUser Home Content Goes Here</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/1" alt="Cats"/>
-                                </div>
+                                    <h2>My Lists Home Content Goes Here</h2>
+                                  {{#each createdByUserListsData}}
+                                    {{>dotCard}}
+                                  {{/each}}                                </div>
 
                                 <div class="tab-pane fade" id="dotzConnectedByUser">
                                     <h2>connectionsMadeByUserData:</h2>
@@ -59,11 +61,15 @@
 
                                 <div class="tab-pane fade active in" id="userLikes">
                                     <h2>User likes</h2>
-                                    <img src="http://lorempixel.com/400/400/cats/1" alt="Cats"/>
-                                </div>
+                                  {{#each likesMadeByUserData}}
+                                    {{>dotCard}}
+                                  {{/each}}                                </div>
 
                                 <div class="tab-pane fade" id="peopleConnectedUserDotz">
-                                    <h2>Connectivity</h2>
+                                  <h2>Connectivity</h2>
+                                  {{#each connectivityData}}
+                                    {{>dotCard}}
+                                  {{/each}}
                                 </div>
                             </div>
 

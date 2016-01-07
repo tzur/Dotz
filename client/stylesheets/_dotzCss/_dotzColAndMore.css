@@ -1,4 +1,9 @@
 
+.colCenter {
+  float: none;
+  margin: 0 auto;
+}
+
 .noPadding {
   padding: 0;
 }
