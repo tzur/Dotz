@@ -293,7 +293,7 @@ Template.mobileDotCard.events({
   //},
   'click .connect': function(){
     if(Meteor.user()) {
-      Modal.show('connectDotModal',{
+      Modal.show('mobileConnectDotModal',{
         data:{
           dot: this.dot,
           connectToMyLists: true

@@ -1,0 +1,24 @@
+<template name="mobileConnectDotCard">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="container-fluid dot-container-img-card-connect-modal" style="background-image: url('{{coverImageUrl}}')"></div>
+        </div>
+
+        <div class="col-md-8">
+
+            <h5 class="dotTitle-connect-modal">{{title}}</h5>
+        </div>
+
+        {{#if isConnectToMyLists}}
+            <div class="col-md-2">
+                <button type="button" class="connectBtn btn btn-lead round btn-xs">Connect</button>
+            </div>
+
+        {{else}}
+          <div class="col-md-2">
+              <button type="button" class="createToBtn btn btn-lead round btn-xs">Publish</button>
+          </div>
+        {{/if}}
+    </div>
+
+</template>
