@@ -162,6 +162,10 @@
   padding: 2vh 0;
 }
 
+.fixedFooterShadow-mobileDotShow {
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.13);
+}
+
 /*#mobileDotShow-lineDiv {*/
   /*position: relative;*/
   /*width: 100%;*/

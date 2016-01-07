@@ -6,7 +6,7 @@
 
 
 #mobileDotCard-lastDot {
-  padding: 7vw 0 0 0;
+  padding: 13vh 0 7vh 0;
   position: relative;
 }
 
@@ -16,8 +16,8 @@
   position: relative;
   float: left;
   text-align: center;
-  border-left: 2px solid #e5e5e5;
-  padding-top: 20vw;
-  margin-top: -7vw;
-  border-bottom: 2px solid #e5e5e5;
+  border-left: 2px dashed #e5e5e5;
+  padding-top: 20vh;
+  margin-top: -12vh;
+  border-bottom: 2px dashed #e5e5e5;
 }
