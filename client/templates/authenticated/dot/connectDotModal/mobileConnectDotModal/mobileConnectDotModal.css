@@ -3,16 +3,32 @@
   margin: 1em 0;
 }
 
-#mobileConnectDotModal-mobileDotCard-col-text {
-  width:56vw;
-  padding-top: 1vw;
-  position: relative;
-  min-height: 28vw;
-  /*padding-right: 15px;*/
-  margin: auto;
-  float: left;
+#mobileConnectDotModal-connectBtnDiv {
+  height: inherit;
+  width: auto;
+  padding: 2vh 0;
 }
 
+#mobileConnectDotModal-connectBtnDiv h5 {
+  margin: 0;
+  padding-top: 0.25em;
+}
+
+.mobileConnectDotModal-ConnectedByOwnerDotz-div {
+  max-height: 40vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.mobileConnectDotModal-dotImg {
+  position: relative;
+  width: 8vw;
+  height: 8vw;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  border-radius: 50%;
+}
 
 .dot-img-connect-modal {
   height: 9em;
@@ -47,21 +63,9 @@
   font-size: 0.75em;
 }
 
-.ConnectedByOwnerDotz-div {
-  height: 30vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
 
-.dot-container-img-card-connect-modal {
-  position: relative;
-  width: 3em;
-  height: 3em;
-  background-size: cover;
-  background-position-y: 50%;
-  background-position-x: 50%;
-  border-radius: 50%;
-}
+
+
 
 .ConnectedByOwnerDotz {
   padding: 0.5em;

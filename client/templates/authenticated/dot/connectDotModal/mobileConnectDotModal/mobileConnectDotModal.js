@@ -19,6 +19,10 @@ Template.mobileConnectDotModal.helpers({
     return Meteor.user().profile.profileImage;
   },
 
+  shortenTitle: function() {
+    return s.prune(this.title, 30);
+  },
+
   currentUserUsername: function() {
     return Meteor.user().username;
   },
@@ -36,8 +40,8 @@ Template.mobileConnectDotModal.helpers({
 
 Template.mobileConnectDotModal.events({
 
-  'click #exitBtn': function(){
-    Modal.hide('createDotModal');
+  'click #_addNoteBtn': function(){
+    $('#_addNoteDiv').toggleClass('hidden');
   },
 
   'click .connectToUserProfile': function () {
