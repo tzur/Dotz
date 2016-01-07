@@ -17,9 +17,8 @@ BrowserPolicy.content.allowOriginForAll("https://js.intercomcdn.com");
 BrowserPolicy.content.allowOriginForAll("http://*.embed.ly");
 BrowserPolicy.content.allowImageOrigin("*");
 BrowserPolicy.content.allowOriginForAll("https://*.imgix.com");
-
-
-
+BrowserPolicy.content.allowOriginForAll("https://www.youtube.com");
+BrowserPolicy.content.allowOriginForAll("https://www.youtube.com/embed");
 
 
 
