@@ -1,6 +1,6 @@
 <template name="mobileConnectDotModal">
 
-        <div class="modal fade">
+    <div class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -12,46 +12,32 @@
 
                     <h5 id="_addNoteBtn" class="lightGrey"><i class="fa fa-pencil"></i> Add your note</h5>
 
-                      <div id="_addNoteDiv" class="hidden">
+                    <div id="_addNoteDiv" class="hidden">
 
-                          <textarea id="personalDescription"  maxLength=100></textarea>
-                          <div id="personalDescriptionFeedback" class="pull-right lightGrey"></div>
+                        <textarea id="personalDescription"  maxLength=100></textarea>
+                        <div id="personalDescriptionFeedback" class="pull-right lightGrey"></div>
 
-                      </div>
+                    </div>
 
                     <hr class="row">
 
                     <div class="container-fluid mobileConnectDotModal-ConnectedByOwnerDotz-div" id="dotzToConnectTo">
                         <div class="row">
 
-
                           {{#if canBeConnectedToUserProfileDot}}
-                            <!--<div class="container-fluid">-->
-                              <!--<div class="connectToUserProfile container-fluid ConnectedByOwnerDotz">-->
-      <!---->
-                                    <!--<div class="col-xs-2">-->
-                                        <!--<div class="container-fluid dot-container-img-card-connect-modal" style="background-image: url('{{currentUserImageUrl}}')"></div>-->
-                                    <!--</div>-->
-      <!---->
-                                    <!--<div class="col-xs-9">-->
-                                        <!--<h5 class="dotTitle-connect-modal">My Profile</h5>-->
-                                    <!--</div>-->
-      <!---->
-                              <!--</div>-->
 
-                              <div id="mobileConnectDotModal-connectBtnDiv" class="connectToUserProfile container-fluid ConnectedByOwnerDotz">
+                              <div id="_mobileConnectDotModal-connecToUserProfiletBtnDiv" class="container-fluid">
                                   <div class="col-xs-1 noPadding">
                                       <div class="mobileConnectDotModal-dotImg" style="background-image: url('{{currentUserImageUrl}}')"></div>
                                   </div>
 
                                   <div class="col-xs-11">
-                                      <h5 class="dotTitle-connect-modal">My Profile</h5>
+                                      <h5 class="bold">My Profile</h5>
                                   </div>
 
                               </div>
-                            <!--</div>-->
-                          {{/if}}
 
+                          {{/if}}
 
 
                           <div id="availableDotz">
@@ -60,14 +46,14 @@
 
                               {{#each userProfileDotzArray}}
 
-                                <div id="mobileConnectDotModal-connectBtnDiv" class="connectBtn container-fluid ConnectedByOwnerDotz">
+                                <div id="_mobileConnectDotModal-connectBtnDiv" class="container-fluid">
+
                                   <div class="col-xs-1 noPadding">
                                       <div class="mobileConnectDotModal-dotImg" style="background-image: url('{{coverImageUrl}}')"></div>
                                   </div>
 
                                   <div class="col-xs-11">
-
-                                      <h5 class="dotTitle-connect-modal">{{shortenTitle}}</h5>
+                                      <h5 class="bold">{{shortenTitle}}</h5>
                                   </div>
 
                                 </div>
@@ -76,17 +62,23 @@
 
 
                             {{else}}
+
                               <p class="colCenter">Its seems like there is no List to connect to :)</p>
+
                             {{/if}}
+
                           </div>
-                      </div>
-                  </div>
+
+                         </div>
+                    </div>
 
 
                 </div>
-             </div>
+
+            </div>
         </div>
     </div>
+
 </template>
 
 
