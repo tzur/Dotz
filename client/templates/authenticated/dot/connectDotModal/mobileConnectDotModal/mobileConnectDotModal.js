@@ -44,7 +44,7 @@ Template.mobileConnectDotModal.events({
     $('#_addNoteDiv').toggleClass('hidden');
   },
 
-  'click .connectToUserProfile': function () {
+  'click #_mobileConnectDotModal-connecToUserProfiletBtnDiv': function () {
     let personalDescription = $('#personalDescription').val();
     let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), Session.get('dotOwnerUserId'),
                   Meteor.user().profile.profileDotId, CONNECT_ACTION, Meteor.userId(),personalDescription);
@@ -58,7 +58,7 @@ Template.mobileConnectDotModal.events({
   },
 
 
-  'click .connectBtn': function () {
+  'click #_mobileConnectDotModal-connectBtnDiv': function () {
     let personalDescription = $('#personalDescription').val();
     let smartRef = new Modules.both.Dotz.smartRef(Session.get('dotIdWishedToBeConnected'), Session.get('dotOwnerUserId'),
       this._id, CONNECT_ACTION, Meteor.userId(),personalDescription);

@@ -36,7 +36,7 @@ border-radius: 50%;
 /*ListShowHeader*/
 
 .backToLastPath {
-  position: fixed;
+  position: absolute;
   top: 10vh;
   z-index: 999;
   width: 4em;

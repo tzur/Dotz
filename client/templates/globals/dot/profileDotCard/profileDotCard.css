@@ -29,15 +29,13 @@
 .profileDotCardTitle {
   color: #4b4f54;
   margin-top: 1.2vh;
-  /*margin-left: 0.5vh;*/
-  /*margin-right: 0.5vh;*/
-  /*display: block;*/
+  margin-right: -2vw;
+  margin-left: -2vw;
   font-size: 1.5em;
   /*-webkit-margin-before: 0.83em;*/
   /*-webkit-margin-after: 0.83em;*/
   /*-webkit-margin-start: 0px;*/
   /*-webkit-margin-end: 0px;*/
-  /*font-weight: bold;*/
   text-align: center;
   font-weight: 400;
 }

@@ -23,7 +23,7 @@
 }
 
 .imgCover {
-    height: 25vh;
+    height: 30vh;
     background-size: cover;
     background-position-y: 50%;
     background-position-x: 50%;
@@ -43,7 +43,7 @@
 
 #userShowMainDiv {
     position: relative;
-    top: 25vh;
+    top: 30vh;
     min-height: 60vh;
     padding-top: 4em;
     background-color: #fafafa;
