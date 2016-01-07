@@ -4,9 +4,9 @@ let getAvailableLists = function(dotIdWishedToConnectTo) {
   let createdByUserLists = Meteor.user().profile.createdByUserLists;
   let availableLists = [];
   if (createdByUserLists) {
-    createdByUserLists.forEach(function (dotId) {
-      if(canBeConnectedToDot(dotId, dotIdWishedToConnectTo)){
-        availableLists.push(dotId);
+    createdByUserLists.forEach(function (smartRef) {
+      if(canBeConnectedToDot(smartRef.dot._id, dotIdWishedToConnectTo)){
+        availableLists.push(smartRef.dot._id);
       }
     });
   }

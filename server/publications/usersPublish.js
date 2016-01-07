@@ -16,6 +16,7 @@ Meteor.publish( 'userByUserSlug1-OLD', function( userSlug ) {
 Meteor.publish('userByUserSlug', function(userSlug){
   check(userSlug, String);
   let user = Meteor.users.findOne({"profile.userSlug": userSlug});
+  console.log(user.username)
   let data = [
     Meteor.users.find({"profile.userSlug": userSlug},
       {fields: {
@@ -40,7 +41,20 @@ Meteor.publish('userByUserSlug', function(userSlug){
       {fields: {
         "isOpen": 1,
         "connectedDotzArray": 1}
-      })
+    }),
+
+    UserConnections.find({userId: user._id}
+      //{fields: {
+      //  userId: 1,
+      //  likesMadeByUserCounter: 1,
+      //  connectionsMadeByUserCounter:1,
+      //  peopleConnectedMyDotzCounter: 1,
+      //  peopleLikedMyConnectionsCounter:1,
+      //  peopleLikedMyDotzCounter: 1,
+      //  createdByUserDotzCounter: 1
+      //  }
+      //}
+    )
   ];
   if ( data ) {
     return data;

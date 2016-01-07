@@ -1,12 +1,17 @@
-
-
-#modalContent-userConnectivity {
-  height: 100%;
-  border-radius: 0;
-}
-
 #modalDialog-userConnectivity {
   width: 90vw;
   height: 90vh;
   padding: 0;
 }
+
+#modalContent-userConnectivity {
+  height: 90vh;
+  border-radius: 0;
+}
+
+#modalContent-userConnectivity .tab-content {
+  height: 81vh;
+  overflow-y: scroll;
+}
+
+

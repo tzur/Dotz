@@ -41,10 +41,10 @@ Template.connectDotModal.events({
                   Meteor.user().profile.profileDotId, CONNECT_ACTION, Meteor.userId(),personalDescription);
     Meteor.call('connectDot', smartRef);
     Modal.hide();
-    analytics.track('Enter Connect Modal', {
-      title: 'Connected: ' + this.data.dot.title,
-      connectTarget: "Profile Dot"
-    })
+    //analytics.track('Enter Connect Modal', {
+    //  title: 'Connected: ' + this.data.dot.title,
+    //  connectTarget: "Profile Dot"
+    //})
 
 
 
@@ -55,10 +55,10 @@ Template.connectDotModal.events({
       this._id, CONNECT_ACTION, Meteor.userId(),personalDescription);
     Meteor.call('connectDot', smartRef);
     Modal.hide();
-    analytics.track('Connect', {
-      title: 'Connected: ' + Session.get('dotTitleWishedToBeConnected'),
-      connectTarget: this.title
-    })
+    //analytics.track('Connect', {
+    //  title: 'Connected: ' + Session.get('dotTitleWishedToBeConnected'),
+    //  connectTarget: this.title
+    //})
 
 
   }

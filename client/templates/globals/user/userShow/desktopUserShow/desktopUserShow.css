@@ -10,7 +10,12 @@
     /*-webkit-transform: translateZ(0);*/
     /*transform: translateZ(0);*/
 /*}*/
-
+#_FBGroupForm{
+  display: none
+}
+#_fbGroupIdInput{
+  margin-top: 10px;
+}
 #userBgImg {
     background-color: #fafafa;
     position: fixed;
@@ -23,7 +28,7 @@
 }
 
 .imgCover {
-    height: 25vh;
+    height: 30vh;
     background-size: cover;
     background-position-y: 50%;
     background-position-x: 50%;
@@ -43,7 +48,7 @@
 
 #userShowMainDiv {
     position: relative;
-    top: 25vh;
+    top: 30vh;
     min-height: 60vh;
     padding-top: 4em;
     background-color: #fafafa;
