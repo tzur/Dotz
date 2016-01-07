@@ -1,4 +1,4 @@
-Meteor.publish( 'user-OLD', function( userId ) {
+Meteor.publish( 'user', function( userId ) {
   check(userId, String, Object);
   if (userId) {
     return Meteor.users.find(userId, {fields: {"services.password": 0, "emails.address": 0, "services.loginTokens": 0, "emails.verified": 0, "profile.feedDotz": 0}});

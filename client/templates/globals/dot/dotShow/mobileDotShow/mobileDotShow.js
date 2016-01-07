@@ -72,14 +72,16 @@ Template.mobileDotShow.onRendered(function(){
   //Link to the source: http://jsfiddle.net/yeco/4EcFf/
   //TBD: we need to reduce the jQuery queries... :
   $(document).scroll(function () {
-      var menu = $('#placeHolder');
-      var origOffsetY = menu.offset().top - $(window).height();
-      if ($(window).scrollTop() > origOffsetY) {
+      var navPlaceHolder = $('#placeHolder');
+      if (navPlaceHolder) {
+        var origOffsetY = navPlaceHolder.offset().top - $(window).height();
+        if ($(window).scrollTop() > origOffsetY) {
           $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
           //console.log("removeClass");
-      } else {
+        } else {
           $('#fixedFooter-mobileDotShow').addClass('navbar-fixed-bottom');
           //console.log("addClass");
+        }
       }
   });
 

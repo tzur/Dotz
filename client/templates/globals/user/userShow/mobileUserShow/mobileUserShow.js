@@ -119,7 +119,7 @@ Template.mobileUserShow.helpers({
   //    return this.profile.createdByUserDotz.length;
   //},
 
-  connectionsCounter:  function(){
+  connectionsCounterERRORS:  function(){
     if (this.profile) {
        let userConnectivity = this.profile.userConnectionsCounter.peopleLikedMyConnections +
                               this.profile.userConnectionsCounter.peopleConnectedMyDotz+
