@@ -15,7 +15,7 @@ Template.desktopUserShow.onCreated(function() {
     FlowRouter.watchPathChange();
     let userSlug = FlowRouter.getParam('userSlug');
     if (userSlug){
-      let handleUser = self.subs.subscribe('userByUserSlug', userSlug, function(){
+      self.subs.subscribe('userByUserSlug', userSlug, function(){
         let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
         if (!user){
           Bert.alert('Page does not exist', 'danger');
@@ -119,7 +119,7 @@ Template.desktopUserShow.helpers({
   //    return this.profile.createdByUserDotz.length;
   //},
 
-  connectionsCounter:  function(){
+  connectionsCounterERRORS:  function(){
     if (this.profile) {
        let userConnectivity = this.profile.userConnectionsCounter.peopleLikedMyConnections +
                               this.profile.userConnectionsCounter.peopleConnectedMyDotz+
