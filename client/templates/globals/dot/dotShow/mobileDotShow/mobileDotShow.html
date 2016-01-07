@@ -1,6 +1,10 @@
 <template name="mobileDotShow">
   {{#with dotShow}}
 
+        <div class="backToLastPath">
+            <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-times"></i></button>
+        </div>
+
         <div class="container-fluid" id="header-mobileDotShow">
 
             <div id="coverImg-mobileDotShow" class="row" style="background-image: url('{{dot.coverImageUrl}}')">
@@ -52,9 +56,13 @@
             </div>
 
             <div class="container-fluid txtMd">
+
+                {{#if dot.linkUrl}}
                 <a href="{{dot.linkUrl}}" target="_blank">
                     <button type="button" class="btn btn-default btn-xs mdGrey"><i class="fa fa-external-link mdGrey"></i> {{dot.linkName}}</button>
                 </a>
+                {{/if}}
+
                 <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-success btn-xs"><i class="fa fa-bookmark-o"></i> Connect to profile</button>
 
               {{# if isLikedByMe}}
@@ -148,10 +156,14 @@
     <!--<p>bla</p>-->
 </div>
 
-      <nav id="fixedFooter-mobileDotShow" class="navbar navbar-default navbar-fixed-bottom visible-xs" role="navigation">
+      <nav id="fixedFooter-mobileDotShow" class="navbar navbar-default navbar-fixed-bottom visible-xs fixedFooterShadow-mobileDotShow" role="navigation">
 
           <div class="col-xs-10">
+              {{#if dotzNum}}
               <span class="lgTxt mdGrey">{{dotzNum}} Connected</span>
+                {{else}}
+              <span class="lgTxt mdGrey">Let's Connect the 1st dot</span>
+              {{/if}}
           </div>
 
           <div class="col-xs-2">

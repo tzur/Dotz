@@ -1,4 +1,4 @@
-Template.userShow.onCreated(function() {
+Template.desktopUserShow.onCreated(function() {
   Session.set('showShareDotz', false);
   let self = this;
   self.userShowReady = new ReactiveVar();
@@ -15,7 +15,7 @@ Template.userShow.onCreated(function() {
     FlowRouter.watchPathChange();
     let userSlug = FlowRouter.getParam('userSlug');
     if (userSlug){
-      let handleUser = self.subs.subscribe('userByUserSlug', userSlug, function(){
+      self.subs.subscribe('userByUserSlug', userSlug, function(){
         let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
         if (!user){
           Bert.alert('Page does not exist', 'danger');
@@ -35,20 +35,20 @@ Template.userShow.onCreated(function() {
           });
         }
       });
-      if (handleUser.ready()){
-          let user =  Meteor.users.findOne({"profile.userSlug": userSlug});
-          if (user) {
-              self.subs.subscribe('dotCard', user.profile.profileDotId.toString());
-              self.subs.subscribe('dotCard', user.profile.shareDotId.toString());
-          }
-      }
+      //if (handleUser.ready()){
+      //    let user =  Meteor.users.findOne({"profile.userSlug": userSlug});
+      //    if (user) {
+      //        self.subs.subscribe('dotCard', user.profile.profileDotId.toString());
+      //        self.subs.subscribe('dotCard', user.profile.shareDotId.toString());
+      //    }
+      //}
 
     }
   });
 });
 
 
-Template.userShow.onRendered(function() {
+Template.desktopUserShow.onRendered(function() {
   //Session.set('showShareDotz', false);
   Session.set('changeListener', true);
 
@@ -76,12 +76,12 @@ Template.userShow.onRendered(function() {
 });
 
 
-Template.userShow.onDestroyed(function(){
+Template.desktopUserShow.onDestroyed(function(){
   Session.set('changeListener', true);
 });
 
 
-Template.userShow.helpers({
+Template.desktopUserShow.helpers({
   dataUser: function() {
     let user = Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
     if (user){
@@ -119,7 +119,7 @@ Template.userShow.helpers({
   //    return this.profile.createdByUserDotz.length;
   //},
 
-  connectionsCounter:  function(){
+  connectionsCounterERRORS:  function(){
     if (this.profile) {
        let userConnectivity = this.profile.userConnectionsCounter.peopleLikedMyConnections +
                               this.profile.userConnectionsCounter.peopleConnectedMyDotz+
@@ -173,7 +173,7 @@ Template.userShow.helpers({
   }
 
 });
-Template.userShow.events({
+Template.desktopUserShow.events({
   'click ._shareUserOnFB': function(event){
     event.preventDefault();
     FB.ui({

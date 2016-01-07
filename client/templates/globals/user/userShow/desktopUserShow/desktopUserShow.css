@@ -23,7 +23,7 @@
 }
 
 .imgCover {
-    height: 40vh;
+    height: 30vh;
     background-size: cover;
     background-position-y: 50%;
     background-position-x: 50%;
@@ -43,7 +43,7 @@
 
 #userShowMainDiv {
     position: relative;
-    top: 40vh;
+    top: 30vh;
     min-height: 60vh;
     padding-top: 4em;
     background-color: #fafafa;
@@ -68,11 +68,6 @@
     /* overflow: hidden; */
 }
 
-.colCenter {
-    float: none;
-    margin: 0 auto;
-}
-
 .followingNum {
     font-size: 2em;
     font-weight: 300;
@@ -90,21 +85,6 @@
     border-radius: 50%;
 }
 
-.round {
-    border-radius: 24px;
-}
-
-.btn-success {
-    color: #66BD2B;
-    background-color: transparent;
-    border-color: #66BD2B;
-}
-
-.btn-lead {
-    color: #ffffff;
-    background-color: #66BD2B;
-    border-color: #66BD2B;
-}
 
 #userName {
     color: white;
