@@ -121,13 +121,9 @@ Template.userShow.helpers({
 
   connectionsCounter:  function(){
     if (this.profile) {
-       let userConnectivity = this.profile.userConnectionsCounter.peopleLikedMyConnections +
-                              this.profile.userConnectionsCounter.peopleConnectedMyDotz+
-                              this.profile.userConnectionsCounter.peopleLikedMyDotz;
-      let userConnection = this.profile.userConnectionsCounter.connectionsMadeByUser + this.profile.userConnectionsCounter.likesMadeByUser
-                            + this.profile.createdByUserDotz.length +
-                           this.profile.createdByUserLists.length;
-      return ((userConnectivity * 2) + userConnection)
+      return (this.likesMadeByUserCounter + this.connectionsMadeByUserCounter +
+              this.peopleConnectedMyDotzCounter * 2 + this.peopleLikedMyConnectionsCounter * 2 + this.peopleLikedMyDotzCounter * 2 +
+              this.createdByUserDotz.length + this.profile.createdByUserLists.length)
     }
   },
 
@@ -290,7 +286,12 @@ Template.userShow.events({
   'click #_userConnectivity': function(){
     Modal.show('userConnectivity',{
       data: {
-        userConnections: this.userConnections
+        likesMadeByUser: this.likesMadeByUser,
+        connectionsMadeByUser: this.connectionsMadeByUser,
+        peopleConnectedMyDotz: this.peopleConnectedMyDotz,
+        peopleLikedMyConnections: this.peopleLikedMyConnections,
+        peopleLikedMyDotz: this.peopleLikedMyDotz
+
       }
       });
   }
