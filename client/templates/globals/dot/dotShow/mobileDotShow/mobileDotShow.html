@@ -7,49 +7,7 @@
 
         <div class="container-fluid" id="header-mobileDotShow">
 
-            <div id="coverImg-mobileDotShow" class="row" style="background-image: url('{{dot.coverImageUrl}}')">
-
-                <!--<div id="imgCoverFilter-mobileDotShow">-->
-
-                    <!--<div id="circleImgsRow-mobileDotShow" class="row">-->
-
-                        <!--<div class="col-xs-2 noPadding">-->
-                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">-->
-                                <!--<div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-                        <!--<div class="col-xs-2 noPadding">-->
-                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">-->
-                                <!--<div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-                        <!--<div class="col-xs-4 noPadding">-->
-                            <!--<div id="dotCircleImg-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')"></div>-->
-                        <!--</div>-->
-
-                        <!--<div class="col-xs-2 noPadding">-->
-                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">-->
-                                <!--<div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-                        <!--<div class="col-xs-2 noPadding">-->
-                            <!--<div class="dotSmallAndCircleImgs-mobileDotShow" style="background-image: url('{{dot.coverImageUrl}}')">-->
-                                <!--<div class="dotSmallAndCircleImgsFilter-mobileDotShow"></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-                    <!--</div>-->
-
-
-
-                <!--</div>-->
-
-            </div><!--end row listCoverImg-->
-
-
+            <div id="coverImg-mobileDotShow" class="row" style="background-image: url('{{dot.coverImageUrl}}')"></div>
 
             <div class="container-fluid">
                 <h4 id="title-mobileDotShow" class="col-xs-12">{{dot.title}}</h4>
@@ -81,41 +39,16 @@
 
             <div id="imgCoverFilter2-mobileDotShow">
 
-              <!--{{#if dot.bodyText}}-->
-                  <!--<div class="divSubtitle-mobileDotShow container-fluid">-->
-                      <!--<h5 class="bold">Description</h5>-->
-                  <!--</div>-->
+              {{#if dot.bodyText}}
 
                   <div class="container-fluid">
                       <h5 class="description line-h-md greyText mdTxt">{{dot.bodyText}}</h5>
                   </div>
 
-              <!--{{/if}}-->
+              {{/if}}
 
             </div>
 
-            <!--<div id="buttonsRow-mobileDotShow" class="container-fluid noPadding">-->
-
-                <!--<div class="col-xs-12 txtMd">-->
-                    <!--<button type="button" class="btn btn-default btn-xs mdGrey"><i class="fa fa-share-alt mdGrey"></i></button>-->
-                    <!--<a href="{{dot.linkUrl}}">-->
-                        <!--<button type="button" class="btn btn-default btn-xs mdGrey"><i class="fa fa-external-link mdGrey"></i> Read on {{dot.linkName}}</button>-->
-                    <!--</a>-->
-                <!--</div>-->
-
-                <!--<div class="col-xs-2">-->
-                    <!--<button type="button" class="btn btn-default btn-xs"><i class="fa fa-heart"></i> 24</button>-->
-                <!--</div>-->
-
-                <!--<div class="col-xs-3">-->
-                    <!--<button type="button" class="btn btn-default btn-xs"><i class="fa fa-plus-circle"></i> ReConnect</button>-->
-                <!--</div>-->
-
-            <!--</div>-->
-
-            <!--<div class="divSubtitle-mobileDotShow container-fluid">-->
-                <!--<h5 class="bold">Connected by 64 people</h5>-->
-            <!--</div>-->
 
             <!--<div id="connectedByTextDiv-mobileDotShow" class="container-fluid">-->
 
@@ -153,14 +86,14 @@
 
 
 <div id="placeHolder">
-    <!--<p>bla</p>-->
+
 </div>
 
       <nav id="fixedFooter-mobileDotShow" class="navbar navbar-default navbar-fixed-bottom visible-xs fixedFooterShadow-mobileDotShow" role="navigation">
 
           <div class="col-xs-10">
               {{#if dotzNum}}
-              <span class="lgTxt mdGrey">{{dotzNum}} Connected</span>
+              <h4 class="mdTxt mdGrey">{{dotzNum}} Connected</h4>
                 {{else}}
               <span class="lgTxt mdGrey">Let's Connect the 1st dot</span>
               {{/if}}
@@ -174,40 +107,13 @@
 
 
       <div id="connectedDotzArray">
-
-          <!--<div class="container-fluid">-->
-              <!--<div id="mobileDotCard-box"></div>-->
-          <!--</div>-->
-
-          <!--<div class="divSubtitle-mobileDotShow container-fluid">-->
-              <!--<h5 class="bold">24 Dotz Connected</h5>-->
-          <!--</div>-->
-
-          <!--<div id="verticalLine">-->
-
-          <!--</div>-->
-
           <div class="container-fluid">
-              <!--<div class="row">-->
-                  <!--<div class="col-xs-12 col-md-10 col-lg-8 colCenter">-->
-
-                    {{#each connectedDotzArray}}
-                      {{>mobileDotCard}}
-                    {{/each}}
-                     {{>mobileDotCardLastDot}}
-
-                  <!--</div>-->
-              <!--</div>-->
-          </div><!-- end container-fluid -->
-
+              {{#each connectedDotzArray}}
+                {{>mobileDotCard}}
+              {{/each}}
+               {{>mobileDotCardLastDot}}
+          </div>
       </div>
-
-
-
-  <!--the dotShow FIX footer-->
-
-
-
 
 {{/with}}
 </template>

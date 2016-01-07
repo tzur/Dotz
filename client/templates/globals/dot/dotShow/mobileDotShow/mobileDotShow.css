@@ -162,6 +162,11 @@
   padding: 2vh 0;
 }
 
+#fixedFooter-mobileDotShow h4 {
+  margin: 1vh 0;
+  text-transform: uppercase;
+}
+
 .fixedFooterShadow-mobileDotShow {
   box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.13);
 }
