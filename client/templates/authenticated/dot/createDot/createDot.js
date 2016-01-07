@@ -4,6 +4,7 @@ Template.createDotModal.onCreated(function(){
   self.autorun(function(){
     if(Meteor.userId()){
       self.subscribe('profileDot', Meteor.userId());
+      self.subscribe('tags');
     }
     let profileDot = Dotz.findOne({_id: Meteor.user().profile.profileDotId});
     if (profileDot){
@@ -49,7 +50,7 @@ Template.createDotModal.onRendered(function(){
             else{
               var dataParser = JSON.stringify(data);
               console.log('success');
-              $("#descriptionField").val(data.message);
+              $("#descriptionField").val(data.message).trigger('change');
               Session.set('fbPostAuthorData', data.from);
             }
           })

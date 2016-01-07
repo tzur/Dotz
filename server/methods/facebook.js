@@ -1,5 +1,5 @@
 
-
+let hashavuaGroupKey = 434228236734415;
 function fbQuery(query, accessToken){
 
   var options = {
@@ -19,31 +19,164 @@ function fbQuery(query, accessToken){
   });
   return data.result
 }
+let createGroupList = function(FBGroupKey){
+  let groupInfo = fbQuery(FBGroupKey +'/?fields=name,description,cover');
+  let groupList = new Modules.both.Dotz.DotFactory("List", Meteor.userId(), groupInfo.name, new Date(),
+            true, groupInfo.description, groupInfo.id, groupInfo.name, groupInfo.cover.source, Meteor.user().profileDotId);
+  Meteor.call('createDot', groupList, function(error, result){
+    if (error){
+      console.log("ERRRORRR " + error);
+    }
+    else{
+      console.log("created the fucking list")
+    }
+  });
+
+};
+let _getGroupPosts = function(listSlug, callback){
+  let listId = Dotz.findOne({dotSlug: listSlug})._id;
+  console.log(listId);
+  let fbFilteredPosts = [];
+  let fbDotz = [];
+  let fbPost = function (ownerName, ownerFbId, likes, content, createdTime) {
+    this.ownerName = ownerName;
+    this.ownerFbId = ownerFbId;
+    this.likes = likes;
+    this.content = content;
+    this.createdTime = new Date(createdTime);
+    this.connectTo = listId;
+  };
+  //title,
+  var query = hashavuaGroupKey + '/feed?fields=likes,message,from,created_time&limit=100';
+  var pagesCounter = 0;
+  while (query && fbFilteredPosts.length < 50) {
+    pagesCounter++;
+    let result = fbQuery(query, Meteor.user().services.facebook.accessToken);
+    result.data.forEach(function (fbData) {
+      if (fbData.likes && fbData.likes.data.length > 10) {
+        fbFilteredPosts.push(new fbPost(fbData.from.name, fbData.from.id, fbData.likes.data.length,
+          fbData.message, fbData.created_time))
+      }
+    });
+    if (result.paging) {
+      query = result.paging.next;
+    }
+    else {
+      query = undefined;
+    }
+    console.log("Took data from " + pagesCounter + " Pages on facebook.");
+  }
+  fbFilteredPosts.forEach(function (filteredPost) {
+    fbDotz.push(new Modules.both.Dotz.DotFactory('FBDot', Meteor.userId(), 'FB dot', filteredPost.createdTime, false,
+      filteredPost.content, filteredPost.ownerFbId, filteredPost.ownerName,undefined, filteredPost.connectTo));
+
+  });
+  let amountOfDotz = fbDotz.length;
+  fbDotz.forEach(function(fbDot){
+    let counter = 0;
+    counter++;
+    Meteor.call('createDot', fbDot, function(error, result){
+      if (error){
+        console.log(error + "error from insert now");
+      }
+      else{
+        callback(amountOfDotz);
+      }
+    })
+  });
+};
+
+
 
 Meteor.methods({
   getUserData(postId){
     check(postId, String);
     console.log(Meteor.user().services.facebook.accessToken);
-    return fbQuery('434228236734415_'+ postId+'?fields=from,message', Meteor.user().services.facebook.accessToken);
+    return fbQuery(hashavuaGroupKey + '_'+ postId+'?fields=from,message', Meteor.user().services.facebook.accessToken);
+  },
+  /*
+   * Just give this Method an FB group key - it will create a list for the FB Group with default number of 100 Dotz
+   * just change "DEFAULT_NUMBER" in order to increase/decrease the number of the dotz. (it's not exact science because
+   * it really depends on how many "good" posts there are per page. but it defines the minimum with + of maximum 99 :)
+   *
+   * RETURNS GROUP LIST SLUG AS CALLBACK TO NOTIFY THE CLIENT WHEN THE LIST IS READY.
+   * in order to give those posts a tag as well, use tagFaceboolDotz at this method callback with the given result!
+   * Neat ah? :) lol.
+   */
+  createGroupList(FBGroupKey){
+    //First we will create the facebook group:
+    check(FBGroupKey,Number);
+    let fbFuture = Meteor.npmRequire('fibers/future');
+    let fbResult = new fbFuture();
+    let groupInfo = fbQuery(FBGroupKey +'/?fields=name,description,cover', Meteor.user().services.facebook.accessToken);
+    let groupList = new Modules.both.Dotz.DotFactory("List", Meteor.userId(), groupInfo.name, new Date(),
+      true, groupInfo.description, groupInfo.id, groupInfo.name, groupInfo.cover.source, Meteor.user().profile.profileDotId);
+
+    Meteor.call('createDot', groupList, function(error, listSlug){
+      if (error){
+        console.log("ERROR at createDot of facebook group " + error);
+        fbResult.throw(error);
+      }
+      else{
+        //Created the group list now lets put the pots inside:
+        var addedDotzCounter = 0; // will keep the number of all the dotz that were already added.
+        _getGroupPosts(listSlug, function(amountOfDotz){
+          addedDotzCounter++;
+          console.log("Finished connecting dot number "  +  addedDotzCounter + " need total of " + amountOfDotz);
+          if (amountOfDotz === addedDotzCounter){
+            console.log("FINISHED CONNECTING ALL FACEBOOK POSTS TO THE GROUP");
+            fbResult.return(listSlug);
+          }
+        })
+      }
+    });
+    return fbResult.wait()
+  },
+
+  /*
+   * Use this Method in order to tag your facebookDotz, it receives that listSlug. (should be used just after
+   * createGroupList method in general.
+   */
+  tagFacebookDotz(listSlug){
+    check(listSlug, String);
+    let groupList = Dotz.findOne({dotSlug: listSlug});
+    let dot, dotTitle, dotBodyText;
+    groupList.connectedDotzArray.forEach(function(smartRefDot){
+      dot = Dotz.findOne(smartRefDot.dot._id);
+      dotTitle = dot.title;
+      dotBodyText = dot.bodyText;
+      let arrayTags = _getTaggers(dotTitle, dotBodyText);
+      console.log(arrayTags.length);
+      let tagsUpdate = {
+        $set: {tags: arrayTags}
+      };
+      Meteor.call('updateDot', tagsUpdate, dot._id, function(error, result){
+        if (error){
+          console.log("Error on tagFacebookDotz" + error);
+        }
+        else{
+          console.log("updated certain dot");
+        }
+      })
+    })
   }
+
 });
-
-
-
-
-
-//Meteor.methods(
-//  getUserData: ->
-//fb = new Facebook(Meteor.user().services.facebook.accessToken)
-//FBQuery '/me', 'get', fb
-//
-//getUserEvents: ->
-//fb = new Facebook(Meteor.user().services.facebook.accessToken)
-//FBQuery '/' + Meteor.user().services.facebook.id + '/events', 'get', fb
-//
-//getUserGroups: ->
-//fb = new Facebook(Meteor.user().services.facebook.accessToken)
-//FBQuery '/' + Meteor.user().services.facebook.id + '/groups?fields=name&limit=1000', 'get', fb
-//)/**
-// * Created by ZurTene on 12/29/2015.
-// */
+let _getTaggers = function(title, text){
+  let selectedTagsSet = new Set();
+  let arrayTags = [];
+  Tags.find().forEach(function(tagDict){
+    //Hebrew tags logic - need to make it a method and reuse on english tags when they eventually will come
+    for (let tag in tagDict.hebrewTags){
+      tagDict.hebrewTags[tag].forEach(function(tagValue){
+        if (text.indexOf(tagValue) > -1){
+          selectedTagsSet.add(tag);
+        }
+      });
+    }
+  });
+  selectedTagsSet.forEach(function(value, key, setObj){
+    arrayTags.push(key);
+  });
+  return arrayTags;
+};

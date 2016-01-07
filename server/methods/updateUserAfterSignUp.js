@@ -1,3 +1,5 @@
+
+
 let _createNewDotForShare = (userId) =>{
 
   let shareDotDoc = {

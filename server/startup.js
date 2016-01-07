@@ -13,9 +13,9 @@ Meteor.startup(function () {
   //Meteor.call('convertUsersToRoleOwner', 'Connector', Roles.GLOBAL_GROUP);
 
   //****Convert User from tourism to tech and vise versa
-  //Meteor.call('convertUsersToRoleOwner', 'Tourism', 'firstGroup', function(error){
-    //  if(!error){
-    //    console.log('all user have been updated')
-    //  }
-    //});
+  //Meteor.call('convertUsersToRoleOwner', 'Tech', 'firstGroup', function(error){
+  //    if(!error){
+  //      console.log('all user have been updated')
+  //    }
+  //  });
 });
