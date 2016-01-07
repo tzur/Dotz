@@ -10,7 +10,7 @@ Meteor.startup(function () {
   //Migration methods calls - use if needed
 
   //****Convert all users to connectors OR AND ARGUMENT OF USER ID*****
-  //Meteor.call('convertUsersToRoleOwner', 'Connector', Roles.GLOBAL_GROUP);
+  //Meteor.call('convertUsersToRoleOwner', 'FBGroupAdmin', Roles.GLOBAL_GROUP, userId);
 
   //****Convert User from tourism to tech and vise versa
   //Meteor.call('convertUsersToRoleOwner', 'Tech', 'firstGroup', function(error){

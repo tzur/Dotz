@@ -132,7 +132,6 @@ Meteor.methods({
     });
     return fbResult.wait()
   },
-
   /*
    * Use this Method in order to tag your facebookDotz, it receives that listSlug. (should be used just after
    * createGroupList method in general.
@@ -145,10 +144,11 @@ Meteor.methods({
       dot = Dotz.findOne(smartRefDot.dot._id);
       dotTitle = dot.title;
       dotBodyText = dot.bodyText;
-      let arrayTags = _getTaggers(dotTitle, dotBodyText);
-      console.log(arrayTags.length);
+      let tagsObject = _getTaggers(dotTitle, dotBodyText);
+
+      let title = "@" + dot.facebookAuthorName  + tagsObject.stringTags;
       let tagsUpdate = {
-        $set: {tags: arrayTags}
+        $set: {tags: tagsObject.arrayTags, title: title}
       };
       Meteor.call('updateDot', tagsUpdate, dot._id, function(error, result){
         if (error){
@@ -165,12 +165,14 @@ Meteor.methods({
 let _getTaggers = function(title, text){
   let selectedTagsSet = new Set();
   let arrayTags = [];
+  let stringTags = ": ";
   Tags.find().forEach(function(tagDict){
     //Hebrew tags logic - need to make it a method and reuse on english tags when they eventually will come
     for (let tag in tagDict.hebrewTags){
       tagDict.hebrewTags[tag].forEach(function(tagValue){
         if (text.indexOf(tagValue) > -1){
           selectedTagsSet.add(tag);
+          stringTags += tag + ", "
         }
       });
     }
@@ -178,5 +180,8 @@ let _getTaggers = function(title, text){
   selectedTagsSet.forEach(function(value, key, setObj){
     arrayTags.push(key);
   });
-  return arrayTags;
+  return {
+    arrayTags: arrayTags,
+    stringTags: stringTags
+  };
 };
