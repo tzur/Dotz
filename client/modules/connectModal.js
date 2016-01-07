@@ -5,8 +5,8 @@ let getAvailableLists = function(dotIdWishedToConnectTo) {
   let availableLists = [];
   if (createdByUserLists) {
     createdByUserLists.forEach(function (smartRef) {
-      if(canBeConnectedToDot(smartRef._id, dotIdWishedToConnectTo)){
-        availableLists.push(smartRef._id);
+      if(canBeConnectedToDot(smartRef.dot._id, dotIdWishedToConnectTo)){
+        availableLists.push(smartRef.dot._id);
       }
     });
   }

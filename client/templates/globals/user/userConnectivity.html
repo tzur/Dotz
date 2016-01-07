@@ -10,65 +10,76 @@
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="active">
                                     <a href="#createdByUserDotz" role="tab" data-toggle="tab">
-                                        <icon class="fa fa-home"></icon>Dotz
+                                        Dotz ({{createdByUserDotzData.length}})
                                     </a>
                                 </li>
 
                                 <li><a href="#createdByUserLists" role="tab" data-toggle="tab">
-                                    <i class="fa fa-user"></i>Lists
+                                   Lists ({{createdByUserListsData.length}})
                                 </a>
                                 </li>
 
                                 <li><a href="#dotzConnectedByUser" role="tab" data-toggle="tab">
-                                    <i class="fa fa-user"></i>Connected
+                                    Connected ({{createdByUserDotzData.length}})
                                 </a>
                                 </li>
+
+                                {{#if likesMadeByUserData}}
 
                                 <li><a href="#userLikes" role="tab" data-toggle="tab">
-                                    <i class="fa fa-user"></i>Likes
+                                   Likes ({{likesMadeByUserData.length}})
                                 </a>
                                 </li>
+                                {{/if}}
 
+                                {{#if connectivityData}}
                                 <li>
                                     <a href="#peopleConnectedUserDotz" role="tab" data-toggle="tab">
-                                        <i class="fa fa-envelope"></i>Connectivity
+                                       Connectivity  ({{connectivityData.length}})
                                     </a>
                                 </li>
+                                {{/if}}
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="createdByUserDotz">
-                                    <h2>My Dotz</h2>
-                                  {{#each createdByUserDotzData}}
-                                    {{>dotCard}}
-                                  {{/each}}                                </div>
+                                  {{#each createdByUserDotzData.smartRefArray}}
+                                    {{#if isDotStillActive}}
+                                      {{>dotCard}}
+                                    {{/if}}
+                                  {{/each}}
+                                </div>
 
-                                <div class="tab-pane fade active in" id="createdByUserLists">
-                                    <h2>My Lists Home Content Goes Here</h2>
-                                  {{#each createdByUserListsData}}
-                                    {{>dotCard}}
+                                <div class="tab-pane fade" id="createdByUserLists">
+                                  {{#each createdByUserListsData.smartRefArray}}
+                                    {{#if isDotStillActive}}
+                                      {{>dotCard}}
+                                    {{/if}}
                                   {{/each}}                                </div>
 
                                 <div class="tab-pane fade" id="dotzConnectedByUser">
-                                    <h2>connectionsMadeByUserData:</h2>
-                                    <br>
-                                  {{#each connectionsMadeByUserData}}
-                                    {{>dotCard}}
+                                  {{#each connectionsMadeByUserData.smartRefArray}}
+                                    {{#if isDotStillActive}}
+                                      {{>dotCard}}
+                                    {{/if}}
                                   {{/each}}
 
                                 </div>
 
-                                <div class="tab-pane fade active in" id="userLikes">
-                                    <h2>User likes</h2>
-                                  {{#each likesMadeByUserData}}
-                                    {{>dotCard}}
+                                <div class="tab-pane fade" id="userLikes">
+                                  {{#each likesMadeByUserData.smartRefArray}}
+                                    {{#if isDotStillActive}}
+                                      {{>dotCard}}
+                                    {{/if}}
                                   {{/each}}                                </div>
 
                                 <div class="tab-pane fade" id="peopleConnectedUserDotz">
-                                  <h2>Connectivity</h2>
-                                  {{#each connectivityData}}
-                                    {{>dotCard}}
+                                  {{#each connectivityData.smartRefArray}}
+                                    {{#if isDotStillActive}}
+
+                                      {{>dotCard}}
+                                    {{/if}}
                                   {{/each}}
                                 </div>
                             </div>

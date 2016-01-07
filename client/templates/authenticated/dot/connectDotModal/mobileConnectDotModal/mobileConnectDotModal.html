@@ -1,0 +1,100 @@
+<template name="mobileConnectDotModal">
+
+        <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+
+                    <h4 class="bold">Connect to...</h4>
+
+                    <hr class="row">
+
+                    <h5 id="_addNoteBtn" class="lightGrey"><i class="fa fa-pencil"></i> Add your note</h5>
+
+                      <div id="_addNoteDiv" class="hidden">
+
+                          <textarea id="personalDescription"  maxLength=100></textarea>
+                          <div id="personalDescriptionFeedback" class="pull-right lightGrey"></div>
+
+                      </div>
+
+                    <hr class="row">
+
+                    <div class="container-fluid mobileConnectDotModal-ConnectedByOwnerDotz-div" id="dotzToConnectTo">
+                        <div class="row">
+
+
+                          {{#if canBeConnectedToUserProfileDot}}
+                            <!--<div class="container-fluid">-->
+                              <!--<div class="connectToUserProfile container-fluid ConnectedByOwnerDotz">-->
+      <!---->
+                                    <!--<div class="col-xs-2">-->
+                                        <!--<div class="container-fluid dot-container-img-card-connect-modal" style="background-image: url('{{currentUserImageUrl}}')"></div>-->
+                                    <!--</div>-->
+      <!---->
+                                    <!--<div class="col-xs-9">-->
+                                        <!--<h5 class="dotTitle-connect-modal">My Profile</h5>-->
+                                    <!--</div>-->
+      <!---->
+                              <!--</div>-->
+
+                              <div id="mobileConnectDotModal-connectBtnDiv" class="connectToUserProfile container-fluid ConnectedByOwnerDotz">
+                                  <div class="col-xs-1 noPadding">
+                                      <div class="mobileConnectDotModal-dotImg" style="background-image: url('{{currentUserImageUrl}}')"></div>
+                                  </div>
+
+                                  <div class="col-xs-11">
+                                      <h5 class="dotTitle-connect-modal">My Profile</h5>
+                                  </div>
+
+                              </div>
+                            <!--</div>-->
+                          {{/if}}
+
+
+
+                          <div id="availableDotz">
+
+                            {{#if userProfileDotzArray}}
+
+                              {{#each userProfileDotzArray}}
+
+                                <div id="mobileConnectDotModal-connectBtnDiv" class="connectBtn container-fluid ConnectedByOwnerDotz">
+                                  <div class="col-xs-1 noPadding">
+                                      <div class="mobileConnectDotModal-dotImg" style="background-image: url('{{coverImageUrl}}')"></div>
+                                  </div>
+
+                                  <div class="col-xs-11">
+
+                                      <h5 class="dotTitle-connect-modal">{{shortenTitle}}</h5>
+                                  </div>
+
+                                </div>
+
+                              {{/each}}
+
+
+                            {{else}}
+                              <p class="colCenter">Its seems like there is no List to connect to :)</p>
+                            {{/if}}
+                          </div>
+                      </div>
+                  </div>
+
+
+                </div>
+             </div>
+        </div>
+    </div>
+</template>
+
+
+
+
+
+
+
+
+
+

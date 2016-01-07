@@ -172,7 +172,7 @@ Template.mobileUserShow.helpers({
     return Session.get('showShareDotz');
   },
   canGenerateAutoLists: function(){
-    return (Meteor.user().profile.createdByUserLists.length === 0 && Meteor.user().profile.createdByUserDotz.length === 0)
+    return (Meteor.user().profile.createdByUserLists.length === 0)
   }
 
 });
@@ -217,7 +217,7 @@ Template.mobileUserShow.events({
       analytics.track("Follow User", {
         title: "Follow User From User Show Page",
         followedUserName: this.username
-      })
+      });
       analytics.track("Follow User", {
         title: "User is Not Logged In",
         followedUserName: this.username

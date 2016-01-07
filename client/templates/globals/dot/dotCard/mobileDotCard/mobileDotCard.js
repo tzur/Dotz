@@ -261,18 +261,18 @@ Template.mobileDotCard.events({
 
     if ( Meteor.user() ) {
       Modules.both.Dotz.likeDot(this.smartRef, Meteor.userId());
-      Modules.client.Dotz.dotCardAnalyticsEvents('Like', 'Liked: ',this.dot._id, this.dot.title, this.dot.dotType)
+      //Modules.client.Dotz.dotCardAnalyticsEvents('Like', 'Liked: ',this.dot._id, this.dot.title, this.dot.dotType)
     }
     else{
       Modal.show('signUpModal');
-      Modules.client.Dotz.dotCardAnalyticsEvents('Like', 'Liked: ',this.dot._id, this.dot.title, this.dot.dotType);
+      //Modules.client.Dotz.dotCardAnalyticsEvents('Like', 'Liked: ',this.dot._id, this.dot.title, this.dot.dotType);
     }
 
   },
 
   'click .unlike': function(event){
     Meteor.call('unLikePost', Meteor.userId(), this._id);
-    Modules.client.Dotz.dotCardAnalyticsEvents('Unliked', 'Unliked: ',this.dot._id, this.dot.title, this.dot.dotType);
+    //Modules.client.Dotz.dotCardAnalyticsEvents('Unliked', 'Unliked: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 
 
@@ -293,17 +293,17 @@ Template.mobileDotCard.events({
   //},
   'click .connect': function(){
     if(Meteor.user()) {
-      Modal.show('connectDotModal',{
+      Modal.show('mobileConnectDotModal',{
         data:{
           dot: this.dot,
           connectToMyLists: true
         }
       });
-      Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect: ',this.dot._id, this.dot.title, this.dot.dotType);
+      //Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect: ',this.dot._id, this.dot.title, this.dot.dotType);
     }
     else {
       Modal.show('signUpModal');
-      Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect: ',this.dot._id, this.dot.title, this.dot.dotType);
+      //Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect: ',this.dot._id, this.dot.title, this.dot.dotType);
     }
 
   },
@@ -313,7 +313,7 @@ Template.mobileDotCard.events({
     $(event.currentTarget.childNodes[1]).toggleClass('transparent');
     $(event.currentTarget).css("outline", "none");
     Meteor.call('disConnectDot',this.smartRef);
-    Modules.client.Dotz.dotCardAnalyticsEvents('Disconnect', 'Disconnected: ',this.dot._id, this.dot.title, this.dot.dotType);
+    //Modules.client.Dotz.dotCardAnalyticsEvents('Disconnect', 'Disconnected: ',this.dot._id, this.dot.title, this.dot.dotType);
 
   },
 
@@ -322,7 +322,7 @@ Template.mobileDotCard.events({
     let smartRef = this.smartRef;
     let sortValue = 1;
     Modules.both.Dotz.sortDotz(smartRef, sortValue);
-    Modules.client.Dotz.dotCardAnalyticsEvents('User sort: Up', 'Moved Up: ',this.dot._id, this.dot.title, this.dot.dotType);
+    //Modules.client.Dotz.dotCardAnalyticsEvents('User sort: Up', 'Moved Up: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 
   'click .downBtn':function(event){
@@ -330,7 +330,7 @@ Template.mobileDotCard.events({
     let smartRef = this.smartRef;
     let sortValue = -1;
     Modules.both.Dotz.sortDotz(smartRef, sortValue);
-    Modules.client.Dotz.dotCardAnalyticsEvents('User sort: Down', 'Moved Down: ',this.dot._id, this.dot.title, this.dot.dotType);
+    //Modules.client.Dotz.dotCardAnalyticsEvents('User sort: Down', 'Moved Down: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 
   'click .editBtn': function(){
@@ -340,14 +340,14 @@ Template.mobileDotCard.events({
         'actionTypeEdit': true
       }
     });
-    Modules.client.Dotz.dotCardAnalyticsEvents('Edit Dot', 'Start Edit: ',this.dot._id, this.dot.title, this.dot.dotType);
+    //Modules.client.Dotz.dotCardAnalyticsEvents('Edit Dot', 'Start Edit: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 
   'click .delete':function(event){
     event.preventDefault();
 
     Meteor.call('deleteDot', this.dot, this.smartRef.connection.toParentDotId);
-    Modules.client.Dotz.dotCardAnalyticsEvents('Delete', 'Deleted: ',this.dot._id, this.dot.title, this.dot.dotType);
+    //Modules.client.Dotz.dotCardAnalyticsEvents('Delete', 'Deleted: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 
   //TBD - reset the search in page result in other way

@@ -67,6 +67,7 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
         "coverImageUrl": 1,
         "linkUrl": 1,
         "linkName": 1,
+        "category": 1,
         "connectedDotzArray": 1}
       }),
     Meteor.users.find({_id: { $in: [ownerUserId,connectedByUserId] }}, //TBD..
@@ -136,9 +137,13 @@ Meteor.publish( 'dotShowByDotSlug', function( dotSlug ) {
 
 Meteor.publish('createByUserLists', function() {
   let currentUser = Meteor.users.findOne(this.userId);
-  let createByUserDotz = currentUser.profile.createdByUserLists;
-  createByUserDotz.push(currentUser.profile.profileDotId);
-  return Dotz.find({_id: {$in: createByUserDotz}});
+  let createByUserListsSmartRef = currentUser.profile.createdByUserLists;
+  let createByUserLists = [];
+  createByUserListsSmartRef.forEach(function(smartRef){
+    createByUserLists.push(smartRef.dot._id)
+  });
+  createByUserLists.push(currentUser.profile.profileDotId);
+  return Dotz.find({_id: {$in: createByUserLists}});
 });
 
 Meteor.publish('smartRefToUsersCursor', function(smartRefArray){

@@ -60,24 +60,27 @@ Meteor.methods({
   deleteDotzFromAlgolia(dotId, dotType){
     check(dotId, String);
     check(dotType, String);
-    var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
-    let objectIndex;
-    let dot = Dotz.findOne("dotId");
-    let index;
+    if(process.env.NODE_ENV === "production" && Meteor.isServer) {
 
-    if(dotType === "Dot"){
-      index = client.initIndex(dot.category[0] + "Dotz");
-    }
-    else{
-      index = client.initIndex(dot.category[0] + "Lists");
-    }
+      var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
+      let objectIndex;
+      let dot = Dotz.findOne("dotId");
+      let index;
+
+      if (dotType === "Dot") {
+        index = client.initIndex(dot.category[0] + "Dotz");
+      }
+      else {
+        index = client.initIndex(dot.category[0] + "Lists");
+      }
 
 
 // array contains the data you want to save in the index
 
-    index.deleteObject(dotId, function (error, content) {
-      if (error) console.error('Error:', error);
-      else console.log('Content:', content);
-    });
+      index.deleteObject(dotId, function (error, content) {
+        if (error) console.error('Error:', error);
+        else console.log('Content:', content);
+      });
+    }
   }
 });

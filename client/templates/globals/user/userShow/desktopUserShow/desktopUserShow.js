@@ -15,7 +15,7 @@ Template.desktopUserShow.onCreated(function() {
     FlowRouter.watchPathChange();
     let userSlug = FlowRouter.getParam('userSlug');
     if (userSlug){
-      let handleUser = self.subs.subscribe('userByUserSlug', userSlug, function(){
+      self.subs.subscribe('userByUserSlug', userSlug, function(){
         let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
         if (!user){
           Bert.alert('Page does not exist', 'danger');
@@ -123,11 +123,11 @@ Template.desktopUserShow.helpers({
     if (this.profile) {
       let userConnectionsCounters = UserConnections.findOne({userId: this._id})
       if(userConnectionsCounters) {
-        let userConnectivity = userConnectionsCounters.peopleLikedMyConnectionsCounter +
-          userConnectionsCounters.peopleConnectedMyDotzCounter +
-          userConnectionsCounters.peopleLikedMyDotzCounter;
-        let userConnection = userConnectionsCounters.connectionsMadeByUserCounter + userConnectionsCounters.likesMadeByUserCounter
-          + userConnectionsCounters.createdByUserDotzCounter +
+        let userConnectivity = userConnectionsCounters.peopleLikedMyConnections.length +
+          userConnectionsCounters.peopleConnectedMyDotz.length +
+          userConnectionsCounters.peopleLikedMyDotz.length;
+        let userConnection = userConnectionsCounters.connectionsMadeByUser.length + userConnectionsCounters.likesMadeByUser.length
+          + userConnectionsCounters.createdByUserDotz.length +
           this.profile.createdByUserLists.length;
         return ((userConnectivity * 2) + userConnection)
       }
@@ -172,7 +172,7 @@ Template.desktopUserShow.helpers({
     return Session.get('showShareDotz');
   },
   canGenerateAutoLists: function(){
-    return (Meteor.user().profile.createdByUserLists.length === 0 && Meteor.user().profile.createdByUserDotz.length === 0)
+    return (Meteor.user().profile.createdByUserLists.length === 0 )
   }
 
 });
