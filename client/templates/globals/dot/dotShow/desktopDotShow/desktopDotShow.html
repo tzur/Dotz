@@ -16,31 +16,39 @@
             <div id="desktopDotShow-listShowHeader-filter">
 
                 <div id="desktopDotShow-titleDiv" class="container-fluid">
-                    <h2 id="desktopDotShow-title" class="col-xs-10 colCenter">{{dot.title}}</h2>
+                    <h2 id="desktopDotShow-title" class="darkText col-xs-10 colCenter">{{dot.title}}</h2>
                 </div>
 
             </div>
         </div><!--end row listCoverImg-->
 
-        <div class="container-fluid list-show-btns-div">
+        <div id="desktopDotShow-middleDiv" class="row">
 
-                <div class="col-xs-12 col-sm-11 col-md-9 col-lg-7 colCenter">
+                <div class="col-sm-7 colCenter">
 
-                    <div class="col-xs-5 col-sm-4 col-md-5 col-lg-4 pull-left">
-                        <div>
-                            <span class="lgTxt mdGrey">{{dotzNum}}</span>
+
+                    <div class="col-sm-4 pull-left">
+
+                        <div class="smTxt">
+
+                            <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
+
+                          {{#if facebookDot}}
+                            <a href="/{{dot.linkAuthorUrl}}"><img class="postUserImgProfile" src="{{authorFbProfile}}"></a>
+                          {{/if}}
+
+                            <a href="/{{ownerUser.profile.userSlug}}"><span class="darkText userText mdTxt">Created By <strong>{{ownerUser.username}}</strong></span></a>
                         </div>
+
                     </div>
 
-                    <div class="col-xs-7 col-sm-8 col-md-7 col-lg-8 pull-right txtR">
+                    <div class="col-sm-8 pull-right txtR">
 
-                <!--<a class="closeToOpen"> GO TO TOPEN</a>-->
-                <!--<a class="openToClose">GO TO CLOSEEEE</a>-->
 
                       <button type="button" class="connect btn btn-success btn-sm dot-show-connect-btn">Connect List {{connectCounter}}</button>
 
                       {{#if isMyDot}}
-                        <span class="hidden-xs">
+                        <span>
                             <a class="panelBtn dropdown-toggle btn btn-default btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span><i class="fa mdGrey fa-cog" aria-hidden="true"></i></span>
                             </a>
@@ -83,25 +91,11 @@
 
             </div>
 
-        <div class="container-fluid">
+        <div id="desktopDotShow-descriptionDiv" class="container-fluid">
 
             <div class="container-fluid">
-                <div class="col-xs-10 col-sm-6 col-md-4 colCenter">
-                    <h5 class="description mdTxt">{{dot.bodyText}}</h5>
-                </div>
-            </div>
-
-            <div class="container-fluid">
-                <div class="user col-xs-10 colCenter">
-
-                    <div class="iconDiv smTxt">
-                        <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
-                        <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Created By <strong>{{ownerUser.username}}</strong></span></a>
-                      {{#if facebookDot}}
-                          <a href="/{{dot.linkAuthorUrl}}"><img class="postUserImgProfile" src="{{authorFbProfile}}"></a>
-                      {{/if}}
-                    </div>
-
+                <div class="col-sm-7 colCenter">
+                    <pre id="desktopDotShow-description" class="darkText">{{dot.bodyText}}</pre>
                 </div>
             </div>
 
