@@ -70,7 +70,30 @@ Template.desktopDotShow.onRendered(function(){
     }
   };
   fbAsyncInit();
+
+
+  //Link to the source: http://jsfiddle.net/yeco/4EcFf/
+  //TBD: we need to reduce the jQuery queries... :
+  $(document).scroll(function () {
+    var navPlaceHolder = $('#placeHolder-desktop');
+    if (navPlaceHolder) {
+      var origOffsetY = navPlaceHolder.offset().top - $(window).height();
+      if ($(window).scrollTop() > origOffsetY) {
+        $('#fixedFooter-desktopDotShow').removeClass('navbar-fixed-bottom');
+        $('#fixedFooter-desktopDotShow').removeClass('fixedFooterShadow-desktopDotShow');
+        //console.log("removeClass");
+      } else {
+        $('#fixedFooter-desktopDotShow').addClass('navbar-fixed-bottom');
+        $('#fixedFooter-desktopDotShow').addClass('fixedFooterShadow-desktopDotShow');
+        //console.log("addClass");
+      }
+    }
+  });
+
+
 });
+
+
 
 Template.desktopDotShow.onDestroyed(function(){
 
