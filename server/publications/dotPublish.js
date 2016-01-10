@@ -68,7 +68,8 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
         "linkUrl": 1,
         "linkName": 1,
         "category": 1,
-        "connectedDotzArray": 1}
+        "inDotz": 1, //TBD
+        "connectedDotzArray": 1} //TBD
       }),
     Meteor.users.find({_id: { $in: [ownerUserId,connectedByUserId] }}, //TBD..
     {fields: {
@@ -101,7 +102,9 @@ Meteor.publish('profileDotCard', function(dotId){
         "coverImageUrl": 1,
         "linkUrl": 1,
         "linkName": 1,
-        "connectedDotzArray": 1}
+        "category": 1,
+        "inDotz": 1, //TBD
+        "connectedDotzArray": 1} //TBD
       })
   ];
 
