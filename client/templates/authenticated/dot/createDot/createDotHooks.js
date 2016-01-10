@@ -35,15 +35,18 @@ let dotHooks = {
         doc.price = null;
         doc.currency = null;
       }
-      let arrayTags = Session.get('givenTags').split(',');
-
-      if (!arrayTags[arrayTags.length]){
-        arrayTags.splice(-1);
+      if (Session.get('givenTags')) {
+        let arrayTags = Session.get('givenTags').split(',');
+        if (!arrayTags[arrayTags.length]){
+          arrayTags.splice(-1);
+        }
+        doc.tags = arrayTags;
       }
-      doc.tags = arrayTags;
+
       doc.ownerUserId = Meteor.userId();
       doc.createdAtDate = new Date();
       doc.dotType = Session.get("dotType");
+
       if(Session.get("embedlyObj")){
         doc.embedlyObj = Session.get("embedlyObj");
       }

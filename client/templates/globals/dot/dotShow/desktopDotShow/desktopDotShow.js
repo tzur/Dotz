@@ -31,7 +31,7 @@ Template.desktopDotShow.onCreated(function() {
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
         self.subs.subscribe('user', currentDot.ownerUserId);
-        if(!Session.get('landingPageCategory')){
+        if(!Session.get('landingPageCategory' && currentDot.category)){
           Session.set('landingPageCategory', currentDot.category[0])
         }
         if(currentDot.dotType === "List"){
