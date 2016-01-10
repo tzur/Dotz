@@ -11,32 +11,12 @@
 
     <div class="container-fluid" id="listShowHeader">
 
-        <div class="row listCoverImg" style="background-image: url('{{dot.coverImageUrl}}')">
+        <div id="desktopDotShow-listCoverImg" class="row" style="background-image: url('{{dot.coverImageUrl}}')">
 
-            <div class="filter">
+            <div id="desktopDotShow-listShowHeader-filter">
 
-                <div class="container-fluid">
-                    <h1 class="title col-xs-10 colCenter">{{dot.title}}</h1>
-                </div>
-
-                <div class="container-fluid">
-                    <div class="col-xs-10 col-sm-6 col-md-4 colCenter">
-                      <h5 class="description mdTxt">{{dot.bodyText}}</h5>
-                    </div>
-                </div>
-
-                <div class="container-fluid">
-                    <div class="user col-xs-10 colCenter">
-
-                        <div class="iconDiv smTxt">
-                            <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
-                            <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Created By <strong>{{ownerUser.username}}</strong></span></a>
-                          {{#if facebookDot}}
-                            <a href="/{{dot.linkAuthorUrl}}"><img class="postUserImgProfile" src="{{authorFbProfile}}"></a>
-                          {{/if}}
-                        </div>
-
-                    </div>
+                <div id="desktopDotShow-titleDiv" class="container-fluid">
+                    <h2 id="desktopDotShow-title" class="col-xs-10 colCenter">{{dot.title}}</h2>
                 </div>
 
             </div>
@@ -99,12 +79,33 @@
                       {{/if}}
                     </div>
 
-
-
-
                 </div>
 
             </div>
+
+        <div class="container-fluid">
+
+            <div class="container-fluid">
+                <div class="col-xs-10 col-sm-6 col-md-4 colCenter">
+                    <h5 class="description mdTxt">{{dot.bodyText}}</h5>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="user col-xs-10 colCenter">
+
+                    <div class="iconDiv smTxt">
+                        <a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
+                        <a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Created By <strong>{{ownerUser.username}}</strong></span></a>
+                      {{#if facebookDot}}
+                          <a href="/{{dot.linkAuthorUrl}}"><img class="postUserImgProfile" src="{{authorFbProfile}}"></a>
+                      {{/if}}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 
 
     </div>
