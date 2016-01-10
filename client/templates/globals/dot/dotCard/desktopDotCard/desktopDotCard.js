@@ -137,13 +137,13 @@ Template.desktopDotCard.helpers({
 
   shortenTitle: function() {
     if (this.dot){
-      return s.prune(this.dot.title, 40);
+      return s.prune(this.dot.title, 70);
     }
   },
 
   shortenBodyText: function() {
     if (this.dot){
-      return s.prune(this.dot.bodyText, 45);
+      return s.prune(this.dot.bodyText, 140);
     }
   },
 

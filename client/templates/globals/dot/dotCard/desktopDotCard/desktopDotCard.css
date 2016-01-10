@@ -24,6 +24,11 @@
   padding: 0;
 }
 
+#desktopDotCard:hover {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+}
+
 #desktopDotCard-col-connectLine {
   /*width: 5vw;*/
   /*position: relative;*/
@@ -96,7 +101,10 @@
   /*float: left;*/
 }
 
-#desktopDotCard-col-title h5 {
+#desktopDotCard-col-title h2 {
+  font-size: 1.3em;
+  font-weight: 400;
+  color: rgba(0,0,0,0.95);
   margin: 0.125em 0 0 0;
 }
 
