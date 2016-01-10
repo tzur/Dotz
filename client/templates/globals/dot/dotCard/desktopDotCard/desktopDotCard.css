@@ -3,7 +3,7 @@
   margin-left: 1vw;
   /* margin-bottom: 3vh; */
   /* overflow-x: hidden; */
-  border-left: 1vw #fff solid;
+  border-left: 0.8vw #fff solid;
 ;
 }
 
@@ -36,7 +36,7 @@
 }
 
 #desktopDotCard-col-connectLine {
-  width: 6%;
+  width: 3%;
   position: relative;
   margin-top: 6vh;
   float: left;
@@ -56,7 +56,7 @@
 }
 
 #desktopDotCard-connectLine {
-  border-top: 1vw #fff solid;
+  border-top: 0.5vw #fff solid;
 }
 
 /*#desktopDotCard-horizonalLine {*/
