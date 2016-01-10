@@ -1,4 +1,4 @@
-Template.DESKTOPDC.onCreated(function(){
+Template.desktopDotCard.onCreated(function(){
   Session.set('spinnerOn', false);
   let self = this;
   Session.set('dotInsideToListsBug', false);
@@ -8,20 +8,20 @@ Template.DESKTOPDC.onCreated(function(){
     // any subscription will be expire after 5 minute, if it's not subscribed again
     expireIn: 5
   });
-  //self.subs.subscribe('dotCard', self.data.dot._id);
+  self.subs.subscribe('mobileDotCard', self.data.dot._id, self.data.dot.ownerUserId, self.data.connection.connectedByUserId);
   //self.subs.subscribe('user', self.data.dot.ownerUserId);
   //self.subs.subscribe('user', self.data.connection.connectedByUserId);
 
 });
 
 
-Template.DESKTOPDC.onDestroyed(function(){
+Template.desktopDotCard.onDestroyed(function(){
   $('.disConnect').removeClass('active');
   $('.fa').removeClass('transparent');
 });
 
 
-Template.DESKTOPDC.helpers({
+Template.desktopDotCard.helpers({
 
   //subscriptionsReady: function(){
   //  return (Template.instance().dotCardReady.get() && Template.instance().ownerUserReady.get()
@@ -38,6 +38,7 @@ Template.DESKTOPDC.helpers({
       };
       let subsManager = Template.instance();
       if(!data.dot){
+        subsManager.subs.subscribe('mobileDotCard', this.dot._id, this.dot.ownerUserId, this.connection.connectedByUserId);
         //subsManager.subs.subscribe('dotCard', this.dot._id);
         //subsManager.subs.subscribe('user', this.dot.ownerUserId);
         //subsManager.subs.subscribe('user', this.connection.connectedByUserId);
@@ -134,9 +135,15 @@ Template.DESKTOPDC.helpers({
     }
   },
 
-  title: function() {
+  shortenTitle: function() {
     if (this.dot){
-      return s.prune(this.dot.title, 50);
+      return s.prune(this.dot.title, 40);
+    }
+  },
+
+  shortenBodyText: function() {
+    if (this.dot){
+      return s.prune(this.dot.bodyText, 45);
     }
   },
 
@@ -178,10 +185,8 @@ Template.DESKTOPDC.helpers({
     let counter;
     if (this.dot) {
       let dot = Dotz.findOne(this.dot._id);
-      if (dot && dot.totalUpvotes) {
+      if (dot) {
         counter = dot.inDotz.length + dot.totalUpvotes.length;
-      } else if (dot && dot.inDotz && !dot.totalUpvotes) {
-        counter = dot.inDotz.length;
       }
 
       //counter show:
@@ -198,6 +203,14 @@ Template.DESKTOPDC.helpers({
     if (this.smartRef.connection.likes.length > 0) {
       return this.smartRef.connection.likes.length;
     }
+  },
+
+  isLikedByMe: function(){
+    let likersArray = this.smartRef.connection.likes;
+    if ( likersArray.indexOf( Meteor.userId() ) >= 0 ) {
+      return true
+    }
+
   },
 
   shareList: function(){
@@ -229,7 +242,7 @@ Template.DESKTOPDC.helpers({
 
 });
 
-Template.DESKTOPDC.events({
+Template.desktopDotCard.events({
 
   'click ._shareFacebookDialog': function(event){
     event.preventDefault();
@@ -280,7 +293,7 @@ Template.DESKTOPDC.events({
   //},
   'click .connect': function(){
     if(Meteor.user()) {
-      Modal.show('connectDotModal',{
+      Modal.show('mobileConnectDotModal',{
         data:{
           dot: this.dot,
           connectToMyLists: true
@@ -342,6 +355,7 @@ Template.DESKTOPDC.events({
     Session.set('searchInput',undefined);
     $('#searchBoxInput').val("")
   },
+
   'click .shareListInstant': function(event){
     event.preventDefault();
     let dotId = this.dot._id;
@@ -357,6 +371,7 @@ Template.DESKTOPDC.events({
       });
     }
   },
+
   'click .shareList': function(event) {
     event.preventDefault();
     let dotId = this.dot._id;
