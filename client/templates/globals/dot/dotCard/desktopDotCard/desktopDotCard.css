@@ -1,9 +1,10 @@
 #desktopDotCard-box {
-  padding: 5vh 1vh 0 0;
+  /*padding: 5vh 1vh 0 0;*/
   margin-left: 1vw;
   /* margin-bottom: 3vh; */
   /* overflow-x: hidden; */
-  border-left: 2px solid #e5e5e5;
+  border-left: 1vw #fff solid;
+;
 }
 
 /*#mobileDotCard-lineDiv {*/
@@ -21,20 +22,41 @@
 
 #desktopDotCard {
   position: relative;
-  padding: 0;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-right: 0;
+  padding-left: 0;
+  /*margin-top: 1vh;*/
+  /*margin-bottom: 1vh;*/
+}
+
+#desktopDotCard:hover {
+  background-color: #FFFFFF;
+  border-radius: 4px;
 }
 
 #desktopDotCard-col-connectLine {
-  /*width: 5vw;*/
-  /*position: relative;*/
-  margin-top: 8vh;
-  /*float: left;*/
+  width: 6%;
+  position: relative;
+  margin-top: 6vh;
+  float: left;
   text-align: center;
   padding: 0;
 }
 
+#desktopDotCard-col-like {
+  width: 6%;
+  /*margin-left: 5vw;*/
+  /*padding-left: 11vw;*/
+  /* padding-top: 1vw; */
+  position: relative;
+  float: left;
+  text-align: center;
+  margin-top: 7vh;
+}
+
 #desktopDotCard-connectLine {
-  border-top: 2px #e5e5e5 solid;
+  border-top: 1vw #fff solid;
 }
 
 /*#desktopDotCard-horizonalLine {*/
@@ -45,26 +67,49 @@
 /*}*/
 
 #desktopDotCard-col-img{
-  /*width: 27vw;*/
-  /*position: relative;*/
+  width: 18%;
+  position: relative;
   /*min-height: 1px;*/
   /*padding-right: 1vw;*/
   /*!*padding-left: 1vw;*!*/
   /*margin: auto;*/
-  /*float: left;*/
+  float: left;
 }
 
 #desktopDotCard-img {
   border-radius: 50%;
   padding: 0;
-  height: 20vh;
-  width: 20vh;
+  height: 16vh;
+  width: 16vh;
   background-size: cover;
-  background-color: #e5e5e5;
+  /*background-color: #e5e5e5;*/
   position: relative;
   background-position-y: 50%;
   background-position-x: 50%;
-  border: #e5e5e5 solid 2px;
+  /*border: #e5e5e5 solid 2px;*/
+}
+
+#desktopDotCard-listIcon {
+  /*margin: auto;*/
+  text-align: center;
+  /*vertical-align: middle;*/
+  /*position: absolute;*/
+  /*padding: 0 0.25em;*/
+  /*bottom: 0.25em;*/
+  /*left: 8vw;*/
+  /*color: #fff;*/
+}
+
+#desktopDotCard-listIcon .fa-list-ul {
+  margin-top: 6vh;
+  /*text-align: center;*/
+  /*margin: auto;*/
+  /*position: absolute;*/
+  /*padding: 0 0.25em;*/
+  /*bottom: 0.25em;*/
+  /*left: 8vw;*/
+  /*background-color: rgba(51, 51, 51, 0.5);*/
+  color: #fff;
 }
 
 #desktopDotCard-connectedDotz {
@@ -77,13 +122,13 @@
 }
 
 #desktopDotCard-col-text {
-  /*width: 42vw;*/
+  width: 70%;
   /*padding-top: 1vw;*/
-  /*position: relative;*/
+  position: relative;
   /*min-height: 20vh;*/
   /*!*padding-right: 15px;*!*/
   /*margin: auto;*/
-  /*float: left;*/
+  float: left;
 }
 
 #desktopDotCard-col-title {
@@ -96,19 +141,23 @@
   /*float: left;*/
 }
 
-#desktopDotCard-col-title h5 {
+#desktopDotCard-col-title h2 {
+  font-size: 1.3em;
+  font-weight: 400;
+  /*color: rgba(0,0,0,0.95);*/
   margin: 0.125em 0 0 0;
 }
 
 #desktopDotCard-col-credit {
-  width: 55vw;
-  padding: 0 1vw;
-  margin: auto;
-  float: left;
+  /*width: 55vw;*/
+  /*padding: 0 1vw;*/
+  /*margin: auto;*/
+  /*float: left;*/
 }
 
 #desktopDotCard-col-credit h6 {
   margin: 0 0 0 0;
+  padding: 0;
 }
 
 #desktopDotCard-credit {
@@ -117,16 +166,6 @@
 
 
 
-#desktopDotCard-col-like {
-  /*width: 26vw;*/
-  /*margin-left: 5vw;*/
-  /*padding-left: 11vw;*/
-  /* padding-top: 1vw; */
-  /*position: relative;*/
-  /*float: left;*/
-  text-align: center;
-  margin-top: 9vh;
-}
 
 
 #desktopDotCard-buttons {
@@ -185,13 +224,15 @@
 
 #connectedByText-desktopDotCard {
   /*background-color: #eee;*/
-  color: #333;
+  /*color: #333;*/
   /*padding-top: 3vw;*/
   /*padding-bottom: 1vw;*/
 }
 
 .likesCounter {
   margin: 0;
+  font-size: 0.8em;
+  font-weight: 600;
 }
 
 

@@ -60,6 +60,8 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
     Dotz.find(dotId,
       {fields: {
         "isOpen": 1,
+        "dotType": 1,
+        "dotColor": 1,
         "title": 1,
         "dotSlug": 1,
         "bodyText": 1,
@@ -95,6 +97,8 @@ Meteor.publish('profileDotCard', function(dotId){
     Dotz.find(dotId,
       {fields: {
         "isOpen": 1,
+        "dotType": 1,
+        "dotColor": 1,
         "title": 1,
         "dotSlug": 1,
         "bodyText": 1,
