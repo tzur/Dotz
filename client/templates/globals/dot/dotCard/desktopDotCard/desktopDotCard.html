@@ -10,12 +10,28 @@
           <div id="desktopDotCard" class="container-fluid">
 
 
-              <div id="desktopDotCard-col-connectLine">
+              <div id="desktopDotCard-col-connectLine" class="col-sm-1">
                   <hr id="desktopDotCard-connectLine">
               </div>
 
-              <div id="desktopDotCard-col-img">
 
+              <div id="desktopDotCard-col-like" class="col-sm-1">
+                  <!--TBD: add a session to fix it!!! -->
+                {{# if isLikedByMe}}
+                    <a class="unlike">
+                        <i class="unlike mdGrey likeBtn fa fa-heart"></i>
+                        <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
+                    </a>
+                {{else}}
+                    <a class="like">
+                        <i class="like mdGrey likeBtn fa fa-heart-o"></i>
+                        <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
+                    </a>
+                {{/if}}
+              </div>
+
+
+              <div id="desktopDotCard-col-img" class="col-sm-3">
                   <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
                       <div>
                           <div id="desktopDotCard-img" class="container-fluid" style="background-image: url('{{dot.coverImageUrl}}')">
@@ -25,12 +41,11 @@
                           </div>
                       </div>
                   </a>
-
               </div>
 
-              <div id="desktopDotCard-col-text">
-                  <a href="/{{dot.dotSlug}}">
 
+              <div id="desktopDotCard-col-text" class="col-sm-6">
+                  <a href="/{{dot.dotSlug}}">
                       <div id="desktopDotCard-col-title">
                           <div id="desktopDotCard-title">
                               <h5 class="bold">{{shortenTitle}}</h5>
@@ -48,9 +63,9 @@
                               <h6 class="lightGrey">{{dot.linkName}}</h6>
                           </div>
                       </div>
-
                   </a>
               </div>
+
 
               <div id="desktopDotCard-3dots" class="dropdown">
                   <button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,26 +89,7 @@
 
               <div id="desktopDotCard-buttons">
 
-                  <div id="desktopDotCard-col-like">
 
-                  <!--{{#if isInOpenList}}-->
-
-                      <!--TBD: add a session to fix it!!! -->
-                    {{# if isLikedByMe}}
-                        <a class="unlike">
-                            <i class="unlike mdGrey likeBtn fa fa-heart"></i>
-                            <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
-                        </a>
-                    {{else}}
-                        <a class="like">
-                            <i class="like mdGrey likeBtn fa fa-heart-o"></i>
-                            <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
-                        </a>
-                    {{/if}}
-
-                          <!--{{/if}}-->
-
-                  </div>
 
 
                 {{#if smartRef.connection.personalDescription}}

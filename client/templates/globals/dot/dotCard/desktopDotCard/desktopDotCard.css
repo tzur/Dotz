@@ -25,11 +25,12 @@
 }
 
 #desktopDotCard-col-connectLine {
-  width: 5vw;
-  position: relative;
-  margin-top: 6vw;
-  float: left;
+  /*width: 5vw;*/
+  /*position: relative;*/
+  margin-top: 8vh;
+  /*float: left;*/
   text-align: center;
+  padding: 0;
 }
 
 #desktopDotCard-connectLine {
@@ -44,13 +45,13 @@
 /*}*/
 
 #desktopDotCard-col-img{
-  width: 27vw;
-  position: relative;
-  min-height: 1px;
-  padding-right: 1vw;
-  /*padding-left: 1vw;*/
-  margin: auto;
-  float: left;
+  /*width: 27vw;*/
+  /*position: relative;*/
+  /*min-height: 1px;*/
+  /*padding-right: 1vw;*/
+  /*!*padding-left: 1vw;*!*/
+  /*margin: auto;*/
+  /*float: left;*/
 }
 
 #desktopDotCard-img {
@@ -76,23 +77,23 @@
 }
 
 #desktopDotCard-col-text {
-  width: 42vw;
-  padding-top: 1vw;
-  position: relative;
-  min-height: 20vh;
-  /*padding-right: 15px;*/
-  margin: auto;
-  float: left;
+  /*width: 42vw;*/
+  /*padding-top: 1vw;*/
+  /*position: relative;*/
+  /*min-height: 20vh;*/
+  /*!*padding-right: 15px;*!*/
+  /*margin: auto;*/
+  /*float: left;*/
 }
 
 #desktopDotCard-col-title {
-  width: 55vw;
-  position: relative;
-  max-height: 20vw;
-  overflow-y: hidden;
-  padding: 0 1vw;
-  margin: auto;
-  float: left;
+  /*width: 55vw;*/
+  /*position: relative;*/
+  /*max-height: 20vw;*/
+  /*overflow-y: hidden;*/
+  /*padding: 0 1vw;*/
+  /*margin: auto;*/
+  /*float: left;*/
 }
 
 #desktopDotCard-col-title h5 {
@@ -117,13 +118,14 @@
 
 
 #desktopDotCard-col-like {
-  width: 26vw;
-  margin-left: 5vw;
-  padding-left: 11vw;
+  /*width: 26vw;*/
+  /*margin-left: 5vw;*/
+  /*padding-left: 11vw;*/
   /* padding-top: 1vw; */
-  position: relative;
-  float: left;
-  text-align: left;
+  /*position: relative;*/
+  /*float: left;*/
+  text-align: center;
+  margin-top: 9vh;
 }
 
 
