@@ -32,9 +32,27 @@
 #desktopDotShow-title {
   text-align: center;
   text-transform: uppercase;
-  color: #333;
+  /*color: #333;*/
   margin-top: 2vh;
   margin-bottom: 2vh;
+}
+
+#desktopDotShow-descriptionDiv {
+  background-color: #ffffff;
+}
+
+#desktopDotShow-description {
+  /*color: #333;*/
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+  font-size: 1.25em;
+}
+
+#desktopDotShow-middleDiv {
+  background-color: white;
+  height: 8vh;
+  padding-top: 1.5vh;
+  margin: 0;
 }
 
 #deadEnd-desktopDotShow {
