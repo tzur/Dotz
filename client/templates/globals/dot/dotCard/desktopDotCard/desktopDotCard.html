@@ -66,44 +66,51 @@
                           </div>
                       </div>
 
-                      <div id="desktopDotCard-col-credit">
+                      {{#if dot.linkName}}
+                          <h6 class="lightGrey">from {{dot.linkName}}</h6>
+                      {{/if}}
+
+
+                  </a>
+
+              </div>
+
+
+                  <div id="desktopDotCard-buttons" class="row">
+
+                      <div id="desktopDotCard-col-credit" class="col-sm-6">
 
                         {{#if smartRef.connection.personalDescription}}
                             <button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
-                                <h6 class="lightGrey">
-                                    Connected by {{ownerUser.username}} <i class="fa fa-comment-o mdTxt"></i>
-                                </h6>
+                                <h6 class="lightGrey">Connected by {{ownerUser.username}} <i class="fa fa-comment-o mdTxt"></i></h6>
                             </button>
 
                         {{else}}
-                            <button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left">Connected by {{ownerUser.username}}</button>
+                            <button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left"><h6>Connected by {{ownerUser.username}}</h6></button>
                         {{/if}}
 
                           <!--<div id="desktopDotCard-credit">-->
-                        {{#if dot.linkName}}
-                          <h6 class="lightGrey">from {{dot.linkName}}</h6>
-                        {{/if}}
+
                           <!--</div>-->
 
                       </div>
-                  </a>
-
-
-
-                  <div id="desktopDotCard-buttons">
 
                       <!--<button class="btn btn-default btn-xs mdGrey">-->
                       <!--<i class="fa fa-plus"></i>-->
                       <!--</button>-->
 
-                      <button class="connect btn btn-full-trans btn-xs mdGrey pull-right">
-                          <i class="fa fa-bookmark-o mdTxt mdGrey"></i>
+                    <div class="col-sm-2 pull-right">
+
+                      <button class="connect btn btn-full-trans btn-xs lightGrey pull-right">
+                          <i class="fa fa-bookmark-o mdTxt"></i>
                       </button>
+
+                    </div>
 
                   </div>
 
 
-              </div>
+
 
 
               <div id="desktopDotCard-3dots" class="dropdown">

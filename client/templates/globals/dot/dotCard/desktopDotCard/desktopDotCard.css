@@ -1,6 +1,6 @@
 #desktopDotCard-box {
   /*padding: 5vh 1vh 0 0;*/
-  margin-left: 1vw;
+  /*margin-left: 1vw;*/
   /* margin-bottom: 3vh; */
   /* overflow-x: hidden; */
   border-left: 1vw #fff solid;
@@ -38,7 +38,7 @@
 #desktopDotCard-col-connectLine {
   width: 6%;
   position: relative;
-  margin-top: 6vh;
+  margin-top: 4.5vh;
   float: left;
   text-align: center;
   padding: 0;
@@ -67,7 +67,7 @@
 /*}*/
 
 #desktopDotCard-col-img{
-  width: 18%;
+  width: 24%;
   position: relative;
   /*min-height: 1px;*/
   /*padding-right: 1vw;*/
@@ -122,7 +122,7 @@
 }
 
 #desktopDotCard-col-text {
-  width: 70%;
+  width: 60%;
   /*padding-top: 1vw;*/
   position: relative;
   /*min-height: 20vh;*/
@@ -149,6 +149,7 @@
 }
 
 #desktopDotCard-col-credit {
+  margin-left: 33%;
   /*width: 55vw;*/
   /*padding: 0 1vw;*/
   /*margin: auto;*/
@@ -190,7 +191,7 @@
 
 #desktopDotCard-3dots {
   position: absolute;
-  top: 0;
+  top: 1.5vh;
   right: 0;
 }
 
