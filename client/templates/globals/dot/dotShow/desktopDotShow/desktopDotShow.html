@@ -24,7 +24,7 @@
 
         <div id="desktopDotShow-middleDiv" class="row">
 
-                <div class="col-sm-7 colCenter">
+                <div class="col-sm-6 colCenter">
 
 
                     <div id="desktopDotShow-middleDiv-origin" class="col-sm-6 pull-left">
@@ -94,12 +94,12 @@
         <div id="desktopDotShow-descriptionDiv" class="container-fluid">
 
             <div class="container-fluid">
-                <div class="col-sm-7 colCenter">
+                <div class="col-sm-6 colCenter">
                     <pre id="desktopDotShow-description" class="darkText">{{dot.bodyText}}</pre>
                 </div>
 
 
-                <div id="desktopDotShow-middleDiv-origin" class="col-sm-7 colCenter">
+                <div id="desktopDotShow-middleDiv-origin" class="col-sm-6 colCenter">
 
                     <a href="/{{ownerUser.profile.userSlug}}"><img class="desktopDotShow-ownerImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
 
@@ -112,7 +112,7 @@
                         <span class="mdGrey userText"> To <a href="/{{dot.linkUrl}}"><strong>How to start-up</strong></a></span>
                     </span>
 
-                    <div id="desktopDotShow-personalDescriptionDiv" class="col-sm-10 mdGrey">
+                    <div id="desktopDotShow-personalDescriptionDiv" class="col-sm-11 mdGrey">
                         <p>askjdhaksj dhk jas dh askjdhkjashdkjas hkdj haskj dask dhkasj dhkasj dhkasj hdkasj hasd
                     kasjd haksj dhaks jdhkasj dahs kjdhaksj dhkasj dhaksj dhkasj dhkajs dhkajs dhkaj sdhk</p>
                     </div>
@@ -142,19 +142,26 @@
 <div id="placeHolder-desktop"></div>
     <nav id="fixedFooter-desktopDotShow" class="navbar navbar-default navbar-fixed-bottom fixedFooterShadow-desktopDotShow" role="navigation">
 
-        <div class="col-sm-7 colCenter">
+        <div class="container-fluid">
+            <div class="row">
 
-          <div class="col-xs-10">
-            {{#if dotzNum}}
-                <h4 class="mdTxt mdGrey">{{dotzNum}} Connected</h4>
-            {{else}}
-                <span class="lgTxt mdGrey">Let's Connect the 1st dot</span>
-            {{/if}}
-          </div>
+                <div id="fixedFooterLineDiv-desktopShow" class="col-sm-6 colCenter fixedFooterLine-desktopDotShow">
 
-          <div class="col-xs-2">
-              <i class="fa fa-arrow-circle-down mdGrey fa-2x"></i>
-          </div>
+                  <div class="col-xs-11">
+                    {{#if dotzNum}}
+                        <h4 class="mdTxt mdGrey">{{dotzNum}} Connected</h4>
+                    {{else}}
+                        <span class="lgTxt mdGrey">Let's Connect the 1st dot</span>
+                    {{/if}}
+                  </div>
+
+                  <div class="col-xs-1 noPadding txtR">
+                      <i class="fa fa-arrow-circle-down mdGrey fa-2x"></i>
+                  </div>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -165,7 +172,7 @@
 
       <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
+            <div class="col-xs-12 col-md-10 col-lg-6 colCenter">
 
               {{#each connectedDotzArray}}
                 {{>dotCard}}

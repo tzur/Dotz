@@ -80,11 +80,19 @@
 
 #fixedFooter-desktopDotShow {
   background-color: #fafafa;
-  padding: 1vh 0;
+  /*padding: 1vh 0;*/
+  border: none;
+}
+
+.fixedFooterLine-desktopDotShow {
+  border-left: 1vw solid #FFF;
+  height: 50px;
+  /*margin-top: -1px !important;*/
+  padding-top: 1.5vh;
 }
 
 #fixedFooter-desktopDotShow h4 {
-  margin: 1vh 0;
+  margin: 0.75vh 0;
   text-transform: uppercase;
 }
 
