@@ -66,9 +66,25 @@
                           </div>
                       </div>
 
-                      {{#if dot.linkName}}
-                          <h6 class="lightGrey">from {{dot.linkName}}</h6>
-                      {{/if}}
+                      <div id="desktopDotCard-col-credit" class="col-sm-6 noPadding">
+
+                        {{#if smartRef.connection.personalDescription}}
+                            <h6 class="lightGrey">Connected by {{ownerUser.username}}
+                                <button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
+                                  <i class="fa fa-comment-o mdTxt"></i>
+                                </button>
+                            </h6>
+
+                        {{else}}
+                            <h6  class="lightGrey">Connected by {{ownerUser.username}}</h6>
+                        {{/if}}
+
+                        {{#if dot.linkName}}
+                            <h6 class="lightGrey">from {{dot.linkName}}</h6>
+                        {{/if}}
+
+                      </div>
+
 
 
                   </a>
@@ -78,22 +94,7 @@
 
                   <div id="desktopDotCard-buttons" class="row">
 
-                      <div id="desktopDotCard-col-credit" class="col-sm-6">
 
-                        {{#if smartRef.connection.personalDescription}}
-                            <button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
-                                <h6 class="lightGrey">Connected by {{ownerUser.username}} <i class="fa fa-comment-o mdTxt"></i></h6>
-                            </button>
-
-                        {{else}}
-                            <button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left"><h6>Connected by {{ownerUser.username}}</h6></button>
-                        {{/if}}
-
-                          <!--<div id="desktopDotCard-credit">-->
-
-                          <!--</div>-->
-
-                      </div>
 
                       <!--<button class="btn btn-default btn-xs mdGrey">-->
                       <!--<i class="fa fa-plus"></i>-->
