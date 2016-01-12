@@ -53,7 +53,7 @@ Meteor.publish('profileDot', function(userId){
 
 Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
   check(dotId, String);
-  check(ownerUserId, String); //TBD ()
+  check(ownerUserId, String);
   check(connectedByUserId, String);
 
   let data = [
@@ -61,7 +61,6 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
       {fields: {
         "isOpen": 1,
         "dotType": 1,
-        "dotColor": 1,
         "title": 1,
         "dotSlug": 1,
         "bodyText": 1,
@@ -90,8 +89,10 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
 
 
 
-Meteor.publish('profileDotCard', function(dotId){
+Meteor.publish('profileDotCard', function(dotId, ownerUserId, connectedByUserId){
   check(dotId, String);
+  check(ownerUserId, String);
+  check(connectedByUserId, String);
 
   let data = [
     Dotz.find(dotId,
@@ -107,8 +108,14 @@ Meteor.publish('profileDotCard', function(dotId){
         "linkUrl": 1,
         "linkName": 1,
         "category": 1,
-        "inDotz": 1, //TBD
+        //"inDotz": 1, //TBD
         "connectedDotzArray": 1} //TBD
+      }),
+    Meteor.users.find({_id: { $in: [ownerUserId,connectedByUserId] }}, //TBD..
+      {fields: {
+        "username": 1,
+        "profile.userSlug": 1,
+        "profile.profileImage": 1}
       })
   ];
 

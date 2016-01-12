@@ -16,7 +16,6 @@ Meteor.publish( 'userByUserSlug1-OLD', function( userSlug ) {
 Meteor.publish('userByUserSlug', function(userSlug){
   check(userSlug, String);
   let user = Meteor.users.findOne({"profile.userSlug": userSlug});
-  console.log(user.username)
   let data = [
     Meteor.users.find({"profile.userSlug": userSlug},
       {fields: {
@@ -37,9 +36,11 @@ Meteor.publish('userByUserSlug', function(userSlug){
         "profile.googleAccountUrl": 1
       }
       }),
-    Dotz.find({_id: { $in: [user.profile.profileDotId, user.profile.shareDotId] }}, //TBD..
-      {fields: {
+
+    Dotz.find({_id: { $in: [user.profile.profileDotId, user.profile.shareDotId] }}, //TBD
+        {fields: {
         "isOpen": 1,
+        "ownerUserId": 1,
         "connectedDotzArray": 1}
     }),
 

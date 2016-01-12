@@ -84,11 +84,14 @@
   border: none;
 }
 
-.fixedFooterLine-desktopDotShow {
-  border-left: 1vw solid #FFF;
+#fixedFooterLineDiv-desktopDotShow {
   height: 50px;
   /*margin-top: -1px !important;*/
   padding-top: 1.5vh;
+}
+
+.fixedFooterLine-desktopDotShow {
+  border-left: 1vw solid #FFF;
 }
 
 #fixedFooter-desktopDotShow h4 {
