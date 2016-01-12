@@ -3,7 +3,7 @@
   /*margin-left: 1vw;*/
   /* margin-bottom: 3vh; */
   /* overflow-x: hidden; */
-  border-left: 0.8vw #fff solid;
+  border-left: 8px #fff solid;
 ;
 }
 
@@ -134,7 +134,7 @@
 }
 
 #desktopDotCard-col-text {
-  width: 67%;
+  width: 63%;
   /*padding-top: 1vw;*/
   position: relative;
   /*min-height: 20vh;*/
@@ -144,7 +144,7 @@
 }
 
 #desktopDotCard-col-title {
-  width: 83%;
+  width: 97%;
   /*width: 55vw;*/
   /*position: relative;*/
   /*max-height: 20vw;*/
@@ -155,7 +155,7 @@
 }
 
 #desktopDotCard-col-description {
-  width: 83%;
+  width: 79%;
 }
 
 #desktopDotCard-description {
@@ -164,7 +164,6 @@
 
 #desktopDotCard-linkButton {
  display: none;
- padding-right: 2vh;
 }
 
 #desktopDotCard-connectButtonDiv {
@@ -194,11 +193,10 @@
 }
 
 #desktopDotCard-col-credit {
-  /*margin-left: 33%;*/
-  /*width: 55vw;*/
-  /*padding: 0 1vw;*/
-  /*margin: auto;*/
-  /*float: left;*/
+  position: absolute;
+  bottom: 10%;
+  right: 1.75%;
+  left: 33%;
 }
 
 #desktopDotCard-col-credit h6 {

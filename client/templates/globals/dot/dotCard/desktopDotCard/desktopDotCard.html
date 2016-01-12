@@ -68,40 +68,44 @@
                           </div>
                       </div>
 
-                    <div class="container-fluid noPadding">
-
-                      <div id="desktopDotCard-col-credit" class="col-sm-6 noPadding">
-
-                        {{#if smartRef.connection.personalDescription}}
-                            <h6 class="lightGrey">Connected by {{ownerUser.username}}
-                                <button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
-                                  <i class="fa fa-comment-o lgTxt"></i>
-                                </button>
-                            </h6>
-
-                        {{else}}
-                            <h6  class="lightGrey">Connected by {{ownerUser.username}}</h6>
-                        {{/if}}
-
-                        {{#if dot.linkName}}
-                            <h6 class="lightGrey">from {{dot.linkName}}</h6>
-                        {{/if}}
-
-                      </div>
-
-                      {{#if dot.linkUrl}}
-
-                        <a href="{{dot.linkUrl}}" target="_blank">
-                            <div id="desktopDotCard-linkButton" class="col-sm-3 pull-right txtR mdGrey">
-                                <i class="fa fa-external-link mdTxt"></i>
-                            </div>
-                        </a>
-
-                      {{/if}}
-
-                    </div>
-
                   </a>
+              </div>
+
+
+
+
+
+              <div id="desktopDotCard-col-credit" class="container-fluid noPadding">
+
+                  <div class="col-sm-6 noPadding">
+
+                    {{#if smartRef.connection.personalDescription}}
+                        <h6 class="lightGrey">Connected by {{ownerUser.username}}
+                            <button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
+                                <i class="fa fa-comment-o lgTxt"></i>
+                            </button>
+                        </h6>
+
+                    {{else}}
+                        <h6  class="lightGrey">Connected by {{ownerUser.username}}</h6>
+                    {{/if}}
+
+                    {{#if dot.linkName}}
+                        <h6 class="lightGrey">from {{dot.linkName}}</h6>
+                    {{/if}}
+
+                  </div>
+
+                {{#if dot.linkUrl}}
+
+                    <a href="{{dot.linkUrl}}" target="_blank">
+                        <div id="desktopDotCard-linkButton" class="col-sm-3 pull-right noPadding txtR mdGrey">
+                            <i class="fa fa-external-link mdTxt"></i>
+                        </div>
+                    </a>
+
+                {{/if}}
+
               </div>
 
 
