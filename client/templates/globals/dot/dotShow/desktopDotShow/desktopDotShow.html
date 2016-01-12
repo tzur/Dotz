@@ -9,9 +9,9 @@
 
     <!--{{#if isListShow}}-->
 
-    <div class="container-fluid" id="listShowHeader">
+    <div class="container-fluid" id="dotShowHeader-desktopDotShow">
 
-        <div id="desktopDotShow-listCoverImg" class="row" style="background-image: url('{{dot.coverImageUrl}}')">
+        <div id="desktopDotShow-listCoverImg" class="row" style="background-image: url('{{dot.coverImageUrl}}'); background-color: {{dot.dotColor}}">
 
             <div id="desktopDotShow-listShowHeader-filter">
 
@@ -29,18 +29,28 @@
 
                     <div id="desktopDotShow-middleDiv-origin" class="col-sm-6 pull-left">
 
-                            <a href="/{{ownerUser.profile.userSlug}}"><img class="desktopDotShow-originImgProfile hidden" src="{{ownerUser.profile.profileImage}}"></a>
-
                           {{#if facebookDot}}
-                            <a href="/{{dot.linkAuthorUrl}}"><img class="desktopDotShow-originImgProfile hidden" src="{{authorFbProfile}}"></a>
+                              <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{authorFbProfile}}"></a>
+                          {{else}}
+                             {{#if dot.linkFavicon}}
+                             <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{dot.linkFavicon}}"></a>
+                             {{/if}}
                           {{/if}}
 
                         <span>
-                            <span class="mdGrey userText">By {{ownerUser.username}}</span>
-                            <span class="mdGrey userText"> On <a href="/{{dot.linkUrl}}">medium.com{{dot.linkName}}</a></span>
+
+                          {{#if dot.linkAuthorName}}
+                              <span class="mdGrey userText">By <a href="{{dot.linkUrl}}" target="_blank">{{dot.linkAuthorName}}</a></span>
+                          {{/if}}
+
+                          {{#if dot.linkName}}
+                              <span class="mdGrey userText"><a href="{{dot.linkUrl}}" target="_blank">{{dot.linkName}}</a></span>
+                          {{/if}}
                         </span>
 
-                    </div><div></div>
+                    </div>
+
+                    <!--<div></div>-->
 
                     <div class="col-sm-6 pull-right txtR">
 
@@ -92,36 +102,18 @@
             </div>
 
         <div id="desktopDotShow-descriptionDiv" class="container-fluid">
-
             <div class="container-fluid">
                 <div class="col-sm-6 colCenter">
                     <pre id="desktopDotShow-description" class="darkText">{{dot.bodyText}}</pre>
                 </div>
 
-
-                <div id="desktopDotShow-middleDiv-origin" class="col-sm-6 colCenter">
-
-                    <a href="/{{ownerUser.profile.userSlug}}"><img class="desktopDotShow-ownerImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
-
-                  {{#if facebookDot}}
-                      <a href="/{{dot.linkAuthorUrl}}"><img class="desktopDotShow-ownerImgProfile" src="{{authorFbProfile}}"></a>
-                  {{/if}}
-
-                    <span>
-                        <span class="mdGrey userText">Connected By <a href="/{{ownerUser.profile.userSlug}}"><strong>{{ownerUser.username}}</strong></a></span>
-                        <span class="mdGrey userText"> To <a href="/{{dot.linkUrl}}"><strong>How to start-up</strong></a></span>
-                    </span>
-
-                    <div id="desktopDotShow-personalDescriptionDiv" class="col-sm-11 mdGrey">
-                        <p>askjdhaksj dhk jas dh askjdhkjashdkjas hkdj haskj dask dhkasj dhkasj dhkasj hdkasj hasd
-                    kasjd haksj dhaks jdhkasj dahs kjdhaksj dhkasj dhaksj dhkasj dhkajs dhkajs dhkaj sdhk</p>
-                    </div>
-
-                </div>
-
+              <!--TBD-->
+                <!--dotConnectedByUser template-->
+              <!--{{#each dot.inDotz}}-->
+                <!--{{>dotConnectedByUserDesktopDotShow}}-->
+              <!--{{/each}}-->
 
             </div>
-
         </div>
 
 
@@ -131,12 +123,12 @@
 <!--{{/if}} &lt;!&ndash;end the check if is ListShow or DotShow&ndash;&gt;-->
 
 
-  {{/with}}
+  <!--{{/with}}-->
+  <!--{{#with dotShow}}-->
 
     <!--Anchor-->
 <a name="connectedDotz"></a>
 
-{{#with dotShow}}
 <!--{{#if dot.connectedDotzArray}}-->
 
 <div id="placeHolder-desktop"></div>
@@ -145,7 +137,8 @@
         <div class="container-fluid">
             <div class="row">
 
-                <div id="fixedFooterLineDiv-desktopShow" class="col-sm-6 colCenter fixedFooterLine-desktopDotShow">
+                <div id="fixedFooterLineDiv-desktopDotShow" class="col-sm-6 colCenter">
+                    <!--onScroll add class >> fixedFooterLine-desktopDotShow-->
 
                   <div class="col-xs-11">
                     {{#if dotzNum}}
@@ -155,7 +148,7 @@
                     {{/if}}
                   </div>
 
-                  <div class="col-xs-1 noPadding txtR">
+                  <div id="_takeMeNextButton" class="col-xs-1 noPadding txtR">
                       <i class="fa fa-arrow-circle-down mdGrey fa-2x"></i>
                   </div>
 
@@ -314,35 +307,6 @@
 </div>
 
   {{/if}}
-
-
-
-
-<!--navBar fixed bottom-->
-
-<!--<nav class="navbar navbar-default navbar-fixed-bottom" id="navbar-bottom">-->
-    <!--<div class="container">-->
-
-        <!--<div class="row">-->
-
-            <!--&lt;!&ndash;show the current dot/list Show&ndash;&gt;-->
-            <!--<div class="hidden-xs col-sm-8 col-md-8">-->
-                <!--<div id="whereIAm" class="noneWhere">-->
-                    <!--&lt;!&ndash;<div>&ndash;&gt;-->
-                    <!--<img class="hereWithImg" src="{{dot.coverImageUrl}}">-->
-                    <!--<span class="iAmHere">{{dot.title}}</span>-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="col-sm-2 col-md-2">-->
-                <!--<button type="button" class="connect btn btn-success btn-md dot-show-connect-btn">Connect {{connectCounter}}</button>-->
-            <!--</div>-->
-
-        <!--</div>-->
-
-    <!--</div>-->
-<!--</nav>-->
 
 
 

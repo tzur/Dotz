@@ -1,0 +1,27 @@
+
+<!--rendered in desktopDotShow-->
+
+<template name="dotConnectedByUserDesktopDotShow">
+
+    <div id="desktopDotShow-middleDiv-origin" class="col-sm-6 colCenter">
+
+        <a href="/{{ownerUser.profile.userSlug}}"><img class="desktopDotShow-ownerImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
+
+      {{#if facebookDot}}
+          <a href="/{{dot.linkAuthorUrl}}"><img class="desktopDotShow-ownerImgProfile" src="{{authorFbProfile}}"></a>
+      {{/if}}
+
+            <span>
+                <span class="mdGrey userText">Connected By <a href="/{{ownerUser.profile.userSlug}}"><strong>{{ownerUser.username}}</strong></a></span>
+                <span class="mdGrey userText"> To <a href="/{{dot.linkUrl}}"><strong>How to start-up</strong></a></span>
+            </span>
+
+        <div id="desktopDotShow-personalDescriptionDiv" class="col-sm-11 mdGrey">
+            <p>askjdhaksj dhk jas asj dhkajs dhkajs dhkaj sdhk</p>
+        </div>
+
+    </div>
+
+    <br>
+
+</template>

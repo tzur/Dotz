@@ -19,6 +19,12 @@ BrowserPolicy.content.allowImageOrigin("*");
 BrowserPolicy.content.allowOriginForAll("https://*.imgix.com");
 BrowserPolicy.content.allowOriginForAll("https://www.youtube.com");
 BrowserPolicy.content.allowOriginForAll("https://www.youtube.com/embed");
+BrowserPolicy.content.allowOriginForAll("https://www.producthunt.com");
+//BrowserPolicy.content.allowOriginForAll("https://medium.com");
+
+
+
+
 
 
 

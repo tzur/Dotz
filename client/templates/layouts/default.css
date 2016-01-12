@@ -9,16 +9,14 @@ body {
 
 #main {
   background-color: #FAFAFA;
-  margin-top: 6vh;
+  /*margin-top: 6vh;*/
 }
 
 @media (max-width: 767px) {
-
   #main {
     background-color: #fff;
-    margin-top: 9vh;
+    /*margin-top: 9vh;*/
   }
-
 }
 
 a button:active :after {

@@ -8,10 +8,10 @@ Template.profileDotCard.onCreated(function(){
         // any subscription will be expire after 5 minute, if it's not subscribed again
         expireIn: 5
       });
-        self.subs.subscribe('profileDotCard', self.data.dot._id);
+        self.subs.subscribe('profileDotCard', self.data.dot._id, self.data.dot.ownerUserId, self.data.connection.connectedByUserId);
+        //self.subs.subscribe('mobileDotCard', self.data.dot._id, self.data.dot.ownerUserId, self.data.connection.connectedByUserId);
         //self.subs.subscribe('user', self.data.dot.ownerUserId);
         //self.subs.subscribe('user', self.data.connection.connectedByUserId);
-
 });
 
 
@@ -38,7 +38,7 @@ Template.profileDotCard.helpers({
       };
       let subsManager = Template.instance();
       if(!data.dot){
-        subsManager.subs.subscribe('profileDotCard', this.dot._id);
+        subsManager.subs.subscribe('profileDotCard', this.dot._id, this.dot.ownerUserId, this.connection.connectedByUserId);
         //subsManager.subs.subscribe('user', this.dot.ownerUserId);
         //subsManager.subs.subscribe('user', this.connection.connectedByUserId);
       }
@@ -90,10 +90,12 @@ Template.profileDotCard.helpers({
     return (this.dot && this.dot.ownerUserId === Meteor.userId())
   },
 
-  //Works for dotzConnectedByOwner, TBD for dotzConnectedByOthers:
   sortIsAvailable: function() {
-    let parentDotOwnerId = Dotz.findOne(this.smartRef.connection.toParentDotId).ownerUserId;
-    return ( parentDotOwnerId === Meteor.userId() )
+    let parentDot = Dotz.findOne(this.smartRef.connection.toParentDotId);
+    if (parentDot) {
+      let parentDotOwnerId = parentDot.ownerUserId;
+      return ( parentDotOwnerId === Meteor.userId() )
+    }
   },
 
   actionDate: function(){

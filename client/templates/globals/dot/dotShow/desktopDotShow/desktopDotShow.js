@@ -81,10 +81,15 @@ Template.desktopDotShow.onRendered(function(){
       if ($(window).scrollTop() > origOffsetY) {
         $('#fixedFooter-desktopDotShow').removeClass('navbar-fixed-bottom');
         $('#fixedFooter-desktopDotShow').removeClass('fixedFooterShadow-desktopDotShow');
+        $('#fixedFooterLineDiv-desktopDotShow').addClass('fixedFooterLine-desktopDotShow');
+
         //console.log("removeClass");
       } else {
         $('#fixedFooter-desktopDotShow').addClass('navbar-fixed-bottom');
         $('#fixedFooter-desktopDotShow').addClass('fixedFooterShadow-desktopDotShow');
+        $('#fixedFooterLineDiv-desktopDotShow').removeClass('fixedFooterLine-desktopDotShow');
+
+        //fixedFooterLine-desktopDotShow
         //console.log("addClass");
       }
     }
@@ -255,6 +260,18 @@ Template.desktopDotShow.helpers({
 });
 
 Template.desktopDotShow.events({
+
+
+  'click #fixedFooter-desktopDotShow': function(){
+
+    //Source: http://stackoverflow.com/questions/6677035/jquery-scroll-to-element
+    let desktopFooterHeight = $('#fixedFooter-desktopDotShow').height();
+    //$("#button").click(function() {
+      $('html, body').animate({
+        scrollTop: $("#placeHolder-desktop").offset().top - desktopFooterHeight
+      }, 2000);
+    //});
+  },
 
   'click ._shareFacebookDialog': function(event){
     event.preventDefault();

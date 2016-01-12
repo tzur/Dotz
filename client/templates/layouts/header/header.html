@@ -10,39 +10,19 @@
 	      </button>
 
 
-        <div>
-
-{{#if currentUser}}
-
-    <span class="logo">
-        <a class="navbar-brand" href="/dotz"><strong>Dotz:</strong></a>
-    </span>
-
-
-{{else}}
-
-    <span class="logo">
-        <a class="navbar-brand" href="/dotz"><strong>Dotz:</strong></a>
-    </span>
-
-{{/if}}
-
-
-
-
-
-        <span>
-              <form class="navbar-form navbar-right hidden-xs" role="search">
-                  <div class="form-group has-feedback">
-                      <input id="searchBoxNavBar" type="text" class="searchNav form-control" placeholder="Search" autocomplete="off">
-                      <i id="search-icon" class="fa fa-search form-control-feedback"></i>
-                  </div>
-
-              </form>
-          </span>
-
+        <div class="navbar-brand">
+          {{#if currentUser}}
+              <span class="logo">
+                  <a class="navbar-brand-dotz" href="/dotz"><strong>DOTZ</strong></a>
+                  <a class="navbar-brand-colons" href="/dotz"><strong>:</strong></a>
+              </span>
+          {{else}}
+              <span class="logo">
+                  <a class="navbar-brand-dotz" href="/dotz"><strong>DOTZ</strong></a>
+                  <a class="navbar-brand-colons" href="/dotz"><strong>:</strong></a>
+              </span>
+          {{/if}}
         </div>
-
 
         <!--&lt;!&ndash;show the current dot/list Show&ndash;&gt;-->
           <!--<div id="whereIAm" class="noneWhere">-->
@@ -54,9 +34,8 @@
 
 	    </div>
 
-
-
 	    <div id="navbar-collapse" class="collapse navbar-collapse">
+
 	    	{{#if currentUser}}
 					{{> authenticatedNavigation}}
 	      {{else}}

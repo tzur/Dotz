@@ -44,25 +44,19 @@
   border-radius: 50%;
 }
 
-.navbar-fixed-top {
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23)
-}
-
-
 #navbar-collapse .navbar-nav > li > a {
   padding: 0.75em 0.5em;
 }
 
 .navbar-collapse {
-  background-color: #f8f8f8;
+  /*background-color: #f8f8f8;*/
 }
 
 .nav-icon {
   height: 2em;
   width: 2em;
-  padding: 0;
+  padding: 0.2em;
   text-align: center;
-
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
