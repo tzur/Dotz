@@ -20,6 +20,12 @@ Template.desktopDotCard.onDestroyed(function(){
   $('.fa').removeClass('transparent');
 });
 
+Template.desktopDotCard.onRendered(function(){
+
+    //$('[data-toggle="tooltip"]').tooltip();
+
+});
+
 
 Template.desktopDotCard.helpers({
 

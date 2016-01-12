@@ -89,9 +89,15 @@
 
                       </div>
 
-                        <div id="desktopDotCard-linkButton" class="col-sm-3 pull-right txtR mdGrey noPadding">
-                            <i class="fa fa-external-link mdTxt"></i>
-                        </div>
+                      {{#if dot.linkUrl}}
+
+                        <a href="{{dot.linkUrl}}" target="_blank">
+                            <div id="desktopDotCard-linkButton" class="col-sm-3 pull-right txtR mdGrey noPadding">
+                                <i class="fa fa-external-link mdTxt"></i>
+                            </div>
+                        </a>
+
+                      {{/if}}
 
                     </div>
 
@@ -136,11 +142,19 @@
 
                   <!--</div>-->
 
-              <div id="desktopDotCard-connectButtonDiv">
+      {{#if isConnected}}
+              <div id="desktopDotCard-connectButtonDiv" class="connect" data-toggle="tooltip" data-placement="right" title="Connect to...">
                   <i class="fa fa-bookmark-o mdGrey mdTxt"></i>
               </div>
 
-
+              <div id="desktopDotCard-disconnectButtonDiv" class="disConnect" data-toggle="tooltip" data-placement="right" title="Disconnect from here">
+                  <i class="fa fa-times mdGrey mdTxt"></i>
+              </div>
+      {{else}}
+              <div id="desktopDotCard-connectButtonDiv" class="connect">
+                  <i class="fa fa-bookmark-o mdGrey mdTxt"></i>
+              </div>
+      {{/if}}
 
               <!--<div id="desktopDotCard-3dots" class="dropdown">-->
                   <!--<button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
