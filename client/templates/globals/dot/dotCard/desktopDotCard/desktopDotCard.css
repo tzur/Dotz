@@ -1,6 +1,6 @@
 #desktopDotCard-box {
   /*padding: 5vh 1vh 0 0;*/
-  margin-left: 1vw;
+  /*margin-left: 1vw;*/
   /* margin-bottom: 3vh; */
   /* overflow-x: hidden; */
   border-left: 0.8vw #fff solid;
@@ -31,14 +31,22 @@
 }
 
 #desktopDotCard:hover {
-  background-color: #FFFFFF;
-  border-radius: 4px;
+   background-color: #FFFFFF;
+   border-radius: 4px;
+ }
+
+#desktopDotCard:hover #desktopDotCard-linkButton {
+  display: block;
+}
+
+#desktopDotCard:hover #desktopDotCard-connectButtonDiv {
+  display: block;
 }
 
 #desktopDotCard-col-connectLine {
   width: 3%;
   position: relative;
-  margin-top: 6vh;
+  margin-top: 4.5vh;
   float: left;
   text-align: center;
   padding: 0;
@@ -67,7 +75,7 @@
 /*}*/
 
 #desktopDotCard-col-img{
-  width: 18%;
+  width: 24%;
   position: relative;
   /*min-height: 1px;*/
   /*padding-right: 1vw;*/
@@ -122,7 +130,7 @@
 }
 
 #desktopDotCard-col-text {
-  width: 70%;
+  width: 64%;
   /*padding-top: 1vw;*/
   position: relative;
   /*min-height: 20vh;*/
@@ -132,6 +140,7 @@
 }
 
 #desktopDotCard-col-title {
+  width: 87%;
   /*width: 55vw;*/
   /*position: relative;*/
   /*max-height: 20vw;*/
@@ -139,6 +148,26 @@
   /*padding: 0 1vw;*/
   /*margin: auto;*/
   /*float: left;*/
+}
+
+#desktopDotCard-col-description {
+
+}
+
+#desktopDotCard-description {
+  width: 87%;
+}
+
+#desktopDotCard-linkButton {
+ display: none;
+ padding-right: 2vh;
+}
+
+#desktopDotCard-connectButtonDiv {
+  display: none;
+  position: absolute;
+  top: 2vh;
+  right: 2vh;
 }
 
 #desktopDotCard-col-title h2 {
@@ -149,6 +178,7 @@
 }
 
 #desktopDotCard-col-credit {
+  /*margin-left: 33%;*/
   /*width: 55vw;*/
   /*padding: 0 1vw;*/
   /*margin: auto;*/
@@ -164,8 +194,35 @@
 
 }
 
+/*#desktopDotCard-overlayer {*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*bottom: 0;*/
+  /*right: 0;*/
+  /*left: 12%;*/
+/*}*/
 
+/*#desktopDotCard-hoverButtons {*/
+  /*display: none;*/
+/*}*/
 
+/*#desktopDotCard-overlayer:hover {*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*bottom: 0;*/
+  /*right: 0;*/
+  /*left: 12%;*/
+  /*z-index: 9999;*/
+  /*/!*background-color: rgba(255, 255, 255, 0.86);*!/*/
+/*}*/
+
+/*#desktopDotCard-overlayer:hover #desktopDotCard-hoverButtons {*/
+  /*display: block;*/
+  /*position: absolute;*/
+  /*bottom: 14px;*/
+  /*left: 38px;*/
+  /*right: -49px;*/
+/*}*/
 
 
 #desktopDotCard-buttons {
@@ -190,7 +247,7 @@
 
 #desktopDotCard-3dots {
   position: absolute;
-  top: 0;
+  top: 1.5vh;
   right: 0;
 }
 
@@ -253,10 +310,3 @@
   color: #333333;
 }
 
-#desktopDotCard-title {
-
-}
-
-#desktopDotCard-description {
-  font-weight: 400;
-}
