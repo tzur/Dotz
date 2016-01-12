@@ -97,7 +97,7 @@
 }
 
 .fixedFooterLine-desktopDotShow {
-  border-left: 1vw solid #FFF;
+  border-left: 8px #fff solid;
 }
 
 #fixedFooter-desktopDotShow h4 {
