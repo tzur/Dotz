@@ -119,9 +119,9 @@ Template.desktopUserShow.helpers({
   //    }
   //  },
 
-  //dotNumCounter:  function(){
-  //    return this.profile.createdByUserDotz.length;
-  //},
+  dotNumCounter:  function(){
+      return UserConnections.findOne({userId: this._id}).createdByUserDotz.length;
+  },
 
   connectionsCounter:  function(){
     if (this.profile) {

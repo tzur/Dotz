@@ -84,33 +84,15 @@
                     </div>
                 </div>
 
-                <ul class="menu js-socialMenu txtMd" data-user-id="42824e6543f3">
-                    <!--<li class="menu-item js-socialMenuFollowers" title="Followers">-->
-                        <!--<button class="button button   ?? chromeless" data-action="show-follow-list" data-action-value="followers">-->
-                          <!--{{dotNumCounter}}<small class="menu-label">Dotz</small></button>-->
-                    <!--</li>-->
 
-                    <li class="menu-item js-socialMenuFollowers" title="Followers">
-                        <button id="_userConnectivity" class="button button--chromeless" data-action="show-follow-list" data-action-value="followers">
-                          {{connectionsCounter}}<small class="menu-label">Connections</small></button>
-                    </li>
-
-              <!--{{#if followingCounter}}-->
-                    <!--<li class="_followingCounter menu-item " title="Following">-->
-                        <!--<button class="button button-chromeless" data-action="show-follow-list" data-action-value="following">-->
-                          <!--{{followingCounter}}<small class="menu-label">Following</small></button>-->
-                    <!--</li>-->
-              <!--{{/if}}-->
-
-               <!--{{#if followersCounter}}-->
-                    <!--<li class="_followersCounter menu-item js-socialMenuFollowers" title="Followers">-->
-                        <!--<button class="button button-chromeless" data-action="show-follow-list" data-action-value="followers">-->
-                          <!--{{followersCounter}}<small class="menu-label">Followers</small></button>-->
-                    <!--</li>-->
-               <!--{{/if}}-->
-
-                </ul>
-
+    <div class="container-fluid">
+        <div class="row">
+            <div id="counters-desktopDotShow" class="col-xs-12 colCenter txtCenter">
+                <span class=""><strong>{{dotNumCounter}}</strong> Dotz</span>
+                <span class=""><strong>{{connectionsCounter}}</strong> Connections</span>
+            </div>
+        </div>
+    </div>
 
                 <div id="following" class="container-fluid">
                     <div class="row">
