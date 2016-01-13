@@ -15,15 +15,15 @@
                   <!--TBD: add a session to fix it!!! -->
                 {{# if isLikedByMe}}
                     <a class="unlike">
-                        <i class="unlike darkText likeBtn fa fa-heart"></i>
-                        <span class="likesCounter darkText">
+                        <i class="unlike darkText mdTxt likeBtn fa fa-heart"></i>
+                        <span class="likesCounter normalTxt darkText">
                           <br>
                         {{likeCounter}}</span>
                     </a>
                 {{else}}
                     <a class="like">
-                        <i class="like darkText likeBtn fa fa-heart-o"></i>
-                        <span class="likesCounter darkText">
+                        <i class="like darkText mdTxt likeBtn fa fa-heart-o"></i>
+                        <span class="likesCounter normalTxt darkText">
                           <br>
                         {{likeCounter}}</span>
                     </a>
@@ -64,7 +64,10 @@
 
                       <div id="desktopDotCard-col-description">
                           <div id="desktopDotCard-description">
-                              <h5 class="darkText">{{shortenBodyText}}</h5>
+                              <h5 class="greyText">{{shortenBodyText}}</h5>
+                            {{#if dot.linkName}}
+                                <h5 class="lightGrey">{{dot.linkName}}</h5>
+                            {{/if}}
                           </div>
                       </div>
 
@@ -77,31 +80,29 @@
 
               <div id="desktopDotCard-col-credit" class="container-fluid noPadding">
 
-                  <div class="col-sm-6 noPadding">
+                  <!--<div class="col-sm-6 noPadding">-->
 
                     {{#if smartRef.connection.personalDescription}}
-                        <h6 class="lightGrey">Connected by {{ownerUser.username}}
+                        <span class="lightGrey">Connected by {{ownerUser.username}}
                             <button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
                                 <i class="fa fa-comment-o lgTxt"></i>
                             </button>
-                        </h6>
+                        </span>
 
                     {{else}}
-                        <h6  class="lightGrey">Connected by {{ownerUser.username}}</h6>
+                        <span  class="lightGrey">Connected by {{ownerUser.username}}</span>
                     {{/if}}
 
-                    {{#if dot.linkName}}
-                        <h6 class="lightGrey">from {{dot.linkName}}</h6>
-                    {{/if}}
 
-                  </div>
+
+                  <!--</div>-->
 
                 {{#if dot.linkUrl}}
 
                     <a href="{{dot.linkUrl}}" target="_blank">
-                        <div id="desktopDotCard-linkButton" class="col-sm-3 pull-right noPadding txtR mdGrey">
-                            <i class="fa fa-external-link mdTxt"></i>
-                        </div>
+                        <!--<div id="desktopDotCard-linkButton" class="col-sm-3 pull-right noPadding txtR mdGrey">-->
+                            <i id="desktopDotCard-linkButton" class="fa fa-external-link mdTxt txtR mdGrey pull-right"></i>
+                        <!--</div>-->
                     </a>
 
                 {{/if}}

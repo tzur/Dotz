@@ -37,6 +37,19 @@
   border-radius: 50%;
 }
 
+@media (min-width: 767px) {
+
+  #_mobileConnectDotModal-connectBtnDiv, #_mobileConnectDotModal-connecToUserProfiletBtnDiv {
+    padding: 2vh 2vh;
+  }
+
+  .mobileConnectDotModal-dotImg {
+    width: 4vw;
+    height: 4vw;
+  }
+
+}
+
 
 
 /*.dot-img-connect-modal {*/
