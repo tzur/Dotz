@@ -120,7 +120,10 @@ Template.userShow.helpers({
   //  },
 
   dotNumCounter:  function(){
-      return UserConnections.findOne({userId: this._id}).createdByUserDotz.length;
+    let thisUserConnections = UserConnections.findOne({userId: this._id});
+    if (thisUserConnections) {
+      return thisUserConnections.createdByUserDotz.length;
+    }
   },
 
   connectionsCounter:  function(){
