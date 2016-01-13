@@ -69,6 +69,10 @@ BrowserPolicy.content.allowOriginForAll("http://platform.twitter.com");
 BrowserPolicy.content.allowOriginForAll("http://platform.twitter.com/*");
 
 //Temp - tbd:
+
+BrowserPolicy.content.allowOriginForAll("http://*.giphy.com");
+BrowserPolicy.content.allowOriginForAll("http://i.giphy.com/YwTXexxX2yEVy.gif");
+
 BrowserPolicy.content.allowImageOrigin("http://s2.postimg.org/6yq2vojd1/Location_icon_lg.png");
 BrowserPolicy.content.allowImageOrigin("http://s2.postimg.org/6yq2vojd1/location_icon_lg.png");
 BrowserPolicy.content.allowImageOrigin("http://s2.postimg.org/6yq2vojd1/Location_icon_lg.png");

@@ -9,6 +9,14 @@
   border-color: transparent;
 }
 
+@media (max-width: 767px) {
+  #navbar-collapse {
+    background-color: rgba(255,255,255,0.95);
+    /*border-color: transparent;*/
+  }
+}
+
+
 .navbar-collapse {
   background-color: transparent;
   border-color: transparent;
