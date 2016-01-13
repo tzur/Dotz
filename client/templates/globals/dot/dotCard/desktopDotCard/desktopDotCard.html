@@ -64,50 +64,55 @@
 
                       <div id="desktopDotCard-col-description">
                           <div id="desktopDotCard-description">
+
                               <h5 class="greyText">{{shortenBodyText}}</h5>
-                            {{#if dot.linkName}}
-                                <h5 class="lightGrey">{{dot.linkName}}</h5>
-                            {{/if}}
+
                           </div>
                       </div>
 
                   </a>
-              </div>
 
 
+                  <div>
 
+                      {{#if dot.linkName}}
 
+                          <span class="lightGrey">{{dot.linkName}} </span><span class="lightGrey bold desktopDotCard-col-credit"> · </span>
 
-              <div id="desktopDotCard-col-credit" class="container-fluid noPadding">
+                      {{/if}}
 
-                  <!--<div class="col-sm-6 noPadding">-->
+                      {{#if smartRef.connection.personalDescription}}
 
-                    {{#if smartRef.connection.personalDescription}}
-                        <span class="lightGrey">Connected by {{ownerUser.username}}
-                            <button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
-                                <i class="fa fa-comment-o lgTxt"></i>
-                            </button>
-                        </span>
+                          <span class="lightGrey desktopDotCard-col-credit">Connected by <a href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a>
+                              <!--<button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">-->
+                                  <!--<i class="fa fa-comment-o lgTxt"></i>-->
+                              <!--</button>-->
+                          </span>
 
-                    {{else}}
-                        <span  class="lightGrey">Connected by {{ownerUser.username}}</span>
-                    {{/if}}
+                          <div id="connectedByText-desktopDotCard">
+                              <h5 class="lightGrey">{{smartRef.connection.personalDescription}}</h5>
+                          </div>
 
+                      {{else}}
 
+                          <span  class="lightGrey desktopDotCard-col-credit">Connected by <a href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a></span>
 
-                  <!--</div>-->
+                      {{/if}}
 
-                {{#if dot.linkUrl}}
-
-                    <a href="{{dot.linkUrl}}" target="_blank">
-                        <!--<div id="desktopDotCard-linkButton" class="col-sm-3 pull-right noPadding txtR mdGrey">-->
-                            <i id="desktopDotCard-linkButton" class="fa fa-external-link mdTxt txtR mdGrey pull-right"></i>
-                        <!--</div>-->
-                    </a>
-
-                {{/if}}
+                  </div>
 
               </div>
+
+
+              {{#if dot.linkUrl}}
+
+                  <a href="{{dot.linkUrl}}" target="_blank">
+                      <div id="desktopDotCard-linkButton">
+                          <i class="fa fa-external-link mdGrey mdTxt"></i>
+                      </div>
+                  </a>
+
+              {{/if}}
 
 
 
@@ -130,22 +135,6 @@
 
             <!--</div>-->
 
-
-                  <!--<div id="desktopDotCard-buttons" class="row">-->
-
-                      <!--<button class="btn btn-default btn-xs mdGrey">-->
-                      <!--<i class="fa fa-plus"></i>-->
-                      <!--</button>-->
-
-                    <!--<div class="col-sm-2 pull-right">-->
-
-                      <!--<button class="connect btn btn-full-trans btn-xs lightGrey pull-right">-->
-                          <!--<i class="fa fa-bookmark-o mdTxt"></i>-->
-                      <!--</button>-->
-
-                    <!--</div>-->
-
-                  <!--</div>-->
 
       {{#if isConnected}}
               <div id="desktopDotCard-connectButtonDiv" class="connect" data-toggle="tooltip" data-placement="right" title="Connect to...">
