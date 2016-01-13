@@ -1,4 +1,4 @@
-Template.desktopUserShow.onCreated(function() {
+Template.userShow.onCreated(function() {
   Session.set('showShareDotz', false);
   let self = this;
   self.userShowReady = new ReactiveVar();
@@ -48,7 +48,7 @@ Template.desktopUserShow.onCreated(function() {
 });
 
 
-Template.desktopUserShow.onRendered(function() {
+Template.userShow.onRendered(function() {
   //Session.set('showShareDotz', false);
   Session.set('changeListener', true);
   Session.set('spinnerOn', false);
@@ -76,12 +76,12 @@ Template.desktopUserShow.onRendered(function() {
 });
 
 
-Template.desktopUserShow.onDestroyed(function(){
+Template.userShow.onDestroyed(function(){
   Session.set('changeListener', true);
 });
 
 
-Template.desktopUserShow.helpers({
+Template.userShow.helpers({
   dataUser: function() {
     let user = Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
     if (user){
@@ -125,15 +125,18 @@ Template.desktopUserShow.helpers({
 
   connectionsCounter:  function(){
     if (this.profile) {
-      let userConnectionsCounters = UserConnections.findOne({userId: this._id})
-      if(userConnectionsCounters) {
-        let userConnectivity = userConnectionsCounters.peopleLikedMyConnections.length +
-          userConnectionsCounters.peopleConnectedMyDotz.length +
-          userConnectionsCounters.peopleLikedMyDotz.length;
-        let userConnection = userConnectionsCounters.connectionsMadeByUser.length + userConnectionsCounters.likesMadeByUser.length
-          + userConnectionsCounters.createdByUserDotz.length +
-          this.profile.createdByUserLists.length;
-        return ((userConnectivity * 2) + userConnection)
+        let userConnectionsCounters = UserConnections.findOne({userId: this._id});
+        if(userConnectionsCounters) {
+            let userConnectivity =
+              userConnectionsCounters.peopleLikedMyConnections.length +
+              userConnectionsCounters.peopleConnectedMyDotz.length +
+              userConnectionsCounters.peopleLikedMyDotz.length;
+            let userConnection =
+              userConnectionsCounters.connectionsMadeByUser.length +
+              userConnectionsCounters.likesMadeByUser.length +
+              userConnectionsCounters.createdByUserDotz.length +
+              this.profile.createdByUserLists.length;
+            return ((userConnectivity * 2) + userConnection)
       }
     }
   },
@@ -183,7 +186,7 @@ Template.desktopUserShow.helpers({
   }
 
 });
-Template.desktopUserShow.events({
+Template.userShow.events({
   'click ._shareUserOnFB': function(event){
     event.preventDefault();
     FB.ui({

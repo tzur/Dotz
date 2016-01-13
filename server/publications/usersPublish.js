@@ -33,9 +33,8 @@ Meteor.publish('userByUserSlug', function(userSlug){
         "profile.websiteUrl": 1,
         "profile.facebookAccountUrl": 1,
         "profile.twitterAccountUrl": 1,
-        "profile.googleAccountUrl": 1
-      }
-      }),
+        "profile.googleAccountUrl": 1}
+    }),
 
     Dotz.find({_id: { $in: [user.profile.profileDotId, user.profile.shareDotId] }}, //TBD
         {fields: {
@@ -44,18 +43,19 @@ Meteor.publish('userByUserSlug', function(userSlug){
         "connectedDotzArray": 1}
     }),
 
-    UserConnections.find({userId: user._id}
+    UserConnections.find({userId: user._id} //TBD: right now we are actually publishing the full Doc :(
+      //,
       //{fields: {
       //  userId: 1,
+      //  createdByUserDotz: 1, //TBD
       //  likesMadeByUserCounter: 1,
       //  connectionsMadeByUserCounter:1,
       //  peopleConnectedMyDotzCounter: 1,
       //  peopleLikedMyConnectionsCounter:1,
       //  peopleLikedMyDotzCounter: 1,
-      //  createdByUserDotzCounter: 1
-      //  }
+      //  createdByUserDotzCounter: 1}
       //}
-    )
+     )
   ];
   if ( data ) {
     return data;
