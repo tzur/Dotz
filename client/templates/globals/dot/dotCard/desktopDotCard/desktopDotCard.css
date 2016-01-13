@@ -39,11 +39,11 @@
   display: block;
 }
 
-#desktopDotCard:hover #desktopDotCard-connectButtonDiv, #desktopDotCard-disconnectButtonDiv {
+#desktopDotCard:hover #desktopDotCard-connectButtonDiv, #desktopDotCard:hover #desktopDotCard-disconnectButtonDiv {
   display: block;
 }
 
-#desktopDotCard:hover #desktopDotCard-disconnectButtonDiv {
+#desktopDotCard:hover #desktopDotCard-col-credit {
   display: block;
 }
 
@@ -57,14 +57,15 @@
 }
 
 #desktopDotCard-col-like {
-  width: 6%;
+  width: 2%;
   /*margin-left: 5vw;*/
   /*padding-left: 11vw;*/
   /* padding-top: 1vw; */
   position: relative;
   float: left;
   text-align: center;
-  margin-top: 7vh;
+  margin-top: 6vh;
+  margin-left: 3%;
 }
 
 #desktopDotCard-connectLine {
@@ -79,7 +80,7 @@
 /*}*/
 
 #desktopDotCard-col-img{
-  width: 24%;
+  width: 25%;
   position: relative;
   /*min-height: 1px;*/
   /*padding-right: 1vw;*/
@@ -91,8 +92,8 @@
 #desktopDotCard-img {
   border-radius: 50%;
   padding: 0;
-  height: 16vh;
-  width: 16vh;
+  height: 20vh;
+  width: 20vh;
   background-size: cover;
   /*background-color: #e5e5e5;*/
   position: relative;
@@ -155,11 +156,12 @@
 }
 
 #desktopDotCard-col-description {
-  width: 79%;
+  width: 90%;
 }
 
-#desktopDotCard-description {
-
+#desktopDotCard-description h5, #desktopDotCard-description h6  {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 #desktopDotCard-linkButton {
@@ -193,6 +195,7 @@
 }
 
 #desktopDotCard-col-credit {
+  display: none;
   position: absolute;
   bottom: 10%;
   right: 1.75%;

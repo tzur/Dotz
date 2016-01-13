@@ -149,7 +149,7 @@ Template.desktopDotCard.helpers({
 
   shortenBodyText: function() {
     if (this.dot){
-      return s.prune(this.dot.bodyText, 140);
+      return s.prune(this.dot.bodyText, 110);
     }
   },
 

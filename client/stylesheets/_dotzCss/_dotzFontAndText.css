@@ -37,7 +37,7 @@ a:hover {
 }
 
 .sm2Txt {
-  font-size: 0.8em;
+  font-size: 12px;
 }
 
 .normalTxt {
@@ -73,7 +73,7 @@ a:hover {
 /*greyTexts*/
 
 .lightGrey {
-  color: #e5e5e5;
+  color: #d5d5d5;
 }
 
 .mdGrey {
