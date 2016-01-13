@@ -27,63 +27,67 @@
 
                             <h1 class="userNameTitle">{{username}}</h1>
 
-          <!--<div class="iconsLinksEtc">-->
-                                <ul>
-
-                                    {{#if profile.location.googleMapsUrl}}
-                                    <li class="locationWrapper inline-block">
-                                        <a href="{{profile.location.googleMapsUrl}}" target="_blank" class="mdGrey" rel="nofollow">
-                                        <i class="fa fa-map-marker mdGrey"></i></a>
-                                    </li>
-
-                                    <li class="inline-block">
-                                        <span>·</span>
-                                    </li>
-                                    {{/if}}
-
-                                    {{#if profile.websiteUrl}}
-                                    <li class="websiteWrapper inline-block">
-                                        <a href="{{profile.websiteUrl}}" target="_blank" class="mdGrey" rel="nofollow">
-                                          <i class="fa fa-globe mdGrey"></i>
-                                        </a>
-                                    </li>
-
-                                    <li class="inline-block">
-                                        <span>·</span>
-                                    </li>
-                                    {{/if}}
-
-                                   {{#if profile.facebookAccountUrl}}
-                                   <li class="inline-block">
-                                        <a href="{{profile.facebookAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
-                                            <i class="fa fa-facebook-official mdGrey"></i></a>
-                                    </li>
-                                   {{/if}}
-
-                                    {{#if profile.twitterAccountUrl}}
-                                    <li class="inline-block">
-                                        <a href="{{profile.twitterAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
-                                            <i class="fa fa-twitter-square mdGrey"></i></a>
-                                    </li>
-                                    {{/if}}
-
-                                    {{#if profile.googleAccountUrl}}
-                                    <li class="inline-block">
-                                        <a href="{{profile.googleAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
-                                            <i class="fa fa-google-plus-square mdGrey"></i></a>
-                                    </li>
-                                    {{/if}}
-
-                                </ul>
-                            <!--</div>-->
-
-
                             <p>{{profile.description}}</p>
 
                             <div id="counters-desktopDotShow" class="col-xs-12 colCenter txtCenter">
                                 <span class=""><strong>{{dotNumCounter}}</strong> Dotz</span>
                                 <span class="spacer"> · </span>
                                 <span class=""><strong>{{connectionsCounter}}</strong> Connections</span>
+
+                                <span class="iconsLinksEtc">
+                                <ul>
+
+                                    <!--Web & Social-->
+
+                                  {{#if profile.websiteUrl}}
+                                      <li class="inline-block">
+                                          <span class="spacer"> · </span>
+                                      </li>
+                                      <li class="websiteWrapper inline-block">
+                                          <a href="{{profile.websiteUrl}}" target="_blank" class="mdGrey" rel="nofollow">
+                                              <i class="fa fa-globe mdGrey"></i>
+                                          </a>
+                                      </li>
+                                  {{/if}}
+
+                                  {{#if profile.facebookAccountUrl}}
+                                      <li class="inline-block">
+                                          <a href="{{profile.facebookAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                              <i class="fa fa-facebook-official mdGrey"></i></a>
+                                      </li>
+                                  {{/if}}
+
+                                  {{#if profile.twitterAccountUrl}}
+                                      <li class="inline-block">
+                                          <a href="{{profile.twitterAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                              <i class="fa fa-twitter-square mdGrey"></i></a>
+                                      </li>
+                                  {{/if}}
+
+                                  {{#if profile.googleAccountUrl}}
+                                      <li class="inline-block">
+                                          <a href="{{profile.googleAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                              <i class="fa fa-google-plus-square mdGrey"></i></a>
+                                      </li>
+                                  {{/if}}
+
+                                  <!--The Real world :)-->
+
+                                  {{#if profile.location.googleMapsUrl}}
+                                      <li class="inline-block">
+                                          <span class="spacer"> · </span>
+                                      </li>
+                                      <li class="locationWrapper inline-block">
+                                          <a href="{{profile.location.googleMapsUrl}}" target="_blank" class="mdGrey" rel="nofollow">
+                                              <i class="fa fa-map-marker mdGrey"></i></a>
+                                      </li>
+                                  {{/if}}
+
+                                    <!--place holder for Tel/Fax ???-->
+
+                                </ul>
+                                </span>
+
                             </div>
 
 

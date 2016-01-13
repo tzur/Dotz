@@ -1,5 +1,11 @@
 //browser policy setup
 
+//See more on http://content-security-policy.com :
+BrowserPolicy.content.allowOriginForAll("data:"); //TBD
+
+//BrowserPolicy.content.allowOriginForAll("*");
+//BrowserPolicy.content.allowImageOrigin("*");
+
 //Google:
 BrowserPolicy.content.allowEval("https://maps.googleapis.com");
 BrowserPolicy.content.allowImageOrigin("https://csi.gstatic.com");
@@ -23,7 +29,6 @@ BrowserPolicy.content.allowOriginForAll("https://js.intercomcdn.com");
 //Images/embed
 BrowserPolicy.content.allowOriginForAll("https://*.s3.amazonaws.com");
 BrowserPolicy.content.allowOriginForAll("http://*.embed.ly");
-BrowserPolicy.content.allowImageOrigin("*");
 BrowserPolicy.content.allowOriginForAll("https://*.imgix.com");
 BrowserPolicy.content.allowOriginForAll("https://www.youtube.com");
 BrowserPolicy.content.allowOriginForAll("https://www.youtube.com/embed");
@@ -70,7 +75,6 @@ BrowserPolicy.content.allowImageOrigin("http://s2.postimg.org/6yq2vojd1/Location
 BrowserPolicy.content.allowOriginForAll("http://s2.postimg.org/6yq2vojd1/Location_icon_lg.png");
 BrowserPolicy.content.allowOriginForAll("http://*.postimg.org");
 BrowserPolicy.content.allowImageOrigin("https://dotz-dev-images.s3.amazonaws.com/otni/lights-night-bokeh-city.jpg");
-BrowserPolicy.content.allowOriginForAll("localhost:*");
 BrowserPolicy.content.allowConnectOrigin("ws://localhost:5000");
 BrowserPolicy.content.allowConnectOrigin("http://localhost:5000");
 //BrowserPolicy.framing.allowAll();
@@ -80,7 +84,6 @@ BrowserPolicy.content.allowOriginForAll("https://*.gstatic.com");
 
 //Temp - TBD
 BrowserPolicy.content.allowOriginForAll("https://stats.g.doubleclick.net");
-
-
+//BrowserPolicy.content.allowOriginForAll("data:application");
 
 

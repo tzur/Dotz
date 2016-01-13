@@ -74,6 +74,10 @@
   color: rgba(75, 79, 84, 1);
 }
 
+#counters-desktopDotShow .spacer {
+  margin: 0 7px;
+}
+
 .user-profile-cards {
     padding-top: 2em;
     background-color: #fafafa;
@@ -128,8 +132,7 @@
 
 #following {
     padding-top: 1em;
-    padding-bottom: 2em;
-
+    /*padding-bottom: 2em;*/
 }
 
 
@@ -212,9 +215,9 @@ menu, ol, ul {
 .iconsLinksEtc {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #9a9a9a;
-    font-size: 12px;
-    font-weight: 500;
+    /*color: #9a9a9a;*/
+    /*font-size: 12px;*/
+    /*font-weight: 500;*/
     /*line-height: 20px;*/
     max-height: 40px;
     display: inline-block;
