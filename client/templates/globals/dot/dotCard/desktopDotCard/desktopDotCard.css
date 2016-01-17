@@ -47,7 +47,7 @@
   display: inline-block;
 }
 
-#desktopDotCard:hover #connectedByText-desktopDotCard {
+#desktopDotCard:hover #connectedByText-desktopDotCardDiv {
   display: block;
 }
 
@@ -304,14 +304,19 @@
   padding-bottom: 1em;
 }
 
-#connectedByText-desktopDotCard {
+#connectedByText-desktopDotCardDiv {
   display: none;
   padding: 0 15px;
-  width: 81%;
+  width: 91%;
   /*background-color: #eee;*/
   /*color: #333;*/
   /*padding-top: 3vw;*/
   /*padding-bottom: 1vw;*/
+}
+
+#connectedByText-desktopDotCard {
+  border-left: 3px solid #d5d5d5;
+  padding-left: 10px;
 }
 
 .likesCounter {
