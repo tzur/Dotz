@@ -3,17 +3,17 @@
 
     <ul class="nav navbar-nav navbar-right visible-xs">
         <!--<li class="dropdown">-->
-        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="navBarUserImgProfile" src="{{currentUser.profile.profileImage}}"><span class="caret"></span></a>-->
+        <!--<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="navBarUserImgProfile" src="{{currentUser.profile.profileImage}}"><span class="caret"></span></a>-->
         <!--<ul class="dropdown-menu">-->
         <li data-toggle="collapse" data-target="#navbar-collapse" class="{{currentRoute 'user-show'}} navbar-menu-collapse"><a href="/{{currentUser.profile.userSlug}}"><i class="fa fa-user"></i> My Profile</a></li>
-        <li data-toggle="collapse" data-target="#navbar-collapse" class="createDot hidden-xs"><a href="#"><i class="fa fa-circle-o"></i> New Dot</a></li>
-        <li data-toggle="collapse" data-target="#navbar-collapse" class="createList hidden-xs"><a href="#"><i class="fa fa-list-ul"></i> New List</a></li>
+        <li data-toggle="collapse" data-target="#navbar-collapse" class="createDot hidden-xs"><a href=""><i class="fa fa-circle-o"></i> New Dot</a></li>
+        <li data-toggle="collapse" data-target="#navbar-collapse" class="createList hidden-xs"><a href=""><i class="fa fa-list-ul"></i> New List</a></li>
         <li data-toggle="collapse" data-target="#navbar-collapse" class="{{currentRoute 'feed'}}"><a href="{{pathFor 'feed'}}"><i class="fa fa-rss"></i> Feed</a></li>
         <li data-toggle="collapse" data-target="#navbar-collapse" class="{{currentRoute 'search'}}"><a href="{{pathFor 'search'}}"><i class="fa fa-search"></i> Search</a></li>
         <li role="separator" class="divider"></li>
-        <li data-toggle="collapse" data-target="#navbar-collapse" class="editUserAccount hidden-xs"><a href="#"><i class="fa fa-cog"></i> Edit Account</a></li>
+        <li data-toggle="collapse" data-target="#navbar-collapse" class="editUserAccount hidden-xs"><a href=""><i class="fa fa-cog"></i> Edit Account</a></li>
         <li role="separator" class="divider"></li>
-        <li data-toggle="collapse" data-target="#navbar-collapse" class="logout"><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+        <li data-toggle="collapse" data-target="#navbar-collapse" class="logout"><a href=""><i class="fa fa-sign-out"></i> Logout</a></li>
         <!--</ul>-->
         <!--</li>-->
     </ul>
@@ -45,26 +45,26 @@
         <!--</li>-->
 
         <li class="dropdown">
-            <a href="#" id="_craeteDotDropDown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a href="" id="_craeteDotDropDown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <div class="btn btn-default round nav-icon"><i class="fa fa-plus alignBottom mdGrey"></i></div>
             </a>
             <ul class="dropdown-menu">
-                <li class="createDot"><a href="#"><i class="fa fa-circle-o"></i>Create Dot</a></li>
-                <li class="createList"><a href="#"><i class="fa fa-list-ul"></i>Create List</a></li>
+                <li class="createDot"><a href=""><i class="fa fa-circle-o"></i>Create Dot</a></li>
+                <li class="createList"><a href=""><i class="fa fa-list-ul"></i>Create List</a></li>
             </ul>
         </li>
 
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <img id="navBarUserImgProfile" src="{{currentUser.profile.profileImage}}"><span class="caret"></span></a>
 
             <ul class="dropdown-menu">
                 <li class="{{currentRoute 'user-show'}}"><a href="/{{currentUser.profile.userSlug}}"><i class="fa fa-user"></i>My Profile</a></li>
                 <li class="{{currentRoute 'feed'}}"><a href="{{pathFor 'feed'}}"><i class="fa fa-rss"></i>Feed</a></li>
                 <li role="separator" class="divider"></li>
-                <li class="editUserAccount"><a href="#"><i class="fa fa-cog"></i>Edit Account</a></li>
+                <li class="editUserAccount"><a href=""><i class="fa fa-cog"></i>Edit Account</a></li>
                 <li role="separator" class="divider"></li>
-                <li class="logout"><a href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
+                <li class="logout"><a href=""><i class="fa fa-sign-out"></i>Logout</a></li>
             </ul>
         </li>
     </ul>

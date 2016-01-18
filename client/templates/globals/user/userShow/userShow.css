@@ -1,0 +1,250 @@
+/*.canvas-renderer {*/
+    /*display: block;*/
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*pointer-events: none;*/
+    /*background: #B31C1C;*/
+    /*-webkit-transform: translateZ(0);*/
+    /*transform: translateZ(0);*/
+/*}*/
+#_FBGroupForm{
+  display: none
+}
+
+#_fbGroupIdInput{
+  margin-top: 10px;
+}
+
+#userBgImg {
+    background-color: #fafafa;
+    position: fixed;
+    left: 0;
+    right: 0;
+    /*TBD - Z-index ?*/
+    z-index: 1;
+    /*display: block;*/
+    /*transform: translateY(0);*/
+}
+
+.imgCover {
+    height: 30vh;
+    background-size: cover;
+    background-position-y: 50%;
+    background-position-x: 50%;
+}
+
+.profile-user-data-row {
+    height: 100%;
+}
+
+#userShowMainDiv {
+    position: relative;
+    top: 30vh;
+    min-height: 60vh;
+    padding-top: 4em;
+    background-color: #fafafa;
+    /*TBD - Z-index ?*/
+    z-index: 2;
+}
+
+.userNameTitle {
+  font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, 'Roboto', sans-serif, Arial;
+  font-size: 34px;
+  color: rgba(75, 79, 84, 1);
+}
+
+
+#userDescription p {
+  font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, 'Roboto', sans-serif, Arial;
+  font-size: 17px;
+  font-weight: 300;
+  /*color: #8d8d8d;*/
+  color: rgba(75, 79, 84, 1);
+  margin-left: 0;
+}
+
+#counters-desktopDotShow {
+  margin-bottom: 1vh;
+  font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, 'Roboto', sans-serif, Arial;
+  font-weight: 300;
+  font-size: 17px;
+  color: rgba(75, 79, 84, 1);
+}
+
+#counters-desktopDotShow .spacer {
+  margin: 0 7px;
+}
+
+.user-profile-cards {
+    padding-top: 2em;
+    background-color: #fafafa;
+    /*border-top: #ccc solid 1px;*/
+}
+
+#userData {
+    position: absolute;
+    top: -4em;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    /* padding-top: 25%; */
+    /* overflow: hidden; */
+}
+
+.followingNum {
+    font-size: 2em;
+    font-weight: 300;
+}
+
+.followersNum {
+    font-size: 2em;
+    font-weight: 300;
+}
+
+#userImgProfile {
+    height: 8em;
+    width: 8em;
+    background-color: #fafafa;
+    border-radius: 50%;
+}
+
+
+#userName {
+    color: white;
+    font-weight: 600;
+}
+
+#userAddress {
+    color: white;
+    font-weight: 100;
+}
+
+#overLayer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 30px;
+}
+
+#following {
+    padding-top: 1em;
+    /*padding-bottom: 2em;*/
+}
+
+
+#userLinks {
+    text-align: right;
+}
+
+#userDotsBg {
+    background-color: #fafafa;
+}
+
+.socialIcons {
+    height: 2em;
+    width: 2em;
+    margin-left: 0.25em;
+}
+
+
+
+
+ /*menu test*/
+
+menu, ol, ul {
+    display: block;
+    margin: 0;
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+    height: 37px;
+    padding: 0 16px;
+    color: rgba(0,0,0,0.44);
+    background: rgba(0,0,0,0);
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.15);
+    vertical-align: bottom;
+    white-space: nowrap;
+    text-rendering: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+    border-radius: 999em;
+    font-family: -apple-system,".SFNSText-Regular","Helvetica Neue","Roboto","Segoe UI",sans-serif;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+}
+
+menu {
+    margin: 30px;
+}
+
+menu, ol, ul {
+    padding: 0;
+    list-style: none;
+    list-style-image: none
+}
+
+.menu-item {
+    display: inline-block;
+    vertical-align: top
+}
+
+/*TBD*/
+/*.browser-android .icon {*/
+    /*text-rendering: auto !important*/
+/*}*/
+
+.iconsLinksEtc {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /*color: #9a9a9a;*/
+    /*font-size: 12px;*/
+    /*font-weight: 500;*/
+    /*line-height: 20px;*/
+    max-height: 40px;
+    display: inline-block;
+    /*margin: 0 0 1em 0;*/
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+
+.userMenuIcons {
+    /*height: 1em;*/
+}
+
+
+
+/*TBD*/
+
+#emptyProfile .card {
+  height: 25vh;
+}
+
+#emptyProfile .card .title {
+  margin-top: 5vh;
+  height: 10vh;
+}
+#dropDownShareUser{
+  left: 35%;
+}

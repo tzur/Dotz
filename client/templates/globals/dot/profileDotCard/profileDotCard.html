@@ -29,11 +29,29 @@
                 <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
             </ul>
         {{/if}}
+
+        {{#if isConnected}}
+            <!--<div id="desktopDotCard-connectButtonDiv" class="connect" data-toggle="tooltip" data-placement="right" title="Connect to...">-->
+                <!--<i class="fa fa-bookmark-o mdGrey mdTxt"></i>-->
+            <!--</div>-->
+
+            <a class="disConnect" data-toggle="tooltip" data-placement="right" title="Disconnect from here">
+                <i class="fa fa-times mdGrey mdTxt"></i>
+            </a>
+        {{else}}
+            <!--<div id="desktopDotCard-connectButtonDiv" class="connect">-->
+                <!--<i class="fa fa-bookmark-o mdGrey mdTxt"></i>-->
+            <!--</div>-->
+        {{/if}}
+
+
       </div>
   <!--{{/if}}-->
 
     <a href="/{{dot.dotSlug}}" class="_setCurrentPath">
-        <div class="container-fluid profileDotCardImg" style="background-image: url('{{dot.coverImageUrl}}'); background-color: {{dot.dotColor}}"></div>
+        <div class="container-fluid profileDotCardImg" style="background-image: url('{{dot.coverImageUrl}}'); background-color: {{dot.dotColor}}">
+
+        </div>
         <h2 class="txtMd profileDotCardTitle">{{shortenTitle}}</h2>
     </a>
 
