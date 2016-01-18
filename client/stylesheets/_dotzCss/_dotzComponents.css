@@ -7,6 +7,14 @@ a h4, a h5, a h6 {
   color: #555;
 }
 
+          /*  badge division */
+.badge {
+  background-color: transparent;
+  color: #777;
+  border: #777 solid 1px;
+  font-weight: 400;
+}
+
 
 
           /*  labels division */

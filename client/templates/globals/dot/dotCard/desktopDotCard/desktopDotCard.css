@@ -317,6 +317,7 @@
 #connectedByText-desktopDotCard {
   border-left: 3px solid #d5d5d5;
   padding-left: 10px;
+  margin-bottom: 0;
 }
 
 .likesCounter {
