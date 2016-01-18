@@ -83,19 +83,19 @@
 
                       {{#if smartRef.connection.personalDescription}}
 
-                          <span class="lightGrey desktopDotCard-col-credit">Connected by <a href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a>
+                          <span class="lightGrey desktopDotCard-col-credit">Connected by <a class="text-primary" href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a>
                               <!--<button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">-->
                                   <!--<i class="fa fa-comment-o lgTxt"></i>-->
                               <!--</button>-->
                           </span>
 
-                          <div id="connectedByText-desktopDotCard">
-                              <h5 class="lightGrey">{{smartRef.connection.personalDescription}}</h5>
+                          <div id="connectedByText-desktopDotCardDiv">
+                              <h5 id="connectedByText-desktopDotCard" class="lightGrey"><em>{{smartRef.connection.personalDescription}}</em></h5>
                           </div>
 
                       {{else}}
 
-                          <span  class="lightGrey desktopDotCard-col-credit">Connected by <a href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a></span>
+                          <span  class="lightGrey desktopDotCard-col-credit">Connected by <a class="text-primary" href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a></span>
 
                       {{/if}}
 
