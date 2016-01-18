@@ -39,12 +39,18 @@
 
                         <span>
 
+                          {{#if dot.linkName}}
+
                           {{#if dot.linkAuthorName}}
                               <span class="mdGrey userText">By <a href="{{dot.linkUrl}}" target="_blank">{{dot.linkAuthorName}}</a></span>
                           {{/if}}
 
-                          {{#if dot.linkName}}
                               <span class="mdGrey userText"><a href="{{dot.linkUrl}}" target="_blank">{{dot.linkName}}</a></span>
+
+                            {{else}}
+
+                              <span class="mdGrey userText"><a href="/{{ownerUser.userSlug}}" target="_blank">{{ownerUser.username}}</a></span>
+
                           {{/if}}
                         </span>
 

@@ -3,8 +3,9 @@
 //See more on http://content-security-policy.com :
 BrowserPolicy.content.allowOriginForAll("data:"); //TBD
 
+//All the images (included .ico) are allow - TBD:
+BrowserPolicy.content.allowImageOrigin("*");
 //BrowserPolicy.content.allowOriginForAll("*");
-//BrowserPolicy.content.allowImageOrigin("*");
 
 //Google:
 BrowserPolicy.content.allowEval("https://maps.googleapis.com");
