@@ -114,77 +114,28 @@
 
 
 
-
-
-
-            <!--<div id="desktopDotCard-overlayer">-->
-
-                <!--<div id="desktopDotCard-hoverButtons" class="container-fluid">-->
-                    <!--<div class="row">-->
-                        <!--<div class="col-sm-8 colCenter">-->
-                            <!--<div class="row">-->
-                                <!--<div class="col-sm-6">-->
-                                    <!--<button class="btn btn-lead btn-md">Read on medium.com</button>-->
-                                <!--</div>-->
-                                <!--<div class="col-sm-6">-->
-                                    <!--<button class="btn btn-default btn-md">Discover +35 Dotz</button>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-
-            <!--</div>-->
-
-
       {{#if isConnected}}
-              <div id="desktopDotCard-connectButtonDiv" class="connect" data-toggle="tooltip" data-placement="right" title="Connect to...">
-                  <i class="fa fa-bookmark-o mdGrey mdTxt"></i>
-              </div>
+          <div id="desktopDotCard-connectButtonDiv" class="connect" data-toggle="tooltip" data-placement="right" title="Connect to...">
+              <i class="fa fa-bookmark-o mdGrey mdTxt"></i>
+          </div>
 
-              <div id="desktopDotCard-disconnectButtonDiv" class="disConnect" data-toggle="tooltip" data-placement="right" title="Disconnect from here">
-                  <i class="fa fa-times mdGrey mdTxt"></i>
-              </div>
+          <div id="desktopDotCard-disconnectButtonDiv" class="disConnect" data-toggle="tooltip" data-placement="right" title="Disconnect from here">
+              <i class="fa fa-times mdGrey mdTxt"></i>
+          </div>
       {{else}}
-              <div id="desktopDotCard-connectButtonDiv" class="connect">
-                  <i class="fa fa-bookmark-o mdGrey mdTxt"></i>
-              </div>
+          <div id="desktopDotCard-connectButtonDiv" class="connect">
+              <i class="fa fa-bookmark-o mdGrey mdTxt"></i>
+          </div>
       {{/if}}
 
 
-            {{#if dot.linkUrl}}
-
-                <a href="{{dot.linkUrl}}" target="_blank">
-                    <div id="desktopDotCard-linkButton">
-                        <i class="fa fa-external-link mdGrey mdTxt"></i>
-                    </div>
-                </a>
-
-            {{/if}}
-
-
-              <!--<div id="desktopDotCard-3dots" class="dropdown">-->
-                  <!--<button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                      <!--<h4 class="txtVertical bold">...</h4>-->
-                  <!--</button>-->
-                  <!--<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">-->
-
-                    <!--{{#if isConnected}}-->
-                        <!--<li><a class="connect no-left-pad"><i class="fa fa-bookmark-o"></i>Connect to...</a></li>-->
-                        <!--<li><a class="disConnect no-left-pad"><i class="fa fa-times"></i>Disconnect from here</a></li>-->
-                    <!--{{else}}-->
-                        <!--<li><a class="connect no-left-pad"><i class="fa fa-bookmark-o"></i>Connect to profile</a></li>-->
-                    <!--{{/if}}-->
-
-                      <!--<li><a href="{{dot.linkUrl}}" target="_blank" class="no-left-pad"><i class="fa fa-external-link"></i>Go to {{dot.linkName}}</a></li>-->
-                      <!--<li><a class="_shareFacebookDialog no-left-pad"><i class="fa fa-facebook-official"></i>Share</a></li>-->
-                      <!--<li role="separator" class="divider"></li>-->
-                      <!--<li><a href="#" class="no-left-pad"><i class="fa fa-flag-o"></i>Report</a></li>-->
-                  <!--</ul>-->
-              <!--</div>-->
-
-
-
+      {{#if dot.linkUrl}}
+          <a href="{{dot.linkUrl}}" target="_blank">
+              <div id="desktopDotCard-linkButton">
+                  <i class="fa fa-external-link mdGrey mdTxt"></i>
+              </div>
+          </a>
+      {{/if}}
 
           </div> <!-- end dotCard -->
 
