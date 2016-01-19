@@ -1,6 +1,6 @@
 #mobileDotCard-box {
   padding: 5vh 1vh 0 0;
-  margin-left: 1vw;
+  margin-left: 0;
   /* margin-bottom: 3vh; */
   /* overflow-x: hidden; */
 }
@@ -32,7 +32,7 @@
 }
 
 #mobileDotCard-col-connectLine {
-  width: 5vw;
+  width: 4vw;
   position: relative;
   margin-top: 6vw;
   float: left;
@@ -82,7 +82,7 @@
 }
 
 #mobileDotCard-col-text {
-  width: 59vw;
+  width: 61vw;
   padding-top: 1vw;
   position: relative;
   min-height: 28vw;
@@ -92,11 +92,11 @@
 }
 
 #mobileDotCard-col-title {
-  width: 55vw;
+  width: 61vw;
   position: relative;
   max-height: 20vw;
   overflow-y: hidden;
-  padding: 0 1vw;
+  padding: 0 0 0 1vw;
   margin: auto;
   float: left;
 }
@@ -106,8 +106,8 @@
 }
 
 #mobileDotCard-col-credit {
-  width: 55vw;
-  padding: 0 1vw;
+  width: 61vw;
+  padding: 0 0 0 1vw;
   margin: auto;
   float: left;
 }
