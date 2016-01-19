@@ -172,8 +172,10 @@
 #desktopDotCard-linkButton {
  display: none;
   position: absolute;
-  top: 20px;
-  right: 13px;
+  bottom: 15px;
+  right: 75px;
+  padding-right: 10px;
+  border-right: 1px solid #e5e5e5;
 }
 
 #desktopDotCard-connectButtonDiv {
@@ -188,6 +190,8 @@
   position: absolute;
   bottom: 15px;
   right: 45px;
+  padding-right: 10px;
+  border-right: 1px solid #e5e5e5;
 }
 
 #desktopDotCard-col-title h2 {
