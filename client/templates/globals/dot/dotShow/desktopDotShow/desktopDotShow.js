@@ -130,13 +130,13 @@ Template.desktopDotShow.helpers({
   },
 
   likeCounter: function(){
-    if (this.smartRef.connection.likes.length > 0) {
-      return this.smartRef.connection.likes.length;
+    if (this.dot.totalUpvotes.length > 0) {
+      return this.dot.totalUpvotes.length;
     }
   },
 
   isLikedByMe: function(){
-    let likersArray = this.smartRef.connection.likes;
+    let likersArray = this.dot.totalUpvotes;
     if ( likersArray.indexOf( Meteor.userId() ) >= 0 ) {
       return true
     }

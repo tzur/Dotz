@@ -27,8 +27,8 @@
   white-space: nowrap;
 }
 
-#desktopListShow-middleDiv {
-  background-color: white;
+#buttonsPanel-desktopListShow {
+  background-color: #f9f9f9;
   padding-top: 1vh;
   padding-bottom: 1vh;
   margin: 0;
@@ -42,4 +42,9 @@
   height: 3.5vh;
   width: 3.5vh;
   border-radius: 50%;
+}
+
+#connectedDotzArray-desktopListShow {
+  background-color: #FFFFFF;
+  min-height: 70vh;
 }
