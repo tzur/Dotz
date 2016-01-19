@@ -51,6 +51,7 @@
   margin-top: 2vh;
   margin-bottom: 6vh;
   font-size: 1.25em;
+
 }
 
 #desktopDotShow-middleDiv {
@@ -124,6 +125,26 @@ background-position-y: 50%;
 background-position-x: 50%;
 border-radius: 50%;
 }
+
+#desktopDotShow-3dots {
+  position: relative;
+  top: 5px;
+  right: 0;
+}
+
+#desktopDotShow-descriptionFilter {
+  height: 12vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* top: 0; */
+  /* margin-top: -8vh; */
+  z-index: 999;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+
 
 
 

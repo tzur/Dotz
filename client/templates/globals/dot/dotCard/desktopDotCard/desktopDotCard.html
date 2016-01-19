@@ -59,7 +59,15 @@
                   <a href="/{{dot.dotSlug}}">
                       <div id="desktopDotCard-col-title">
                           <div id="desktopDotCard-title">
-                              <h2 class="bold darkText">{{shortenTitle}} <span class="badge"> + 35</span></h2>
+                              <h2 class="bold darkText">{{shortenTitle}}
+
+                                  {{#if isListCard}}
+                                    {{#if dotzNum}}
+                                      <span class="badge"> + {{dotzNum}}</span>
+                                    {{/if}}
+                                  {{/if}}
+
+                              </h2>
                           </div>
                       </div>
 
@@ -105,15 +113,7 @@
               </div>
 
 
-              {{#if dot.linkUrl}}
 
-                  <a href="{{dot.linkUrl}}" target="_blank">
-                      <div id="desktopDotCard-linkButton">
-                          <i class="fa fa-external-link mdGrey mdTxt"></i>
-                      </div>
-                  </a>
-
-              {{/if}}
 
 
 
@@ -150,6 +150,18 @@
                   <i class="fa fa-bookmark-o mdGrey mdTxt"></i>
               </div>
       {{/if}}
+
+
+            {{#if dot.linkUrl}}
+
+                <a href="{{dot.linkUrl}}" target="_blank">
+                    <div id="desktopDotCard-linkButton">
+                        <i class="fa fa-external-link mdGrey mdTxt"></i>
+                    </div>
+                </a>
+
+            {{/if}}
+
 
               <!--<div id="desktopDotCard-3dots" class="dropdown">-->
                   <!--<button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
