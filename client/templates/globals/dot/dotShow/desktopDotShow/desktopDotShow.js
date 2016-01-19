@@ -318,6 +318,25 @@ Template.desktopDotShow.events({
     });
   },
 
+  'click .like': function(event){
+    event.preventDefault();
+
+    if ( Meteor.user() ) {
+      Modules.both.Dotz.likeDot(this.smartRef, Meteor.userId());
+      //Modules.client.Dotz.dotCardAnalyticsEvents('Like', 'Liked: ',this.dot._id, this.dot.title, this.dot.dotType)
+    }
+    else{
+      Modal.show('signUpModal');
+      //Modules.client.Dotz.dotCardAnalyticsEvents('Like', 'Liked: ',this.dot._id, this.dot.title, this.dot.dotType);
+    }
+
+  },
+
+  'click .unlike': function(event){
+    Meteor.call('unLikePost', Meteor.userId(), this._id);
+    //Modules.client.Dotz.dotCardAnalyticsEvents('Unliked', 'Unliked: ',this.dot._id, this.dot.title, this.dot.dotType);
+  },
+
   'click .deleteShow':function(event){
       Meteor.call('deleteDot', this.dot, this.dot.inDotz[0]);
       window.history.back();

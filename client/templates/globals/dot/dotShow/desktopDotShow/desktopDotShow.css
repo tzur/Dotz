@@ -49,8 +49,9 @@
 #desktopDotShow-description {
   /*color: #333;*/
   margin-top: 2vh;
-  /*margin-bottom: 6vh;*/
+  margin-bottom: 6vh;
   font-size: 1.25em;
+
 }
 
 #desktopDotShow-middleDiv {
