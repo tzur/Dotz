@@ -1,7 +1,7 @@
 <template name="mobileDotCard">
   {{#with dataCard}}
 
-      <div class="row" id="mobileDotCard-box">
+      <div id="mobileDotCard-box" class="row {{helperForSpecificClasses}}">
 
             <!--<div id="mobileDotCard-lineDiv" class="container-fluid">-->
                 <!--<div id="mobileDotCard-line"></div>-->
@@ -10,15 +10,24 @@
             <div id="mobileDotCard" class="container-fluid">
 
 
-                <div id="mobileDotCard-col-connectLine">
-                    <hr id="mobileDotCard-connectLine">
-                </div>
+                {{#if isInListShow}}
+
+                  <!--show WITHOUT the left line-->
+
+                {{else}}
+
+                  <div id="mobileDotCard-col-connectLine">
+                      <hr id="mobileDotCard-connectLine">
+                  </div>
+
+                {{/if}}
+
 
                 <div id="mobileDotCard-col-img">
 
                   <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
                       <div>
-                          <div id="mobileDotCardImg" class="container-fluid" style="background-image: url('{{dot.coverImageUrl}}')">
+                          <div id="mobileDotCardImg" class="container-fluid" style="background-image: url('{{dot.coverImageUrl}}'); background-color: {{dot.dotColor}}">
                                   {{#if dotzNum}}
                                     <div id="mobileDotCard-connectedDotz">+{{dotzNum}}</div>
                                   {{/if}}

@@ -137,11 +137,17 @@
 }
 
 #connectButton-mobileDotShow {
-  margin: 1vh 0;
+  /*margin: 1vh 0;*/
   padding-right: 3vw;
   padding-left: 3vw;
 }
 
+
+.ownerImgProfile-mobileDotShow {
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 50%;
+}
 
 
 /*List part*/

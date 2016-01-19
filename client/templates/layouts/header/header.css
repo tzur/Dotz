@@ -9,18 +9,35 @@
   border-color: transparent;
 }
 
+.navbar-collapse {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.navbar-fixed-top {
+  height: 6vh;
+  /*box-shadow: 0 1px 4px rgbda(0, 0, 0, 0.23)*/
+}
+
+
+/* Mobile view */
+
 @media (max-width: 767px) {
   #navbar-collapse {
     background-color: rgba(255,255,255,0.95);
     /*border-color: transparent;*/
   }
+  .navbar-fixed-top {
+    position: absolute;
+  }
+  .navbar-default .navbar-toggle {
+    /*border-color: #ddd;*/
+    background-color: #fafafa;
+  }
 }
 
+/* End Mobile view */
 
-.navbar-collapse {
-  background-color: transparent;
-  border-color: transparent;
-}
 
 .navbar .navbar-brand-dotz{
   background-color: rgba(0,0,0,0.7);
@@ -33,11 +50,6 @@
   color: rgba(0,0,0,0.7);
   font-size: 24px;
   margin-left: -3px;
-}
-
-.navbar-fixed-top {
-  height: 6vh;
-  /*box-shadow: 0 1px 4px rgbda(0, 0, 0, 0.23)*/
 }
 
 .navbar .container {

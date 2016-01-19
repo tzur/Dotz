@@ -1,5 +1,77 @@
 <template name="mobileDotShow">
-  {{#with dotShow}}
+{{#with dotShow}}
+
+{{# if isListShow}}
+
+<div class="container-fluid" id="header-mobileDotShow-list">
+
+    <div id="coverImg-mobileDotShow-list" class="row" style="background-image: url('{{dot.coverImageUrl}}'); background-color: {{dot.dotColor}}">
+      <div id="filter-mobileDotShow-list">
+        <div id="titleDiv-mobileDotShow-list" class="container-fluid">
+            <h4 id="title-mobileDotShow-list" class="col-xs-12 text-center">{{dot.title}}</h4>
+            <h6 id="description-mobileDotShow-list" class="col-xs-12 text-center">{{dot.bodyText}}</h6>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="buttonsPanel-mobileDotShow-list" class="container-fluid">
+
+        <a href="/{{ownerUser.profile.userSlug}}">
+            <img class="ownerImgProfile-mobileDotShow" src="{{ownerUser.profile.profileImage}}">
+            <span class="darkText">By {{ownerUser.username}}</span>
+        </a>
+
+      <div class="pull-right">
+
+          <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-success btn-xs">
+              <i class="fa fa-bookmark-o"></i>
+          </button>
+
+        {{# if isLikedByMe}}
+            <button class="unlike btn btn-default btn-xs mdGrey">
+                <i class="mdGrey likeBtn fa fa-heart"></i>
+                <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
+            </button>
+        {{else}}
+            <button class="like btn btn-default btn-xs mdGrey">
+                <i class="mdGrey likeBtn fa fa-heart-o"></i>
+                <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
+            </button>
+        {{/if}}
+
+      </div>
+
+    </div>
+</div>
+
+
+    <div id="connectedDotzArray-list">
+        <div class="container-fluid">
+          {{#each connectedDotzArray}}
+            {{>mobileDotCard}}
+          {{/each}}
+
+          <!--{{>mobileDotCardLastDot}}-->
+          <br>
+          <br>
+          <br>
+            <!--{{>lastDotInMobileListShow}}-->
+
+        </div>
+    </div>
+
+
+
+
+
+<!--is dot show (Mobile) -->
+  <!--We need to separate it soon (List || Dot) -->
+{{else}}
+
+
+
+
 
         <div class="backToLastPath">
             <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-times"></i></button>
@@ -114,6 +186,9 @@
                {{>mobileDotCardLastDot}}
           </div>
       </div>
+
+
+{{/if}}
 
 {{/with}}
 </template>

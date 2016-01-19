@@ -1,0 +1,56 @@
+
+/*Top part*/
+
+#header-mobileDotShow-list {
+  padding: 0;
+  min-height: 42vh;
+}
+
+#coverImg-mobileDotShow-list {
+  position: relative;
+  height: 35vh;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  margin: 0;
+}
+
+
+#filter-mobileDotShow-list {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);  z-index: 2;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  /*margin-bottom: -0.25vh;*/
+}
+
+#titleDiv-mobileDotShow-list {
+  position: absolute;
+  bottom: 2vh;
+  left: 0;
+  right: 0;
+}
+
+#title-mobileDotShow-list {
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+#description-mobileDotShow-list {
+  color: #FFFFFF;
+}
+
+#buttonsPanel-mobileDotShow-list {
+  background-color: #f9f9f9;
+  height: 7vh;
+  padding-top: 1.7vh;
+}
+
+
+/*Body*/
+
+#connectedDotzArray-list {
+  background-color: #ffffff;
+  min-height: 80vh;
+}

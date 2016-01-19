@@ -3,7 +3,14 @@
   margin-left: 1vw;
   /* margin-bottom: 3vh; */
   /* overflow-x: hidden; */
+}
+
+.mobileDotCard-box-inDotShow {
   border-left: 2px solid #e5e5e5;
+}
+
+.mobileDotCard-box-inListShow {
+  /*border-left: 2px solid #e5e5e5;*/
 }
 
 /*#mobileDotCard-lineDiv {*/
@@ -59,7 +66,6 @@
   border-radius: 50%;
   width: 26vw;
   background-size: cover;
-  background-color: #e5e5e5;
   position: relative;
   background-position-y: 50%;
   background-position-x: 50%;

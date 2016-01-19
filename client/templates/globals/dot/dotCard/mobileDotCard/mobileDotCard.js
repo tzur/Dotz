@@ -73,6 +73,19 @@ Template.mobileDotCard.helpers({
     }
   },
 
+  //UI helpers:
+  helperForSpecificClasses: function() {
+    if (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList") {
+      return ("mobileDotCard-box-inListShow")
+    } else {
+      return ("mobileDotCard-box-inDotShow")
+    }
+  },
+  isInListShow: function() {
+    return (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList");
+  },
+  //end UI helpers
+
   isListCard: function() {
     return (this.dot && this.dot.dotType === "List" || this.dot && this.dot.dotType === "shareList");
   },

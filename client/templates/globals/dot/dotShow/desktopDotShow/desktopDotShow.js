@@ -76,7 +76,8 @@ Template.desktopDotShow.onRendered(function(){
   //TBD: we need to reduce the jQuery queries... :
   $(document).scroll(function () {
     var navPlaceHolder = $('#placeHolder-desktop');
-    if (navPlaceHolder) {
+    //console.log("navPlaceHolder length DESKTOP-dotShow is " + navPlaceHolder.length)
+    if (navPlaceHolder.length > 0 ) {
       var origOffsetY = navPlaceHolder.offset().top - $(window).height();
       if ($(window).scrollTop() > origOffsetY) {
         $('#fixedFooter-desktopDotShow').removeClass('navbar-fixed-bottom');
@@ -124,7 +125,7 @@ Template.desktopDotShow.helpers({
   },
 
   isListShow: function() {
-
+    //console.log(" %%%%%%%%%%%%%%%% DESKTOP ^^^^^^^^^^^^^^")
     return (this.dot.dotType === "List" || this.dot.dotType ==="shareList");
   },
 

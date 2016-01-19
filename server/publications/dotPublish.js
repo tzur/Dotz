@@ -70,6 +70,7 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
         "linkUrl": 1,
         "linkName": 1,
         "category": 1,
+        "totalUpvotes": 1,
         "inDotz": 1, //TBD
         "connectedDotzArray": 1} //TBD
       }),

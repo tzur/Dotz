@@ -73,7 +73,8 @@ Template.mobileDotShow.onRendered(function(){
   //TBD: we need to reduce the jQuery queries... :
   $(document).scroll(function () {
       var navPlaceHolder = $('#placeHolder');
-      if (navPlaceHolder) {
+      //console.log("navPlaceHolder MOBILE-dotShow is " + navPlaceHolder.length)
+      if (navPlaceHolder.length > 0 ) {
         var origOffsetY = navPlaceHolder.offset().top - $(window).height();
         if ($(window).scrollTop() > origOffsetY) {
           $('#fixedFooter-mobileDotShow').removeClass('navbar-fixed-bottom');
@@ -113,7 +114,7 @@ Template.mobileDotShow.helpers({
   },
 
   isListShow: function() {
-
+    //console.log(" %%%%%%%%%%%%%%%% MOBILE ^^^^^^^^^^^^^^")
     return (this.dot.dotType === "List" || this.dot.dotType ==="shareList");
   },
 
@@ -159,8 +160,8 @@ Template.mobileDotShow.helpers({
   },
 
   connectCounter: function() {
-    //check if this dot is exist (to avoid some errors during delete action)
-
+    //check if this dot is exist (to avoid some errors during delete action
+    if (this.dot) {
       let counter = this.dot.inDotz.length;
       //counter show:
       if (counter && counter === 0) {
@@ -169,8 +170,9 @@ Template.mobileDotShow.helpers({
       else if (counter) {
         return ( "(" + counter + ")" );
       }
-
+    }
   },
+
   dotzNum: function() {
 
       let connectedDotz = 0;
