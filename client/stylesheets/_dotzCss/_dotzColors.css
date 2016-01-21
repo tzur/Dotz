@@ -1,0 +1,112 @@
+
+
+/*Dot Color*/
+
+/*
+Check the dotSchema and the createDotHooks for allowedValues:
+['darkGreenDot','brightGreenDot', 'greenDot', 'purpleDot', 'blueDot', 'redDot','pinkDot', 'orangeDot']
+*/
+
+.darkGreenDot {
+  color: #237f52;
+  border-color: #237f52;
+  background: transparent;
+}
+.darkGreenDot-background {
+  background-color: #237f52;
+}
+
+.brightGreenDot {
+  color: #4dc47d;
+  border-color: #4dc47d;
+  background: transparent;
+}
+.brightGreenDot-background {
+  background-color: #4dc47d;
+}
+
+.greenDot {
+  color: #7fbb00;
+  border-color: #7fbb00;
+  background: transparent;
+}
+.greenDot-background {
+  background-color: #7fbb00;
+}
+
+.purpleDot {
+  color: #553a99;
+  border-color: #553a99;
+  background: transparent;
+}
+.purpleDot-background {
+  background-color: #553a99;
+}
+
+.blueDot {
+  color: #0099e5;
+  border-color: #0099e5;
+  background: transparent;
+}
+.blueDot-background {
+  background-color: #0099e5;
+}
+
+.redDot {
+  color: #fd5c63;
+  border-color: #fd5c63;
+  background: transparent;
+}
+.redDot-background {
+  background-color: #fd5c63;
+}
+
+.pinkDot {
+  color: #ed008c;
+  border-color: #ed008c;
+  background: transparent;
+}
+.pinkDot-background {
+  background-color: #ed008c;
+}
+
+.orangeDot {
+  color: #ff9900;
+  border-color: #ff9900;
+  background: transparent;
+}
+.orangeDot-background {
+  background-color: #ff9900;
+}
+
+
+/*colors*/
+
+.whiteTxt {
+  color: #ffffff;
+}
+
+
+/*darkTexts*/
+
+.midDarkText {
+  color: #777
+}
+
+.darkText {
+  color: rgba(0,0,0,0.8)
+}
+
+/*greyTexts*/
+
+.lightGrey {
+  color: #d5d5d5;
+}
+
+.mdGrey {
+  color: #9a9a9a;
+}
+
+.greyText {
+  color: #9B998D;
+}

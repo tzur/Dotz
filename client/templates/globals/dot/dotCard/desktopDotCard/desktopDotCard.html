@@ -36,8 +36,7 @@
               <div id="desktopDotCard-col-img">
                   <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
                       <div>
-                          <div id="desktopDotCard-img" class="container-fluid" style="
-                                  background-image: url('{{dot.coverImageUrl}}'); background-color: {{dot.dotColor}}">
+                          <div id="desktopDotCard-img" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')">
 
                             {{#if isListCard}}
                               <div id="desktopDotCard-listIcon">
@@ -59,14 +58,8 @@
                   <a href="/{{dot.dotSlug}}">
                       <div id="desktopDotCard-col-title">
                           <div id="desktopDotCard-title">
-                              <h2 class="bold darkText">{{shortenTitle}}
-
-                                  {{#if isListCard}}
-                                    {{#if dotzNum}}
-                                      <span class="badge"> + {{dotzNum}}</span>
-                                    {{/if}}
-                                  {{/if}}
-
+                              <h2 class="bold darkText">
+                                {{shortenTitle}}
                               </h2>
                           </div>
                       </div>
@@ -109,6 +102,12 @@
                       {{/if}}
 
                   </div>
+
+                {{#if isListCard}}
+                  {{#if dotzNum}}
+                      <span class="badge {{dot.dotColor}}">{{dotzNum}} Dotz</span>
+                  {{/if}}
+                {{/if}}
 
               </div>
 
