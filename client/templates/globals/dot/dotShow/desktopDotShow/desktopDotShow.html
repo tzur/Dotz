@@ -13,7 +13,8 @@
 
         <div class="container-fluid" id="dotShowHeader-desktopDotShow">
 
-            <div id="desktopListShow-listCoverImg" class="row" style="background-image: url('{{dot.coverImageUrl}}'); background-color: {{dot.dotColor}}">
+            <div id="desktopListShow-listCoverImg" class="row {{dot.dotColor}}-background"
+                 style="background-image: url('{{dot.coverImageUrl}}')">
 
                 <div id="desktopListShow-listShowHeader-filter">
 
@@ -30,7 +31,8 @@
                 <div class="col-xs-12 col-md-9 col-lg-7 colCenter">
 
 
-                    <div id="desktopListShow-middleDiv-origin" class="col-sm-6 pull-left noPadding">
+
+                        <div id="desktopListShow-middleDiv-origin" class="col-sm-6 pull-left noPadding">
 
                       {{#if facebookDot}}
                           <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopListShow-originImgProfile" src="{{authorFbProfile}}"></a>
@@ -73,11 +75,12 @@
                         <!--</a>-->
 
 
-                      {{# if isLikedByMe}}
-                          <button type="button" class="unlike btn btn-default btn-sm"><i class="mdGrey fa fa-heart"></i> {{likeCounter}}</button>
-                      {{else}}
-                          <button type="button" class="like btn btn-default btn-sm"><i class="mdGrey fa fa-heart-o"></i> {{likeCounter}}</button>
-                      {{/if}}
+                      <!--like button-->
+                      <!--{{# if isLikedByMe}}-->
+                          <!--<button type="button" class="unlike btn btn-default btn-sm"><i class="mdGrey fa fa-heart"></i> {{likeCounter}}</button>-->
+                      <!--{{else}}-->
+                          <!--<button type="button" class="like btn btn-default btn-sm"><i class="mdGrey fa fa-heart-o"></i> {{likeCounter}}</button>-->
+                      <!--{{/if}}-->
 
                         <span id="desktopDotShow-3dots" class="dropdown">
                           <button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -222,11 +225,18 @@
 
 
 
+    <!--###########################-->
+    <!--###########################-->
+
+        <!--THIS IS the DOT SHOW:-->
+
+    <!--###########################-->
+    <!--###########################-->
 
 
 
 
-  {{else}}           <!--THIS IS DOT SHOW-->
+  {{else}}
 
       <div class="backToLastPath">
           <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-times"></i></button>
@@ -236,7 +246,8 @@
 
     <div class="container-fluid" id="dotShowHeader-desktopDotShow">
 
-        <div id="desktopDotShow-listCoverImg" class="row" style="background-image: url('{{dot.coverImageUrl}}'); background-color: {{dot.dotColor}}">
+        <div id="desktopDotShow-listCoverImg" class="row {{dot.dotColor}}-background"
+             style="background-image: url('{{dot.coverImageUrl}}')">
 
             <div id="desktopDotShow-listShowHeader-filter">
 
@@ -249,7 +260,7 @@
 
         <div id="desktopDotShow-middleDiv" class="row">
 
-                <div class="col-sm-6 colCenter">
+                <div class="col-xs-12 col-md-9 col-lg-7 colCenter">
 
 
                     <div id="desktopDotShow-middleDiv-origin" class="col-sm-6 pull-left">
@@ -290,15 +301,16 @@
 
 
                     <a href="{{dot.linkUrl}}" target="_blank">
-                      <button type="button" class="connect btn btn-success btn-sm"><i class="fa fa-external-link"></i> Go to site</button>
+                      <button type="button" class="connect btn btn-default btn-sm"><i class="fa fa-external-link"></i> Go to site</button>
                     </a>
 
 
-                      {{# if isLikedByMe}}
-                          <button type="button" class="unlike btn btn-default btn-sm"><i class="mdGrey fa fa-heart"></i> {{likeCounter}}</button>
-                      {{else}}
-                          <button type="button" class="like btn btn-default btn-sm"><i class="mdGrey fa fa-heart-o"></i> {{likeCounter}}</button>
-                      {{/if}}
+                      <!--like button-->
+                      <!--{{# if isLikedByMe}}-->
+                          <!--<button type="button" class="unlike btn btn-default btn-sm"><i class="mdGrey fa fa-heart"></i> {{likeCounter}}</button>-->
+                      <!--{{else}}-->
+                          <!--<button type="button" class="like btn btn-default btn-sm"><i class="mdGrey fa fa-heart-o"></i> {{likeCounter}}</button>-->
+                      <!--{{/if}}-->
 
                         <span id="desktopDotShow-3dots" class="dropdown">
                           <button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -27,7 +27,8 @@
 
                   <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
                       <div>
-                          <div id="mobileDotCardImg" class="container-fluid" style="background-image: url('{{dot.coverImageUrl}}'); background-color: {{dot.dotColor}}">
+                          <div id="mobileDotCardImg" class="container-fluid {{dot.dotColor}}-background"
+                               style="background-image: url('{{dot.coverImageUrl}}')">
                                   {{#if dotzNum}}
                                     <div id="mobileDotCard-connectedDotz">+{{dotzNum}}</div>
                                   {{/if}}
