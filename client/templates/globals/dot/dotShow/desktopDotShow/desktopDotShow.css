@@ -1,7 +1,14 @@
+/*#listShowHeader-desktopDotShow {*/
+  /*padding: 0;*/
+  /*margin: 0 0 0 0;*/
+/*}*/
+
 
 #dotShowHeader-desktopDotShow {
   padding: 0;
   margin: 0 0 0 0;
+  /*min-height: 92vh;*/
+  /*background-color: #fff;*/
 }
 
 #desktopDotShow-listShowHeader {

@@ -39,6 +39,11 @@
 
 #description-mobileDotShow-list {
   color: #FFFFFF;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #buttonsPanel-mobileDotShow-list {

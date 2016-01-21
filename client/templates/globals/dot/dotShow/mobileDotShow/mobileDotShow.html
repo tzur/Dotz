@@ -24,21 +24,21 @@
 
       <div class="pull-right">
 
-          <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-success btn-xs">
+          <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-xs">
               <i class="fa fa-bookmark-o"></i>
           </button>
 
-        {{# if isLikedByMe}}
-            <button class="unlike btn btn-default btn-xs mdGrey">
-                <i class="mdGrey likeBtn fa fa-heart"></i>
-                <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
-            </button>
-        {{else}}
-            <button class="like btn btn-default btn-xs mdGrey">
-                <i class="mdGrey likeBtn fa fa-heart-o"></i>
-                <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
-            </button>
-        {{/if}}
+        <!--{{# if isLikedByMe}}-->
+            <!--<button class="unlike btn btn-default btn-xs mdGrey">-->
+                <!--<i class="mdGrey likeBtn fa fa-heart"></i>-->
+                <!--<span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>-->
+            <!--</button>-->
+        <!--{{else}}-->
+            <!--<button class="like btn btn-default btn-xs mdGrey">-->
+                <!--<i class="mdGrey likeBtn fa fa-heart-o"></i>-->
+                <!--<span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>-->
+            <!--</button>-->
+        <!--{{/if}}-->
 
       </div>
 
@@ -79,13 +79,23 @@
 
         <div class="container-fluid" id="header-mobileDotShow">
 
-            <div id="coverImg-mobileDotShow" class="row" style="background-image: url('{{dot.coverImageUrl}}')"></div>
+            <div id="coverImg-mobileDotShow" class="row" style="background-image: url('{{dot.coverImageUrl}}')">
 
-            <div class="container-fluid">
-                <h4 id="title-mobileDotShow" class="col-xs-12">{{dot.title}}</h4>
+                <div id="desktopDotShow-listShowHeader-filter">
+
+                    <div id="desktopDotShow-titleDiv" class="col-sm-7 colCenter">
+                        <h4 id="desktopDotShow-title" class="darkText container-fluid">{{dot.title}}</h4>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="container-fluid txtMd">
+            <!--<div class="container-fluid">-->
+                <!--<h4 id="title-mobileDotShow" class="col-xs-12">{{dot.title}}</h4>-->
+            <!--</div>-->
+
+            <div id="buttonsPanel-mobileDotShow" class="container-fluid">
 
                 {{#if dot.linkUrl}}
                 <a href="{{dot.linkUrl}}" target="_blank">
@@ -93,19 +103,19 @@
                 </a>
                 {{/if}}
 
-                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-xs"><i class="fa mdGrey fa-bookmark-o"></i></button>
+                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-xs pull-right"><i class="fa mdGrey fa-bookmark-o"></i></button>
 
-              {{# if isLikedByMe}}
-                  <button class="unlike btn btn-default btn-xs mdGrey">
-                      <i class="mdGrey likeBtn fa fa-heart"></i>
-                      <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
-                  </button>
-              {{else}}
-                  <button class="like btn btn-default btn-xs mdGrey">
-                      <i class="mdGrey likeBtn fa fa-heart-o"></i>
-                      <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
-                  </button>
-              {{/if}}
+              <!--{{# if isLikedByMe}}-->
+                  <!--<button class="unlike btn btn-default btn-xs mdGrey pull-right">-->
+                      <!--<i class="mdGrey likeBtn fa fa-heart"></i>-->
+                      <!--<span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>-->
+                  <!--</button>-->
+              <!--{{else}}-->
+                  <!--<button class="like btn btn-default btn-xs mdGrey pull-right">-->
+                      <!--<i class="mdGrey likeBtn fa fa-heart-o"></i>-->
+                      <!--<span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>-->
+                  <!--</button>-->
+              <!--{{/if}}-->
 
             </div>
 
