@@ -57,37 +57,6 @@ a:hover {
 }
 
 
-/*colors*/
-
-.whiteTxt {
-  color: #ffffff;
-}
-
-
-/*darkTexts*/
-
-.midDarkText {
-  color: #777
-}
-
-.darkText {
-  color: rgba(0,0,0,0.8)
-}
-
-/*greyTexts*/
-
-.lightGrey {
-  color: #d5d5d5;
-}
-
-.mdGrey {
-  color: #9a9a9a;
-}
-
-.greyText {
-  color: #9B998D;
-}
-
 /*text wieghts*/
 
 .bold {
