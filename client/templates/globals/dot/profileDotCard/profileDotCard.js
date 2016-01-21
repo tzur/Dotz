@@ -16,7 +16,7 @@ Template.profileDotCard.onCreated(function(){
 
 
 Template.profileDotCard.onDestroyed(function(){
-  $('.disConnect').removeClass('active');
+  //$('.disConnect').removeClass('active');
   $('.fa').removeClass('transparent');
 });
 
@@ -84,6 +84,12 @@ Template.profileDotCard.helpers({
 
   isListCard: function() {
     return (this.dot && this.dot.dotType === "List" || this.dot && this.dot.dotType === "shareList");
+  },
+
+  isInMyProfile: function() {
+    if (Meteor.userId()) {
+      return (this.smartRef.connection.toParentDotId === Meteor.user().profile.profileDotId);
+    }
   },
 
   isMyDot: function() {
@@ -305,7 +311,7 @@ Template.profileDotCard.events({
 
   },
 
-  'click .disConnect': function(event){
+  'click ._disConnectBtn': function(event){
     $(event.currentTarget).toggleClass('active');
     $(event.currentTarget.childNodes[1]).toggleClass('transparent');
     $(event.currentTarget).css("outline", "none");

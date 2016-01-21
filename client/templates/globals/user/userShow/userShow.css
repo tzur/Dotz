@@ -11,7 +11,7 @@
     /*transform: translateZ(0);*/
 /*}*/
 #_FBGroupForm{
-  display: none
+  /*display: none*/
 }
 
 #_fbGroupIdInput{
@@ -68,6 +68,8 @@
 
 #counters-desktopDotShow {
   margin-bottom: 1vh;
+  margin-right: -10px;
+  margin-left: -10px;
   font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, 'Roboto', sans-serif, Arial;
   font-weight: 300;
   font-size: 17px;
@@ -75,7 +77,7 @@
 }
 
 #counters-desktopDotShow .spacer {
-  margin: 0 7px;
+  margin: 0 5px;
 }
 
 .user-profile-cards {
