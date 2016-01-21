@@ -1,18 +1,18 @@
 #mobileDotCard-lastDot-box {
-  margin-left: 1vw;
+  margin-left: 0;
   border-left: transparent;
   padding: 0 1vh 0 0;
 }
 
 
 #mobileDotCard-lastDot {
-  padding: 13vh 0 7vh 0;
+  padding: 13vh 0 0 0;
   position: relative;
 }
 
 
 #mobileDotCard-lastDot-col-connectLine {
-  width: 5vw;
+  width: 4vw;
   position: relative;
   float: left;
   text-align: center;
@@ -21,3 +21,17 @@
   margin-top: -12vh;
   border-bottom: 2px dashed #e5e5e5;
 }
+
+#mobileDotCard-lastDotButtons {
+  padding: 5vh 0 7vh 0;
+  text-align: center;
+}
+
+#share-Q-modal .modal-footer {
+  text-align: center;
+}
+
+#share-Q-modal button {
+  width: 20%;
+}
+

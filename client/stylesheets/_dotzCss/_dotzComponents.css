@@ -141,3 +141,11 @@ span a:hover {
 }
 
            /*  end spinners division */
+
+
+#modal-header-primary {
+  padding: 15px;
+  background-color: #337AB7;
+  color: #fff;
+  border-radius: 6px 6px 0 0;
+}
