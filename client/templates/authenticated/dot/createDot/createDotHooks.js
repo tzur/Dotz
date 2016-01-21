@@ -45,7 +45,13 @@ let dotHooks = {
 
       doc.ownerUserId = Meteor.userId();
       doc.createdAtDate = new Date();
-      doc.dotType = Session.get("dotType");
+
+      //TBD:
+      let dotType = Session.get("dotType");
+      if (dotType === "List") {
+        doc.dotType = Session.get("dotType");
+      }
+
 
       //Random dotColor (Note! the allowedValues are sets at dotSchema):
       let colorsArray = ['#0099e5','#fd5c63', '#7fbb00', '#ff9900', '#553a99', '#1ca0de','#237f52', '#ed008c', '#4dc47d'];

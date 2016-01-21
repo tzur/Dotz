@@ -28,8 +28,19 @@
                         <div class="col-xs-10 colCenter">
 
                             <div>
-                              {{> afQuickField id="url" name='linkUrl' label="Link" placeholder="Add a link   e.g. http://www.website.com"}}
+                                <div class="col-xs-9 noPadding">
+                                  {{> afQuickField id="url" name='linkUrl' label="Link" placeholder="Add a link   e.g. http://www.website.com"}}
+                                </div>
+
+                                <div class="col-xs-3 noPadding">
+                                  {{> afQuickField name="dotType"}}
+                                </div>
+
+                                <p class="text-center"><small>Or / And: </small></p>
+                                <br>
+
                             </div>
+
 
                             <div>
                               {{> afQuickField id="titleField" name='title' maxlength="100" label="Title" placeholder="Add a Title"}}
@@ -45,6 +56,8 @@
                               <label for="tagsInput">Tags</label>
                               <input class="form-control" name="tags" id="tagsInput" placeholder="Tags - Will be filled automatically (but you can help us :) )">
                             </div>
+
+                            <br>
 
 
                         </div>
