@@ -134,6 +134,12 @@ Template.mobileDotShow.helpers({
     return (moment(this.dot.createdAtDate).fromNow())
   },
 
+  isUserAllowToConnect: function(){
+    if(Roles.userIsInRole( Meteor.userId(), 'Connector') || this.dot.ownerUserId === Meteor.userId() ){
+      return true;
+    }
+  },
+
   eventDate: function(){
     if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
       let textForMultipleEvents;

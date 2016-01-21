@@ -93,7 +93,7 @@
                 </a>
                 {{/if}}
 
-                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-success btn-xs"><i class="fa fa-bookmark-o"></i> Connect to profile</button>
+                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-xs"><i class="fa mdGrey fa-bookmark-o"></i></button>
 
               {{# if isLikedByMe}}
                   <button class="unlike btn btn-default btn-xs mdGrey">
@@ -186,6 +186,27 @@
                {{>mobileDotCardLastDot}}
           </div>
       </div>
+
+
+        {{#if isUserAllowToConnect}}
+
+            <div class="container-fluid" id="dotShowFooter">
+
+                <div class="row">
+
+                  {{# if addDotIsAvailable}}
+                    {{#with dataForCreateHere}}
+
+                      {{>searchBoxForConnect}}
+
+                    {{/with}}
+                  {{/if}}
+
+                </div>
+
+            </div>
+
+        {{/if}}
 
 
 {{/if}}
