@@ -61,25 +61,25 @@
                   </a>
                 </div>
 
-                <div id="mobileDotCard-3dots" class="dropdown">
-                    <button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <h4 class="txtVertical bold">...</h4>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                <!--<div id="mobileDotCard-3dots" class="dropdown">-->
+                    <!--<button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                        <!--<h4 class="txtVertical bold">...</h4>-->
+                    <!--</button>-->
+                    <!--<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">-->
 
-                      {{#if isConnected}}
-                        <li><a class="connect no-left-pad"><i class="fa fa-bookmark-o"></i>Connect to...</a></li>
-                        <li><a class="disConnect no-left-pad"><i class="fa fa-times"></i>Disconnect from here</a></li>
-                      {{else}}
-                        <li><a class="connect no-left-pad"><i class="fa fa-bookmark-o"></i>Connect to profile</a></li>
-                      {{/if}}
+                      <!--{{#if isConnected}}-->
+                        <!--<li><a class="connect no-left-pad"><i class="fa fa-bookmark-o"></i>Connect to...</a></li>-->
+                        <!--<li><a class="disConnect no-left-pad"><i class="fa fa-times"></i>Disconnect from here</a></li>-->
+                      <!--{{else}}-->
+                        <!--<li><a class="connect no-left-pad"><i class="fa fa-bookmark-o"></i>Connect to profile</a></li>-->
+                      <!--{{/if}}-->
 
-                        <li><a href="{{dot.linkUrl}}" target="_blank" class="no-left-pad"><i class="fa fa-external-link"></i>Go to {{dot.linkName}}</a></li>
-                        <li><a class="_shareFacebookDialog no-left-pad"><i class="fa fa-facebook-official"></i>Share</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#" class="no-left-pad"><i class="fa fa-flag-o"></i>Report</a></li>
-                    </ul>
-                </div>
+                        <!--<li><a href="{{dot.linkUrl}}" target="_blank" class="no-left-pad"><i class="fa fa-external-link"></i>Go to {{dot.linkName}}</a></li>-->
+                        <!--<li><a class="_shareFacebookDialog no-left-pad"><i class="fa fa-facebook-official"></i>Share</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                        <!--<li><a href="#" class="no-left-pad"><i class="fa fa-flag-o"></i>Report</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
 
                 <div id="mobileDotCard-buttons">
 
@@ -90,13 +90,13 @@
                     <!--TBD: add a session to fix it!!! -->
                         {{# if isLikedByMe}}
                         <a class="unlike">
-                        <i class="unlike mdGrey likeBtn fa fa-heart"></i>
-                        <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
+                        <i class="unlike lightGrey likeBtn fa fa-heart"></i>
+                        <span class="likesCounter sm2Txt bold lightGrey"> {{likeCounter}}</span>
                         </a>
                             {{else}}
                         <a class="like">
-                        <i class="like mdGrey likeBtn fa fa-heart-o"></i>
-                        <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
+                        <i class="like lightGrey likeBtn fa fa-heart-o"></i>
+                        <span class="likesCounter sm2Txt lightGrey"> {{likeCounter}}</span>
                         </a>
                             {{/if}}
 
@@ -105,15 +105,15 @@
                     </div>
 
 
-                    {{#if smartRef.connection.personalDescription}}
-                    <button class="btn btn-full-trans btn-xs sm2Txt mdGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">
+                    <!--{{#if smartRef.connection.personalDescription}}-->
+                    <!--<button class="btn btn-full-trans btn-xs sm2Txt mdGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">-->
 
-                        @{{ownerUser.username}} <i class="fa fa-comment-o mdTxt"></i>
-                    </button>
+                        <!--@{{ownerUser.username}} <i class="fa fa-comment-o mdTxt"></i>-->
+                    <!--</button>-->
 
-                    {{else}}
-                        <button class="btn btn-full-trans btn-xs sm2Txt mdGrey pull-left">@{{ownerUser.username}}</button>
-                    {{/if}}
+                    <!--{{else}}-->
+                        <!--<button class="btn btn-full-trans btn-xs sm2Txt mdGrey pull-left">@{{ownerUser.username}}</button>-->
+                    <!--{{/if}}-->
 
 
 
@@ -122,7 +122,7 @@
                     <!--</button>-->
 
                     <button class="connect btn btn-full-trans btn-xs mdGrey pull-right">
-                        <i class="fa fa-bookmark-o mdTxt mdGrey"></i>
+                        <i class="fa fa-bookmark-o mdTxt lightGrey"></i>
                     </button>
 
                 </div>
