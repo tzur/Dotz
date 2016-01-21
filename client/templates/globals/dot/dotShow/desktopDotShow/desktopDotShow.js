@@ -235,6 +235,15 @@ Template.desktopDotShow.helpers({
     return ( Meteor.user() && ( this.dot.isOpen || (this.dot.ownerUserId === Meteor.userId()) ) )
   },
 
+  dataForTheQ: function() {
+    return ( {
+      dot: {
+        _id: this.dot._id,
+        connectedDotzArray: this.dot.connectedDotzArray
+      }
+    });
+  },
+
   dataForCreateHere: function() {
       return ( {
         dot: {_id: this.dot._id}

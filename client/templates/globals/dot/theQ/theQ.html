@@ -1,0 +1,13 @@
+<template name="theQ">
+
+    <H1>THE Q</H1>
+  {{#each dotDOTtheQ}}
+
+    {{#if thisDotIsRelevantForTheQ}}
+
+      {{>theQcard}}
+
+    {{/if}}
+  {{/each}}
+
+</template>
