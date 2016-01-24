@@ -10,7 +10,7 @@
 	      </button>
 
 
-        <div class="navbar-brand">
+        <div class="navbar-brand hidden-xs">
           {{#if currentUser}}
               <span class="logo">
                   <a class="navbar-brand-dotz" href="/dotz"><strong>DOTZ</strong></a>
@@ -23,6 +23,25 @@
               </span>
           {{/if}}
         </div>
+
+        <!--Mobile brandLogo selctor (Logo OR Back button)-->
+          <div class="navbar-brand visible-xs">
+            {{#if pastPageSlugTracker}}
+                <!--<span class="logo">-->
+                  <!--<a class="" href="/dotz"><strong> back </strong></a>-->
+              <!--</span>-->
+
+            <a href="/{{pastPageSlugTracker}}">
+                <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-arrow-left"></i></button>
+            </a>
+
+            {{else}}
+                <span class="logo">
+                  <a class="navbar-brand-dotz" href="/dotz"><strong>DOTZ</strong></a>
+                  <a class="navbar-brand-colons" href="/dotz"><strong>:</strong></a>
+              </span>
+            {{/if}}
+          </div>
 
         <!--&lt;!&ndash;show the current dot/list Show&ndash;&gt;-->
           <!--<div id="whereIAm" class="noneWhere">-->

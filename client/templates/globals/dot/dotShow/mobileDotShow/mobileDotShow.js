@@ -8,6 +8,7 @@ Template.mobileDotShow.onCreated(function() {
     // any subscription will be expire after 5 minute, if it's not subscribed again
     expireIn: 5
   });
+
   self.autorun(function() {
     if(!GoogleMaps.loaded()){
       GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
@@ -30,15 +31,18 @@ Template.mobileDotShow.onCreated(function() {
     }
     let currentDot = Dotz.findOne({"dotSlug": dotSlug});
     if (currentDot) {
-        self.subs.subscribe('user', currentDot.ownerUserId);
-        if(currentDot.dotType === "List"){
-          analytics.page('List Show');
-        }
-        else{
-          analytics.page('Dot Show')
-        }
+      self.subs.subscribe('user', currentDot.ownerUserId);
+      if(currentDot.dotType === "List"){
+        analytics.page('List Show');
       }
+      else{
+        analytics.page('Dot Show')
+      }
+    }
+
   });
+
+
 });
 
 
