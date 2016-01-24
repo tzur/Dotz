@@ -121,8 +121,9 @@
 }
 
 
+/*like col*/
 
-#mobileDotCard-col-like {
+#mobileDotCard-col-like-inDotShow {
   width: 26vw;
   margin-left: 5vw;
   padding-left: 11vw;
@@ -132,6 +133,18 @@
   text-align: left;
 }
 
+#mobileDotCard-col-like-inListShow {
+  width: 26vw;
+  /*margin-left: 5vw;*/
+  padding-left: 11vw;
+  /* padding-top: 1vw; */
+  position: relative;
+  float: left;
+  text-align: left;
+}
+
+
+/*Buttons*/
 
 #mobileDotCard-buttons {
   width: 100%;
@@ -147,6 +160,14 @@
   /*width: 22vw;*/
   /*margin: auto;*/
   text-align: center;
+}
+
+#connectButton-mobileDotCard {
+  padding-right: 10px;
+}
+
+#goToLinkButton-mobileDotCard {
+  padding-right: 15px;
 }
 
 #mobileDotCard-buttons .btn-full-trans i {
