@@ -4,24 +4,26 @@ Template.header.onRendered(function(){
     FlowRouter.watchPathChange();
     //console.log("header    ----   onRenderedddddddddddddd autorun 0000000");
 
+    Tracker.autorun(function (c) {
+          FlowRouter.watchPathChange(); //TODO - is it needed?
+          //console.log("header    ----    autorun 11111111");
 
-        Tracker.autorun(function (c) {
-          FlowRouter.watchPathChange();
-          //console.log("autorun 11111111111")
-          //if (! Session.equals("shouldAlert", true))
-          //  return;
+          let slugTrackerArray = Session.get('slugTrackerArray');
+      //slugTrackerArray.push( Session.get('slugTrackerArray') );
+          let currentSlug = FlowRouter.current().path.slice(1);
 
-          let currentPageSlugTracker =  Session.get('currentPageSlugTracker');
-          if ( currentPageSlugTracker ) {
-            Session.set( 'pastPageSlugTracker', currentPageSlugTracker );
-            console.log("GO BACK TO " + Session.get('pastPageSlugTracker'));
-            Session.set( 'currentPageSlugTracker', FlowRouter.current().path.slice(1) );
-            //console.log("if 111111111111 " + Session.get('currentPageSlugTracker'));
+          if ( slugTrackerArray && (currentSlug != Meteor.user().profile.userSlug) ) {
+            //console.log("if 111111111  slugTrackerArray " + slugTrackerArray);
+            slugTrackerArray.push(currentSlug);
+            Session.set('slugTrackerArray', slugTrackerArray);
+
+            //let lastIndex = slugTrackerArray.length-1;
+            //console.log("BACK to SLUG " + slugTrackerArray[lastIndex]);
           } else {
-            //FlowRouter.watchPathChange();
-            Session.set( 'currentPageSlugTracker', FlowRouter.current().path.slice(1) );
-            //console.log("if 222222222222 " + Session.get('currentPageSlugTracker'));
-            //currentPageSlugTracker = FlowRouter.current().path.slice(1);
+            console.log("else 22222222  slugTrackerArray " + slugTrackerArray);
+            let slugTrackerArray = [];
+            slugTrackerArray.push(currentSlug);
+            Session.set('slugTrackerArray', slugTrackerArray);
           }
 
           c.stop();
@@ -81,15 +83,9 @@ Template.header.onRendered(function(){
 Template.header.helpers({
 
   pastPageSlugTracker: function() {
-
-    console.log("slugToBack 888888888888888")
-
-
-    let pastPageSlugTracker = Session.get('pastPageSlugTracker');
-
-    if ( pastPageSlugTracker ) {
-
-      return pastPageSlugTracker;
+    let slugTrackerArray = Session.get('slugTrackerArray');
+    if ( slugTrackerArray ) {
+      return (slugTrackerArray.length > 1);
     }
   },
 
@@ -109,7 +105,9 @@ Template.header.helpers({
 
 });
 
+
 Template.header.events({
+
   'click .logout' () {
     Bert.alert( 'Logging out...', 'success' );
     Meteor.logout( ( error ) => {
@@ -123,6 +121,7 @@ Template.header.events({
       }
     });
   },
+
   'keypress #searchBoxNavBar': function(e){
     if (e.keyCode == 13){
       e.preventDefault();
@@ -130,7 +129,35 @@ Template.header.events({
       FlowRouter.go('/main/search');
       e.currentTarget.value = '';
     }
-  }
+  },
 
+  'click #_lastPathBtn' () {
+    console.log("CLICK BACK");
+    let slugTrackerArray = Session.get('slugTrackerArray');
+    if ( slugTrackerArray && slugTrackerArray.length > 1 ) {
+        let arraylength = slugTrackerArray.length;
+        console.log("slugTrackerArray 111111111111 is "  + slugTrackerArray);
+
+        let slugToBack = slugTrackerArray[arraylength-2];
+
+        console.log("slugTrackerArray.length BEFORE is"  + slugTrackerArray.length);
+
+        slugTrackerArray.splice(arraylength-1, 1);
+        slugTrackerArray.splice(arraylength-2, 1);
+
+      //let lastItem = anArray.pop();
+
+
+
+      console.log("slugTrackerArray.length AFTER is"  + slugTrackerArray.length);
+
+        console.log("slugTrackerArray 222222222 is"  + slugTrackerArray);
+
+
+        Session.set('slugTrackerArray', slugTrackerArray);
+
+        FlowRouter.go('/' + slugToBack);
+    }
+  }
 
 });
