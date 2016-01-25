@@ -1,20 +1,18 @@
 <template name="mobileConnectDotModal">
 
     <div class="modal fade">
-        <div class="modal-dialog">
+        <div id="mobileConnectModal-size" class="modal-dialog">
             <div class="modal-content">
 
                 <div class="modal-body">
 
                   <div class="container-fluid">
 
-                    <h4 class="bold visible-xs">Connect to...</h4>
-                    <h3 class="bold hidden-xs">Connect to...</h3>
+                    <h4 class="bold">Connect to...</h4>
 
                     <hr class="row">
 
-                    <h5 id="_addNoteBtn" class="lightGrey visible-xs"><i class="fa fa-pencil"></i> Add your note</h5>
-                    <h4 id="_addNoteBtn" class="lightGrey hidden-xs"><i class="fa fa-pencil"></i> Add your note</h4>
+                    <h5 id="_addNoteBtn" class="lightGrey"><i class="fa fa-pencil"></i> Add your note</h5>
 
                     <div id="_addNoteDiv" class="hidden">
 
@@ -38,8 +36,7 @@
                                   </div>
 
                                   <div class="col-xs-11">
-                                      <h5 class="bold visible-xs">My Profile</h5>
-                                      <h4 class="bold hidden-xs">My Profile</h4>
+                                      <h5 class="bold">My Profile</h5>
                                   </div>
 
                               </div>
@@ -56,12 +53,11 @@
                                 <div id="_mobileConnectDotModal-connectBtnDiv" class="container-fluid">
 
                                   <div class="col-xs-1 noPadding">
-                                      <div class="mobileConnectDotModal-dotImg" style="background-image: url('{{coverImageUrl}}')"></div>
+                                      <div class="mobileConnectDotModal-dotImg {{dotColor}}-background" style="background-image: url('{{coverImageUrl}}')"></div>
                                   </div>
 
                                   <div class="col-xs-11">
-                                      <h5 class="bold visible-xs">{{shortenTitle}}</h5>
-                                      <h4 class="bold hidden-xs">{{shortenTitle}}</h4>
+                                      <h5 class="bold">{{shortenTitle}}</h5>
                                   </div>
 
                                 </div>

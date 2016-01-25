@@ -307,10 +307,11 @@ Template.desktopDotShow.events({
 
   'click .connect': function(){
     if(Meteor.user()) {
-      Modal.show('connectDotModal', {
+      Modal.show('mobileConnectDotModal', {
         data: {
           dotId: this.dot._id,
-          dot: this.dot
+          dot: this.dot,
+          connectToMyLists: true
         }
       });
     }
