@@ -35,9 +35,9 @@
                                 </div>
                             {{/if}}
 
-                                  {{#if dotzNum}}
-                                    <div id="mobileDotCard-connectedDotz">+{{dotzNum}}</div>
-                                  {{/if}}
+                                  <!--{{#if dotzNum}}-->
+                                    <!--<div id="mobileDotCard-connectedDotz">+{{dotzNum}}</div>-->
+                                  <!--{{/if}}-->
                           </div>
                       </div>
                   </a>
@@ -47,23 +47,34 @@
                 <div id="mobileDotCard-col-text">
                   <a href="/{{dot.dotSlug}}">
 
+                      <!--Title-->
                     <div id="mobileDotCard-col-title">
                         <div id="mobileDotCardTitle">
                            <h5 class="bold">{{shortenTitle}}</h5>
                         </div>
                     </div>
 
+                    <!--Description-->
                     <div id="mobileDotCard-col-title">
                         <div id="mobileDotCardTitle">
                             <h5>{{shortenBodyText}}</h5>
                         </div>
                     </div>
 
-                    <div id="mobileDotCard-col-credit">
-                        <div id="mobileDotCardCredit">
-                          <h6 class="lightGrey">{{dot.linkName}}</h6>
+                    <!--badge (for list) OR url (for dot-link)-->
+                    {{#if isListCard}}
+                        {{#if dotzNum}}
+                            <span class="badge smTxt {{dot.dotColor}}">{{dotzNum}} Dotz</span>
+                        {{/if}}
+
+                    {{else}}
+                        <div id="mobileDotCard-col-credit">
+                            <div id="mobileDotCardCredit">
+                              <h6 class="lightGrey">{{dot.linkName}}</h6>
+                            </div>
                         </div>
-                    </div>
+                    {{/if}}
+
 
                   </a>
                 </div>
