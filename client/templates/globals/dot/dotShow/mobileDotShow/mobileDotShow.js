@@ -138,7 +138,7 @@ Template.mobileDotShow.helpers({
     return (moment(this.dot.createdAtDate).fromNow())
   },
 
-  isUserAllowToConnect: function(){
+  isUserAllowToConnect: function(){  //TODO fix roles so everyone can add @yoav
     if(Roles.userIsInRole( Meteor.userId(), 'Connector') || this.dot.ownerUserId === Meteor.userId() ){
       return true;
     }

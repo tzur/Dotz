@@ -43,7 +43,7 @@
 #userShowMainDiv {
     position: relative;
     top: 30vh;
-    min-height: 60vh;
+    /*min-height: 60vh;*/
     padding-top: 4em;
     background-color: #fafafa;
     /*TBD - Z-index ?*/
@@ -91,7 +91,7 @@
     top: -4em;
     left: 0px;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     text-align: center;
     /* padding-top: 25%; */
     /* overflow: hidden; */
@@ -112,6 +112,10 @@
     width: 8em;
     background-color: #fafafa;
     border-radius: 50%;
+    background-size: cover;
+    background-position-y: 50%;
+    background-position-x: 50%;
+    /*border: #fafafa solid 1px;*/
 }
 
 
@@ -135,6 +139,13 @@
 #following {
     padding-top: 1em;
     /*padding-bottom: 2em;*/
+}
+
+#editUserAccount-btn {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 9999;
 }
 
 

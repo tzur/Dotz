@@ -11,12 +11,18 @@
 
         <div id="userShowMainDiv" class="container-fluid">
 
+            {{#if notMyProfile}}
+
+            {{else}}
+                <button type="button" id="editUserAccount-btn" class="editUserAccount-btn btn btn-full-trans btn-xs hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>
+            {{/if}}
+
             <div class="profile-user-data-row">
 
                 <div class="container-fluid">
                     <div class="row">
                         <div id="userData" class="col-sm-12 colCenter">
-                            <img id="userImgProfile" src="{{profile.profileImage}}">
+                            <div id="userImgProfile" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{profile.profileImage}}')"></div>
                         </div>
                     </div>
                 </div>
@@ -97,7 +103,7 @@
                             <!--Connect/Follow button-->
                             {{#if feedAndFollowAllows}}
                               {{#if myFollow}}
-                                  <button type="button" class="unFollow btn btn-success btn-md">Connecting</button>
+                                  <button type="button" class="unFollow btn btn-success btn-md">Connected</button>
                               {{else}}
                                   <button type="button" class="follow btn btn-success btn-md">Connect</button>
                               {{/if}}
@@ -126,7 +132,7 @@
 
 
                           <!--Edit Account-->
-                              <button type="button" class="editUserAccount-btn btn btn-default btn-md hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>
+                              <!--<button type="button" id="editUserAccount-btn" class="editUserAccount-btn btn btn-full-trans btn-xs hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>-->
 
 
                           <!--ShareLists Mode-->
@@ -189,32 +195,42 @@
 
 
 {{#if myProfileIsEmpty}}<!--fake ListCard-->
-    <h2 class="txtMd lightGrey">Let's create an outstanding profile :)</h2>
 
-  {{#if canGenerateAutoLists}}
-    <br>
+<div class="txtMd">
+
+    <h2 class="lightGrey">Every great profile start with a tiny action :)</h2>
       <br>
       <br>
 
-    <div class="col-xs-12 col-sm-10 colCenter" id="emptyProfile">
+    <button class="_createList btn btn-primary btn-md">Create my first list</button>
 
-        <div class="card col-xs-12 colCenter" id="listCover">
-            <div class="container-fluid dot-container-img-listCard"
-                 style="background-image: url('https://dotz-dev-images.s3.amazonaws.com/sXLnHX3sr8vbeh8KB/dotz_How.jpg')">
-                <div class="filter">
-                    <div class="listCoverContent">
-                            <div class="title">
-                                <h2 class="whiteTxt txtMd">This Is How We Do It</h2>
-                            </div>
-                            <div class="col-xs-12 txtMd">
-                                    <button id= "_generateAutoLists" type="button" class="btn btn-primary btn-md">Quick Start!</button>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end listCard -->
 </div>
-    {{/if}}
+
+
+  <!--{{#if canGeneratts}}-->
+    <!--<br>-->
+      <!--<br>-->
+      <!--<br>-->
+
+    <!--<div class="col-xs-12 col-sm-10 colCenter" id="emptyProfile">-->
+
+        <!--<div class="card col-xs-12 colCenter" id="listCover">-->
+            <!--<div class="container-fluid dot-container-img-listCard"-->
+                 <!--style="background-image: url('https://dotz-dev-images.s3.amazonaws.com/sXLnHX3sr8vbeh8KB/dotz_How.jpg')">-->
+                <!--<div class="filter">-->
+                    <!--<div class="listCoverContent">-->
+                            <!--<div class="title">-->
+                                <!--<h2 class="whiteTxt txtMd">This Is How We Do It</h2>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-12 txtMd">-->
+                                    <!--<button id= "_generateAutoLists" type="button" class="btn btn-primary btn-md">Quick Start!</button>-->
+                            <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div> &lt;!&ndash; end listCard &ndash;&gt;-->
+    <!--</div>-->
+    <!--{{/if}}-->
 
 {{/if}}
 
