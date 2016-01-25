@@ -32,7 +32,11 @@
   }
   .navbar-default .navbar-toggle {
     /*border-color: #ddd;*/
-    background-color: #fafafa;
+    border-color: #FFFFFF;
+    background-color: rgba(0,0,0,0.1);
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFFFFF;
   }
 }
 
@@ -99,4 +103,10 @@
 
 .logout:focus {
   cursor:progress;
+}
+
+/*Buttons*/
+
+.mobile-buck-button {
+  margin-top: -3px;
 }
