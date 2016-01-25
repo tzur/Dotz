@@ -50,6 +50,13 @@ let dotHooks = {
       let dotType = Session.get("dotType");
       if (dotType === "List") {
         doc.dotType = Session.get("dotType");
+      } else {
+        doc.dotType = "Dot";
+      }
+
+      //Open Dotz:
+      if (doc.dotType === "Dot") {
+        doc.isOpen = true;
       }
 
 
@@ -68,10 +75,7 @@ let dotHooks = {
       }
       doc.category = Meteor.user().roles.firstGroup;
 
-      //Open Dotz:
-      if (doc.dotType === "Dot") {
-        doc.isOpen = true;
-      }
+
       //if (!doc.isOpen){
       //  doc.isOpen = true
       //}
