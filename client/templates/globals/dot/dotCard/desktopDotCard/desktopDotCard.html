@@ -11,24 +11,60 @@
               </div>
 
 <!-- class="col-sm-1"-->
-              <div id="desktopDotCard-col-like">
+
+
                   <!--TBD: add a session to fix it!!! -->
-                {{# if isLikedByMe}}
-                    <a class="unlike">
-                        <i class="unlike darkText mdTxt likeBtn fa fa-heart"></i>
-                        <span class="likesCounter normalTxt darkText">
-                          <br>
-                        {{likeCounter}}</span>
+      <div id="desktopDotCard-col-sort-like">
+
+          {{#if isInClosedList}}
+
+                {{#if sortIsAvailable}}
+
+                  <div id="desktopDotCard-col-sortBtns">
+                    <a class="upBtn panelBtn">
+                        <i class="fa fa-arrow-circle-up mdTxt mdGrey"></i>
+                        <!--<span class="glyphicon glyphicon-triangle-top smTxt"  aria-hidden="true"> </span>-->
                     </a>
-                {{else}}
-                    <a class="like">
-                        <i class="like darkText mdTxt likeBtn fa fa-heart-o"></i>
-                        <span class="likesCounter normalTxt darkText">
-                          <br>
-                        {{likeCounter}}</span>
+                    <br>
+                    <br>
+                    <a class="downBtn panelBtn">
+                        <!--<span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span>-->
+                        <i class="fa fa-arrow-circle-down mdTxt mdGrey"></i>
                     </a>
+                  </div>
+
+                  {{else}}
+
                 {{/if}}
-              </div>
+
+          {{else}}
+
+                  <div id="desktopDotCard-col-like">
+
+                        {{# if isLikedByMe}}
+                            <a class="unlike">
+                                <i class="unlike darkText mdTxt likeBtn fa fa-heart"></i>
+                              <span class="likesCounter normalTxt darkText">
+                                <br>
+                                {{likeCounter}}</span>
+                            </a>
+                        {{else}}
+                            <a class="like">
+                                <i class="like darkText mdTxt likeBtn fa fa-heart-o"></i>
+                              <span class="likesCounter normalTxt darkText">
+                                <br>
+                                {{likeCounter}}</span>
+                            </a>
+                        {{/if}}
+                  </div>
+
+
+          {{/if}}
+
+      </div>
+
+
+
 
 <!-- class="col-sm-3 col-lg-2"-->
 
