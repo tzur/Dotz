@@ -1,7 +1,7 @@
 <template name="mobileDotCard">
   {{#with dataCard}}
 
-      <div id="mobileDotCard-box" class="row {{helperForSpecificClasses}}">
+      <div id="mobileDotCard-box" class="row mobileDotCard-box-{{listShowOrDotShowClass}}">
 
             <!--<div id="mobileDotCard-lineDiv" class="container-fluid">-->
                 <!--<div id="mobileDotCard-line"></div>-->
@@ -27,8 +27,14 @@
 
                   <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
                       <div>
-                          <div id="mobileDotCardImg" class="container-fluid {{dot.dotColor}}-background"
-                               style="background-image: url('{{dot.coverImageUrl}}')">
+                          <div id="mobileDotCardImg" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')">
+
+                            {{#if isListCard}}
+                                <div id="mobileDotCard-listIcon">
+                                    <i class="fa fa-list-ul fa-2x"></i>
+                                </div>
+                            {{/if}}
+
                                   {{#if dotzNum}}
                                     <div id="mobileDotCard-connectedDotz">+{{dotzNum}}</div>
                                   {{/if}}
@@ -75,7 +81,9 @@
                         <!--<li><a class="connect no-left-pad"><i class="fa fa-bookmark-o"></i>Connect to profile</a></li>-->
                       <!--{{/if}}-->
 
-                        <!--<li><a href="{{dot.linkUrl}}" target="_blank" class="no-left-pad"><i class="fa fa-external-link"></i>Go to {{dot.linkName}}</a></li>-->
+                        <!--<li><a href="{{dot.linkUrl}}" target="_blank" class="no-left-pad"><i class="fa fa-external-link"></i>
+                        Go to {{dot.linkName}}
+                        </a></li>-->
                         <!--<li><a class="_shareFacebookDialog no-left-pad"><i class="fa fa-facebook-official"></i>Share</a></li>-->
                         <!--<li role="separator" class="divider"></li>-->
                         <!--<li><a href="#" class="no-left-pad"><i class="fa fa-flag-o"></i>Report</a></li>-->
@@ -84,7 +92,7 @@
 
                 <div id="mobileDotCard-buttons">
 
-                    <div id="mobileDotCard-col-like">
+                    <div id="mobileDotCard-col-like-{{listShowOrDotShowClass}}">
 
                         <!--{{#if isInOpenList}}-->
 
@@ -122,9 +130,19 @@
                         <!--<i class="fa fa-plus"></i>-->
                     <!--</button>-->
 
-                    <button class="connect btn btn-full-trans btn-xs mdGrey pull-right">
+
+
+                    <button id="connectButton-mobileDotCard" class="connect btn btn-full-trans btn-xs mdGrey pull-right">
                         <i class="fa fa-bookmark-o mdTxt lightGrey"></i>
                     </button>
+
+                  {{#if dot.linkUrl}}
+                      <a href="{{dot.linkUrl}}" target="_blank" class="no-left-pad">
+                          <button id="goToLinkButton-mobileDotCard" class="btn btn-full-trans btn-xs mdGrey pull-right">
+                              <i class="fa fa-external-link mdTxt lightGrey"></i>
+                          </button>
+                      </a>
+                  {{/if}}
 
                 </div>
 

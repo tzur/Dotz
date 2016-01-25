@@ -50,6 +50,9 @@
         <div class="container-fluid">
           {{#each connectedDotzArray}}
             {{>mobileDotCard}}
+
+              <hr id="mobileDotCard-hr-inListShow">
+
           {{/each}}
 
           <!--{{>mobileDotCardLastDot}}-->
@@ -63,19 +66,26 @@
 
 
 
+    <!--##############################-->
+    <!--##############################-->
+
+    <!--is dot show (Mobile) -->
+
+    <!--We need to separate it soon (List || Dot) -->
+
+    <!--##############################-->
+    <!--##############################-->
 
 
-<!--is dot show (Mobile) -->
-  <!--We need to separate it soon (List || Dot) -->
 {{else}}
 
 
 
 
 
-        <div class="backToLastPath">
-            <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-times"></i></button>
-        </div>
+        <!--<div class="backToLastPath">-->
+            <!--<button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-times"></i></button>-->
+        <!--</div>-->
 
         <div class="container-fluid" id="header-mobileDotShow">
 

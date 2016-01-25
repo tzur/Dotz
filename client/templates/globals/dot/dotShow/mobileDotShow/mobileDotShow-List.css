@@ -59,3 +59,10 @@
   background-color: #ffffff;
   min-height: 80vh;
 }
+
+#mobileDotCard-hr-inListShow {
+  margin-top: 3vh;
+  margin-bottom: -2vh;
+  border: 0;
+  border-top: 1px solid #eee;
+}

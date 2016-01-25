@@ -74,11 +74,11 @@ Template.mobileDotCard.helpers({
   },
 
   //UI helpers:
-  helperForSpecificClasses: function() {
+  listShowOrDotShowClass: function() {
     if (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList") {
-      return ("mobileDotCard-box-inListShow")
+      return ("inListShow")
     } else {
-      return ("mobileDotCard-box-inDotShow")
+      return ("inDotShow")
     }
   },
   isInListShow: function() {

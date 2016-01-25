@@ -310,9 +310,9 @@ Template.mobileDotShow.events({
     }
   },
 
-  'click #_lastPathBtn': function(){
-    window.history.back();
-  },
+  //'click #_lastPathBtn': function(){
+  //  window.history.back();
+  //},
   'click .closeToOpen': function(){
     Meteor.call('closeToOpen', this.dot, function(error,result){
       if (error){

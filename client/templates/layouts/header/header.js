@@ -1,95 +1,34 @@
 Template.header.onRendered(function(){
 
   Tracker.autorun(function() {
+
     FlowRouter.watchPathChange();
-    //console.log("header    ----   onRenderedddddddddddddd autorun 0000000");
 
-
-        Tracker.autorun(function (c) {
-          FlowRouter.watchPathChange();
-          //console.log("autorun 11111111111")
-          //if (! Session.equals("shouldAlert", true))
-          //  return;
-
-          let currentPageSlugTracker =  Session.get('currentPageSlugTracker');
-          if ( currentPageSlugTracker ) {
-            Session.set( 'pastPageSlugTracker', currentPageSlugTracker );
-            console.log("GO BACK TO " + Session.get('pastPageSlugTracker'));
-            Session.set( 'currentPageSlugTracker', FlowRouter.current().path.slice(1) );
-            //console.log("if 111111111111 " + Session.get('currentPageSlugTracker'));
-          } else {
-            //FlowRouter.watchPathChange();
-            Session.set( 'currentPageSlugTracker', FlowRouter.current().path.slice(1) );
-            //console.log("if 222222222222 " + Session.get('currentPageSlugTracker'));
-            //currentPageSlugTracker = FlowRouter.current().path.slice(1);
-          }
-
-          c.stop();
-          //alert("Oh no!");
-        });
-
+    Tracker.autorun(function (c) {
+        //FlowRouter.watchPathChange(); //TODO - is it needed?
+        let slugTrackerArray = Session.get('slugTrackerArray');
+        let currentSlug = FlowRouter.current().path.slice(1);
+        if ( slugTrackerArray && (currentSlug != Meteor.user().profile.userSlug) ) {
+          slugTrackerArray.push(currentSlug);
+          Session.set('slugTrackerArray', slugTrackerArray);
+        } else {
+          let slugTrackerArray = [];
+          slugTrackerArray.push(currentSlug);
+          Session.set('slugTrackerArray', slugTrackerArray);
+        }
+        c.stop();
+    });
 
   });
-
-
-/*
- //Simple BACKup:
- Tracker.autorun(function() {
- FlowRouter.watchPathChange();
- //console.log("header    ----   onRenderedddddddddddddd autorun 0000000");
-
-
- Tracker.autorun(function (c) {
- FlowRouter.watchPathChange();
- //console.log("autorun 11111111111")
- //if (! Session.equals("shouldAlert", true))
- //  return;
-
- let currentPageSlugTracker =  Session.get('currentPageSlugTracker');
- if ( currentPageSlugTracker ) {
- Session.set( 'pastPageSlugTracker', currentPageSlugTracker );
- console.log("GO BACK TO " + Session.get('pastPageSlugTracker'));
- Session.set( 'currentPageSlugTracker', FlowRouter.current().path.slice(1) );
- //console.log("if 111111111111 " + Session.get('currentPageSlugTracker'));
- } else {
- //FlowRouter.watchPathChange();
- Session.set( 'currentPageSlugTracker', FlowRouter.current().path.slice(1) );
- //console.log("if 222222222222 " + Session.get('currentPageSlugTracker'));
- //currentPageSlugTracker = FlowRouter.current().path.slice(1);
- }
-
- c.stop();
- //alert("Oh no!");
- });
-
-
- });
- */
-
-  //let currentPageSlugTracker =  Session.get('currentPageSlugTracker');
-  //if ( currentPageSlugTracker ) {
-  //  Session.set( 'pastPageSlugTracker', currentPageSlugTracker );
-  //} else {
-  //  //FlowRouter.watchPathChange();
-  //  Session.set( 'currentPageSlugTracker', FlowRouter.current().path.slice(1) );
-  //  //currentPageSlugTracker = FlowRouter.current().path.slice(1);
-  //}
-
-
 });
 
 Template.header.helpers({
 
   pastPageSlugTracker: function() {
-
-    console.log("slugToBack 888888888888888")
-
-
-    let pastPageSlugTracker = Session.get('pastPageSlugTracker');
-
-    if ( pastPageSlugTracker ) {
-
-      return pastPageSlugTracker;
+    let slugTrackerArray = Session.get('slugTrackerArray');
+    if ( slugTrackerArray ) {
+      //console.log("is true? " + slugTrackerArray.length > 1);
+      return (slugTrackerArray.length > 1);
     }
   },
 
@@ -109,7 +48,9 @@ Template.header.helpers({
 
 });
 
+
 Template.header.events({
+
   'click .logout' () {
     Bert.alert( 'Logging out...', 'success' );
     Meteor.logout( ( error ) => {
@@ -123,6 +64,7 @@ Template.header.events({
       }
     });
   },
+
   'keypress #searchBoxNavBar': function(e){
     if (e.keyCode == 13){
       e.preventDefault();
@@ -130,7 +72,20 @@ Template.header.events({
       FlowRouter.go('/main/search');
       e.currentTarget.value = '';
     }
-  }
+  },
 
+  'click #_lastPathBtn' () {
+    //console.log("CLICK BACK");
+    let slugTrackerArray = Session.get('slugTrackerArray');
+    if ( slugTrackerArray && slugTrackerArray.length > 1 ) {
+        let arraylength = slugTrackerArray.length;
+        let slugToBack = slugTrackerArray[arraylength-2];
+        slugTrackerArray.splice(arraylength-1, 1);
+        slugTrackerArray.splice(arraylength-2, 1);
+        //let lastItem = anArray.pop(); //TBD
+        Session.set('slugTrackerArray', slugTrackerArray);
+        FlowRouter.go('/' + slugToBack);
+    }
+  }
 
 });
