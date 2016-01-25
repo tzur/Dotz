@@ -27,19 +27,16 @@
         <!--Mobile brandLogo selctor (Logo OR Back button)-->
           <div class="navbar-brand visible-xs">
             {{#if pastPageSlugTracker}}
-                <!--<span class="logo">-->
-                  <!--<a class="" href="/dotz"><strong> back </strong></a>-->
-              <!--</span>-->
-
-            <a href="">
-                <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-arrow-left"></i></button>
-            </a>
-
+                <a href="">
+                    <button id="_lastPathBtn" type="button" class="btn btn-trans mobile-buck-button whiteTxt round btn-sm">
+                        <i class="fa fa-arrow-left"></i>
+                    </button>
+                </a>
             {{else}}
                 <span class="logo">
                   <a class="navbar-brand-dotz" href="/dotz"><strong>DOTZ</strong></a>
                   <a class="navbar-brand-colons" href="/dotz"><strong>:</strong></a>
-              </span>
+                </span>
             {{/if}}
           </div>
 
