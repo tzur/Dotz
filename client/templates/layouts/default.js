@@ -3,7 +3,7 @@ Template.default.onRendered(function() {
 
   let imgixSrc = 'https://www.imgix.com/libraries/imgix.js';
   DocHead.loadScript(imgixSrc, function() {
-    console.log("imgix has been loaded")
+    console.log("imgix has been loaded");
     imgix.onready(function() {
       // Applied to images that contain the imgix-fluid class
       // Can take an options object to set more specific behaviors
