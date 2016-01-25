@@ -22,168 +22,163 @@
 
         </div>
         <!--check if is List or Dot:-->
+      {{#if isListCard}}
+
+          <div class="col-xs-12 col-sm-12 col-md-10" id="listCover">
+              <div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">
+                  <div class="filter">
+                      <div class="listCoverContent">
+                          <a href="/{{dot.dotSlug}}">
+                              <div class="listCardTitle">
+                                  <a href="/{{dot.dotSlug}}"><h2 class="h2Title">{{dot.title}}</h2></a>
+                                  <h2 class="listIcon"><i class="fa fa-list-ul"></i></h2>
+                              </div>
+
+                          </a>
+
+                          <div class="listCardFooter">
+
+                              <div class="listCardUser col-xs-8">
 
 
-      {{>dotCard}}
+                                    <a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon">
+                                        <img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">
+                                    </a>
+                              <span class="smTxt"><a class="whiteTxt" href="/{{ownerUser.profile.userSlug}}">
+                                  <strong>{{ownerUser.username}}</strong></a></span>
+                                    <!--<span class="whiteTxt smTxt"> · {{actionDate}}</span>-->
+                              </div> <!--end userListCard -->
+
+                              <!--<div class="btn-connect-div col-xs-4 pull-right">-->
+                              <div class="buttonsBar col-xs-4">
+                                    <button type="button" class="connect btn btn-success btn-xs btn-white pull-right"><i class="fa fa-plus"></i>
+                                        Connect {{connectCounter}}</button>
+
+                              </div>
+
+                          </div>
 
 
-      <!--{{#if isListCard}}-->
+                      </div>
 
-          <!--<div class="col-xs-12 col-sm-12 col-md-10" id="listCover">-->
-              <!--<div class="container-fluid dot-container-img-listCard" style="background-image: url('{{dot.coverImageUrl}}')">-->
-                  <!--<div class="filter">-->
-                      <!--<div class="listCoverContent">-->
-                          <!--<a href="/{{dot.dotSlug}}">-->
-                              <!--<div class="listCardTitle">-->
-                                  <!--<a href="/{{dot.dotSlug}}"><h2 class="h2Title">{{dot.title}}</h2></a>-->
-                                  <!--<h2 class="listIcon"><i class="fa fa-list-ul"></i></h2>-->
-                              <!--</div>-->
-
-                          <!--</a>-->
-
-                          <!--<div class="listCardFooter">-->
-
-                              <!--<div class="listCardUser col-xs-8">-->
+                  </div>
+              </div>
+          </div> <!-- end listCard -->
 
 
-                                    <!--<a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon">-->
-                                        <!--<img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">-->
-                                    <!--</a>-->
-                              <!--<span class="smTxt"><a class="whiteTxt" href="/{{ownerUser.profile.userSlug}}">-->
-                                  <!--<strong>{{ownerUser.username}}</strong></a></span>-->
-                                    <!--&lt;!&ndash;<span class="whiteTxt smTxt"> · {{actionDate}}</span>&ndash;&gt;-->
-                              <!--</div> &lt;!&ndash;end userListCard &ndash;&gt;-->
 
-                              <!--&lt;!&ndash;<div class="btn-connect-div col-xs-4 pull-right">&ndash;&gt;-->
-                              <!--<div class="buttonsBar col-xs-4">-->
-                                    <!--<button type="button" class="connect btn btn-success btn-xs btn-white pull-right"><i class="fa fa-plus"></i>-->
-                                        <!--Connect {{connectCounter}}</button>-->
+      {{else}} <!--  = is dotCard -->
 
-                              <!--</div>-->
+          <div class="col-xs-12 col-sm-12 col-md-10" id="listCard">
 
-                          <!--</div>-->
+              <a href="/{{dot.dotSlug}}">
+                  <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4" id="searchCardImgSide">
+                      <div class="container-fluid dot-container-img-searchCard" style="background-image: url('{{dot.coverImageUrl}}')"></div>
+                  </div>
+              </a>
 
 
-                      <!--</div>-->
+              <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8" id="searchCardTextSide">
 
+                  <div class="content">
+
+                      <a href="/{{dot.dotSlug}}">
+                          <div class="listCardTitle">
+                              <a href="/{{dot.dotSlug}}"><h4 class="h2Title">{{dot.title}}</h4></a>
+                          </div>
+                      </a>
+
+                      <div class="listCardText">
+                          <p class="personalDescriptionOrBodyText smTxt">{{personalDescriptionOrBodyText}}</p>
+                      </div>
+
+                  </div>
+
+                  <div class="serachCardIcons">
+
+                    {{#if shortenAdress}}
+                        <span class="txtL dot-type">
+                                        <img id="type-icon" src="/place-icon-grey.png">
+                                        <span class="greyText smTxt">{{shortenAdress}}</span>
+                                      </span>
+                    {{/if}}
+
+                    {{#if eventDate}}
+                        <span class="txtL dot-type">
+                                      <img id="type-icon" src="/event-icon-grey.png">
+                                      <span class="greyText smTxt">{{eventDate}}</span>
+                                  </span>
+                    {{/if}}
+
+
+                    {{#if dot.price}}
+                        <span class="txtL dot-type">
+                                          <img id="type-icon" src="/price-icon-grey.png">
+                                          <span class="greyText smTxt">{{dot.price}} <span>$</span></span>
+                                      </span>
+                    {{/if}}
+
+                  </div> <!--end listCardIcons-->
+
+
+                  <div class="listCardFooter">
+                      <hr>
+
+
+                      <div class="searchCardUser col-xs-6 col-md-8">
+
+
+                            <a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon">
+                                <img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">
+                            </a>
+                                          <span class="smTxt greyText">By <a class="greyText" href="/{{ownerUser.profile.userSlug}}">
+                                              <strong>{{ownerUser.username}}</strong></a></span>
+                            <span class="greyText smTxt"> · {{actionDate}}</span>
+
+                      </div> <!--end userListCard -->
+
+
+
+
+                      <div class="buttonsBar">
+
+
+                          {{#unless isNotSearchPage}}
+                            <button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>
+                                Connect {{connectCounter}}</button>
+                          {{/unless}}
+
+
+
+                      </div>
+
+                  </div>
+
+
+
+
+
+
+
+
+
+                      <!--{{#if dotzNum}}-->
+                  <!--<div class="dotConnectedDotzLastIcon">-->
+                  <!--<div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>-->
+                  <!--<div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>-->
                   <!--</div>-->
-              <!--</div>-->
-          <!--</div> &lt;!&ndash; end listCard &ndash;&gt;-->
+                      <!--{{/if}}-->
 
 
 
-      <!--{{else}} &lt;!&ndash;  = is dotCard &ndash;&gt;-->
-
-          <!--<div class="col-xs-12 col-sm-12 col-md-10" id="listCard">-->
-
-              <!--<a href="/{{dot.dotSlug}}">-->
-                  <!--<div class="col-xs-12 col-sm-5 col-md-4 col-lg-4" id="searchCardImgSide">-->
-                      <!--<div class="container-fluid dot-container-img-searchCard" style="background-image: url('{{dot.coverImageUrl}}')"></div>-->
-                  <!--</div>-->
-              <!--</a>-->
+              </div>
 
 
-              <!--<div class="col-xs-12 col-sm-7 col-md-8 col-lg-8" id="searchCardTextSide">-->
-
-                  <!--<div class="content">-->
-
-                      <!--<a href="/{{dot.dotSlug}}">-->
-                          <!--<div class="listCardTitle">-->
-                              <!--<a href="/{{dot.dotSlug}}"><h4 class="h2Title">{{dot.title}}</h4></a>-->
-                          <!--</div>-->
-                      <!--</a>-->
-
-                      <!--<div class="listCardText">-->
-                          <!--<p class="personalDescriptionOrBodyText smTxt">{{personalDescriptionOrBodyText}}</p>-->
-                      <!--</div>-->
-
-                  <!--</div>-->
-
-                  <!--<div class="serachCardIcons">-->
-
-                    <!--{{#if shortenAdress}}-->
-                        <!--<span class="txtL dot-type">-->
-                                        <!--<img id="type-icon" src="/place-icon-grey.png">-->
-                                        <!--<span class="greyText smTxt">{{shortenAdress}}</span>-->
-                                      <!--</span>-->
-                    <!--{{/if}}-->
-
-                    <!--{{#if eventDate}}-->
-                        <!--<span class="txtL dot-type">-->
-                                      <!--<img id="type-icon" src="/event-icon-grey.png">-->
-                                      <!--<span class="greyText smTxt">{{eventDate}}</span>-->
-                                  <!--</span>-->
-                    <!--{{/if}}-->
-
-
-                    <!--{{#if dot.price}}-->
-                        <!--<span class="txtL dot-type">-->
-                                          <!--<img id="type-icon" src="/price-icon-grey.png">-->
-                                          <!--<span class="greyText smTxt">{{dot.price}} <span>$</span></span>-->
-                                      <!--</span>-->
-                    <!--{{/if}}-->
-
-                  <!--</div> &lt;!&ndash;end listCardIcons&ndash;&gt;-->
-
-
-                  <!--<div class="listCardFooter">-->
-                      <!--<hr>-->
-
-
-                      <!--<div class="searchCardUser col-xs-6 col-md-8">-->
-
-
-                            <!--<a href="/{{ownerUser.profile.userSlug}}" class="userImgIcon">-->
-                                <!--<img class="userImgIcon" src="{{ownerUser.profile.profileImage}}">-->
-                            <!--</a>-->
-                                          <!--<span class="smTxt greyText">By <a class="greyText" href="/{{ownerUser.profile.userSlug}}">-->
-                                              <!--<strong>{{ownerUser.username}}</strong></a></span>-->
-                            <!--<span class="greyText smTxt"> · {{actionDate}}</span>-->
-
-                      <!--</div> &lt;!&ndash;end userListCard &ndash;&gt;-->
+          </div> <!-- end listCard -->
 
 
 
-
-                      <!--<div class="buttonsBar">-->
-
-
-                          <!--{{#unless isNotSearchPage}}-->
-                            <!--<button type="button" class="connect btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i>-->
-                                <!--Connect {{connectCounter}}</button>-->
-                          <!--{{/unless}}-->
-
-
-
-                      <!--</div>-->
-
-                  <!--</div>-->
-
-
-
-
-
-
-
-
-
-                      <!--&lt;!&ndash;{{#if dotzNum}}&ndash;&gt;-->
-                  <!--&lt;!&ndash;<div class="dotConnectedDotzLastIcon">&ndash;&gt;-->
-                  <!--&lt;!&ndash;<div class="innerDotlengh-upper txtMd"><span>{{dotzNum}}</span></div>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<div class="innerDotlengh-lower txtMd"><span>{{dotOrDotz}}</span></div>&ndash;&gt;-->
-                  <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                      <!--&lt;!&ndash;{{/if}}&ndash;&gt;-->
-
-
-
-              <!--</div>-->
-
-
-          <!--</div> &lt;!&ndash; end listCard &ndash;&gt;-->
-
-
-
-      <!--{{/if}}-->
+      {{/if}}
 
 
         <div class="hidden-xs hidden-sm col-md-1" id="listCardOtherSide">
