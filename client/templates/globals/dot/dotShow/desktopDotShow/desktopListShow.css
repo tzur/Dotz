@@ -46,6 +46,6 @@
 
 #connectedDotzArray-desktopListShow {
   background-color: #FFFFFF;
-  min-height: 70vh;
+  /*min-height: 70vh;*/
   padding-top: 4vh;
 }

@@ -55,14 +55,44 @@
 
           {{/each}}
 
-          <!--{{>mobileDotCardLastDot}}-->
           <br>
           <br>
           <br>
-            <!--{{>lastDotInMobileListShow}}-->
+
+          {{#if isMyDot}}
+
+          {{else}}
+
+            {{#if isUserAllowToConnect}}
+              {{>mobileDotCardLastDot}}
+            {{else}}
+            {{/if}}
+
+          {{/if}}
+
 
         </div>
     </div>
+
+  {{#if isUserAllowToConnect}}
+
+      <div class="container-fluid" id="dotShowFooter">
+
+          <div class="row">
+
+            {{# if addDotIsAvailable}}
+              {{#with dataForCreateHere}}
+
+                {{>searchBoxForConnect}}
+
+              {{/with}}
+            {{/if}}
+
+          </div>
+
+      </div>
+
+  {{/if}}
 
 
 
