@@ -27,6 +27,7 @@ Template.header.helpers({
   pastPageSlugTracker: function() {
     let slugTrackerArray = Session.get('slugTrackerArray');
     if ( slugTrackerArray ) {
+      //console.log("is true? " + slugTrackerArray.length > 1);
       return (slugTrackerArray.length > 1);
     }
   },
