@@ -1,0 +1,55 @@
+#desktopDotCard-lastDot-box {
+  margin-left: 0;
+  border-left: transparent;
+  padding: 0 1vh 0 0;
+}
+
+
+#desktopDotCard-lastDot {
+  padding: 5vh 0 0 0;
+  position: relative;
+}
+
+
+#desktopDotCard-lastDot-col-connectLine {
+  width: 4vw;
+  position: relative;
+  float: left;
+  text-align: center;
+  border-left: 8px dashed #FFFFFF;
+  padding-top: 21vh;
+  margin-top: -11vh;
+  border-bottom: 8px dashed #FFFFFF;
+}
+
+#desktopDotCardImg {
+  padding: 0;
+  height: 26vw;
+  border-radius: 50%;
+  width: 26vw;
+  background-size: cover;
+  position: relative;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  border: #e5e5e5 solid 2px;
+}
+
+#desktopDotCard-title #desktopDotCard-title-lastDot {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 3px 0 0 0;
+}
+
+#desktopDotCard-lastDotButtons {
+  padding: 5vh 0 7vh 0;
+  text-align: center;
+}
+
+#share-Q-modal .modal-footer {
+  text-align: center;
+}
+
+#share-Q-modal button {
+  width: 20%;
+}
+

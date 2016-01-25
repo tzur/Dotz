@@ -127,9 +127,9 @@
                               <!--</button>-->
                           </span>
 
-                          <div id="connectedByText-desktopDotCardDiv">
-                              <h5 id="connectedByText-desktopDotCard" class="lightGrey"><em>{{smartRef.connection.personalDescription}}</em></h5>
-                          </div>
+                          <!--<div id="connectedByText-desktopDotCardDiv">-->
+                              <!--<h5 id="connectedByText-desktopDotCard" class="lightGrey"><em>{{smartRef.connection.personalDescription}}</em></h5>-->
+                          <!--</div>-->
 
                       {{else}}
 
@@ -149,28 +149,63 @@
 
 
 
-      {{#if isConnected}}
-          <div id="desktopDotCard-connectButtonDiv" class="connect" data-toggle="tooltip" data-placement="right" title="Connect to...">
-              <i class="fa fa-bookmark-o mdGrey mdTxt"></i>
-          </div>
-
-          <div id="desktopDotCard-disconnectButtonDiv" class="disConnect" data-toggle="tooltip" data-placement="right" title="Disconnect from here">
-              <i class="fa fa-times mdGrey mdTxt"></i>
-          </div>
-      {{else}}
-          <div id="desktopDotCard-connectButtonDiv" class="connect">
-              <i class="fa fa-bookmark-o mdGrey mdTxt"></i>
-          </div>
-      {{/if}}
+              <div id="desktopDotCard-buttonsDiv">
 
 
-      {{#if dot.linkUrl}}
-          <a href="{{dot.linkUrl}}" target="_blank">
-              <div id="desktopDotCard-linkButton">
-                  <i class="fa fa-external-link mdGrey mdTxt"></i>
+                {{#if isMyDot}}
+                    <a class="panelBtn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div id="desktopDotCard-editButtonDiv">
+                            <i class="fa fa-cog mdGrey mdTxt" aria-hidden="true"></i>
+                        </div>
+                    </a>
+
+                    <ul id="pre-delete-menu" class="dropdown-menu left">
+
+                      {{#if isConnected}}
+                          <li class="_disConnectBtn"><a><i class="mdGrey fa fa-minus-circle"></i> Disconnect</a></li>
+                          <li role="separator" class="divider"></li>
+                      {{else}}
+                          <!--<div id="desktopDotCard-connectButtonDiv" class="connect">-->
+                          <!--<i class="fa fa-bookmark-o mdGrey mdTxt"></i>-->
+                          <!--</div>-->
+                      {{/if}}
+
+                      {{#if isMyDot}}
+                          <li class="editBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                      {{/if}}
+
+                    </ul>
+
+
+                {{/if}}
+
+                {{#if dot.linkUrl}}
+                    <a href="{{dot.linkUrl}}" target="_blank">
+                        <div id="desktopDotCard-linkButton">
+                            <i class="fa fa-external-link mdGrey mdTxt"></i>
+                        </div>
+                    </a>
+                {{/if}}
+
+                {{#if isConnected}}
+
+                    <div id="desktopDotCard-disconnectButtonDiv" class="disConnect" data-toggle="tooltip" data-placement="right" title="Disconnect from here">
+                        <i class="fa fa-times mdGrey mdTxt"></i>
+                    </div>
+
+                    <div id="desktopDotCard-connectButtonDiv" class="connect" data-toggle="tooltip" data-placement="right" title="Connect to...">
+                        <i class="fa fa-bookmark-o mdGrey mdTxt"></i>
+                    </div>
+
+                {{else}}
+                    <div id="desktopDotCard-connectButtonDiv" class="connect">
+                        <i class="fa fa-bookmark-o mdGrey mdTxt"></i>
+                    </div>
+                {{/if}}
+
               </div>
-          </a>
-      {{/if}}
 
           </div> <!-- end dotCard -->
 

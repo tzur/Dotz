@@ -61,10 +61,6 @@ Template.editDotModal.events({
 
   },
 
-  'click #exitBtn': function(){
-    //Modal.hide('createListModal');
-    Modal.hide();
-  },
 
   'change input[type="file"]' ( event, template ) {
     Session.set('coverImageUrl', undefined);
