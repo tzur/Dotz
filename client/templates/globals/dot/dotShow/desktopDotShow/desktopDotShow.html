@@ -19,8 +19,8 @@
                 <div id="desktopListShow-listShowHeader-filter">
 
                     <div id="desktopDotShow-titleDiv" class="col-sm-7 colCenter">
-                        <h2 id="desktopDotShow-title" class="whiteTxt text-center container-fluid">{{dot.title}}</h2>
-                        <h5 id="desktopListShow-description" class="lightGrey text-center">{{dot.bodyText}}</h5>
+                        <h2 id="desktopDotShow-title" class="whiteTxt text-center container-fluid" dir="auto">{{dot.title}}</h2>
+                        <h5 id="desktopListShow-description" class="lightGrey text-center" dir="auto">{{dot.bodyText}}</h5>
                     </div>
 
                 </div>
@@ -39,7 +39,7 @@
                       {{else}}
                         {{#if dot.linkFavicon}}
                           {{#if dot.linkName}}
-                            <a href="{{dot.linkUrl}}" target="_blank"><img class="ddesktopListShow-originImgProfile" src="{{dot.linkFavicon}}"></a>
+                            <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopListShow-originImgProfile" src="{{dot.linkFavicon}}"></a>
                           {{/if}}
                         {{/if}}
                       {{/if}}
@@ -241,7 +241,7 @@
             <div id="desktopDotShow-listShowHeader-filter">
 
                 <div id="desktopDotShow-titleDiv" class="col-sm-7 colCenter">
-                    <h2 id="desktopDotShow-title" class="darkText container-fluid">{{dot.title}}</h2>
+                    <h2 id="desktopDotShow-title" class="darkText container-fluid" dir="auto">{{dot.title}}</h2>
                 </div>
 
             </div>
@@ -258,7 +258,9 @@
                               <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{authorFbProfile}}"></a>
                           {{else}}
                              {{#if dot.linkFavicon}}
-                             <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{dot.linkFavicon}}"></a>
+                               {{#if dot.linkName}}
+                                  <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{dot.linkFavicon}}"></a>
+                               {{/if}}
                              {{/if}}
                           {{/if}}
 
@@ -344,7 +346,7 @@
         <div id="desktopDotShow-descriptionDiv" class="container-fluid">
             <div class="container-fluid">
                 <div class="col-sm-6 colCenter">
-                    <pre id="desktopDotShow-description" class="darkText">{{dot.bodyText}}</pre>
+                    <pre id="desktopDotShow-description" class="darkText" dir="auto">{{dot.bodyText}}</pre>
                       <!--<div id="desktopDotShow-descriptionFilter"></div>-->
                 </div>
 
