@@ -290,10 +290,11 @@
 
                     <div class="col-sm-6 pull-right txtR">
 
-
-                    <a href="{{dot.linkUrl}}" target="_blank">
-                        <button type="button" class="btn btn-info btn-{{dot.dotSubType}} btn-sm"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
-                    </a>
+                    {{#if dot.linkUrl}}
+                      <a href="{{dot.linkUrl}}" target="_blank">
+                          <button type="button" class="btn btn-info btn-{{dot.dotSubType}} btn-sm"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
+                      </a>
+                    {{/if}}
 
 
                       <!--like button-->
