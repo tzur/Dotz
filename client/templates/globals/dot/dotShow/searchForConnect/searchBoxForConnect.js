@@ -86,10 +86,12 @@ Template.searchBoxForConnect.helpers({
       connectedByUserId: this.ownerUserId,
       likes: "none"
     };
+
     let data = {
       dot: this,
       //ownerUser: Meteor.users.findOne(this.ownerUserId),
-      connection: connection
+      connection: connection,
+      inSearchResults: true
     };
     return data;
   }

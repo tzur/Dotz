@@ -14,7 +14,15 @@
 
                   <!--show WITHOUT the left line-->
 
-                {{else}}
+                {{#if isInSearchResults}}
+
+                    {{#if isNotSearchPage}}
+
+                    {{/if}}
+                {{/if}}
+
+
+                  {{else}}
 
                   <div id="mobileDotCard-col-connectLine">
                       <hr id="mobileDotCard-connectLine">

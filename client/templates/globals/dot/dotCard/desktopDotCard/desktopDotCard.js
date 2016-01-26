@@ -52,6 +52,41 @@ Template.desktopDotCard.helpers({
       return data;
     }
   },
+
+  //UI helpers:
+  listShowOrDotShowClass: function() {
+    if ( Template.parentData(2).dot &&
+      (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList") ) {
+      return ("inListShow")
+    } else if ( Template.parentData(1).inSearchResults ) {
+      return (Template.parentData(1).inSearchResults);
+    } else {
+      return ("inDotShow")
+    }
+  },
+
+  isInDotShow: function() {
+    if ( Template.parentData(2).dot ) {
+      return (Template.parentData(2).dot.dotType === "Dot");
+    }
+  },
+
+  isInListShow: function() {
+    if ( Template.parentData(2).dot && Template.parentData(2).dot.dotType ) {
+      return (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList");
+    }
+    //else if ( Template.parentData(1).inSearchResults ) {
+    //  return (Template.parentData(1).inSearchResults);
+    //}
+  },
+
+  isInSearchResults: function() {
+    if ( Template.parentData(1).inSearchResults ) {
+      return (Template.parentData(1).inSearchResults);
+    }
+  },
+  //end UI helpers
+
   //create specific SESSION!!!! TBD
   isInOpenList: function() {
     //The big if is for Feed that doesn't have these data.
