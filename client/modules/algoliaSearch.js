@@ -1,6 +1,4 @@
-/**
- * Created by avivhatzir on 17/11/2015.
- */
+//TODO: fix it systematic.. @otni
 
 let searchByAlgolia = function(searchIndex, keyWord, callback, specificQuery) {
   //console.log(Geolocation.latLng());

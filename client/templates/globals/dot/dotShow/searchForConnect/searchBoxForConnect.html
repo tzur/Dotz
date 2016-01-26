@@ -109,8 +109,13 @@
                                               {{#each dotzResult}}
                                                   {{#if isAlreadyConnected}}
                                                   <div class="dot-card-search-wrapper">
-                                                    {{> dotCardSearch}}
+                                                    <!--{{> dotCardSearch}}-->
+                                                      <!--<br><br>-->
+                                                          {{#with dataForDotCard}}
+                                                      {{> dotCard}}
+                                                          {{/with}}
                                                   </div>
+
                                                   {{/if}}
                                               {{/each}}
                                             </ul>
@@ -134,9 +139,12 @@
                                             <ul>
                                               {{#each listsResult}}
                                                 {{#if isAlreadyConnected}}
+
                                                         <div class="dot-card-search-wrapper">
                                                     {{> dotCardSearch}}
+
                                                   </div>
+
                                                 {{/if}}
                                               {{/each}}
                                             </ul>

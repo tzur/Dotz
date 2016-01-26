@@ -29,7 +29,7 @@ Template.mobileDotCard.helpers({
   //},
   dataCard: function(){
     if (this.dot){
-
+      //console.log("dot title is " + this.dot.title);
       let data = {
         dot: Dotz.findOne(this.dot._id),
         smartRef: this,
@@ -75,14 +75,17 @@ Template.mobileDotCard.helpers({
 
   //UI helpers:
   listShowOrDotShowClass: function() {
-    if (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList") {
+    if ( Template.parentData(2).dot
+      && (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList") ) {
       return ("inListShow")
     } else {
       return ("inDotShow")
     }
   },
   isInListShow: function() {
-    return (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList");
+    if ( Template.parentData(2).dot ) {
+      return (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList");
+    }
   },
   //end UI helpers
 

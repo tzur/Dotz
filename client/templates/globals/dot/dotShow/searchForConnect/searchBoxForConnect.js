@@ -35,12 +35,14 @@ Template.searchBoxForConnect.helpers({
     if(Session.get('searchInput')){
       Modules.client.searchByAlgolia(Meteor.user().roles.firstGroup[0] + "Dotz", Session.get('searchInput'), function(error, content){
         if(content){
+          console.log("result object " );
           Session.set('dotzResult', content);
         }
         else{
           console.log("Error, dotz search failed : " + error)
         }
       });
+
       if(Session.get('dotzResult')){
         return Session.get('dotzResult').hits;
       }
@@ -77,6 +79,19 @@ Template.searchBoxForConnect.helpers({
 
   isAlreadyConnected: function(){
     return Modules.client.Dotz.canBeConnectedToDot(Template.parentData().dot._id, this._id)
+  },
+
+  dataForDotCard: function() {
+    let connection = {
+      connectedByUserId: this.ownerUserId,
+      likes: "none"
+    };
+    let data = {
+      dot: this,
+      //ownerUser: Meteor.users.findOne(this.ownerUserId),
+      connection: connection
+    };
+    return data;
   }
 
 });
