@@ -75,19 +75,30 @@ Template.mobileDotCard.helpers({
 
   //UI helpers:
   listShowOrDotShowClass: function() {
-    if ( Template.parentData(2).dot
-      && (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList") ) {
-      return ("inListShow")
+    if ( Template.parentData(2).dot &&
+      (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList") ) {
+        return ("inListShow")
+    } else if ( Template.parentData(1).inSearchResults ) {
+        return (Template.parentData(1).inSearchResults);
     } else {
-      return ("inDotShow")
+        return ("inDotShow")
     }
   },
   isInListShow: function() {
-    if ( Template.parentData(2).dot ) {
+    //console.log("check111111111");
+    if ( Template.parentData(2).dot && Template.parentData(2).dot.dotType ) {
       return (Template.parentData(2).dot.dotType === "List" || Template.parentData(2).dot.dotType === "shareList");
+    }
+    else if ( Template.parentData(1).inSearchResults ) {
+      return (Template.parentData(1).inSearchResults);
     }
   },
   //end UI helpers
+
+  //Search Helpers:
+  isNotSearchPage: function(){
+    return !(FlowRouter.current().path === "/main/search")
+  },
 
   isListCard: function() {
     return (this.dot && this.dot.dotType === "List" || this.dot && this.dot.dotType === "shareList");

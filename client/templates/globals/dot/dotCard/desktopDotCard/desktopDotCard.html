@@ -1,67 +1,88 @@
 <template name="desktopDotCard">
   {{#with dataCard}}
-
       <div id="desktopDotCard-box" class="row">
 
           <div id="desktopDotCard" class="container-fluid">
 
-<!-- class="col-sm-1"-->
-              <div id="desktopDotCard-col-connectLine">
-                  <hr id="desktopDotCard-connectLine">
-              </div>
-
-<!-- class="col-sm-1"-->
 
 
-                  <!--TBD: add a session to fix it!!! -->
-      <div id="desktopDotCard-col-sort-like">
+            {{#if isInDotShow}}
+                <div id="desktopDotCard-col-connectLine">
+                    <hr id="desktopDotCard-connectLine">
+                </div>
+            {{/if}}
 
-          {{#if isInClosedList}}
 
-                {{#if sortIsAvailable}}
+            {{#if isInListShow}}
 
-                  <div id="desktopDotCard-col-sortBtns">
-                    <a class="upBtn panelBtn">
-                        <i class="fa fa-arrow-circle-up mdTxt mdGrey"></i>
-                        <!--<span class="glyphicon glyphicon-triangle-top smTxt"  aria-hidden="true"> </span>-->
-                    </a>
-                    <br>
-                    <br>
-                    <a class="downBtn panelBtn">
-                        <!--<span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span>-->
-                        <i class="fa fa-arrow-circle-down mdTxt mdGrey"></i>
-                    </a>
+
+                  <div id="desktopDotCard-col-sort-like">
+
+                    {{#if isInClosedList}}
+
+                      {{#if sortIsAvailable}}
+
+                          <div id="desktopDotCard-col-sortBtns">
+                              <a class="upBtn panelBtn">
+                                  <i class="fa fa-arrow-circle-up mdTxt mdGrey"></i>
+                                  <!--<span class="glyphicon glyphicon-triangle-top smTxt"  aria-hidden="true"> </span>-->
+                              </a>
+                              <br>
+                              <br>
+                              <a class="downBtn panelBtn">
+                                  <!--<span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span>-->
+                                  <i class="fa fa-arrow-circle-down mdTxt mdGrey"></i>
+                              </a>
+                          </div>
+
+                      {{else}}
+
+                      {{/if}}
+
+                    {{else}}
+
+                        <div id="desktopDotCard-col-like">
+
+                          {{# if isLikedByMe}}
+                              <a class="unlike">
+                                  <i class="unlike darkText mdTxt likeBtn fa fa-heart"></i>
+                        <span class="likesCounter normalTxt darkText">
+                          <br>
+                          {{likeCounter}}</span>
+                              </a>
+                          {{else}}
+                              <a class="like">
+                                  <i class="like darkText mdTxt likeBtn fa fa-heart-o"></i>
+                        <span class="likesCounter normalTxt darkText">
+                          <br>
+                          {{likeCounter}}</span>
+                              </a>
+                          {{/if}}
+                        </div>
+
+
+                    {{/if}}
+
                   </div>
 
-                  {{else}}
-
-                {{/if}}
-
-          {{else}}
-
-                  <div id="desktopDotCard-col-like">
-
-                        {{# if isLikedByMe}}
-                            <a class="unlike">
-                                <i class="unlike darkText mdTxt likeBtn fa fa-heart"></i>
-                              <span class="likesCounter normalTxt darkText">
-                                <br>
-                                {{likeCounter}}</span>
-                            </a>
-                        {{else}}
-                            <a class="like">
-                                <i class="like darkText mdTxt likeBtn fa fa-heart-o"></i>
-                              <span class="likesCounter normalTxt darkText">
-                                <br>
-                                {{likeCounter}}</span>
-                            </a>
-                        {{/if}}
-                  </div>
+            {{/if}}
 
 
-          {{/if}}
 
-      </div>
+
+
+              {{#if inSearchResults}}
+
+
+              {{/if}}
+
+
+
+
+
+
+
+
 
 
 
@@ -261,6 +282,6 @@
 
 
       </div>
-
   {{/with}}
 </template>
+

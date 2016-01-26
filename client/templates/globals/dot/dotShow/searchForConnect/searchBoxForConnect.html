@@ -83,7 +83,7 @@
     <!--</div>-->
 
 
-    <div class="container-fluid" id="searchResults">
+    <div class="" id="searchResults">
         <!--<div class="row search-results-row">-->
             <!--<div class="col-xs-12">-->
 
@@ -97,25 +97,21 @@
 
                       <!-- Tab panes -->
                       <div class="tab-content">
+
+                          <!--Dotz results tab-->
                           <div role="tabpanel" class="tab-pane active" id="dotz">
 
                               <div class="container-fluid">
                                   <div class="row">
                                       <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
 
-
                                         {{#if dotzResult}}
                                             <ul>
                                               {{#each dotzResult}}
                                                   {{#if isAlreadyConnected}}
-                                                  <div class="dot-card-search-wrapper">
-                                                    <!--{{> dotCardSearch}}-->
-                                                      <!--<br><br>-->
-                                                          {{#with dataForDotCard}}
-                                                      {{> dotCard}}
-                                                          {{/with}}
-                                                  </div>
-
+                                                      {{#with dataForDotCard}}
+                                                        {{> dotCard}}
+                                                      {{/with}}
                                                   {{/if}}
                                               {{/each}}
                                             </ul>
@@ -129,6 +125,7 @@
 
                           </div>
 
+                          <!--Lists results tab-->
                           <div role="tabpanel" class="tab-pane" id="lists">
 
                             <div class="container-fluid">
@@ -139,12 +136,9 @@
                                             <ul>
                                               {{#each listsResult}}
                                                 {{#if isAlreadyConnected}}
-
-                                                        <div class="dot-card-search-wrapper">
-                                                    {{> dotCardSearch}}
-
-                                                  </div>
-
+                                                  {{#with dataForDotCard}}
+                                                    {{> dotCard}}
+                                                  {{/with}}
                                                 {{/if}}
                                               {{/each}}
                                             </ul>
