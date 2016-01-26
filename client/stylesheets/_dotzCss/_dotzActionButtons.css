@@ -1,5 +1,88 @@
-.btn-user {
+.btn-Person {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
 }
+
+.btn-Person:hover {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+
+
+.btn-Media {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.btn-Media:hover {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+
+
+
+
+.btn-Place {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.btn-Place:hover {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+}
+
+
+
+
+.btn-Link {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.btn-Link:hover {
+  color: #fff;
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
+
+
+
+
+.btn-Event {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+.btn-Event:hover {
+  color: #fff;
+  background-color: #ec971f;
+  border-color: #d58512;
+}
+
+
+
+
+.btn-Product {
+  color: #fff;
+  background-color: #9352D9;
+  border-color: #904CCF;
+}
+
+.btn-Product:hover {
+  color: #fff;
+  background-color: #8D45C4;
+  border-color: #893BB5;
+}
+
+
+

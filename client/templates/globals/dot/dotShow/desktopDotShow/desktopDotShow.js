@@ -144,18 +144,40 @@ Template.desktopDotShow.helpers({
 
   //ActionButton Helpers:
   actionButtonIcon: function() {
-    if (this.dot.subType === "Link") {
+    if (this.dot.dotSubType === "Link") {
+      return "fa-external-link";
+    } else if (this.dot.dotSubType === "Place") {
+      return "fa-map-marker";
+    } else if (this.dot.dotSubType === "Event") {
+      return "fa-calendar";
+    } else if (this.dot.dotSubType === "Person") {
       return "fa-user";
-    } else if (this.dot.subType === "Place") {
-      return "fa-user";
-    } else if (this.dot.subType === "Event") {
-      return "fa-user";
-    } else if (this.dot.subType === "Person") {
-      return "fa-user";
-    } else if (this.dot.subType === "Media") {
-      return "fa-user";
-    } else if (this.dot.subType === "Product") {
-      return "fa-user";
+    } else if (this.dot.dotSubType === "Media") {
+      return "fa-play";
+    } else if (this.dot.dotSubType === "Product") {
+      return "fa-shopping-bag";
+    } else {
+      return "fa-external-link";
+    }
+  },
+  //----------------//
+
+  //ActionButton Helpers:
+  actionButtonTitle: function() {
+    if (this.dot.dotSubType === "Link") {
+      return "Visit";
+    } else if (this.dot.dotSubType === "Place") {
+      return "Navigate";
+    } else if (this.dot.dotSubType === "Event") {
+      return "Book";
+    } else if (this.dot.dotSubType === "Person") {
+      return "Contact";
+    } else if (this.dot.dotSubType === "Media") {
+      return "Play";
+    } else if (this.dot.dotSubType === "Product") {
+      return "Get";
+    } else {
+      return "Go";
     }
   },
   //----------------//
