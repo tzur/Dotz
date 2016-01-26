@@ -8,8 +8,8 @@
     <div id="coverImg-mobileDotShow-list" class="row {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')">
       <div id="filter-mobileDotShow-list">
         <div id="titleDiv-mobileDotShow-list" class="container-fluid">
-            <h4 id="title-mobileDotShow-list" class="col-xs-12 text-center">{{dot.title}}</h4>
-            <h6 id="description-mobileDotShow-list" class="col-xs-12 text-center">{{dot.bodyText}}</h6>
+            <h4 id="title-mobileDotShow-list" class="col-xs-12 text-center noPadding" dir="auto">{{dot.title}}</h4>
+            <h6 id="description-mobileDotShow-list" class="col-xs-12 text-center" dir="auto">{{dot.bodyText}}</h6>
         </div>
       </div>
     </div>
@@ -124,7 +124,7 @@
                 <div id="desktopDotShow-listShowHeader-filter">
 
                     <div id="desktopDotShow-titleDiv" class="col-sm-7 colCenter">
-                        <h4 id="desktopDotShow-title" class="darkText container-fluid">{{dot.title}}</h4>
+                        <h4 id="desktopDotShow-title" class="darkText container-fluid noPadding" dir="auto">{{dot.title}}</h4>
                     </div>
 
                 </div>
@@ -164,7 +164,7 @@
               {{#if dot.bodyText}}
 
                   <div class="container-fluid">
-                      <h5 class="description line-h-md greyText mdTxt">{{dot.bodyText}}</h5>
+                      <h5 class="description line-h-md greyText mdTxt" dir="auto">{{dot.bodyText}}</h5>
                   </div>
 
               {{/if}}
