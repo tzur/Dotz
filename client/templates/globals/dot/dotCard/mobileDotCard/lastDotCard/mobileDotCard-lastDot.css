@@ -35,3 +35,21 @@
   width: 20%;
 }
 
+#mobileDotCard-lastDot-col-title {
+  width: 61vw;
+  position: relative;
+  /*max-height: 22vw;*/
+  /*overflow-y: hidden;*/
+  padding: 0 0 0 1vw;
+  margin: auto;
+  float: left;
+}
+
+#mobileDotCard-lastDot-col-title h5, #mobileDotCard-lastDot-col-title h4 {
+  margin: 0.125em 0 0 0;
+}
+
+#mobileDotCard-lastDotButtons i {
+  margin-top: .2em;
+}
+
