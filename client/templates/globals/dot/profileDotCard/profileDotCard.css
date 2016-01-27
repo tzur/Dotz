@@ -10,6 +10,15 @@
   }
 }
 
+#profileDotCard-buttons {
+  display: none;
+  font-size: 18px;
+}
+
+#profileDotCard-Box:hover #profileDotCard-buttons {
+  display: block;
+}
+
 .profileDotCardImg {
   position: relative;
   height: 19vw;
