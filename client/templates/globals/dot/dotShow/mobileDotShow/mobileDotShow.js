@@ -54,7 +54,6 @@ Template.mobileDotShow.onRendered(function(){
 
   //  Kill the Sessions here:
     Session.set('userClickOnTheYesButton', false);
-
   });
 
   (function(d, s, id){

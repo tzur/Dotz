@@ -48,6 +48,9 @@ Template.desktopDotShow.onRendered(function(){
   Tracker.autorun(function () {
     FlowRouter.watchPathChange();
     window.scrollTo(0,0);
+
+    //  Kill the Sessions here:
+    Session.set('userClickOnTheYesButton', false);
   });
 
   (function(d, s, id){
