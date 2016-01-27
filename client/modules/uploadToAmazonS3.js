@@ -68,16 +68,21 @@ let upload = ( options ) => {
   _uploadFileToAmazon( file );
 };
 
-let uploadToAmazonViaUrl = function(url, givenTemplate){
-  template = givenTemplate;
+let uploadToAmazonViaUrl = function(url, callback){
   Meteor.call('downloadImage', url ,function(error, data){
     if (error){
       console.log(error);
+      if (callback){
+        callback(error)
+      }
     }
     else {
       var myBlob = _dataURItoBlob(data);
       myBlob.name = Math.random().toString();
       _uploadFileToAmazon(myBlob);
+      if (callback){
+        callback()
+      }
 
     }
   })
