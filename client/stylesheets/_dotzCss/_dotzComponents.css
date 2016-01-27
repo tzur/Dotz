@@ -151,3 +151,8 @@ span a:hover {
   color: #fff;
   border-radius: 6px 6px 0 0;
 }
+.nonEditAble {
+  cursor: not-allowed;
+  background-color: #EEE;
+  color: #9E9999;
+}

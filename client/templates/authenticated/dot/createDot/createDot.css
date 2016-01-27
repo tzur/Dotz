@@ -215,5 +215,9 @@ button .collapsed {
   width: 25%;
 }
 
-
+.nonEditAble {
+  cursor: not-allowed;
+  background-color: #EEE;
+  color: #9E9999;
+}
 
