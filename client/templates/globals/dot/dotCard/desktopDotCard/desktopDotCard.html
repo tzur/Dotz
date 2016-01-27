@@ -5,11 +5,35 @@
           <div id="desktopDotCard" class="container-fluid">
 
 
-
+<!--dotCard in Lis-->
             {{#if isInDotShow}}
                 <div id="desktopDotCard-col-connectLine">
                     <hr id="desktopDotCard-connectLine">
                 </div>
+
+            <div id="desktopDotCard-col-sort-like">
+                <div id="desktopDotCard-col-like">
+
+                  {{# if isLikedByMe}}
+                      <a class="unlike">
+                          <i class="unlike darkText mdTxt likeBtn fa fa-heart"></i>
+                        <span class="likesCounter normalTxt darkText">
+                          <br>
+                          {{likeCounter}}</span>
+                      </a>
+                  {{else}}
+                      <a class="like">
+                          <i class="like darkText mdTxt likeBtn fa fa-heart-o"></i>
+                        <span class="likesCounter normalTxt darkText">
+                          <br>
+                          {{likeCounter}}</span>
+                      </a>
+                  {{/if}}
+                </div>
+            </div>
+
+
+
             {{/if}}
 
 
@@ -71,9 +95,10 @@
 
 
 
-              {{#if inSearchResults}}
-
-
+              {{#if isInSearchResultsForConnect}}
+                  <a id="addDotToCurrentDot" href>
+                      <i class="pull-right addBtn fa fa-plus-circle"></i>
+                  </a>
               {{/if}}
 
 

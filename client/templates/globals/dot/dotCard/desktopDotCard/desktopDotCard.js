@@ -80,7 +80,7 @@ Template.desktopDotCard.helpers({
     //}
   },
 
-  isInSearchResults: function() {
+  isInSearchResultsForConnect: function() {
     if ( Template.parentData(1).inSearchResults ) {
       return (Template.parentData(1).inSearchResults);
     }
@@ -395,6 +395,25 @@ Template.desktopDotCard.events({
   'click ._setCurrentPath': function(){
     Session.set('searchInput',undefined);
     $('#searchBoxInput').val("")
+  },
+
+  //Add dot from the search results:
+  'click #addDotToCurrentDot': function(){
+    let currentDot = this.dot;
+    let parentDot = Template.parentData(3).dot;
+    Meteor.call('checkIfUserAuthoriseForConnect', parentDot._id, function(error, result){
+      if(result === true){
+        Modal.show('searchForConnectAddPersonalDescriptionModal', {
+          data:{
+            dot: currentDot,
+            parentDot: parentDot
+          }
+        });
+      }
+      else{
+        Modal.show('signUpModal');
+      }
+    })
   },
 
   'click .shareListInstant': function(event){
