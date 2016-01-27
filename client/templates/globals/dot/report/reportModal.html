@@ -1,0 +1,61 @@
+<template name="reportModal">
+    <div class="modal fade" data-keyboard="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <div id="modal-header-primary" class="container-fluid">
+                    <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                    <h4 class="modal-title">Report</h4>
+                </div>
+
+                <div class="modal-body">
+                    <h4 class="line-h-md">Please share your concern with us.</h4>
+                </div>
+
+
+                <div class="container-fluid">
+
+                    <form id="superShareForm">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for ="subject">Choose report subject</label>
+                                <!--<input name="subject" type="text" class="form-control" id="subject">-->
+                                <select name="subject" id="subject" class="form-control"> <option>Claim this Dot</option> <option>Offensive content</option> <option>Bad Connection</option> <option>Copyrights issues</option></select>
+
+                            </div>
+                        </div>
+                      <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for ="description" hidden></label>
+                                <textarea  name="description" class="form-control" rows="5" id="description" placeholder="Write your report here" required></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for ="email">Your Email address</label>
+                                <input name="email" type="text" class="form-control" placeholder="Example@email.com" id="email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group txtMd">
+                                  {{#if isSpinnerOn}}
+                                      <button id="superEmailSend" type="submit" class="createBtn transparent insert btn  btn-primary has-spinner active">
+                                          <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>Send</button>
+                                  {{else}}
+                                      <button id="superEmailSend" type="submit" class="createBtn insert btn  btn-primary">Send</button>
+                                  {{/if}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

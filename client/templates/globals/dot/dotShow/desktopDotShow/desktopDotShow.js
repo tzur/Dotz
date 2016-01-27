@@ -364,6 +364,11 @@ Template.desktopDotShow.events({
     }
   },
 
+  'click ._report': function(event){
+    event.preventDefault();
+    Modal.show('reportModal');
+  },
+
   'click .editBtn': function(){
     Modal.show('editDotModal', {
       data:{
