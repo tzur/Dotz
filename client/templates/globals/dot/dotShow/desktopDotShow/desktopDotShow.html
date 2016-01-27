@@ -178,33 +178,31 @@
             <!--{{/if}}-->
 
 
-  {{#if isUserAllowToConnect}}
+{{#if isUserAllowToConnect}}
 
-      <div class="container-fluid" id="dotShowFooter">
+<div class="container-fluid" id="dotShowFooter">
+  <div class="row">
 
-          <div class="row">
-                  <div class="col-xs-12 col-md-9 col-lg-7 colCenter noPadding">
+    {{#if userClickOnTheYesButton}}
 
-                    {{>lastDotdesktopDotCard}}
+      {{# if addDotIsAvailable}}
+        {{#with dataForCreateHere}}
+          {{>searchBoxForConnect}}
+        {{/with}}
+      {{/if}}
 
-                      <br>
-                      <br>
+    {{else}}
 
-                  </div>
+        <div id="lastCard-desktopDotShow" class="col-xs-12 col-md-9 col-lg-7 colCenter noPadding">
+          {{>lastDotCardDesktopDotShow}}
+        </div>
 
-            {{# if addDotIsAvailable}}
-              {{#with dataForCreateHere}}
+    {{/if}}
 
-                {{>searchBoxForConnect}}
+  </div>
+</div>
 
-              {{/with}}
-            {{/if}}
-
-          </div>
-
-      </div>
-
-  {{/if}}
+{{/if}}
 
 
 
@@ -478,31 +476,34 @@
 
 {{#if isUserAllowToConnect}}
 
-<div class="container-fluid" id="dotShowFooter">
+    <div class="container-fluid" id="dotShowFooter">
+        <div class="row">
+            <div id="lastCard-desktopDotShow" class="col-xs-12 col-md-9 col-lg-7 colCenter noPadding">
+                  <div id="desktopDotCard-lastDot" class="container-fluid">
 
-      <div class="row">
-          <div class="col-xs-12 col-md-9 col-lg-7 colCenter noPadding">
+                      <div id="desktopDotCard-lastDot-col-connectLine"></div>
 
-            {{>lastDotdesktopDotCard}}
+                      {{#if userClickOnTheYesButton}}
 
-              <br>
-              <br>
+                        {{# if addDotIsAvailable}}
+                          {{#with dataForCreateHere}}
+                            {{>searchBoxForConnect}}
+                          {{/with}}
+                        {{/if}}
 
-          </div>
+                      {{else}}
 
-        {{# if addDotIsAvailable}}
-          {{#with dataForCreateHere}}
+                        {{>lastDotCardDesktopDotShow}}
 
-            {{>searchBoxForConnect}}
+                      {{/if}}
 
-          {{/with}}
-        {{/if}}
+                  </div>
+              </div>
+        </div>
+    </div>
 
-      </div>
+{{/if}}
 
-</div>
-
-  {{/if}}
 
   <!--<br>-->
   <!--{{#with dataForTheQ}}-->

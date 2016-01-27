@@ -68,6 +68,7 @@ jquery@1.11.4
 kadira:blaze-layout@2.3.0
 kadira:dochead@1.4.0
 kadira:flow-router@2.10.0
+konecty:autolinker@1.0.3
 lai:collection-extensions@0.1.4
 liberation:shareit@1.1.1
 livedata@1.0.15

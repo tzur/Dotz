@@ -270,6 +270,11 @@ Template.desktopDotShow.helpers({
     return this.dot.connectedDotzArray;
   },
 
+  //"show more" session:
+  userClickOnTheYesButton: function() {
+    return Session.get('userClickOnTheYesButton');
+  },
+
   addDotIsAvailable: function() {
     return ( Meteor.user() && ( this.dot.isOpen || (this.dot.ownerUserId === Meteor.userId()) ) )
   },
