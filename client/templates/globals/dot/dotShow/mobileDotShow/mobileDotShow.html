@@ -9,7 +9,11 @@
       <div id="filter-mobileDotShow-list">
         <div id="titleDiv-mobileDotShow-list" class="container-fluid">
             <h4 id="title-mobileDotShow-list" class="col-xs-12 text-center noPadding break" dir="auto">{{dot.title}}</h4>
-            <h6 id="description-mobileDotShow-list" class="col-xs-12 text-center" dir="auto">{{dot.bodyText}}</h6>
+            <h6 id="description-mobileDotShow-list" class="col-xs-12 text-center" dir="auto">
+              {{#autolink}}
+                {{dot.bodyText}}
+              {{/autolink}}
+            </h6>
         </div>
       </div>
     </div>
@@ -164,7 +168,11 @@
               {{#if dot.bodyText}}
 
                   <div class="container-fluid">
-                      <h5 class="description line-h-md greyText mdTxt break" dir="auto">{{dot.bodyText}}</h5>
+                      <h5 class="description line-h-md greyText mdTxt break" dir="auto">
+                        {{#autolink}}
+                          {{dot.bodyText}}
+                        {{/autolink}}
+                      </h5>
                   </div>
 
               {{/if}}
