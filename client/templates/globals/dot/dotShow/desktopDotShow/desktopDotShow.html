@@ -20,11 +20,7 @@
 
                     <div id="desktopDotShow-titleDiv" class="col-sm-7 colCenter">
                         <h2 id="desktopDotShow-title" class="whiteTxt text-center container-fluid break" dir="auto">{{dot.title}}</h2>
-                        <h5 id="desktopListShow-description" class="lightGrey text-center break" dir="auto">
-                          {{#autolink}}
-                            {{dot.bodyText}}
-                          {{/autolink}}
-                        </h5>
+                        <h5 id="desktopListShow-description" class="lightGrey text-center break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</h5>
                     </div>
 
                 </div>
@@ -349,11 +345,7 @@
         <div id="desktopDotShow-descriptionDiv" class="container-fluid">
             <div class="container-fluid">
                 <div class="col-sm-6 colCenter">
-                    <pre id="desktopDotShow-description" class="darkText break" dir="auto">
-                    {{#autolink}}
-                      {{dot.bodyText}}
-                    {{/autolink}}
-                    </pre>
+                    <pre id="desktopDotShow-description" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
                       <!--<div id="desktopDotShow-descriptionFilter"></div>-->
                 </div>
 

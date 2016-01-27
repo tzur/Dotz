@@ -168,11 +168,7 @@
               {{#if dot.bodyText}}
 
                   <div class="container-fluid">
-                      <h5 class="description line-h-md greyText mdTxt break" dir="auto">
-                        {{#autolink}}
-                          {{dot.bodyText}}
-                        {{/autolink}}
-                      </h5>
+                      <pre class="description line-h-md greyText mdTxt break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
                   </div>
 
               {{/if}}
