@@ -38,11 +38,13 @@
   padding-bottom: 0em;
   height: 2em;
   width: 2em;
-  /*border-color: rgba(0,0,0,0.4);*/
-  /*border-width: 0.1em;*/
-  border-style: solid;
   border-radius: 50%;
+  background-color: #fafafa;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
 }
+
 
 #navbar-collapse .navbar-nav > li > a {
   padding: 0.75em 0.5em;
