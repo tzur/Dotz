@@ -37,25 +37,8 @@ Template.createDotModal.onRendered(function(){
       },
       error: function(obj){
         if (obj.provider_url.indexOf('https://www.facebook.com') > -1){
-          var url = $('#url').val();
-
-          if (url.substring(url.lastIndexOf('/')+1) === ''){
-            url = url.substring(0,url.length-1)
-          }
-          url = url.substring(url.lastIndexOf('/')+1);
-          Meteor.call('getUserData', url,function(error, data){
-            if (error){
-              console.log(error + " received error");
-            }
-            else{
-              var dataParser = JSON.stringify(data);
-              console.log('success');
-              $("#descriptionField").val(data.message).trigger('change');
-              Session.set('fbPostAuthorData', data.from);
-            }
-          })
+          Modules.client.facebook.getPostData();
         }
-
       }
 
       });

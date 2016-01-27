@@ -59,6 +59,8 @@ Template.signup.events({
                     console.log(" addOrEditObjectInAlgolia Error >> " + error);
                   }
                 });
+              }else{
+                console.log(error);
               }
             });
           }
