@@ -60,7 +60,6 @@ coffeescript
 meteorhacks:kadira
 tsega:bootstrap3-datetimepicker@=3.1.3_3
 aldeed:autoform-bs-datetimepicker
-liberation:shareit
 meteorhacks:picker
 kadira:dochead
 percolatestudio:segment.io@=2.0.0_1
