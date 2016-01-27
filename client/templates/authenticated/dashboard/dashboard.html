@@ -1,0 +1,49 @@
+<template name="dashboard">
+
+    <!--Not available on mobile-->
+    <div class="visible-xs">
+        <div class="col-xs-12">
+            <br><br><br><br><br><br><br><br>
+            <p>Hi there :)
+                <br>
+                Unfortunately, the dashboard is not available on mobile devices.
+                <br>
+                Please connect via your desktop.
+            </p>
+        </div>
+    </div>
+
+  <!--Desktop Show-->
+    <div class="hidden-xs col-xs-12 colCenter">
+
+        <h3 class="text-center">Dashboard</h3>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills nav-justified txtMd" role="tablist">
+            <li role="presentation" class="search-btns active"><a href="#statistics" aria-controls="statistics" role="tab" data-toggle="tab">statistics</a></li>
+            <li role="presentation" class="search-btns"><a href="#facebook" aria-controls="facebook" role="tab" data-toggle="tab">Facebook Group</a></li>
+            <li role="presentation" class="search-btns"><a href="#adminPanel" aria-controls="adminPanel" role="tab" data-toggle="tab">Admin Panel</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+
+
+            <div role="tabpanel" class="tab-pane active" id="statistics">
+                  <h4 class="txtMd">222</h4>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="facebook">
+                <h4 class="txtMd">111</h4>
+              {{>dashboardFacebook}}
+            </div>
+
+
+            <div role="tabpanel" class="tab-pane" id="adminPanel">
+                  <h4 class="txtMd">adminPanel</h4>
+            </div>
+
+        </div>
+
+    </div>
+</template>
