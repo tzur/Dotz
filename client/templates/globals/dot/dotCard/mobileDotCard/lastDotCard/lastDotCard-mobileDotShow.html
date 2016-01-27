@@ -1,21 +1,21 @@
-<template name="lastDotdesktopDotCard">
+<template name="lastDotCardMobileDotShow">
 
 
-      <div class="row" id="desktopDotCard-lastDot-box">
+      <div class="row" id="mobileDotCard-lastDot-box">
 
             <!--<div id="mobileDotCard-lineDiv" class="container-fluid">-->
                 <!--<div id="mobileDotCard-line"></div>-->
             <!--</div>-->
 
-            <div id="desktopDotCard-lastDot" class="container-fluid">
+            <div id="mobileDotCard-lastDot" class="container-fluid">
 
 
-                <div id="desktopDotCard-lastDot-col-connectLine"></div>
+                <div id="mobileDotCard-lastDot-col-connectLine"></div>
 
-                <div id="desktopDotCard-col-img">
+                <div id="mobileDotCard-col-img">
 
                     <div>
-                        <div id="desktopDotCard-img" class="container-fluid" style="background-image: url('https://dotz.imgix.net/MQRoZrrcGe2r72ztw/uncleSam2.jpg')">
+                        <div id="mobileDotCardImg" class="container-fluid" style="background-image: url('https://dotz.imgix.net/MQRoZrrcGe2r72ztw/uncleSam2.jpg')">
 
                         </div>
                     </div>
@@ -23,15 +23,14 @@
 
                 </div>
 
-                <div id="desktopDotCard-col-text">
+                <div id="mobileDotCard-col-text">
 
-                    <div id="desktopDotCard-col-title">
-                        <div id="desktopDotCard-title">
-                            <!--<h2 id="desktopDotCard-title-lastDot" class="bold darkText">Search and connect related items</h2>-->
-                            <h4 id="desktopDotCard-title-lastDot" class="bold darkText">Pssst...</h4>
-                            <h5>We are looking for a hero.</h5>
-                            <h5 class="">One who knows which dot should be connected to</h5>
-                            <h5 class=""><a>{Analytics Tools}.</a></h5>
+                    <div id="mobileDotCard-lastDot-col-title">
+                        <div id="mobileDotCardTitle">
+                           <h4 class="bold">Pssst...</h4>
+                           <h5 class="bold">We are looking for a hero</h5>
+                           <h5 class="">One who knows which dot should be connected to <a>{Analytics Tools}</a></h5>
+
                         </div>
                     </div>
 
@@ -39,17 +38,20 @@
 
             </div>
 
-                <div id="desktopDotCard-lastDotButtons">
+                <div id="mobileDotCard-lastDotButtons" class="">
 
-                    <button class="btn btn-lead whiteTxt btn-md">I'm that hero!</button>
+                    <h5 class="">Are you the one?</h5>
 
-                    <button class="btn btn-success btn-md" data-toggle="modal" data-target="#share-Q-modal-desktop">I know a hero just like that <i class="fa fa-share-alt pull-right"></i></button>
+                    <button class="btn btn-lead whiteTxt btn-md pull-left col-xs-12">Yes I'm</button>
 
+                    <br><br><br>
+
+                    <button class="btn btn-success btn-md pull-right col-xs-12" data-toggle="modal" data-target="#share-Q-modal">I know a hero <i class="fa fa-share-alt pull-right"></i></button>
 
                     <!-- Share The Q Modal -->
 
-                    <div class="modal fade" id="share-Q-modal-desktop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal fade" id="share-Q-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div id="modal-header-primary" class="container-fluid">
                                     <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>

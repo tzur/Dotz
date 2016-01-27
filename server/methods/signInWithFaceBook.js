@@ -26,26 +26,6 @@ Meteor.methods({
             console.log("ERROR from insertusername" + error);
           }
         });
-
-        let userCategory;
-        if(!Session.get('landingPageCategory')){
-          userCategory = "Tech"
-        }
-        else{
-          userCategory = Session.get('landingPageCategory');
-        }
-        //TBD!@#!@#!@#!@#!@#
-        Meteor.call('convertUsersToRoleOwner', userCategory, 'firstGroup', Meteor.userId() , function(error){
-          if(!error){
-            //Algolia:
-            Meteor.call('addOrEditObjectInAlgolia', Meteor.user().profile.userSlug, true, function(error, result){
-              if (error) {
-                console.log(" addOrEditObjectInAlgolia Error >> " + error);
-              }
-            });
-          }
-        });
-
         return myFuture.wait();
       }
     }

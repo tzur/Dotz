@@ -1,5 +1,3 @@
-
-let hashavuaGroupKey = 434228236734415;
 function fbQuery(query, accessToken){
 
   var options = {
@@ -33,7 +31,7 @@ let createGroupList = function(FBGroupKey){
   });
 
 };
-let _getGroupPosts = function(listSlug, callback){
+let _getGroupPosts = function(listSlug, groupId ,callback){
   let listId = Dotz.findOne({dotSlug: listSlug})._id;
   console.log(listId);
   let fbFilteredPosts = [];
@@ -47,7 +45,7 @@ let _getGroupPosts = function(listSlug, callback){
     this.connectTo = listId;
   };
   //title,
-  var query = hashavuaGroupKey + '/feed?fields=likes,message,from,created_time&limit=100';
+  var query = groupId + '/feed?fields=likes,message,from,created_time&limit=100';
   var pagesCounter = 0;
   while (query && fbFilteredPosts.length < 50) {
     pagesCounter++;
@@ -87,12 +85,15 @@ let _getGroupPosts = function(listSlug, callback){
 };
 
 
-
 Meteor.methods({
-  getUserData(postId){
-    check(postId, String);
-    console.log(Meteor.user().services.facebook.accessToken);
-    return fbQuery(hashavuaGroupKey + '_'+ postId+'?fields=from,message', Meteor.user().services.facebook.accessToken);
+  getFBGroupID(groupName){
+    check(groupName, String);
+    return fbQuery('search?q='+ groupName +'&type=group', Meteor.user().services.facebook.accessToken)
+  },
+  getPostData(groupID, postID){
+    check(postID, String);
+    check(groupID, String);
+    return fbQuery(groupID + '_'+ postID+'?fields=from,message', Meteor.user().services.facebook.accessToken);
   },
   /*
    * Just give this Method an FB group key - it will create a list for the FB Group with default number of 100 Dotz
@@ -120,7 +121,7 @@ Meteor.methods({
       else{
         //Created the group list now lets put the pots inside:
         var addedDotzCounter = 0; // will keep the number of all the dotz that were already added.
-        _getGroupPosts(listSlug, function(amountOfDotz){
+        _getGroupPosts(listSlug, FBGroupKey,function(amountOfDotz){
           addedDotzCounter++;
           console.log("Finished connecting dot number "  +  addedDotzCounter + " need total of " + amountOfDotz);
           if (amountOfDotz === addedDotzCounter){

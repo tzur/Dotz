@@ -8,7 +8,7 @@ Template.header.onRendered(function(){
         //FlowRouter.watchPathChange(); //TODO - is it needed?
         let slugTrackerArray = Session.get('slugTrackerArray');
         let currentSlug = FlowRouter.current().path.slice(1);
-        if ( slugTrackerArray && (currentSlug != Meteor.user().profile.userSlug) ) {
+        if ( slugTrackerArray && Meteor.user().profile && (currentSlug != Meteor.user().profile.userSlug) ) {
           slugTrackerArray.push(currentSlug);
           Session.set('slugTrackerArray', slugTrackerArray);
         } else {

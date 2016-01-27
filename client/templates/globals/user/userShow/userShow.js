@@ -97,9 +97,6 @@ Template.userShow.helpers({
     }
   },
 
-  isUserFBGroupAdmin: function() {
-    return (Roles.userIsInRole(Meteor.userId(), ROLES.FB_GROUP_ADMIN));
-  },
 //user counters:
   //  followingCounter: function(){
   //    if (this.profile.following.length === 0) {
@@ -184,9 +181,7 @@ Template.userShow.helpers({
   canGenerateAutoLists: function(){
     return (Meteor.user().profile.createdByUserLists.length === 0 )
   },
-  isSpinnerOn: function(){
-    return Session.get('FBSpinnerOn');
-  }
+
 
 });
 Template.userShow.events({
@@ -310,38 +305,7 @@ Template.userShow.events({
       }
       });
   },
-  'click #_userFbGroupAdmin': function(event){
-    event.preventDefault();
-    let currentText = event.currentTarget.textContent;
-    if (currentText === "I will add my group later..."){
-      //$("#btnAddProfile").attr('value', 'Save');
-      $('#_userFbGroupAdmin').html("Get your facebook group posts!");
-      $('#_FBGroupForm').hide();
-    }
-    else{
-      $('#_userFbGroupAdmin').html("I will add my group later...");
-      $('#_FBGroupForm').show();
-    }
-  },
-  'click #_getFBData': function(event){
-    event.preventDefault();
-    Session.set('FBSpinnerOn', true);
-    Meteor.call('createGroupList', $('#_fbGroupIdInput').val(), function(error, result){
-      if (error){
-        Session.set('FBSpinnerOn', false);
-        Bert.alert("Sorry something went Wrong, try again", 'danger');
-      }
-      else{
-        Meteor.call('tagFacebookDotz', result, function(error, result){
-          if (error){
-            console.log(error);
-          }
-          Bert.alert("Everything is ready! Go ahead!", 'success');
-          Session.set('FBSpinnerOn', false);
-        })
-      }
-    })
-  }
+
 
 });
 

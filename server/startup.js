@@ -7,7 +7,7 @@ Meteor.startup(function () {
 
   //make me admin:
 
-  //let userToBeAdmin = Meteor.users.findOne({"emails.1.address": "otniel.levi@gmail.com"});
+  //let userToBeAdmin = Meteor.users.findOne({"emails.1.address": "omer.lev.mail@gmail.com"});
   //
   //if (userToBeAdmin) {
   //  console.log("userToBeAdmin is " + userToBeAdmin.username);

@@ -16,7 +16,8 @@ BrowserPolicy.content.allowOriginForAll("https://fonts.gstatic.com");
 BrowserPolicy.content.allowOriginForAll("http://*.googletagmanager.com");
 BrowserPolicy.content.allowOriginForAll("http://*.google-analytics.com");
 BrowserPolicy.content.allowOriginForAll("https://*.google-analytics.com");
-
+BrowserPolicy.content.allowOriginForAll('https://lookup-id.com/');
+BrowserPolicy.content.allowOriginForAll('https://lookup-id.com/*');
 //Analytics:
 BrowserPolicy.content.allowOriginForAll("http://*.segment.com");
 BrowserPolicy.content.allowOriginForAll("cdn.mxpnl.com");
