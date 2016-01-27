@@ -3,22 +3,32 @@
 
 #header-mobileDotShow {
   padding: 0;
-  min-height: 90vh;
+  margin-bottom: 2vh;
+  /*min-height: 74vh;*/
 }
 
 #coverImg-mobileDotShow {
   position: relative;
-  height: 39vh;
+  height: 35vh;
   background-size: cover;
+  background-repeat: no-repeat;
   background-position-y: 50%;
   background-position-x: 50%;
   margin: 0;
 }
 
+#header-mobileDotShow span a {
+  color: #337ab7;
+}
+
+#mobileDotShow-title {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
 
 #buttonsPanel-mobileDotShow {
   padding: 2vh 15px;
-  border-bottom: 1px solid #eee;
+  /*border-top: 1px solid #eee;*/
 }
 
 #connectedByTextDiv-mobileDotShow{
