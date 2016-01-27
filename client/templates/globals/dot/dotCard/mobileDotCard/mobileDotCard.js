@@ -164,13 +164,13 @@ Template.mobileDotCard.helpers({
 
   shortenTitle: function() {
     if (this.dot){
-        return s.truncate(this.dot.title, 50);
+        return s.prune(this.dot.title, 40);
     }
   },
 
   shortenBodyText: function() {
     if (this.dot){
-      return s.truncate(this.dot.bodyText, 50);
+      return s.prune(this.dot.bodyText, 45);
     }
   },
 
