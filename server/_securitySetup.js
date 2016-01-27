@@ -2,6 +2,8 @@
 
 //See more on http://content-security-policy.com :
 BrowserPolicy.content.allowOriginForAll("data:"); //TBD
+//BrowserPolicy.content.allowOriginForAll("unsafe-eval");
+BrowserPolicy.content.allowOriginForAll("unsafe-inline");
 
 //All the images (included .ico) are allow - TBD:
 BrowserPolicy.content.allowImageOrigin("*");
@@ -18,6 +20,23 @@ BrowserPolicy.content.allowOriginForAll("http://*.google-analytics.com");
 BrowserPolicy.content.allowOriginForAll("https://*.google-analytics.com");
 BrowserPolicy.content.allowOriginForAll('https://lookup-id.com/');
 BrowserPolicy.content.allowOriginForAll('https://lookup-id.com/*');
+
+BrowserPolicy.content.allowEval("https://*.googleapis.com");
+BrowserPolicy.content.allowEval('*.cse.google.com/*');
+BrowserPolicy.content.allowEval('http://cse.google.com/*');
+BrowserPolicy.content.allowOriginForAll('http://cse.google.com/*');
+BrowserPolicy.content.allowOriginForAll('*.cse.google.com/*');
+BrowserPolicy.content.allowFrameOrigin('*.cse.google.com/*');
+BrowserPolicy.content.allowFrameOrigin('http://cse.google.com/*');
+BrowserPolicy.content.allowInlineScripts('http://cse.google.com/*');
+BrowserPolicy.content.allowInlineScripts('*.cse.google.com/*');
+BrowserPolicy.content.allowDataUrlForAll('*.cse.google.com/*');
+BrowserPolicy.content.allowDataUrlForAll('http://cse.google.com/*');
+BrowserPolicy.framing.allowAll();
+BrowserPolicy.content.allowInlineStyles();
+BrowserPolicy.content.allowDataUrlForAll();
+BrowserPolicy.content.allowInlineScripts();
+BrowserPolicy.content.allowInlineScripts("https://*.googleapis.com");
 //Analytics:
 BrowserPolicy.content.allowOriginForAll("http://*.segment.com");
 BrowserPolicy.content.allowOriginForAll("cdn.mxpnl.com");
@@ -34,6 +53,8 @@ BrowserPolicy.content.allowOriginForAll("http://*.embed.ly");
 BrowserPolicy.content.allowOriginForAll("https://*.imgix.com");
 BrowserPolicy.content.allowOriginForAll("https://www.youtube.com");
 BrowserPolicy.content.allowOriginForAll("https://www.youtube.com/embed");
+
+
 
 //Kadira:
 BrowserPolicy.content.allowOriginForAll("https://kadira.io");
