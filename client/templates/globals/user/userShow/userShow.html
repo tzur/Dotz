@@ -144,23 +144,7 @@
 
                           <!--Facebook Group - Crawling -->
 
-                              {{#if isUserFBGroupAdmin}}
-                                  <button type="button" id ="_userFbGroupAdmin" class="btn btn-default btn-md hidden-xs" >Get your facebook group posts!</button>
-                              {{/if}}
 
-                              {{#if facebookGroupAllows}}
-                                  <div id="_FBGroupForm" class="row">
-                                      <div class="col-md-2 col-lg-2 colCenter">
-                                          <input type="text" id="_fbGroupIdInput" placeholder="your facebook group ID" class="form-control">
-                                        {{#if isSpinnerOn}}
-                                            <button id="_getFBData" type="submit" class="createBtn transparent insert btn round btn-primary has-spinner active">
-                                                <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>Get it!</button>
-                                        {{else}}
-                                            <button id="_getFBData" type="submit" class="createBtn insert btn round btn-primary">Get it!</button>
-                                        {{/if}}
-                                      </div>
-                                  </div>
-                              {{/if}}
 
 
                           {{/if}}
