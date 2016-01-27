@@ -270,6 +270,11 @@ Template.desktopDotShow.helpers({
     return this.dot.connectedDotzArray;
   },
 
+  //"show more description" session:
+  userClickOnShowMoreButton: function() {
+    return Session.get('userClickOnTheYesButton');
+  },
+
   //"show more" session:
   userClickOnTheYesButton: function() {
     return Session.get('userClickOnTheYesButton');
@@ -347,6 +352,10 @@ Template.desktopDotShow.events({
       method: 'share',
       href: 'http://dotz.city/'+ this.dot.dotSlug
     }, function(response){});
+  },
+
+  'click #_showMore': function(){
+    Session.set('userClickOnTheYesButton', true)
   },
 
   'click .connect': function(){
