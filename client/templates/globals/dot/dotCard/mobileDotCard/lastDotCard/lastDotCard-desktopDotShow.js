@@ -1,12 +1,13 @@
 
 Template.lastDotCardDesktopDotShow.onCreated(function() {
-
 });
 
 
+Template.lastDotCardDesktopDotShow.onRendered(function() {
+});
+
 
 Template.lastDotCardDesktopDotShow.onDestroyed(function() {
-
 });
 
 
