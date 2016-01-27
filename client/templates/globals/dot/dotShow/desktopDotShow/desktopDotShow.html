@@ -345,7 +345,16 @@
         <div id="desktopDotShow-descriptionDiv" class="container-fluid">
             <div class="container-fluid">
                 <div class="col-sm-6 colCenter">
-                    <pre id="desktopDotShow-description" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+
+                    {{#if userClickOnShowMoreButton}}
+
+                      <pre id="desktopDotShow-description" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+
+                    {{else}}
+
+                      <pre id="desktopDotShow-description" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+
+                    {{/if}}
                       <!--<div id="desktopDotShow-descriptionFilter"></div>-->
                 </div>
 
