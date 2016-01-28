@@ -1,4 +1,9 @@
-
+Template.dashboard.onRendered(function(){
+  $('#tempGoogle').html(" <script>(function() {var cx = '008624082377900795454:asiutjaqta4';var gcse = document.createElement('script');" +
+    "gcse.type = 'text/javascript';gcse.async = true;gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +'//cse.google.com/cse.js?cx=' + cx;" +
+    "var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(gcse, s);})(); </script> <gcse:search></gcse:search>"
+  )
+});
 Template.dashboard.helpers({
   isUserFBGroupAdmin: function() {
     return true   //TODO add login for FB admin @zur
