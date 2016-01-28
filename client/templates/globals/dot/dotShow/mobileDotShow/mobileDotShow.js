@@ -294,6 +294,16 @@ Template.mobileDotShow.helpers({
     return Session.get('workingOnQuickStart');
   },
 
+  facebookDot: function(){
+    return this.dot.linkAuthorUrl;
+  },
+
+  authorFbProfile: function(){
+    return 'http://graph.facebook.com/'+ this.dot.facebookAuthorId + '/picture/?type=large';
+  },
+
+
+
   shareList: function(){
     return Session.get('shareListActive');
   },
