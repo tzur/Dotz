@@ -652,9 +652,9 @@ pre {
 
 
 
-/*dotShow Footer*/
+/*dotShow Footer Desktop*/
 
-#dotShowFooter {
+#dotShowFooter-desktopDotShow {
   /*background-color: rgba(0, 0, 0, 0.1);*/
   margin-top: 3vh;
   padding-top: 2vh;
@@ -662,22 +662,22 @@ pre {
   min-height: 30vh;
 }
 
-#dotShowFooter .row {
+#dotShowFooter-desktopDotShow .row {
   /*min-height: 5vh;*/
 }
 
-#dotShowFooter .addButton {
+#dotShowFooter-desktopDotShow .addButton {
   width: 35vh;
   margin: auto;
 }
 
-#dotShowFooter .addButton button {
+#dotShowFooter-desktopDotShow .addButton button {
   width: 35vh;
   margin-right: auto;
   margin-left: auto;
 }
 
-#dotShowFooter .title {
+#dotShowFooter-desktopDotShow .title {
   margin: 5vh;
   text-align: center;
 }

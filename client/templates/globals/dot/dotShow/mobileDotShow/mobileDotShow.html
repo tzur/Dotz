@@ -261,24 +261,40 @@
               {{#each connectedDotzArray}}
                 {{>mobileDotCard}}
               {{/each}}
-               {{>lastDotCardMobileDotShow}}
+               <!--{{>lastDotCardMobileDotShow}}-->
           </div>
       </div>
 
 
         {{#if isUserAllowToConnect}}
 
-            <div class="container-fluid" id="dotShowFooter">
+            <div class="container-fluid" id="dotShowFooter-mobileDotShow">
 
                 <div class="row">
 
-                  {{# if addDotIsAvailable}}
-                    {{#with dataForCreateHere}}
+              {{#if userClickOnTheYesButton}}
 
-                      {{>searchBoxForConnect}}
+                {{# if addDotIsAvailable}}
+                  {{#with dataForCreateHere}}
+                    {{>searchBoxForConnect}}
+                  {{/with}}
+                {{/if}}
 
-                    {{/with}}
-                  {{/if}}
+              {{else}}
+
+                {{>lastDotCardMobileDotShow}}
+
+              {{/if}}
+
+
+
+                  <!--{{# if addDotIsAvailable}}-->
+                    <!--{{#with dataForCreateHere}}-->
+
+                      <!--{{>searchBoxForConnect}}-->
+
+                    <!--{{/with}}-->
+                  <!--{{/if}}-->
 
                 </div>
 
