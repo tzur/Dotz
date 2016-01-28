@@ -221,3 +221,31 @@
   /*margin: auto;*/
   /*float: inherit;*/
 }
+
+/*dotShow Footer Desktop*/
+
+#dotShowFooter-mobileDotShow {
+  /*background-color: rgba(0, 0, 0, 0.1);*/
+  padding-bottom: 2vh;
+  min-height: 30vh;
+}
+
+#dotShowFooter-mobileDotShow .row {
+  /*min-height: 5vh;*/
+}
+
+#dotShowFooter-mobileDotShow .addButton {
+  width: 35vh;
+  margin: auto;
+}
+
+#dotShowFooter-mobileDotShow .addButton button {
+  width: 35vh;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#dotShowFooter-mobileDotShow .title {
+  margin: 5vh;
+  text-align: center;
+}
