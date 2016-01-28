@@ -2,12 +2,13 @@
  * Created by avivhatzir on 16/11/2015.
  */
 Template.searchBoxForConnect.onCreated(function(){
-  Session.set('googleResults',[{
-    googleImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6EF2spkVH7zbM97BU_lIf8Tc2YsNk_I7mXT2PduNznOmVFNjYp2Der-E6',
-    googleTitle: 'example',
-    googleWebsiteName: 'www.example.com',
-    googleDescription:"Example description"
-  }]);
+  //Session.set('googleResults',[{
+  //  googleImg:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6EF2spkVH7zbM97BU_lIf8Tc2YsNk_I7mXT2PduNznOmVFNjYp2Der-E6',
+  //  googleTitle: 'example',
+  //  googleWebsiteName: 'www.example.com',
+  //  googleDescription:"Example description",
+  //  googleLinkUrl: "example.com/blablabla"
+  //}]);
 });
 
 Template.searchBoxForConnect.helpers({
@@ -31,6 +32,7 @@ Template.searchBoxForConnect.helpers({
     }
   },
   getDataForGoogleCard: function(){
+    console.log("dsfdsfsdf");
     return {
       parentDotId:Template.parentData().dot._id,
       googleDot: this

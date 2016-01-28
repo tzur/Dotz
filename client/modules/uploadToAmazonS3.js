@@ -47,25 +47,26 @@ let _addImageUrlToSession = (url) => {
   _setPlaceholderText();
 };
 
-let _uploadFileToAmazon = ( file ) => {
+let _uploadFileToAmazon = ( file, callback ) => {
   const uploader = new Slingshot.Upload( "uploadToAmazonS3" );
   uploader.send( file, ( error, url ) => {
     if ( error ) {
       Bert.alert( error.message, "warning" );
       _setPlaceholderText();
+      callback(error);
     } else {
-      _addImageUrlToSession( url );
+      callback(undefined, url );
     }
   });
 };
 
 
-let upload = ( options ) => {
+let upload = ( options, callback ) => {
   template = options.template;
   let file = _getFileFromInput( options.event );
 
   _setPlaceholderText( `Uploading ${file.name}...` );
-  _uploadFileToAmazon( file );
+  _uploadFileToAmazon( file, callback );
 };
 
 let uploadToAmazonViaUrl = function(url, callback){
@@ -79,11 +80,7 @@ let uploadToAmazonViaUrl = function(url, callback){
     else {
       var myBlob = _dataURItoBlob(data);
       myBlob.name = Math.random().toString();
-      _uploadFileToAmazon(myBlob);
-      if (callback){
-        callback()
-      }
-
+      _uploadFileToAmazon(myBlob,callback);
     }
   })
 };
