@@ -91,6 +91,9 @@ Check the dotSchema and the createDotHooks for allowedValues:
   color: #ffffff;
 }
 
+.green-google-websiteName {
+  color: #006621;
+}
 
 /*darkTexts*/
 
@@ -115,3 +118,4 @@ Check the dotSchema and the createDotHooks for allowedValues:
 .greyText {
   color: #9B998D;
 }
+
