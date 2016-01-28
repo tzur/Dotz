@@ -1,10 +1,7 @@
-Template.dashboard.onRendered(function(){
-  $('#tempGoogle').html(" <script>(function() {var cx = '008624082377900795454:asiutjaqta4';var gcse = document.createElement('script');" +
-    "gcse.type = 'text/javascript';gcse.async = true;gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +'//cse.google.com/cse.js?cx=' + cx;" +
-    "var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(gcse, s);})(); </script> <gcse:search></gcse:search>"
-  )
-});
-Template.dashboard.helpers({
+
+
+
+Template.dashboardFacebook.helpers({
   isUserFBGroupAdmin: function() {
     return true   //TODO add login for FB admin @zur
     //return (Roles.userIsInRole(Meteor.userId(), ROLES.FB_GROUP_ADMIN));
@@ -13,7 +10,7 @@ Template.dashboard.helpers({
     return Session.get('FBSpinnerOn');
   }
 });
-Template.dashboard.events({
+Template.dashboardFacebook.events({
   'click #_userFbGroupAdmin': function(event){
     event.preventDefault();
     let currentText = event.currentTarget.textContent;

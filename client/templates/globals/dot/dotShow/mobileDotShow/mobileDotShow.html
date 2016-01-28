@@ -125,53 +125,77 @@
 
             <div id="coverImg-mobileDotShow" class="row {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')">
 
-                <div id="desktopDotShow-listShowHeader-filter">
-
-                    <div id="desktopDotShow-titleDiv" class="col-sm-7 colCenter">
-                        <h4 id="desktopDotShow-title" class="darkText container-fluid noPadding break" dir="auto">{{dot.title}}</h4>
-                    </div>
-
-                </div>
+                <!--<div id="desktopDotShow-listShowHeader-filter"></div>-->
 
             </div>
 
-            <!--<div class="container-fluid">-->
-                <!--<h4 id="title-mobileDotShow" class="col-xs-12">{{dot.title}}</h4>-->
-            <!--</div>-->
+            <div id="mobileDotShow-titleDiv" class="col-sm-7 colCenter">
+                <h4 id="mobileDotShow-title" class="darkText bold container-fluid noPadding break" dir="auto">{{dot.title}}</h4>
+            </div>
 
-            <div id="buttonsPanel-mobileDotShow" class="container-fluid">
+            <div class="col-xs-12">
 
-                {{#if dot.linkUrl}}
-                <a href="{{dot.linkUrl}}" target="_blank">
-                    <button type="button" class="btn btn-xs btn-default btn-{{dot.dotSubType}} btn-sm"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
-                </a>
-                {{/if}}
-
-                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-xs pull-right"><i class="fa mdGrey fa-bookmark-o"></i></button>
-
-              <!--{{# if isLikedByMe}}-->
-                  <!--<button class="unlike btn btn-default btn-xs mdGrey pull-right">-->
-                      <!--<i class="mdGrey likeBtn fa fa-heart"></i>-->
-                      <!--<span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>-->
-                  <!--</button>-->
-              <!--{{else}}-->
-                  <!--<button class="like btn btn-default btn-xs mdGrey pull-right">-->
-                      <!--<i class="mdGrey likeBtn fa fa-heart-o"></i>-->
-                      <!--<span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>-->
-                  <!--</button>-->
-              <!--{{/if}}-->
+                    <img class="ownerImgProfile-mobileDotShow" src="{{ownerUser.profile.profileImage}}">
+                    <span class="darkText"> Connected by <a href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a></span>
 
             </div>
+
+        </div>
+
 
             <div id="imgCoverFilter2-mobileDotShow">
 
               {{#if dot.bodyText}}
 
                   <div class="container-fluid">
-                      <pre class="description line-h-md greyText mdTxt break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+
+                {{#if userClickOnShowMoreButton}}
+
+                    <pre class="description line-h-md darkText mdTxt break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+
+                {{else}}
+
+                    <pre class="description line-h-md darkText mdTxt break" dir="auto">{{#autolink}}{{shortenBodyText}}{{/autolink}}</pre>
+
+                    <div class="text-center">
+                        <button id="_showMore" class="btn btn-full-trans mdGrey btn-xs">Show more</button>
+                    </div>
+
+                    <br>
+
+                {{/if}}
+
                   </div>
 
               {{/if}}
+
+            </div>
+
+
+            <hr class="col-xs-10 colCenter">
+
+
+            <div id="buttonsPanel-mobileDotShow" class="container-fluid">
+
+              {{#if dot.linkUrl}}
+                  <a href="{{dot.linkUrl}}" target="_blank">
+                      <button type="button" class="btn btn-xs btn-default btn-{{dot.dotSubType}} btn-sm pull-right"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
+                  </a>
+              {{/if}}
+
+                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-xs pull-right"><i class="fa mdGrey fa-bookmark-o"></i></button>
+
+                {{# if isLikedByMe}}
+                  <button class="unlike btn btn-default btn-xs mdGrey pull-left">
+                  <i class="mdGrey likeBtn fa fa-heart"></i>
+                  <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
+                  </button>
+                {{else}}
+                  <button class="like btn btn-default btn-xs mdGrey pull-left">
+                  <i class="mdGrey likeBtn fa fa-heart-o"></i>
+                  <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
+                  </button>
+                {{/if}}
 
             </div>
 
@@ -208,14 +232,14 @@
                 <!--</div>-->
             <!--</div>-->
 
-        </div>
+
 
 
 <div id="placeHolder">
 
 </div>
 
-      <nav id="fixedFooter-mobileDotShow" class="navbar navbar-default navbar-fixed-bottom visible-xs fixedFooterShadow-mobileDotShow" role="navigation">
+      <nav id="fixedFooter-mobileDotShow" class="navbar navbar-default" role="navigation">
 
           <div class="col-xs-10">
               {{#if dotzNum}}
@@ -237,24 +261,40 @@
               {{#each connectedDotzArray}}
                 {{>mobileDotCard}}
               {{/each}}
-               {{>lastDotCardMobileDotShow}}
+               <!--{{>lastDotCardMobileDotShow}}-->
           </div>
       </div>
 
 
         {{#if isUserAllowToConnect}}
 
-            <div class="container-fluid" id="dotShowFooter">
+            <div class="container-fluid" id="dotShowFooter-mobileDotShow">
 
                 <div class="row">
 
-                  {{# if addDotIsAvailable}}
-                    {{#with dataForCreateHere}}
+              {{#if userClickOnTheYesButton}}
 
-                      {{>searchBoxForConnect}}
+                {{# if addDotIsAvailable}}
+                  {{#with dataForCreateHere}}
+                    {{>searchBoxForConnect}}
+                  {{/with}}
+                {{/if}}
 
-                    {{/with}}
-                  {{/if}}
+              {{else}}
+
+                {{>lastDotCardMobileDotShow}}
+
+              {{/if}}
+
+
+
+                  <!--{{# if addDotIsAvailable}}-->
+                    <!--{{#with dataForCreateHere}}-->
+
+                      <!--{{>searchBoxForConnect}}-->
+
+                    <!--{{/with}}-->
+                  <!--{{/if}}-->
 
                 </div>
 

@@ -51,6 +51,7 @@ Template.desktopDotShow.onRendered(function(){
 
     //  Kill the Sessions here:
     Session.set('userClickOnTheYesButton', false);
+    Session.set('userClickOnShowMoreButton', false);
   });
 
   (function(d, s, id){
@@ -77,27 +78,27 @@ Template.desktopDotShow.onRendered(function(){
 
   //Link to the source: http://jsfiddle.net/yeco/4EcFf/
   //TBD: we need to reduce the jQuery queries... :
-  $(document).scroll(function () {
-    var navPlaceHolder = $('#placeHolder-desktop');
-    //console.log("navPlaceHolder length DESKTOP-dotShow is " + navPlaceHolder.length)
-    if (navPlaceHolder.length > 0 ) {
-      var origOffsetY = navPlaceHolder.offset().top - $(window).height();
-      if ($(window).scrollTop() > origOffsetY) {
-        $('#fixedFooter-desktopDotShow').removeClass('navbar-fixed-bottom');
-        $('#fixedFooter-desktopDotShow').removeClass('fixedFooterShadow-desktopDotShow');
-        $('#fixedFooterLineDiv-desktopDotShow').addClass('fixedFooterLine-desktopDotShow');
 
-        //console.log("removeClass");
-      } else {
-        $('#fixedFooter-desktopDotShow').addClass('navbar-fixed-bottom');
-        $('#fixedFooter-desktopDotShow').addClass('fixedFooterShadow-desktopDotShow');
-        $('#fixedFooterLineDiv-desktopDotShow').removeClass('fixedFooterLine-desktopDotShow');
 
-        //fixedFooterLine-desktopDotShow
-        //console.log("addClass");
-      }
-    }
-  });
+  //$(document).scroll(function () {
+  //  var navPlaceHolder = $('#placeHolder-desktop');
+  //
+  //  if (navPlaceHolder.length > 0 ) {
+  //    var origOffsetY = navPlaceHolder.offset().top - $(window).height();
+  //    if ($(window).scrollTop() > origOffsetY) {
+  //      $('#fixedFooter-desktopDotShow').removeClass('navbar-fixed-bottom');
+  //      $('#fixedFooter-desktopDotShow').removeClass('fixedFooterShadow-desktopDotShow');
+  //      $('#fixedFooterLineDiv-desktopDotShow').addClass('fixedFooterLine-desktopDotShow');
+  //
+  //
+  //    } else {
+  //      $('#fixedFooter-desktopDotShow').addClass('navbar-fixed-bottom');
+  //      $('#fixedFooter-desktopDotShow').addClass('fixedFooterShadow-desktopDotShow');
+  //      $('#fixedFooterLineDiv-desktopDotShow').removeClass('fixedFooterLine-desktopDotShow');
+  //
+  //    }
+  //  }
+  //});
 
 
 });
@@ -125,6 +126,12 @@ Template.desktopDotShow.helpers({
   },
   isOpenDot: function() {
     return this.dot.isOpen;
+  },
+
+  shortenBodyText: function() {
+    if (this.dot){
+      return s.truncate(this.dot.bodyText, 155);
+    }
   },
 
   isListShow: function() {
@@ -275,7 +282,7 @@ Template.desktopDotShow.helpers({
 
   //"show more description" session:
   userClickOnShowMoreButton: function() {
-    return Session.get('userClickOnTheYesButton');
+    return Session.get('userClickOnShowMoreButton');
   },
 
   //"show more" session:
@@ -357,8 +364,9 @@ Template.desktopDotShow.events({
     }, function(response){});
   },
 
+  // this session will be killed in onRendered of desktopDotShow.js
   'click #_showMore': function(){
-    Session.set('userClickOnTheYesButton', true)
+    Session.set('userClickOnShowMoreButton', true)
   },
 
   'click .connect': function(){

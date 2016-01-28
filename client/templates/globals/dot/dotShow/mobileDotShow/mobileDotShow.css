@@ -3,22 +3,32 @@
 
 #header-mobileDotShow {
   padding: 0;
-  min-height: 90vh;
+  margin-bottom: 2vh;
+  /*min-height: 74vh;*/
 }
 
 #coverImg-mobileDotShow {
   position: relative;
-  height: 39vh;
+  height: 35vh;
   background-size: cover;
+  background-repeat: no-repeat;
   background-position-y: 50%;
   background-position-x: 50%;
   margin: 0;
 }
 
+#header-mobileDotShow span a {
+  color: #337ab7;
+}
+
+#mobileDotShow-title {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
 
 #buttonsPanel-mobileDotShow {
   padding: 2vh 15px;
-  border-bottom: 1px solid #eee;
+  /*border-top: 1px solid #eee;*/
 }
 
 #connectedByTextDiv-mobileDotShow{
@@ -210,4 +220,32 @@
   min-height: 1px;
   /*margin: auto;*/
   /*float: inherit;*/
+}
+
+/*dotShow Footer Desktop*/
+
+#dotShowFooter-mobileDotShow {
+  /*background-color: rgba(0, 0, 0, 0.1);*/
+  padding-bottom: 2vh;
+  min-height: 30vh;
+}
+
+#dotShowFooter-mobileDotShow .row {
+  /*min-height: 5vh;*/
+}
+
+#dotShowFooter-mobileDotShow .addButton {
+  width: 35vh;
+  margin: auto;
+}
+
+#dotShowFooter-mobileDotShow .addButton button {
+  width: 35vh;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#dotShowFooter-mobileDotShow .title {
+  margin: 5vh;
+  text-align: center;
 }

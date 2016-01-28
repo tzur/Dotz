@@ -1,0 +1,28 @@
+
+
+/* left side: */
+#_addDotFromGoogleResults {
+  margin-top: 7vh;
+}
+
+
+
+
+
+
+/* center: */
+
+#img-googleDotCard {
+  padding: 0;
+  height: 20vw;
+  border-radius: 50%;
+  width: 20vw;
+  background-size: cover;
+  position: relative;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  /*border: #e5e5e5 solid 2px;*/
+}
+
+
+

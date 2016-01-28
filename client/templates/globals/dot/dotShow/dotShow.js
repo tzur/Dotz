@@ -1,5 +1,5 @@
 
-Template.dotCard.helpers({
+Template.dotShow.helpers({
 
   isItMobileoShow: function() {
     let screenWidth = $(window).width();
