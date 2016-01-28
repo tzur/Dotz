@@ -211,19 +211,21 @@
 
               {{#if dot.linkUrl}}
                   <a href="{{dot.linkUrl}}" target="_blank">
-                      <button type="button" class="btn btn-default btn-{{dot.dotSubType}} btn-sm pull-right"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
+                      <button type="button" id="actionButton-mobileDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-md pull-right">
+                          <i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}
+                      </button>
                   </a>
               {{/if}}
 
-                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-sm pull-right"><i class="fa mdGrey fa-bookmark-o"></i></button>
+                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-md pull-left"><i class="fa mdGrey fa-bookmark-o"></i></button>
 
                 {{# if isLikedByMe}}
-                  <button class="unlike btn btn-default btn-sm mdGrey pull-left">
+                  <button class="unlike btn btn-default btn-md mdGrey pull-left">
                   <i class="mdGrey likeBtn fa fa-heart"></i>
                   <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
                   </button>
                 {{else}}
-                  <button class="like btn btn-default btn-sm mdGrey pull-left">
+                  <button class="like btn btn-default btn-md mdGrey pull-left">
                   <i class="mdGrey likeBtn fa fa-heart-o"></i>
                   <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
                   </button>
@@ -275,20 +277,20 @@
 
           <div class="col-xs-10">
               {{#if dotzNum}}
-              <h4 class="mdTxt mdGrey">{{dotzNum}} Connected</h4>
+              <h4 class="mdTxt darkText">{{dotzNum}} Connected:</h4>
                 {{else}}
-              <span class="lgTxt mdGrey">Let's Connect the 1st dot</span>
+              <span class="lgTxt darkText">Let's Connect the 1st dot :)</span>
               {{/if}}
           </div>
 
           <div class="col-xs-2">
-              <i class="fa fa-arrow-circle-down mdGrey fa-2x"></i>
+              <i class="fa fa-arrow-circle-down darkText fa-2x"></i>
           </div>
 
       </nav>
 
 
-      <div id="connectedDotzArray">
+      <div id="connectedDotzArray-mobileDotShow">
           <div class="container-fluid">
               {{#each connectedDotzArray}}
                 {{>mobileDotCard}}
