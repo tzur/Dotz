@@ -144,6 +144,7 @@ Meteor.publish('dotCard', function(dotId){
 //  }
 //});
 
+//TODO: make smarter publish.. @otni
 Meteor.publish( 'dotShowByDotSlug', function( dotSlug ) {
   check(dotSlug, String);
   if (dotSlug) {

@@ -247,7 +247,7 @@
 
         <div id="desktopDotShow-middleDiv" class="row">
 
-                <div class="col-xs-12 col-md-7 col-lg-7 colCenter">
+                <div class="col-xs-12 col-sm-7 colCenter">
 
 
                     <div id="desktopDotShow-middleDiv-origin" class="col-sm-6 pull-left">
@@ -290,7 +290,7 @@
 
                     {{#if dot.linkUrl}}
                       <a href="{{dot.linkUrl}}" target="_blank">
-                          <button type="button" class="btn btn-default btn-{{dot.dotSubType}} btn-sm"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
+                          <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-sm"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
                       </a>
                     {{/if}}
 
@@ -344,7 +344,7 @@
 
         <div id="desktopDotShow-descriptionDiv" class="container-fluid">
             <div class="container-fluid">
-                <div class="col-sm-6 colCenter">
+                <div class="col-sm-7 colCenter">
 
                     {{#if userClickOnShowMoreButton}}
 
@@ -352,11 +352,13 @@
 
                     {{else}}
 
-                      <pre id="desktopDotShow-shortDescription" class="darkText break" dir="auto">{{#autolink}}{{shortenBodyText}}{{/autolink}}</pre>
+                      <pre id="desktopDotShow-shortDescription" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+                      <div class="text-center">
+                          <button id="_showMore" class="btn btn-full-trans btn-sm">SHOW MORE</button>
+                      </div>
 
-                      <button id="_showMore" class="btn btn-default btn-sm">Show more</button>
+                      <br><br><br><br>
 
-                        <br><br>
 
                     {{/if}}
                       <!--<div id="desktopDotShow-descriptionFilter"></div>-->
