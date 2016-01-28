@@ -1,7 +1,7 @@
 <template name="mobileDotShow">
 {{#with dotShow}}
 
-{{# if isListShow}}
+{{# if isListShow dot.dotType}}
 
 <div class="container-fluid" id="header-mobileDotShow-list">
 
@@ -182,15 +182,12 @@
                   <div class="container-fluid">
 
                 {{#if userClickOnShowMoreButton}}
-
-                    <pre class="description line-h-md darkText mdTxt break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
-
+                    <pre id="description-mobileDotShow" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
                 {{else}}
 
-                    <pre class="description line-h-md darkText mdTxt break" dir="auto">{{#autolink}}{{shortenBodyText}}{{/autolink}}</pre>
-
+                    <pre id="shortDescription-mobileDotShow" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
                     <div class="text-center">
-                        <button id="_showMore" class="btn btn-full-trans mdGrey btn-xs">SHOW MORE</button>
+                        <button id="_showMore" class="btn btn-full-trans btn-xs">SHOW MORE</button>
                     </div>
 
                     <br>

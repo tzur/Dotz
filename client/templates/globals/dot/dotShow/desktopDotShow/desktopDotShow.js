@@ -280,15 +280,15 @@ Template.desktopDotShow.helpers({
     return this.dot.connectedDotzArray;
   },
 
-  //"show more description" session:
-  userClickOnShowMoreButton: function() {
-    return Session.get('userClickOnShowMoreButton');
-  },
-
-  //"show more" session:
-  userClickOnTheYesButton: function() {
-    return Session.get('userClickOnTheYesButton');
-  },
+  ////"show more description" session:
+  //userClickOnShowMoreButton: function() {
+  //  return Session.get('userClickOnShowMoreButton');
+  //},
+  //
+  ////"show more" session:
+  //userClickOnTheYesButton: function() {
+  //  return Session.get('userClickOnTheYesButton');
+  //},
 
   addDotIsAvailable: function() {
     return ( Meteor.user() && ( this.dot.isOpen || (this.dot.ownerUserId === Meteor.userId()) ) )
