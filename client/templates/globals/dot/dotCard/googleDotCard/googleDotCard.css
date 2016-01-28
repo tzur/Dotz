@@ -1,7 +1,15 @@
 
+/* General */
+
+#googleDotCard-box {
+  /*margin-bottom: 3vh;*/
+  padding: 3vh 0;
+  border-bottom: rgba(0,0,0,0.2) solid 1px;
+}
+
 
 /* left side: */
-#_addDotFromGoogleResults {
+#_addDotFromGoogleResults .fa {
   margin-top: 7vh;
 }
 
@@ -14,9 +22,9 @@
 
 #img-googleDotCard {
   padding: 0;
-  height: 20vw;
+  height: 15vh;
   border-radius: 50%;
-  width: 20vw;
+  width: 15vh;
   background-size: cover;
   position: relative;
   background-position-y: 50%;
@@ -26,3 +34,8 @@
 
 
 
+/* right side */
+
+#title-googleDotCard h5 {
+  margin-top: 0;
+}

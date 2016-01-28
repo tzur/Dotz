@@ -49,6 +49,9 @@
     </div>
 </div>
 
+  {{#if isEmptyList}}
+
+  {{else}}
 
     <div id="connectedDotzArray-list">
         <div class="container-fluid">
@@ -78,6 +81,8 @@
         </div>
     </div>
 
+  {{/if}}
+
   {{#if isUserAllowToConnect}}
 
       <div class="container-fluid" id="dotShowFooter">
@@ -86,10 +91,10 @@
 
             {{# if addDotIsAvailable}}
               {{#with dataForCreateHere}}
-
                 {{>searchBoxForConnect}}
-
               {{/with}}
+
+
             {{/if}}
 
           </div>
@@ -135,8 +140,35 @@
 
             <div class="col-xs-12">
 
-                    <img class="ownerImgProfile-mobileDotShow" src="{{ownerUser.profile.profileImage}}">
-                    <span class="darkText"> Connected by <a href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a></span>
+              {{#if facebookDot}}
+                  <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{authorFbProfile}}"></a>
+              {{else}}
+                {{#if dot.linkFavicon}}
+                  {{#if dot.linkName}}
+                      <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{dot.linkFavicon}}"></a>
+                  {{/if}}
+                {{/if}}
+              {{/if}}
+
+                <span>
+
+                  {{#if dot.linkName}}
+
+                    {{#if dot.linkAuthorName}}
+                        <span class="mdGrey userText">By <a href="{{dot.linkUrl}}" target="_blank">{{dot.linkAuthorName}}</a></span>
+                    {{/if}}
+
+                      <span class="mdGrey userText"><a href="{{dot.linkUrl}}" target="_blank">{{dot.linkName}}</a></span>
+
+                  {{else}}
+
+                      <span class="mdGrey userText">
+                                  <a href="/{{ownerUser.userSlug}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
+                                  <a href="/{{ownerUser.userSlug}}" target="_blank">{{ownerUser.username}}</a>
+                              </span>
+
+                  {{/if}}
+                </span>
 
             </div>
 
@@ -179,19 +211,19 @@
 
               {{#if dot.linkUrl}}
                   <a href="{{dot.linkUrl}}" target="_blank">
-                      <button type="button" class="btn btn-xs btn-default btn-{{dot.dotSubType}} btn-sm pull-right"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
+                      <button type="button" class="btn btn-default btn-{{dot.dotSubType}} btn-sm pull-right"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
                   </a>
               {{/if}}
 
-                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-xs pull-right"><i class="fa mdGrey fa-bookmark-o"></i></button>
+                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-sm pull-right"><i class="fa mdGrey fa-bookmark-o"></i></button>
 
                 {{# if isLikedByMe}}
-                  <button class="unlike btn btn-default btn-xs mdGrey pull-left">
+                  <button class="unlike btn btn-default btn-sm mdGrey pull-left">
                   <i class="mdGrey likeBtn fa fa-heart"></i>
                   <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
                   </button>
                 {{else}}
-                  <button class="like btn btn-default btn-xs mdGrey pull-left">
+                  <button class="like btn btn-default btn-sm mdGrey pull-left">
                   <i class="mdGrey likeBtn fa fa-heart-o"></i>
                   <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
                   </button>
@@ -261,9 +293,10 @@
               {{#each connectedDotzArray}}
                 {{>mobileDotCard}}
               {{/each}}
-               <!--{{>lastDotCardMobileDotShow}}-->
           </div>
       </div>
+
+
 
 
         {{#if isUserAllowToConnect}}
