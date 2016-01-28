@@ -23,9 +23,12 @@ function _googleCustomSearch(query, callback){
  * @private
  */
 function _googleDotFactory(googleResult){
-  this.googleImg = googleResult.pagemap['cse_thumbnail'][0].src;
+  if (googleResult.pagemap && googleResult.pagemap["cse_thumbnail"]){
+    this.googleImg = googleResult.pagemap["cse_thumbnail"][0].src;
+  }
   this.googleLinkUrl = googleResult.link;
   this.googleHtmlTitle = googleResult.htmlTitle;
+  this.googleTitle = googleResult.title;
   this.googleDescription = googleResult.snippet;
   this.googleHtmlDescription = googleResult.htmlSnippet;
   this.googleWebsiteName = googleResult.displayLink;
