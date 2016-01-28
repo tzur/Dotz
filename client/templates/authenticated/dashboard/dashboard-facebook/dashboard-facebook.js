@@ -1,5 +1,5 @@
 
-Template.dashboard.helpers({
+Template.dashboardFacebook.helpers({
   isUserFBGroupAdmin: function() {
     return true   //TODO add login for FB admin @zur
     //return (Roles.userIsInRole(Meteor.userId(), ROLES.FB_GROUP_ADMIN));
@@ -8,7 +8,7 @@ Template.dashboard.helpers({
     return Session.get('FBSpinnerOn');
   }
 });
-Template.dashboard.events({
+Template.dashboardFacebook.events({
   'click #_userFbGroupAdmin': function(event){
     event.preventDefault();
     let currentText = event.currentTarget.textContent;
