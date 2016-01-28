@@ -80,7 +80,6 @@
 
               <!-- Tab panes -->
               <div class="tab-content">
-
                   <!--Google results tab-->
                   <div role="tabpanel" class="tab-pane active" id="google">
                       <div class="container-fluid">
@@ -89,7 +88,7 @@
                                 {{#if googleResults}}
                                   <ul>
                                     {{#each googleResults}}
-                                          {{> googleDotCard}}
+                                          {{> googleDotCard data=getDataForGoogleCard}}
                                     {{/each}}
                                   </ul>
                                 {{/if}}

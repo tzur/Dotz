@@ -184,11 +184,8 @@
   <div class="row">
 
     {{#if userClickOnTheYesButton}}
-
       {{# if addDotIsAvailable}}
-        {{#with dataForCreateHere}}
-          {{>searchBoxForConnect}}
-        {{/with}}
+          {{>searchBoxForConnect parentDot=dataForCreateHere}}
       {{/if}}
 
     {{else}}
