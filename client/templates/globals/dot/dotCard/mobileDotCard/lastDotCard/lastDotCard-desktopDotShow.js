@@ -16,6 +16,18 @@ Template.lastDotCardDesktopDotShow.onDestroyed(function() {
 
 Template.lastDotCardDesktopDotShow.helpers( {
 
+  shortestTitle: function() {
+    if (this.dot){
+      return s.prune(this.dot.title, 35);
+    }
+  },
+
+  shortenTitle: function() {
+    if (this.dot){
+      return s.prune(this.dot.title, 50);
+    }
+  }
+
 });
 
 
@@ -31,6 +43,14 @@ Template.lastDotCardDesktopDotShow.events( {
         'slow');
     }, 1000);
   //The session has been killed on dotShow (onRendered...)
+  },
+
+  'click ._shareFacebookDialog': function(event){
+    event.preventDefault();
+    FB.ui({
+      method: 'share',
+      href: 'http://dotz.city/'+ this.dot.dotSlug
+    }, function(response){});
   }
 
 });
