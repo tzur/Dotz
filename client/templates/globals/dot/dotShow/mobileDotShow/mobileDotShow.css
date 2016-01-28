@@ -31,6 +31,10 @@
   /*border-top: 1px solid #eee;*/
 }
 
+#actionButton-mobileDotShow-dot {
+  min-width: 30vw;
+}
+
 #connectedByTextDiv-mobileDotShow{
   padding-top: 2vh;
   padding-bottom: 2vh;
@@ -175,12 +179,15 @@
   /*border-right: 2px solid #eeeeee;*/
 /*}*/
 
+#connectedDotzArray-mobileDotShow {
+  background-color: #FAFAFA;
+}
 
 
 /*fixed footer*/
 
 #fixedFooter-mobileDotShow {
-  background-color: #F8F7F7;
+  background-color: #FAFAFA;
   padding: 2vh 0;
 }
 
@@ -225,9 +232,9 @@
 /*dotShow Footer Desktop*/
 
 #dotShowFooter-mobileDotShow {
-  /*background-color: rgba(0, 0, 0, 0.1);*/
-  padding-bottom: 2vh;
-  min-height: 30vh;
+  background-color: #FAFAFA;
+  padding-bottom: 0vh;
+  /*min-height: 30vh;*/
 }
 
 #dotShowFooter-mobileDotShow .row {
