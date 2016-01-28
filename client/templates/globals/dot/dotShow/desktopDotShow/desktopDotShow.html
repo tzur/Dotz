@@ -247,7 +247,7 @@
 
         <div id="desktopDotShow-middleDiv" class="row">
 
-                <div class="col-xs-12 col-md-9 col-lg-7 colCenter">
+                <div class="col-xs-12 col-md-7 col-lg-7 colCenter">
 
 
                     <div id="desktopDotShow-middleDiv-origin" class="col-sm-6 pull-left">
@@ -352,7 +352,11 @@
 
                     {{else}}
 
-                      <pre id="desktopDotShow-description" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+                      <pre id="desktopDotShow-shortDescription" class="darkText break" dir="auto">{{#autolink}}{{shortenBodyText}}{{/autolink}}</pre>
+
+                      <button id="_showMore" class="btn btn-default btn-sm">Show more</button>
+
+                        <br><br>
 
                     {{/if}}
                       <!--<div id="desktopDotShow-descriptionFilter"></div>-->
@@ -377,12 +381,12 @@
 
 
 <div id="placeHolder-desktop"></div>
-    <nav id="fixedFooter-desktopDotShow" class="navbar navbar-default navbar-fixed-bottom fixedFooterShadow-desktopDotShow" role="navigation">
+    <nav id="fixedFooter-desktopDotShow" class="navbar navbar-default" role="navigation">
 
         <div class="container-fluid">
             <div class="row">
 
-                <div id="fixedFooterLineDiv-desktopDotShow" class="col-sm-7 colCenter">
+                <div id="fixedFooterLineDiv-desktopDotShow" class="col-sm-7 colCenter fixedFooterLine-desktopDotShow">
                     <!--onScroll add class >> fixedFooterLine-desktopDotShow-->
 
                   <div class="col-xs-11">
