@@ -1,13 +1,16 @@
 <template name="dotShow">
 
-  <!--Mobile Show-->
-  <div class="visible-xs">
-      {{> mobileDotShow}}
-  </div>
+    {{#if isItMobileoShow}}
 
-  <!--Desktop & Tablet Show-->
-  <div class="hidden-xs">
-      {{> desktopDotShow}}
-  </div>
+        <!--Mobile Show-->
+        {{> mobileDotShow}}
+
+     {{else}}
+
+        <!--Desktop & Tablet Show-->
+        {{> desktopDotShow}}
+
+    {{/if}}
+
 
 </template>
