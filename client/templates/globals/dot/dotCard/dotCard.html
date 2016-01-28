@@ -1,13 +1,15 @@
 <template name="dotCard">
 
-  <!--Mobile Show-->
-  <div class="visible-xs">
-      {{> mobileDotCard}}
-  </div>
+  {{#if isItMobileoShow}}
 
-  <!--Desktop & Tablet Show-->
-  <div class="hidden-xs">
-      {{> desktopDotCard}}
-  </div>
+      <!--Mobile Show-->
+    {{> mobileDotCard}}
+
+  {{else}}
+
+      <!--Desktop & Tablet Show-->
+    {{> desktopDotCard}}
+
+  {{/if}}
 
 </template>
