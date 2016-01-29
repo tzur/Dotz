@@ -1,5 +1,6 @@
 #desktopDotCard-lastDot-box {
-  margin-left: 0;
+  margin: 2vh 0;
+  /*margin-left: 0;*/
   border-left: transparent;
   padding: 0 1vh 0 0;
 }

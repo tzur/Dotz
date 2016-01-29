@@ -24,6 +24,13 @@
                         <h5 id="desktopListShow-description" class="lightGrey text-center break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</h5>
                     </div>
 
+                    {{#if ownerUser.profile.brandLine}}
+                      <div id="brandLineDiv">
+                          <img id="brandLine" src="{{ownerUser.profile.brandLine}}">
+                          <!--https://dotz-deployment.s3.amazonaws.com/bMTxSjcRwisy6AGcb/TLVglobalBlueLine.png-->
+                      </div>
+                    {{/if}}
+
                 </div>
             </div><!--end row listCoverImg-->
 
@@ -194,7 +201,7 @@
 
     {{else}}
 
-        <div id="lastCard-desktopDotShow" class="col-xs-12 colCenter noPadding">
+        <div id="lastCard-desktopDotShow" class="col-xs-12 col-sm-7 colCenter noPadding">
           {{>lastDotCardDesktopDotShow}}
         </div>
 

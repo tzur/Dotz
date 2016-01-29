@@ -755,3 +755,17 @@ pre {
 }
 
 
+
+/* Temp ... */
+
+#brandLineDiv {
+  overflow: hidden;
+}
+
+#brandLine {
+  float: right;
+  margin-right: -15vw;
+  height: 6.5vh;
+  /*width: 90vw;*/
+  margin-top: 23vh;
+}
