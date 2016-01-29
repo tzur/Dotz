@@ -31,35 +31,23 @@ Template.createDotModal.onRendered(function(){
       key:'ac95ba6487c94c12a42edafe22cff281',
       success: function(){
         Session.set("embedlyObj", $('#url').data('preview') );
-        let embedlyObj = $('#url').data('preview');
-          $("#titleField").val(embedlyObj.title);
-          $("#descriptionField").val(embedlyObj.description);
-
-          Modules.client.uploadToAmazonViaUrl(embedlyObj.thumbnail_url, function(error){
-            if (error){
-              console.log(error);
-              Modules.client.createDotFinishedLoading();
-            }else{
-              Modules.client.createDotFinishedLoading();
-            }
-          });
-
+        let data = $('#url').data('preview');
+        Modules.client.updateCreateDotFields(data.title, data.description, data.thumbnail_url);
       },
       error: function(obj){
+        Session.set("embedlyObj", undefined );
         if (obj.provider_url.indexOf('https://www.facebook.com') > -1){
           Modules.client.facebook.getPostData(function(error,data){
             if (error){
               Bert.alert(error.message, 'danger');
               Modules.client.createDotFinishedLoading();
             }else{
-              $("#descriptionField").val(data.message).trigger('change');
-              Session.set('fbPostAuthorData', data.from);
-              Modules.client.createDotFinishedLoading();
+              Modules.client.updateCreateDotFields(undefined,data.message,undefined, data.from);
+              Session.set('fbPostAuthorData', data.from); //TODO MOVE IT TO UPDATE CREATE DOT FIELDS.
             }
           });
         }
       }
-
       });
   });
 
@@ -172,9 +160,9 @@ Template.createDotModal.events({
     Session.set("dotType", e.target.id);
   },
 
-  'change input[type="file"]' ( event, template ) {
-    Modules.client.uploadToAmazonS3( { event: event, template: template } );
-  },
+  //'change input[type="file"]' ( event, template ) {
+  //  Modules.client.uploadToAmazonS3( { event: event, template: template } );
+  //},
   'click #publishButton': function(){
     Session.set('spinnerOn', true);
   }

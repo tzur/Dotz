@@ -1,22 +1,23 @@
 <template name="googleDotCard">
     <div id="googleDotCard-box" class="row colCenter">
-
+      {{check}}
 
         <!--Click to add (plusButton)-->
         <div id="leftCol-googleDotCard" class="col-xs-1">
 
+
             <a id="_addDotFromGoogleResults" class="pull-right">
-                <i class="darkText text-center fa fa-plus fa-lg"></i>
+                <i class="_connectGoogle darkText text-center fa fa-plus fa-lg"></i>
+
             </a>
 
         </div>
-
 
         <!--image side-->
         <div id="centerCol-googleDotCard" class="col-xs-4">
 
             <div id="img-googleDotCard" class="container-fluid defaultDot-background"
-                 style="background-image: url('{{googleImg}}')">
+                 style="background-image: url('{{googleDot.googleImg}}')">
             </div>
 
         </div>
@@ -28,18 +29,18 @@
             <!--Title-->
             <div id="title-googleDotCard">
                 <a href="{{googleLinkUrl}}" target="_blank">
-                    <h5 class="darkText bold break" dir="auto">{{googleTitle}}</h5>
+                    <h5 class="darkText bold break" dir="auto">{{googleDot.googleTitle}}</h5>
                 </a>
             </div>
 
             <!--Description-->
             <div id="description-googleDotCard">
-                <h6 class="break" dir="auto">{{googleDescription}}</h6>
+                <h6 class="break" dir="auto">{{googleDot.googleDescription}}</h6>
             </div>
 
             <!--Website name-->
             <div id="websiteName-googleDotCard">
-                <h6 class="green-google-websiteName break">{{googleWebsiteName}}</h6>
+                <h6 class="green-google-websiteName break">{{googleDot.googleWebsiteName}}</h6>
             </div>
 
         </div>
