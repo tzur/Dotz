@@ -3,8 +3,7 @@
 
 Template.dashboardFacebook.helpers({
   isUserFBGroupAdmin: function() {
-    return true   //TODO add login for FB admin @zur
-    //return (Roles.userIsInRole(Meteor.userId(), ROLES.FB_GROUP_ADMIN));
+    return true;    //TODO add login for FB admin @zur
   },
   isSpinnerOn: function(){
     return Session.get('FBSpinnerOn');
