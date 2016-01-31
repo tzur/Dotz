@@ -241,14 +241,67 @@
         <div id="desktopDotShow-listCoverImg" class="row {{dot.dotColor}}-background"
              style="background-image: url('{{dot.coverImageUrl}}')">
 
-            <div id="desktopDotShow-listShowHeader-filter">
+            <div id="desktopDotShow-listShowHeader-filter" class="">
 
-                <div id="desktopDotShow-titleDiv" class="col-sm-7 colCenter">
-                    <h2 id="desktopDotShow-title" class="darkText container-fluid break" dir="auto">{{dot.title}}</h2>
+
+                <!--<div id="desktopDotShow-titleDiv" class="row">-->
+                    <!--<div class="col-xs-7 colCenter">-->
+
+                        <!--<div class="col-xs-2 pull-right">-->
+                            <!--&lt;!&ndash;Circle Action Button &ndash;&gt;-->
+                            <!--<a href="{{dot.linkUrl}}" target="_blank">-->
+                                <!--<div id="circleActionButton" class="btn-{{dot.dotSubType}} pull-right">-->
+
+                                    <!--<i class="fa {{actionButtonIcon}} fa-lg"></i>-->
+
+                                    <!--<p id="actionButtonName" class="text-center">{{actionButtonTitle}}</p>-->
+                                    <!--&lt;!&ndash;Navigate?&ndash;&gt;-->
+                                <!--</div>-->
+                            <!--</a>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+
+                <!--</div>-->
+
+
+                <div id="desktopDotShow-titleDiv" class="row">
+                    <div class="col-xs-7 colCenter">
+
+                        <!--<div class="col-xs-10 pull-left">-->
+                            <h2 id="desktopDotShow-title" class="darkText container-fluid break" dir="auto">{{dot.title}}</h2>
+                        <!--</div>-->
+
+                    </div>
+
                 </div>
 
+
+
+
+                <!--<div id="desktopDotShow-titleDiv" class="col-sm-7 colCenter">-->
+
+                    <!--<div class="col-xs-10">-->
+                        <!--<h2 id="desktopDotShow-title" class="darkText container-fluid break" dir="auto">{{dot.title}}</h2>-->
+                    <!--</div>-->
+
+                    <!--<div class="col-xs-2-">-->
+                        <!--&lt;!&ndash;Circle Action Button &ndash;&gt;-->
+                        <!--<a href="{{dot.linkUrl}}" target="_blank">-->
+                            <!--<div id="circleActionButton" class="btn-{{dot.dotSubType}} pull-right">-->
+
+                                <!--<i class="fa {{actionButtonIcon}} fa-lg"></i>-->
+
+                                <!--<p id="actionButtonName" class="text-center">{{actionButtonTitle}}</p>-->
+                                <!--&lt;!&ndash;Navigate?&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+
             </div>
-        </div><!--end row listCoverImg-->
+        </div><!--end row CoverImg-->
 
         <div id="desktopDotShow-middleDiv" class="row">
 
@@ -293,19 +346,23 @@
 
                     <div class="col-sm-6 pull-right txtR">
 
+
+
+
+
                     {{#if dot.linkUrl}}
                       <a href="{{dot.linkUrl}}" target="_blank">
-                          <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-sm"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
+                          <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-md"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
                       </a>
                     {{/if}}
 
 
                       <!--like button-->
-                      <!--{{# if isLikedByMe}}-->
-                          <!--<button type="button" class="unlike btn btn-default btn-sm"><i class="mdGrey fa fa-heart"></i> {{likeCounter}}</button>-->
-                      <!--{{else}}-->
-                          <!--<button type="button" class="like btn btn-default btn-sm"><i class="mdGrey fa fa-heart-o"></i> {{likeCounter}}</button>-->
-                      <!--{{/if}}-->
+                      {{# if isLikedByMe}}
+                          <button type="button" class="unlike btn btn-default btn-md"><i class="mdGrey fa fa-heart"></i> {{likeCounter}}</button>
+                      {{else}}
+                          <button type="button" class="like btn btn-default btn-md"><i class="mdGrey fa fa-heart-o"></i> {{likeCounter}}</button>
+                      {{/if}}
 
                         <span id="desktopDotShow-3dots" class="dropdown">
                           <button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

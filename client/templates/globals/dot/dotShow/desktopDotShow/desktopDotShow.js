@@ -155,7 +155,7 @@ Template.desktopDotShow.helpers({
   //ActionButton Helpers:
   actionButtonIcon: function() {
     if (this.dot.dotSubType === "Link") {
-      return "fa-external-link";
+      return "fa-globe";
     } else if (this.dot.dotSubType === "Place") {
       return "fa-map-marker";
     } else if (this.dot.dotSubType === "Event") {
