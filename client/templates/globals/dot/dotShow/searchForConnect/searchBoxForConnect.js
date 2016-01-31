@@ -77,6 +77,10 @@ Template.searchBoxForConnect.events({
   'click ._createList':function(){
     Session.set('parentDot', this.dot._id);
     Modal.show('createListModal');
+  },
+
+  'click #searchSubmit':function(){
+    $('#searchTabs').removeClass('hidden');
   }
 });
 

@@ -2,6 +2,10 @@
   /*padding-top: 4vh;*/
 }
 
+#searchBox-actionsDiv {
+  padding: 3vh 0;
+}
+
 #searchToConnect .search-results-row {
   background-color: transparent;
 }
@@ -10,6 +14,7 @@
 #_createFromList {
   /*height: 3.9vh;*/
   font-size: 1em;
+  border: 1px solid #e5e5e5;
 }
 
 #searchToConnect .md-form {
@@ -32,6 +37,29 @@
   width: 15%;
   margin: 0.5em;
 }
+
+#searchTabs {
+  border-bottom: rgba(0,0,0,0.2) solid 1px;
+}
+
+#searchTabs .search-btns {
+  display: inline-block;
+}
+
+#searchTabs .active {
+  border-bottom: rgba(0,0,0,0.2) solid 2px;
+  background-color: transparent;
+}
+
+
+#searchTabs a:hover, #searchTabs a:focus  {
+  background-color: transparent;
+}
+
+#searchTabs ul .search-btns a {
+  color: #ccc;
+}
+
 
 .nav-pills li a {
   border: #337AB7 solid 1px;

@@ -2,17 +2,12 @@
 <template name="lastDotCardDesktopDotShow">
 
 
-      <div class="col-xs-12" id="desktopDotCard-lastDot-box">
-
-            <!--<div id="mobileDotCard-lineDiv" class="container-fluid">-->
-                <!--<div id="mobileDotCard-line"></div>-->
-            <!--</div>-->
-
-            <!--<div id="desktopDotCard-lastDot" class="container-fluid">-->
+      <div class="" id="desktopDotCard-lastDot-box">
 
           <div id="desktopDotCard-col-img">
               <div>
-                  <div id="desktopDotCard-img" class="container-fluid" style="background-image: url('https://dotz.imgix.net/MQRoZrrcGe2r72ztw/uncleSam2.jpg')">
+                  <div id="lastDot-desktopDotCard-img" class="container-fluid">
+                      <i class="fa fa-question"></i>
                   </div>
               </div>
           </div>
@@ -22,38 +17,38 @@
               <h4 id="" class="bold darkText">Pssst...</h4>
               <h5>We are looking for a hero.</h5>
               <h5 class="">One who knows which dot should be connected to</h5>
-              <h5 class=""><a>{{shortenTitle}}.</a></h5>
-          </div>
-      </div>
-            <!--</div>-->
-
-<div id="desktopDotCard-lastDotButtons">
-
-    <button id="_yesButton" class="btn btn-lead whiteTxt btn-md">I'm that hero!</button>
-
-    <button class="btn btn-success btn-md" data-toggle="modal" data-target="#share-Q-modal-desktop">I know a hero just like that <i class="fa fa-share-alt pull-right"></i></button>
 
 
-    <!-- Share The Q Modal -->
+              <div id="desktopDotCard-lastDotButtons">
 
-    <div class="modal fade" id="share-Q-modal-desktop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div id="modal-header-primary" class="container-fluid">
-                    <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
-                    <h4 class="modal-title" id="myModalLabel">Spread the word</h4>
-                </div>
-                <div class="modal-body">
-                    <h4 class="line-h-md">Invite a friend to create the next connection to <strong>{{shortestTitle}}</strong></h4>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="_shareFacebookDialog btn btn-primary text-center"><i class="fa fa-facebook whiteTxt"></i> &nbsp; Share</button>
-                    <!--<button type="button" class="btn btn-danger text-center"><i class="fa fa-envelope whiteTxt"></i></button>-->
-                </div>
-            </div>
-        </div>
+                  <button id="_yesButton" class="btn btn-lead whiteTxt btn-md">I'm that hero!</button>
+
+                  <button class="btn btn-success btn-md" data-toggle="modal" data-target="#share-Q-modal-desktop">I know a hero just like that <i class="fa fa-share-alt pull-right"></i></button>
+
+
+                  <!-- Share The Q Modal -->
+
+                  <div class="modal fade" id="share-Q-modal-desktop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog modal-sm" role="document">
+                          <div class="modal-content">
+                              <div id="modal-header-primary" class="container-fluid">
+                                  <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                                  <h4 class="modal-title" id="myModalLabel">Spread the word</h4>
+                              </div>
+                              <div class="modal-body">
+                                  <h4 class="line-h-md">Invite a friend to connect the next Dot to <strong>{{shortestTitle}}</strong></h4>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="_shareFacebookDialog btn btn-primary text-center"><i class="fa fa-facebook whiteTxt"></i> &nbsp; Share</button>
+                                  <!--<button type="button" class="btn btn-danger text-center"><i class="fa fa-envelope whiteTxt"></i></button>-->
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+
     </div>
-
 </div>
 
 
