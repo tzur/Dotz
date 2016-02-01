@@ -1,53 +1,76 @@
 <template name="searchBoxForConnect">
 <div id="searchToConnect">
 
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-xs-12 col-md-8 colCenter">
+  <div class="">
+      <div class="">
+          <div class="">
 
-              <div class="row txtMd">
-                  <div class="col-xs-12">
-                      <h4 class="bold">Let's create something awesome!</h4>
-                      <h5>Use the search bar or the Add button to connect new Dotz</h5>
-                      <br>
+              <div class="" id="desktopDotCard-lastDot-box">
+
+                  <div id="desktopDotCard-col-img">
+                      <div>
+                          <div id="lastDot-desktopDotCard-img" class="container-fluid">
+                              <i class="fa fa-question"></i>
+                          </div>
+                      </div>
                   </div>
+
+                  <div id="lastDotText-desktopDotShow">
+                      <!--<h2 id="desktopDotCard-title-lastDot" class="bold darkText">Search and connect related items</h2>-->
+                      <h4 id="" class="bold darkText">Pssst...</h4>
+                      <h5>We are looking for a hero.</h5>
+                      <h5 class="">One who knows which dot should be connected to</h5>
+
+
+
+                      <div id="searchBox-actionsDiv" class="row">
+
+                          <div class="col-xs-10 col-sm-8">
+                              <form class="search _googleSearch" role="search">
+
+                                  <div class="col-sm-12 form-group txtMd no-left-pad">
+                                      <div class="input-group">
+                                          <input id="_searchBoxInput" type="text" name="searchBox" class="form-control"
+                                                 placeholder="Search on Google..." required>
+                                        <span class="input-group-btn">
+                                          <button id="searchSubmit" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                        </span>
+                                      </div><!-- /input-group -->
+                                  </div><!-- /.col-lg-6 -->
+
+                              </form>
+                              <br><br>
+
+                          </div>
+
+                          <div class="col-sm-1 noPadding"><span class="alignSub mdGrey">Or </span></div>
+
+                          <div class="hidden-xs hidden-sm col-sm-3 no-left-pad">
+
+                              <a class="panelBtn dropdown-toggle pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   <span aria-hidden="true" class="pull-left">
+                                     <button type="button" id="_createFromList" class="btn btn-default mdGrey">
+                                         <i class="fa fa-plus mdGrey"></i> Create</button>
+                                   </span>
+                              </a>
+
+                              <ul class="dropdown-menu">
+                                  <li class="_createDot"><a href=""><i class="fa fa-circle-o"></i>Create Dot</a></li>
+                                  <li role="separator" class="divider"></li>
+                                  <li class="_createList"><a href=""><i class="fa fa-list-ul"></i>Create List</a></li>
+                              </ul>
+
+                          </div>
+
+                      </div>
+
+                  </div>
+
+
               </div>
 
 
-              <div class="hidden-xs hidden-sm col-sm-2 col-sm-offset-2">
 
-                      <a class="panelBtn dropdown-toggle pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <span aria-hidden="true" class="pull-right">
-                             <button type="button" id="_createFromList" class="btn btn-default mdGrey">
-                             <i class="fa fa-plus mdGrey"></i> Create</button>
-                           </span>
-                      </a>
-
-                      <ul class="dropdown-menu">
-                          <li class="_createDot"><a href=""><i class="fa fa-circle-o"></i>Create Dot</a></li>
-                          <li role="separator" class="divider"></li>
-                          <li class="_createList"><a href=""><i class="fa fa-list-ul"></i>Create List</a></li>
-                      </ul>
-
-              </div>
-
-              <div class="col-xs-10 col-sm-8">
-                  <form class="search _googleSearch" role="search">
-
-                      <div class="col-sm-8 form-group txtMd">
-                          <div class="input-group">
-                              <input id="_searchBoxInput" type="text" name="searchBox" class="form-control"
-                                     placeholder="Search on Google..." required>
-                                <span class="input-group-btn">
-                                  <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                                </span>
-                          </div><!-- /input-group -->
-                      </div><!-- /.col-lg-6 -->
-
-                  </form>
-                  <br><br>
-
-              </div>
 
                         <!--</div>-->
           </div>
@@ -56,8 +79,8 @@
 
         <!-- Nav tabs -->
 
-    <div id="searchTabs">
-        <ul class="nav nav-pills nav-justified txtMd" role="tablist">
+    <div id="searchTabs" class="hidden col-sm-12">
+        <ul class="nav" role="tablist">
             <li role="presentation" class="active search-btns"><a href="#google" aria-controls="google" role="tab" data-toggle="tab">Google</a></li>
             <li role="presentation" class="search-btns"><a href="#dotz" aria-controls="dotz" role="tab" data-toggle="tab">Dotz {{dotzResultNumber}}</a></li>
             <!--<li role="presentation" class="search-btns"><a href="#lists" aria-controls="lists" role="tab" data-toggle="tab">Lists {{listsResultNumber}}</a></li>-->
@@ -76,7 +99,7 @@
                   <div role="tabpanel" class="tab-pane active" id="google">
                       <div class="container-fluid">
                           <div class="row">
-                              <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
+                              <div class="col-xs-12 col-md-10 col-lg-12 colCenter">
                                 {{#if googleResults}}
                                   <ul>
                                     {{#each googleResults}}
@@ -92,7 +115,7 @@
                   <div role="tabpanel" class="tab-pane" id="dotz">
                       <div class="container-fluid">
                           <div class="row">
-                              <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
+                              <div class="col-xs-12 col-md-10 col-lg-12 colCenter">
                                 {{#if dotzResult}}
                                     <ul>
                                       {{#each dotzResult}}

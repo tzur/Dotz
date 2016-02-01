@@ -265,7 +265,7 @@
                 <!--</div>-->
 
 
-                <div id="desktopDotShow-titleDiv" class="row">
+                <div id="desktopDotShow-titleDiv" class="">
                     <div class="col-xs-7 colCenter">
 
                         <!--<div class="col-xs-10 pull-left">-->
@@ -532,11 +532,20 @@
 
                     {{else}}
 
-                                  {{# if addDotIsAvailable}}
-                                    {{#with dataForCreateHere}}
-                                      {{>searchBoxForConnect}}
-                                    {{/with}}
-                                  {{/if}}
+                                  <div id="lastCard-desktopDotShow" class="col-xs-12 col-md-9 col-lg-7 colCenter noPadding">
+                                      <div id="desktopDotCard-lastDot" class="container-fluid">
+                                          <div id="desktopDotCard-lastDot-col-connectLine"></div>
+
+                                        <!--{{>lastDotCardDesktopDotShow}}-->
+
+                                        {{# if addDotIsAvailable}}
+                                          {{#with dataForCreateHere}}
+                                            {{>searchBoxForConnect}}
+                                          {{/with}}
+                                        {{/if}}
+
+                                      </div>
+                                  </div>
 
                     {{/if}}
 

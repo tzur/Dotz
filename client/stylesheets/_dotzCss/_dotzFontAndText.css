@@ -32,6 +32,12 @@ a:hover {
 }
 
 
+/*vertical Alignment*/
+
+.alignSub {
+  vertical-align: sub;
+}
+
 
 
 /*Text Sizes*/

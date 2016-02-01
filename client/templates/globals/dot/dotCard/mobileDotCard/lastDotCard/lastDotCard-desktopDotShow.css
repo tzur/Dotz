@@ -1,8 +1,8 @@
 #desktopDotCard-lastDot-box {
-  margin: 2vh 0;
+  /*margin: 2vh 0;*/
   /*margin-left: 0;*/
-  border-left: transparent;
-  padding: 0 1vh 0 0;
+  /*border-left: transparent;*/
+  /*padding: 0 1vh 0 0;*/
 }
 
 
@@ -13,26 +13,37 @@
 
 
 #desktopDotCard-lastDot-col-connectLine {
-  width: 4vw;
+  width: 9%;
   position: relative;
   float: left;
   text-align: center;
-  border-left: 8px dashed #FFFFFF;
-  padding-top: 21vh;
-  margin-top: -11vh;
-  border-bottom: 8px dashed #FFFFFF;
+  border-left: 2px dashed #e5e5e5;
+  padding-top: 19vh;
+  margin-top: -9vh;
+  border-bottom: 2px dashed #e5e5e5;
 }
 
-#desktopDotCardImg {
-  padding: 0;
-  height: 26vw;
+#lastDot-desktopDotCard-img {
+  color: #E5E5E5;
   border-radius: 50%;
-  width: 26vw;
+  padding: 0;
+  border: 2px #e5e5e5 dashed;
+  text-align: center;
+  height: 20vh;
+  font-size: 14vh;
+  width: 20vh;
   background-size: cover;
+  /* background-color: #e5e5e5; */
   position: relative;
   background-position-y: 50%;
   background-position-x: 50%;
-  border: #e5e5e5 solid 2px;
+  /* border: #e5e5e5 solid 2px; */
+}
+
+#lastDotText-desktopDotShow {
+  width: 66%;
+  position: relative;
+  float: left;
 }
 
 #lastDotText-desktopDotShow h4, #lastDotText-desktopDotShow h5  {
@@ -40,7 +51,7 @@
 }
 
 #desktopDotCard-lastDotButtons {
-  padding: 0 0 7vh 0;
+  padding: 4vh 0 7vh 0;
   text-align: center;
 }
 
