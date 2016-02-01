@@ -4,14 +4,14 @@
   <div class="header-fixed">
 
         <!--header-->
-        <div id="header-createNewDot" class="row">
+        <div id="header-createNewDot" class="row background-{{selectedType}}">
 
             <h2 class="text-center"><strong>Create a new dot:</strong></h2>
 
         </div>
 
         <!--nav bar - dot type Icons-->
-        <div id="navBar-createNewDot" class="row">
+        <div id="navBar-createNewDot" class="row background-{{selectedType}}">
 
             <!--<div id="navBar-top-createNewDot" class="row">-->
                 <!---->
@@ -144,37 +144,50 @@
 
             <!--if Link - start with url-->
           {{#if link}}
+          <div class="row fieldBox">
             {{> url}}
-              <hr>
+              <!--<div class="hr simpleHr">-->
+          </div>
           {{/if}}
 
 
             <!--The main fields-->
-          {{> title}}
-            <hr>
-          {{> description}}
-            <hr>
-          {{> img}}
+          <div class="row fieldBox">
+            {{> title}}
+          </div>
+          <div class="row fieldBox">
+            {{> description}}
+          </div>
+          <div class="row fieldBox">
+            {{> img}}
+          </div>
+            <!--<div class="hr simpleHr"></div>-->
 
           {{#unless link}}
-              <hr>
+
+          <div class="row fieldBox">
             {{> url}}
+          </div>
           {{/unless}}
 
             <!-- Place fields -->
           {{#if place}}
-              <hr>
-            {{> map}}
+            <div class="row fieldBox">
+              {{> map}}
+            </div>
           {{/if}}
 
           <!--Event Fields-->
           {{#if event}}
-              <hr>
-            {{> date}}
-              <hr>
-            {{> map}}
-              <hr>
-            {{> price}}
+              <div class="row fieldBox">
+                {{> date}}
+              </div>
+              <div class="row fieldBox">
+                {{> map}}
+              </div>
+              <div class="row fieldBox">
+                {{> price}}
+              </div>
           {{/if}}
 
 
@@ -228,10 +241,10 @@
         </div>
 
 
-        <div id="footer-createNewDot" class="row">
+        <div id="footer-createNewDot" class="row text-center">
 
-            <div class="col-xs-12 colCenter">
-                <button id="_createDotBtn" type="submit" class="btn btn-primary">Publish</button>
+            <div class="col-xs-12">
+                <button id="_createDotBtn" type="submit" class="btn btn-{{selectedType}}">Create</button>
             </div>
 
         </div>
@@ -241,77 +254,6 @@
 
 
 </div>
-
-
-    <!--<div class="row">-->
-        <!--<div class="modal-title col-xs-12 colCenter">-->
-            <!--<div class="row">-->
-                <!--<h3 class="txtMd">Create New Dot</h3>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row colCenter">-->
-            <!--<div class="col-xs-12">-->
-                <!---->
-                <!--<div class="row">-->
-                    <!--<div class="col-xs-12">-->
-                        <!--<button id="link" type="button" class="btn btn-primary">Link</button>-->
-                        <!--<button id="place" type="button" class="btn btn-primary">Place</button>-->
-                        <!--<button id="event" type="button" class="btn btn-primary">Event</button>-->
-                        <!--<button id="person" type="button" class="btn btn-primary">Person</button>-->
-                        <!--<button id="product" type="button" class="btn btn-primary">Product</button>-->
-                        <!--<button id="media" type="button" class="btn btn-primary">Media</button>-->
-                    <!--</div>-->
-                <!--</div>-->
-              <!---->
-                <!--<div id="content row">-->
-                    <!--<div class="col-md-6 ">-->
-                        <!--<form id="createDotForm">-->
-                            <!--&lt;!&ndash;Create link form&ndash;&gt;-->
-                          <!--{{#if link}}-->
-                            <!--{{> url}}-->
-                            <!--{{> title}}-->
-                            <!--{{> description}}-->
-                            <!--{{> img}}-->
-                          <!--{{/if}}-->
-                            <!--&lt;!&ndash;Create place form&ndash;&gt;-->
-                          <!--{{#if place}}-->
-                            <!--{{> map}}-->
-                            <!--{{> img}}-->
-                            <!--{{> title}}-->
-                            <!--{{> map}}-->
-                            <!--{{> price}}-->
-                          <!--{{/if}}-->
-                            <!--&lt;!&ndash;Create event form&ndash;&gt;-->
-                          <!--{{#if event}}-->
-                            <!--{{> date}}-->
-                            <!--{{> title}}-->
-                            <!--{{> description}}-->
-                            <!--{{> img}}-->
-                            <!--{{> price}}-->
-                            <!--{{> map}}-->
-                          <!--{{/if}}-->
-                            <!--&lt;!&ndash;Create person form&ndash;&gt;-->
-                          <!--{{#if person}}-->
-                            <!--{{> nameField}}-->
-                          <!--{{/if}}-->
-                            <!--&lt;!&ndash;Create product form&ndash;&gt;-->
-                          <!--{{#if product}}-->
-                            <!--{{> nameField}}-->
-                          <!--{{/if}}-->
-                            <!--&lt;!&ndash;Create media form&ndash;&gt;-->
-                          <!--{{#if media}}-->
-                            <!--{{> url}}-->
-                            <!--{{> title}}-->
-                            <!--{{> img}}-->
-                          <!--{{/if}}-->
-                            <!--<button id="_createDotBtn" type="submit" class="btn btn-primary">Publish</button>-->
-                        <!--</form>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
 
 
 </template>

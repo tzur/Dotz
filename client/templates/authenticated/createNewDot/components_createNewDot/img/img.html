@@ -1,0 +1,44 @@
+
+<template name="img">
+
+
+    <div class="col-xs-2">
+        <p><strong>Media </strong></p>
+    </div>
+
+
+    <div class="col-xs-10 bottomBorder">
+
+        <div id="image">
+            <div class="image optional-field">
+
+              {{#if isImageUrl}}
+                  <div class="file container-fluid">
+                      <div class="row">
+                          <div class="dot-img-create-dot colCenter" style="background-image: url('{{imagePreviewUrl}}')"></div>
+                      </div>
+                  </div>
+              {{/if}}
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div id="addDotImageWraper" class="col-xs-12 txtMd">
+                            <i class="fa greyText fa-camera fa-3x btn-file">
+                                <input type="file">
+                            </i>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="addDotImage">
+                  {{> uploader}}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</template>

@@ -1,5 +1,7 @@
 Template.createNewDot.onCreated(function() {
   Session.set('link', true);
+  Session.set('selectedType', "Link");
+
   Session.set('place', false);
   Session.set('event', false);
   Session.set('person', false);
@@ -39,33 +41,42 @@ Template.createNewDot.helpers({
     return Session.get('media');
   },
   event: function(){
-    return Session.get('event')
+    return Session.get('event');
+  },
+  selectedType: function(){
+    return Session.get('selectedType');
   }
 });
 Template.createNewDot.events({
   'click #link': function(){
     _clearSessions();
     Session.set('link', true);
+    Session.set('selectedType', "Link");
   },
   'click #place': function(){
     _clearSessions();
     Session.set('place', true);
+    Session.set('selectedType', "Place");
   },
   'click #event': function(){
     _clearSessions();
     Session.set('event', true);
+    Session.set('selectedType', "Event");
   },
   'click #person': function(){
     _clearSessions();
     Session.set('person', true);
+    Session.set('selectedType', "Person");
   },
   'click #media': function(){
     _clearSessions();
     Session.set('media', true);
+    Session.set('selectedType', "Media");
   },
   'click #product': function(){
     _clearSessions();
-    Session.set('product', true);
+    Session.set('product', "Product");
+    Session.set('selectedType', "Product");
   },
 
   'submit #createDotForm': function(e){
