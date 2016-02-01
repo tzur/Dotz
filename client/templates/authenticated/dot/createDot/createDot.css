@@ -1,42 +1,4 @@
-#create-dot-modal {
-  position: relative;
-}
 
-#create-dot-modal .exit-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0.5em;
-  z-index: 1;
-}
-
-.exit-btn .btn-delete {
-  color: #C5C5C5;
-  background-color: transparent;
-  border-color: #C5C5C5;
-}
-
-
-.add-image-create-modal {
-  font-size: large;
-  padding-top: 0.25em;
-  padding-left: 0;
-}
-
-
-
-.exit-btn .btn-delete:hover {
-  color: #d9534f;
-  background-color: transparent;
-  border-color: #d43f3a;
-}
-
-
-#create-dot-modal .modal-title {
-  background-color: #4A89BF;
-  border-radius: 5px 5px 0 0;
-  margin-bottom: 2em;
-}
 
 
 .modal-title h3 {
@@ -96,12 +58,6 @@
   padding-right: 0.25em;
 }
 
-.map-container-create-dot {
-  width: 100%;
-  max-width: 100%;
-  height: 22.5em;
-}
-
 . btns-create-dot {
   padding-top: 1em;
 }
@@ -119,12 +75,12 @@
 }
 
 .dot-img-create-dot {
-  /*width: 18em;*/
-  height: 18em;
+  width: 10vh;
+  height: 10vh;
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
-  /*border-radius: 50%;*/
+  border-radius: 50%;
   background-color: #eee;
 }
 

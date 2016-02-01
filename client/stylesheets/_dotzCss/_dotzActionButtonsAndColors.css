@@ -1,3 +1,10 @@
+
+/* Person: */
+
+.background-Person {
+  background-color: #337ab7;
+}
+
 .btn-Person {
   color: #fff;
   background-color: #337ab7;
@@ -23,6 +30,11 @@
 }
 
 
+/* Media: */
+
+.background-Media {
+  background-color: #d9534f;
+}
 
 .btn-Media {
   color: #fff;
@@ -49,7 +61,11 @@
 }
 
 
+/* Place: */
 
+.background-Place {
+  background-color: #5cb85c;
+}
 
 .btn-Place {
   color: #fff;
@@ -76,7 +92,11 @@
 }
 
 
+/* Link: */
 
+.background-Link {
+  background-color: #5bc0de;
+}
 
 .btn-Link {
   color: #fff;
@@ -103,6 +123,11 @@
 }
 
 
+/* Event: */
+
+.background-Event {
+  background-color: #f0ad4e;
+}
 
 .btn-Event {
   color: #fff;
@@ -129,7 +154,11 @@
 }
 
 
+/* Product: */
 
+.background-Product {
+  background-color: #9352D9;
+}
 
 .btn-Product {
   color: #fff;
