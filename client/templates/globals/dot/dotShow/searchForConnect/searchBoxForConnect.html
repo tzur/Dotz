@@ -19,46 +19,58 @@
 
 
 
-                      <div id="searchBox-actionsDiv" class="hidden-xs hidden-sm row">
+                      {{#if IS_MOBILE_SHOW}}
 
-                          <div class="col-xs-10 col-sm-8">
-                              <form class="search _googleSearch" role="search">
+                        <!--none-->
 
-                                  <div class="col-sm-12 form-group txtMd no-left-pad">
-                                      <div class="input-group">
-                                          <input id="_searchBoxInput" type="text" name="searchBox" class="form-control"
-                                                 placeholder="Search on Google..." required>
+                      {{else}}
+
+                          <div id="searchBox-actionsDiv" class="row">
+
+                              <div class="col-xs-10 col-sm-8">
+                                  <form class="search _googleSearch" role="search">
+
+                                      <div class="col-sm-12 form-group txtMd no-left-pad">
+                                          <div class="input-group">
+                                              <input id="_searchBoxInput" type="text" name="searchBox" class="form-control"
+                                                     placeholder="Search on Google..." required>
                                         <span class="input-group-btn">
                                           <button id="searchSubmit" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                                         </span>
-                                      </div><!-- /input-group -->
-                                  </div><!-- /.col-lg-6 -->
+                                          </div><!-- /input-group -->
+                                      </div><!-- /.col-lg-6 -->
 
-                              </form>
-                              <br><br>
+                                  </form>
+                                  <br><br>
 
-                          </div>
+                              </div>
 
-                          <div class="hidden-xs hidden-sm col-sm-1 noPadding"><span class="alignSub mdGrey">Or </span></div>
+                              <div class="hidden-xs col-sm-1 noPadding"><span class="alignSub mdGrey">Or </span></div>
 
-                          <div class="hidden-xs hidden-sm col-sm-3 no-left-pad">
+                              <div class="hidden-xs col-sm-3 no-left-pad">
 
-                              <a class="panelBtn dropdown-toggle pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <a class="panelBtn dropdown-toggle pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                    <span aria-hidden="true" class="pull-left">
                                      <button type="button" id="_createFromList" class="btn btn-default mdGrey">
                                          <i class="fa fa-plus mdGrey"></i> Create</button>
                                    </span>
-                              </a>
+                                  </a>
 
-                              <ul class="dropdown-menu">
-                                  <li class="_createDot"><a href=""><i class="fa fa-circle-o"></i>Create Dot</a></li>
-                                  <li role="separator" class="divider"></li>
-                                  <li class="_createList"><a href=""><i class="fa fa-list-ul"></i>Create List</a></li>
-                              </ul>
+                                  <ul class="dropdown-menu">
+                                      <li class="_createDot"><a href=""><i class="fa fa-circle-o"></i>Create Dot</a></li>
+                                      <li role="separator" class="divider"></li>
+                                      <li class="_createList"><a href=""><i class="fa fa-list-ul"></i>Create List</a></li>
+                                  </ul>
+
+                              </div>
 
                           </div>
 
-                      </div>
+                      {{/if}}
+
+
+
+
 
                   </div>
 
@@ -66,7 +78,9 @@
               </div>
 
 
-    <div id="searchBox-actionsDiv" class="visible-xs visible-sm container-fluid">
+{{#if IS_MOBILE_SHOW}}
+
+    <div id="searchBox-actionsDiv" class="container-fluid">
 
         <div class="col-xs-11 col-sm-8 colCenter">
             <form class="search _googleSearch" role="search">
@@ -87,6 +101,8 @@
         </div>
 
     </div>
+
+{{/if}}
 
                         <!--</div>-->
 
