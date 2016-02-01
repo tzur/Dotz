@@ -7,7 +7,7 @@ Template.googleDotCard.helpers({
 });
 Template.googleDotCard.events({
   'click ._connectGoogle': function(){
-    Modal.show('tempModal',{
+    Modal.show('createNewDot_Modal',{
         initialDataForFormFields: {
           title: this.googleDot.googleTitle,
           description: this.googleDot.googleDescription,
