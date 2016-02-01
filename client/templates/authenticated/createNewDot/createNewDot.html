@@ -1,0 +1,273 @@
+<template name="createNewDot">
+<div id="container-createNewDot" class="container-fluid">
+
+
+        <div id="header-createNewDot" class="row">
+
+            <h2 class="text-center"><strong>Create a new dot:</strong></h2>
+
+        </div>
+
+
+        <div id="navBar-createNewDot" class="row">
+
+            <!--<div id="navBar-top-createNewDot" class="row">-->
+                <!---->
+            <!--</div>-->
+
+            <!--<div id="navBar-bottom-createNewDot" class="row">-->
+
+            <!--</div>-->
+
+
+
+            <div id="navBarButtons-createNewDot" class="colCenter">
+
+                <!--<div class="col-xs-1">-->
+                    <!--&lt;!&ndash; spacer :) &ndash;&gt;-->
+                <!--</div>-->
+
+
+                <!--Link-->
+                <div id="" class="col-xs-2 dotTypeButtonCol-createNewDot">
+                    <button id="link" type="button" class="btn btn-full-trans">
+                        <div class="btn-circleDotTypeIcon btn-Link">
+                            <i class="fa fa-globe fa-lg"></i>
+                        </div>
+                        Link
+                    </button>
+                </div>
+
+
+                <!--Place-->
+                <div id="" class="col-xs-2 dotTypeButtonCol-createNewDot">
+                    <button id="place" type="button" class="btn btn-full-trans">
+                        <div class="btn-circleDotTypeIcon btn-Place">
+                            <i class="fa fa-map-marker fa-lg"></i>
+                        </div>
+                        Place
+                    </button>
+                    <!--<button id="place" type="button" class="btn btn-circleDotTypeIcon btn-Place">Place</button>-->
+                </div>
+
+
+                <!--Event-->
+                <div id="" class="col-xs-2 dotTypeButtonCol-createNewDot">
+                    <button id="event" type="button" class="btn btn-full-trans">
+                        <div class="btn-circleDotTypeIcon btn-Event">
+                            <i class="fa fa-calendar fa-lg"></i>
+                        </div>
+                        Event
+                    </button>
+                    <!--<button id="event" type="button" class="btn btn-circleDotTypeIcon btn-Event">Event</button>-->
+                </div>
+
+                <!--Media-->
+                <div id="" class="col-xs-2 dotTypeButtonCol-createNewDot">
+                    <button id="media" type="button" class="btn btn-full-trans">
+                        <div class="btn-circleDotTypeIcon btn-Media">
+                            <i class="fa fa-play fa-lg"></i>
+                        </div>
+                        Media
+                    </button>
+                    <!--<button id="media" type="button" class="btn btn-circleDotTypeIcon btn-Media">Media</button>-->
+                </div>
+
+
+                <!--Person-->
+                <div id="" class="col-xs-2 dotTypeButtonCol-createNewDot">
+                    <button id="person" type="button" class="btn btn-full-trans">
+                        <div class="btn-circleDotTypeIcon btn-Person">
+                            <i class="fa fa-user fa-lg"></i>
+                        </div>
+                        Person
+                    </button>
+                    <!--<button id="person" type="button" class="btn btn-circleDotTypeIcon btn-Person">Person</button>-->
+                </div>
+
+                <!--Product-->
+                <!--<button id="product" type="button" class="btn btn-circleDotTypeIcon btn-product">Product</button>-->
+
+
+                <!--<div class="col-xs-1">-->
+                    <!--&lt;!&ndash; spacer :) &ndash;&gt;-->
+                <!--</div>-->
+
+
+            </div>
+
+
+
+            <!--<div id="desktopDotShow-titleDiv" class="row">-->
+            <!--<div class="col-xs-7 colCenter">-->
+
+            <!--<div class="col-xs-2 pull-right">-->
+            <!--&lt;!&ndash;Circle Action Button &ndash;&gt;-->
+            <!--<a href="{{dot.linkUrl}}" target="_blank">-->
+            <!--<div id="circleActionButton" class="btn-{{dot.dotSubType}} pull-right">-->
+
+            <!--<i class="fa {{actionButtonIcon}} fa-lg"></i>-->
+
+            <!--<p id="actionButtonName" class="text-center">{{actionButtonTitle}}</p>-->
+            <!--&lt;!&ndash;Navigate?&ndash;&gt;-->
+            <!--</div>-->
+            <!--</a>-->
+            <!--</div>-->
+
+            <!--</div>-->
+
+            <!--</div>-->
+
+        </div>
+
+
+
+
+  <!--navBar bottom spacer-->
+    <div id="navBar-bottomSpacer-createNewDot" class="row">
+
+    </div>
+
+
+
+    <!--The Form-->
+
+    <form id="createDotForm">
+
+        <div id="main-createNewDot" class="row">
+
+                <!--Create link form-->
+              {{#if link}}
+                {{> url}}
+                <hr>
+                {{> title}}
+                <hr>
+                {{> description}}
+                <hr>
+                {{> img}}
+              {{/if}}
+
+                <!--Create place form-->
+              {{#if place}}
+                {{> map}}
+                {{> img}}
+                {{> title}}
+                {{> map}}
+                {{> price}}
+              {{/if}}
+
+                <!--Create event form-->
+              {{#if event}}
+                {{> date}}
+                {{> title}}
+                {{> description}}
+                {{> img}}
+                {{> price}}
+                {{> map}}
+              {{/if}}
+
+                <!--Create person form-->
+              {{#if person}}
+                {{> nameField}}
+              {{/if}}
+
+                <!--Create product form-->
+              {{#if product}}
+                {{> nameField}}
+              {{/if}}
+
+                <!--Create media form-->
+              {{#if media}}
+                {{> url}}
+                {{> title}}
+                {{> img}}
+              {{/if}}
+
+        </div>
+
+
+        <div id="footer-createNewDot" class="row">
+
+            <button id="_createDotBtn" type="submit" class="btn btn-primary">Publish</button>
+
+        </div>
+
+    </form>
+
+
+
+</div>
+
+
+    <!--<div class="row">-->
+        <!--<div class="modal-title col-xs-12 colCenter">-->
+            <!--<div class="row">-->
+                <!--<h3 class="txtMd">Create New Dot</h3>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row colCenter">-->
+            <!--<div class="col-xs-12">-->
+                <!---->
+                <!--<div class="row">-->
+                    <!--<div class="col-xs-12">-->
+                        <!--<button id="link" type="button" class="btn btn-primary">Link</button>-->
+                        <!--<button id="place" type="button" class="btn btn-primary">Place</button>-->
+                        <!--<button id="event" type="button" class="btn btn-primary">Event</button>-->
+                        <!--<button id="person" type="button" class="btn btn-primary">Person</button>-->
+                        <!--<button id="product" type="button" class="btn btn-primary">Product</button>-->
+                        <!--<button id="media" type="button" class="btn btn-primary">Media</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+              <!---->
+                <!--<div id="content row">-->
+                    <!--<div class="col-md-6 ">-->
+                        <!--<form id="createDotForm">-->
+                            <!--&lt;!&ndash;Create link form&ndash;&gt;-->
+                          <!--{{#if link}}-->
+                            <!--{{> url}}-->
+                            <!--{{> title}}-->
+                            <!--{{> description}}-->
+                            <!--{{> img}}-->
+                          <!--{{/if}}-->
+                            <!--&lt;!&ndash;Create place form&ndash;&gt;-->
+                          <!--{{#if place}}-->
+                            <!--{{> map}}-->
+                            <!--{{> img}}-->
+                            <!--{{> title}}-->
+                            <!--{{> map}}-->
+                            <!--{{> price}}-->
+                          <!--{{/if}}-->
+                            <!--&lt;!&ndash;Create event form&ndash;&gt;-->
+                          <!--{{#if event}}-->
+                            <!--{{> date}}-->
+                            <!--{{> title}}-->
+                            <!--{{> description}}-->
+                            <!--{{> img}}-->
+                            <!--{{> price}}-->
+                            <!--{{> map}}-->
+                          <!--{{/if}}-->
+                            <!--&lt;!&ndash;Create person form&ndash;&gt;-->
+                          <!--{{#if person}}-->
+                            <!--{{> nameField}}-->
+                          <!--{{/if}}-->
+                            <!--&lt;!&ndash;Create product form&ndash;&gt;-->
+                          <!--{{#if product}}-->
+                            <!--{{> nameField}}-->
+                          <!--{{/if}}-->
+                            <!--&lt;!&ndash;Create media form&ndash;&gt;-->
+                          <!--{{#if media}}-->
+                            <!--{{> url}}-->
+                            <!--{{> title}}-->
+                            <!--{{> img}}-->
+                          <!--{{/if}}-->
+                            <!--<button id="_createDotBtn" type="submit" class="btn btn-primary">Publish</button>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+
+</template>
