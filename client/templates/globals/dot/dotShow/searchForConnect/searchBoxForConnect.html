@@ -1,10 +1,6 @@
 <template name="searchBoxForConnect">
 <div id="searchToConnect">
 
-  <div class="">
-      <div class="">
-          <div class="">
-
               <div class="" id="desktopDotCard-lastDot-box">
 
                   <div id="desktopDotCard-col-img">
@@ -23,7 +19,7 @@
 
 
 
-                      <div id="searchBox-actionsDiv" class="row">
+                      <div id="searchBox-actionsDiv" class="hidden-xs hidden-sm row">
 
                           <div class="col-xs-10 col-sm-8">
                               <form class="search _googleSearch" role="search">
@@ -43,7 +39,7 @@
 
                           </div>
 
-                          <div class="col-sm-1 noPadding"><span class="alignSub mdGrey">Or </span></div>
+                          <div class="hidden-xs hidden-sm col-sm-1 noPadding"><span class="alignSub mdGrey">Or </span></div>
 
                           <div class="hidden-xs hidden-sm col-sm-3 no-left-pad">
 
@@ -70,12 +66,30 @@
               </div>
 
 
+    <div id="searchBox-actionsDiv" class="visible-xs visible-sm container-fluid">
 
+        <div class="col-xs-11 col-sm-8 colCenter">
+            <form class="search _googleSearch" role="search">
+
+                <div class="col-sm-12 form-group txtMd">
+                    <div class="input-group">
+                        <input id="_searchBoxInput" type="text" name="searchBox" class="form-control"
+                               placeholder="Search on Google..." required>
+                                        <span class="input-group-btn">
+                                          <button id="searchSubmit" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                        </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+
+            </form>
+            <br><br>
+
+        </div>
+
+    </div>
 
                         <!--</div>-->
-          </div>
-      </div>
-  </div>
+
 
         <!-- Nav tabs -->
 

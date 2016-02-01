@@ -6,6 +6,8 @@
 }
 
 
+
+
 #desktopDotCard-lastDot {
   padding: 5vh 0 0 0;
   position: relative;
@@ -67,3 +69,30 @@
   /*width: 20%;*/
 }
 
+
+/*MOBILE ADJUSTMENT*/
+
+@media (max-width: 768px) {
+
+  #desktopDotCard-lastDot-box {
+    height: 20vh;
+  }
+
+
+  #lastDot-desktopDotCard-img {
+    height: 26vw;
+    font-size: 17vw;
+    width: 26vw;
+  }
+
+  #desktopDotCard-col-img {
+    width: 27vw !important;
+    padding-right: 1vw;
+  }
+
+  #lastDotText-desktopDotShow {
+    width: 59vw !important;
+    padding-left: 1vw;
+  }
+
+}
