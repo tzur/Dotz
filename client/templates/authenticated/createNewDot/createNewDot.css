@@ -1,8 +1,17 @@
 
+/*general*/
 #container-createNewDot {
 
 }
 
+.header-fixed {
+  /*position: fixed;*/
+  /*right: 0;*/
+  /*left: 0;*/
+  /*z-index: 1030;*/
+}
+
+/*header*/
 #header-createNewDot {
   height: 15vh;
   background-color: #fafafa;
@@ -81,12 +90,19 @@
 }
 
 #main-createNewDot {
-  height: 60vh;
+  height: 65vh;
   background-color: #FFFFFF;
   padding: 20px;
 }
 
 #footer-createNewDot {
   height: 10vh;
+  width: 100%;
   background-color: #fafafa;
+
+  /* fixed: */
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
 }
