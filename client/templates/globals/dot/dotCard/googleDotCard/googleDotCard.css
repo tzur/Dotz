@@ -7,11 +7,30 @@
   border-bottom: rgba(0,0,0,0.2) solid 1px;
 }
 
+#_addDotFromGoogleResults {
+  float: right;
+}
+
+@media (max-width: 768px) {
+
+  #googleDotCard-box {
+    margin-left: -44px;
+    margin-right: -40px;
+  }
+
+  #_addDotFromGoogleResults {
+    float: none;
+  }
+
+}
+
 
 /* left side: */
 #_addDotFromGoogleResults .fa {
   margin-top: 7vh;
 }
+
+
 
 
 

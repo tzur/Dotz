@@ -1,9 +1,14 @@
-#desktopDotCard-box {
+#desktopDotCard-box-inDotShow {
   padding: 1vh 0;
   /*margin-left: 1vw;*/
   /* margin-bottom: 3vh; */
   /* overflow-x: hidden; */
   border-left: 1.5px #e5e5e5 solid;
+  border-bottom: 2px #F9F9F9 solid;
+}
+
+#desktopDotCard-box-inListShow {
+  padding: 1vh 0;
   border-bottom: 2px #F9F9F9 solid;
 }
 
@@ -30,7 +35,7 @@
   /*margin-bottom: 1vh;*/
 }
 
-#desktopDotCard-box:hover {
+#desktopDotCard-box-inDotShow:hover, #desktopDotCard-box-inListShow:hover  {
    background-color: #FFFFFF;
    /*border-radius: 4px;*/
  }

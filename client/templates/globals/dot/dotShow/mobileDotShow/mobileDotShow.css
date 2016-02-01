@@ -27,7 +27,7 @@
 }
 
 #buttonsPanel-mobileDotShow {
-  padding: 3vh 15px;
+  padding: 3vh 15px 8vh 15px;
   /*border-top: 1px solid #eee;*/
 }
 
@@ -220,6 +220,15 @@
 
 .fixedFooterShadow-mobileDotShow {
   box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.13);
+}
+
+#footer-col-line-mobileDotShow {
+  border-right: 2px solid #E5E5E5;
+  padding: 0;
+  width: 16px;
+  position: absolute;
+  top: 0;
+  bottom: -1px;
 }
 
 /*#mobileDotShow-lineDiv {*/
