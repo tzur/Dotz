@@ -3,13 +3,34 @@
 
       <div id="desktopDotCard-box-{{listShowOrDotShowClass}}" class="row">
 
-          <div id="desktopDotCard" class="container-fluid">
+
+          <!--The sideCircle with the connectReason: -->
+      {{#if isInDotShow}}
+          <div id="header-desktopDotCard" class="row">
+
+              <div id="theColonsCircle-desktopDotCard" class="col-xs-1 material-shadow-1"
+                   style="background-image: url('{{ownerUser.profile.profileImage}}')">
+
+                  <!--<img class="desktopListShow-originImgProfile" src="{{ownerUser.profile.profileImage}}">-->
+
+                  <p><strong>:</strong></p>
+              </div>
+
+              <div id="theConnectReason" class="col-xs-11 pull-left">
+                  <p>#{{smartRef.connection.personalDescription}} <strong>:</strong></p>
+              </div>
+
+          </div>
+      {{/if}}
 
 
-<!--dotCard in Lits-->
+          <div id="desktopDotCard" class="container-fluid desktopDotCard-{{listShowOrDotShowClass}}">
+
+
+<!--dotCard in List-->
             {{#if isInDotShow}}
                 <div id="desktopDotCard-col-connectLine">
-                    <hr id="desktopDotCard-connectLine">
+                    <!--<hr id="desktopDotCard-connectLine">-->
                 </div>
 
             <div id="desktopDotCard-col-sort-like">
@@ -119,7 +140,7 @@
               <div id="desktopDotCard-col-img">
                   <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
                       <div>
-                          <div id="desktopDotCard-img" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')">
+                          <div id="desktopDotCard-img" class="container-fluid {{dot.dotColor}}-background material-shadow-1" style="background-image: url('{{dot.coverImageUrl}}')">
 
                             {{#if isListCard}}
                               <div id="desktopDotCard-listIcon">

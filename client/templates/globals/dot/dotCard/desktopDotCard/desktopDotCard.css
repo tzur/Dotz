@@ -1,15 +1,21 @@
 #desktopDotCard-box-inDotShow {
-  padding: 1vh 0;
+  padding: 0vh 0;
   /*margin-left: 1vw;*/
   /* margin-bottom: 3vh; */
   /* overflow-x: hidden; */
-  border-left: 1.5px #e5e5e5 solid;
-  border-bottom: 2px #F9F9F9 solid;
+  /*border-left: 1px #e5e5e5 solid;*/
+  /*border-bottom: 2px #F9F9F9 solid;*/
 }
 
 #desktopDotCard-box-inListShow {
   padding: 1vh 0;
   border-bottom: 2px #F9F9F9 solid;
+}
+
+
+#desktopDotCard-box-inDotShow:hover, #desktopDotCard-box-inListShow:hover  {
+  background-color: #FFFFFF;
+  /*border-radius: 4px;*/
 }
 
 /*#mobileDotCard-lineDiv {*/
@@ -25,20 +31,54 @@
 /*border-right: 2px solid #e5e5e5;*/
 /*}*/
 
+
+
+
+#header-desktopDotCard {
+  height: 4vh;
+  margin-left: -2vh;
+}
+
+#theColonsCircle-desktopDotCard {
+  height: 4vh;
+  width: 4vh;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+  /*padding: 1vh;*/
+  text-align: center;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  background-size: cover;
+}
+
+#theConnectReason {
+  padding-top: 1vh;
+  color: #337AB7;
+  font-weight: 400;
+}
+
+
 #desktopDotCard {
   position: relative;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
+  /*height: 24vh;*/
   padding-right: 0;
   padding-left: 0;
   /*margin-top: 1vh;*/
   /*margin-bottom: 1vh;*/
 }
 
-#desktopDotCard-box-inDotShow:hover, #desktopDotCard-box-inListShow:hover  {
-   background-color: #FFFFFF;
-   /*border-radius: 4px;*/
- }
+
+.desktopDotCard-inDotShow {
+  border-left: 1px #e5e5e5 solid;
+  padding-top: 1.5vh;
+  padding-bottom: 5vh;
+}
+
+.desktopDotCard-inListShow {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
 
 
 
@@ -93,7 +133,7 @@
 }
 
 #desktopDotCard-connectLine {
-  border-top: 1.5px #e5e5e5 solid;
+  /*border-top: 1.5px #e5e5e5 solid;*/
 }
 
 /*#desktopDotCard-horizonalLine {*/

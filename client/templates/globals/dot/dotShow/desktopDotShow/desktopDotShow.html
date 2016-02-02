@@ -65,8 +65,12 @@
                           {{else}}
 
                               <span class="mdGrey userText">
-                                  <a href="/{{ownerUser.profile.userSlug}}"><img class="desktopListShow-originImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
-                                  <a href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a>
+                                  <a href="/{{ownerUser.profile.userSlug}}">
+                                      <img class="desktopListShow-originImgProfile" src="{{ownerUser.profile.profileImage}}">
+                                  </a>
+                                  <a href="/{{ownerUser.profile.userSlug}}">
+                                    {{ownerUser.username}}
+                                  </a>
                               </span>
 
                           {{/if}}
