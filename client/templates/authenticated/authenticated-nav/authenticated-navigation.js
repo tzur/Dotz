@@ -1,7 +1,29 @@
-/**
- * Created by avivhatzir on 07/11/2015.
- */
+
 Template.authenticatedNavigation.events({
+
+  'click ._createNewDot': function(){
+    Modal.show('createNewDot_Modal',{
+      initialDataForFormFields: {
+        //title: "",
+        //description: "",
+        //img: "",
+        //linkName: "",
+        //linkUrl: ""
+      },
+      parentDotId: Meteor.user().profile.profileDotId
+
+    });
+  },
+
+  'click ._createNewList': function(){
+    Modal.show('createNewList_modal',{
+      initialDataForFormFields: {
+      //
+      },
+      parentDotId: Meteor.user().profile.profileDotId
+    });
+  },
+
   'click .createDot': function(){
     Modal.show('createDotModal');
     analytics.track("Open Create Dot Modal", {

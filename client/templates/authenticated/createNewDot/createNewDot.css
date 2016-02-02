@@ -11,14 +11,6 @@
   /*z-index: 1030;*/
 }
 
-
-.transparent-InputBox {
-  flex: 1;
-  border: 0;
-  outline: 0;
-  width: 100%;
-}
-
 .fieldBox {
   border-bottom: 1px solid rgba(0,0,0,0.1);
   padding: 10px;
