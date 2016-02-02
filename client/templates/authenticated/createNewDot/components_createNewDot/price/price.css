@@ -1,0 +1,10 @@
+#freeCheckbox {
+  height: 28px;
+  width: 28px;
+}
+
+#freeCheckbox-text {
+  display: inline-block;
+  margin: 0 0 0 9px;
+  vertical-align: text-bottom;
+}
