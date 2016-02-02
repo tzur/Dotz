@@ -6,42 +6,115 @@
         <div id="listTitle" class="row">
 
             <div class="col-xs-3">
-                <p><strong>List Title</strong></p>
+                <p><strong>List Name</strong></p>
             </div>
 
             <div class="col-xs-9">
-                <input type="text" name="title" class="form-control" placeholder="Full Name">
+                <input type="text" name="listTitle" class="transparent-InputBox"
+                       placeholder='Like "Cool events to go" or "My favorite tools"' maxlength="101">
             </div>
 
         </div>
 
+      <hr>
 
-        <div class="form-group has-feedback">
-            <label for="title">Full Name</label>
-            <input type="text" name="title" class="form-control" placeholder="Full Name">
-            <i class="fa fa-user form-control-feedback"></i>
+        <div id="listDescription" class="row">
+
+            <div class="col-xs-3">
+                <p><strong>Description</strong></p>
+            </div>
+
+            <div class="col-xs-9">
+                <!--<input type="text" name="listDescription" class="transparent-InputBox" placeholder="What's your list about?">-->
+                <textarea id="" name="listDescription" class="transparent-InputBox" rows="3" placeholder="What's your list about?" maxlength="201">
+                </textarea>
+            </div>
+
         </div>
 
-        <div class="form-group has-feedback">
-            <label for="emailAddress">Email</label>
-            <input type="email" name="emailAddress" class="form-control" placeholder="Email">
-            <i class="fa fa-envelope form-control-feedback"></i>
+        <hr>
+
+        <div id="listImage" class="row">
+
+            <!--<div class="col-xs-3">-->
+                <!--<p><strong>Cover Image</strong></p>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-9">-->
+                <!--{{>img}}-->
+            <!--</div>-->
+          <!--NOTE! ">img" is a shred template (with the createNewDot form) -->
+          {{>img}}
+
+
         </div>
 
-        <div class="form-group has-feedback">
-            <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" placeholder="Password">
-            <i class="fa fa-key form-control-feedback"></i>
+        <hr>
+
+        <div id="listPrivacy" class="row">
+
+            <div class="col-xs-3">
+                <p><strong>List Privacy</strong></p>
+            </div>
+
+            <div class="col-xs-9">
+                <!--<input type="text" name="title" class="transparent-InputBox" placeholder='Like "Cool events to go" or "My favorite tools"'>-->
+                <div class="col-xs-4 text-center">
+                    <i class="fa fa-globe"></i>
+                    <br>
+                    <p><strong>Public</strong></p>
+                    <!--<p class="mdGrey"><small>Anyone can see and add dotz to the list.</small></p>-->
+                    <p class="mdGrey"><small>Let everyone see and add new dotz to this list.</small></p>
+
+                </div>
+
+                <div class="col-xs-4 text-center">
+                    <i class="fa fa-lock"></i>
+                    <br>
+                    <p><strong>Closed</strong></p>
+                    <p class="mdGrey"><small>Anyone can see the list. Only you can add new dotz.</small></p>
+                </div>
+
+                <div class="col-xs-4 text-center">
+                    <i class="fa fa-user"></i>
+                    <br>
+                    <p><strong>Private</strong></p>
+                    <p class="mdGrey"><small>Only you can see and add dotz to this list.</small></p>
+                </div>
+
+            </div>
+
         </div>
+
+        <hr>
+
+
+        <!--<div class="form-group has-feedback">-->
+            <!--<label for="title">Full Name</label>-->
+            <!--<input type="text" name="title" class="form-control" placeholder="Full Name">-->
+            <!--<i class="fa fa-user form-control-feedback"></i>-->
+        <!--</div>-->
+
+        <!--<div class="form-group has-feedback">-->
+            <!--<label for="emailAddress">Email</label>-->
+            <!--<input type="email" name="emailAddress" class="form-control" placeholder="Email">-->
+            <!--<i class="fa fa-envelope form-control-feedback"></i>-->
+        <!--</div>-->
+
+        <!--<div class="form-group has-feedback">-->
+            <!--<label for="password">Password</label>-->
+            <!--<input type="password" name="password" class="form-control" placeholder="Password">-->
+            <!--<i class="fa fa-key form-control-feedback"></i>-->
+        <!--</div>-->
 
         <div class="form-group txtMd">
-            <!--<input type="submit" class="btn signupBtn" value="Sign Up">-->
-          {{#if isSpinnerOn}}
-              <button id="signUpButton" type="submit" class="createBtn transparent insert btn  btn-primary has-spinner active">
-                  <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>Sign Up</button>
-          {{else}}
-              <button id="signUpButton" type="submit" class="createBtn insert btn  btn-primary">Sign Up</button>
-          {{/if}}
+            <!--<input type="submit" class="btn signupBtn" value="create New List">-->
+          <!--{{#if isSpinnerOn}}-->
+              <!--<button id="createNewListButton" type="submit" class="createNewDotBtn transparent btn  btn-primary has-spinner active">-->
+                  <!--<span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>Create</button>-->
+          <!--{{else}}-->
+              <button id="createNewListButton" type="submit" class="createNewDot_Btn btn btn-primary">Create</button>
+          <!--{{/if}}-->
         </div>
 
     </form>
