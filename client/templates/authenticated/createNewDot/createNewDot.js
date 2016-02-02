@@ -45,7 +45,13 @@ Template.createNewDot.helpers({
   },
   selectedType: function(){
     return Session.get('selectedType');
+  },
+  linkOrMedia: function(){
+    if (Session.get('link') || Session.get('media')) {
+      return true;
+    }
   }
+
 });
 Template.createNewDot.events({
   'click #link': function(){

@@ -143,7 +143,7 @@
         <div id="main-createNewDot" class="row">
 
             <!--if Link - start with url-->
-          {{#if link}}
+          {{#if linkOrMedia}}
           <div class="row fieldBox">
             {{> url}}
               <!--<div class="hr simpleHr">-->
@@ -163,11 +163,12 @@
           </div>
             <!--<div class="hr simpleHr"></div>-->
 
-          {{#unless link}}
+          {{#unless linkOrMedia}}
 
-          <div class="row fieldBox">
-            {{> url}}
-          </div>
+              <div class="row fieldBox">
+                {{> webAddress}}
+              </div>
+
           {{/unless}}
 
             <!-- Place fields -->
