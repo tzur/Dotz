@@ -128,7 +128,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   Meteor.call('createDot', dot, redirectAfterCreateSlug ,function(error,result){
     if (error){
       console.log(error)
-    }else{
+    } else {
       Session.set("parentDot", undefined);
       Session.set("locationObject", undefined);
       Session.set('spinnerOn', false);

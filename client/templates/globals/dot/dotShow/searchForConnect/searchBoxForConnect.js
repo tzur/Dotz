@@ -74,10 +74,8 @@ Template.searchBoxForConnect.events({
     Session.set('parentDot', this.dot._id);
 
     let parentDotId = this.dot._id;
-    Modal.show('createNewDot_modal',{
-      initialDataForFormFields: {
-        //
-      },
+    console.log("parentDotId is >> " + parentDotId)
+    Modal.show('createNewDot_Modal',{
       parentDotId: parentDotId
     });
   },
@@ -86,11 +84,8 @@ Template.searchBoxForConnect.events({
     Session.set('parentDot', this.dot._id);
 
     let parentDotId = this.dot._id;
-    console.log("parentDotId is >> " + parentDotId)
+
     Modal.show('createNewList_modal',{
-      initialDataForFormFields: {
-        //
-      },
       parentDotId: parentDotId
     });
   },
