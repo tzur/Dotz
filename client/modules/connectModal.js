@@ -10,7 +10,7 @@ let getAvailableLists = function(dotIdWishedToConnectTo) {
       }
     });
   }
-  console.log(availableLists.length);
+  //console.log(availableLists.length);
   if (availableLists.length > 0){
     return Dotz.find({_id: {$in: availableLists}}, {sort: {title: 1}});
   }

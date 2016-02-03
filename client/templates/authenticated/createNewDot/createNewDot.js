@@ -1,28 +1,41 @@
 Template.createNewDot.onCreated(function() {
-  Session.set('link', true);
-  Session.set('selectedType', "Link");
-
-  Session.set('place', false);
-  Session.set('event', false);
-  Session.set('person', false);
-  Session.set('product', false);
-  Session.set('media', false);
-  Session.set('locationObj', undefined);
-  Session.set('dotCoverImg', undefined);
+  //Session.set('link', true);
+  //Session.set('selectedType', "Link");
+  //
+  //Session.set('place', false);
+  //Session.set('event', false);
+  //Session.set('person', false);
+  //Session.set('product', false);
+  //Session.set('media', false);
+  //Session.set('locationObj', undefined);
+  //Session.set('dotCoverImg', undefined);
 });
+
 Template.createNewDot.onDestroyed(function(){
   _clearSessions();
 });
-Template.createNewDot.onRendered(function(){
 
+Template.createNewDot.onRendered(function(){
   //Check if we have initial data to set on the fields. e.g: google card.
   if (this.data.initialDataForFormFields){
     Modules.client.createDotLoading(); //Start to loading.
     Modules.client.updateCreateDotFields(this.data.initialDataForFormFields.title,
       this.data.initialDataForFormFields.description, this.data.initialDataForFormFields.img, this.data.initialDataForFormFields.linkUrl);
+  } else {
+    Session.set('link', true);
+    Session.set('selectedType', "Link");
+
+    Session.set('place', false);
+    Session.set('event', false);
+    Session.set('person', false);
+    Session.set('product', false);
+    Session.set('media', false);
+    Session.set('locationObj', undefined);
+    Session.set('dotCoverImg', undefined);
   }
   //Embedly + facebook integration for links:
 });
+
 Template.createNewDot.helpers({
 
   link: function(){

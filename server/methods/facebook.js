@@ -23,10 +23,10 @@ let createGroupList = function(FBGroupKey){
             true, groupInfo.description, groupInfo.id, groupInfo.name, groupInfo.cover.source, Meteor.user().profileDotId);
   Meteor.call('createDot', groupList, function(error, result){
     if (error){
-      console.log("ERRRORRR " + error);
+      console.log("ERROR createGroupList >>> createDot : " + error);
     }
     else{
-      console.log("created the fucking list")
+      console.log("created the fu**ing list")
     }
   });
 

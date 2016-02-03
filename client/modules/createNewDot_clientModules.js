@@ -44,6 +44,7 @@ function _updateCreateDotFields(title, description, img, linkUrl ,fbAuthour){
   }
 
 }
+
 function _createDotChangeTab(fieldsArray){
   fieldsArray.forEach(function(field){
 
@@ -99,11 +100,6 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
     price=undefined
   }
 
-  //Pick random color:
-  let colorsArray = ['darkGreenDot','brightGreenDot', 'greenDot', 'purpleDot', 'blueDot', 'redDot','pinkDot', 'orangeDot'];
-  let i = Math.floor(Math.random() * 8);
-  let dotColor = colorsArray[i];
-
   //dotSubType:
   if (Session.get('link')){
     dotSubType = 'Link';
@@ -121,24 +117,101 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
     dotSubType = 'Link'; // it is default to be link.
   }
 
-  //TODO CHANGE SESSION TO LOCATION OBJECT WE HAVE IT AS VARIABLE SAME WITH FBPOSTAUTHOUR DATA DONT USE SESSIONS HERE PASS AS VARIABLE @zur
-  let dot = new DotFactory(title,description,parentDotId,dotColor,coverImgUrl,Session.get('locationObject'),price,
-                                          dotSubType,Session.get('embedlyObj'),Session.get('fbPostAuthorData'));
 
-  Meteor.call('createDot', dot, redirectAfterCreateSlug ,function(error,result){
-    if (error){
-      console.log(error)
-    } else {
-      Session.set("parentDot", undefined);
-      Session.set("locationObject", undefined);
-      Session.set('spinnerOn', false);
-      Meteor.call('addOrEditObjectInAlgolia', result, false);
-      analytics.track("Dot Created", {
-        isDotWithOutLocation: Session.equals("locationObject", undefined),
-        dotType: dotSubType
-      });
+  //TODO: this if-else help us to separate between create/edit actions >> TBD... @otni
+  if ( Session.get('editAction_dot') || Session.get('editAction_list')) {
+
+    let editedDot = Dotz.findOne(parentDotId);
+    console.log("editedDot._Id >>> " + editedDot._id);
+
+    let locationObject = Session.get('locationObject');
+    let location;
+    if (locationObject){
+      location = {
+          latLng: locationObject.locationLatLng,
+          name: locationObject.general.name,
+          address: locationObject.general.formatted_address,
+          googleMapsUrl: locationObject.general.url,
+          placeId: locationObject.general.place_id,
+          placePhoneNumber: locationObject.general.formatted_phone_number
+      };
     }
-  })
+
+    let FBdataObj = Session.get('fbPostAuthorData');
+    let linkAuthorName, linkAuthorUrl, facebookAuthorId;
+
+    if (FBdataObj){
+      linkAuthorName = FBdataObj.name;
+      //TODO >> TBD how FBdataObj.id gives us the link*Author*Url... @otni
+      linkAuthorUrl = 'https://www.facebook.com/' + FBdataObj.id;
+      facebookAuthorId = FBdataObj.id;
+    }
+
+    let editedDoc = {
+      title: title,
+      bodyText: description,
+      ownerUserId: Meteor.userId(),
+      coverImageUrl: coverImgUrl,
+      location: location,
+      dotSubType: dotSubType,
+      embedlyObj: Session.get('embedlyObj'),
+      linkAuthorName: linkAuthorName,
+      linkAuthorUrl: linkAuthorUrl,
+      facebookAuthorId: facebookAuthorId
+    };
+
+    //let editedDotId = editedDot._id.toString();
+
+    Meteor.call('updateDot', editedDoc, editedDot._id ,function(error,result){
+      if (error){
+        console.log("updateDot error >>> " + error)
+      } else {
+        Modal.hide();
+        Session.set("parentDot", undefined);
+        Session.set("locationObject", undefined);
+        Session.set("editAction_dot", undefined);
+        Session.set("editAction_list", undefined);
+        Session.set('spinnerOn', false);
+
+        //console.log("updateDot result >>>  " + result);
+
+
+        //Meteor.call('addOrEditObjectInAlgolia', result, false);
+        //analytics.track("Dot Edited", {
+        //  isDotWithOutLocation: Session.equals("locationObject", undefined),
+        //  dotType: dotSubType
+        //});
+      }
+    })
+
+  } else {
+
+      //Pick random color:
+      let colorsArray = ['darkGreenDot','brightGreenDot', 'greenDot', 'purpleDot', 'blueDot', 'redDot','pinkDot', 'orangeDot'];
+      let i = Math.floor(Math.random() * 8);
+      let dotColor = colorsArray[i];
+
+      //TODO CHANGE SESSION TO LOCATION OBJECT WE HAVE IT AS VARIABLE SAME WITH FBPOSTAUTHOUR DATA DONT USE SESSIONS HERE PASS AS VARIABLE @zur
+      let dot = new DotFactory(title,description,parentDotId, dotColor, coverImgUrl,Session.get('locationObject'),price,
+        dotSubType,Session.get('embedlyObj'),Session.get('fbPostAuthorData'));
+
+      //Go create:
+      Meteor.call('createDot', dot, redirectAfterCreateSlug ,function(error,result){
+        if (error){
+          console.log(error)
+        } else {
+          Session.set("parentDot", undefined);
+          Session.set("locationObject", undefined);
+          Session.set('spinnerOn', false);
+          Meteor.call('addOrEditObjectInAlgolia', result, false);
+          analytics.track("Dot Created", {
+            isDotWithOutLocation: Session.equals("locationObject", undefined),
+            dotType: "Dot"
+          });
+        }
+      })
+  }
+
 }
 
 Modules.client.handleCreateSubmit = _handleCreateSubmit;

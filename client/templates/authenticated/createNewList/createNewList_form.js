@@ -7,9 +7,31 @@ Template.createNewList_form.onRendered( () => {
     template: Template.instance()
   });
 
-  Session.set('publicList', "Public");
+  console.log("in1")
+
+  if (this.data && this.data.initialDataForFormFields){
+    //Modules.client.createDotLoading(); //Start to loading.
+    Modules.client.updateCreateDotFields(
+      this.data.initialDataForFormFields.title,
+      this.data.initialDataForFormFields.description,
+      this.data.initialDataForFormFields.img);
+  } else {
+    Session.set('publicList', "Public");
+  }
 
 
+});
+
+
+
+Template.createNewDot.onRendered(function(){
+  //Check if we have initial data to set on the fields. e.g: google card.
+  if (this.data.initialDataForFormFields){
+    Modules.client.createDotLoading(); //Start to loading.
+    Modules.client.updateCreateDotFields(this.data.initialDataForFormFields.title,
+      this.data.initialDataForFormFields.description, this.data.initialDataForFormFields.img, this.data.initialDataForFormFields.linkUrl);
+  }
+  //Embedly + facebook integration for links:
 });
 
 

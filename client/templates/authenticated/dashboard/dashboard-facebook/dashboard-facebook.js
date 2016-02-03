@@ -29,6 +29,7 @@ Template.dashboardFacebook.events({
     Modules.client.facebook.groupUrlToID($('#_fbGroupIdInput').val(), function(groupID){
       Meteor.call('createGroupList', groupID, function(error, result){
         if (error){
+          console.log("ERROR createGroupList : " + error)
           Session.set('FBSpinnerOn', false);
           Bert.alert("Sorry something went Wrong, try again", 'danger');
         }

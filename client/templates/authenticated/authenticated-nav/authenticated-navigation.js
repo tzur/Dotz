@@ -2,24 +2,17 @@
 Template.authenticatedNavigation.events({
 
   'click ._createNewDot': function(){
+    Modules.client.editAndCreateSessionsCleaner();
     Modal.show('createNewDot_Modal',{
-      initialDataForFormFields: {
-        //title: "",
-        //description: "",
-        //img: "",
-        //linkName: "",
-        //linkUrl: ""
-      },
+      initialDataForFormFields: false,
       parentDotId: Meteor.user().profile.profileDotId
-
     });
   },
 
   'click ._createNewList': function(){
+    Modules.client.editAndCreateSessionsCleaner();
     Modal.show('createNewList_modal',{
-      initialDataForFormFields: {
-      //
-      },
+      initialDataForFormFields: false,
       parentDotId: Meteor.user().profile.profileDotId
     });
   },

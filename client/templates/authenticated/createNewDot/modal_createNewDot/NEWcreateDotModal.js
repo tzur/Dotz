@@ -5,7 +5,8 @@ Template.createNewDot_Modal.onCreated(function() {
 
 Template.createNewDot_Modal.onRendered(function(){
   if (!this.data.parentDotId){
-    window.alert('MAN YOU MUST BRING PARENT DOT ID TO THIS MODAL BIATCH.')
+    //window.alert('MUST BRING PARENT DOT ID.');
+    console.log("data.parentDotId needed..")
   }
 });
 
