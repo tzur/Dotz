@@ -1,0 +1,228 @@
+<template name="createNewDot">
+<div id="container-createNewDot" class="container-fluid">
+
+  <div class="header-fixed">
+
+        <!--header-->
+        <div id="header-createNewDot" class="row background-{{selectedType}}">
+
+            <h3 class="text-center whiteTxt"><strong>CREATE NEW DOT</strong></h3>
+
+
+
+        <!--nav bar - dot type Icons-->
+
+          <div id="navBarButtons-createNewDot2" class="col-xs-6 text-center colCenter">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-pills" role="tablist">
+
+                <!--Link-->
+                <li role="presentation" class="active">
+                    <div id="" class="col-xs-2 dotTypeButtonCol-createNewDot">
+                        <button id="link" type="button" class="btn btn-full-trans" data-toggle="tab">
+                            <div class="btn-circleDotTypeIcon btn-Link">
+                                <i class="fa fa-globe fa-lg"></i>
+                            </div>
+                            <span>Link</span>
+                        </button>
+                    </div>
+                </li>
+
+                <!--Place-->
+                <li role="presentation">
+                    <div id="" class="col-xs-2 dotTypeButtonCol-createNewDot">
+                        <button id="place" type="button" class="btn btn-full-trans" data-toggle="tab">
+                            <div class="btn-circleDotTypeIcon btn-Place">
+                                <i class="fa fa-map-marker fa-lg"></i>
+                            </div>
+                            <span>Place</span>
+                        </button>
+                        <!--<button id="place" type="button" class="btn btn-circleDotTypeIcon btn-Place">Place</button>-->
+                    </div>
+                </li>
+
+                <!--Event-->
+                <li role="presentation">
+                    <div id="" class="col-xs-2 dotTypeButtonCol-createNewDot">
+                        <button id="event" type="button" class="btn btn-full-trans" data-toggle="tab">
+                            <div class="btn-circleDotTypeIcon btn-Event">
+                                <i class="fa fa-calendar fa-lg"></i>
+                            </div>
+                            <span>Event</span>
+                        </button>
+                        <!--<button id="event" type="button" class="btn btn-circleDotTypeIcon btn-Event">Event</button>-->
+                    </div>
+                </li>
+
+                <!--Media-->
+                <li role="presentation">
+                    <div id="" class="col-xs-2 dotTypeButtonCol-createNewDot">
+                        <button id="media" type="button" class="btn btn-full-trans" data-toggle="tab">
+                            <div class="btn-circleDotTypeIcon btn-Media">
+                                <i class="fa fa-play fa-lg"></i>
+                            </div>
+                            <span>Media</span>
+                        </button>
+                        <!--<button id="media" type="button" class="btn btn-circleDotTypeIcon btn-Media">Media</button>-->
+                    </div>
+                </li>
+
+                <!--Person-->
+                <li role="presentation">
+                    <div id="" class="col-xs-2 dotTypeButtonCol-createNewDot">
+                        <button id="person" type="button" class="btn btn-full-trans" data-toggle="tab">
+                            <div class="btn-circleDotTypeIcon btn-Person">
+                                <i class="fa fa-user fa-lg"></i>
+                            </div>
+                            <span>Person</span>
+                        </button>
+                        <!--<button id="person" type="button" class="btn btn-circleDotTypeIcon btn-Person">Person</button>-->
+                    </div>
+                </li>
+
+            </ul>
+
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+  <!--navBar bottom spacer-->
+    <div id="navBar-bottomSpacer-createNewDot" class="row">
+
+    </div>
+
+
+  </div>
+  <!--end navBar-fixed-top-->
+
+
+
+    <!--The Form-->
+
+    <form id="createDotForm">
+
+        <div id="main-createNewDot" class="row">
+
+            <!--if Link - start with url-->
+          {{#if linkOrMedia}}
+          <div class="row fieldBox">
+            {{> url}}
+              <!--<div class="hr simpleHr">-->
+          </div>
+          {{/if}}
+
+
+            <!--The main fields-->
+          <div class="row fieldBox">
+            {{> title}}
+          </div>
+          <div class="row fieldBox">
+            {{> description}}
+          </div>
+          <div class="row fieldBox">
+            {{> img}}
+          </div>
+            <!--<div class="hr simpleHr"></div>-->
+
+          {{#unless linkOrMedia}}
+
+              <div class="row fieldBox">
+                {{> webAddress}}
+              </div>
+
+          {{/unless}}
+
+            <!-- Place fields -->
+          {{#if place}}
+            <div class="row fieldBox">
+              {{> map}}
+            </div>
+          {{/if}}
+
+          <!--Event Fields-->
+          {{#if event}}
+              <div class="row fieldBox">
+                {{> dateComponent}}
+              </div>
+              <div class="row fieldBox">
+                {{> map}}
+              </div>
+              <div class="row fieldBox">
+                {{> price}}
+              </div>
+          {{/if}}
+
+
+            <!--&lt;!&ndash;Create link form&ndash;&gt;-->
+              <!--{{#if link}}-->
+                <!--{{> url}}-->
+                <!--<hr>-->
+                <!--{{> title}}-->
+                <!--<hr>-->
+                <!--{{> description}}-->
+                <!--<hr>-->
+                <!--{{> img}}-->
+              <!--{{/if}}-->
+
+                <!--&lt;!&ndash;Create place form&ndash;&gt;-->
+              <!--{{#if place}}-->
+                <!--{{> map}}-->
+                <!--{{> img}}-->
+                <!--{{> title}}-->
+                <!--{{> map}}-->
+                <!--{{> price}}-->
+              <!--{{/if}}-->
+
+                <!--&lt;!&ndash;Create event form&ndash;&gt;-->
+              <!--{{#if event}}-->
+                <!--{{> date}}-->
+                <!--{{> title}}-->
+                <!--{{> description}}-->
+                <!--{{> img}}-->
+                <!--{{> price}}-->
+                <!--{{> map}}-->
+              <!--{{/if}}-->
+
+                <!--&lt;!&ndash;Create person form&ndash;&gt;-->
+              <!--{{#if person}}-->
+                <!--{{> nameField}}-->
+              <!--{{/if}}-->
+
+                <!--&lt;!&ndash;Create product form&ndash;&gt;-->
+              <!--{{#if product}}-->
+                <!--{{> nameField}}-->
+              <!--{{/if}}-->
+
+                <!--&lt;!&ndash;Create media form&ndash;&gt;-->
+              <!--{{#if media}}-->
+                <!--{{> url}}-->
+                <!--{{> title}}-->
+                <!--{{> img}}-->
+              <!--{{/if}}-->
+
+        </div>
+
+
+        <div id="footer-createNewDot" class="row text-center">
+
+            <div class="col-xs-12">
+                <button id="_createDotBtn" type="submit" class="btn btn-{{selectedType}}">Create</button>
+            </div>
+
+        </div>
+
+    </form>
+
+
+
+</div>
+
+
+</template>

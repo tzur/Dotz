@@ -32,7 +32,7 @@
 
 /*header*/
 #header-createNewDot {
-  height: 15vh;
+  height: 23vh;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
@@ -57,6 +57,10 @@
   /*padding: 5px 5%;*/
   padding-top: 1vh;
   margin-right: 5%;
+}
+
+#navBarButtons-createNewDot2 {
+  padding-top: 1vh;
 }
 
 .dotTypeButtonCol-createNewDot {
@@ -98,7 +102,6 @@
 }
 
 .btn-circleDotTypeIcon .fa {
-  vertical-align: middle;
   margin-top: 1vw;
   font-size: 1.5vw;
 }
@@ -128,4 +131,19 @@
 
 #_createDotBtn {
   margin-top: 2.5vh;
+}
+
+.nav-pills .active .btn-circleDotTypeIcon {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.nav-pills .active span {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.nav-pills .btn-circleDotTypeIcon {
+  background-color: transparent;
+  color: #fff;
 }
