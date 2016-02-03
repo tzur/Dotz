@@ -330,7 +330,10 @@ Template.desktopDotShow.helpers({
     return alreadyAdded;
   },
   isUserAllowToConnect: function(){
-    if(Roles.userIsInRole( Meteor.userId(), 'Connector') || this.dot.ownerUserId === Meteor.userId() ){
+    //if(Roles.userIsInRole( Meteor.userId(), 'Connector') || this.dot.ownerUserId === Meteor.userId() ){
+    //  return true;
+    //}
+    if( this.dot.ownerUserId === Meteor.userId() || this.dot.isOpen ){
       return true;
     }
   },

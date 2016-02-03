@@ -69,15 +69,42 @@ Template.searchBoxForConnect.events({
       }
     });
   },
-  'click ._createDot':function(){
+
+  'click ._createNewDotHere':function(){
     Session.set('parentDot', this.dot._id);
-    Modal.show('createDotModal');
+
+    let parentDotId = this.dot._id;
+    Modal.show('createNewDot_modal',{
+      initialDataForFormFields: {
+        //
+      },
+      parentDotId: parentDotId
+    });
   },
 
-  'click ._createList':function(){
+  'click ._createNewListHere':function(){
     Session.set('parentDot', this.dot._id);
-    Modal.show('createListModal');
+
+    let parentDotId = this.dot._id;
+    console.log("parentDotId is >> " + parentDotId)
+    Modal.show('createNewList_modal',{
+      initialDataForFormFields: {
+        //
+      },
+      parentDotId: parentDotId
+    });
   },
+
+  //'click ._createNewList': function(){
+  //  Modal.show('createNewList_modal',{
+  //    initialDataForFormFields: {
+  //      //
+  //    },
+  //    parentDotId: Meteor.user().profile.profileDotId
+  //  });
+  //},
+
+
 
   'click #searchSubmit':function(){
     $('#searchTabs').removeClass('hidden');

@@ -3,12 +3,14 @@ function _createDotLoading(){
   $('#title').toggleClass('nonEditAble');
   $('#description').toggleClass('nonEditAble');//TODO DISABLE MORE FIELDS IF NECCESSARE PAY ATTENTION IT'S ONLY ON LINK TYPE
 }
+
 function _createDotFinishedLoading(){
   Session.set('spinnerOn', false);
   $('#title').toggleClass('nonEditAble');
   $('#description').toggleClass('nonEditAble');  //TODO DISABLE MORE FIELDS IF NECCESSARE PAY ATTENTION IT'S ONLY ON LINK TYPE
 
 }
+
 function _createDotClearForm(){
   Session.set('spinnerOn', false);
   Session.set('dotCoverImg', undefined);
@@ -16,8 +18,9 @@ function _createDotClearForm(){
   $('#description').val('');
   $('#price').val(''); //TODO CLEAR MORE FIELDS SUCH AS DATE ETC
 }
+
 function _updateCreateDotFields(title, description, img, linkUrl ,fbAuthour){
-  console.log('sdfdsfsd');
+  //console.log('sdfdsfsd');
   if (title){
     $('#title').val(title);
   }
@@ -46,40 +49,43 @@ function _createDotChangeTab(fieldsArray){
 
   })
 }
-function DotFactory(title, description, parentDotId, coverImgUrl, locationObject
-                                      , price, dotSubType,embedlyObj, FBdataObj){
 
-  this.title= title;
-  this.bodyText = description;
-  this.inDotz = [parentDotId];
-  if (locationObject){
-    this.location = {
-      latLng: locationObject.locationLatLng,
-      name: locationObject.general.name,
-      address: locationObject.general.formatted_address,
-      googleMapsUrl: locationObject.general.url,
-      placeId: locationObject.general.place_id,
-      placePhoneNumber: locationObject.general.formatted_phone_number
-    };
-  }
-  this.dotType = 'Dot';
-  this.coverImageUrl = coverImgUrl;
-  if (price){//TODO CHECK IF IT'S NUMBER
-    this.price = parseInt(price);
-  }
-  this.ownerUserId = Meteor.userId();
-  this.createdAtDate = new Date();
-  this.dotSubType = dotSubType;
-  this.embedlyObj = embedlyObj;
-  if (FBdataObj){
-    this.linkAuthorName = FBdataObj.name;
-    this.linkAuthorUrl = 'https://www.facebook.com/' + FBdataObj.id;
-    this.facebookAuthorId = FBdataObj.id;
-  }
-
+function DotFactory(
+  title, description, parentDotId, dotColor, coverImgUrl, locationObject, price, dotSubType,embedlyObj, FBdataObj)
+  {
+    this.title= title;
+    this.bodyText = description;
+    this.inDotz = [parentDotId];
+    if (locationObject){
+      this.location = {
+        latLng: locationObject.locationLatLng,
+        name: locationObject.general.name,
+        address: locationObject.general.formatted_address,
+        googleMapsUrl: locationObject.general.url,
+        placeId: locationObject.general.place_id,
+        placePhoneNumber: locationObject.general.formatted_phone_number
+      };
+    }
+    this.dotType = 'Dot';
+    this.dotSubType = dotSubType;
+    this.isOpen = true;
+    this.dotColor = dotColor;
+    this.coverImageUrl = coverImgUrl;
+    if (price){//TODO CHECK IF IT'S NUMBER @zur
+      this.price = parseInt(price);
+    }
+    this.ownerUserId = Meteor.userId();
+    this.createdAtDate = new Date();
+    this.embedlyObj = embedlyObj;
+    if (FBdataObj){
+      this.linkAuthorName = FBdataObj.name;
+      this.linkAuthorUrl = 'https://www.facebook.com/' + FBdataObj.id;
+      this.facebookAuthorId = FBdataObj.id;
+    }
 }
+
 function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
-  let title,description, price, dotSubType, redirectAfterCreateSlug;
+  let title, description, price, dotSubType, redirectAfterCreateSlug;
   if (parentDotId === Meteor.user().profile.profileDotId){
     redirectAfterCreateSlug = Meteor.user().profile.userSlug;
   }else{
@@ -92,6 +98,13 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   if (price ===""){
     price=undefined
   }
+
+  //Pick random color:
+  let colorsArray = ['darkGreenDot','brightGreenDot', 'greenDot', 'purpleDot', 'blueDot', 'redDot','pinkDot', 'orangeDot'];
+  let i = Math.floor(Math.random() * 8);
+  let dotColor = colorsArray[i];
+
+  //dotSubType:
   if (Session.get('link')){
     dotSubType = 'Link';
   }else if(Session.get('place')){
@@ -107,8 +120,9 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   }else{
     dotSubType = 'Link'; // it is default to be link.
   }
-  //TODO CHANGE SESSION TO LOCATION OBJECT WE HAVE IT AS VARIABLE SAME WITH FBPOSTAUTHOUR DATA DONT USE SESSIONS HERE PASS AS VARIABLE
-  let dot = new DotFactory(title,description,parentDotId,coverImgUrl,Session.get('locationObject'),price,
+
+  //TODO CHANGE SESSION TO LOCATION OBJECT WE HAVE IT AS VARIABLE SAME WITH FBPOSTAUTHOUR DATA DONT USE SESSIONS HERE PASS AS VARIABLE @zur
+  let dot = new DotFactory(title,description,parentDotId,dotColor,coverImgUrl,Session.get('locationObject'),price,
                                           dotSubType,Session.get('embedlyObj'),Session.get('fbPostAuthorData'));
 
   Meteor.call('createDot', dot, redirectAfterCreateSlug ,function(error,result){
@@ -126,6 +140,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
     }
   })
 }
+
 Modules.client.handleCreateSubmit = _handleCreateSubmit;
 Modules.client.createDotChangeTab = _createDotChangeTab;
 Modules.client.updateCreateDotFields= _updateCreateDotFields;
