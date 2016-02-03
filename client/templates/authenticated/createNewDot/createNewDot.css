@@ -1,7 +1,7 @@
 
 /*general*/
 #container-createNewDot {
-
+  background-color: #fff;
 }
 
 .header-fixed {
@@ -64,7 +64,7 @@
 }
 
 .dotTypeButtonCol-createNewDot {
-  width: 18%;
+  /*width: 18%;*/
 
   /*background-color: blue;*/
   /*position: relative;*/
@@ -102,8 +102,8 @@
 }
 
 .btn-circleDotTypeIcon .fa {
-  margin-top: 1vw;
   font-size: 1.5vw;
+  vertical-align: initial;
 }
 
 #navBar-bottomSpacer-createNewDot {
@@ -112,7 +112,7 @@
 }
 
 #main-createNewDot {
-  min-height: 65vh;
+  min-height: 72vh;
   background-color: #FFFFFF;
   padding: 20px;
 }
@@ -120,7 +120,7 @@
 #footer-createNewDot {
   height: 10vh;
   /*width: 100%;*/
-  background-color: #fafafa;
+  /*background-color: #fafafa;*/
 
   /* fixed: */
   /*position: fixed;*/
@@ -130,7 +130,9 @@
 }
 
 #_createDotBtn {
-  margin-top: 2.5vh;
+  margin: 2.5vh 0;
+  padding-left: 3vw;
+  padding-right: 3vw;
 }
 
 .nav-pills .active .btn-circleDotTypeIcon {
@@ -146,4 +148,5 @@
 .nav-pills .btn-circleDotTypeIcon {
   background-color: transparent;
   color: #fff;
+  border: none;
 }
