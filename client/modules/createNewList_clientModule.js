@@ -51,47 +51,65 @@ let _handleCreateNewList = ( template ) => {
   let dotColor = colorsArray[i];
   //console.log("dotcolor: " + dotColor);
 
+  //Types & Open:
+  let selectedSubType;
+  let openOrClosed;
+  if (Session.get('publicList')) {
+      selectedSubType = "Public List";
+      openOrClosed = true;
+  } else if (Session.get('closedList')) {
+      selectedSubType = "Closed List";
+      openOrClosed = false;
+  } else if (Session.get('secretList')) {
+      selectedSubType = "Secret List";
+      openOrClosed = false;
+  }
+
+  //parentDotId & redirectAfterCreateSlug:
+  let parentDotId;
+  let redirectAfterCreateSlug;
+  if ( Session.get('parentDot') ) {
+    parentDotId = Session.get('parentDot');
+    redirectAfterCreateSlug = Dotz.findOne(parentDotId).dotSlug;
+  } else {
+    parentDotId = Meteor.user().profile.profileDotId;
+    redirectAfterCreateSlug = Meteor.user().profile.userSlug
+  }
+
   let doc = {
-    title: template.find( '[name="listTitle"]' ).value,
-    bodyText: template.find( '[name="listDescription"]' ).value,
-    ownerUserId: Meteor.userId(),
-    //coverImageUrl: template.find( '[name="password"]' ).value,
-    dotType: "List",
-    //dotSubType: template.find( '[name="emailAddress"]' ).value,
-    dotColor: dotColor,
-    coverImageUrl: Session.get('dotCoverImg'),
-    inDotz: [Meteor.user().profile.profileDotId]
-};
-
-
-  //
-  //Accounts.createUser( user, ( error ) => {
-  //  if ( error ) {
-  //    Bert.alert( error.reason, 'danger' );
-  //    Session.set('spinnerOn', false);
-  //  }
-  //});
-
-  let redirectAfterCreateSlug = Meteor.user().profile.userSlug;
-  console.log("redirectAfterCreateSlug is " + redirectAfterCreateSlug);
+      title: template.find( '[name="listTitle"]' ).value,
+      bodyText: template.find( '[name="listDescription"]' ).value,
+      ownerUserId: Meteor.userId(),
+      //coverImageUrl: template.find( '[name="password"]' ).value,
+      dotType: "List",
+      dotSubType: selectedSubType,
+      isOpen: openOrClosed,
+      dotColor: dotColor,
+      coverImageUrl: Session.get('dotCoverImg'),
+      inDotz: [parentDotId]
+  };
 
   Meteor.call('createDot', doc, redirectAfterCreateSlug ,function(error,result){
     if (error){
-      console.log(error)
-    }else{
-      console.log("not errorrrrrr");
-      Session.set("parentDot", undefined);
-      Session.set("locationObject", undefined);
-      Session.set('spinnerOn', false);
-      Meteor.call('addOrEditObjectInAlgolia', result, false);
-      analytics.track("Dot Created", {
-        isDotWithOutLocation: Session.equals("locationObject", undefined),
-        dotType: undefined
-      });
+      console.log(error);
+    } else {
+        Session.set("parentDot", undefined);
+        Session.set("locationObject", undefined);
+        Session.set('spinnerOn', false);
+        Session.set('dotCoverImg', undefined);
+
+        //listSubType sessions:
+        Session.set('publicList', undefined);
+        Session.set('closedList', undefined);
+        Session.set('secretList', undefined);
+
+        Meteor.call('addOrEditObjectInAlgolia', result, false);
+        analytics.track("Dot Created", {
+          isDotWithOutLocation: Session.equals("locationObject", undefined),
+          dotType: undefined
+        });
     }
   })
-
-
 
 };
 

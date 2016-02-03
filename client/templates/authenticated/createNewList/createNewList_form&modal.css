@@ -1,0 +1,52 @@
+
+
+#header-createNewList_modal {
+  background-color: rgba(0,0,0,0.1);
+  color: rgba(0,0,0,0.7);
+  margin-top: 0;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  text-align: center;
+}
+
+
+#footer-createNewList_form {
+  height: 8vh;
+  padding: 2vh;
+  /*background-color: rgba(0,0,0,0.4);*/
+  margin-top: 4vh;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: -15px;
+}
+
+#createNewListButton {
+  background-color: rgba(0,0,0,0.1);
+  color: rgba(0,0,0,0.7);
+  width: 30%;
+  height: 4vh;
+  font-weight: 600;
+}
+
+#createNewListButton:hover {
+  background-color: rgba(0,0,0,0.4);
+  color: #FFFFFF;
+}
+
+
+/*privacy buttons*/
+
+.privacyBtns {
+  padding: 4px;
+}
+
+.privacyBtns:hover {
+  /*background-color: rgba(0,0,0,0.1);*/
+  border: 1px solid rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.selectedPrivacyBtn {
+  background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.3);
+}

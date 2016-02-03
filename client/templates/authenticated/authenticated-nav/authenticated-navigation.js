@@ -24,19 +24,19 @@ Template.authenticatedNavigation.events({
     });
   },
 
-  'click .createDot': function(){
-    Modal.show('createDotModal');
-    analytics.track("Open Create Dot Modal", {
-      title: "Open Create Dot Modal from Nav Bar"
-    })
-  },
-
-  'click .createList': function(){
-    Modal.show('createListModal');
-    analytics.track("Open Create List Modal", {
-      title: "Open Create List Modal from Nav Bar"
-    })
-  },
+  //'click .createDot': function(){
+  //  Modal.show('createDotModal');
+  //  analytics.track("Open Create Dot Modal", {
+  //    title: "Open Create Dot Modal from Nav Bar"
+  //  })
+  //},
+  //
+  //'click .createList': function(){
+  //  Modal.show('createListModal');
+  //  analytics.track("Open Create List Modal", {
+  //    title: "Open Create List Modal from Nav Bar"
+  //  })
+  //},
 
   'click .editUserAccount': function(){
     Modal.show('editUserAccountModal');

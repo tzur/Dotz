@@ -71,6 +71,11 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
         "linkName": 1,
         "category": 1,
         "totalUpvotes": 1,
+        "location.name": 1,
+        "startDateAndHour": 1, //TBD
+        //"startDate": 1,
+        "price": 1,
+        "currency": 1,
         "inDotz": 1, //TBD
         "connectedDotzArray": 1} //TBD
       }),

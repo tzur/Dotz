@@ -88,6 +88,7 @@ Template.createNewDot.events({
   'submit #createDotForm': function(e){
     e.preventDefault();
     var self = this;
+    //console.log("self.parentDotId is   ----->  " + self.parentDotId)
     Modules.client.handleCreateSubmit(self.parentDotId, Session.get('dotCoverImg'), Session.get('locationObject'))
   }
 });

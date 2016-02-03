@@ -1,4 +1,4 @@
-Template.img.helpers({
+Template.imgUploader.helpers({
   isImageUrl: function(){
     return Session.get('dotCoverImg');
   },
@@ -6,7 +6,7 @@ Template.img.helpers({
     return Session.get('dotCoverImg');
   }
 });
-Template.img.events({
+Template.imgUploader.events({
   'change input[type="file"]': function ( event, template ) {
     console.log("Spinner On");
     Modules.client.uploadToAmazonS3( { event: event, template: template }, function(error, result){
