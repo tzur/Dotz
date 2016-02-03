@@ -181,19 +181,43 @@
 
                   <div>
 
-                      {{#if dot.linkName}}
 
-                          <span class="lightGrey">{{dot.linkName}} </span><span class="lightGrey bold desktopDotCard-col-credit"> · </span>
+                      {{#if dot.linkName}}
+                          <span class="lightGrey">{{dot.linkName}} </span><span class="lightGrey bold desktopDotCard-col-credit"></span>
+                      {{else}}
+
+                        {{#if dot.location}}
+                            <div>
+                              <span class="lightGrey"><i class="fa fa-calendar"></i> {{dot.eventDate}}24 January 2016, 22:30 </span>
+                                <span class="lightGrey bold desktopDotCard-col-credit"> · </span>
+                              <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
+
+                            </div>
+                            <div>
+                              <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
+                            </div>
+
+                        {{else}}
+                            <div>
+                              <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span><span class="lightGrey bold desktopDotCard-col-credit"> · </span>
+                            </div>
+                        {{/if}}
 
                       {{/if}}
 
+
+
+
+
                       {{#if smartRef.connection.personalDescription}}
 
+
                           <span class="lightGrey desktopDotCard-col-credit">Connected by <a class="text-primary" href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a>
-                              <!--<button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">-->
-                                  <!--<i class="fa fa-comment-o lgTxt"></i>-->
-                              <!--</button>-->
+                          <!--<button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">-->
+                              <!--<i class="fa fa-comment-o lgTxt"></i>-->
+                          <!--</button>-->
                           </span>
+
 
                           <!--<div id="connectedByText-desktopDotCardDiv">-->
                               <!--<h5 id="connectedByText-desktopDotCard" class="lightGrey"><em>{{smartRef.connection.personalDescription}}</em></h5>-->
@@ -201,7 +225,9 @@
 
                       {{else}}
 
-                          <span  class="lightGrey desktopDotCard-col-credit">Connected by <a class="text-primary" href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a></span>
+                          <div>
+                              <span  class="lightGrey desktopDotCard-col-credit">Connected by <a class="text-primary" href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a></span>
+                          </div>
 
                       {{/if}}
 

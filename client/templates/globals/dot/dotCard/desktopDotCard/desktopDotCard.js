@@ -153,7 +153,7 @@ Template.desktopDotCard.helpers({
     }
   },
 
-  shortenAdress: function(){
+  shortenAddress: function(){
     if (this.dot && this.dot.location && this.dot.location.address) {
       return s.prune(this.dot.location.address, 30);
     }
