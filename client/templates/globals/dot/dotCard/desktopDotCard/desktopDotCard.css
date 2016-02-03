@@ -40,6 +40,7 @@
 }
 
 #theColonsCircle-desktopDotCard {
+  float: left;
   height: 4vh;
   width: 4vh;
   border-radius: 50%;

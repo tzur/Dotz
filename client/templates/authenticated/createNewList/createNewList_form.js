@@ -1,12 +1,43 @@
 
 
 Template.createNewList_form.onRendered( () => {
+
   Modules.client.createNewList({
     form: "#createNewList",
     template: Template.instance()
   });
+
+  Session.set('publicList', "Public");
+
+
 });
 
+
+Template.createNewList_form.helpers({
+
+  publicSelectedClass: function() {
+
+    if ( Session.get('publicList') ) {
+      return "selectedPrivacyBtn";
+    }
+
+  },
+
+  closedSelectedClass: function() {
+    if ( Session.get('closedList') ) {
+      return "selectedPrivacyBtn";
+    }
+  },
+
+  secretSelectedClass: function() {
+    if ( Session.get('secretList') ) {
+      return "selectedPrivacyBtn";
+    }
+  }
+
+
+
+});
 
 Template.createNewList_form.events({
 
@@ -15,6 +46,31 @@ Template.createNewList_form.events({
   //Prevent form from submitting.
   e.preventDefault()
   },
+
+
+  'click #_publicList': function() {
+    _clearSessions();
+    Session.set('publicList', "Public");
+  },
+
+  'click #_closedList': function() {
+    _clearSessions();
+    Session.set('closedList', "Closed");
+  },
+
+  'click #_secretList': function() {
+    _clearSessions();
+    Session.set('secretList', "Secret");
+  },
+
+
+
+
+
+
+
+
+
 
   'click #createNewListButton': function(event){
     // //event.preventDefault();
@@ -41,3 +97,9 @@ Template.createNewList_form.events({
 
 });
 
+//private function:
+function _clearSessions(){
+  Session.set('publicList', undefined);
+  Session.set('closedList', undefined);
+  Session.set('secretList', undefined);
+}
