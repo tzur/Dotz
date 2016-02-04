@@ -23,7 +23,7 @@
 
         <a href="/{{ownerUser.profile.userSlug}}">
             <img class="ownerImgProfile-mobileDotShow" src="{{ownerUser.profile.profileImage}}">
-            <span class="darkText">By {{ownerUser.username}}</span>
+            <span class="darkText">{{ownerUser.username}}</span>
         </a>
 
       <div class="pull-right">
@@ -83,25 +83,23 @@
 
   {{/if}}
 
+{{#if isHardSale}}
   {{#if isUserAllowToConnect}}
 
       <div class="container-fluid" id="dotShowFooter">
-
           <div class="">
 
             {{# if addDotIsAvailable}}
               {{#with dataForCreateHere}}
                 {{>searchBoxForConnect}}
               {{/with}}
-
-
             {{/if}}
 
           </div>
-
       </div>
 
   {{/if}}
+{{/if}}
 
 
 
@@ -283,11 +281,7 @@
                   <div id="footer-col-line-mobileDotShow"></div>
 
                   <div class="col-xs-9 col-xs-offset-1">
-                    {{#if dotzNum}}
-                       <h4 class="mdTxt darkText bold text-uppercase">{{dotzNum}} Connected</h4>
-                    {{else}}
-                       <span class="lgTxt mdGrey">Let's Connect the 1st dot</span>
-                    {{/if}}
+                     <h4 class="mdTxt darkText bold text-uppercase">{{dotzNum}} Connected</h4>
                   </div>
 
                   <div class="col-xs-2">
@@ -297,7 +291,7 @@
           </div>
 
 
-      {{/if}}
+        {{/if}}
 
       </nav>
 
@@ -320,20 +314,6 @@
             <div class="container-fluid" id="dotShowFooter-mobileDotShow">
 
                 <div class="row">
-
-              <!--{{#if userClickOnTheYesButton}}-->
-
-                <!--{{# if addDotIsAvailable}}-->
-                  <!--{{#with dataForCreateHere}}-->
-                    <!--{{>searchBoxForConnect}}-->
-                  <!--{{/with}}-->
-                <!--{{/if}}-->
-
-              <!--{{else}}-->
-
-                <!--{{>lastDotCardMobileDotShow}}-->
-
-              <!--{{/if}}-->
 
 
                 {{#if hardSale}}
@@ -359,22 +339,22 @@
 
                   {{/if}}
 
-                {{else}}
+
 
                     <div id="lastCard-desktopDotShow" class="col-xs-12 col-md-9 col-lg-7 colCenter noPadding">
                         <div id="mobileDotCard-lastDot" class="container-fluid">
                             <div id="mobileDotCard-lastDot-col-connectLine"></div>
 
-                            <!--{{>lastDotCardMobileDotShow}}-->
-
-                          {{# if addDotIsAvailable}}
-                            {{#with dataForCreateHere}}
-                              {{>searchBoxForConnect}}
-                            {{/with}}
-                          {{/if}}
+                              {{# if addDotIsAvailable}}
+                                {{#with dataForCreateHere}}
+                                  {{>searchBoxForConnect}}
+                                {{/with}}
+                              {{/if}}
 
                         </div>
                     </div>
+
+                {{else}}
 
                 {{/if}}
 

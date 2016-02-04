@@ -64,17 +64,19 @@
 }
 
 #desktopDotShow-shortDescription {
-  margin-top: 2vh;
-  /*font-size: 1.25em;*/
-  /*color: #212121;*/
-  font-size: 18px;
   font-weight: normal;
   line-height: 25px;
-  max-height: 75px;
+  max-height: 100px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+}
+
+#desktopDotShow-shortDescription-pre {
+  overflow: inherit;
+  margin-top: 2vh;
+  font-size: 18px;
 }
 
 #desktopDotShow-middleDiv {

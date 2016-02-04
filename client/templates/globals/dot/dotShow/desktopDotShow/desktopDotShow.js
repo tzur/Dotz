@@ -218,6 +218,12 @@ Template.desktopDotShow.helpers({
     return (moment(this.dot.createdAtDate).fromNow())
   },
 
+  shortenAddress: function(){
+    if (this.dot && this.dot.location && this.dot.location.address) {
+      return s.prune(this.dot.location.address, 30);
+    }
+  },
+
   eventDate: function(){
     if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
       let textForMultipleEvents;
