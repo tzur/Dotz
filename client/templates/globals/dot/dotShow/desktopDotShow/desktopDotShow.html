@@ -431,11 +431,95 @@
 
                     {{#if userClickOnShowMoreButton}}
 
+                                <div class="mdTxt">
+
+                                    <!--IF THE DOT SUB TYPE IS EVENT-->
+
+                                  {{#if dot.eventDate}}
+                                      <div>
+                                          <span class="lightGrey"><i class="fa fa-calendar"></i> {{dot.eventDate}} </span>
+                                          <!--TODO get the event date data from the create & edit form @yoav-->
+                                      </div>
+
+
+                                    {{#if dot.location}}
+                                        <div>
+                                            <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
+                                        </div>
+                                    {{/if}}
+
+
+                                    {{#if dot.price}}
+                                        <div>
+                                            <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
+                                        </div>
+                                    {{/if}}
+
+
+                                  {{else}} <!--IF THE DOT SUB TYPE IS PLACE-->
+
+                                    {{#if dot.location}}
+                                        <div>
+                                            <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}},</span>
+                                        </div>
+                                        <div>
+                                            <span class="lightGrey">&nbsp;&nbsp; {{dot.location.address}}.</span>
+                                        </div>
+                                    {{/if}}
+
+                                  {{/if}}
+
+                                </div>
+
                       <pre id="desktopDotShow-description" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
 
                     {{else}}
 
-                      <pre id="desktopDotShow-shortDescription" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+                                <div id="desktopDotShow-shortDescription" class="mdTxt">
+
+                                    <!--IF THE DOT SUB TYPE IS EVENT-->
+
+                                  {{#if dot.eventDate}}
+                                      <div>
+                                          <span class="lightGrey"><i class="fa fa-calendar"></i> {{dot.eventDate}} </span>
+                                          <!--TODO get the event date data from the create & edit form @yoav-->
+                                      </div>
+
+
+                                    {{#if dot.location}}
+                                        <div>
+                                            <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
+                                        </div>
+                                    {{/if}}
+
+
+                                    {{#if dot.price}}
+                                        <div>
+                                            <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
+                                        </div>
+                                    {{/if}}
+
+
+                                  {{else}}    <!--IF THE DOT SUB TYPE IS PLACE-->
+                                    {{#if dot.location}}
+                                        <div>
+                                            <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}},</span>
+                                        </div>
+                                        {{#if dot.location.address}}
+                                          <div>
+                                              <span class="lightGrey">&nbsp;&nbsp; {{dot.location.address}}.</span>
+                                          </div>
+                                        {{/if}}
+                                    {{/if}}
+                                  {{/if}}
+
+
+                                  <pre id="desktopDotShow-shortDescription-pre" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+
+                                </div>
+
+
+
                       <div class="text-center">
                           <button id="_showMore" class="btn btn-full-trans btn-sm">SHOW MORE</button>
                       </div>
