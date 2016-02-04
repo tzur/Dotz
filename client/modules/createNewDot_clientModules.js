@@ -52,8 +52,9 @@ function _createDotChangeTab(fieldsArray){
 }
 
 function DotFactory(
-  title, description, parentDotId, dotColor, coverImgUrl, locationObject, price, dotSubType,embedlyObj, FBdataObj)
+  linkUrl, title, description, parentDotId, dotColor, coverImgUrl, locationObject, price, dotSubType,embedlyObj, FBdataObj)
   {
+    this.linkUrl = linkUrl;
     this.title= title;
     this.bodyText = description;
     this.inDotz = [parentDotId];
@@ -86,19 +87,31 @@ function DotFactory(
 }
 
 function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
-  let title, description, price, dotSubType, redirectAfterCreateSlug;
+  let linkUrl, title, description, price, dotSubType, redirectAfterCreateSlug;
   if (parentDotId === Meteor.user().profile.profileDotId){
     redirectAfterCreateSlug = Meteor.user().profile.userSlug;
   }else{
     redirectAfterCreateSlug = Dotz.findOne(parentDotId).dotSlug;
   }
 
+  linkUrl = $('#url').val();
   title = $('#title').val();
   description = $('#description').val();
   price =$('#price').val();
   if (price ===""){
     price=undefined
   }
+
+  let startDate = $('#startDate').val();
+  let startHour = $('#startHour').val();
+  let endDate = $('#endDate').val();
+  let endHour = $('#endHour').val();
+  let multipleEventsNote = $('#multipleEventsNote').val();
+
+  //$("#startDate").val()
+  //multipleEventsNote
+  console.log("startDate >>>>>> " + startDate);
+
 
   //dotSubType:
   if (Session.get('link')){
@@ -150,6 +163,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
     let editedDoc = {
       title: title,
       bodyText: description,
+      linkUrl: linkUrl,
       ownerUserId: Meteor.userId(),
       coverImageUrl: coverImgUrl,
       location: location,
@@ -192,7 +206,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       let dotColor = colorsArray[i];
 
       //TODO CHANGE SESSION TO LOCATION OBJECT WE HAVE IT AS VARIABLE SAME WITH FBPOSTAUTHOUR DATA DONT USE SESSIONS HERE PASS AS VARIABLE @zur
-      let dot = new DotFactory(title,description,parentDotId, dotColor, coverImgUrl,Session.get('locationObject'),price,
+      let dot = new DotFactory(linkUrl,title,description,parentDotId, dotColor, coverImgUrl,Session.get('locationObject'),price,
         dotSubType,Session.get('embedlyObj'),Session.get('fbPostAuthorData'));
 
       //Go create:

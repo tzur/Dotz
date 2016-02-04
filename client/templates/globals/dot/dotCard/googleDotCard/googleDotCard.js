@@ -7,6 +7,10 @@ Template.googleDotCard.helpers({
 });
 Template.googleDotCard.events({
   'click ._connectGoogle': function(){
+
+    Session.set('link', "active");
+    Session.set('selectedType', "Link");
+
     Modal.show('createNewDot_Modal',{
         initialDataForFormFields: {
           title: this.googleDot.googleTitle,

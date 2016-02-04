@@ -66,6 +66,7 @@ let upload = ( options, callback ) => {
   let file = _getFileFromInput( options.event );
 
   _setPlaceholderText( `Uploading ${file.name}...` );
+  console.log(" ${file.name} " + $(file.name) );
   _uploadFileToAmazon( file, callback );
 };
 
