@@ -77,6 +77,27 @@
   overflow: inherit;
   margin-top: 2vh;
   font-size: 18px;
+  font-weight: normal;
+  line-height: 25px;
+  max-height: 75px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+
+#desktopDotShow-shortDescription-pre-placeOrLocation {
+  overflow: inherit;
+  margin-top: 2vh;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 25px;
+  max-height: 100px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 #desktopDotShow-middleDiv {
@@ -130,6 +151,7 @@
 
 #actionButton-desktopDotShow-dot {
   min-width: 7vw;
+  margin-left: 2vw;
 }
 
 #desktopDotShow-personalDescriptionDiv {
