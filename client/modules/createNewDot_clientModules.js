@@ -49,20 +49,27 @@ function _updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour)
     Modules.client.createDotFinishedLoading();
   }
 
-  if (dot.startDate) {
-    $('#startDate').val(dot.startDate);
+  //convert by moment:
+  //let startDateAndHour = moment(startDate + " " + startHour, "DD MMMM YYYY hh:mm A");
+  //startDateAndHour = new Date(startDateAndHour);
+  if (dot.startDateAndHour) {
+    let startDate = moment(dot.startDateAndHour).format('DD MMMM YYYY');
+    let startHour = moment(dot.startDateAndHour).format('hh:mm A');
+    $('#startDate').val(startDate);
+    $('#startHour').val(startHour);
   }
-  if (dot.startHour) {
-    $('#startDate').val(dot.startDate);
+  if (dot.endDateAndHour) {
+    let endDate = moment(dot.endDateAndHour).format('DD MMMM YYYY');
+    let endHour = moment(dot.endDateAndHour).format('hh:mm A');
+    $('#endDate').val(endDate);
+    $('#endHour').val(endHour);
   }
-  if (dot.startDate) {
-    $('#startDate').val(dot.startDate);
-  }
-  if (dot.startDate) {
-    $('#startDate').val(dot.startDate);
+  if (dot.multipleEventsNote) {
+    $('#multipleEventsNote').val(dot.multipleEventsNote);
   }
 
 }
+
 
 function _createDotChangeTab(fieldsArray){
   fieldsArray.forEach(function(field){
@@ -74,7 +81,7 @@ function DotFactory(
   linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
   locationObject, price, dotSubType,
   embedlyObj, FBdataObj,
-  multipleEventsNote, startDateAndHour, endDateAndHour)
+  startDateAndHour, endDateAndHour, multipleEventsNote)
   {
     this.linkUrl = linkUrl;
     this.title= title;
@@ -107,9 +114,9 @@ function DotFactory(
       this.facebookAuthorId = FBdataObj.id;
     }
     //event:
-    this.multipleEventsNote = multipleEventsNote;
     this.startDateAndHour = startDateAndHour;
     this.endDateAndHour = endDateAndHour;
+    this.multipleEventsNote = multipleEventsNote;
 }
 
 function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
@@ -140,30 +147,6 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
 
   let endDateAndHour = moment(endDate + " " + endHour, "DD MMMM YYYY hh:mm A");
   endDateAndHour = new Date(endDateAndHour);
-
-
-
-  //$("#startDate").val()
-  //multipleEventsNote
-  //console.log("startDate >>>>>> " + startDate);
-  //console.log("startHour >>>>>> " + startHour);
-
-
-
-  ////let startDateAndHour = moment(startDate, "DD MMM YYYY");
-  //
-  //console.log("startDateAndHour >>>>>> " + startDateAndHour);
-  //
-  //console.log("newDate >>>>>> " + newDate);
-  //
-  //
-  ////moment("2010-10-20 4:30",       "YYYY-MM-DD HH:mm");
-  //
-  ////moment(this.dot.endRepeatedDate).format('dddd DD MMM')
-  //
-  //console.log("startDateAndHour by moment format('dddd DD MMM') >>>>>> " + moment(startDateAndHour).format('dddd DD MMMM'));
-  //console.log("startDateAndHour by moment .fromNow() >>>>>> " + moment(startDateAndHour).fromNow() );
-  //
 
 
   //dotSubType:
@@ -271,7 +254,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       let dot = new DotFactory(linkUrl,title,description,parentDotId, dotColor, coverImgUrl,
         Session.get('locationObject'),price,
         dotSubType,Session.get('embedlyObj'),Session.get('fbPostAuthorData'),
-        multipleEventsNote, startDateAndHour, endDateAndHour);
+        startDateAndHour, endDateAndHour, multipleEventsNote);
 
       //Go create:
       Meteor.call('createDot', dot, redirectAfterCreateSlug ,function(error,result){
