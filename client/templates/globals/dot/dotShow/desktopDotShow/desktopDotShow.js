@@ -139,6 +139,16 @@ Template.desktopDotShow.helpers({
       return (this.dot.location.googleMapsUrl);
     }
 
+    else if (this.dot.dotSubType === "Event") {
+      if (this.dot.linkUrl){
+        return (this.dot.linkUrl);
+      }
+
+      else if (this.dot.location.googleMapsUrl){
+        return (this.dot.location.googleMapsUrl);
+      }
+    }
+
     else {
       return (this.dot.linkUrl);
     }
@@ -245,7 +255,7 @@ Template.desktopDotShow.helpers({
       return ("Multiple Events (from " + moment(this.dot.startRepeatedDate).format('dddd DD MMM') + ")");
     }
     else if (this.dot && this.dot.startDateAndHour) {
-      return ( moment(this.dot.startDateAndHour).format('dddd DD MMMM, h:mm A') );
+      return ( moment(this.dot.startDateAndHour).format('DD MMMM, hh:mm A') );
     }
   },
 

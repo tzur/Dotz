@@ -365,12 +365,20 @@
                     <div class="col-sm-6 pull-right txtR">
 
 
-                      {{#if dot.dotSubType}}
-                          <a href="{{isLinkOrLocation}}" target="_blank">
-                              <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-md"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
+                      {{#if dot.location}}
+                          <a href="{{dot.location.googleMapsUrl}}" target="_blank">
+                              <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-Place btn-md"><i class="fa fa-map-marker"></i> Navigate</button>
                           </a>
                       {{/if}}
 
+
+                      {{#if dot.linkUrl}}
+                        {{#unless dot.location}}
+                          <a href="{{dot.linkUrl}}" target="_blank">
+                              <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-md"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
+                          </a>
+                        {{/unless}}
+                      {{/if}}
 
 
 
@@ -429,95 +437,46 @@
             <div class="container-fluid">
                 <div class="col-sm-7 colCenter">
 
+                    <div class="mdTxt">
+
+                        <!--IF THE DOT SUB TYPE IS EVENT or PLACE-->
+
+                      {{#if eventDate}}
+                          <div>
+                              <span class="lightGrey"><i class="fa fa-calendar"></i> {{eventDate}} </span>
+                              <!--TODO get the event date data from the create & edit form @yoav-->
+                          </div>
+                      {{/if}}
+
+
+                      {{#if dot.location}}
+                          <div>
+                              <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
+                          </div>
+                      {{/if}}
+
+                      {{#if dot.location.address}}
+                          <div>
+                              <span class="lightGrey">&nbsp;&nbsp; {{dot.location.address}}.</span>
+                          </div>
+                      {{/if}}
+
+
+                      {{#if dot.price}}
+                          <div>
+                              <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
+                          </div>
+                      {{/if}}
+
+                    </div>
+
                     {{#if userClickOnShowMoreButton}}
 
-                                <div class="mdTxt">
-
-                                    <!--IF THE DOT SUB TYPE IS EVENT-->
-
-                                  {{#if dot.eventDate}}
-                                      <div>
-                                          <span class="lightGrey"><i class="fa fa-calendar"></i> {{dot.eventDate}} </span>
-                                          <!--TODO get the event date data from the create & edit form @yoav-->
-                                      </div>
-
-
-                                    {{#if dot.location}}
-                                        <div>
-                                            <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
-                                        </div>
-                                    {{/if}}
-
-
-                                    {{#if dot.price}}
-                                        <div>
-                                            <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
-                                        </div>
-                                    {{/if}}
-
-
-                                  {{else}} <!--IF THE DOT SUB TYPE IS PLACE-->
-
-                                    {{#if dot.location}}
-                                        <div>
-                                            <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}},</span>
-                                        </div>
-                                        <div>
-                                            <span class="lightGrey">&nbsp;&nbsp; {{dot.location.address}}.</span>
-                                        </div>
-                                    {{/if}}
-
-                                  {{/if}}
-
-                                </div>
-
-                      <pre id="desktopDotShow-description" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+                            <pre id="desktopDotShow-description" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
 
                     {{else}}
 
-                                <div id="desktopDotShow-shortDescription" class="mdTxt">
-
-                                    <!--IF THE DOT SUB TYPE IS EVENT-->
-
-                                  {{#if dot.eventDate}}
-                                      <div>
-                                          <span class="lightGrey"><i class="fa fa-calendar"></i> {{dot.eventDate}} </span>
-                                          <!--TODO get the event date data from the create & edit form @yoav-->
-                                      </div>
-
-
-                                    {{#if dot.location}}
-                                        <div>
-                                            <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
-                                        </div>
-                                    {{/if}}
-
-
-                                    {{#if dot.price}}
-                                        <div>
-                                            <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
-                                        </div>
-                                    {{/if}}
-
-
-                                  {{else}}    <!--IF THE DOT SUB TYPE IS PLACE-->
-                                    {{#if dot.location}}
-                                        <div>
-                                            <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}},</span>
-                                        </div>
-                                        {{#if dot.location.address}}
-                                          <div>
-                                              <span class="lightGrey">&nbsp;&nbsp; {{dot.location.address}}.</span>
-                                          </div>
-                                        {{/if}}
-                                    {{/if}}
-                                  {{/if}}
-
-
-                                  <pre id="desktopDotShow-shortDescription-pre" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
-
-                                </div>
-
+                            <pre id="desktopDotShow-shortDescription-pre" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
 
 
                       <div class="text-center">
