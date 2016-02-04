@@ -29,7 +29,7 @@ seoPicker.route('/:userSlug/:dotType/:dotSlug', function(params, req, res){
 seoPicker.route('/:userSlug', function(params, req, res){
   console.log("im heree SSR render USER");
   var user = Meteor.users.findOne({"profile.userSlug": params.userSlug});
-  console.log(user.username);
+  //console.log(user.username);
   var html = SSR.render('seoLayout',{
     template:'seoUserShow',
     data: {user: user}

@@ -184,13 +184,13 @@
                           <span class="lightGrey">{{dot.linkName}} </span><span class="lightGrey bold desktopDotCard-col-credit"></span>
                       {{else}}
 
-                        {{#if dot.eventDate}}
+                        {{#if dot.startDateAndHour}}
                             <div>
-                              <span class="lightGrey"><i class="fa fa-calendar"></i> {{dot.eventDate}} </span>
+                              <span class="lightGrey"><i class="fa fa-calendar"></i> {{eventDate}} </span>
                               <!--TODO get the event date data from the create & edit form @yoav-->
 
                               {{#if dot.price}}
-                                <span class="lightGrey bold desktopDotCard-col-credit"> // </span>
+                                <span class="lightGrey bold"> - </span>
                                 <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
                               {{/if}}
                             </div>

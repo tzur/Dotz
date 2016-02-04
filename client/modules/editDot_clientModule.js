@@ -17,11 +17,17 @@ let editDot_settings = ( dot ) => {
 
     Modal.show('createNewDot_Modal',{
       initialDataForFormFields: {
+        id: dot._id,
         title: dot.title,
         description: dot.description,
         img: dot.coverImageUrl,
-        linkName: dot.linkName,
+        //linkName: dot.linkName,
         linkUrl: dot.linkUrl
+        //startDate: dot.startDate,
+        //startHour: dot.startDate,
+        //ebdDate: dot.startDate,
+        //endHour: dot.startDate,
+        //multipleEventsNote: dot.multipleEventsNote
         //  TODO >>> add location, event, and more...
       },
       parentDotId: dot._id

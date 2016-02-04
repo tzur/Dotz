@@ -19,17 +19,23 @@ function _createDotClearForm(){
   $('#price').val(''); //TODO CLEAR MORE FIELDS SUCH AS DATE ETC
 }
 
-function _updateCreateDotFields(title, description, img, linkUrl ,fbAuthour){
-  //console.log('sdfdsfsd');
+function _updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour){
+  console.log('dot id is ' + id);
+
+  let dot = Dotz.findOne(id);
+
   if (title){
     $('#title').val(title);
   }
+
   if (description){
     $('#description').val(description).trigger('change'); //TRIGGER CHANGE IS FOR THE AUTO TAGGER NOT THAT RELAVENT.
   }
+
   if (linkUrl){
     $('#url').val(linkUrl);
   }
+
   if (img) {//Support embedly img
     Modules.client.uploadToAmazonViaUrl(img, function (error, url) {
       if (error) {
@@ -43,6 +49,19 @@ function _updateCreateDotFields(title, description, img, linkUrl ,fbAuthour){
     Modules.client.createDotFinishedLoading();
   }
 
+  if (dot.startDate) {
+    $('#startDate').val(dot.startDate);
+  }
+  if (dot.startHour) {
+    $('#startDate').val(dot.startDate);
+  }
+  if (dot.startDate) {
+    $('#startDate').val(dot.startDate);
+  }
+  if (dot.startDate) {
+    $('#startDate').val(dot.startDate);
+  }
+
 }
 
 function _createDotChangeTab(fieldsArray){
@@ -52,7 +71,10 @@ function _createDotChangeTab(fieldsArray){
 }
 
 function DotFactory(
-  linkUrl, title, description, parentDotId, dotColor, coverImgUrl, locationObject, price, dotSubType,embedlyObj, FBdataObj)
+  linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
+  locationObject, price, dotSubType,
+  embedlyObj, FBdataObj,
+  multipleEventsNote, startDateAndHour, endDateAndHour)
   {
     this.linkUrl = linkUrl;
     this.title= title;
@@ -84,6 +106,10 @@ function DotFactory(
       this.linkAuthorUrl = 'https://www.facebook.com/' + FBdataObj.id;
       this.facebookAuthorId = FBdataObj.id;
     }
+    //event:
+    this.multipleEventsNote = multipleEventsNote;
+    this.startDateAndHour = startDateAndHour;
+    this.endDateAndHour = endDateAndHour;
 }
 
 function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
@@ -108,9 +134,36 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   let endHour = $('#endHour').val();
   let multipleEventsNote = $('#multipleEventsNote').val();
 
+  //convert by moment:
+  let startDateAndHour = moment(startDate + " " + startHour, "DD MMMM YYYY hh:mm A");
+  startDateAndHour = new Date(startDateAndHour);
+
+  let endDateAndHour = moment(endDate + " " + endHour, "DD MMMM YYYY hh:mm A");
+  endDateAndHour = new Date(endDateAndHour);
+
+
+
   //$("#startDate").val()
   //multipleEventsNote
-  console.log("startDate >>>>>> " + startDate);
+  //console.log("startDate >>>>>> " + startDate);
+  //console.log("startHour >>>>>> " + startHour);
+
+
+
+  ////let startDateAndHour = moment(startDate, "DD MMM YYYY");
+  //
+  //console.log("startDateAndHour >>>>>> " + startDateAndHour);
+  //
+  //console.log("newDate >>>>>> " + newDate);
+  //
+  //
+  ////moment("2010-10-20 4:30",       "YYYY-MM-DD HH:mm");
+  //
+  ////moment(this.dot.endRepeatedDate).format('dddd DD MMM')
+  //
+  //console.log("startDateAndHour by moment format('dddd DD MMM') >>>>>> " + moment(startDateAndHour).format('dddd DD MMMM'));
+  //console.log("startDateAndHour by moment .fromNow() >>>>>> " + moment(startDateAndHour).fromNow() );
+  //
 
 
   //dotSubType:
@@ -161,17 +214,26 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
     }
 
     let editedDoc = {
+      ownerUserId: Meteor.userId(),
       title: title,
       bodyText: description,
-      linkUrl: linkUrl,
-      ownerUserId: Meteor.userId(),
-      coverImageUrl: coverImgUrl,
-      location: location,
       dotSubType: dotSubType,
+      coverImageUrl: coverImgUrl,
+
+      //links:
+      linkUrl: linkUrl,
       embedlyObj: Session.get('embedlyObj'),
       linkAuthorName: linkAuthorName,
       linkAuthorUrl: linkAuthorUrl,
-      facebookAuthorId: facebookAuthorId
+      facebookAuthorId: facebookAuthorId,
+
+      //location:
+      location: location,
+
+      //event:
+      multipleEventsNote: multipleEventsNote,
+      startDateAndHour: startDateAndHour,
+      endDateAndHour: endDateAndHour
     };
 
     //let editedDotId = editedDot._id.toString();
@@ -206,8 +268,10 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       let dotColor = colorsArray[i];
 
       //TODO CHANGE SESSION TO LOCATION OBJECT WE HAVE IT AS VARIABLE SAME WITH FBPOSTAUTHOUR DATA DONT USE SESSIONS HERE PASS AS VARIABLE @zur
-      let dot = new DotFactory(linkUrl,title,description,parentDotId, dotColor, coverImgUrl,Session.get('locationObject'),price,
-        dotSubType,Session.get('embedlyObj'),Session.get('fbPostAuthorData'));
+      let dot = new DotFactory(linkUrl,title,description,parentDotId, dotColor, coverImgUrl,
+        Session.get('locationObject'),price,
+        dotSubType,Session.get('embedlyObj'),Session.get('fbPostAuthorData'),
+        multipleEventsNote, startDateAndHour, endDateAndHour);
 
       //Go create:
       Meteor.call('createDot', dot, redirectAfterCreateSlug ,function(error,result){
