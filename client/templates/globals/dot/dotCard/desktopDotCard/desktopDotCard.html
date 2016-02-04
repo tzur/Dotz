@@ -184,21 +184,29 @@
                           <span class="lightGrey">{{dot.linkName}} </span><span class="lightGrey bold desktopDotCard-col-credit"></span>
                       {{else}}
 
-                        {{#if dot.location}}
+                        {{#if dot.eventDate}}
                             <div>
-                              <span class="lightGrey"><i class="fa fa-calendar"></i> {{dot.eventDate}}24 January 2016, 22:30 </span>
-                                <span class="lightGrey bold desktopDotCard-col-credit"> · </span>
-                              <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
+                              <span class="lightGrey"><i class="fa fa-calendar"></i> {{dot.eventDate}} </span>
+                              <!--TODO get the event date data from the create & edit form @yoav-->
 
+                              {{#if dot.price}}
+                                <span class="lightGrey bold desktopDotCard-col-credit"> // </span>
+                                <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
+                              {{/if}}
                             </div>
-                            <div>
-                              <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
-                            </div>
+
+                            {{#if dot.location}}
+                              <div>
+                                <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
+                              </div>
+                            {{/if}}
 
                         {{else}}
-                            <div>
-                              <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span><span class="lightGrey bold desktopDotCard-col-credit"> · </span>
-                            </div>
+                            {{#if dot.location}}
+                              <div>
+                                <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span><span class="lightGrey bold desktopDotCard-col-credit"> · </span>
+                              </div>
+                              {{/if}}
                         {{/if}}
 
                       {{/if}}
