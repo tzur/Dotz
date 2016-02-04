@@ -100,6 +100,10 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
     price=undefined
   }
 
+  let startDate = $('#startDate').val();
+  console.log("startDate >>>>>> " + startDate);
+
+
   //dotSubType:
   if (Session.get('link')){
     dotSubType = 'Link';
