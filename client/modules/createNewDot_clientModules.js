@@ -103,6 +103,13 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   }
 
   let startDate = $('#startDate').val();
+  let startHour = $('#startHour').val();
+  let endDate = $('#endDate').val();
+  let endHour = $('#endHour').val();
+  let multipleEventsNote = $('#multipleEventsNote').val();
+
+  //$("#startDate").val()
+  //multipleEventsNote
   console.log("startDate >>>>>> " + startDate);
 
 
