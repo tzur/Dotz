@@ -227,6 +227,7 @@
 #desktopDotCard-description h5, #desktopDotCard-description h6  {
   margin-top: 5px;
   margin-bottom: 5px;
+  font-weight: 400;
 }
 
 #desktopDotCard-linkButton {
