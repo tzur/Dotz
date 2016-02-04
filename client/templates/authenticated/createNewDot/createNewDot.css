@@ -112,12 +112,13 @@
 }
 
 #main-createNewDot {
-  min-height: 62vh;
+  min-height: 30vh;
   background-color: #FFFFFF;
   padding: 0 15px;;
 }
 
 #footer-createNewDot {
+  margin-bottom: 2vh;
   height: 10vh;
   /*width: 100%;*/
   /*background-color: #fafafa;*/

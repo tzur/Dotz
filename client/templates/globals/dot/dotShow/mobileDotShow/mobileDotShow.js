@@ -133,6 +133,22 @@ Template.mobileDotShow.helpers({
     return ( this.dot.ownerUserId === Meteor.userId() && this.dot.quickStartListId )
   },
 
+
+  isLinkOrLocation: function() {
+    if (this.dot.dotSubType === "Place") {
+      return (this.dot.location.googleMapsUrl);
+    }
+
+    else {
+      return (this.dot.linkUrl);
+    }
+  },
+
+
+  thereIsNoConnectionsToThisDot: function() {
+    return (this.dot.connectedDotzArray.length === 0)
+  },
+
   ////"show more description" session:
   //userClickOnShowMoreButton: function() {
   //  return Session.get('userClickOnShowMoreButton');
