@@ -1,5 +1,9 @@
 
 
+#createNewList_modal {
+  border-radius: 0;
+}
+
 #header-createNewList_modal {
   background-color: rgba(0,0,0,0.1);
   color: rgba(0,0,0,0.7);
