@@ -22,7 +22,7 @@ Template.createNewDot.onRendered(function(){
     Modules.client.updateCreateDotFields(this.data.initialDataForFormFields.title,
       this.data.initialDataForFormFields.description, this.data.initialDataForFormFields.img, this.data.initialDataForFormFields.linkUrl);
   } else {
-    Session.set('link', true);
+    Session.set('link', "active");
     Session.set('selectedType', "Link");
 
     Session.set('place', false);
@@ -69,32 +69,32 @@ Template.createNewDot.helpers({
 Template.createNewDot.events({
   'click #link': function(){
     _clearSessions();
-    Session.set('link', true);
+    Session.set('link', "active");
     Session.set('selectedType', "Link");
   },
   'click #place': function(){
     _clearSessions();
-    Session.set('place', true);
+    Session.set('place', "active");
     Session.set('selectedType', "Place");
   },
   'click #event': function(){
     _clearSessions();
-    Session.set('event', true);
+    Session.set('event', "active");
     Session.set('selectedType', "Event");
   },
   'click #person': function(){
     _clearSessions();
-    Session.set('person', true);
+    Session.set('person', "active");
     Session.set('selectedType', "Person");
   },
   'click #media': function(){
     _clearSessions();
-    Session.set('media', true);
+    Session.set('media', "active");
     Session.set('selectedType', "Media");
   },
   'click #product': function(){
     _clearSessions();
-    Session.set('product', "Product");
+    Session.set('product', "active");
     Session.set('selectedType', "Product");
   },
 
@@ -115,4 +115,5 @@ function _clearSessions(){
   Session.set('media', false);
   Session.set('locationObj', undefined);
   Session.set('dotCoverImg', undefined);
+  Session.set('selectedType', undefined);
 }

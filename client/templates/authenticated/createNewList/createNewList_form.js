@@ -7,7 +7,11 @@ Template.createNewList_form.onRendered( () => {
     template: Template.instance()
   });
 
-  console.log("in1")
+
+  Tracker.autorun(function () {
+    console.log("this.data " + this.data);
+  });
+
 
   if (this.data && this.data.initialDataForFormFields){
     //Modules.client.createDotLoading(); //Start to loading.

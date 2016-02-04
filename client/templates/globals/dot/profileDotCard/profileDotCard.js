@@ -337,12 +337,7 @@ Template.profileDotCard.events({
   },
 
   'click .editBtn': function(){
-    Modal.show('editDotModal', {
-      data:{
-        'dot': this.dot,
-        'actionTypeEdit': true
-      }
-    });
+    Modules.client.editDot_settings(this.dot);
     Modules.client.Dotz.dotCardAnalyticsEvents('Edit Dot', 'Start Edit: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 

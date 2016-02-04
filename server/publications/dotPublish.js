@@ -61,6 +61,7 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
       {fields: {
         "isOpen": 1,
         "dotType": 1,
+        "dotSubType": 1,
         "dotColor": 1,
         "title": 1,
         "dotSlug": 1,
@@ -106,6 +107,7 @@ Meteor.publish('profileDotCard', function(dotId, ownerUserId, connectedByUserId)
       {fields: {
         "isOpen": 1,
         "dotType": 1,
+        "dotSubType": 1,
         "dotColor": 1,
         "title": 1,
         "dotSlug": 1,

@@ -393,59 +393,12 @@ Template.desktopDotShow.events({
   },
 
   'click ._editBtn_dot': function(){
-    //Modal.show('editDotModal', {
-    //  data:{
-    //    'dot':this.dot,
-    //    'actionTypeEdit': true
-    //  }
-    //});
-
-    //This session will nullify at the end of editDot method:
-    Session.set('editAction_dot', true);
-
-    Modal.show('createNewDot_Modal',{
-      initialDataForFormFields: {
-        title: this.dot.title,
-        description: this.dot.description,
-        img: this.dot.coverImageUrl,
-        linkName: this.dot.linkName,
-        linkUrl: this.dot.linkUrl
-      //  TODO >>> add location, event, and more...
-      },
-      parentDotId: this.dot._id
-
-    });
+    Modules.client.editDot_settings(this.dot);
   },
 
   'click ._editBtn_list': function(){
-    //This session will nullify at the end of editDot method:
-    Session.set('editAction_list', true);
-    Modal.show('createNewList_modal',{
-      initialDataForFormFields: {
-        title: this.dot.title,
-        description: this.dot.description,
-        img: this.dot.coverImageUrl
-      },
-      parentDotId: this.dot._id
-      //Meteor.user().profile.profileDotId
-    });
+    Modules.client.editDot_settings(this.dot);
   },
-
-  //'click ._editBtn_list': function(){
-  //
-  //  //This session will nullify at the end of editDot method:
-  //  Session.set('editAction_list', true);
-  //
-  //  //Modal.show('createNewList_Modal',{
-  //  //  initialDataForFormFields: {
-  //  //    title: this.dot.title,
-  //  //    description: this.dot.description,
-  //  //    img: this.dot.coverImageUrl
-  //  //  },
-  //  //  parentDotId: this.dot._id
-  //  //});
-  //  Modal.show('createNewList_Modal');
-  //},
 
   'click .like': function(event){
     event.preventDefault();
