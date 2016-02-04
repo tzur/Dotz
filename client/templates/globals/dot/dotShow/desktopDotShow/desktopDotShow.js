@@ -134,6 +134,16 @@ Template.desktopDotShow.helpers({
     }
   },
 
+  isLinkOrLocation: function() {
+    if (this.dot.dotSubType === "Place") {
+      return (this.dot.location.googleMapsUrl);
+    }
+
+    else {
+      return (this.dot.linkUrl);
+    }
+  },
+
   isListShow: function() {
     //console.log(" %%%%%%%%%%%%%%%% DESKTOP ^^^^^^^^^^^^^^")
     return (this.dot.dotType === "List" || this.dot.dotType ==="shareList");
