@@ -26,7 +26,7 @@
 }
 
 #desktopDotCard-lastDot-col-connectLine-inListShow {
-  width: 9%;
+  width: 7%;
   position: relative;
   float: left;
   text-align: center;
@@ -48,7 +48,7 @@
 #lastDot-desktopDotCard-img {
   color: #E5E5E5;
   border-radius: 50%;
-  margin-left: 0;
+  /*margin-left: 0;*/
   padding: 0;
   border: 2px #e5e5e5 dashed;
   text-align: center;
@@ -93,7 +93,7 @@
 
 /*MOBILE ADJUSTMENT*/
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
   #desktopDotCard-lastDot-box {
     height: 17vh;
