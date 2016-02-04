@@ -20,9 +20,6 @@ function _createDotClearForm(){
 }
 
 function _updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour){
-  console.log('dot id is ' + id);
-
-  let dot = Dotz.findOne(id);
 
   if (title){
     $('#title').val(title);
@@ -49,23 +46,26 @@ function _updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour)
     Modules.client.createDotFinishedLoading();
   }
 
-  //convert by moment:
-  //let startDateAndHour = moment(startDate + " " + startHour, "DD MMMM YYYY hh:mm A");
-  //startDateAndHour = new Date(startDateAndHour);
-  if (dot.startDateAndHour) {
-    let startDate = moment(dot.startDateAndHour).format('DD MMMM YYYY');
-    let startHour = moment(dot.startDateAndHour).format('hh:mm A');
-    $('#startDate').val(startDate);
-    $('#startHour').val(startHour);
-  }
-  if (dot.endDateAndHour) {
-    let endDate = moment(dot.endDateAndHour).format('DD MMMM YYYY');
-    let endHour = moment(dot.endDateAndHour).format('hh:mm A');
-    $('#endDate').val(endDate);
-    $('#endHour').val(endHour);
-  }
-  if (dot.multipleEventsNote) {
-    $('#multipleEventsNote').val(dot.multipleEventsNote);
+  if (id) {
+    //console.log('dot id is ' + id);
+    let dot = Dotz.findOne(id);
+
+    //convert by moment:
+    if (dot.startDateAndHour) {
+      let startDate = moment(dot.startDateAndHour).format('DD MMMM YYYY');
+      let startHour = moment(dot.startDateAndHour).format('hh:mm A');
+      $('#startDate').val(startDate);
+      $('#startHour').val(startHour);
+    }
+    if (dot.endDateAndHour) {
+      let endDate = moment(dot.endDateAndHour).format('DD MMMM YYYY');
+      let endHour = moment(dot.endDateAndHour).format('hh:mm A');
+      $('#endDate').val(endDate);
+      $('#endHour').val(endHour);
+    }
+    if (dot.multipleEventsNote) {
+      $('#multipleEventsNote').val(dot.multipleEventsNote);
+    }
   }
 
 }
@@ -251,10 +251,25 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       let dotColor = colorsArray[i];
 
       //TODO CHANGE SESSION TO LOCATION OBJECT WE HAVE IT AS VARIABLE SAME WITH FBPOSTAUTHOUR DATA DONT USE SESSIONS HERE PASS AS VARIABLE @zur
-      let dot = new DotFactory(linkUrl,title,description,parentDotId, dotColor, coverImgUrl,
-        Session.get('locationObject'),price,
-        dotSubType,Session.get('embedlyObj'),Session.get('fbPostAuthorData'),
-        startDateAndHour, endDateAndHour, multipleEventsNote);
+      /*
+       DotFactory(
+       linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
+       locationObject, price, dotSubType,
+       embedlyObj, FBdataObj,
+       startDateAndHour, endDateAndHour, multipleEventsNote)
+       */
+
+
+
+      let dot = new DotFactory (
+        linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
+        Session.get('locationObject'),
+        price,
+        dotSubType,
+        Session.get('embedlyObj'),
+        Session.get('fbPostAuthorData'),
+        startDateAndHour, endDateAndHour, multipleEventsNote
+      );
 
       //Go create:
       Meteor.call('createDot', dot, redirectAfterCreateSlug ,function(error,result){

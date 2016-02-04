@@ -18,7 +18,7 @@ function _embedlyFacebookIntegration(){
       success: function(){
         Session.set("embedlyObj", $('#url').data('preview') );
         let data = $('#url').data('preview');
-        Modules.client.updateCreateDotFields(data.title, data.description, data.thumbnail_url);
+        Modules.client.updateCreateDotFields(undefined, data.title, data.description, data.thumbnail_url);
       },
 
       error: function(obj){
@@ -30,7 +30,7 @@ function _embedlyFacebookIntegration(){
               Bert.alert(error.message, 'danger');
               Modules.client.createDotFinishedLoading();
             }else{
-              Modules.client.updateCreateDotFields(undefined,data.message,undefined);
+              Modules.client.updateCreateDotFields(undefined,undefined,data.message,undefined);
               Session.set('fbPostAuthorData', data.from); //TODO MOVE IT TO UPDATE CREATE DOT FIELDS.
             }
           });
