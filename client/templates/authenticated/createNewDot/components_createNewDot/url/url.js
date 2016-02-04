@@ -13,7 +13,8 @@ function _embedlyFacebookIntegration(){
       Modules.client.createDotLoading();
     });
     $('#url').preview({
-      key:'a9c7184df19745069d3bccd2b1c17a6a',
+      key: EMBEDLY_KEY,
+        //'a9c7184df19745069d3bccd2b1c17a6a',
       //old key:'ac95ba6487c94c12a42edafe22cff281',
 
       success: function(){
