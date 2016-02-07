@@ -142,11 +142,16 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   let multipleEventsNote = $('#multipleEventsNote').val();
 
   //convert by moment:
-  let startDateAndHour = moment(startDate + " " + startHour, "DD MMMM YYYY hh:mm A");
-  startDateAndHour = new Date(startDateAndHour);
-
-  let endDateAndHour = moment(endDate + " " + endHour, "DD MMMM YYYY hh:mm A");
-  endDateAndHour = new Date(endDateAndHour);
+  let startDateAndHour;
+  if (startDate) {
+    startDateAndHour = moment(startDate + " " + startHour, "DD MMMM YYYY hh:mm A");
+    startDateAndHour = new Date(startDateAndHour);
+  }
+  let endDateAndHour;
+  if (endDate) {
+    endDateAndHour = moment(endDate + " " + endHour, "DD MMMM YYYY hh:mm A");
+    endDateAndHour = new Date(endDateAndHour);
+  }
 
 
   //dotSubType:
@@ -214,6 +219,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       location: location,
 
       //event:
+
       multipleEventsNote: multipleEventsNote,
       startDateAndHour: startDateAndHour,
       endDateAndHour: endDateAndHour
