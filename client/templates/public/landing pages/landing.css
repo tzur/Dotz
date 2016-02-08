@@ -72,6 +72,11 @@
   margin-left: 1em;
 }
 
+#landingPage-body .login-landing {
+  font-weight: 600;
+  margin: 0;
+}
+
 #landing-body {
   padding-top: 6vh;
 }
