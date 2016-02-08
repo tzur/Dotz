@@ -83,6 +83,8 @@ Template.userShow.onDestroyed(function(){
 
 Template.userShow.helpers({
   dataUser: function() {
+    FlowRouter.watchPathChange();
+
     let user = Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
     if (user){
       return user;

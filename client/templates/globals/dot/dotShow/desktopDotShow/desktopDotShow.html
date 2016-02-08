@@ -365,20 +365,19 @@
                     <div class="col-sm-6 pull-right txtR">
 
 
-                      {{#if dot.location}}
+                      {{#if dot.location.googleMapsUrl}}
                           <a href="{{dot.location.googleMapsUrl}}" target="_blank">
                               <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-Place btn-md"><i class="fa fa-map-marker"></i> Navigate</button>
                           </a>
                       {{/if}}
 
-
-                      {{#if dot.linkUrl}}
-                        {{#unless dot.location}}
-                          <a href="{{dot.linkUrl}}" target="_blank">
-                              <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-md"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
-                          </a>
-                        {{/unless}}
-                      {{/if}}
+                      {{#unless DOT_TYPE_IS 'Place' dot.dotSubType}}
+                        {{#if dot.linkUrl}}
+                            <a href="{{dot.linkUrl}}" target="_blank">
+                            <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-md"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
+                        </a>
+                        {{/if}}
+                      {{/unless}}
 
 
 
