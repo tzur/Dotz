@@ -246,25 +246,33 @@ Template.userShow.events({
     Modal.show('editUserAccountModal')
   },
 
-  'click ._createDot': function(){
-    Modal.show('createDotModal');
-    analytics.track("Open Create Dot Modal", {
-      title: "Open Create Dot Modal from Dot Show",
-      currentList: this.title,
-      isOpenList: this.isOpen
-    })
-    },
+  //'click ._createDot': function(){
+  //  Modal.show('createDotModal');
+  //  analytics.track("Open Create Dot Modal", {
+  //    title: "Open Create Dot Modal from Dot Show",
+  //    currentList: this.title,
+  //    isOpenList: this.isOpen
+  //  })
+  //  },
+  //
+  //'click ._createList': function(){
+  //  Modal.show('createListModal');
+  //  analytics.track("Open Create List Modal", {
+  //    title: "Open Create List Modal from User Profile",
+  //    currentList: "Profile",
+  //    isOpenList: "False"
+  //  })
+  //},
 
-  'click ._createList': function(){
-    Modal.show('createListModal');
-    analytics.track("Open Create List Modal", {
-      title: "Open Create List Modal from User Profile",
-      currentList: "Profile",
-      isOpenList: "False"
-    })
-  },
+  //'click #_createDotInProfile': function(){
+  //  Modules.client.editAndCreateSessionsCleaner();
+  //  Modal.show('createNewDot_Modal',{
+  //    initialDataForFormFields: false,
+  //    parentDotId: Meteor.user().profile.profileDotId
+  //  });
+  //},
 
-  'click ._createNewList': function(){
+  'click #_createListInProfile': function(){
     Modules.client.editAndCreateSessionsCleaner();
     Modal.show('createNewList_modal',{
       initialDataForFormFields: false,
