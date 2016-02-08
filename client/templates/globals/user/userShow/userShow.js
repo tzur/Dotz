@@ -280,7 +280,6 @@ Template.userShow.events({
     });
   },
 
-
   'click ._followingCounter': function() {
     Modal.show('followingModal', {
       data: {
