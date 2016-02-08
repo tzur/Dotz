@@ -262,6 +262,14 @@ Template.userShow.events({
     })
   },
 
+  'click ._createNewList': function(){
+    Modules.client.editAndCreateSessionsCleaner();
+    Modal.show('createNewList_modal',{
+      initialDataForFormFields: false,
+      parentDotId: Meteor.user().profile.profileDotId
+    });
+  },
+
   'click ._followingCounter': function() {
     Modal.show('followingModal', {
       data: {
