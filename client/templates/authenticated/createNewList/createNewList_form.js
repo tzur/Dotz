@@ -7,14 +7,14 @@ Template.createNewList_form.onRendered( () => {
     template: Template.instance()
   });
 
-
   Tracker.autorun(function () {
+
     console.log("this.data " + this.data);
+
   });
 
-
   if (this.data && this.data.initialDataForFormFields){
-    //Modules.client.createDotLoading(); //Start to loading.
+    Modules.client.createDotLoading(); //Start to loading.
     Modules.client.updateCreateDotFields(
       this.data.initialDataForFormFields.title,
       this.data.initialDataForFormFields.description,
@@ -23,6 +23,7 @@ Template.createNewList_form.onRendered( () => {
     Session.set('publicList', "Public");
   }
 
+  Modules.client.preventEnterByElementId('#createNewListButton');
 
 });
 
@@ -84,14 +85,6 @@ Template.createNewList_form.events({
     _clearSessions();
     Session.set('secretList', "Secret");
   },
-
-
-
-
-
-
-
-
 
 
   'click #createNewListButton': function(event){

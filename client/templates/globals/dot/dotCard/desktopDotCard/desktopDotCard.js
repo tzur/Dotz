@@ -1,16 +1,24 @@
 Template.desktopDotCard.onCreated(function(){
   Session.set('spinnerOn', false);
-  let self = this;
+
+  //TBD:
   Session.set('dotInsideToListsBug', false);
-  self.subs = new SubsManager({
-    // maximum number of cache subscriptions
-    cacheLimit: 10,
-    // any subscription will be expire after 5 minute, if it's not subscribed again
-    expireIn: 5
-  });
-  self.subs.subscribe('mobileDotCard', self.data.dot._id, self.data.dot.ownerUserId, self.data.connection.connectedByUserId);
-  //self.subs.subscribe('user', self.data.dot.ownerUserId);
-  //self.subs.subscribe('user', self.data.connection.connectedByUserId);
+
+
+  let self = this;
+
+  //TBD: this IF check if this is dot from Algolia:
+  if ( !self.data.algolisSearchResult) {
+    self.subs = new SubsManager({
+      // maximum number of cache subscriptions
+      cacheLimit: 10,
+      // any subscription will be expire after 5 minute, if it's not subscribed again
+      expireIn: 5
+    });
+    self.subs.subscribe('mobileDotCard', self.data.dot._id, self.data.dot.ownerUserId, self.data.connection.connectedByUserId);
+    //self.subs.subscribe('user', self.data.dot.ownerUserId);
+    //self.subs.subscribe('user', self.data.connection.connectedByUserId);
+  }
 
 });
 
@@ -34,7 +42,17 @@ Template.desktopDotCard.helpers({
   //                              && Template.instance().connectedUserReady.get());
   //},
   dataCard: function(){
-    if (this.dot){
+
+    if (this.algolisSearchResult) {
+      let data = {
+        dot: this.algolisSearchResult,
+        smartRef: this,
+        ownerUser: Meteor.users.findOne(this.dot.ownerUserId),
+        connectedByUser: Meteor.users.findOne(this.connection.connectedByUserId)
+      };
+    return data;
+
+    } else if (this.dot){
 
       let data = {
         dot: Dotz.findOne(this.dot._id),
@@ -42,6 +60,7 @@ Template.desktopDotCard.helpers({
         ownerUser: Meteor.users.findOne(this.dot.ownerUserId),
         connectedByUser: Meteor.users.findOne(this.connection.connectedByUserId)
       };
+
       let subsManager = Template.instance();
       if(!data.dot){
         subsManager.subs.subscribe('mobileDotCard', this.dot._id, this.dot.ownerUserId, this.connection.connectedByUserId);
@@ -50,6 +69,7 @@ Template.desktopDotCard.helpers({
         //subsManager.subs.subscribe('user', this.connection.connectedByUserId);
       }
       return data;
+
     }
   },
 
