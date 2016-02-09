@@ -6,6 +6,9 @@ Template.editUserAccountModal.onRendered(function(){
   Modules.client.Dotz.limitCharactersAndCounter('#editTitleField', 50, '#userTitleFieldFeedback');
   Modules.client.Dotz.limitCharactersAndCounter('#ProfileDescription', 250, '#userDescriptionFieldFeedback');
 
+  //prevent send by enter:
+  //Modules.client.preventEnterByElementId('#pac-input');
+
 });
 
 Template.editUserAccountModal.onDestroyed(function(){

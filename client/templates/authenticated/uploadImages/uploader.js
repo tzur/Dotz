@@ -12,7 +12,8 @@ Template.uploader.events({
         console.log(error);
         console.log("Spinner Off");
       }else{
-        Session.set('dotCoverImg', result);
+        //Session.set('dotCoverImg', result);
+        Session.set('coverImageUrl', result);
         console.log("spinner off");
       }
     } );
