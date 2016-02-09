@@ -55,11 +55,18 @@
 
 <![endif]-->
 
-  <!--Intercom-->
-  <div class="hidden-xs">
-      {{>Intercome}}
-  </div>
-<!--end Intercom-->
+
+{{#unless IS_MOBILE_SHOW}}
+
+    <!--Intercom-->
+
+        <div>
+            {{>Intercome}}
+        </div>
+
+    <!--end Intercom-->
+
+{{/unless}}
 
 
 </body>
