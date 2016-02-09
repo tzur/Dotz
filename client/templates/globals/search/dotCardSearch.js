@@ -92,24 +92,24 @@ Template.dotCardSearch.helpers({
 });
 
 Template.dotCardSearch.events({
+
   'click .connect': function(){
-    if(Meteor.user())
-    {
-      Modal.show('connectDotModal',{
+    if(Meteor.user()) {
+      Modal.show('mobileConnectDotModal',{
         data:{
-          dot: this.dot
+          dot: this.dot,
+          connectToMyLists: true
         }
       });
-      Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect(From Dot Search Card): ',this.dot._id, this.dot.title, this.dot.dotType);
-
+      //Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect: ',this.dot._id, this.dot.title, this.dot.dotType);
     }
-    else{
+    else {
       Modal.show('signUpModal');
-      Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect(From Dot Search Card): ',this.dot._id, this.dot.title, this.dot.dotType);
-
+      //Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect: ',this.dot._id, this.dot.title, this.dot.dotType);
     }
 
   },
+
   'click .editBtn': function(){
     Modal.show('editDotModal', {
       data:{

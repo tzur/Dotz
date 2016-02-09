@@ -156,3 +156,10 @@ span a:hover {
   background-color: #EEE;
   color: #9E9999;
 }
+
+
+/*trash can icon color red*/
+
+.fa-trash-o {
+  color: #d9534f;
+}

@@ -1,7 +1,7 @@
 <template name="dotCardSearch">
 {{#with cardData}}
 
-    <div class="row" id="listCard-box">
+    <div class="row" id="dotCard-box"><div></div>
 
         <div class="hidden-xs hidden-sm col-md-1" id="listCardLikeSide">
               <!--<div class="pull-right" style="margin-bottom: 1em;">-->
@@ -72,7 +72,7 @@
           <div class="col-xs-12 col-sm-12 col-md-10" id="listCard">
 
               <a href="/{{dot.dotSlug}}">
-                  <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4" id="searchCardImgSide">
+                  <div class="col-xs-12 col-sm-3 col-sm-offset-2 col-md-4 col-md-offset-0 col-lg-4" id="searchCardImgSide">
                       <div class="container-fluid dot-container-img-searchCard" style="background-image: url('{{dot.coverImageUrl}}')"></div>
                   </div>
               </a>
@@ -94,7 +94,7 @@
 
                   </div>
 
-                  <div class="serachCardIcons">
+                  <div class="hidden-xs hidden-sm hidden-md hidden-lg serachCardIcons">
 
                     {{#if shortenAdress}}
                         <span class="txtL dot-type">
@@ -121,8 +121,7 @@
                   </div> <!--end listCardIcons-->
 
 
-                  <div class="listCardFooter">
-                      <hr>
+                  <div class="dotCardFooter container-fluid noPadding">
 
 
                       <div class="searchCardUser col-xs-6 col-md-8">
@@ -140,7 +139,7 @@
 
 
 
-                      <div class="buttonsBar">
+                      <div class="buttonsBar col-xs-6 col-md-4">
 
 
                           {{#unless isNotSearchPage}}
