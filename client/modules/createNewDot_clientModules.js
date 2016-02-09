@@ -131,11 +131,17 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   }
 
   linkUrl = $('#url').val();
+
+  //TODO: add a systematic solution.. @otni
+  if (linkUrl === undefined){
+    linkUrl = $('#webAddress').val();
+  }
+
   title = $('#title').val();
   description = $('#description').val();
   price =$('#price').val();
-  if (price ===""){
-    price=undefined
+  if (price === ""){
+    price = undefined
   }
 
   let startDate = $('#startDate').val();

@@ -29,7 +29,6 @@ Template.searchBoxForConnect.helpers({
   },
 
   getDataForGoogleCard: function(){
-    console.log("dsfdsfsdf");
     return {
       parentDotId:Template.parentData().dot._id,
       googleDot: this
@@ -72,9 +71,9 @@ Template.searchBoxForConnect.helpers({
 
     // @params for >>>subscribe('mobileDotCard', self.data.dot._id, self.data.dot.ownerUserId, self.data.connection.connectedByUserId);
 
-    console.log("this._id >> " + this._id)
-    console.log("this.ownerUserId >> " + this.ownerUserId)
-    console.log("this.title >> " + this.title)
+    //console.log("this._id >> " + this._id)
+    //console.log("this.ownerUserId >> " + this.ownerUserId)
+    //console.log("this.title >> " + this.title)
 
 
 
@@ -137,7 +136,6 @@ Template.searchBoxForConnect.events({
 
     Modules.client.searchByAlgolia("Lists", $('#_searchBoxInput').val() , function(error, content){
       if(content){
-        console.log("################### content " + content.hits[0].title)
         Session.set('listResult', content.hits);
       }
       else{
