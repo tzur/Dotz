@@ -20,15 +20,7 @@ Template.searchBoxForConnect.helpers({
   googleResults: function(){
     return Session.get('googleResults');
   },
-  dotzResult: function(){
-    return Session.get('dotzResult');
-  },
 
-  dotzResultNumber: function(){
-    if(Session.get('dotzResult')){
-      return ("(" + Session.get('dotzResult').length + ")");
-    }
-  },
   getDataForGoogleCard: function(){
     console.log("dsfdsfsdf");
     return {
@@ -36,6 +28,31 @@ Template.searchBoxForConnect.helpers({
       googleDot: this
     };
   },
+
+  dotzResult_Algolia: function(){
+    return Session.get('dotzResult');
+  },
+
+  dotzResultNumber_Algolia: function(){
+    if(Session.get('dotzResult')){
+      return ("(" + Session.get('dotzResult').length + ")");
+    } else {
+      return ("(0)");
+    }
+  },
+
+  listResult_Algolia: function(){
+    return Session.get('listResult');
+  },
+
+  listResultNumber_Algolia: function(){
+    if(Session.get('listResult')){
+      return ("(" + Session.get('listResult').length + ")");
+    } else {
+      return ("(0)");
+    }
+  },
+
   isNotAlreadyConnected: function(){
     return Modules.client.Dotz.canBeConnectedToDot(Template.parentData().dot._id, this._id)
   },
@@ -50,6 +67,8 @@ Template.searchBoxForConnect.helpers({
 
     console.log("this._id >> " + this._id)
     console.log("this.ownerUserId >> " + this.ownerUserId)
+    console.log("this.title >> " + this.title)
+
 
 
     let data = {
@@ -103,6 +122,16 @@ Template.searchBoxForConnect.events({
     Modules.client.searchByAlgolia("Dotz", $('#_searchBoxInput').val() , function(error, content){
       if(content){
         Session.set('dotzResult', content.hits);
+      }
+      else{
+        console.log("Error, dotz search failed : " + error)
+      }
+    });
+
+    Modules.client.searchByAlgolia("Lists", $('#_searchBoxInput').val() , function(error, content){
+      if(content){
+        console.log("################### content " + content.hits[0].title)
+        Session.set('listResult', content.hits);
       }
       else{
         console.log("Error, dotz search failed : " + error)
