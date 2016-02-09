@@ -1,5 +1,5 @@
 /**
- * Created by avivhatzir on 02/11/2015.
+ * Created on 02/11/2015.
  */
 Template.mobileConnectDotModal.onCreated(function(){
   let self = this;
