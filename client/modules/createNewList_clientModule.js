@@ -8,7 +8,6 @@ let _validate = ( form, template ) => {
 };
 
 let validation = ( template ) => {
-  console.log("here1");
   return {
     rules: {
       listTitle: {
@@ -35,7 +34,10 @@ let validation = ( template ) => {
         extension: 'Only .jpg/.gif/.png files, please.'
       }
     },
-    submitHandler() { _handleCreateNewList( template ); }
+
+    submitHandler() {
+      _handleCreateNewList( template );
+    }
 
   };
 };

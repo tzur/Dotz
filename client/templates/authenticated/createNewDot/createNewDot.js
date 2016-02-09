@@ -38,6 +38,10 @@ Template.createNewDot.onRendered(function(){
     Session.set('dotCoverImg', undefined);
   }
   //Embedly + facebook integration for links:
+
+  //prevent send by enter:
+  Modules.client.preventEnterByElementId('#createDotForm');
+
 });
 
 Template.createNewDot.helpers({

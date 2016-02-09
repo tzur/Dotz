@@ -8,7 +8,6 @@ function _createDotFinishedLoading(){
   Session.set('spinnerOn', false);
   $('#title').toggleClass('nonEditAble');
   $('#description').toggleClass('nonEditAble');  //TODO DISABLE MORE FIELDS IF NECCESSARE PAY ATTENTION IT'S ONLY ON LINK TYPE
-
 }
 
 function _createDotClearForm(){
@@ -30,10 +29,13 @@ function _updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour)
   }
 
   if (linkUrl){
-    $('#url').val(linkUrl);
+    //$('#url').val(linkUrl).load();
+    //$('#url').val(linkUrl).trigger('loading');
+    $('#url').val(linkUrl).trigger('click');
+
   }
 
-  if (img) {//Support embedly img
+  if (img) { //Support embedly img
     Modules.client.uploadToAmazonViaUrl(img, function (error, url) {
       if (error) {
         Modules.client.createDotFinishedLoading();
@@ -49,6 +51,7 @@ function _updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour)
   if (id) {
     //console.log('dot id is ' + id);
     let dot = Dotz.findOne(id);
+
 
     //convert by moment:
     if (dot.startDateAndHour) {
