@@ -64,6 +64,11 @@
 
 .dot-card-search-wrapper {
   margin-bottom: 1.5em;
+  border-bottom: #eee solid 1px;
+}
+
+.list-card-search-wrapper {
+  margin-bottom: 1.5em;
 }
 
 .search-results-row .tab-content {

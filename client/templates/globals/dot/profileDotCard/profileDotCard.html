@@ -27,9 +27,12 @@
             <ul id="pre-delete-menu" class="dropdown-menu left">
 
               {{#if isConnected}}
+                    <li class="connect"><a><i class="mdGrey fa fa-bookmark-o"></i> Connect to...</a></li>
                     <li class="_disConnectBtn"><a><i class="mdGrey fa fa-minus-circle"></i> Disconnect</a></li>
                     <li role="separator" class="divider"></li>
               {{else}}
+                    <li class="connect"><a><i class="mdGrey fa fa-bookmark-o"></i> Connect to...</a></li>
+                    <li role="separator" class="divider"></li>
                   <!--<div id="desktopDotCard-connectButtonDiv" class="connect">-->
                   <!--<i class="fa fa-bookmark-o mdGrey mdTxt"></i>-->
                   <!--</div>-->
@@ -42,6 +45,12 @@
               {{/if}}
 
             </ul>
+
+        {{else}}
+
+            <a class="panelBtn connect"><i class="mdGrey fa fa-bookmark-o"></i></a>
+
+
 
 
         {{/if}}

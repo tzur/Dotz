@@ -349,7 +349,7 @@ Template.desktopDotCard.events({
 
   },
 
-  'click .disConnect': function(event){
+  'click ._disConnectBtn': function(event){
     $(event.currentTarget).toggleClass('active');
     $(event.currentTarget.childNodes[1]).toggleClass('transparent');
     $(event.currentTarget).css("outline", "none");

@@ -6,6 +6,18 @@
   overflow-x: hidden;
 }
 
+#dotCard-box {
+  padding: 1vh;
+  margin-bottom: 1vh;
+}
+
+#dotCardFooter {
+  position: absolute;
+  bottom: 5px;
+  right: 15px;
+  left: 15px;
+}
+
 /*#listCard-box .connect > button {*/
 /*margin: auto;*/
 /*height: 4vh;*/
@@ -87,8 +99,8 @@
 
 #listCard {
   /*border-radius: 6px;*/
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23);
-  background-color: #FFFFFF;
+  /*box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23);*/
+  /*background-color: #FFFFFF;*/
   /*margin-bottom: 3.5vh;*/
   /*max-height: 70vh;*/
   /*width: 100%;*/
