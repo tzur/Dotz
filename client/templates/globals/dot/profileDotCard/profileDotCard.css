@@ -64,6 +64,18 @@ a span:hover {
   color: #337ab7;
 }
 
+#profileDotCard-buttons #notInMyProfile{
+  position: absolute;
+  top: 9vw;
+  left: 0.5vw;
+}
+
+#profileDotCard-buttons a .circle {
+  height: 2.5vw;
+  width: 2.5vw;
+  padding: 0.5vw;
+  text-align: center;
+}
 
 
 
