@@ -148,9 +148,10 @@
                                 {{#if dotzResult}}
                                     <ul>
                                       {{#each dotzResult}}
-                                        {{#if isAlreadyConnected}}
+                                        {{#if isNotAlreadyConnected}}
                                           {{#with dataForDotCard}}
                                             {{> dotCard}}
+                                            <hr>
                                           {{/with}}
                                         {{/if}}
                                       {{/each}}
