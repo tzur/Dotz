@@ -1,0 +1,220 @@
+<template name="searchResults">
+
+        <!-- Nav tabs -->
+
+    <div id="searchTabs" class="hidden col-sm-12">
+      <ul class="nav" role="tablist">
+          <li role="presentation" class="active search-btns"><a href="#google" aria-controls="google" role="tab" data-toggle="tab">Google</a></li>
+          <!--<li role="presentation" class="search-btns"><a href="#dotz" aria-controls="dotz" role="tab" data-toggle="tab">Dotz {{dotzResultNumber_Algolia}}</a></li>-->
+          <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#links_DOTZ" aria-controls="links_DOTZ" role="tab" data-toggle="tab">Links</a></li>
+          <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#media_DOTZ" aria-controls="media_DOTZ" role="tab" data-toggle="tab">Media</a></li>
+          <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#places_DOTZ" aria-controls="places_DOTZ" role="tab" data-toggle="tab">Places</a></li>
+          <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#events_DOTZ" aria-controls="events_DOTZ" role="tab" data-toggle="tab">Events</a></li>
+          <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#persons_DOTZ" aria-controls="persons_DOTZ" role="tab" data-toggle="tab">Persons</a></li>
+
+          <li role="presentation" id="_searchListsOnAlgolia_DOTZ" class="search-btns"><a href="#lists_DOTZ" aria-controls="lists_DOTZ" role="tab" data-toggle="tab">Lists {{listResultNumber_Algolia}}</a></li>
+
+          <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#users_DOTZ" aria-controls="users_DOTZ" role="tab" data-toggle="tab">Profiles</a></li>
+
+      </ul>
+    </div>
+
+
+
+  <div id="searchResults" class="col-sm-10 col-md-12">
+
+          <div>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                  <!--Google results tab-->
+                  <div role="tabpanel" class="tab-pane active" id="google">
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-xs-12 col-md-10 col-lg-12 colCenter">
+                                {{#if googleResults}}
+                                  <ul>
+                                    {{#each googleResults}}
+                                          {{> googleDotCard getDataForGoogleCard}}
+                                    {{/each}}
+                                  </ul>
+                                {{/if}}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!--Links results tab-->
+                  <div role="tabpanel" class="tab-pane" id="links_DOTZ">
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-xs-12 colCenter">
+                                {{#if links_DOTZ_Algolia}}
+                                    <ul>
+                                      {{#each links_DOTZ_Algolia}}
+                                        {{#if isNotAlreadyConnected}}
+                                          {{#with dataForDotCard}}
+                                            {{> dotCard}}
+                                              <hr>
+                                          {{/with}}
+                                        {{/if}}
+                                      {{/each}}
+                                    </ul>
+                                {{else}}
+                                    <h4 class="txtMd">Sorry :( No results found</h4>
+                                {{/if}}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!--Media results tab-->
+                  <div role="tabpanel" class="tab-pane" id="media_DOTZ">
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-xs-12 colCenter">
+                                {{#if media_DOTZ_Algolia}}
+                                    <ul>
+                                      {{#each media_DOTZ_Algolia}}
+                                        {{#if isNotAlreadyConnected}}
+                                          {{#with dataForDotCard}}
+                                            {{> dotCard}}
+                                              <hr>
+                                          {{/with}}
+                                        {{/if}}
+                                      {{/each}}
+                                    </ul>
+                                {{else}}
+                                    <h4 class="txtMd">Sorry :( No results found</h4>
+                                {{/if}}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!--Places results tab-->
+                  <div role="tabpanel" class="tab-pane" id="places_DOTZ">
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-xs-12 colCenter">
+                                {{#if places_DOTZ_Algolia}}
+                                    <ul>
+                                      {{#each places_DOTZ_Algolia}}
+                                        {{#if isNotAlreadyConnected}}
+                                          {{#with dataForDotCard}}
+                                            {{> dotCard}}
+                                              <hr>
+                                          {{/with}}
+                                        {{/if}}
+                                      {{/each}}
+                                    </ul>
+                                {{else}}
+                                    <h4 class="txtMd">Sorry :( No results found</h4>
+                                {{/if}}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!--Events results tab-->
+                  <div role="tabpanel" class="tab-pane" id="events_DOTZ">
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-xs-12 colCenter">
+                                {{#if events_DOTZ_Algolia}}
+                                    <ul>
+                                      {{#each events_DOTZ_Algolia}}
+                                        {{#if isNotAlreadyConnected}}
+                                          {{#with dataForDotCard}}
+                                            {{> dotCard}}
+                                              <hr>
+                                          {{/with}}
+                                        {{/if}}
+                                      {{/each}}
+                                    </ul>
+                                {{else}}
+                                    <h4 class="txtMd">Sorry :( No results found</h4>
+                                {{/if}}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+
+                  <!--Links results tab-->
+                  <div role="tabpanel" class="tab-pane" id="persons_DOTZ">
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-xs-12 colCenter">
+                                {{#if persons_DOTZ_Algolia}}
+                                    <ul>
+                                      {{#each persons_DOTZ_Algolia}}
+                                        {{#if isNotAlreadyConnected}}
+                                          {{#with dataForDotCard}}
+                                            {{> dotCard}}
+                                              <hr>
+                                          {{/with}}
+                                        {{/if}}
+                                      {{/each}}
+                                    </ul>
+                                {{else}}
+                                    <h4 class="txtMd">Sorry :( No results found</h4>
+                                {{/if}}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!--Lists results tab-->
+                  <div role="tabpanel" class="tab-pane" id="lists_DOTZ">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 colCenter">
+                                {{#if lists_DOTZ_Algolia}}
+                                    <ul>
+                                      {{#each lists_DOTZ_Algolia}}
+                                        {{#if isNotAlreadyConnected}}
+                                          {{#with dataForDotCard}}
+                                            {{> dotCard}}
+                                              <hr>
+                                          {{/with}}
+                                        {{/if}}
+                                      {{/each}}
+                                    </ul>
+                                {{else}}
+                                    <h4 class="txtMd">Sorry :( No results found</h4>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <!--Users results tab-->
+                  <div role="tabpanel" class="tab-pane" id="users_DOTZ">
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-xs-12 colCenter">
+                                {{#if users_DOTZ_Algolia}}
+                                    <ul>
+                                      {{#each users_DOTZ_Algolia}}
+                                          <div class="user-card-search-wrapper">
+                                            {{> userCardSearch}}
+                                          </div>
+                                      {{/each}}
+                                    </ul>
+                                {{else}}
+                                    <h4 class="txtMd">Sorry :( No results found</h4>
+                                {{/if}}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+              <!-- End Tab panes -->
+
+          </div>
+  </div>
+
+
+</template>

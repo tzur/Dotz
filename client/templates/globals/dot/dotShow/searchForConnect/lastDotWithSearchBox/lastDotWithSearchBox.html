@@ -1,0 +1,65 @@
+<template name="lastDotWithSearchBox">
+<div id="searchToConnect">
+
+  <div class="" id="desktopDotCard-lastDot-box">
+
+      <div id="desktopDotCard-col-img-lastDot">
+          <div>
+              <div id="lastDot-desktopDotCard-img" class="container-fluid">
+                  <i class="fa fa-question"></i>
+              </div>
+          </div>
+      </div>
+
+      <div id="lastDotText-desktopDotShow">
+
+          <h4 id="" class="bold darkText">Pssst...</h4>
+          <br>
+          <h5>Do you know which connection is missing? Add it by using:</h5>
+
+          {{#if IS_MOBILE_SHOW}}
+            <!--TBD reminder on desktop-->
+          {{else}}
+
+              <div id="searchBox-actionsDiv" class="row">
+                <div class="col-xs-10 col-sm-8">
+                  {{>searchBox}}
+                    <br><br>
+                </div>
+
+                <div class="hidden-xs col-sm-1 noPadding"><span class="alignSub mdGrey">Or </span></div>
+
+                <div class="hidden-xs col-sm-3 no-left-pad">
+
+                     <a class="panelBtn dropdown-toggle pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span aria-hidden="true" class="pull-left">
+                           <button type="button" id="_createFromList" class="btn btn-default mdGrey">
+                             <i class="fa fa-plus mdGrey"></i> Create</button>
+                        </span>
+                     </a>
+
+                    <ul class="dropdown-menu">
+                        <li class="_createNewDotHere"><a href=""><i class="fa fa-circle-o"></i>Create Dot</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="_createNewListHere"><a href=""><i class="fa fa-list-ul"></i>Create List</a></li>
+                    </ul>
+
+                </div>
+
+              </div>
+
+          {{/if}}
+
+      </div>
+
+  </div>
+
+    <!-- Search tabs and results -->
+
+  {{>searchResults}}
+
+</div>
+
+  <div id="tempGoogle"></div>
+
+</template>

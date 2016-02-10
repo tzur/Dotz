@@ -20,6 +20,12 @@ let getAvailableLists = function(dotIdWishedToConnectTo) {
 };
 
 let canBeConnectedToDot = (parentDotId, dotIdWishedToConnectTo) => {
+
+  //Check if is we are on search page (i.e. there is no parentDotId there :)
+  if ( parentDotId === undefined ) {
+    return true;
+  }
+
   let parentDot = Dotz.findOne(parentDotId);
   let canBeConnected = true;
 

@@ -1,101 +1,33 @@
-<template name="searchBox">
+<template name="searchBoxPage">
 
     <div class="container-fluid search-container">
 
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-md-6 colCenter txtMd">
-
                 <br><br>
 
                 <h2 class="darkText">What are you looking for?</h2>
 
+                <br><br>
             </div>
         </div>
 
-
-        <form class="navbar-form txtMd search-container" role="search">
-            <div class="form-group has-feedback">
-                <input id="searchBoxInput" type="text" class="searchInput form-control lg-form" autocomplete="off"  placeholder='Search for dotz, lists or people'>
-                <i id="search-icon" class="fa fa-search form-control-feedback"></i>
+        <div class="row">
+            <div class="col-sm-4 colCenter">
+              {{>searchBox}}
             </div>
-
-        </form>
+        </div>
 
     </div>
-
 
     <div class="container-fluid">
-        <div class="row search-results-row">
-            <div class="col-xs-12 col-sm-10 col-md-8 colCenter">
-
-              {{#if isSearched}}
-
-
-                <div>
-
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-pills nav-justified txtMd" role="tablist">
-                        <li role="presentation" class="active search-btns"><a href="#dotz" aria-controls="dotz" role="tab" data-toggle="tab">Dotz {{dotzResultNumber}}</a></li>
-                        <li role="presentation" class="search-btns"><a href="#lists" aria-controls="lists" role="tab" data-toggle="tab">Lists {{listsResultNumber}}</a></li>
-                        <li role="presentation" class="search-btns"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">People {{usersResultNumber}}</a></li>
-                    </ul>
-
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="dotz">
-                          {{#if dotzResult}}
-                            <ul>
-                              {{#each dotzResult}}
-                                  <div class="dot-card-search-wrapper">
-                                    {{> dotCardSearch}}
-                                  </div>
-                              {{/each}}
-                            </ul>
-                            {{else}}
-                            <h4 class="txtMd">Sorry :( Nothing Here</h4>
-                          {{/if}}
-                        </div>
-
-                        <div role="tabpanel" class="tab-pane" id="lists">
-                          {{#if listsResult}}
-
-                            <ul>
-                              {{#each listsResult}}
-                                  <div class="list-card-search-wrapper">
-                                    {{> dotCardSearch}}
-                                  </div>
-                              {{/each}}
-                            </ul>
-                          {{else}}
-                              <h4 class="txtMd">Sorry :( Nothing Here</h4>
-                          {{/if}}
-                        </div>
-
-
-                        <div role="tabpanel" class="tab-pane" id="users">
-
-                          {{#if usersResult}}
-                             <ul>
-                              {{#each usersResult}}
-                                  <div class="user-card-search-wrapper">
-                                    {{> userCardSearch}}
-                                  </div>
-                              {{/each}}
-                            </ul>
-                          {{else}}
-                              <h4 class="txtMd">Sorry :( Nothing Here</h4>
-                          {{/if}}
-
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-             {{/if}}
+        <div class="row">
+            <div class="col-sm-9 col-md-8 colCenter">
+              {{>searchResults}}
             </div>
         </div>
     </div>
+
+    <div id="tempGoogle"></div>
 
 </template>
