@@ -6,7 +6,7 @@ Meteor.methods({
     check(docSlug, String);
     check(isUser, Boolean);
     if(process.env.NODE_ENV === "production"){
-      console.log("im in" + process.env.NODE_ENV);
+      console.log("I am in (Algolia check): " + process.env.NODE_ENV);
 
       let array;
       let docIndex;
@@ -51,7 +51,7 @@ Meteor.methods({
       });
     }
     else{
-      console.log("im here" + process.env.NODE_ENV);
+      console.log("im in: " + process.env.NODE_ENV);
       return false
     }
 
