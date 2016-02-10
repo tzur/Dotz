@@ -67,9 +67,7 @@ Meteor.methods({
     if(process.env.NODE_ENV === "production" && Meteor.isServer) {
 
       var client = AlgoliaSearch("WB8PQ4YYUT", "aa84f19d874aeb14d8bfa4d0d4b73b4d");
-
       //The old one
-
       //var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
 
       let objectIndex;

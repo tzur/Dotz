@@ -100,9 +100,9 @@ Template.desktopDotCard.helpers({
     //}
   },
 
-  isInSearchResultsForConnect: function() {
-    if ( Template.parentData(1).inSearchResults ) {
-      return (Template.parentData(1).inSearchResults);
+  inDotParentSearchResults: function() {
+    if ( Template.parentData(1).inDotParentSearchResults ) {
+      return (Template.parentData(1).inDotParentSearchResults);
     }
   },
   //end UI helpers

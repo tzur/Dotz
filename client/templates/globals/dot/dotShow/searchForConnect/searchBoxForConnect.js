@@ -11,9 +11,15 @@ Template.searchBoxForConnect.onCreated(function(){
 
 
 Template.searchBoxForConnect.onDestroyed(function(){
-  Session.set('googleResults', undefined);
-  Session.set('dotzResult', undefined);
-  Session.set('listResult', undefined);
+  //Session.set('googleResults', undefined);
+  //Session.set('dotzResult', undefined);
+  //Session.set('listResult', undefined);
+
+  let algoliaIndicesArray = ["googleResults", "links_DOTZ", "media_DOTZ", "places_DOTZ", "events_DOTZ", "persons_DOTZ", "lists_DOTZ"];
+  algoliaIndicesArray.forEach(index => {
+    Session.set(index, undefined);
+  });
+
 });
 
 Template.searchBoxForConnect.helpers({
@@ -35,82 +41,78 @@ Template.searchBoxForConnect.helpers({
     };
   },
 
-  dotzResult_Algolia: function(){
-    return Session.get('dotzResult');
+  links_DOTZ_Algolia: function(){
+    return Session.get('links_DOTZ');
   },
 
-  dotzResultNumber_Algolia: function(){
-    if(Session.get('dotzResult')){
-      return ("(" + Session.get('dotzResult').length + ")");
-    } else {
-      return ("(0)");
-    }
+  media_DOTZ_Algolia: function(){
+    return Session.get('media_DOTZ');
   },
 
-  listResult_Algolia: function(){
-    return Session.get('listResult');
+  places_DOTZ_Algolia: function(){
+    return Session.get('places_DOTZ');
   },
 
-  listResultNumber_Algolia: function(){
-    if(Session.get('listResult')){
-      return ("(" + Session.get('listResult').length + ")");
-    } else {
-      return ("(0)");
-    }
+  events_DOTZ_Algolia: function(){
+    return Session.get('events_DOTZ');
   },
+
+  persons_DOTZ_Algolia: function(){
+    return Session.get('persons_DOTZ');
+  },
+
+  //lists_DOTZ_Algolia: function(){
+  //  return Session.get('lists_DOTZ');
+  //},
+  //
+  //dotzResult_Algolia: function(){
+  //  return Session.get('dotzResult');
+  //},
+  //
+  //dotzResultNumber_Algolia: function(){
+  //  if(Session.get('dotzResult')){
+  //    return ("(" + Session.get('dotzResult').length + ")");
+  //  } else {
+  //    return ("(0)");
+  //  }
+  //},
+  //
+  //listResult_Algolia: function(){
+  //  return Session.get('listResult');
+  //},
+  //
+  //listResultNumber_Algolia: function(){
+  //  if(Session.get('listResult')){
+  //    return ("(" + Session.get('listResult').length + ")");
+  //  } else {
+  //    return ("(0)");
+  //  }
+  //},
 
   isNotAlreadyConnected: function(){
     return Modules.client.Dotz.canBeConnectedToDot(Template.parentData().dot._id, this._id)
   },
+
   dataForDotCard: function() {
-    //
-    //let connection = {
-    //  ownerUserId: this.ownerUserId,
-    //  likes: "none"
-    //};
-
-    // @params for >>>subscribe('mobileDotCard', self.data.dot._id, self.data.dot.ownerUserId, self.data.connection.connectedByUserId);
-
-    //console.log("this._id >> " + this._id)
-    //console.log("this.ownerUserId >> " + this.ownerUserId)
-    //console.log("this.title >> " + this.title)
-
-
-
     let data = {
-
       algolisSearchResult: this,
-
       dot: {
         _id: this._id,
         ownerUserId: this.ownerUserId,
         title: this.title
       },
-
-      //dot: this,
-      //ownerUser: Meteor.users.findOne(this.ownerUserId),
       connection: {
         connectedByUserId: this.ownerUserId,
         likes: "none"
       },
-
-      //dot: {
-      //  _id: this._id,
-      //  ownerUserId: this.ownerUserId
-      //},
-      ////dot: this,
-      ////ownerUser: Meteor.users.findOne(this.ownerUserId),
-      //connection: {
-      //  connectedByUserId: this.ownerUserId,
-      //  likes: "none"
-      //},
-      //TBD:
-      inSearchResults: true
+      //This helps us to determine if to show the plus/connect to dotParent button:
+      inDotParentSearchResults: true
     };
     return data;
   }
 
 });
+
 
 Template.searchBoxForConnect.events({
   'submit ._googleSearch': function(e){
@@ -118,37 +120,55 @@ Template.searchBoxForConnect.events({
 
     Modules.client.googleCustomSearch($('#_searchBoxInput').val(), function(error, result){
       if (error){
-        Bert.alert("We are poor and have only 100 queries per day, please do something with it.",'danger')
-      }else{
+        Bert.alert("Try again, please.",'danger')
+      } else {
         Session.set('googleResults', Modules.client.googleResultToCard(result));
       }
     });
 
-    //Meteor.user().roles.firstGroup[0] +
-    Modules.client.searchByAlgolia("Dotz", $('#_searchBoxInput').val() , function(error, content){
-      if(content){
-        Session.set('dotzResult', content.hits);
-      }
-      else{
-        console.log("Error, dotz search failed : " + error)
-      }
+    //TODO: we need to check this operation on mobile devices.. @otni
+    let algoliaIndicesArray = ["links_DOTZ", "media_DOTZ", "places_DOTZ", "events_DOTZ", "persons_DOTZ", "lists_DOTZ"];
+    algoliaIndicesArray.forEach(index => {
+      Modules.client.searchByAlgolia(index, $('#_searchBoxInput').val() , function(error, content) {
+        if(content){
+          Session.set(index, content.hits);
+        }
+        else{
+          console.log("Error, on index: " + index + " >>>> search failed : " + error)
+        }
+      });
     });
-
-    Modules.client.searchByAlgolia("Lists", $('#_searchBoxInput').val() , function(error, content){
-      if(content){
-        Session.set('listResult', content.hits);
-      }
-      else{
-        console.log("Error, dotz search failed : " + error)
-      }
-    });
-    //if(Session.get('dotzResult')){
-    //  return Session.get('dotzResult').hits;
-    //}
-
-
-
   },
+
+  ////search Dotz on Algolia:
+  //'click ._searchDotzSubTypesOnAlgolia_DOTZ': function(e){
+  //  e.preventDefault();
+  //
+  //  let algoliaIndex = this.dot.dotSubType.toLowerCase() + "s_DOTZ";
+  //  console.log("algoliaIndex is >> " + algoliaIndex);
+  //  Modules.client.searchByAlgolia(algoliaIndex, $('#_searchBoxInput').val() , function(error, content){
+  //    if(content){
+  //      Session.set(algoliaIndex, content.hits);
+  //    }
+  //    else{
+  //      console.log("Error, dotz_DOTZ search failed : " + error)
+  //    }
+  //  });
+  //},
+  //
+  ////search Dotz on Algolia:
+  //'click ._searchListsOnAlgolia_DOTZ': function(e){
+  //  e.preventDefault();
+  //
+  //  Modules.client.searchByAlgolia("lists_DOTZ", $('#_searchBoxInput').val() , function(error, content){
+  //    if(content){
+  //      Session.set("lists_DOTZ", content.hits);
+  //    }
+  //    else{
+  //      console.log("Error, lists_DOTZ search failed : " + error)
+  //    }
+  //  });
+  //},
 
   'click ._createNewDotHere':function(){
     Modules.client.editAndCreateSessionsCleaner();
