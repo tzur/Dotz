@@ -5,9 +5,12 @@ Meteor.startup(function () {
   Modules.server.startup();
   process.env.MAIL_URL = "smtp://postmaster%40dotz.city:TLVbeta123@smtp.mailgun.org:587";
 
+  //TODO: run migration >>> @otni
+  //console.log("GO to migration! 3,2,1...");
+  //Migrations.migrateTo('latest');
+
 
   //make me admin:
-
   //let userToBeAdmin = Meteor.users.findOne({"emails.1.address": "omer.lev.mail@gmail.com"});
   //
   //if (userToBeAdmin) {

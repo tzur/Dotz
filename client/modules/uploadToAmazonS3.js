@@ -25,7 +25,8 @@ let _getFileFromInput = ( event ) => event.target.files[0];
 
 let _setPlaceholderText = ( string = "Click or Drag a File Here to Upload" ) => {
   if (template){
-    template.find( ".alert span" ).innerText = string;
+    //TODO tbd wtf? @otni
+    //template.find( ".alert span" ).innerText = string;
   }
 
 };
@@ -42,6 +43,7 @@ let _setPlaceholderText = ( string = "Click or Drag a File Here to Upload" ) => 
 //  });
 //};
 
+//TODO: wtf??? @otni
 let _addImageUrlToSession = (url) => {
   Session.set('coverImageUrl', url);
   _setPlaceholderText();

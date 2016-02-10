@@ -73,6 +73,8 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
         "category": 1,
         "totalUpvotes": 1,
         "location.name": 1,
+        "location.address": 1,
+        "location.googleMapsUrl": 1,
         "startDateAndHour": 1, //TBD
         //"startDate": 1,
         "price": 1,

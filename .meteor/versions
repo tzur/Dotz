@@ -110,6 +110,7 @@ peerlibrary:blaze-components@0.15.1
 peerlibrary:computed-field@0.3.1
 peerlibrary:reactive-field@0.1.0
 peppelg:bootstrap-3-modal@1.0.4
+percolate:migrations@0.9.8
 percolatestudio:segment.io@2.0.0_1
 promise@0.5.1
 raix:eventemitter@0.1.3

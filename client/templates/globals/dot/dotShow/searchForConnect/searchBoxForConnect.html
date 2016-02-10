@@ -111,8 +111,8 @@
     <div id="searchTabs" class="hidden col-sm-12">
         <ul class="nav" role="tablist">
             <li role="presentation" class="active search-btns"><a href="#google" aria-controls="google" role="tab" data-toggle="tab">Google</a></li>
-            <li role="presentation" class="search-btns"><a href="#dotz" aria-controls="dotz" role="tab" data-toggle="tab">Dotz {{dotzResultNumber}}</a></li>
-            <!--<li role="presentation" class="search-btns"><a href="#lists" aria-controls="lists" role="tab" data-toggle="tab">Lists {{listsResultNumber}}</a></li>-->
+            <li role="presentation" class="search-btns"><a href="#dotz" aria-controls="dotz" role="tab" data-toggle="tab">Dotz {{dotzResultNumber_Algolia}}</a></li>
+            <li role="presentation" class="search-btns"><a href="#lists" aria-controls="lists" role="tab" data-toggle="tab">Lists {{listResultNumber_Algolia}}</a></li>
         </ul>
     </div>
 
@@ -140,14 +140,15 @@
                           </div>
                       </div>
                   </div>
+
                   <!--Dotz results tab-->
                   <div role="tabpanel" class="tab-pane" id="dotz">
                       <div class="container-fluid">
                           <div class="row">
-                              <div class="col-xs-12 col-md-10 col-lg-12 colCenter">
-                                {{#if dotzResult}}
+                              <div class="col-xs-12 colCenter">
+                                {{#if dotzResult_Algolia}}
                                     <ul>
-                                      {{#each dotzResult}}
+                                      {{#each dotzResult_Algolia}}
                                         {{#if isNotAlreadyConnected}}
                                           {{#with dataForDotCard}}
                                             {{> dotCard}}
@@ -168,13 +169,14 @@
                   <div role="tabpanel" class="tab-pane" id="lists">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-xs-12 col-md-10 col-lg-8 colCenter">
-                                {{#if listsResult}}
+                            <div class="col-xs-12 colCenter">
+                                {{#if listResult_Algolia}}
                                     <ul>
-                                      {{#each listsResult}}
-                                        {{#if isAlreadyConnected}}
+                                      {{#each listResult_Algolia}}
+                                        {{#if isNotAlreadyConnected}}
                                           {{#with dataForDotCard}}
                                             {{> dotCard}}
+                                              <hr>
                                           {{/with}}
                                         {{/if}}
                                       {{/each}}

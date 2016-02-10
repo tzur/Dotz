@@ -6,6 +6,7 @@ Template.imgUploader.helpers({
     return Session.get('dotCoverImg');
   }
 });
+
 Template.imgUploader.events({
   'change input[type="file"]': function ( event, template ) {
     console.log("Spinner On");

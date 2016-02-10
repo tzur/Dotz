@@ -1,5 +1,5 @@
 /**
- * Created by avivhatzir on 30/12/2015.
+ * Created on 30/12/2015.
  */
 //Migration methods
 Meteor.methods({
