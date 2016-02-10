@@ -12,7 +12,11 @@ Meteor.methods({
       let docIndex;
       check(docSlug, String);
       check(isUser, Boolean);
-      var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
+      var client = AlgoliaSearch("WB8PQ4YYUT", "aa84f19d874aeb14d8bfa4d0d4b73b4d");
+
+      //The old one
+
+      //var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
 
       if (isUser){
         let currentDoc = Meteor.users.findOne({"profile.userSlug": docSlug});
@@ -62,7 +66,12 @@ Meteor.methods({
     check(dotType, String);
     if(process.env.NODE_ENV === "production" && Meteor.isServer) {
 
-      var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
+      var client = AlgoliaSearch("WB8PQ4YYUT", "aa84f19d874aeb14d8bfa4d0d4b73b4d");
+
+      //The old one
+
+      //var client = AlgoliaSearch("OE5LQTXY83", "bd14aab9d22ce75c25d286f9821b89c3");
+
       let objectIndex;
       let dot = Dotz.findOne("dotId");
       let index;
