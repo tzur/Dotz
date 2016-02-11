@@ -15,6 +15,7 @@ Template.createNewDot.onDestroyed(function(){
   _clearSessions();
   Session.set('locationObj', undefined);
   Session.set('dotCoverImg', undefined);
+  Session.set('editAction_dot', undefined);
 });
 
 Template.createNewDot.onRendered(function(){

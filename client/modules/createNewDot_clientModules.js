@@ -84,7 +84,7 @@ function DotFactory(
   linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
   locationObject, price, dotSubType,
   embedlyObj, FBdataObj,
-  startDateAndHour, endDateAndHour, multipleEventsNote)
+  startDateAndHour, endDateAndHour, multipleEventsNote, priceMax, currency)
   {
     this.linkUrl = linkUrl;
     this.title= title;
@@ -108,6 +108,10 @@ function DotFactory(
     if (price){//TODO CHECK IF IT'S NUMBER @zur
       this.price = parseInt(price);
     }
+    if (priceMax){//TODO CHECK IF IT'S NUMBER @zur
+      this.priceMax = parseInt(priceMax);
+    }
+    this.currency = currency;
     this.ownerUserId = Meteor.userId();
     this.createdAtDate = new Date();
     this.embedlyObj = embedlyObj;
@@ -123,7 +127,7 @@ function DotFactory(
 }
 
 function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
-  let linkUrl, title, description, price, dotSubType, redirectAfterCreateSlug;
+  let linkUrl, title, description, price, priceMax, currency, dotSubType, redirectAfterCreateSlug;
   if (parentDotId === Meteor.user().profile.profileDotId){
     redirectAfterCreateSlug = Meteor.user().profile.userSlug;
   }else{
@@ -143,6 +147,13 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   if (price === ""){
     price = undefined
   }
+
+  priceMax =$('#priceMax').val();
+  if (priceMax === ""){
+    priceMax = undefined
+  }
+
+  currency = $('#currencyField').val();
 
   let startDate = $('#startDate').val();
   let startHour = $('#startHour').val();
@@ -283,7 +294,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
         dotSubType,
         Session.get('embedlyObj'),
         Session.get('fbPostAuthorData'),
-        startDateAndHour, endDateAndHour, multipleEventsNote
+        startDateAndHour, endDateAndHour, multipleEventsNote, priceMax, currency
       );
 
       //Go create:
