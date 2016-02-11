@@ -13,6 +13,8 @@ Template.createNewDot.onCreated(function() {
 
 Template.createNewDot.onDestroyed(function(){
   _clearSessions();
+  Session.set('locationObj', undefined);
+  Session.set('dotCoverImg', undefined);
 });
 
 Template.createNewDot.onRendered(function(){
@@ -121,7 +123,7 @@ function _clearSessions(){
   Session.set('person', false);
   Session.set('product', false);
   Session.set('media', false);
-  Session.set('locationObj', undefined);
-  Session.set('dotCoverImg', undefined);
+  //Session.set('locationObj', undefined);
+  //Session.set('dotCoverImg', undefined);
   Session.set('selectedType', undefined);
 }

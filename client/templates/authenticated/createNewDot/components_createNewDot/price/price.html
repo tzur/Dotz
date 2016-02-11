@@ -9,14 +9,31 @@
     </div>
 
 
-    <div class="col-xs-10 bottomBorder">
+    <div class="col-xs-8 bottomBorder">
         <div class="row">
 
+            <div class="col-xs-2 price optional-field">
+                <div class="form-group">
+                    <label for="currencyField" class="control-label">Currency</label>
+                    <select name="currency" id="currencyField" data-schema-key="currency" autocomplete="off" class="form-control">
+                        <option value="$">$</option>
+                        <option value="₪">₪</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="col-xs-4">
-              <div class="input-group">
-                  <span class="input-group-addon">$</span>
+              <div class="form-group">
+                  <!--<span class="input-group-addon">$</span>-->
                   <input id="price" type="number" class="form-control" placeholder="price">
               </div>
+            </div>
+
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <!--<span class="input-group-addon">$</span>-->
+                    <input id="priceMax" type="number" class="form-control" placeholder="Enter max price">
+                </div>
             </div>
 
         </div>

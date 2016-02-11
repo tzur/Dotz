@@ -196,27 +196,13 @@
 <div class="container-fluid" id="dotShowFooter-inListShow">
   <div class="row">
 
-    <!--{{#if userClickOnTheYesButton}}-->
-      <!--{{# if addDotIsAvailable}}-->
-          <!--{{>searchBoxForConnect parentDot=dataForCreateHere}}-->
-      <!--{{/if}}-->
-
-    <!--{{else}}-->
-
-        <!--<div id="lastCard-desktopDotShow" class="col-xs-12 col-sm-7 colCenter noPadding">-->
-          <!--{{>lastDotCardDesktopDotShow}}-->
-        <!--</div>-->
-
-    <!--{{/if}}-->
-
-
       <div id="lastCard-desktopDotShow" class="col-xs-12 col-md-9 col-lg-7 colCenter noPadding">
           <div id="desktopDotCard-lastDot" class="container-fluid">
               <div id="desktopDotCard-lastDot-col-connectLine-inListShow"></div>
 
             {{# if addDotIsAvailable}}
               {{#with dataForCreateHere}}
-                {{>searchBoxForConnect}}
+                {{>lastDotWithSearchBox}}
               {{/with}}
             {{/if}}
 
@@ -465,7 +451,7 @@
 
                       {{#if dot.price}}
                           <div>
-                              <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
+                              <span class="lightGrey"> {{dot.currency}} {{dot.price}} - {{dot.priceMax}} </span>
                           </div>
                       {{/if}}
 
@@ -601,14 +587,9 @@
                                       <div id="desktopDotCard-lastDot" class="container-fluid">
                                           <div id="desktopDotCard-lastDot-col-connectLine"></div>
 
-                                        <!--{{>lastDotCardDesktopDotShow}}-->
-
                                         {{# if addDotIsAvailable}}
                                           {{#with dataForCreateHere}}
                                             {{>lastDotWithSearchBox}}
-
-                                            <!--{{>searchBoxForConnect}}-->
-
                                           {{/with}}
                                         {{/if}}
 
