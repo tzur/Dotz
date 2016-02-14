@@ -168,62 +168,90 @@
                   <div>
 
 
-                      {{#if dot.linkName}}
+                      {{#if DOT_TYPE_IS 'Link' dot.dotSubType}}
                           <span class="lightGrey">{{dot.linkName}} </span><span class="lightGrey bold desktopDotCard-col-credit"></span>
-                      {{else}}
+                      {{/if}}
 
-                        {{#if dot.startDateAndHour}}
-                            <div>
+                      <!--{{#if DOT_TYPE_IS 'Place' dot.dotSubType}}-->
+                        <!---->
+                      <!--{{/if}}-->
+
+                      {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
+                          <div>
                               <span class="lightGrey"><i class="fa fa-calendar"></i> {{eventDate}} </span>
                               <!--TODO get the event date data from the create & edit form @yoav-->
 
-                              {{#if dot.price}}
+                            {{#if dot.price}}
                                 <span class="lightGrey bold"> - </span>
                                 <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
-                              {{/if}}
-                            </div>
-
-                            {{#if dot.location}}
-                              <div>
-                                <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
-                              </div>
                             {{/if}}
+                          </div>
+                      {{/if}}
 
-                        {{else}}
-                            {{#if dot.location}}
-                              <div>
-                                <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
-                              </div>
-                              {{/if}}
-                        {{/if}}
-
+                      {{#if dot.location}}
+                          <div>
+                              <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
+                          </div>
                       {{/if}}
 
 
 
 
+                      <!--{{#if dot.linkName}}-->
+                          <!--<span class="lightGrey">{{dot.linkName}} </span><span class="lightGrey bold desktopDotCard-col-credit"></span>-->
+                      <!--{{else}}-->
 
-                      {{#if smartRef.connection.personalDescription}}
+                        <!--{{#if dot.startDateAndHour}}-->
+                            <!--<div>-->
+                              <!--<span class="lightGrey"><i class="fa fa-calendar"></i> {{eventDate}} </span>-->
+                              <!--&lt;!&ndash;TODO get the event date data from the create & edit form @yoav&ndash;&gt;-->
+
+                              <!--{{#if dot.price}}-->
+                                <!--<span class="lightGrey bold"> - </span>-->
+                                <!--<span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>-->
+                              <!--{{/if}}-->
+                            <!--</div>-->
+
+                            <!--{{#if dot.location}}-->
+                              <!--<div>-->
+                                <!--<span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>-->
+                              <!--</div>-->
+                            <!--{{/if}}-->
+
+                        <!--{{else}}-->
+                            <!--{{#if dot.location}}-->
+                              <!--<div>-->
+                                <!--<span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>-->
+                              <!--</div>-->
+                              <!--{{/if}}-->
+                        <!--{{/if}}-->
+
+                      <!--{{/if}}-->
 
 
-                          <span class="lightGrey desktopDotCard-col-credit">Connected by <a class="text-primary" href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a>
-                          <!--<button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">-->
-                              <!--<i class="fa fa-comment-o lgTxt"></i>-->
-                          <!--</button>-->
-                          </span>
 
 
-                          <!--<div id="connectedByText-desktopDotCardDiv">-->
-                              <!--<h5 id="connectedByText-desktopDotCard" class="lightGrey"><em>{{smartRef.connection.personalDescription}}</em></h5>-->
+
+                      <!--{{#if smartRef.connection.personalDescription}}-->
+                        <!---->
+                          <!--<span class="lightGrey desktopDotCard-col-credit">Connected by <a class="text-primary" href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a>-->
+                          <!--&lt;!&ndash;<button class="btn btn-full-trans btn-xs sm2Txt lightGrey pull-left" data-toggle="collapse" data-target="#collapseButtons-{{dot._id}}" aria-expanded="false" aria-controls="collapseButtons">&ndash;&gt;-->
+                              <!--&lt;!&ndash;<i class="fa fa-comment-o lgTxt"></i>&ndash;&gt;-->
+                          <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                          <!--</span>-->
+
+
+                          <!--&lt;!&ndash;<div id="connectedByText-desktopDotCardDiv">&ndash;&gt;-->
+                              <!--&lt;!&ndash;<h5 id="connectedByText-desktopDotCard" class="lightGrey"><em>{{smartRef.connection.personalDescription}}</em></h5>&ndash;&gt;-->
+                          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                      <!--{{else}}-->
+
+                          <!--<div>-->
+                              <!--<span  class="lightGrey desktopDotCard-col-credit">Connected by <a class="text-primary" href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a></span>-->
                           <!--</div>-->
 
-                      {{else}}
-
-                          <div>
-                              <span  class="lightGrey desktopDotCard-col-credit">Connected by <a class="text-primary" href="/{{ownerUser.profile.userSlug}}">{{ownerUser.username}}</a></span>
-                          </div>
-
-                      {{/if}}
+                      <!--{{/if}}-->
 
                   </div>
 

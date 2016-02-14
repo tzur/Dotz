@@ -14,7 +14,10 @@ Template.createDotModal.onCreated(function(){
 
 });
 Template.createDotModal.onRendered(function(){
-  Modules.client.Dotz.limitCharactersAndCounter('#titleField', 50, '#titleFieldFeedback');
+
+  /*
+
+   Modules.client.Dotz.limitCharactersAndCounter('#titleField', 50, '#titleFieldFeedback');
   Modules.client.autoTagger(Template.instance());
   Session.set("dotType", "Dot");
 
@@ -50,6 +53,9 @@ Template.createDotModal.onRendered(function(){
       }
       });
   });
+
+
+ */
 
 
 

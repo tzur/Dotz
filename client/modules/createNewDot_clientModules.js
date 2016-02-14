@@ -273,7 +273,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   } else {
 
       //Pick random color:
-      let colorsArray = ['darkGreenDot','brightGreenDot', 'greenDot', 'purpleDot', 'blueDot', 'redDot','pinkDot', 'orangeDot'];
+      let colorsArray = ['darkGreenDot', 'greenDot', 'purpleDot', 'blueDot', 'redDot', 'orangeDot'];
       let i = Math.floor(Math.random() * 8);
       let dotColor = colorsArray[i];
 
