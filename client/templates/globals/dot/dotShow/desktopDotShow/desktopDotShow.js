@@ -361,7 +361,9 @@ Template.desktopDotShow.helpers({
     //if(Roles.userIsInRole( Meteor.userId(), 'Connector') || this.dot.ownerUserId === Meteor.userId() ){
     //  return true;
     //}
-    if( this.dot.ownerUserId === Meteor.userId() || this.dot.isOpen ){
+    if( Meteor.userId() && this.dot.isOpen ){
+      return true;
+    } else if ( this.dot.ownerUserId === Meteor.userId() ) {
       return true;
     }
   },
