@@ -31,6 +31,7 @@ Template.createNewList_form.onRendered( () => {
 
 Template.createNewList_form.onDestroyed(function(){
   _clearSessions();
+  Session.set('editAction_list', undefined);
 });
 
 

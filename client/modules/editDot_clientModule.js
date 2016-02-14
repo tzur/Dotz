@@ -19,7 +19,7 @@ let editDot_settings = ( dot ) => {
       initialDataForFormFields: {
         id: dot._id,
         title: dot.title,
-        description: dot.description,
+        description: dot.bodyText,
         img: dot.coverImageUrl,
         //linkName: dot.linkName,
         linkUrl: dot.linkUrl
