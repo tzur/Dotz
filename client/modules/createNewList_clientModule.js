@@ -92,7 +92,28 @@ let _handleCreateNewList = ( template ) => {
   };
 
   //This is edit action:
-  if ( Session.get('editAction_dot') ) {
+  let dotToEdit =  Session.get('editAction_list');
+  if (dotToEdit) {
+    Meteor.call('updateDot', doc, dotToEdit._id ,function(error,result){
+      if (error){
+        console.log("updateDot error >>> " + error)
+      } else {
+        Modal.hide();
+        Session.set("parentDot", undefined);
+        Session.set("locationObject", undefined);
+        Session.set("editAction_dot", undefined);
+        Session.set("editAction_list", undefined);
+        Session.set('spinnerOn', false);
+
+        //console.log("updateDot result >>>  " + result);
+
+        Meteor.call('addOrEditObjectInAlgolia', dotToEdit.dotSlug, false);
+        //analytics.track("Dot Edited", {
+        //  isDotWithOutLocation: Session.equals("locationObject", undefined),
+        //  dotType: dotSubType
+        //});
+      }
+    });
 
 
   //This is create action:

@@ -81,7 +81,10 @@
   background-position-y: 50%;
   background-position-x: 50%;
   border-radius: 50%;
-  background-color: #eee;
+  padding-top: 2vh;
+  padding-left: 4vh;
+  font-size: 20px;
+  /*background-color: #eee;*/
 }
 
 .imagePreview {
@@ -171,9 +174,9 @@ button .collapsed {
   width: 25%;
 }
 
-.nonEditAble {
-  cursor: not-allowed;
-  background-color: #EEE;
-  color: #9E9999;
-}
+/*.nonEditAble {*/
+  /*cursor: not-allowed;*/
+  /*background-color: #EEE;*/
+  /*color: #9E9999;*/
+/*}*/
 

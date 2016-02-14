@@ -7,23 +7,18 @@ Template.createNewList_form.onRendered( () => {
     template: Template.instance()
   });
 
-  Tracker.autorun(function () {
-
-    console.log("this.data " + this.data);
-
-  });
-
-  if (this.data && this.data.initialDataForFormFields){
+  let dotToEdit = Session.get('editAction_list');
+  if (dotToEdit) {
     Modules.client.createDotLoading(); //Start to loading.
     Modules.client.updateCreateDotFields(
-      this.data.initialDataForFormFields.title,
-      this.data.initialDataForFormFields.description,
-      this.data.initialDataForFormFields.img);
+      dotToEdit._id,
+      dotToEdit.title,
+      dotToEdit.bodyText,
+      dotToEdit.img
+    );
   } else {
     Session.set('publicList', "Public");
   }
-
-  Modules.client.preventEnterByElementId('#createNewListButton');
 
 });
 
@@ -32,6 +27,8 @@ Template.createNewList_form.onRendered( () => {
 Template.createNewList_form.onDestroyed(function(){
   _clearSessions();
   Session.set('editAction_list', undefined);
+  Session.set('editAction_docToEdit', undefined);
+  Session.set('dotCoverImg', undefined);
 });
 
 

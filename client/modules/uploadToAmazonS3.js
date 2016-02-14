@@ -50,6 +50,7 @@ let _addImageUrlToSession = (url) => {
 };
 
 let _uploadFileToAmazon = ( file, callback ) => {
+  Session.set('spinnerImgUploadedOn', true);
   const uploader = new Slingshot.Upload( "uploadToAmazonS3" );
   uploader.send( file, ( error, url ) => {
     if ( error ) {
@@ -57,22 +58,22 @@ let _uploadFileToAmazon = ( file, callback ) => {
       _setPlaceholderText();
       callback(error);
     } else {
+      Session.set('spinnerImgUploadedOn', undefined);
       callback(undefined, url );
     }
   });
 };
 
-
 let upload = ( options, callback ) => {
   template = options.template;
   let file = _getFileFromInput( options.event );
-
   _setPlaceholderText( `Uploading ${file.name}...` );
   console.log(" ${file.name} " + $(file.name) );
   _uploadFileToAmazon( file, callback );
 };
 
 let uploadToAmazonViaUrl = function(url, callback){
+  Session.set('spinnerImgUploadedOn', true);
   Meteor.call('downloadImage', url ,function(error, data){
     if (error){
       console.log(error);
