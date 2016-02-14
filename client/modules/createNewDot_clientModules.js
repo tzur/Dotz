@@ -182,7 +182,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
 
 
   //TODO: this if-else help us to separate between create/edit actions >> TBD... @otni
-  if ( Session.get('editAction_dot') || Session.get('editAction_list')) {
+  if ( Session.get('editAction_dot') ) {
 
     let editedDot = Dotz.findOne(parentDotId);
     console.log("editedDot._Id >>> " + editedDot._id);
@@ -256,8 +256,9 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
         //  dotType: dotSubType
         //});
       }
-    })
+    });
 
+  //  This is create action:
   } else {
 
       //Pick random color:
