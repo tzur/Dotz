@@ -48,7 +48,7 @@ let _handleCreateNewList = ( template ) => {
   //let dot11Color = Modules.client.randomColor;
 
   //Pick random color:
-  let colorsArray = ['darkGreenDot','brightGreenDot', 'greenDot', 'purpleDot', 'blueDot', 'redDot','pinkDot', 'orangeDot'];
+  let colorsArray = ['darkGreenDot', 'greenDot', 'purpleDot', 'blueDot', 'redDot', 'orangeDot'];
   let i = Math.floor(Math.random() * 8);
   let dotColor = colorsArray[i];
   //console.log("dotcolor: " + dotColor);
@@ -91,29 +91,98 @@ let _handleCreateNewList = ( template ) => {
       inDotz: [parentDotId]
   };
 
-  Meteor.call('createDot', doc, redirectAfterCreateSlug ,function(error,result){
+  //This is edit action:
+  if ( Session.get('editAction_dot') ) {
+
+
+  //This is create action:
+  } else {
+      Meteor.call('createDot', doc, redirectAfterCreateSlug ,function(error,result){
+        if (error){
+          console.log(error);
+        } else {
+          Session.set("parentDot", undefined);
+          Session.set("locationObject", undefined);
+          Session.set('spinnerOn', false);
+          Session.set('dotCoverImg', undefined);
+
+          //listSubType sessions:
+          Session.set('publicList', undefined);
+          Session.set('closedList', undefined);
+          Session.set('secretList', undefined);
+
+          Meteor.call('addOrEditObjectInAlgolia', result, false);
+          analytics.track("Dot Created", {
+            isDotWithOutLocation: Session.equals("locationObject", undefined),
+            dotType: undefined
+          });
+        }
+      })
+  }
+};
+
+
+
+
+//TODO >>>>> I am here @otni
+
+
+let _editList = (param) => {
+
+  let editedDot = Dotz.findOne(parentDotId);
+  console.log("editedDot._Id >>> " + editedDot._id);
+
+
+  let editedDoc = {
+    ownerUserId: Meteor.userId(),
+    title: title,
+    bodyText: description,
+    dotSubType: dotSubType,
+    coverImageUrl: coverImgUrl,
+
+    //links:
+    linkUrl: linkUrl,
+    embedlyObj: Session.get('embedlyObj'),
+    linkAuthorName: linkAuthorName,
+    linkAuthorUrl: linkAuthorUrl,
+    facebookAuthorId: facebookAuthorId,
+
+    //location:
+    location: location,
+
+    //event:
+
+    multipleEventsNote: multipleEventsNote,
+    startDateAndHour: startDateAndHour,
+    endDateAndHour: endDateAndHour
+  };
+
+  //let editedDotId = editedDot._id.toString();
+
+  Meteor.call('updateDot', editedDoc, editedDot._id ,function(error,result){
     if (error){
-      console.log(error);
+      console.log("updateDot error >>> " + error)
     } else {
-        Session.set("parentDot", undefined);
-        Session.set("locationObject", undefined);
-        Session.set('spinnerOn', false);
-        Session.set('dotCoverImg', undefined);
+      Modal.hide();
+      Session.set("parentDot", undefined);
+      Session.set("locationObject", undefined);
+      Session.set("editAction_dot", undefined);
+      Session.set("editAction_list", undefined);
+      Session.set('spinnerOn', false);
 
-        //listSubType sessions:
-        Session.set('publicList', undefined);
-        Session.set('closedList', undefined);
-        Session.set('secretList', undefined);
+      //console.log("updateDot result >>>  " + result);
 
-        Meteor.call('addOrEditObjectInAlgolia', result, false);
-        analytics.track("Dot Created", {
-          isDotWithOutLocation: Session.equals("locationObject", undefined),
-          dotType: undefined
-        });
+
+      //Meteor.call('addOrEditObjectInAlgolia', result, false);
+      //analytics.track("Dot Edited", {
+      //  isDotWithOutLocation: Session.equals("locationObject", undefined),
+      //  dotType: dotSubType
+      //});
     }
-  })
+  });
 
 };
+
 
 Modules.client.createNewList = createNewList;
 

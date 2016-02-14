@@ -1,6 +1,7 @@
 /**
- * Created by avivhatzir on 26/10/2015.
+ * ???
  */
+
 Slingshot.fileRestrictions( "uploadToAmazonS3", {
   allowedFileTypes: [ "image/png", "image/jpeg", "image/gif" ],
   maxSize: 1 * 1024 * 1024
