@@ -261,7 +261,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
         //console.log("updateDot result >>>  " + result);
 
 
-        //Meteor.call('addOrEditObjectInAlgolia', result, false);
+        Meteor.call('addOrEditObjectInAlgolia', editedDot.dotSlug, false);
         //analytics.track("Dot Edited", {
         //  isDotWithOutLocation: Session.equals("locationObject", undefined),
         //  dotType: dotSubType
