@@ -179,6 +179,12 @@ Template.desktopDotCard.helpers({
     }
   },
 
+  placeOrEvent: function(){
+    if ((this.dot.dotSubType === "Place") || (this.dot.dotSubType === "Event"))  {
+      return true;
+    }
+  },
+
   userIsTheDotCreator: function() {
     if (this.ownerUser && this.connectedByUser){
       return (this.ownerUser.username === this.connectedByUser.username)

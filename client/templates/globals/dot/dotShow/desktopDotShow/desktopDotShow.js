@@ -234,6 +234,8 @@ Template.desktopDotShow.helpers({
     }
   },
 
+
+
   eventDate: function(){
     if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
       let textForMultipleEvents;
