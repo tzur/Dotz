@@ -1,86 +1,6 @@
-function _createDotLoading(){
-  Session.set('spinnerOn', true);
-  $('#title').toggleClass('nonEditAble');
-  $('#description').toggleClass('nonEditAble');//TODO DISABLE MORE FIELDS IF NECCESSARE PAY ATTENTION IT'S ONLY ON LINK TYPE
-}
-
-function _createDotFinishedLoading(){
-  Session.set('spinnerOn', false);
-  $('#title').toggleClass('nonEditAble');
-  $('#description').toggleClass('nonEditAble');  //TODO DISABLE MORE FIELDS IF NECCESSARE PAY ATTENTION IT'S ONLY ON LINK TYPE
-}
-
-function _createDotClearForm(){
-  Session.set('spinnerOn', false);
-  Session.set('dotCoverImg', undefined);
-  $('#title').val('');
-  $('#description').val('');
-  $('#price').val(''); //TODO CLEAR MORE FIELDS SUCH AS DATE ETC
-}
-
-function _updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour){
-
-  if (title){
-    $('#title').val(title);
-  }
-
-  if (description){
-    $('#description').val(description).trigger('change'); //TRIGGER CHANGE IS FOR THE AUTO TAGGER NOT THAT RELAVENT.
-  }
-
-  if (linkUrl){
-    //$('#url').val(linkUrl).load();
-    //$('#url').val(linkUrl).trigger('loading');
-    $('#url').val(linkUrl).trigger('click');
-
-  }
-
-  if (img) { //Support embedly img
-    Modules.client.uploadToAmazonViaUrl(img, function (error, url) {
-      if (error) {
-        Modules.client.createDotFinishedLoading();
-      } else {
-        Session.set('dotCoverImg', url);
-        Modules.client.createDotFinishedLoading();
-      }
-    });
-  }else{
-    Modules.client.createDotFinishedLoading();
-  }
-
-  if (id) {
-    //console.log('dot id is ' + id);
-    let dot = Dotz.findOne(id);
 
 
-    //convert by moment:
-    if (dot.startDateAndHour) {
-      let startDate = moment(dot.startDateAndHour).format('DD MMMM YYYY');
-      let startHour = moment(dot.startDateAndHour).format('hh:mm A');
-      $('#startDate').val(startDate);
-      $('#startHour').val(startHour);
-    }
-    if (dot.endDateAndHour) {
-      let endDate = moment(dot.endDateAndHour).format('DD MMMM YYYY');
-      let endHour = moment(dot.endDateAndHour).format('hh:mm A');
-      $('#endDate').val(endDate);
-      $('#endHour').val(endHour);
-    }
-    if (dot.multipleEventsNote) {
-      $('#multipleEventsNote').val(dot.multipleEventsNote);
-    }
-  }
-
-}
-
-
-function _createDotChangeTab(fieldsArray){
-  fieldsArray.forEach(function(field){
-
-  })
-}
-
-function DotFactory(
+function _DotFactory(
   linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
   locationObject, price, dotSubType,
   embedlyObj, FBdataObj,
@@ -126,7 +46,8 @@ function DotFactory(
     this.multipleEventsNote = multipleEventsNote;
 }
 
-function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
+
+function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   let linkUrl, title, description, price, priceMax, currency, dotSubType, redirectAfterCreateSlug;
   if (parentDotId === Meteor.user().profile.profileDotId){
     redirectAfterCreateSlug = Meteor.user().profile.userSlug;
@@ -261,7 +182,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
         //console.log("updateDot result >>>  " + result);
 
 
-        //Meteor.call('addOrEditObjectInAlgolia', result, false);
+        Meteor.call('addOrEditObjectInAlgolia', editedDot.dotSlug, false);
         //analytics.track("Dot Edited", {
         //  isDotWithOutLocation: Session.equals("locationObject", undefined),
         //  dotType: dotSubType
@@ -279,7 +200,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
 
       //TODO CHANGE SESSION TO LOCATION OBJECT WE HAVE IT AS VARIABLE SAME WITH FBPOSTAUTHOUR DATA DONT USE SESSIONS HERE PASS AS VARIABLE @zur
       /*
-       DotFactory(
+       _DotFactory(
        linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
        locationObject, price, dotSubType,
        embedlyObj, FBdataObj,
@@ -288,7 +209,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
 
 
 
-      let dot = new DotFactory (
+      let dot = new _DotFactory (
         linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
         Session.get('locationObject'),
         price,
@@ -314,12 +235,7 @@ function _handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
         }
       })
   }
-
 }
 
-Modules.client.handleCreateSubmit = _handleCreateSubmit;
-Modules.client.createDotChangeTab = _createDotChangeTab;
-Modules.client.updateCreateDotFields= _updateCreateDotFields;
-Modules.client.createDotLoading = _createDotLoading;
-Modules.client.createDotFinishedLoading = _createDotFinishedLoading;
-Modules.client.createDotClearForm = _createDotClearForm;
+
+Modules.client.handleCreateSubmit = handleCreateSubmit;

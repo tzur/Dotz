@@ -7,9 +7,15 @@
                 <div class="file container-fluid">
                     <div class="row">
 
-                      {{#if isImageUrl}}
-                            <div class="dot-img-create-dot pull-left" style="background-image: url('{{imagePreviewUrl}}')"></div>
-                      {{/if}}
+                          {{#if spinnerImgUploadedOn}}
+                              <div class="dot-img-create-dot pull-left">
+                                <span class="spinner"><i class="fa fa-spinner fa-spin-custom"></i></span>
+                              </div>
+                          {{else}}
+                            {{#if imagePreviewUrl}}
+                                <div class="dot-img-create-dot pull-left" style="background-image: url('{{imagePreviewUrl}}')"></div>
+                            {{/if}}
+                          {{/if}}
 
                         <div id="addDotImageWraper" class="col-xs-2">
                             <i class="fa greyText fa-camera fa-2x btn-file">

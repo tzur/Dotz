@@ -6,7 +6,7 @@ Meteor.methods({
     check(isUser, Boolean);
 
     if (process.env.NODE_ENV === "production") {
-        console.log("I am in (Algolia check): " + process.env.NODE_ENV);
+        //console.log("I am in (Algolia check): " + process.env.NODE_ENV);
         let array;
         let docIndex;
         var client = AlgoliaSearch("WB8PQ4YYUT", "d1d8771f079e6676097bded60b6c8355");

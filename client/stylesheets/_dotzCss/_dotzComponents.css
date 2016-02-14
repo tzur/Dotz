@@ -85,7 +85,7 @@ span a:hover {
 
 .spinner {
   display: inline-block;
-  opacity: 0;
+  /*opacity: 0;*/
   max-width: 0;
 
   -webkit-transition: opacity 0.25s, max-width 0.45s;
