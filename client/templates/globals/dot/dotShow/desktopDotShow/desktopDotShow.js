@@ -217,7 +217,9 @@ Template.desktopDotShow.helpers({
   },
 
   thereIsNoConnectionsToThisDot: function() {
-    return (this.dot.connectedDotzArray.length === 0)
+    if (this.dot.connectedDotzArray) {
+      return (this.dot.connectedDotzArray.length === 0)
+    }
   },
 
   isMyDot: function() {

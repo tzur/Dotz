@@ -22,14 +22,13 @@ let editDot_settings = ( dot ) => {
         title: dot.title,
         description: dot.bodyText,
         img: dot.coverImageUrl,
-        //linkName: dot.linkName,
         linkUrl: dot.linkUrl
+        //linkName: dot.linkName,
         //startDate: dot.startDate,
         //startHour: dot.startDate,
         //ebdDate: dot.startDate,
         //endHour: dot.startDate,
         //multipleEventsNote: dot.multipleEventsNote
-        //  TODO >>> add location, event, and more...
       },
       parentDotId: dot._id
 

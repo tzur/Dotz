@@ -43,15 +43,7 @@ let validation = ( template ) => {
 };
 
 let _handleCreateNewList = ( template ) => {
-  Session.set('spinnerOn', true);
-
-  //let dot11Color = Modules.client.randomColor;
-
-  //Pick random color:
-  let colorsArray = ['darkGreenDot', 'greenDot', 'purpleDot', 'blueDot', 'redDot', 'orangeDot'];
-  let i = Math.floor(Math.random() * 8);
-  let dotColor = colorsArray[i];
-  //console.log("dotcolor: " + dotColor);
+  //Session.set('spinnerOn', true);
 
   //Types & Open:
   let selectedSubType;
@@ -78,15 +70,24 @@ let _handleCreateNewList = ( template ) => {
     redirectAfterCreateSlug = Meteor.user().profile.userSlug
   }
 
+  let showDotzCounter = true;
+  let showDotzCounterField =  template.find( '[name="showDotzCounter"]' );
+  if (showDotzCounterField && (showDotzCounterField.value === "true") ) {
+    showDotzCounter =  true;
+  } else if (showDotzCounterField && (showDotzCounterField.value === "false") ) {
+    showDotzCounter =  false;
+  }
+
   let doc = {
       title: template.find( '[name="listTitle"]' ).value,
       bodyText: template.find( '[name="listDescription"]' ).value,
+      showDotzCounter: showDotzCounter,
       ownerUserId: Meteor.userId(),
       //coverImageUrl: template.find( '[name="password"]' ).value,
       dotType: "List",
       dotSubType: selectedSubType,
       isOpen: openOrClosed,
-      dotColor: dotColor,
+      //dotColor: dotColor,
       coverImageUrl: Session.get('dotCoverImg'),
       inDotz: [parentDotId]
   };
@@ -118,27 +119,31 @@ let _handleCreateNewList = ( template ) => {
 
   //This is create action:
   } else {
-      Meteor.call('createDot', doc, redirectAfterCreateSlug ,function(error,result){
-        if (error){
-          console.log(error);
-        } else {
-          Session.set("parentDot", undefined);
-          Session.set("locationObject", undefined);
-          Session.set('spinnerOn', false);
-          Session.set('dotCoverImg', undefined);
 
-          //listSubType sessions:
-          Session.set('publicList', undefined);
-          Session.set('closedList', undefined);
-          Session.set('secretList', undefined);
+    //Pick random color:
+    doc.dotColor = Modules.client.randomColor();
 
-          Meteor.call('addOrEditObjectInAlgolia', result, false);
-          analytics.track("Dot Created", {
-            isDotWithOutLocation: Session.equals("locationObject", undefined),
-            dotType: undefined
-          });
-        }
-      })
+    Meteor.call('createDot', doc, redirectAfterCreateSlug ,function(error,result){
+      if (error){
+        console.log(error);
+      } else {
+        Session.set("parentDot", undefined);
+        Session.set("locationObject", undefined);
+        Session.set('spinnerOn', false);
+        Session.set('dotCoverImg', undefined);
+
+        //listSubType sessions:
+        Session.set('publicList', undefined);
+        Session.set('closedList', undefined);
+        Session.set('secretList', undefined);
+
+        Meteor.call('addOrEditObjectInAlgolia', result, false);
+        analytics.track("Dot Created", {
+          isDotWithOutLocation: Session.equals("locationObject", undefined),
+          dotType: undefined
+        });
+      }
+    })
   }
 };
 
