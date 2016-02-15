@@ -1,5 +1,6 @@
 #desktopDotCard-box-inDotShow {
-  padding: 0vh 0;
+  padding: 0vh 0 3.5vh 0;
+  border-left: 1px #e5e5e5 solid;
   /*margin-left: 1vw;*/
   /* margin-bottom: 3vh; */
   /* overflow-x: hidden; */
@@ -70,9 +71,9 @@
 
 
 .desktopDotCard-inDotShow {
-  border-left: 1px #e5e5e5 solid;
+  /*border-left: 1px #e5e5e5 solid;*/
   padding-top: 1.5vh;
-  padding-bottom: 5vh;
+  padding-bottom: 1.5vh;
 }
 
 .desktopDotCard-inListShow {
