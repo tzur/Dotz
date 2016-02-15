@@ -215,6 +215,9 @@ Template.desktopDotCard.helpers({
   },
 
   dotzNum: function() {
+    if (this.dot.showDotzCounter === false) {
+      return false;
+    }
     let connectedDotz = 0;
     if (this.dot && this.dot.connectedDotzArray) {
       connectedDotz = this.dot.connectedDotzArray.length;

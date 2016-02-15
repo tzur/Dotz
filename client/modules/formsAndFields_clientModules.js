@@ -70,12 +70,13 @@ function updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour){
         Session.set('closedList', "Closed");
       }
 
-      if (dotToEdit.showDotzCounter) {
-        console.log("dotToEdit.showDotzCounter" + dotToEdit.showDotzCounter)
-        $('#showDotzCounter').val(dotToEdit.showDotzCounter);
-      }
-
-  //  TODO >>> add solution for hide/show dotz counter
+      //  TODO >>> add solution to bring the hide/show dotz counter
+      //console.log("dotToEdit.showDotzCounter is:" + dotToEdit.showDotzCounter)
+      //if (dotToEdit.showDotzCounter) {
+      //  $('#showDotzCounter').val("Show");
+      //} else { //dotToEdit.showDotzCounter === false
+      //  $('#showDotzCounter').val("Hide");
+      //}
 
   } else {
       //Dot only:
