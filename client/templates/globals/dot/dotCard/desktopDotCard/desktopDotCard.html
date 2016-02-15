@@ -15,7 +15,9 @@
               </div>
 
               <div id="theConnectReason" class="col-xs-11 pull-left">
-                  <p>#{{smartRef.connection.personalDescription}} <strong>:</strong></p>
+                  {{#if smartRef.connection.personalDescription}}
+                      <p>#{{smartRef.connection.personalDescription}} <strong>:</strong></p>
+                  {{/if}}
               </div>
 
           </div>

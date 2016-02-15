@@ -7,7 +7,7 @@ Template.createNewList_form.onRendered( () => {
     template: Template.instance()
   });
 
-  let dotToEdit = Session.get('editAction_list');
+  let dotToEdit = Session.get('editAction_docToEdit');
   if (dotToEdit) {
     Modules.client.createDotLoading(); //Start to loading.
     Modules.client.updateCreateDotFields(
@@ -37,37 +37,30 @@ Template.createNewList_form.onDestroyed(function(){
 Template.createNewList_form.helpers({
 
   publicSelectedClass: function() {
-
-    if ( Session.get('publicList') ) {
-      return "selectedPrivacyBtn";
-    }
-
+    if (Session.get('publicList')) {return "selectedPrivacyBtn";}
   },
 
   closedSelectedClass: function() {
-    if ( Session.get('closedList') ) {
-      return "selectedPrivacyBtn";
-    }
+    if (Session.get('closedList')) {return "selectedPrivacyBtn";}
   },
 
   secretSelectedClass: function() {
-    if ( Session.get('secretList') ) {
-      return "selectedPrivacyBtn";
-    }
+    if (Session.get('secretList')) {return "selectedPrivacyBtn";}
+  },
+
+  editAction_list: function() {
+    if (Session.get('editAction_list')) {return true;}
   }
-
-
 
 });
 
-Template.createNewList_form.events({
 
+Template.createNewList_form.events({
 
   'submit form': (e) => {
   //Prevent form from submitting.
   e.preventDefault()
   },
-
 
   'click #_publicList': function() {
     _clearSessions();

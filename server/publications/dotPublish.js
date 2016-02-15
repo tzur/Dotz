@@ -75,10 +75,13 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
         "location.name": 1,
         "location.address": 1,
         "location.googleMapsUrl": 1,
-        "startDateAndHour": 1, //TBD
-        //"startDate": 1,
+        "startDateAndHour": 1,
+        "endRepeatedDate": 1,
+        "repeated": 1,
+        "multipleEventsNote": 1,
         "price": 1,
         "currency": 1,
+        "showDotzCounter": 1,
         "inDotz": 1, //TBD
         "connectedDotzArray": 1} //TBD
       }),
@@ -119,8 +122,19 @@ Meteor.publish('profileDotCard', function(dotId, ownerUserId, connectedByUserId)
         "linkUrl": 1,
         "linkName": 1,
         "category": 1,
+        "totalUpvotes": 1,
+        "location.name": 1,
+        "location.address": 1,
+        "location.googleMapsUrl": 1,
+        "startDateAndHour": 1,
+        "endRepeatedDate": 1,
+        "repeated": 1,
+        "multipleEventsNote": 1,
+        "price": 1,
+        "currency": 1,
         //"inDotz": 1, //TBD
-        "connectedDotzArray": 1} //TBD
+        //"connectedDotzArray": 1, //TBD
+        "showDotzCounter": 1}
       }),
     Meteor.users.find({_id: { $in: [ownerUserId,connectedByUserId] }}, //TBD..
       {fields: {

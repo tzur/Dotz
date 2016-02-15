@@ -20,7 +20,7 @@ Template.searchForConnectAddPersonalDescriptionModal.events({
     let parentDot = this.data.parentDot;
 
     //tbd:
-    console.log("this.data.parentDot title is " + parentDot.title);
+    //console.log("this.data.parentDot title is " + parentDot.title);
 
     let personalDescription = $('#personalDescription').val();
     let smartRef = new Modules.both.Dotz.smartRef(currentDot._id, currentDot.ownerUserId,

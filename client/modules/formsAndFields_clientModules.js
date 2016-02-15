@@ -70,17 +70,26 @@ function updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour){
         Session.set('closedList', "Closed");
       }
 
-  //Dot only:
+      if (dotToEdit.showDotzCounter) {
+        console.log("dotToEdit.showDotzCounter" + dotToEdit.showDotzCounter)
+        $('#showDotzCounter').val(dotToEdit.showDotzCounter);
+      }
+
+  //  TODO >>> add solution for hide/show dotz counter
+
   } else {
+      //Dot only:
       if (linkUrl){
         //$('#url').val(linkUrl).load();
         //$('#url').val(linkUrl).trigger('loading');
         $('#url').val(linkUrl).trigger('click');
       }
+
       //more details section:
       if (id) {
         let dot = Dotz.findOne(id);
         //convert by moment:
+
         if (dot.startDateAndHour) {
           let startDate = moment(dot.startDateAndHour).format('DD MMMM YYYY');
           let startHour = moment(dot.startDateAndHour).format('hh:mm A');
@@ -96,6 +105,13 @@ function updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour){
         if (dot.multipleEventsNote) {
           $('#multipleEventsNote').val(dot.multipleEventsNote);
         }
+
+        //personalDescription:
+        //TBD: add smartRef
+        //if (dot.personalDescription) {
+        //  $('#personalDescription').val(dot.personalDescription);
+        //}
+
       }
   }
 

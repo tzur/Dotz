@@ -10,7 +10,6 @@
         <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-arrow-left"></i></button>
     </div>
 
-        <!--{{#if isListShow}}-->
 
         <div class="container-fluid" id="dotShowHeader-desktopDotShow">
 
@@ -118,9 +117,7 @@
                             {{#if isMyDot}}
 
                                 <li role="separator" class="divider"></li>
-
                                 <li class="_editBtn_list"><a><i class="mdGrey fa fa-pencil"></i>Edit</a></li>
-
                                 <li class="deleteShow"><a href="#"><i class="fa fa-trash-o"></i>Delete</a></li>
 
                             {{/if}}
@@ -134,83 +131,58 @@
                 </div>
 
             </div>
-
-
         </div>
 
 
 
-        <a name="connectedDotz"></a>
-
-    {{#if thereIsNoConnectionsToThisDot}}
-
-      {{else}}
+        <!--<a name="connectedDotz"></a>-->
 
         <div id="connectedDotzArray-desktopListShow">
-
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-md-9 col-lg-7 colCenter">
+                    {{#if thereIsNoConnectionsToThisDot}}
 
-                      {{#each connectedDotzArray}}
-                        {{>dotCard}}
-                      {{/each}}
+                      {{#if isUserAllowToConnect}}
 
+                      {{else}}
+                        <div class="text-center">
+                            <p>Coming soon, stay tuned :)</p>
+                        </div>
+                      {{/if}}
+
+                    {{else}}
+                        {{#each connectedDotzArray}}
+                          {{>dotCard}}
+                        {{/each}}
+                    {{/if}}
                     </div>
                 </div>
             </div><!-- end container-fluid -->
-
         </div>
 
-
-
-
-
-        <!--<div id="connectedDotzArray-list">-->
-            <!--<div class="container-fluid">-->
-              <!--<div class="row">-->
-                  <!--<div class="col-xs-12 col-md-9 col-lg-7 colCenter noPadding">-->
-
-                      <!--{{>lastDotdesktopDotCard}}-->
-
-                        <!--<br>-->
-                        <!--<br>-->
-                        <!--<br>-->
-
-                  <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-
-
-    {{/if}}
-
-
-
-            <!--{{/if}}-->
 
 
 {{#if isUserAllowToConnect}}
 
-<div class="container-fluid" id="dotShowFooter-inListShow">
-  <div class="row">
+  <div class="container-fluid" id="dotShowFooter-inListShow">
+    <div class="row">
 
-      <div id="lastCard-desktopDotShow" class="col-xs-12 col-md-9 col-lg-7 colCenter noPadding">
-          <div id="desktopDotCard-lastDot" class="container-fluid">
-              <div id="desktopDotCard-lastDot-col-connectLine-inListShow"></div>
+        <div id="lastCard-desktopDotShow" class="col-xs-12 col-md-9 col-lg-7 colCenter noPadding">
+            <div id="desktopDotCard-lastDot" class="container-fluid">
+                <div id="desktopDotCard-lastDot-col-connectLine-inListShow"></div>
 
-            {{# if addDotIsAvailable}}
-              {{#with dataForCreateHere}}
-                {{>lastDotWithSearchBox}}
-              {{/with}}
-            {{/if}}
+              {{# if addDotIsAvailable}}
+                {{#with dataForCreateHere}}
+                  {{>lastDotWithSearchBox}}
+                {{/with}}
+              {{/if}}
 
-          </div>
-      </div>
+            </div>
+        </div>
 
+    </div>
   </div>
-</div>
 
 {{/if}}
 

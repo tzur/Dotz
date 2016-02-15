@@ -44,7 +44,7 @@ function _DotFactory(
     this.startDateAndHour = startDateAndHour;
     this.endDateAndHour = endDateAndHour;
     this.multipleEventsNote = multipleEventsNote;
-}
+  }
 
 
 function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
@@ -56,11 +56,14 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   }
 
   linkUrl = $('#url').val();
+  if (linkUrl === ""){
+    linkUrl = undefined
+  }
 
   //TODO: add a systematic solution.. @otni
-  if (linkUrl === undefined){
-    linkUrl = $('#webAddress').val();
-  }
+  //if (linkUrl === undefined){
+  //  linkUrl = $('#webAddress').val();
+  //}
 
   title = $('#title').val();
   description = $('#description').val();
@@ -94,6 +97,12 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
     endDateAndHour = new Date(endDateAndHour);
   }
 
+  //connectionReason (personalDescription...)
+  let personalDescription = $('#personalDescription').val();
+  //if (personalDescription === ""){
+  //  personalDescription = "@" + Meteor.user().username;
+  //}
+
 
   //dotSubType:
   if (Session.get('link')){
@@ -112,6 +121,10 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
     dotSubType = 'Link'; // it is default to be link.
   }
 
+
+
+
+  //Check IF edit OR create action:
 
   //TODO: this if-else help us to separate between create/edit actions >> TBD... @otni
   if ( Session.get('editAction_dot') ) {
@@ -160,7 +173,6 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       location: location,
 
       //event:
-
       multipleEventsNote: multipleEventsNote,
       startDateAndHour: startDateAndHour,
       endDateAndHour: endDateAndHour
@@ -190,24 +202,15 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       }
     });
 
-  //  This is create action:
+
+
+  //  This is the create-action section...:
   } else {
 
       //Pick random color:
-      let colorsArray = ['darkGreenDot', 'greenDot', 'purpleDot', 'blueDot', 'redDot', 'orangeDot'];
-      let i = Math.floor(Math.random() * 8);
-      let dotColor = colorsArray[i];
+      let dotColor = Modules.client.randomColor();
 
-      //TODO CHANGE SESSION TO LOCATION OBJECT WE HAVE IT AS VARIABLE SAME WITH FBPOSTAUTHOUR DATA DONT USE SESSIONS HERE PASS AS VARIABLE @zur
-      /*
-       _DotFactory(
-       linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
-       locationObject, price, dotSubType,
-       embedlyObj, FBdataObj,
-       startDateAndHour, endDateAndHour, multipleEventsNote)
-       */
-
-
+    //TODO CHANGE SESSION TO LOCATION OBJECT WE HAVE IT AS VARIABLE SAME WITH FBPOSTAUTHOUR DATA DONT USE SESSIONS HERE PASS AS VARIABLE @zur
 
       let dot = new _DotFactory (
         linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
@@ -220,7 +223,7 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       );
 
       //Go create:
-      Meteor.call('createDot', dot, redirectAfterCreateSlug ,function(error,result){
+      Meteor.call('createDot', dot, redirectAfterCreateSlug, personalDescription ,function(error,result){
         if (error){
           console.log(error)
         } else {
