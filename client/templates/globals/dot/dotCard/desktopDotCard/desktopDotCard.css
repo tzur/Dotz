@@ -303,6 +303,12 @@
 
 }
 
+.dotCardIcons-desktopDotShow {
+  width: 20px;
+  text-align: center;
+  margin-right: 10px;
+}
+
 /*#desktopDotCard-overlayer {*/
   /*position: absolute;*/
   /*top: 0;*/

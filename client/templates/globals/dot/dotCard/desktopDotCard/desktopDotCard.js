@@ -155,20 +155,26 @@ Template.desktopDotCard.helpers({
   },
 
   eventDate: function(){
-    if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
-      return ("Multiple Events (" + moment(this.dot.startRepeatedDate).format('ddd DD MMM')
-      + " - " + moment(this.dot.endRepeatedDate).format('ddd DD MMM') + ")");
+    //if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
+    //  return ("Multiple Events (" + moment(this.dot.startRepeatedDate).format('ddd DD MMM')
+    //  + " - " + moment(this.dot.endRepeatedDate).format('ddd DD MMM') + ")");
+    //}
+    //else if (this.dot && this.dot.multipleEventsNote ) {
+    //  return ("Multiple Events (" + this.dot.multipleEventsNote + ")");
+    //}
+    //else if ( this.dot && this.dot.endRepeatedDate ) {
+    //  return ("Multiple Events (until " + moment(this.dot.endRepeatedDate).format('ddd DD MMM') + ")");
+    //}
+    //else if ( this.dot && this.dot.startRepeatedDate ) {
+    //  return ("Multiple Events (from " + moment(this.dot.startRepeatedDate).format('ddd DD MMM') + ")");
+    //}
+    //else if (this.dot && this.dot.startDateAndHour) {
+    //  return ( moment(this.dot.startDateAndHour).format('ddd DD MMMM, h:mm A') );
+    //}
+    if (this.dot && this.dot.multipleEventsNote ) {
+      return ("Multiple Events (" + moment(this.dot.startDateAndHour).format('DD MMM') + " - " + moment(this.dot.endDateAndHour).format('DD MMM') + ")");
     }
-    else if (this.dot && this.dot.multipleEventsNote ) {
-      return ("Multiple Events (" + this.dot.multipleEventsNote + ")");
-    }
-    else if ( this.dot && this.dot.endRepeatedDate ) {
-      return ("Multiple Events (until " + moment(this.dot.endRepeatedDate).format('ddd DD MMM') + ")");
-    }
-    else if ( this.dot && this.dot.startRepeatedDate ) {
-      return ("Multiple Events (from " + moment(this.dot.startRepeatedDate).format('ddd DD MMM') + ")");
-    }
-    else if (this.dot && this.dot.startDateAndHour) {
+    else if ( this.dot && this.dot.startDateAndHour ) {
       return ( moment(this.dot.startDateAndHour).format('ddd DD MMMM, h:mm A') );
     }
   },
