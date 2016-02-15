@@ -239,27 +239,38 @@ Template.desktopDotShow.helpers({
 
 
   eventDate: function(){
-    if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
-      let textForMultipleEvents;
-      if (this.dot.multipleEventsNote) {
-        textForMultipleEvents = "Multiple Events: " + this.dot.multipleEventsNote;
-      } else {
-        textForMultipleEvents = "Multiple Events";
-      }
-      return (textForMultipleEvents + " (" + moment(this.dot.startRepeatedDate).format('dddd DD MMM')
-      + " - " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
+    //if ( this.dot && this.dot.startRepeatedDate && this.dot.endRepeatedDate ) {
+    //  let textForMultipleEvents;
+    //  if (this.dot.multipleEventsNote) {
+    //    textForMultipleEvents = "Multiple Events: " + this.dot.multipleEventsNote;
+    //  } else {
+    //    textForMultipleEvents = "Multiple Events";
+    //  }
+    //  return (textForMultipleEvents + " (" + moment(this.dot.startRepeatedDate).format('dddd DD MMM')
+    //  + " - " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
+    //}
+    //else if (this.dot && this.dot.multipleEventsNote ) {
+    //  return ("Multiple Events (" + this.dot.multipleEventsNote + ")");
+    //}
+    //else if ( this.dot && this.dot.endRepeatedDate ) {
+    //  return ("Multiple Events (until " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
+    //}
+    //else if ( this.dot && this.dot.startRepeatedDate ) {
+    //  return ("Multiple Events (from " + moment(this.dot.startRepeatedDate).format('dddd DD MMM') + ")");
+    //}
+    //else if (this.dot && this.dot.startDateAndHour) {
+    //  return ( moment(this.dot.startDateAndHour).format('DD MMMM, hh:mm A') );
+    //}
+    if (this.dot && this.dot.multipleEventsNote ) {
+      return (
+        "Multiple Events (" +
+        moment(this.dot.startDateAndHour).format('DD MMM') +
+        " - " + moment(this.dot.endDateAndHour).format('DD MMM') +
+        " , " + this.dot.multipleEventsNote + ")"
+      );
     }
-    else if (this.dot && this.dot.multipleEventsNote ) {
-      return ("Multiple Events (" + this.dot.multipleEventsNote + ")");
-    }
-    else if ( this.dot && this.dot.endRepeatedDate ) {
-      return ("Multiple Events (until " + moment(this.dot.endRepeatedDate).format('dddd DD MMM') + ")");
-    }
-    else if ( this.dot && this.dot.startRepeatedDate ) {
-      return ("Multiple Events (from " + moment(this.dot.startRepeatedDate).format('dddd DD MMM') + ")");
-    }
-    else if (this.dot && this.dot.startDateAndHour) {
-      return ( moment(this.dot.startDateAndHour).format('DD MMMM, hh:mm A') );
+    else if ( this.dot && this.dot.startDateAndHour ) {
+      return ( moment(this.dot.startDateAndHour).format('ddd DD MMMM, h:mm A') );
     }
   },
 
