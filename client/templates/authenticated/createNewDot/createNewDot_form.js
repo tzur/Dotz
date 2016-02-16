@@ -43,7 +43,7 @@ Template.createNewDot.onRendered(function(){
   }
   //Embedly + facebook integration for links:
 
-  //prevent send by enter:
+  //prevent send by enter (exclude the textarea):
   Modules.client.preventEnterByElementId('#createDotForm');
 
 });

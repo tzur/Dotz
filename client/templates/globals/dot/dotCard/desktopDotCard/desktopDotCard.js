@@ -171,8 +171,11 @@ Template.desktopDotCard.helpers({
     //else if (this.dot && this.dot.startDateAndHour) {
     //  return ( moment(this.dot.startDateAndHour).format('ddd DD MMMM, h:mm A') );
     //}
-    if (this.dot && this.dot.multipleEventsNote ) {
+    if (this.dot && this.dot.multipleEventsNote && this.dot.startDateAndHour && this.dot.endDateAndHour ) {
       return ("Multiple Events (" + moment(this.dot.startDateAndHour).format('DD MMM') + " - " + moment(this.dot.endDateAndHour).format('DD MMM') + ")");
+    }
+    else if (this.dot && this.dot.multipleEventsNote ) {
+      return ("Multiple Events (" + this.dot.multipleEventsNote + ")");
     }
     else if ( this.dot && this.dot.startDateAndHour ) {
       return ( moment(this.dot.startDateAndHour).format('ddd DD MMMM, h:mm A') );

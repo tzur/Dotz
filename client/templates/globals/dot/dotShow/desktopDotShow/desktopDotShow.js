@@ -261,13 +261,16 @@ Template.desktopDotShow.helpers({
     //else if (this.dot && this.dot.startDateAndHour) {
     //  return ( moment(this.dot.startDateAndHour).format('DD MMMM, hh:mm A') );
     //}
-    if (this.dot && this.dot.multipleEventsNote ) {
+    if (this.dot && this.dot.multipleEventsNote && this.dot.startDateAndHour && this.dot.endDateAndHour ) {
       return (
         "Multiple Events (" +
         moment(this.dot.startDateAndHour).format('DD MMM') +
         " - " + moment(this.dot.endDateAndHour).format('DD MMM') +
         " , " + this.dot.multipleEventsNote + ")"
       );
+    }
+    else if (this.dot && this.dot.multipleEventsNote && this.dot.multipleEventsNote.length > 2 ) {
+      return ("Multiple Events (" + this.dot.multipleEventsNote + ")");
     }
     else if ( this.dot && this.dot.startDateAndHour ) {
       return ( moment(this.dot.startDateAndHour).format('ddd DD MMMM, h:mm A') );

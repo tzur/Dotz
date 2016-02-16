@@ -5,6 +5,7 @@ Template.dateComponent.onRendered(function() {
 
   this.$('#datetimepicker-startday').datetimepicker({
       useCurrent: false, //Important! See issue #1075
+      default: false,
       format: 'DD MMMM YYYY',
       pickTime: false,
       autoclose: true
@@ -19,6 +20,7 @@ Template.dateComponent.onRendered(function() {
 
   this.$('#datetimepicker-endday').datetimepicker({
     useCurrent: false, //Important! See issue #1075
+    default: false,
     format: 'DD MMMM YYYY',
     pickTime: false,
     autoclose: true

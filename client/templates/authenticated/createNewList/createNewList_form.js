@@ -20,6 +20,9 @@ Template.createNewList_form.onRendered( () => {
     Session.set('publicList', "Public");
   }
 
+  //prevent send by enter (exclude the textarea):
+  Modules.client.preventEnterByElementId('#createNewList');
+
 });
 
 

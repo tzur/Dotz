@@ -32,9 +32,9 @@
 
 /*header*/
 #header-createNewDot {
-  height: 23vh;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  /*height: 17vh;*/
+  /*border-top-left-radius: 4px;*/
+  /*border-top-right-radius: 4px;*/
 }
 
 /* The Nav Bar: */
@@ -60,7 +60,8 @@
 }
 
 #navBarButtons-createNewDot2 {
-  margin-top: 3vh;
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
   padding-top: 1vh;
 }
 
