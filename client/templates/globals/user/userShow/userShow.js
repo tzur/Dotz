@@ -120,22 +120,24 @@ Template.userShow.helpers({
 
   dotNumCounter:  function(){
     let thisUserConnections = UserConnections.findOne({userId: this._id});
-    if (thisUserConnections) {
-      return thisUserConnections.createdByUserDotz.length;
+    let createdByUserLists = this.profile.createdByUserLists;
+    if (thisUserConnections && createdByUserLists) {
+      return createdByUserLists.length + thisUserConnections.createdByUserDotz.length;
     }
   },
 
   connectionsCounter:  function(){
     if (this.profile) {
         let userConnectionsCounters = UserConnections.findOne({userId: this._id});
-        if(userConnectionsCounters) {
+        if(userConnectionsCounters && userConnectionsCounters.peopleConnectedMyDotz && userConnectionsCounters.createdByUserDotz) {
             let userConnectivity =
-              userConnectionsCounters.peopleLikedMyConnections.length +
-              userConnectionsCounters.peopleConnectedMyDotz.length +
-              userConnectionsCounters.peopleLikedMyDotz.length;
+              //userConnectionsCounters.peopleLikedMyConnections.length +
+              userConnectionsCounters.peopleConnectedMyDotz.length
+              //+ userConnectionsCounters.peopleLikedMyDotz.length
+              ;
             let userConnection =
-              userConnectionsCounters.connectionsMadeByUser.length +
-              userConnectionsCounters.likesMadeByUser.length +
+              //userConnectionsCounters.connectionsMadeByUser.length +
+              //userConnectionsCounters.likesMadeByUser.length +
               userConnectionsCounters.createdByUserDotz.length +
               this.profile.createdByUserLists.length;
             return ((userConnectivity * 2) + userConnection)
