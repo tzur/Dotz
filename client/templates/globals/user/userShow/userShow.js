@@ -14,6 +14,7 @@ Template.userShow.onCreated(function() {
   self.autorun(function() {
     FlowRouter.watchPathChange();
     let userSlug = FlowRouter.getParam('userSlug');
+    console.log("$$$$$$$$ userSlug " + userSlug);
     if (userSlug){
       self.subs.subscribe('userByUserSlug', userSlug, function(){
         let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
@@ -22,8 +23,8 @@ Template.userShow.onCreated(function() {
           //Back to the previews page:
           setTimeout(function(){ window.history.back(); }, 2000);
           //FlowRouter.go('/');
-        }
-        else if (user) {
+        } else if (user) {
+          console.log("$$$$$$$$ user.username " + user.username);
           var title = "Dotz: " + user.username;
           DocHead.setTitle(title);
           let userPageInfo = "User show: " + user.username;
@@ -86,7 +87,7 @@ Template.userShow.helpers({
     FlowRouter.watchPathChange();
 
     let user = Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
-    if (user){
+    if (user && user.profile && user.profile.profileDotId){
       return user;
     }
   },

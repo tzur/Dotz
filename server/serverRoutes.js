@@ -19,7 +19,7 @@ seoPicker.route('/:userSlug/:dotType/:dotSlug', function(params, req, res){
   console.log("im heree SSR render DOT");
   console.log(fullSlug);
   var dot = Dotz.findOne({"dotSlug": fullSlug});
-  console.log(dot.title);
+  //console.log(dot.title);
   var html = SSR.render('seoLayout',{
     template:'seoDotShow',
     data: {dot: dot}
