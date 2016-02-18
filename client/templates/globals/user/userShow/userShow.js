@@ -86,10 +86,10 @@ Template.userShow.helpers({
   dataUser: function() {
     FlowRouter.watchPathChange();
 
-    let user = Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
-    if (user && user.profile && user.profile.profileDotId){
-      return user;
-    }
+    return Meteor.users.findOne( {"profile.userSlug": FlowRouter.getParam('userSlug')} );
+    //if (user && user.profile && user.profile.profileDotId){
+    //  return user;
+    //}
   },
 
   myProfileIsEmpty: function() {
