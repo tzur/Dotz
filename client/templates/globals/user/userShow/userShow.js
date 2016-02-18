@@ -92,7 +92,10 @@ Template.userShow.helpers({
   },
 
   myProfileIsEmpty: function() {
-    let profileDot = Dotz.findOne(this.profile.profileDotId);
+    let profileDot;
+    if (this.profile) {
+      profileDot = Dotz.findOne(this.profile.profileDotId);
+    }
     if (profileDot){
       //"this" is the user:
       return ( (Meteor.userId() === this._id) && (profileDot.connectedDotzArray.length === 0) )
