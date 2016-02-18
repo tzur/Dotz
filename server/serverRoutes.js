@@ -1,5 +1,5 @@
 
-// LINK TO MUHAMAD CONFIGURE FILE :https://forums.meteor.com/t/facebook-share-setup/12980
+//TODO >>> LINK TO MUHAMAD CONFIGURE FILE : https://forums.meteor.com/t/facebook-share-setup/12980
 
 var seoPicker = Picker.filter(function(req, res) {
   var isCrawler = [];
@@ -14,8 +14,8 @@ var seoPicker = Picker.filter(function(req, res) {
   return isCrawler.indexOf(true) >= 0;
 });
  //Indexing user pages
-seoPicker.route('/:userSlug/:dotType/:dotSlug', function(params, req, res){
-  var fullSlug = params.userSlug +'/' + params.dotType + '/' + params.dotSlug;
+seoPicker.route('/:userSlug/:dotType/:dotId/:dotSlug', function(params, req, res){
+  var fullSlug = params.userSlug +'/' + params.dotType + '/' + params.dotId + '/' + params.dotSlug;
   console.log("im heree SSR render DOT");
   console.log(fullSlug);
   var dot = Dotz.findOne({"dotSlug": fullSlug});
