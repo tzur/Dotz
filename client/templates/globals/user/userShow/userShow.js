@@ -127,7 +127,7 @@ Template.userShow.helpers({
   },
 
   connectionsCounter:  function(){
-    if (this.profile) {
+    if (this.profile && this.profile.createdByUserLists) {
         let userConnectionsCounters = UserConnections.findOne({userId: this._id});
         if(userConnectionsCounters && userConnectionsCounters.peopleConnectedMyDotz && userConnectionsCounters.createdByUserDotz) {
             let userConnectivity =
