@@ -124,8 +124,12 @@ Template.userShow.helpers({
   dotNumCounter:  function(){
     let thisUserConnections = UserConnections.findOne({userId: this._id});
     let createdByUserLists = this.profile.createdByUserLists;
+    let dotNumCounter;
     if (thisUserConnections && createdByUserLists) {
-      return createdByUserLists.length + thisUserConnections.createdByUserDotz.length;
+      dotNumCounter = createdByUserLists.length + thisUserConnections.createdByUserDotz.length;
+      if (dotNumCounter > 0) {
+        return dotNumCounter;
+      }
     }
   },
 
@@ -143,7 +147,9 @@ Template.userShow.helpers({
               //userConnectionsCounters.likesMadeByUser.length +
               userConnectionsCounters.createdByUserDotz.length +
               this.profile.createdByUserLists.length;
-            return ((userConnectivity * 2) + userConnection)
+            if (userConnection > 0) {
+              return ((userConnectivity * 2) + userConnection)
+            }
       }
     }
   },

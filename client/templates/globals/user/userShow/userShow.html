@@ -40,11 +40,15 @@
               <!--The counters & the social icons -->
                 <div id="counters-desktopDotShow" class="row colCenter txtCenter">
 
-                    <span class=""><strong>{{dotNumCounter}}</strong> Dotz</span>
-                    <span class="spacer"> · </span>
-                    <span class=""><strong>{{connectionsCounter}}</strong> Connections</span>
+                    {{#if dotNumCounter}}
+                        <span class=""><strong>{{dotNumCounter}}</strong> Dotz</span>
+                    {{/if}}
+                    {{#if connectionsCounter}}
+                        <span class="spacer"> · </span>
+                        <span class=""><strong>{{connectionsCounter}}</strong> Connections</span>
+                    {{/if}}
 
-                        <span class="iconsLinksEtc">
+                    <span class="iconsLinksEtc">
                         <ul>
 
                             <!--Web & Social-->
