@@ -6,8 +6,8 @@
 }
 
 .btn-Person {
-  color: #fff;
-  background-color: #337ab7;
+  color: #2e6da4;
+  background-color: transparent;
   border-color: #2e6da4;
 }
 
@@ -37,8 +37,8 @@
 }
 
 .btn-Media {
-  color: #fff;
-  background-color: #d9534f;
+  color: #d43f3a;
+  background-color: transparent;
   border-color: #d43f3a;
 }
 
@@ -68,8 +68,8 @@
 }
 
 .btn-Place {
-  color: #fff;
-  background-color: #5cb85c;
+  color: #4cae4c;
+  background-color: transparent;
   border-color: #4cae4c;
 }
 
@@ -99,8 +99,8 @@
 }
 
 .btn-Link {
-  color: #fff;
-  background-color: #5bc0de;
+  color: #46b8da;
+  background-color: transparent;
   border-color: #46b8da;
 }
 
@@ -130,8 +130,8 @@
 }
 
 .btn-Event {
-  color: #fff;
-  background-color: #f0ad4e;
+  color: #eea236;
+  background-color: transparent;
   border-color: #eea236;
 }
 
@@ -161,8 +161,8 @@
 }
 
 .btn-Product {
-  color: #fff;
-  background-color: #9352D9;
+  color: #904CCF;
+  background-color: transparent;
   border-color: #904CCF;
 }
 

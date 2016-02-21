@@ -195,7 +195,7 @@ Template.desktopDotShow.helpers({
   //ActionButton Helpers:
   actionButtonTitle: function() {
     if (this.dot.dotSubType === "Link") {
-      return "Visit";
+      return "Read";
     } else if (this.dot.dotSubType === "Place") {
       return "Navigate";
     } else if (this.dot.dotSubType === "Event") {

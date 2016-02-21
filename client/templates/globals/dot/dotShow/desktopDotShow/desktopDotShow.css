@@ -27,7 +27,7 @@
 
 #desktopDotShow-listCoverImg {
   position: relative;
-  height: 44vh;
+  height: 25vh;
   background-size: cover;
   /*background-repeat: repeat-x;*/
   background-position-y: 50%;
@@ -43,16 +43,35 @@
   right: 0;
 }
 
+#circleDotImg-desktopDotShow {
+  border-radius: 50%;
+  padding: 0;
+  height: 12vh;
+  width: 12vh;
+  background-size: cover;
+  /* background-color: #e5e5e5; */
+  position: relative;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  /* border: #e5e5e5 solid 2px; */
+}
+
 #desktopDotShow-title {
   text-transform: uppercase;
   /*color: #333;*/
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  margin-top: 0vh;
+  /*bottom: 0vh;*/
+  min-height: 20px;
 }
 
 
 #desktopDotShow-descriptionDiv {
-  background-color: #ffffff;
+  /*padding-top: 2vh;*/
+  /*background-color: #ffffff;*/
+}
+
+.locationDatePriceDiv-desktopDotShow {
+  padding-top: 1vh;
 }
 
 .dotCardIcons-desktopDotShow {
@@ -67,6 +86,24 @@
   font-size: 18px;
   font-weight: normal;
   line-height: 25px;
+}
+
+.mediaDivInShowMore-desktopDotShow {
+  /*height: 100%;*/
+  /*width: 100%;*/
+  /*padding: 10px;*/
+}
+
+#imgInShowMore-desktopDotShow {
+  /*border-radius: 50%;*/
+  /*padding: 0;*/
+  /*max-width: 55vw;*/
+  max-height: 35vh;
+  margin-bottom: 3vh;
+  /*width: 100%;*/
+  /*background-size: cover;*/
+  /* background-color: #e5e5e5; */
+  /*position: relative;*/
 }
 
 #desktopDotShow-shortDescription {
@@ -157,7 +194,7 @@
 
 #actionButton-desktopDotShow-dot {
   min-width: 7vw;
-  margin-left: 2vw;
+  margin-left: 1vw;
 }
 
 #desktopDotShow-personalDescriptionDiv {
@@ -216,9 +253,9 @@ border-radius: 50%;
 }
 
 #desktopDotShow-3dots {
-  position: relative;
-  top: 5px;
-  right: 0;
+  /*position: relative;*/
+  /*top: 5px;*/
+  /*right: 0;*/
 }
 
 #desktopDotShow-descriptionFilter {
