@@ -1,0 +1,88 @@
+<template name="mobileDotCard">
+{{#with dataCard}}
+
+<div id="dotCardAndConnectorBox-Mobile" class="container-fluid">
+
+    <!--connector img and connection reason-->
+    <div class="row">
+        <div>
+            <a href="/{{ownerUser.profile.userSlug}}">
+                <img class="connectorProfileImage-Mobile" src="{{ownerUser.profile.profileImage}}">
+            </a>
+
+            <span class="connectorText-Mobile">{{smartRef.connection.personalDescription}}:</span>
+        </div>
+
+
+    </div>
+
+    <!--the connected dot section-->
+    <div class="row">
+        <div class="col-xs-12 left-line-dot-card-box">
+
+            <div id="dotCardBox-Mobile" class="row">
+                <div class="col-xs-3">
+                    <div id="dotCardImg-Mobile" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')"></div>
+                </div>
+                <div id="dotCardText-Mobile" class="col-xs-9">
+                    <h5 id="dotCardShortTitle-Mobile" class="bold break" dir="auto">{{dot.title}}</h5>
+
+                    {{#if dot.linkUrl}}
+                      <h6 class="lightGrey break">{{dot.linkName}}</h6>
+                    {{/if}}
+
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-xs-2 col-xs-offset-1">
+
+                  {{# if isLikedByMe}}
+                      <a class="unlike">
+                          <i class="unlike lightGrey likeBtn fa fa-heart"></i>
+                          <span class="likesCounter sm2Txt bold lightGrey"> {{likeCounter}}</span>
+                      </a>
+
+                  {{else}}
+
+                      <a class="like">
+                          <i class="like lightGrey likeBtn fa fa-heart-o"></i>
+                          <span class="likesCounter sm2Txt lightGrey"> {{likeCounter}}</span>
+                      </a>
+                  {{/if}}
+
+                </div>
+
+                <div class="col-xs-4">
+                    <button id="dotCardConnectButton-Moblie" class="connect btn btn-full-trans btn-xs lightGrey pull-left">
+                        Connect
+                    </button>
+                </div>
+
+                <div class="col-xs-4 noPadding pull-right">
+                    <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                    <!--{{#if dotzNum}}-->
+                      <button class="btn btn-full-trans btn-xs lightGrey pull-right">
+                          Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>
+                      </button>
+                    <!--{{else}}-->
+                        <!--<button class="btn btn-full-trans btn-xs lightGrey pull-right">-->
+                            <!--Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>-->
+                        <!--</button>-->
+                    <!--{{/if}}-->
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+{{/with}}
+</template>
