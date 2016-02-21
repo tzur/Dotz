@@ -2,6 +2,20 @@
   margin: 3vh 0;
 }
 
+#dotCardAndConnectorBox-Desktop:hover #desktopDotCard-editButtonDiv {
+  display: inline-block;}
+
+#desktopDotCard-editButtonDiv {
+  display: none;
+}
+
+#desktopDotCard-editButtonDiv {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #e5e5e5;
+}
+
+
 .left-line-dot-card-box-desktop {
   padding-left: 9px;
   margin-left: 9px;
