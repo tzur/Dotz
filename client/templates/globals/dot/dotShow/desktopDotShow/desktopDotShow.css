@@ -46,8 +46,8 @@
 #circleDotImg-desktopDotShow {
   border-radius: 50%;
   padding: 0;
-  height: 12vh;
-  width: 12vh;
+  height: 18vh;
+  width: 18vh;
   background-size: cover;
   /* background-color: #e5e5e5; */
   position: relative;
@@ -71,7 +71,7 @@
 }
 
 .locationDatePriceDiv-desktopDotShow {
-  padding-top: 1vh;
+  padding-top: 0.7vh;
 }
 
 .dotCardIcons-desktopDotShow {

@@ -300,10 +300,10 @@ Template.desktopDotShow.helpers({
         return false;
       }
       else if (connectedDotz === 1) {
-        return ("1 Dot")
+        return ("1 DOT")
       }
       else if (connectedDotz > 1) {
-        return ( connectedDotz + " Dotz" );
+        return ( connectedDotz + " DOTZ" );
       }
 
   },
