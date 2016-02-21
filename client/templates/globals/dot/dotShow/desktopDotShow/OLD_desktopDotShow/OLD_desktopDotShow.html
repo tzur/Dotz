@@ -1,0 +1,583 @@
+
+<template name="OLD_desktopDotShow">
+
+
+  {{#with dotShow}}
+
+    {{#if isListShow}}   <!--THIS IS LIST SHOW-->
+
+        <div class="backToLastPath">
+            <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-arrow-left"></i></button>
+        </div>
+
+
+        <div class="container-fluid" id="dotShowHeader-desktopDotShow">
+
+            <div id="desktopListShow-listCoverImg" class="row {{dot.dotColor}}-background"
+                 style="background-image: url('{{dot.coverImageUrl}}')">
+
+                <div id="desktopListShow-listShowHeader-filter">
+
+                    <div id="desktopDotShow-titleDiv" class="col-sm-7 colCenter">
+                        <h2 id="desktopDotShow-title" class="whiteTxt text-center container-fluid break" dir="auto">{{dot.title}}</h2>
+                        <h5 id="desktopListShow-description" class="lightGrey text-center break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</h5>
+                    </div>
+
+                  {{#if ownerUser.profile.brandLine}}
+                      <div id="brandLineDiv">
+                          <img id="brandLine" src="{{ownerUser.profile.brandLine}}">
+                          <!--https://dotz-deployment.s3.amazonaws.com/bMTxSjcRwisy6AGcb/TLVglobalBlueLine.png-->
+                      </div>
+                  {{/if}}
+
+                </div>
+            </div><!--end row listCoverImg-->
+
+            <div id="buttonsPanel-desktopListShow" class="row">
+
+                <div class="col-xs-12 col-md-9 col-lg-7 colCenter">
+
+
+
+                    <div id="desktopListShow-middleDiv-origin" class="col-sm-6 pull-left noPadding">
+
+                      {{#if facebookDot}}
+                          <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopListShow-originImgProfile" src="{{authorFbProfile}}"></a>
+                      {{else}}
+                        {{#if dot.linkFavicon}}
+                          {{#if dot.linkName}}
+                              <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopListShow-originImgProfile" src="{{dot.linkFavicon}}"></a>
+                          {{/if}}
+                        {{/if}}
+                      {{/if}}
+
+                        <span>
+
+                          {{#if dot.linkName}}
+
+                            {{#if dot.linkAuthorName}}
+                                <span class="mdGrey userText">By <a href="{{dot.linkUrl}}" target="_blank">{{dot.linkAuthorName}}</a></span>
+                            {{/if}}
+
+                              <span class="mdGrey userText"><a href="{{dot.linkUrl}}" target="_blank">{{dot.linkName}}</a></span>
+
+                          {{else}}
+
+                              <span class="mdGrey userText">
+                                  <a href="/{{ownerUser.profile.userSlug}}">
+                                      <img class="desktopListShow-originImgProfile" src="{{ownerUser.profile.profileImage}}">
+                                  </a>
+                                  <a href="/{{ownerUser.profile.userSlug}}">
+                                    {{ownerUser.username}}
+                                  </a>
+                              </span>
+
+                          {{/if}}
+                        </span>
+
+                    </div>
+
+
+                    <div class="col-sm-6 pull-right noPadding txtR">
+
+
+                        <!--<a href="{{dot.linkUrl}}" target="_blank">-->
+                        <!--<button type="button" class="btn btn-{{dot.subType}} btn-sm"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>-->
+                        <!--</a>-->
+
+
+                        <!--like button-->
+                            <!--{{# if isLikedByMe}}-->
+                        <!--<button type="button" class="unlike btn btn-default btn-sm"><i class="mdGrey fa fa-heart"></i> {{likeCounter}}</button>-->
+                            <!--{{else}}-->
+                        <!--<button type="button" class="like btn btn-default btn-sm"><i class="mdGrey fa fa-heart-o"></i> {{likeCounter}}</button>-->
+                            <!--{{/if}}-->
+
+
+                        <button type="button" class="connect btn btn-default btn-sm mdGrey"><i class="mdGrey fa fa-plus-circle"></i> Connect</button>
+
+
+
+                        <span id="desktopDotShow-3dots" class="dropdown">
+                          <button class="btn btn-full-trans btn-xs mdGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <h4 class="txtVertical bold">...</h4>
+                          </button>
+
+                          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+
+                            {{#if isConnected}}
+                                <li><a class="disConnect no-left-pad"><i class="fa fa-minus-circle"></i>Disconnect from here</a></li>
+                            {{/if}}
+
+                              <li><a class="_shareFacebookDialog no-left-pad"><i class="fa fa-facebook-official"></i>Share</a></li>
+
+                              <!--<li role="separator" class="divider"></li>-->
+                              <!--<li><a href="#" class="no-left-pad"><i class="fa fa-flag-o"></i>Report</a></li>-->
+
+                            {{#if isMyDot}}
+
+                                <li role="separator" class="divider"></li>
+                                <li class="_editBtn_list"><a><i class="mdGrey fa fa-pencil"></i>Edit</a></li>
+                                <li class="deleteShow"><a href="#"><i class="fa fa-trash-o"></i>Delete</a></li>
+
+                            {{/if}}
+
+                          </ul>
+                        </span>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!--<a name="connectedDotz"></a>-->
+
+        <div id="connectedDotzArray-desktopListShow">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-md-9 col-lg-7 colCenter">
+                      {{#if thereIsNoConnectionsToThisDot}}
+
+                        {{#if isUserAllowToConnect}}
+
+                        {{else}}
+                            <div class="text-center">
+                                <p>Coming soon, stay tuned :)</p>
+                            </div>
+                        {{/if}}
+
+                      {{else}}
+                        {{#each connectedDotzArray}}
+                          {{>dotCard}}
+                        {{/each}}
+                      {{/if}}
+                    </div>
+                </div>
+            </div><!-- end container-fluid -->
+        </div>
+
+
+
+      {{#if isUserAllowToConnect}}
+
+          <div class="container-fluid" id="dotShowFooter-inListShow">
+              <div class="row">
+
+                  <div id="lastCard-desktopDotShow" class="col-xs-12 col-md-9 col-lg-7 colCenter noPadding">
+                      <div id="desktopDotCard-lastDot" class="container-fluid">
+                          <div id="desktopDotCard-lastDot-col-connectLine-inListShow"></div>
+
+                        {{# if addDotIsAvailable}}
+                          {{#with dataForCreateHere}}
+                            {{>lastDotWithSearchBox}}
+                          {{/with}}
+                        {{/if}}
+
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+
+      {{/if}}
+
+
+
+
+
+
+
+
+
+        <!--###########################-->
+        <!--###########################-->
+
+        <!--THIS IS the DOT SHOW:-->
+
+        <!--###########################-->
+        <!--###########################-->
+
+
+
+
+    {{else}}
+
+        <div class="backToLastPath">
+            <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-arrow-left"></i></button>
+        </div>
+
+            <!--{{#if isListShow}}-->
+
+        <div class="container-fluid" id="dotShowHeader-desktopDotShow">
+
+            <div id="desktopDotShow-listCoverImg" class="row {{dot.dotColor}}-background"
+                 style="background-image: url('{{dot.coverImageUrl}}')">
+
+                <div id="desktopDotShow-listShowHeader-filter" class="">
+
+
+                    <!--<div id="desktopDotShow-titleDiv" class="row">-->
+                    <!--<div class="col-xs-7 colCenter">-->
+
+                    <!--<div class="col-xs-2 pull-right">-->
+                    <!--&lt;!&ndash;Circle Action Button &ndash;&gt;-->
+                    <!--<a href="{{dot.linkUrl}}" target="_blank">-->
+                    <!--<div id="circleActionButton" class="btn-{{dot.dotSubType}} pull-right">-->
+
+                    <!--<i class="fa {{actionButtonIcon}} fa-lg"></i>-->
+
+                    <!--<p id="actionButtonName" class="text-center">{{actionButtonTitle}}</p>-->
+                    <!--&lt;!&ndash;Navigate?&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--</a>-->
+                    <!--</div>-->
+
+                    <!--</div>-->
+
+                    <!--</div>-->
+
+
+                    <div id="desktopDotShow-titleDiv" class="">
+                        <div class="col-xs-7 colCenter">
+
+                            <!--<div class="col-xs-10 pull-left">-->
+                            <h2 id="desktopDotShow-title" class="darkText container-fluid break" dir="auto">{{dot.title}}</h2>
+                            <!--</div>-->
+
+                        </div>
+
+                    </div>
+
+
+
+
+                    <!--<div id="desktopDotShow-titleDiv" class="col-sm-7 colCenter">-->
+
+                    <!--<div class="col-xs-10">-->
+                    <!--<h2 id="desktopDotShow-title" class="darkText container-fluid break" dir="auto">{{dot.title}}</h2>-->
+                    <!--</div>-->
+
+                    <!--<div class="col-xs-2-">-->
+                    <!--&lt;!&ndash;Circle Action Button &ndash;&gt;-->
+                    <!--<a href="{{dot.linkUrl}}" target="_blank">-->
+                    <!--<div id="circleActionButton" class="btn-{{dot.dotSubType}} pull-right">-->
+
+                    <!--<i class="fa {{actionButtonIcon}} fa-lg"></i>-->
+
+                    <!--<p id="actionButtonName" class="text-center">{{actionButtonTitle}}</p>-->
+                    <!--&lt;!&ndash;Navigate?&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--</a>-->
+                    <!--</div>-->
+
+                    <!--</div>-->
+
+                </div>
+            </div><!--end row CoverImg-->
+
+            <div id="desktopDotShow-middleDiv" class="row">
+
+                <div class="col-xs-12 col-sm-7 colCenter">
+
+
+                    <div id="desktopDotShow-middleDiv-origin" class="col-sm-6 pull-left">
+
+                      {{#if facebookDot}}
+                          <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{authorFbProfile}}"></a>
+                      {{else}}
+                        {{#if dot.linkFavicon}}
+                          {{#if dot.linkName}}
+                              <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{dot.linkFavicon}}"></a>
+                          {{/if}}
+                        {{/if}}
+                      {{/if}}
+
+                        <span>
+
+                          {{#if dot.linkName}}
+
+                            {{#if dot.linkAuthorName}}
+                                <span class="mdGrey userText">By <a href="{{dot.linkUrl}}" target="_blank">{{dot.linkAuthorName}}</a></span>
+                            {{/if}}
+
+                              <span class="mdGrey userText"><a href="{{dot.linkUrl}}" target="_blank">{{dot.linkName}}</a></span>
+
+                          {{else}}
+
+                              <span class="mdGrey userText">
+                                  <a href="/{{ownerUser.userSlug}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
+                                  <a href="/{{ownerUser.userSlug}}" target="_blank">{{ownerUser.username}}</a>
+                              </span>
+
+                          {{/if}}
+                        </span>
+
+                    </div>
+
+                    <!--<div></div>-->
+
+                    <div class="col-sm-6 pull-right txtR">
+
+
+                      {{#if dot.location.googleMapsUrl}}
+                          <a href="{{dot.location.googleMapsUrl}}" target="_blank">
+                              <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-Place btn-md"><i class="fa fa-map-marker"></i> Navigate</button>
+                          </a>
+                      {{/if}}
+
+                      {{#unless DOT_TYPE_IS 'Place' dot.dotSubType}}
+                        {{#if dot.linkUrl}}
+                            <a href="{{dot.linkUrl}}" target="_blank">
+                                <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-md">
+                                    <i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}
+                                </button>
+                            </a>
+                        {{/if}}
+                      {{/unless}}
+
+
+
+                        <!--like button-->
+                            <!--{{# if isLikedByMe}}-->
+                        <!--<button type="button" class="unlike btn btn-default btn-md"><i class="mdGrey fa fa-heart"></i> {{likeCounter}}</button>-->
+                            <!--{{else}}-->
+                        <!--<button type="button" class="like btn btn-default btn-md"><i class="mdGrey fa fa-heart-o"></i> {{likeCounter}}</button>-->
+                            <!--{{/if}}-->
+
+
+
+
+
+                        <span id="desktopDotShow-3dots" class="dropdown">
+                          <button class="btn btn-full-trans btn-xs lightGrey dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <h4 class="txtVertical bold">...</h4>
+                          </button>
+
+                          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+
+                            {{#if isConnected}}
+                                <li><a class="connect no-left-pad"><i class="fa fa-plus-circle"></i>Connect to...</a></li>
+                                <li><a class="disConnect no-left-pad"><i class="fa fa-minus-circle"></i>Disconnect from here</a></li>
+                            {{else}}
+                                <li><a class="connect no-left-pad"><i class="fa fa-plus-circle"></i>Connect to...</a></li>
+                            {{/if}}
+
+                              <li><a class="_shareFacebookDialog no-left-pad"><i class="fa fa-facebook-official"></i>Share</a></li>
+
+                              <!--<li role="separator" class="divider"></li>-->
+                              <!--<li><a href="#" class="_report no-left-pad"><i class="fa fa-flag-o"></i>Report</a></li>-->
+
+                            {{#if isMyDot}}
+
+                                <li role="separator" class="divider"></li>
+
+                                <li class="_editBtn_dot"><a><i class="mdGrey fa fa-pencil"></i>Edit</a></li>
+
+                                <li class="deleteShow"><a href="#"><i class="fa fa-trash-o"></i>Delete</a></li>
+
+                            {{/if}}
+
+                          </ul>
+                        </span>
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="desktopDotShow-descriptionDiv" class="container-fluid">
+                <div class="container-fluid">
+                    <div class="col-sm-7 colCenter">
+
+                        <div class="mdTxt">
+
+                          {{#if eventDate}}
+                              <div>
+                                  <span class="lightGrey"><i class="dotCardIcons-desktopDotShow fa fa-calendar"></i> {{eventDate}} </span>
+                                  <!--TODO get the event date data from the create & edit form @yoav-->
+                              </div>
+                          {{/if}}
+
+                          {{#if dot.location}}
+                              <div>
+                                  <span class="lightGrey"><i class="dotCardIcons-desktopDotShow fa fa-map-marker"></i> {{dot.location.name}} </span>
+                                {{#if dot.location.address}}
+                                    <span class="lightGrey">, &nbsp;{{dot.location.address}}.</span>
+                                {{/if}}
+                              </div>
+                          {{/if}}
+
+                          {{#if dot.price}}
+                              <div>
+                              <span class="lightGrey">
+                                  <span class="lightGrey"><i class="fa dotCardIcons-desktopDotShow"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
+                                {{#if dot.priceMax}} - {{dot.priceMax}} {{/if}}
+                              </span>
+                              </div>
+                          {{/if}}
+
+                        </div>
+
+                      {{#if userClickOnShowMoreButton}}
+
+                          <pre id="desktopDotShow-description" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+
+                      {{else}}
+
+                          <pre id="desktopDotShow-shortDescription-pre" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+
+
+                          <div class="text-center">
+                              <button id="_showMore" class="btn btn-full-trans btn-sm">SHOW MORE</button>
+                          </div>
+
+                          <br><br><br><br>
+
+
+                      {{/if}}
+                        <!--<div id="desktopDotShow-descriptionFilter"></div>-->
+                    </div>
+
+                    <!--TBD-->
+                    <!--dotConnectedByUser template-->
+                        <!--{{#each dot.inDotz}}-->
+                    <!--{{>dotConnectedByUserDesktopDotShow}}-->
+                        <!--{{/each}}-->
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <a name="connectedDotz"></a>
+
+        <div id="placeHolder-desktop"></div>
+
+        <!--No need for a navbar when there are no connections.-->
+
+      {{#if thereIsNoConnectionsToThisDot}}
+
+      {{else}}
+
+          <nav id="fixedFooter-desktopDotShow" class="navbar navbar-default" role="navigation">
+
+              <div class="container-fluid">
+                  <div class="row">
+
+                      <div id="fixedFooterLineDiv-desktopDotShow" class="col-xs-12 col-sm-9 col-md-7 colCenter fixedFooterLine-desktopDotShow">
+                          <!--onScroll add class >> fixedFooterLine-desktopDotShow-->
+
+                          <div class="col-xs-11">
+                            {{#if dotzNum}}
+                                <h4 class="mdTxt mdGrey">{{dotzNum}} Connected</h4>
+                            {{else}}
+                                <span class="lgTxt mdGrey">Let's Connect the 1st dot</span>
+                            {{/if}}
+                          </div>
+
+                          <div id="_takeMeNextButton" class="col-xs-1 noPadding txtR">
+                              <i class="fa fa-arrow-circle-down mdGrey fa-2x"></i>
+                          </div>
+
+                      </div>
+
+                  </div>
+              </div>
+
+          </nav>
+
+      {{/if}}
+
+
+        <div id="connectedDotzArray">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-9 col-md-7 colCenter">
+
+                      {{#each connectedDotzArray}}
+                        {{>dotCard}}
+                      {{/each}}
+
+                    </div>
+                </div>
+            </div><!-- end container-fluid -->
+
+        </div>
+
+
+
+            <!--{{/if}}-->
+
+
+      {{#if isUserAllowToConnect}}
+
+          <div class="container-fluid" id="dotShowFooter-desktopDotShow">
+              <div class="row">
+
+
+                {{#if hardSale}}
+
+                  {{#if userClickOnTheYesButton}}
+
+                    {{# if addDotIsAvailable}}
+                      {{#with dataForCreateHere}}
+                        {{>searchBoxForConnect}}
+                      {{/with}}
+                    {{/if}}
+
+                  {{else}}
+
+                      <div id="lastCard-desktopDotShow" class="col-xs-12 col-sm-9 col-md-7 colCenter noPadding">
+                          <div id="desktopDotCard-lastDot" class="container-fluid">
+                              <div id="desktopDotCard-lastDot-col-connectLine"></div>
+
+                            {{>lastDotCardDesktopDotShow}}
+
+                          </div>
+                      </div>
+
+                  {{/if}}
+
+                {{else}}
+
+                    <div id="lastCard-desktopDotShow" class="col-xs-12 col-sm-9 col-md-7 colCenter noPadding">
+                        <div id="desktopDotCard-lastDot" class="container-fluid">
+                            <div id="desktopDotCard-lastDot-col-connectLine"></div>
+
+                          {{# if addDotIsAvailable}}
+                            {{#with dataForCreateHere}}
+                              {{>lastDotWithSearchBox}}
+                            {{/with}}
+                          {{/if}}
+
+                        </div>
+                    </div>
+
+                {{/if}}
+
+
+
+              </div>
+          </div>
+
+      {{/if}}
+
+
+
+    {{/if}}
+  {{/with}}
+
+</template>
