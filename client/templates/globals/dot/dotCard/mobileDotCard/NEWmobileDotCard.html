@@ -25,11 +25,47 @@
                     <div id="dotCardImg-Mobile" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')"></div>
                 </div>
                 <div id="dotCardText-Mobile" class="col-xs-9">
-                    <h5 id="dotCardShortTitle-Mobile" class="bold break" dir="auto">{{dot.title}}</h5>
 
-                    {{#if dot.linkUrl}}
-                      <h6 class="lightGrey break">{{dot.linkName}}</h6>
-                    {{/if}}
+                  <!--determine the length of the title. if event = 1 line, else = 2 lines-->
+
+                  {{#unless DOT_TYPE_IS 'Event' dot.dotSubType}}
+                      <h5 id="dotCardShortTitle-Mobile2" class="bold break" dir="auto">{{dot.title}}</h5>
+                  {{else}}
+                      <h5 id="dotCardShortTitle-Mobile" class="bold break" dir="auto">{{dot.title}}</h5>
+                  {{/unless}}
+
+
+                    <div>
+
+                      {{#if DOT_TYPE_IS 'Link' dot.dotSubType}}
+                          <a href="{{dot.linkUrl}}" target="_blank">
+                              <h6 class="lightGrey break">{{dot.linkName}}</h6>
+                          </a>
+                      {{/if}}
+
+                      {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
+                          <div>
+                              <h6 class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</h6>
+                              <!--TODO get the event date data from the create & edit form @yoav-->
+                          </div>
+                      {{/if}}
+
+                      {{#if dot.location}}
+                          <div>
+                              <h6 class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</h6>
+                          </div>
+                      {{/if}}
+
+                      <!--No place for price for now-->
+
+                      <!--{{#if dot.price}}-->
+                          <!--<div>-->
+                              <!--<h6 class="greyText"><i class="fa dotCardIcons-desktopDotCard"><strong>{{dot.currency}}</strong></i>{{dot.price}}</h6>-->
+                          <!--</div>-->
+                      <!--{{/if}}-->
+
+                    </div>
+
 
                 </div>
             </div>

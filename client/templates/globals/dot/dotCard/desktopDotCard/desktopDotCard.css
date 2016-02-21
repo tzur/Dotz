@@ -256,22 +256,22 @@
   padding-left: 10px;
 }
 
-#desktopDotCard-editButtonDiv {
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-right: 1px solid #e5e5e5;
-}
+/*#desktopDotCard-editButtonDiv {*/
+  /*display: inline-block;*/
+  /*padding-left: 10px;*/
+  /*padding-right: 10px;*/
+  /*border-right: 1px solid #e5e5e5;*/
+/*}*/
 
-#desktopDotCard-disconnectButtonDiv {
-  display: inline-block;
-  /*position: absolute;*/
-  /*bottom: 15px;*/
-  /*right: 45px;*/
-  padding-left: 10px;
-  padding-right: 10px;
-  border-right: 1px solid #e5e5e5;
-}
+/*#desktopDotCard-disconnectButtonDiv {*/
+  /*display: inline-block;*/
+  /*/!*position: absolute;*!/*/
+  /*/!*bottom: 15px;*!/*/
+  /*/!*right: 45px;*!/*/
+  /*padding-left: 10px;*/
+  /*padding-right: 10px;*/
+  /*border-right: 1px solid #e5e5e5;*/
+/*}*/
 
 #desktopDotCard-col-title h2 {
   display: block;
