@@ -1,0 +1,256 @@
+<template name="connectTheDot">
+
+    <div id="connectTheDot-Box" class="container-fluid">
+
+
+<!--User and personal description fields-->
+
+        <div class="row">
+
+            <div class="col-xs-1">
+                <a href="/{{ownerUser.profile.userSlug}}">
+                    <img class="connectorProfileImage-connectTheDot-Desktop" src="{{currentUser.profile.profileImage}}">
+                </a>
+            </div>
+
+            <div class="col-xs-11">
+                <div class="form-group">
+                    <label for="personalDescription" class="hidden">Personal Description</label>
+                    <input type="text" name="personalDescription" id="personalDescription" class="form-control" placeholder="What do you want to connect?">
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div id="typesAndSearch-div" class="row hidden">
+
+
+
+
+<!--nav bar - dot type Icons-->
+
+            <div class="col-xs-5 col-xs-offset-1">
+
+                <!-- Nav tabs -->
+                <ul id="createTypeButtons" class="nav nav-pills">
+
+                    <!-- role="tablist"-->
+                    <!-- data-toggle="tab"-->
+
+                    <!--Link-->
+                    <li role="presentation" class="col-xs-2">
+                        <div id="" class="{{link}} dotTypeButtonCol-createNewDot">
+                            <button id="link" class="btn btn-circleDotTypeIcon2">
+                                <i class="fa fa-link fa-lg"></i>
+                            </button>
+                        </div>
+                    </li>
+
+                    <!--Image-->
+                    <li role="presentation" class="col-xs-2">
+                        <div id="" class="{{image}} dotTypeButtonCol-createNewDot">
+                            <button id="image" class="btn btn-circleDotTypeIcon2">
+                              {{>imgUploader}}
+                            </button>
+                        </div>
+                    </li>
+
+                    <!--Place-->
+                    <li role="presentation" class="col-xs-2">
+                        <div id="" class="{{place}} dotTypeButtonCol-createNewDot">
+                            <button id="place" class="btn btn-circleDotTypeIcon2">
+                                <i class="fa fa-map-marker fa-lg"></i>
+                            </button>
+                        </div>
+                    </li>
+
+                    <!--Event-->
+                    <li role="presentation" class="col-xs-2">
+                        <div id="" class="{{event}} dotTypeButtonCol-createNewDot">
+                            <button id="event" class="btn btn-circleDotTypeIcon2">
+                                <i class="fa fa-calendar fa-lg"></i>
+                            </button>
+                        </div>
+                    </li>
+
+                    <!--Media-->
+                    <li role="presentation" class="col-xs-2">
+                        <div id="" class="{{media}} dotTypeButtonCol-createNewDot">
+                            <button id="media" class="btn btn-circleDotTypeIcon2">
+                                <i class="fa fa-play fa-lg"></i>
+                            </button>
+                        </div>
+                    </li>
+
+                    <!--Person-->
+                    <li role="presentation" class="col-xs-2">
+                        <div id="" class="{{person}} dotTypeButtonCol-createNewDot">
+                            <button id="person" class="btn btn-circleDotTypeIcon2">
+                                <i class="fa fa-user fa-lg"></i>
+                            </button>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+
+
+            <!--<div class="col-xs-5 col-xs-offset-1">-->
+                <!--<i class="fa fa-camera mdGrey"></i>-->
+                <!--<i class="fa fa-link mdGrey"></i>-->
+                <!--<i class="fa fa-calendar mdGrey"></i>-->
+                <!--<i class="fa fa-map-marker mdGrey"></i>-->
+                <!--<i class="fa fa-user mdGrey"></i>-->
+            <!--</div>-->
+
+            <div class="col-xs-1">
+                <span>Or</span>
+            </div>
+
+            <div class="col-xs-5">
+                {{>searchBox}}
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+<!--The Form-->
+
+        <div class="row">
+
+            <form id="createDotForm" class="hidden">
+
+                <div id="main-createNewDot" class="row">
+
+                {{#if image}}
+
+                    <div>
+                      {{> img}}
+                    </div>
+
+                {{else}}
+
+
+
+                          <!--if Link - start with url-->
+                        {{#unless person}}
+                            <div>
+                              {{> url}}
+                                <!--<div class="hr simpleHr">-->
+                            </div>
+                        {{/unless}}
+
+
+                          <!--The main fields-->
+
+                          <div>
+                            {{> title}}
+                          </div>
+                          <div>
+                            {{> description}}
+                          </div>
+                          <div>
+                            {{> img}}
+                          </div>
+                          <!--<div class="hr simpleHr"></div>-->
+
+                        {{#if person}}
+
+                            <div>
+                              {{> webAddress}}
+                            </div>
+
+                        {{/if}}
+
+                          <!-- Place fields -->
+                        {{#if place}}
+                            <div>
+                              {{> map}}
+                            </div>
+                        {{/if}}
+
+                          <!--Event Fields-->
+                        {{#if event}}
+                            <div>
+                              {{> dateComponent}}
+                            </div>
+                            <div>
+                              {{> map}}
+                            </div>
+                            <div>
+                              {{> price}}
+                            </div>
+                        {{/if}}
+
+
+
+                {{/if}}
+
+                    <!-- Connection reason field -->
+                    <!--<div class="row fieldBox">-->
+                      <!--{{> connectionReasonField}}-->
+                    <!--</div>-->
+
+
+                    <!--Submit button-->
+                    <div id="footer-createNewDot" class="row text-center">
+
+                        <button id="_createDotBtn" type="submit" class="btn btn-{{selectedType}}">Create</button>
+
+                    </div>
+
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+
+
+
+<!--The Create button-->
+
+        <div class="row">
+
+            <div class="col-xs-5 pull-right">
+
+            </div>
+
+        </div>
+
+
+
+<!--Seach results-->
+
+
+        <div id="searchResultsDiv" class="row hidden">
+            <div class="col-sm-12 colCenter">
+              {{>searchResults}}
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+</template>

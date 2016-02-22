@@ -35,7 +35,7 @@
 
 
 
-            <div id="desktopDotShow-descriptionDiv" class="row">
+            <div id="desktopDotShow-descriptionDiv" class="col-xs-12">
                     <div class="col-xs-12 col-sm-10 col-md-7 col-lg-7 colCenter">
 
                         <div class="mdTxt">
@@ -141,7 +141,7 @@
 
 
 
-            <div id="buttonsPanel-desktopListShow" class="row">
+            <div id="buttonsPanel-desktopListShow" class="col-xs-12">
 
                 <div class="col-xs-12 col-sm-10 col-md-7 col-lg-7 colCenter">
 
@@ -236,11 +236,12 @@
 
         <div id="lastCard-desktopDotShow" class="col-xs-12 col-sm-10 col-md-7 col-lg-7 colCenter noPadding">
             <div id="desktopDotCard-lastDot" class="container-fluid">
-                <div id="desktopDotCard-lastDot-col-connectLine-inListShow"></div>
+                <!--<div id="desktopDotCard-lastDot-col-connectLine-inListShow"></div>-->
 
               {{# if addDotIsAvailable}}
                 {{#with dataForCreateHere}}
-                  {{>lastDotWithSearchBox}}
+                  <!--{{>lastDotWithSearchBox}}-->
+                  {{>connectTheDot}}
                 {{/with}}
               {{/if}}
 

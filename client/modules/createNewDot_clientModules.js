@@ -117,6 +117,8 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
     dotSubType = 'Product';
   }else if(Session.get('media')){
     dotSubType = 'Media';
+  //}else if(Session.get('image')){
+  //  dotSubType = 'StartDot';
   }else{
     dotSubType = 'Link'; // it is default to be link.
   }
