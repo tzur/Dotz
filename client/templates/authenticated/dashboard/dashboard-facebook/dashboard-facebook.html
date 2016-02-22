@@ -4,6 +4,13 @@
       <div id="_FBGroupForm" class="row">
           <div class="col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1">
               <p>Get Facebook groups posts</p>
+
+            <div id="calenderTempInFacebookDashboard" class="calenderTemp">
+                {{>dateComponent}}
+            </div>
+
+            <br>
+
               <input type="text" id="_fbGroupIdInput" placeholder="your facebook group URL e.g: https://www.facebook.com/groups/Hashavua/" class="form-control">
             {{#if isSpinnerOn}}
                 <button id="_getFBData" type="submit" class="createBtn transparent insert btn round btn-primary has-spinner active">

@@ -31,7 +31,14 @@ let createGroupList = function(FBGroupKey){
   });
 
 };
-let _getGroupPosts = function(listSlug, groupId ,callback){
+let _getGroupPosts = function(listSlug, groupId, startRangeDate, endRangeDate, callback){
+
+  //Convert Dates to UNIX Timestamp:
+  let startDateUnixTimestamp = (new Date(startRangeDate).getTime() / 1000).toFixed(0);
+  let endDateUnixTimestamp = (new Date(endRangeDate).getTime() / 1000).toFixed(0);
+  console.log("startDateUnixTimestamp  >>> " + startDateUnixTimestamp)
+  console.log("endDateUnixTimestamp  >>> " + endDateUnixTimestamp)
+
   let listId = Dotz.findOne({dotSlug: listSlug})._id;
   console.log(listId);
   let fbFilteredPosts = [];
@@ -44,19 +51,36 @@ let _getGroupPosts = function(listSlug, groupId ,callback){
     this.createdTime = new Date(createdTime);
     this.connectTo = listId;
   };
+
   //title,
-  var query = groupId + '/feed?fields=likes,message,from,created_time&limit=100';
+  var query = groupId + '/feed?fields=likes,comments,message,from,created_time' +
+    '&since=' + startDateUnixTimestamp + '&until=' + endDateUnixTimestamp + '&limit=300';
+  //434228236734415/feed?fields=likes,message,from,created_time&limit=100
   var pagesCounter = 0;
-  while (query && fbFilteredPosts.length < 50) {
+  while (query && fbFilteredPosts.length < 500) {
     pagesCounter++;
     let result = fbQuery(query, Meteor.user().services.facebook.accessToken);
-    result.data.forEach(function (fbData) {
-      if (fbData.likes && fbData.likes.data.length > 10) {
-        fbFilteredPosts.push(new fbPost(fbData.from.name, fbData.from.id, fbData.likes.data.length,
-          fbData.message, fbData.created_time))
-      }
-    });
+    if (result.data) {
+      result.data.forEach(function (fbData) {
+          //fbData.comments.data.length > 4
+
+          let likesLength;
+          if (fbData.likes && fbData.likes.data) {
+            likesLength = fbData.likes.data.length;
+          }
+          let commentsLength;
+          if (fbData.comments && fbData.comments.data) {
+            commentsLength = fbData.comments.data.length;
+          }
+          if ( (likesLength > 10) || (commentsLength > 4) ) {
+            fbFilteredPosts.push(new fbPost(fbData.from.name, fbData.from.id, likesLength, fbData.message, fbData.created_time))
+          }
+      });
+    } else {
+      console.log("There is no result from FB... (Maybe Error) ")
+    }
     if (result.paging) {
+      console.log("result.paging.next: " + result.paging.next)
       query = result.paging.next;
     }
     else {
@@ -65,7 +89,7 @@ let _getGroupPosts = function(listSlug, groupId ,callback){
     console.log("Took data from " + pagesCounter + " Pages on facebook.");
   }
   fbFilteredPosts.forEach(function (filteredPost) {
-    fbDotz.push(new Modules.both.Dotz.DotFactory('FBDot', Meteor.userId(), 'FB dot', filteredPost.createdTime, false,
+    fbDotz.push(new Modules.both.Dotz.DotFactory('FBDot', Meteor.userId(), 'Post: ', filteredPost.createdTime, false,
       filteredPost.content, filteredPost.ownerFbId, filteredPost.ownerName,undefined, filteredPost.connectTo));
 
   });
@@ -104,25 +128,31 @@ Meteor.methods({
    * in order to give those posts a tag as well, use tagFaceboolDotz at this method callback with the given result!
    * Neat ah? :) lol.
    */
-  createGroupList(FBGroupKey){
-    //First we will create the facebook group:
+  createGroupList(FBGroupKey, startRangeDate, endRangeDate){
+    //First we will create the "lidt/dot" for the facebook group:
     console.log("FBGroupKey is: >>>> " + FBGroupKey)
     check(FBGroupKey, String);
+    check(startRangeDate, String);
+    check(endRangeDate, String);
+
     let fbFuture = Meteor.npmRequire('fibers/future');
     let fbResult = new fbFuture();
     let groupInfo = fbQuery(FBGroupKey +'/?fields=name,description,cover', Meteor.user().services.facebook.accessToken);
-    let groupList = new Modules.both.Dotz.DotFactory("List", Meteor.userId(), groupInfo.name, new Date(),
+    let groupNameAndDates = "Facebook Group: " + groupInfo.name + "(" + startRangeDate + " - " + endRangeDate + ")";
+    let groupList = new Modules.both.Dotz.DotFactory("List", Meteor.userId(), groupNameAndDates , new Date(),
       true, groupInfo.description, groupInfo.id, groupInfo.name, groupInfo.cover.source, Meteor.user().profile.profileDotId);
+
+    console.log("groupList >>>>>> is : " + groupList);
 
     Meteor.call('createDot', groupList, function(error, listSlug){
       if (error){
         console.log("ERROR at createDot of facebook group " + error);
         fbResult.throw(error);
       }
-      else{
+      else {
         //Created the group list now lets put the pots inside:
         var addedDotzCounter = 0; // will keep the number of all the dotz that were already added.
-        _getGroupPosts(listSlug, FBGroupKey,function(amountOfDotz){
+        _getGroupPosts(listSlug, FBGroupKey, startRangeDate, endRangeDate, function(amountOfDotz){
           addedDotzCounter++;
           console.log("Finished connecting dot number "  +  addedDotzCounter + " need total of " + amountOfDotz);
           if (amountOfDotz === addedDotzCounter){

@@ -26,14 +26,21 @@ Template.dashboardFacebook.events({
   'click #_getFBData': function(event){
     event.preventDefault();
     Session.set('FBSpinnerOn', true);
+
+
+
+    //Dates (will convert to UNIX timestamp on the server) :
+    let startRangeDate = $('#startDate').val();
+    let endRangeDate = $('#endDate').val();
+    console.log("startDate  >>> " + startRangeDate)
+
     Modules.client.facebook.groupUrlToID($('#_fbGroupIdInput').val(), function(groupID){
-      Meteor.call('createGroupList', groupID, function(error, result){
+      Meteor.call('createGroupList', groupID, startRangeDate, endRangeDate, function(error, result) {
         if (error){
           console.log("ERROR createGroupList : " + error)
           Session.set('FBSpinnerOn', false);
           Bert.alert("Sorry something went Wrong, try again", 'danger');
-        }
-        else{
+        } else {
           Meteor.call('tagFacebookDotz', result, function(error, result){
             if (error){
               console.log(error);
