@@ -1,0 +1,63 @@
+#connectTheDot-Box {
+  margin: 3vh 0 40vh 0;
+}
+
+.connectorProfileImage-connectTheDot-Desktop {
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+}
+
+#connectTheDot-Box .form-control-feedback{
+  top: 25%;
+}
+
+
+.btn-circleDotTypeIcon2 {
+-moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  width: 3vw;
+  height: 3vw;
+  padding: 0;
+}
+
+.btn-circleDotTypeIcon2 #addDotImageWraper .btn-file{
+  border: none;
+  border-radius: inherit;
+  padding: initial;
+  float: right;
+  color: #E5E5E5;
+}
+
+.btn-circleDotTypeIcon2 .fa {
+  font-size: 1.5vw;
+  vertical-align: initial;
+}
+
+.nav-pills .active .btn-circleDotTypeIcon2 {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.nav-pills .active .btn-circleDotTypeIcon2 #addDotImageWraper .btn-file{
+  background-color: #ffffff;
+  color: #333;
+}
+
+.nav-pills .btn-circleDotTypeIcon2 {
+  text-align: left;
+  background-color: transparent;
+  color: #e5e5e5;
+  border: none;
+}
+
+.nav-pills .btn-circleDotTypeIcon2:hover {
+  background-color: transparent;
+  color: #333;
+  border: none;
+}
+
+#typesAndSearch-div .nav-pills > li + li {
+  margin-left: 0;
+}

@@ -1,17 +1,3 @@
-Template.imgUploader.helpers({
-  //isImageUrl: function(){
-  //  return Session.get('dotCoverImg');
-  //},
-
-  spinnerImgUploadedOn: function(){
-    return Session.get('spinnerImgUploadedOn');
-  },
-
-  imagePreviewUrl: function(){
-    return Session.get('dotCoverImg');
-  }
-});
-
 Template.imgUploader.events({
   'change input[type="file"]': function ( event, template ) {
     console.log("Spinner On");

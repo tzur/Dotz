@@ -2,14 +2,28 @@
 <template name="img">
 
 
-    <div class="col-xs-2">
-        <p><strong>Media </strong></p>
-    </div>
+    <!--<div class="col-xs-2">-->
+        <!--<p><strong>Media </strong></p>-->
+    <!--</div>-->
 
 
-    <div class="col-xs-10 bottomBorder">
+    <div class="col-xs-10 fieldBox pull-right">
 
-        {{>imgUploader}}
+        <div id="imageUploader">
+            <div class="image optional-field">
+
+                <div class="file container-fluid">
+                    <div class="row">
+
+                      {{>imgUploaderPreview}}
+
+                      {{>imgUploader}}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
     </div>
 
