@@ -105,8 +105,9 @@
                             <!--Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>-->
                         <!--</button>-->
                     <!--{{/if}}-->
+                    </a>
 
-                      {{#if isMyDot}}
+                      {{#if isMyDotOrMyConnection}}
                           <a class="panelBtn dropdown-toggle pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <div id="desktopDotCard-editButtonDiv">
                                   <i class="fa fa-cog lightGrey" aria-hidden="true"></i>
@@ -114,7 +115,6 @@
                           </a>
 
                           <ul id="pre-delete-menu" class="dropdown-menu left">
-
                             {{#if isConnected}}
                                 <li class="_disConnectBtn"><a><i class="mdGrey fa fa-minus-circle"></i> Disconnect</a></li>
                                 <li role="separator" class="divider"></li>
@@ -123,18 +123,13 @@
                                 <!--<i class="fa fa-plus-circle mdGrey mdTxt"></i>-->
                                 <!--</div>-->
                             {{/if}}
-
                             {{#if isMyDot}}
-                                <li class="editBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>
+                                <li id="_editDotCardBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
                             {{/if}}
-
                           </ul>
-
-
                       {{/if}}
-                    </a>
                 </div>
 
             </div>

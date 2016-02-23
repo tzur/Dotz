@@ -65,7 +65,18 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   //  linkUrl = $('#webAddress').val();
   //}
 
+  //connectionReason (personalDescription...)
+  let personalDescription = $('#personalDescription').val();
+  //if (personalDescription === ""){
+  //  personalDescription = "@" + Meteor.user().username;
+  //}
+
   title = $('#title').val();
+  if (!title || title === ""){
+    title = personalDescription;
+    //personalDescription = "";
+  }
+
   description = $('#description').val();
   price =$('#price').val();
   if (price === ""){
@@ -97,11 +108,7 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
     endDateAndHour = new Date(endDateAndHour);
   }
 
-  //connectionReason (personalDescription...)
-  let personalDescription = $('#personalDescription').val();
-  //if (personalDescription === ""){
-  //  personalDescription = "@" + Meteor.user().username;
-  //}
+
 
 
   //dotSubType:
@@ -120,7 +127,7 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   //}else if(Session.get('image')){
   //  dotSubType = 'StartDot';
   }else{
-    dotSubType = 'Link'; // it is default to be link.
+    dotSubType = 'StartDot'; // it is default to be ?.
   }
 
 
@@ -225,6 +232,7 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       );
 
       //Go create:
+    console.log("BC personalDescription >> " + personalDescription)
       Meteor.call('createDot', dot, redirectAfterCreateSlug, personalDescription ,function(error,result){
         if (error){
           console.log(error)
