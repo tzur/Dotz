@@ -82,7 +82,7 @@ let _getGroupPosts = function(listSlug, groupId, startRangeDate, endRangeDate, c
             console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ idSplitArray " + idSplitArray[0] + " and " + idSplitArray[1])
             let linkUrl = "https://www.facebook.com/" + idSplitArray[0] + "/posts/" + idSplitArray[1];
             console.log("linkUrl >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + linkUrl)
-            
+
             fbFilteredPosts.push(new fbPost(fbData.from.name, fbData.from.id, likesLength, fbData.message, fbData.created_time, linkUrl))
           }
       });
@@ -111,7 +111,9 @@ let _getGroupPosts = function(listSlug, groupId, startRangeDate, endRangeDate, c
       if (error){
         console.log(error + "error from insert now");
       }
-      else{
+      else {
+        console.log("send FBDot to algolia >>>>> result: " + result);
+        Meteor.call('addOrEditObjectInAlgolia', result, false);
         callback(amountOfDotz);
       }
     })

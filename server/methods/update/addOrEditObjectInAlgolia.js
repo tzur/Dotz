@@ -22,11 +22,18 @@ Meteor.methods({
         } else {
           let currentDoc = Dotz.findOne({dotSlug: docSlug});
           currentDoc.objectID = currentDoc._id;
-          if (currentDoc.dotType === "Dot") {
-            docIndex = currentDoc.dotSubType.toLowerCase() + "s_DOTZ";
-          } else if (currentDoc.dotType === "List") {
-            docIndex = "lists_DOTZ";
-          }
+
+          //TODO >>> fix algolia
+          //if (currentDoc.dotType === "Dot") {
+          //  docIndex = currentDoc.dotSubType.toLowerCase() + "s_DOTZ";
+          //} else if (currentDoc.dotType === "List") {
+          //  docIndex = "lists_DOTZ";
+          //} else if (currentDoc.dotType === "FBDot") {
+          //  docIndex = "lists_DOTZ";
+          //}
+          //TBD:
+          docIndex = "lists_DOTZ";
+
           //currentDoc.inDotz = currentDoc.inDotz.length + currentDoc.totalUpvotes.length;
 
           if (currentDoc.location && currentDoc.location.latLng) {
