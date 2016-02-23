@@ -4,15 +4,16 @@
 
     <div id="searchTabs" class="hidden col-sm-12">
       <ul class="nav" role="tablist">
-          <li role="presentation" class="active search-btns"><a href="#google" aria-controls="google" role="tab" data-toggle="tab">Google</a></li>
+          <!--<li role="presentation" class="search-btns"><a href="#google" aria-controls="google" role="tab" data-toggle="tab">Google</a></li>-->
           <!--<li role="presentation" class="search-btns"><a href="#dotz" aria-controls="dotz" role="tab" data-toggle="tab">Dotz {{dotzResultNumber_Algolia}}</a></li>-->
-          <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#links_DOTZ" aria-controls="links_DOTZ" role="tab" data-toggle="tab">Links</a></li>
-          <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#media_DOTZ" aria-controls="media_DOTZ" role="tab" data-toggle="tab">Media</a></li>
-          <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#places_DOTZ" aria-controls="places_DOTZ" role="tab" data-toggle="tab">Places</a></li>
-          <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#events_DOTZ" aria-controls="events_DOTZ" role="tab" data-toggle="tab">Events</a></li>
-          <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#persons_DOTZ" aria-controls="persons_DOTZ" role="tab" data-toggle="tab">Persons</a></li>
+          <!--<li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#links_DOTZ" aria-controls="links_DOTZ" role="tab" data-toggle="tab">Links</a></li>-->
+          <!--<li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#media_DOTZ" aria-controls="media_DOTZ" role="tab" data-toggle="tab">Media</a></li>-->
+          <!--<li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#places_DOTZ" aria-controls="places_DOTZ" role="tab" data-toggle="tab">Places</a></li>-->
+          <!--<li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#events_DOTZ" aria-controls="events_DOTZ" role="tab" data-toggle="tab">Events</a></li>-->
+          <!--<li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#persons_DOTZ" aria-controls="persons_DOTZ" role="tab" data-toggle="tab">Persons</a></li>-->
 
-          <li role="presentation" id="_searchListsOnAlgolia_DOTZ" class="search-btns"><a href="#lists_DOTZ" aria-controls="lists_DOTZ" role="tab" data-toggle="tab">Lists {{listResultNumber_Algolia}}</a></li>
+        <!--TODO fix the mess here...-->
+          <li role="presentation" id="_searchListsOnAlgolia_DOTZ" class="active search-btns"><a href="#lists_DOTZ" aria-controls="lists_DOTZ" role="tab" data-toggle="tab">Dotz {{listResultNumber_Algolia}}</a></li>
 
           <li role="presentation" id="_searchDotzSubTypesOnAlgolia_DOTZ" class="search-btns"><a href="#users_DOTZ" aria-controls="users_DOTZ" role="tab" data-toggle="tab">Profiles</a></li>
 
@@ -28,24 +29,24 @@
               <!-- Tab panes -->
               <div class="tab-content">
                   <!--Google results tab-->
-                  <div role="tabpanel" class="tab-pane active" id="google">
-                      <div class="container-fluid">
-                          <div class="row">
-                              <div class="col-xs-12 col-md-10 col-lg-12 colCenter">
-                                {{#if googleResults}}
-                                  <ul>
-                                    {{#each googleResults}}
-                                          {{> googleDotCard getDataForGoogleCard}}
-                                    {{/each}}
-                                  </ul>
-                                {{/if}}
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+                  <!--<div role="tabpanel" class="tab-pane" id="google">-->
+                      <!--<div class="container-fluid">-->
+                          <!--<div class="row">-->
+                              <!--<div class="col-xs-12 col-md-10 col-lg-12 colCenter">-->
+                                <!--{{#if googleResults}}-->
+                                  <!--<ul>-->
+                                    <!--{{#each googleResults}}-->
+                                          <!--{{> googleDotCard getDataForGoogleCard}}-->
+                                    <!--{{/each}}-->
+                                  <!--</ul>-->
+                                <!--{{/if}}-->
+                              <!--</div>-->
+                          <!--</div>-->
+                      <!--</div>-->
+                  <!--</div>-->
 
                   <!--Links results tab-->
-                  <div role="tabpanel" class="tab-pane" id="links_DOTZ">
+                  <div role="tabpanel" class="tab-pane active" id="links_DOTZ">
                       <div class="container-fluid">
                           <div class="row">
                               <div class="col-xs-12 colCenter">

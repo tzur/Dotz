@@ -81,8 +81,17 @@
                 </div>
             </div>
 
-{{#unless inDotParentSearchResults}}     <!--Hide the buttons line-->
 
+{{#if inDotParentSearchResults}}
+    <!--Hide the buttons line and connect Btn-->
+
+<div class="pull-right">
+    <a id="addDotToCurrentDot">
+        <i class="pull-left addBtn fa fa-plus-circle"></i>
+    </a>
+</div>
+
+{{else}}
             <div class="row">
 
                 <div class="col-sm-3 text-center">
@@ -112,17 +121,18 @@
                 </div>
 
                 <div class="col-sm-3 noPadding pull-right">
-                    <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                      <!--{{#if dotzNum}}-->
-                        <button class="btn btn-full-trans btn-xs lightGrey normalTxt pull-right">
-                            Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right normalTxt lightGrey"></i>
-                        </button>
-                      <!--{{else}}-->
-                          <!--<button class="btn btn-full-trans btn-xs lightGrey pull-right">-->
-                              <!--Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>-->
-                          <!--</button>-->
-                      <!--{{/if}}-->
-                    </a>
+
+                        <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                        <!--{{#if dotzNum}}-->
+                            <button class="btn btn-full-trans btn-xs lightGrey normalTxt pull-right">
+                                Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right normalTxt lightGrey"></i>
+                            </button>
+                                <!--{{else}}-->
+                            <!--<button class="btn btn-full-trans btn-xs lightGrey pull-right">-->
+                            <!--Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>-->
+                            <!--</button>-->
+                                <!--{{/if}}-->
+                        </a>
 
                       {{#if isMyDotOrMyConnection}}
                           <a class="panelBtn dropdown-toggle pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -152,7 +162,7 @@
 
             </div>
 
-{{/unless}}
+{{/if}}
 
         </div>
     </div>
