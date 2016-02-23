@@ -1,17 +1,9 @@
 <template name="landingSignup">
   {{>bertAlert}}
 
-    <div id="landingPage-body" class="container-fluid" style="background-image: url('https://dotz-deployment.s3.amazonaws.com/LbioLJaWMBKnqbtrm/dotz_city_cover.jpg')">
+    <div id="landingPage-body" class="container-fluid">
         <div class="landing-overlayer"></div>
         <div class="row upper-row">
-            <div class="col-sm-2 pull-left">
-                <a href="/">
-                <div class="landing-page-logo">
-                    <img id="landing-page-logo" src="/dotz-logo-trans1.png">
-                </div>
-                </a>
-
-            </div>
 
             <div class="col-sm-4 pull-right txtR">
                 <div>Already a part of Dotz?
@@ -21,32 +13,39 @@
         </div>
 
         <div class="row">
+            <br><br><br><br><br><br>
+
             <div class="col-sm-8 colCenter txtMd">
-                <H2>{{landingTitle}}</H2>
-                <h5>{{landingSubTitle}}</h5>
+                <h2 id="logoForSignUp">DOTZ:</h2>
             </div>
+
+            <br>
+
+            <div class="col-sm-8 colCenter txtMd">
+                <h2>{{landingTitle}}</h2>
+            </div>
+
+            <div class="col-sm-4 colCenter txtMd">
+              <p class="mdTxt">{{landingSubTitle}}</p>
+            </div>
+
         </div>
 
         <div id="landing-body" class="row">
             <div class="col-sm-4 colCenter">
                 {{>signup}}
-
-                <div class="txtMd">
-                    <p id="signup-terms">Creating an account means you’re okay with our Terms of Service.</p>
-                    <p id="signup-terms">We will never spam you.</p>
-                </div>
             </div>
 
         </div>
 
-        <div id="signup-login-bottom-links-div" class="row">
-            <div id="_exploreBtn" class="pull-left txtR">
-                <!--<a><span>About Us</span></a>-->
-                <a href="/dotz">
-                    <span>Explore</span>
-                </a>
-            </div>
-        </div>
+        <!--<div id="signup-login-bottom-links-div" class="row">-->
+            <!--<div id="_exploreBtn" class="pull-left txtR">-->
+                <!--&lt;!&ndash;<a><span>About Us</span></a>&ndash;&gt;-->
+                <!--<a href="/dotz">-->
+                    <!--<span>Explore</span>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
 
     </div>
 
