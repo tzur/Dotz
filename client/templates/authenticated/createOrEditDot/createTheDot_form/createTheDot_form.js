@@ -82,15 +82,16 @@ Template.createTheDot_form.events({
 
   'click #personalDescription': function(){
     $('#typesAndSearch-div').removeClass('hidden');
+    $('#footer-createNewDot').removeClass('hidden');
   },
 
   'click #createTypeButtons': function(){
     $('#searchResultsDiv').addClass('hidden');
-    $('#createDotForm').removeClass('hidden');
+    $('#main-createNewDot').removeClass('hidden');
   },
 
   'click #_searchBoxInput': function(){
-    $('#createDotForm').addClass('hidden');
+    $('#main-createNewDot').addClass('hidden');
     $('#searchResultsDiv').removeClass('hidden');
   },
 

@@ -102,7 +102,7 @@ Template.desktopDotCard.helpers({
 
   inDotParentSearchResults: function() {
     if ( Template.parentData(1).inDotParentSearchResults ) {
-      return (Template.parentData(1).inDotParentSearchResults);
+      return ("-inSearch");
     }
   },
   //end UI helpers

@@ -102,17 +102,6 @@
             </div>
 
 
-
-
-
-            <!--<div class="col-xs-5 col-xs-offset-1">-->
-                <!--<i class="fa fa-camera mdGrey"></i>-->
-                <!--<i class="fa fa-link mdGrey"></i>-->
-                <!--<i class="fa fa-calendar mdGrey"></i>-->
-                <!--<i class="fa fa-map-marker mdGrey"></i>-->
-                <!--<i class="fa fa-user mdGrey"></i>-->
-            <!--</div>-->
-
             <div class="col-xs-1">
                 <span>Or</span>
             </div>
@@ -133,17 +122,17 @@
 
         <div class="row">
 
-            <form id="createDotForm" class="hidden">
+            <form id="createDotForm" class="">
 
-                <div id="main-createNewDot" class="row">
+                <div id="main-createNewDot" class="row hidden">
 
-                {{#if image}}
+                        {{#if image}}
 
-                    <div>
-                      {{> img}}
-                    </div>
+                            <div>
+                              {{> img}}
+                            </div>
 
-                {{else}}
+                        {{else}}
 
 
 
@@ -207,13 +196,13 @@
                     <!--</div>-->
 
 
-                    <!--Submit button-->
-                    <div id="footer-createNewDot" class="row text-center">
+                </div>
 
-                        <button id="_createDotBtn" type="submit" class="btn btn-{{selectedType}}">Create</button>
 
-                    </div>
+                <!--Submit button-->
+                <div id="footer-createNewDot" class="col-xs-10 text-right pull-right hidden">
 
+                    <button id="_createDotBtn" type="submit" class="btn btn-default btn-Link">Create</button>
 
                 </div>
 
