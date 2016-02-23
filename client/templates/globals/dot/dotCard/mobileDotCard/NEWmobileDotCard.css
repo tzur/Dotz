@@ -21,7 +21,10 @@
 }
 
 .connectorText-Mobile {
-  color: #337A98;
+  vertical-align: sub;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
 }
 
 #dotCardImg-Mobile {

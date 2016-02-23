@@ -93,6 +93,13 @@ Template.mobileDotCard.helpers({
       return (Template.parentData(1).inSearchResults);
     }
   },
+
+  inDotParentSearchResults: function() {
+    if ( Template.parentData(1).inDotParentSearchResults ) {
+      return ("-inSearch");
+    }
+  },
+
   //end UI helpers
 
   //Search Helpers:
