@@ -84,11 +84,13 @@ Meteor.methods({
         //  index = client.initIndex(dot.category[0] + "Lists");
         //}
 
-        if (dotType === "Dot") {
-          index = client.initIndex(dotSubType.toLowerCase() + "s_DOTZ");
-        } else if (dotType === "List") {
-          index = client.initIndex("lists_DOTZ");
-        }
+        //if (dotType === "Dot") {
+        //  index = client.initIndex(dotSubType.toLowerCase() + "s_DOTZ");
+        //} else if (dotType === "List") {
+        //  index = client.initIndex("lists_DOTZ");
+        //}
+
+        index = client.initIndex("lists_DOTZ");
 
         // delete the record with objectID="dotId":
         index.deleteObject(dotId, function(err) {
