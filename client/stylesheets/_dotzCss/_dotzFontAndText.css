@@ -3,6 +3,10 @@
 
 /*Links*/
 
+.lightBlue {
+  color: #337A98;
+}
+
 a:hover {
   color: #4c4c4c;
   text-decoration: none;
