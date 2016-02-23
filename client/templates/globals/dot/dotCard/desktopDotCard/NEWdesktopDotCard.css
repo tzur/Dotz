@@ -36,8 +36,9 @@
 }
 
 .connectorText-Desktop {
-  color: #337A98;
   vertical-align: sub;
+  font-size: 16px;
+  color: #333;
 }
 
 #dotCardImg-Desktop {

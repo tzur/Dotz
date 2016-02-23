@@ -26,16 +26,24 @@
 
 
       <div id="dotCardBox-Desktop" class="row">
+
+              <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
                 <div class="col-sm-3">
                     <div id="dotCardImg-Desktop" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{dotCoverImageUrlOrFb}}')"></div>
                 </div>
-                <div id="dotCardText-Desktop" class="col-sm-9">
-                    <h5 id="dotCardShortTitle-Desktop" class="break" dir="auto">{{dot.title}}</h5>
+              </a>
 
+                <div id="dotCardText-Desktop" class="col-sm-9">
+
+                      <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                        <h5 id="dotCardShortTitle-Desktop" class="break" dir="auto">{{dot.title}}</h5>
+                      </a>
     <!-- description / date / location /price -->
 
                     {{#unless DOT_TYPE_IS 'Event' dot.dotSubType}}
+                      <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
                         <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">{{dot.bodyText}}</p>
+                      </a>
                     {{/unless}}
 
 
@@ -43,7 +51,7 @@
 
                       {{#if DOT_TYPE_IS 'Link' dot.dotSubType}}
                         <a href="{{dot.linkUrl}}" target="_blank">
-                          <h6 class="lightGrey break">{{dot.linkName}}</h6>
+                          <h6 class="break lightBlue">{{dot.linkName}}</h6>
                         </a>
                       {{/if}}
 
