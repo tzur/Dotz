@@ -14,7 +14,7 @@ Template.userShow.onCreated(function() {
   self.autorun(function() {
     FlowRouter.watchPathChange();
     let userSlug = FlowRouter.getParam('userSlug');
-    console.log("$$$$$$$$ userSlug " + userSlug);
+    //console.log("$$$$$$$$ userSlug " + userSlug);
     if (userSlug){
       self.subs.subscribe('userByUserSlug', userSlug, function(){
         let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
@@ -24,7 +24,7 @@ Template.userShow.onCreated(function() {
           setTimeout(function(){ window.history.back(); }, 2000);
           //FlowRouter.go('/');
         } else if (user) {
-          console.log("$$$$$$$$ user.username " + user.username);
+          //console.log("$$$$$$$$ user.username " + user.username);
           var title = "Dotz: " + user.username;
           DocHead.setTitle(title);
           let userPageInfo = "User show: " + user.username;
@@ -164,6 +164,13 @@ Template.userShow.helpers({
       return false;
     }
   },
+
+  myProfile: function(){
+    if ( Meteor.userId() === this._id) {
+      return true;
+    }
+  },
+
   notMyProfile: function() {
     if ( Meteor.userId() === this._id) {
       return false;
@@ -195,6 +202,12 @@ Template.userShow.helpers({
   canGenerateAutoLists: function(){
     return (Meteor.user().profile.createdByUserLists.length === 0 )
   },
+
+  dataForCreateInMyProfile: function() {
+    return ( {
+      parentDotId: Meteor.user().profile.profileDotId
+    });
+  }
 
 
 });

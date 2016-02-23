@@ -2,7 +2,7 @@
  * Created by yoav on 22/02/2016.
  */
 
-Template.connectTheDot.onDestroyed(function(){
+Template.createTheDot_form.onDestroyed(function(){
   _clearSessions();
   Session.set('locationObj', undefined);
   Session.set('dotCoverImg', undefined);
@@ -10,7 +10,7 @@ Template.connectTheDot.onDestroyed(function(){
   Session.set('editAction_docToEdit', undefined);
 });
 
-Template.connectTheDot.onRendered(function(){
+Template.createTheDot_form.onRendered(function(){
   //Check if we have initial data to set on the fields. e.g: google card.
   if (this.data.initialDataForFormFields){
     Modules.client.createDotLoading(); //Start to loading.
@@ -41,7 +41,11 @@ Template.connectTheDot.onRendered(function(){
 
 });
 
-Template.connectTheDot.helpers({
+Template.createTheDot_form.helpers({
+
+  isEditMod: function(){
+    return Session.get('editAction_dot');
+  },
 
   link: function(){
     return Session.get('link');
@@ -74,7 +78,7 @@ Template.connectTheDot.helpers({
   }
 
 });
-Template.connectTheDot.events({
+Template.createTheDot_form.events({
 
   'click #personalDescription': function(){
     $('#typesAndSearch-div').removeClass('hidden');
@@ -132,7 +136,7 @@ Template.connectTheDot.events({
   'submit #createDotForm': function(e){
     e.preventDefault();
     var self = this;
-    //console.log("self.parentDotId is   ----->  " + self.parentDotId)
+    console.log("self.parentDotId is   ----->  " + self.parentDotId)
     Modules.client.handleCreateSubmit(self.parentDotId, Session.get('dotCoverImg'), Session.get('locationObject'))
   }
 });

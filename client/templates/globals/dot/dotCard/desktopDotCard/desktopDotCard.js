@@ -142,6 +142,14 @@ Template.desktopDotCard.helpers({
     return (this.dot && this.dot.ownerUserId === Meteor.userId())
   },
 
+  isConnected: function() {
+    return ( this.smartRef.connection.connectedByUserId === Meteor.userId() )
+  },
+
+  isMyDotOrMyConnection: function() {
+    return ( (this.dot && this.dot.ownerUserId === Meteor.userId()) || (this.smartRef.connection.connectedByUserId === Meteor.userId()) );
+  },
+
   //Works for dotzConnectedByOwner, TBD for dotzConnectedByOthers:
   sortIsAvailable: function() {
     let parentDotOwnerId = Dotz.findOne(this.smartRef.connection.toParentDotId).ownerUserId;
@@ -224,7 +232,7 @@ Template.desktopDotCard.helpers({
   },
 
   dotzNum: function() {
-    if (this.dot.showDotzCounter === false) {
+    if (this.dot && this.dot.showDotzCounter === false) {
       return false;
     }
     let connectedDotz = 0;
@@ -253,10 +261,6 @@ Template.desktopDotCard.helpers({
     else {
       return ("Dotz");
     }
-  },
-
-  isConnected: function() {
-    return ( this.smartRef.connection.connectedByUserId === Meteor.userId() )
   },
 
   connectCounter: function() {
@@ -412,8 +416,9 @@ Template.desktopDotCard.events({
     //Modules.client.Dotz.dotCardAnalyticsEvents('User sort: Down', 'Moved Down: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 
-  'click .editBtn': function(){
-    Modules.client.editDot_settings(this.dot);
+  'click #_editDotCardBtn': function(){
+    console.log("this.dot, this.smartRef >>>> " + this.dot + "and" + this.smartRef)
+    Modules.client.editDot_settings(this.dot, this.smartRef);
     //Modules.client.Dotz.dotCardAnalyticsEvents('Edit Dot', 'Start Edit: ',this.dot._id, this.dot.title, this.dot.dotType);
   },
 

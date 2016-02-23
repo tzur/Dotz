@@ -86,7 +86,12 @@ function _embedlyFacebookIntegration(){
           if (linkUrl && linkUrl.indexOf('https://www.facebook.com') > -1){
             _getFromFacebook(linkUrl);
           } else {
-            Modules.client.updateCreateDotFields(undefined, data.title, data.description, data.thumbnail_url);
+            let fields = {
+              title: data.title,
+              description: data.description,
+              coverImageUrl: data.thumbnail_url
+            };
+            Modules.client.updateCreateDotFields(fields);
           }
           //console.log("data is >>> " + data)
         },
@@ -115,7 +120,12 @@ function _getFromFacebook(linkUrl){
         Modules.client.createDotFinishedLoading();
       }else if (data) {
         console.log("data.message >>>>> " + data.message);
-        Modules.client.updateCreateDotFields(undefined,undefined,data.message, undefined, linkUrl);
+        let fields = {
+          description: data.message,
+          //coverImageUrl: undefined,
+          linkUrl: linkUrl
+        };
+        Modules.client.updateCreateDotFields(fields);
         Session.set('fbPostAuthorData', data.from); //TODO MOVE IT TO UPDATE CREATE DOT FIELDS.
       }
     });

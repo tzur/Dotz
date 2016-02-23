@@ -1,0 +1,126 @@
+<template name="editDot_form">
+
+    <form id="editDot" class="editDot">
+
+
+        <div id="listTitle" class="row">
+            <div class="col-xs-3">
+                <p><strong>List Name</strong></p>
+            </div>
+
+            <div class="col-xs-9">
+                <input type="text" id="title" name="title" class="transparent-InputBox" placeholder='Like "My Favorites" or "Cool Events to Go" '>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="listDescription" class="row">
+            <div class="col-xs-3">
+                <p><strong>Description</strong></p>
+            </div>
+
+            <div class="col-xs-9">
+                <!--<input type="text" name="listDescription" class="transparent-InputBox" placeholder="What's your list about?">-->
+                <textarea id="description" name="description" class="transparent-InputBox" rows="3" placeholder="What's your list about?"></textarea>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="listImage" class="row">
+            <div class="col-xs-3">
+                <p><strong>List Cover Image</strong></p>
+            </div>
+
+            <div class="col-xs-9">
+                <!--NOTE! "{>imgUploader}" is a shred template (with the createNewDot form) -->
+              {{>img}}
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="listPrivacy" class="row">
+
+            <div class="col-xs-3">
+                <p><strong>List Privacy</strong></p>
+            </div>
+
+            <div class="col-xs-9">
+
+                <!--Public-->
+                <div class="col-xs-4 text-center">
+                    <div id="_publicList" class="privacyBtns {{publicSelectedClass}}">
+                        <i class="fa fa-globe"></i>
+                        <br>
+                        <p><strong>Public</strong></p>
+                        <!--<p class="mdGrey"><small>Anyone can see and add dotz to the list.</small></p>-->
+                        <p class="mdGrey"><small>Let everyone see and add new dotz to this list.</small></p>
+                    </div>
+                </div>
+
+                <!--Closed-->
+                <div class="col-xs-4 text-center">
+                    <div id="_closedList" class="privacyBtns {{closedSelectedClass}}">
+                        <i class="fa fa-lock"></i>
+                        <br>
+                        <p><strong>Closed</strong></p>
+                        <p class="mdGrey"><small>Anyone can see the list. Only you can add new dotz.</small></p>
+                    </div>
+                </div>
+
+                <!--Secret - coming soon... -->
+                <!--<div class="col-xs-4 text-center">-->
+                <!--<div id="_secretList" class="privacyBtns {{secretSelectedClass}}">-->
+                <!--<i class="fa fa-user"></i>-->
+                <!--<br>-->
+                <!--<p><strong>Secret</strong></p>-->
+                <!--<p class="mdGrey"><small>Only you can see and add dotz to this list.</small></p>-->
+                <!--</div>-->
+                <!--</div>-->
+
+            </div>
+
+        </div>
+
+
+
+        <!-- editAction_list mod: -->
+      {{#if editAction_list}}
+
+          <hr>
+
+          <div id="listTitle" class="row">
+              <div class="col-xs-3">
+                  <p><strong>Dotz Counter</strong></p>
+              </div>
+
+              <div class="col-xs-9">
+
+                  <div class="col-xs-3">
+                      <!--<label for="currencyField" class="control-label">Dotz Counter</label>-->
+                      <select name="showDotzCounter" id="showDotzCounter" autocomplete="off" class="form-control">
+                          <option value=true>Show</option>
+                          <option value=false>Hide</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+
+
+      {{/if}}
+
+        <div id="footer-createNewList_form" class="form-group txtMd">
+            <!--<input type="submit" class="btn signupBtn" value="create New List">-->
+          {{#if isSpinnerOn}}
+              <button id="createNewListButton" type="submit" class="_submitBtn createNewDotBtn transparent btn  btn-primary has-spinner active">
+                  <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>EDIT</button>
+          {{else}}
+              <button id="createNewListButton" type="submit" class="_submitBtn createNewDot_Btn btn btn-default">SAVE</button>
+          {{/if}}
+        </div>
+
+    </form>
+
+</template>

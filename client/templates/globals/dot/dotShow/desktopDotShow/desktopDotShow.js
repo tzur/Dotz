@@ -349,7 +349,7 @@ Template.desktopDotShow.helpers({
 
   dataForCreateHere: function() {
       return ( {
-        dot: {_id: this.dot._id}
+        parentDotId: this.dot._id
       });
   },
 

@@ -32,15 +32,22 @@ function createDotClearForm(){
 }
 
 
-function updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour){
+//function updateCreateDotFields(id, title, description, img, linkUrl, personalDescription, toParentDotId, fbAuthor){
+function updateCreateDotFields(fields){
 
-  if (title){
-    $('#title').val(title);
+  if (fields.personalDescription){
+    $('#personalDescription').val(fields.personalDescription);
   }
 
-  if (description){
+  if (fields.title){
+    $('#title').val(fields.title);
+  }
+
+  //console.log("fields.description >>>> " + fields.description)
+
+  if (fields.description){
     //$('#description').val(description).trigger('change'); //TRIGGER CHANGE IS FOR THE AUTO TAGGER NOT THAT RELAVENT.
-    $('#description').val(description);
+    $('#description').val(fields.description);
   }
 
   //Toggle fields on:
@@ -49,9 +56,10 @@ function updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour){
   //img section:
   let dotToEdit = Session.get('editAction_docToEdit');
   if (dotToEdit) {
-    Session.set('dotCoverImg', dotToEdit.coverImageUrl);
-  } else if (img) { //Support embedly img
-    Modules.client.uploadToAmazonViaUrl(img, function (error, url) {
+    //console.log("dotToEdit.coverImageUrl >>>> " + dotToEdit.dot.coverImageUrl)
+    Session.set('dotCoverImg', dotToEdit.dot.coverImageUrl);
+  } else if (fields.coverImageUrl) { //Support embedly img
+    Modules.client.uploadToAmazonViaUrl(fields.coverImageUrl, function (error, url) {
       if (error) {
         console.log("Error on uploadToAmazonViaUrl >>> " + error);
       } else {
@@ -80,15 +88,15 @@ function updateCreateDotFields(id, title, description, img, linkUrl ,fbAuthour){
 
   } else {
       //Dot only:
-      if (linkUrl){
+      if (fields.linkUrl){
         //$('#url').val(linkUrl).load();
         //$('#url').val(linkUrl).trigger('loading');
-        $('#url').val(linkUrl).trigger('click');
+        $('#url').val(fields.linkUrl).trigger('click');
       }
 
       //more details section:
-      if (id) {
-        let dot = Dotz.findOne(id);
+      if (fields._id) {
+        let dot = Dotz.findOne(fields._id);
         //convert by moment:
 
         if (dot.startDateAndHour) {
