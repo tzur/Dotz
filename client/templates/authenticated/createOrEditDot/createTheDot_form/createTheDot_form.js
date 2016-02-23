@@ -140,7 +140,7 @@ Template.createTheDot_form.events({
     console.log("self.parentDotId is   ----->  " + self.parentDotId);
     Modules.client.handleCreateSubmit(self.parentDotId, Session.get('dotCoverImg'), Session.get('locationObject'));
     $('#main-createNewDot').addClass('hidden');
-    _clearSessions();
+    Modules.client.createDotClearForm();
   }
 });
 

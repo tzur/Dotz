@@ -26,9 +26,19 @@ function _createDotFinishedLoadingImgFromS3(){
 function createDotClearForm(){
   Session.set('spinnerOn', false);
   Session.set('dotCoverImg', undefined);
+  $('#personalDescription').val('');
+  $('#url').val('');
   $('#title').val('');
   $('#description').val('');
-  $('#price').val(''); //TODO CLEAR MORE FIELDS SUCH AS DATE ETC
+  $('#webAddress').val('');
+  $('#startDate').val('');
+  $('#startHour').val('');
+  $('#endDate').val('');
+  $('#endHour').val('');
+  $('#multipleEventsNote').val('');
+  $('#currencyField').val('');
+  $('#price').val('');
+  $('#priceMax').val('');
 }
 
 
