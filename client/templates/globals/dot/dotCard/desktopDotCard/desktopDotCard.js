@@ -85,6 +85,17 @@ Template.desktopDotCard.helpers({
     }
   },
 
+  dotCoverImageUrlOrFb: function() {
+    if ( this.dot && this.dot.dotType === "FBDot" ) {
+      //authorFbProfile:
+      console.log("this.dot.facebookAuthorId >>>>> " + this.dot.facebookAuthorId)
+      return 'http://graph.facebook.com/'+ this.dot.facebookAuthorId + '/picture/?type=large';
+    } else if (this.dot) {
+      return this.dot.coverImageUrl;
+    }
+  },
+
+
   isInDotShow: function() {
     if ( Template.parentData(2).dot ) {
       return (Template.parentData(2).dot.dotType === "Dot");

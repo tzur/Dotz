@@ -81,7 +81,7 @@ function _embedlyFacebookIntegration(){
           let data = $('#url').data('preview');
 
           //TODO >>> TBD:
-          console.log("In success :)")
+          //console.log("In success :)")
           let linkUrl = $('#url').val();
           if (linkUrl && linkUrl.indexOf('https://www.facebook.com') > -1){
             _getFromFacebook(linkUrl);
@@ -111,7 +111,7 @@ function _embedlyFacebookIntegration(){
 
 function _getFromFacebook(linkUrl){
 
-  console.log("######### linkUrl 33333333 >>>>> " + linkUrl);
+  //console.log("######### linkUrl 33333333 >>>>> " + linkUrl);
 
   //if (linkUrl && linkUrl.indexOf('https://www.facebook.com') > -1){
     Modules.client.facebook.getPostData(function(error,data) {
@@ -119,7 +119,7 @@ function _getFromFacebook(linkUrl){
         Bert.alert(error.message, 'danger');
         Modules.client.createDotFinishedLoading();
       }else if (data) {
-        console.log("data.message >>>>> " + data.message);
+        //console.log("data.message >>>>> " + data.message);
         let fields = {
           description: data.message,
           //coverImageUrl: undefined,
