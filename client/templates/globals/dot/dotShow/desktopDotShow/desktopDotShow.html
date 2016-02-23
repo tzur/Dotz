@@ -75,10 +75,12 @@
 
                           <br>
 
-                          <div class="mediaDivInShowMore-desktopDotShow">
-                              <h4 class="subTitles-desktopDottShow">MEDIA:</h4>
-                              <img src="{{dot.coverImageUrl}}" id="imgInShowMore-desktopDotShow" class="material-shadow-1">
-                          </div>
+                          {{#if dot.coverImageUrl}}
+                              <div class="mediaDivInShowMore-desktopDotShow">
+                                  <h4 class="subTitles-desktopDottShow">MEDIA:</h4>
+                                  <img src="{{dot.coverImageUrl}}" id="imgInShowMore-desktopDotShow" class="material-shadow-1">
+                              </div>
+                          {{/if}}
 
 
                               <!--<div id="desktopListShow-middleDiv-origin" class="col-sm-6 pull-left noPadding">-->
