@@ -49,16 +49,16 @@ Template.mobileConnectDotModal.helpers({
   },
 
   userProfileDotzArray: function() {
-    //Session.set('dotIdWishedToBeConnected', this.data.dot._id);
-    //Session.set('dotOwnerUserId', this.data.dot.ownerUserId);
-    //Session.set('dotTitleWishedToBeConnected', this.data.dot.title);
-    //return Modules.client.Dotz.getAvailableList(this.data.dot._id);
-
-    return Meteor.user().profile.lastConnectedDotz;
+    //Kill the sessions:
+    Session.set('dotIdWishedToBeConnected', this.data.dot._id);
+    Session.set('dotOwnerUserId', this.data.dot.ownerUserId);
+    Session.set('dotTitleWishedToBeConnected', this.data.dot.title);
+    return Modules.client.Dotz.getAvailableList(this.data.dot._id);
   }
 
   ,
   canBeConnectedToUserProfileDot: function(){
+      console.log("Meteor.user().profile.profileDotId >>> " + (Meteor.user().profile.profileDotId + " this.data.dot._id) >>> " + this.data.dot._id) )
       return Modules.client.Dotz.canBeConnectedToDot(Meteor.user().profile.profileDotId, this.data.dot._id);
   },
 
