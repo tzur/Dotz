@@ -6,7 +6,7 @@ Meteor.methods({
     if(process.env.NODE_ENV === "production"){
       return "eUiePRZJCru751lnoFAhP09cchUtEqGZ"
     }
-    else{
+    else {
       return false
     }
   }

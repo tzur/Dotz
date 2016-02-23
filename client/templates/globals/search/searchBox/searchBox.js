@@ -17,13 +17,13 @@ Template.searchBox.events({
   'submit ._googleSearch': function(e){
     e.preventDefault();
 
-    Modules.client.googleCustomSearch($('#_searchBoxInput').val(), function(error, result){
-      if (error){
-        Bert.alert("Try again, please.",'danger')
-      } else {
-        Session.set('googleResults', Modules.client.googleResultToCard(result));
-      }
-    });
+    //Modules.client.googleCustomSearch($('#_searchBoxInput').val(), function(error, result){
+    //  if (error){
+    //    Bert.alert("Try again, please.",'danger')
+    //  } else {
+    //    Session.set('googleResults', Modules.client.googleResultToCard(result));
+    //  }
+    //});
 
     //TODO: we need to check this operation on mobile devices.. @otni
     let algoliaIndicesArray = ["links_DOTZ", "medias_DOTZ", "places_DOTZ", "events_DOTZ", "persons_DOTZ", "lists_DOTZ", "users_DOTZ"];

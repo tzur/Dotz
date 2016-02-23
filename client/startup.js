@@ -17,9 +17,14 @@
           if (!user)
             return;
 
+          //TODO >>> wtf here???
+          let emailAddress;
+          if (user.emails) {
+            emailAddress = user.emails[0].address
+          }
           analytics.identify(user._id, {
             name: user.profile.name,
-            email: user.emails[0].address
+            email: emailAddress
           });
 
           c.stop();
