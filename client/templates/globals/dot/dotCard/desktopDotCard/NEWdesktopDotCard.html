@@ -3,6 +3,8 @@
 
 <div id="dotCardAndConnectorBox-Desktop" class="container-fluid">
 
+{{#unless inDotParentSearchResults}}     <!--Hide the owner and the personal description-->
+
     <!--connector img and connection reason-->
     <div class="row">
         <div>
@@ -12,15 +14,18 @@
 
             <span class="connectorText-Desktop">{{smartRef.connection.personalDescription}}:</span>
         </div>
-
-
     </div>
+
+{{/unless}}
 
     <!--the connected dot section-->
     <div class="row">
-        <div class="col-sm-12 left-line-dot-card-box-desktop">
 
-            <div id="dotCardBox-Desktop" class="row">
+
+  <div class="col-sm-12 left-line-dot-card-box-desktop{{inDotParentSearchResults}}">     <!--Hide the horizinal line-->
+
+
+      <div id="dotCardBox-Desktop" class="row">
                 <div class="col-sm-3">
                     <div id="dotCardImg-Desktop" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')"></div>
                 </div>
@@ -68,43 +73,47 @@
                 </div>
             </div>
 
+{{#unless inDotParentSearchResults}}     <!--Hide the buttons line-->
+
             <div class="row">
 
                 <div class="col-sm-2 col-sm-offset-1">
 
                   {{# if isLikedByMe}}
                       <a class="unlike">
-                          <i class="unlike lightGrey likeBtn fa fa-heart"></i>
-                          <span class="likesCounter sm2Txt bold lightGrey"> {{likeCounter}}</span>
+                          <i class="unlike lightGrey likeBtn fa fa-heart mdTxt"></i>
+                          <span class="likesCounter mdTxt bold lightGrey"> {{likeCounter}}</span>
                       </a>
 
                   {{else}}
 
                       <a class="like">
-                          <i class="like lightGrey likeBtn fa fa-heart-o"></i>
-                          <span class="likesCounter sm2Txt lightGrey"> {{likeCounter}}</span>
+                          <i class="like lightGrey likeBtn fa fa-heart-o mdTxt"></i>
+                          <span class="likesCounter mdTxt lightGrey"> {{likeCounter}}</span>
                       </a>
                   {{/if}}
 
                 </div>
 
+
+
                 <div class="col-sm-4 no-left-pad">
-                    <button id="dotCardConnectButton-Desktop" class="connect btn btn-full-trans btn-xs lightGrey pull-left">
+                    <button id="dotCardConnectButton-Desktop" class="connect btn btn-full-trans btn-xs lightGrey mdTxt pull-left">
                         Connect
                     </button>
                 </div>
 
                 <div class="col-sm-3 noPadding pull-right">
                     <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                    <!--{{#if dotzNum}}-->
-                      <button class="btn btn-full-trans btn-xs lightGrey pull-right">
-                          Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>
-                      </button>
-                    <!--{{else}}-->
-                        <!--<button class="btn btn-full-trans btn-xs lightGrey pull-right">-->
-                            <!--Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>-->
-                        <!--</button>-->
-                    <!--{{/if}}-->
+                      <!--{{#if dotzNum}}-->
+                        <button class="btn btn-full-trans btn-xs lightGrey mdTxt pull-right">
+                            Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>
+                        </button>
+                      <!--{{else}}-->
+                          <!--<button class="btn btn-full-trans btn-xs lightGrey pull-right">-->
+                              <!--Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>-->
+                          <!--</button>-->
+                      <!--{{/if}}-->
                     </a>
 
                       {{#if isMyDotOrMyConnection}}
@@ -132,7 +141,11 @@
                       {{/if}}
                 </div>
 
+
             </div>
+
+{{/unless}}
+
         </div>
     </div>
 
