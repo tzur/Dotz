@@ -21,9 +21,11 @@ let getAvailableLists = function(dotIdWishedToConnectTo) {
   let availableDotz = [];
   if (lastDotzConnectedByTheUser) {
     lastDotzConnectedByTheUser.forEach(function (smartRef) {
-      if(canBeConnectedToDot(smartRef.dot._id, dotIdWishedToConnectTo)){
-        availableDotz.push(smartRef.dot._id);
-      }
+      availableDotz.push(smartRef.dot._id);
+      //TBD:
+      //if(canBeConnectedToDot(smartRef.dot._id, dotIdWishedToConnectTo)){
+      //  availableDotz.push(smartRef.dot._id);
+      //}
     });
   }
   //console.log(availableDotz.length);
@@ -44,6 +46,9 @@ let canBeConnectedToDot = (parentDotId, dotIdWishedToConnectTo) => {
 
   let parentDot = Dotz.findOne(parentDotId);
   let canBeConnected = true;
+
+  //TODO: it's crazy to ask (and sub-pub..) all of this and all the time.. we have to check it JUST on click or so.. @otni
+  //console.log("parentDot >>>>> " + parentDot)
 
   if(parentDot && parentDot._id != dotIdWishedToConnectTo){
 

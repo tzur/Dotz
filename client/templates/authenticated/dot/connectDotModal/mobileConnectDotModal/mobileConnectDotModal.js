@@ -54,11 +54,11 @@ Template.mobileConnectDotModal.helpers({
     Session.set('dotOwnerUserId', this.data.dot.ownerUserId);
     Session.set('dotTitleWishedToBeConnected', this.data.dot.title);
     return Modules.client.Dotz.getAvailableList(this.data.dot._id);
-  }
+  },
 
-  ,
   canBeConnectedToUserProfileDot: function(){
-      console.log("Meteor.user().profile.profileDotId >>> " + (Meteor.user().profile.profileDotId + " this.data.dot._id) >>> " + this.data.dot._id) )
+      console.log("Meteor.user().profile.profileDotId >>> " + (Meteor.user().profile.profileDotId + " this.data.dot._id) >>> " + this.data.dot._id) +
+      "true or false: " + Modules.client.Dotz.canBeConnectedToDot(Meteor.user().profile.profileDotId, this.data.dot._id) )
       return Modules.client.Dotz.canBeConnectedToDot(Meteor.user().profile.profileDotId, this.data.dot._id);
   },
 

@@ -375,6 +375,8 @@ Template.desktopDotCard.events({
   //  }
   //},
   'click .connect': function(){
+
+    console.log("this.dot >>>>>> " + this.dot._id)
     if(Meteor.user()) {
       Modal.show('mobileConnectDotModal',{
         data:{

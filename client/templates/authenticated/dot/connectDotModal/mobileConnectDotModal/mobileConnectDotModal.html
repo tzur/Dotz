@@ -28,33 +28,59 @@
                     <div class="container-fluid mobileConnectDotModal-ConnectedByOwnerDotz-div" id="dotzToConnectTo">
                         <div class="row">
 
-                          {{#if canBeConnectedToUserProfileDot}}
+                            <!--TBD all the checks..-->
+                          <!--{{#if canBeConnectedToUserProfileDot}}-->
 
-                              <div id="_mobileConnectDotModal-connecToUserProfiletBtnDiv" class="container-fluid">
-                                  <div class="col-xs-1 noPadding">
-                                      <div class="mobileConnectDotModal-dotImg" style="background-image: url('{{currentUserImageUrl}}')"></div>
-                                  </div>
+                        <div class="col-xs-12">
+                            <div id="_mobileConnectDotModal-connecToUserProfiletBtnDiv" class="container-fluid">
+                                <div class="col-xs-1 noPadding">
+                                    <div class="mobileConnectDotModal-dotImg" style="background-image: url('{{currentUserImageUrl}}')"></div>
+                                </div>
 
-                                  <div class="col-xs-11">
-                                      <h5 class="bold">My Profile</h5>
-                                  </div>
+                                <div class="col-xs-11">
+                                    <h5 class="bold">My Profile</h5>
+                                </div>
 
-                              </div>
+                            </div>
+                        </div>
 
-                          {{/if}}
+                          <!--{{/if}}-->
 
-
-                          <div id="availableDotz">
+                          <div id="availableDotz" class="col-xs-12">
 
                             {{#if userProfileDotzArray}}
                               {{#each userProfileDotzArray}}
                                 {{>mini_searchResultCard}}
                               {{/each}}
                             {{else}}
-
                               <!--<p class="colCenter">Its seems like there is no List to connect to :)</p>-->
-
                             {{/if}}
+
+
+
+                            <!--search-->
+
+                            <div class="colCenter">
+                                <form class="search _dotToConnectSearch" role="search">
+                                <br><br>
+                                    <div class="form-group txtMd noPadding">
+                                        <div class="input-group">
+                                            <input id="_searchBoxInput_connectModal" type="text" name="searchBox" class="form-control"
+                                                   placeholder="Search Dot..." required>
+                                          <span class="input-group-btn">
+                                            <button id="searchSubmit" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                          </span>
+                                        </div>
+                                    </div>
+                                <br>
+                                </form>
+                            </div>
+
+                            {{#each results_DOTZ_Algolia}}
+                                {{>mini_searchResultCard}}
+                            {{/each}}
+
+                              <br><br><br>
 
                           </div>
 
@@ -63,36 +89,37 @@
 
 
 
-                    <hr class="row">
+                    <!--<hr class="row">-->
+                  <br>
 
-                    <div class="container-fluid mobileConnectDotModal-ConnectedByOwnerDotz-div" id="searchResults-connectDotModal">
-                        <div class="row">
-                            <div class="col-xs-12 colCenter">
-                                <form class="search _dotToConnectSearch" role="search">
+                    <!--<div class="container-fluid mobileConnectDotModal-ConnectedByOwnerDotz-div" id="searchResults-connectDotModal">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-12 colCenter">-->
+                                <!--<form class="search _dotToConnectSearch" role="search">-->
 
-                                    <div class="col-sm-12 form-group txtMd noPadding">
-                                        <div class="input-group">
-                                            <input id="_searchBoxInput_connectModal" type="text" name="searchBox" class="form-control"
-                                                   placeholder="Or Search..." required>
-                                            <span class="input-group-btn">
-                                              <button id="searchSubmit" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                                            </span>
-                                        </div>
-                                    </div>
+                                    <!--<div class="col-sm-12 form-group txtMd noPadding">-->
+                                        <!--<div class="input-group">-->
+                                            <!--<input id="_searchBoxInput_connectModal" type="text" name="searchBox" class="form-control"-->
+                                                   <!--placeholder="Search Dot..." required>-->
+                                            <!--<span class="input-group-btn">-->
+                                              <!--<button id="searchSubmit" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>-->
+                                            <!--</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
 
-                                </form>
-                            </div>
-                          </div>
-
-
-                        <div class="row">
-                          {{#each results_DOTZ_Algolia}}
-                            {{>mini_searchResultCard}}
-                          {{/each}}
-                        </div>
+                                <!--</form>-->
+                            <!--</div>-->
+                          <!--</div>-->
 
 
-                      </div>
+                        <!--<div class="row">-->
+                          <!--{{#each results_DOTZ_Algolia}}-->
+                            <!--{{>mini_searchResultCard}}-->
+                          <!--{{/each}}-->
+                        <!--</div>-->
+
+
+                      <!--</div>-->
 
 
 
