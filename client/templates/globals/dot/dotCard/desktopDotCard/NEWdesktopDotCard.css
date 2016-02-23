@@ -20,7 +20,8 @@
   padding-left: 9px;
   margin-left: 9px;
   border-left: 1px solid #e5e5e5;
-  margin-top: 3vh;
+  margin-top: 1vh;
+  margin-bottom: 3vh;
 }
 
 #dotCardBox-Desktop {
@@ -36,6 +37,7 @@
 
 .connectorText-Desktop {
   color: #337A98;
+  vertical-align: sub;
 }
 
 #dotCardImg-Desktop {
@@ -65,6 +67,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  color: #000;
 }
 
 #dotCardShortDescription-Desktop {
