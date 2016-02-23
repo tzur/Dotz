@@ -43,17 +43,18 @@ let _getGroupPosts = function(listSlug, groupId, startRangeDate, endRangeDate, c
   console.log(listId);
   let fbFilteredPosts = [];
   let fbDotz = [];
-  let fbPost = function (ownerName, ownerFbId, likes, content, createdTime) {
+  let fbPost = function (ownerName, ownerFbId, likes, content, createdTime, link) {
     this.ownerName = ownerName;
     this.ownerFbId = ownerFbId;
     this.likes = likes;
     this.content = content;
     this.createdTime = new Date(createdTime);
     this.connectTo = listId;
+    this.linkUrl = link;
   };
 
   //title,
-  var query = groupId + '/feed?fields=likes,comments,message,from,created_time' +
+  var query = groupId + '/feed?fields=likes,comments,message,from,created_time,link,id' +
     '&since=' + startDateUnixTimestamp + '&until=' + endDateUnixTimestamp + '&limit=300';
   //434228236734415/feed?fields=likes,message,from,created_time&limit=100
   var pagesCounter = 0;
@@ -73,7 +74,16 @@ let _getGroupPosts = function(listSlug, groupId, startRangeDate, endRangeDate, c
             commentsLength = fbData.comments.data.length;
           }
           if ( (likesLength > 10) || (commentsLength > 4) ) {
-            fbFilteredPosts.push(new fbPost(fbData.from.name, fbData.from.id, likesLength, fbData.message, fbData.created_time))
+
+            //id
+            //https://www.facebook.com/434228236734415/posts/598666706957233
+
+            let idSplitArray = fbData.id.split('_');
+            console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ idSplitArray " + idSplitArray[0] + " and " + idSplitArray[1])
+            let linkUrl = "https://www.facebook.com/" + idSplitArray[0] + "/posts/" + idSplitArray[1];
+            console.log("linkUrl >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + linkUrl)
+            
+            fbFilteredPosts.push(new fbPost(fbData.from.name, fbData.from.id, likesLength, fbData.message, fbData.created_time, linkUrl))
           }
       });
     } else {
@@ -89,8 +99,8 @@ let _getGroupPosts = function(listSlug, groupId, startRangeDate, endRangeDate, c
     console.log("Took data from " + pagesCounter + " Pages on facebook.");
   }
   fbFilteredPosts.forEach(function (filteredPost) {
-    fbDotz.push(new Modules.both.Dotz.DotFactory('FBDot', Meteor.userId(), 'Post: ', filteredPost.createdTime, false,
-      filteredPost.content, filteredPost.ownerFbId, filteredPost.ownerName,undefined, filteredPost.connectTo));
+    fbDotz.push(new Modules.both.Dotz.DotFactory('FBDot', Meteor.userId(), filteredPost.ownerName+"'s Post: ", filteredPost.createdTime, false,
+      filteredPost.content, filteredPost.ownerFbId, filteredPost.ownerName,undefined, filteredPost.connectTo, filteredPost.linkUrl));
 
   });
   let amountOfDotz = fbDotz.length;
