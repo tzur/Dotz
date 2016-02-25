@@ -48,7 +48,7 @@ Template.profileDotCard.helpers({
 
   shortenTitle: function() {
     if (this.dot){
-      return s.prune(this.dot.title, 25);
+      return s.prune(this.dot.title, 60);
     }
   },
 

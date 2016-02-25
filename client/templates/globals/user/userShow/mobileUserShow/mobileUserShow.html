@@ -1,0 +1,89 @@
+
+<template name="mobileUserShow">
+<!--{{#if subscriptionsReady}}-->
+{{#with dataUser}}
+        <!--<div id="userBgImg" class="container-liquid">-->
+            <!--<div class="row imgCover" style="background-image: url('{{profile.coverImage}}')">-->
+                <!--<div class="col-xs-12 colCenter">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div id="main-mobileUserShow" class="container-fluid">
+
+                    <div id="imgAndName-mobileUserShow" class="row">
+
+                        <div id="" class="col-xs-4">
+                            <div id="userImgProfile-mobileUserShow" class="container-fluid material-shadow-1" style="background-image: url('{{profile.profileImage}}')"></div>
+                        </div>
+
+
+                        <div id="userDescription-mobileUserShow" class="col-xs-8">
+                            <h2 class="userNameTitle-mobileUserShow" dir="auto">{{username}}</h2>
+                            <p dir="auto">{{profile.description}}</p>
+                        </div>
+
+                    </div>
+
+
+
+
+
+    <div>
+    <div class="row user-profile-cards">
+
+<!--<br>-->
+
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-xs-12 col-sm-10 col-lg-10 colCenter">
+
+
+                {{#if shareMode}}
+
+                  {{#each sharedDotzArray}}
+                    {{> dotCard}}
+                  {{/each}}
+
+                {{else}}
+
+                  {{#each connectedDotzArray}}
+                    {{> profileDotCard}}
+                  {{/each}}
+                {{/if}}
+
+
+{{#if myProfileIsEmpty}}<!--fake ListCard-->
+
+<div class="txtMd">
+
+    <h2 class="lightGrey">Every great profile starts with a tiny action :)</h2>
+      <br>
+      <br>
+</div>
+
+
+
+{{/if}}
+
+
+
+              </div>
+          </div>
+      </div><!-- end wrapper -->
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+{{/with}}
+<!--{{else}}-->
+     <!--{{>loading2}}-->
+  <!--&lt;!&ndash;&lt;!&ndash;to replace with a loading template&ndash;&gt;&ndash;&gt;-->
+<!--{{/if}}-->
+</template>
