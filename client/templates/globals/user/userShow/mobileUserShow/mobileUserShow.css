@@ -1,0 +1,45 @@
+
+
+
+#main-mobileUserShow {
+  border-top: 1px solid rgba(237, 238, 238, 1);
+  position: relative;
+  top: 9vh;
+  /*min-height: 60vh;*/
+  padding: 4vh 3.5vw 3vh 3.5vw;
+  background-color: #fafafa;
+  /*TBD - Z-index ?*/
+  z-index: 2;
+}
+
+#imgAndName-mobileUserShow {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#userImgProfile-mobileUserShow {
+  height: 6em;
+  width: 6em;
+  background-color: #fafafa;
+  border-radius: 3px;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  /*border: #fafafa solid 1px;*/
+}
+
+.userNameTitle-mobileUserShow {
+  font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, 'Roboto', sans-serif, Arial;
+  font-size: 22px;
+  font-weight: 300;
+  color: rgba(75, 79, 84, 1);
+}
+
+#userDescription-mobileUserShow p {
+  font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, 'Roboto', sans-serif, Arial;
+  font-size: 12px;
+  font-weight: 300;
+  /*color: #8d8d8d;*/
+  color: rgba(75, 79, 84, 1);
+  margin-left: 0;
+}

@@ -1,4 +1,4 @@
-Template.userShow.onCreated(function() {
+Template.desktopUserShow.onCreated(function() {
   Session.set('showShareDotz', false);
   let self = this;
   self.userShowReady = new ReactiveVar();
@@ -49,7 +49,7 @@ Template.userShow.onCreated(function() {
 });
 
 
-Template.userShow.onRendered(function() {
+Template.desktopUserShow.onRendered(function() {
   //Session.set('showShareDotz', false);
   Session.set('changeListener', true);
   Session.set('spinnerOn', false);
@@ -77,12 +77,12 @@ Template.userShow.onRendered(function() {
 });
 
 
-Template.userShow.onDestroyed(function(){
+Template.desktopUserShow.onDestroyed(function(){
   Session.set('changeListener', true);
 });
 
 
-Template.userShow.helpers({
+Template.desktopUserShow.helpers({
   dataUser: function() {
     FlowRouter.watchPathChange();
 
@@ -211,7 +211,7 @@ Template.userShow.helpers({
 
 
 });
-Template.userShow.events({
+Template.desktopUserShow.events({
   'click ._shareUserOnFB': function(event){
     event.preventDefault();
     FB.ui({
