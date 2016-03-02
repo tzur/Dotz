@@ -83,7 +83,7 @@ a span:hover {
 
 
 #pre-delete-menu {
-  top: initial;
+  /*top: initial;*/
 }
 
 .dropdown-menu li i {

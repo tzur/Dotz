@@ -7,6 +7,22 @@ Check the dotSchema and the createDotHooks for allowedValues:
 ['darkGreenDot','brightGreenDot', 'greenDot', 'purpleDot', 'blueDot', 'redDot','pinkDot', 'orangeDot']
 */
 
+/*  color: #0090ff;  */
+
+.blueBrand {
+  color: #0090ff;
+}
+
+.blueBrandBorder {
+  border-color: #0090ff;
+}
+
+.blueBrandbackgroundColor {
+  background-color: #0090ff;
+}
+
+
+
 .darkGreenDot {
   color: #237f52;
   border-color: #237f52;

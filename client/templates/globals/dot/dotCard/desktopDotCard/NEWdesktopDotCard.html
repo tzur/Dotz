@@ -3,82 +3,177 @@
 
 <div id="dotCardAndConnectorBox-Desktop" class="container-fluid">
 
-{{#unless inDotParentSearchResults}}     <!--Hide the owner and the personal description-->
-
-    <!--connector img and connection reason-->
-    <div class="row">
-        <div>
-            <a href="/{{ownerUser.profile.userSlug}}">
-                <img class="connectorProfileImage-Desktop" src="{{ownerUser.profile.profileImage}}">
-            </a>
-
-            <span class="connectorText-Desktop">{{smartRef.connection.personalDescription}}:</span>
-        </div>
-    </div>
-
-{{/unless}}
-
     <!--the connected dot section-->
     <div class="row">
 
-
-  <div class="col-sm-12 left-line-dot-card-box-desktop{{inDotParentSearchResults}}">     <!--Hide the horizinal line-->
+  <div class="col-sm-12">     <!--Hide the horizinal line-->
 
 
       <div id="dotCardBox-Desktop" class="row">
 
-              <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                <div class="col-sm-3">
-                    <div id="dotCardImg-Desktop" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{dotCoverImageUrlOrFb}}')"></div>
-                </div>
-              </a>
+              <div id="dotCard-sortOrLike-col" class="col-xs-1 noPadding">
 
-                <div id="dotCardText-Desktop" class="col-sm-9">
+                  <div id="dotCard-Like-col">
 
-                      <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                        <h5 id="dotCardShortTitle-Desktop" class="break" dir="auto">{{dot.title}}</h5>
-                      </a>
+                      {{# if isLikedByMe}}
+                          <a class="unlike">
+                              <i class="unlike lightGrey likeBtn fa fa-heart"></i>
+                              <span class="likesCounter normalTxt bold lightGrey"> {{likeCounter}}</span>
+                          </a>
+
+                      {{else}}
+
+                          <a class="like">
+                              <i class="like lightGrey likeBtn fa fa-heart-o"></i>
+                              <span class="likesCounter normalTxt lightGrey"> {{likeCounter}}</span>
+                          </a>
+                      {{/if}}
+
+                  </div>
+
+              </div>
+
+
+          <!-- dot card image -->
+
+              <div class="col-sm-2 col-md-3">
+                <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+
+                      <div id="dotCardImg-Desktop" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{dotCoverImageUrlOrFb}}')">
+                        {{#if dot.connectedDotzArray}}
+                          <div id="dotsNumBadge">{{dot.connectedDotzArray.length}}</div>
+                        {{/if}}
+                      </div>
+                </a>
+              </div>
+
+
+          <!-- dot card content -->
+
+              <div id="dotCardText-Desktop" class="col-sm-8 col-md-7 no-left-pad">
+
+
+                  <!--connector img and connection reason-->
+
+                  {{#unless inDotParentSearchResults}}     <!--Hides the owner and the personal description-->
+
+                      <div class="row">
+
+                          <div class="col-xs-12">
+
+                              <a href="/{{ownerUser.profile.userSlug}}">
+                                  <img class="connectorProfileImage-Desktop" src="{{ownerUser.profile.profileImage}}">
+                              </a>
+
+                            {{#if DOT_TYPE_IS 'StartDot' dot.dotSubType}}
+                                <span class="connectorText-Desktop">{{dot.title}}:</span>
+                            {{else}}
+                              {{#if smartRef.connection.personalDescription}}
+                                   <span class="connectorText-Desktop">{{smartRef.connection.personalDescription}}:</span>
+                                {{else}}
+                                   <span class="connectorName-Desktop greyText">{{ownerUser.username}} Connected:</span>
+                              {{/if}}
+                            {{/if}}
+
+                          </div>
+
+                      </div>
+
+                  {{/unless}}
+
+
+                      <!--<a class="_setCurrentPath" href="/{{dot.dotSlug}}">-->
+                        <!--<h5 id="dotCardShortTitle-Desktop" class="break" dir="auto">{{dot.title}}</h5>-->
+                      <!--</a>-->
+
+
     <!-- description / date / location /price -->
 
-                    {{#unless DOT_TYPE_IS 'Event' dot.dotSubType}}
-                      <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                        <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">{{dot.bodyText}}</p>
-                      </a>
-                    {{/unless}}
 
+                  <div id="dotContent-row" class="row">
 
-                    <div>
+                    <div id="dotContent-col" class="col-xs-12">
 
-                      {{#if DOT_TYPE_IS 'Link' dot.dotSubType}}
-                        <a href="{{dot.linkUrl}}" target="_blank">
-                          <h6 class="break lightBlue">{{dot.linkName}}</h6>
+                      {{#unless DOT_TYPE_IS 'Event' dot.dotSubType}}
+                        <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                          <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">{{dot.title}}</p>
                         </a>
-                      {{/if}}
+                      {{/unless}}
 
-                      {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
-                          <div>
-                              <span class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
-                              <!--TODO get the event date data from the create & edit form @yoav-->
-                          </div>
-                      {{/if}}
 
-                      {{#if dot.location}}
-                          <div>
-                              <span class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
-                          </div>
-                      {{/if}}
 
-                      {{#if dot.price}}
-                          <div>
-                              <span class="greyText"><i class="fa dotCardIcons-desktopDotCard"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
-                          </div>
-                      {{/if}}
+
+                        {{#if DOT_TYPE_IS 'Link' dot.dotSubType}}
+                          <a href="{{dot.linkUrl}}" target="_blank">
+                            <h6 class="break lightBlue">{{dot.linkName}}</h6>
+                          </a>
+                        {{/if}}
+
+                        {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
+                            <div>
+                                <span class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
+                                <!--TODO get the event date data from the create & edit form @yoav-->
+                            </div>
+                        {{/if}}
+
+                        {{#if dot.location}}
+                            <div>
+                                <span class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
+                            </div>
+                        {{/if}}
+
+                        {{#if dot.price}}
+                            <div>
+                                <span class="greyText"><i class="fa dotCardIcons-desktopDotCard"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
+                            </div>
+                        {{/if}}
 
                     </div>
 
+                  </div>
 
+              </div>
+
+
+          <!-- dot card connect button -->
+
+
+              <div class="col-sm-1">
+
+                <div id="desktopDotCard-editOrConnectButtonsDiv">
+
+                  {{#if isMyDotOrMyConnection}}
+                      <a class="panelBtn dropdown-toggle pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="desktopDotCard-3dots" class="lightGrey" aria-hidden="true">...</span>
+                      </a>
+
+                      <ul id="pre-delete-menu" class="dropdown-menu pull-right">
+                        {{#if isConnected}}
+                            <li class="connect"><a><i class="mdGrey fa fa-plus-circle"></i> ReConnect</a></li>
+                            <li class="_disConnectBtn"><a><i class="mdGrey fa fa-minus-circle"></i> Disconnect</a></li>
+                            <li role="separator" class="divider"></li>
+                        {{else}}
+
+                            <li class="connect"><a><i class="mdGrey fa fa-plus-circle"></i> ReConnect</a></li>
+
+                        {{/if}}
+                        {{#if isMyDot}}
+                            <li id="_editDotCardBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                        {{/if}}
+                      </ul>
+
+                    {{else}}
+
+                      <button id="dotCardConnectButton-Desktop" class="connect btn btn-full-trans btn-xs lightGrey normalTxt pull-right">+</button>
+
+                  {{/if}}
 
                 </div>
+
+              </div>
+
             </div>
 
 
@@ -90,77 +185,6 @@
         <i class="pull-left addBtn fa fa-plus-circle"></i>
     </a>
 </div>
-
-{{else}}
-            <div class="row">
-
-                <div class="col-sm-3 text-center">
-
-                  {{# if isLikedByMe}}
-                      <a class="unlike">
-                          <i class="unlike lightGrey likeBtn fa fa-heart normalTxt"></i>
-                          <span class="likesCounter normalTxt bold lightGrey"> {{likeCounter}}</span>
-                      </a>
-
-                  {{else}}
-
-                      <a class="like">
-                          <i class="like lightGrey likeBtn fa fa-heart-o normalTxt"></i>
-                          <span class="likesCounter normalTxt lightGrey"> {{likeCounter}}</span>
-                      </a>
-                  {{/if}}
-
-                </div>
-
-
-
-                <div class="col-sm-4 no-left-pad">
-                    <button id="dotCardConnectButton-Desktop" class="connect btn btn-full-trans btn-xs lightGrey normalTxt pull-left">
-                        Connect
-                    </button>
-                </div>
-
-                <div class="col-sm-3 noPadding pull-right">
-
-                        <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                        <!--{{#if dotzNum}}-->
-                            <button class="btn btn-full-trans btn-xs lightGrey normalTxt pull-right">
-                                Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right normalTxt lightGrey"></i>
-                            </button>
-                                <!--{{else}}-->
-                            <!--<button class="btn btn-full-trans btn-xs lightGrey pull-right">-->
-                            <!--Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>-->
-                            <!--</button>-->
-                                <!--{{/if}}-->
-                        </a>
-
-                      {{#if isMyDotOrMyConnection}}
-                          <a class="panelBtn dropdown-toggle pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <div id="desktopDotCard-editButtonDiv">
-                                  <i class="fa fa-cog lightGrey" aria-hidden="true"></i>
-                              </div>
-                          </a>
-
-                          <ul id="pre-delete-menu" class="dropdown-menu left">
-                            {{#if isConnected}}
-                                <li class="_disConnectBtn"><a><i class="mdGrey fa fa-minus-circle"></i> Disconnect</a></li>
-                                <li role="separator" class="divider"></li>
-                            {{else}}
-                                <!--<div id="desktopDotCard-connectButtonDiv" class="connect">-->
-                                <!--<i class="fa fa-plus-circle mdGrey mdTxt"></i>-->
-                                <!--</div>-->
-                            {{/if}}
-                            {{#if isMyDot}}
-                                <li id="_editDotCardBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
-                            {{/if}}
-                          </ul>
-                      {{/if}}
-                </div>
-
-
-            </div>
 
 {{/if}}
 

@@ -1,27 +1,28 @@
 #dotCardAndConnectorBox-Desktop {
-  margin: 3vh 0;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
 
-#dotCardAndConnectorBox-Desktop:hover #desktopDotCard-editButtonDiv {
-  display: inline-block;}
+#dotCardAndConnectorBox-Desktop:hover {
+  background-color: #fafafa;
+}
 
-#desktopDotCard-editButtonDiv {
+#dotCardAndConnectorBox-Desktop:hover #desktopDotCard-editOrConnectButtonsDiv {
+  display: inline-block;
+  float: right;
+}
+
+#desktopDotCard-editOrConnectButtonsDiv {
   display: none;
 }
 
-#desktopDotCard-editButtonDiv {
-  padding-left: 10px;
-  padding-right: 10px;
-  border-right: 1px solid #e5e5e5;
-}
-
-
-.left-line-dot-card-box-desktop {
-  padding-left: 9px;
-  margin-left: 9px;
-  border-left: 1px solid #e5e5e5;
-  margin-top: 1vh;
-  margin-bottom: 3vh;
+#desktopDotCard-3dots {
+  font-size: 20px;
+  transform: rotate(270deg);
+  float: right;
+  font-weight: bold;
 }
 
 #dotCardBox-Desktop {
@@ -29,17 +30,49 @@
   margin-bottom: 1vh;
 }
 
+#dotCard-sortOrLike-col {
+  height: 18vh;
+}
+
+#dotCard-Like-col {
+  position: relative;
+  top: 7vh;
+  left: 50%;
+}
+
+.likeBtn {
+  font-size: 1.125em;
+}
+
+
 .connectorProfileImage-Desktop {
-  height: 3vh;
-  width: 3vh;
-  border-radius: 50%;
+  height: 3.5vh;
+  width: 3.5vh;
+  border-radius: 4px;
 }
 
 .connectorText-Desktop {
-  vertical-align: sub;
-  font-size: 14px;
+  /*vertical-align: sub;*/
+  font-size: 15px;
   color: #333;
   font-weight: 600;
+}
+
+.connectorName-Desktop {
+  /*vertical-align: sub;*/
+  font-size: 14px;
+  /*color: #333;*/
+  font-weight: 400;
+}
+
+#dotContent-row {
+  padding-left: 14px;
+  margin-top: 8px;
+}
+
+#dotContent-col {
+  border-left: 3px solid #eee;
+  padding-left: 8px;
 }
 
 #dotCardImg-Desktop {
@@ -54,13 +87,29 @@
   border: #e5e5e5 solid 2px;
 }
 
+#dotsNumBadge {
+  width: 5vh;
+  height: 5vh;
+  font-size: 2vh;
+  padding-top: 0.5vh;
+  border-radius: 24px;
+  border: 3px solid #fff;
+  background-color: #0090ff;
+  color: #fff;
+  text-align: center;
+  /*line-height: 1.7;*/
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 #dotCardText-Desktop {
   padding-right: 0;
-  padding-left: 0;
+  /*padding-left: 0;*/
 }
 
 #dotCardText-Desktop h4, #dotCardText-Desktop h5, #dotCardText-Desktop h6, #dotCardText-Desktop p {
-  margin-top: 5px;
+  margin-top: 0px;
   margin-bottom: 5px;
 }
 
@@ -81,5 +130,10 @@
 
 
 #dotCardConnectButton-Desktop {
-  padding: 0;
+  border: solid 1px;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  margin-top: 7vh;
+  line-height: 0.8;
 }

@@ -360,17 +360,6 @@
   font-size: 1.25em;
 }
 
-#desktopDotCard-3dots {
-  position: absolute;
-  top: 1.5vh;
-  right: 0;
-}
-
-#desktopDotCard-3dots .dropdown-menu > li > a {
-  padding-left: 0;
-}
-
-
 .desktopDotCard-collapseConnectorDiv {
   margin-top: -1vh;
 }
