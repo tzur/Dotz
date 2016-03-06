@@ -12,7 +12,7 @@
             <div id="desktopListShow-listCoverImg" class="row {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')">
                 <div id="desktopListShow-listShowHeader-filter">
 
-                    <div id="desktopDotShow-titleDiv" class="col-xs-12 col-sm-12 col-md-7 col-lg-7 colCenter">
+                    <div id="desktopDotShow-titleDiv" class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
                         <div class="col-xs-3 material-shadow-1" id="circleDotImg-desktopDotShow" style="background-image: url('{{dot.coverImageUrl}}')">
                             <!--<img src="{{dot.coverImageUrl}}" id="circleDotImg-desktopDotShow" class="material-shadow-1">-->
                         </div>
@@ -36,7 +36,7 @@
 
 
             <div id="desktopDotShow-descriptionDiv" class="col-xs-12">
-                    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 colCenter">
+                    <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
 
                         <div class="mdTxt">
 
@@ -145,7 +145,7 @@
 
             <div id="buttonsPanel-desktopListShow" class="col-xs-12">
 
-                <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 colCenter">
+                <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
 
 
                     <div class="pull-left noPadding">
@@ -208,7 +208,7 @@
         <div id="connectedDotzArray-desktopListShow">
             <div class="container-fluid">
                 <div class="row">
-                    <div id="connectedDotzArray-col" class="col-xs-12 col-sm-12 col-md-7 col-lg-7 colCenter">
+                    <div id="connectedDotzArray-col" class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
                     {{#if thereIsNoConnectionsToThisDot}}
 
                       {{#if isUserAllowToConnect}}
@@ -236,9 +236,8 @@
   <div class="container-fluid navbar-fixed-bottom background-white" id="dotShowFooter-inListShow">
     <div class="row">
 
-        <div id="lastCard-desktopDotShow" class="col-xs-12 col-sm-12 col-md-7 col-lg-7 colCenter noPadding">
-            <div id="desktopDotCard-lastDot" class="container-fluid material-shadow-2">
-                <!--<div id="desktopDotCard-lastDot-col-connectLine-inListShow"></div>-->
+            <div class="container-fluid">
+                <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter noPadding">
 
               {{# if addDotIsAvailable}}
                 {{#with dataForCreateHere}}
@@ -247,8 +246,8 @@
                 {{/with}}
               {{/if}}
 
+                </div>
             </div>
-        </div>
 
         <div id="closeBtnModal" class="hidden">
             <span>X</span>

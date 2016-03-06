@@ -48,6 +48,8 @@ function createDotClearForm(){
   $('#dotShowFooter-inListShow').removeClass('background-fa');
   $('#typesAndSearch-div').addClass('hidden');
   $('#footer-createNewDot').addClass('hidden');
+
+  Session.set('lists_DOTZ', undefined);
 }
 
 

@@ -1,0 +1,29 @@
+<template name="searchResults_in_CreateTheDot">
+    <div id="searchResults_in_CreateTheDot">
+
+
+
+
+  <!--{{#each listId in listIdArray}}-->
+    <!--{{> Lists_show (listArgs listId)}}-->
+  <!--{{else}}-->
+    <!--&lt;!&ndash;{{> App_notFound}}&ndash;&gt;-->
+    <!--<p></p>-->
+  <!--{{/each}}-->
+
+
+  {{#each lists_DOTZ_Algolia}}
+    {{#if isNotAlreadyConnected}}
+      {{#with dataForDotCard}}
+        {{> searchResultCard_in_CreateTheDot}}
+      {{/with}}
+    {{/if}}
+
+  <!--{{else}}-->
+    <!--<p>Nothing Here :(</p>-->
+  {{/each}}
+
+    </div>
+</template>
+
+
