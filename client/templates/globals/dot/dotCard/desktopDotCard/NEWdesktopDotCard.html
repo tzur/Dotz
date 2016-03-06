@@ -193,8 +193,10 @@
 
 
                 <div id="dotCardBox-Desktop-Reconnected-div" class="col-sm-8 pull-right lightGrey">
+                  {{#if actionNameIsConnect}}
                     <i class="fa fa-retweet"></i>
-                    <span>ReConnected by Otni Levi</span>
+                    <span>ReConnected by {{connectedByUser.username}}</span>
+                  {{/if}}
                 </div>
 
 

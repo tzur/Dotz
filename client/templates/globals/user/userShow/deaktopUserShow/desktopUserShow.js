@@ -1,5 +1,4 @@
 Template.desktopUserShow.onCreated(function() {
-  Session.set('showShareDotz', false);
   let self = this;
   self.userShowReady = new ReactiveVar();
   self.profileDotReady = new ReactiveVar();
@@ -19,10 +18,16 @@ Template.desktopUserShow.onCreated(function() {
       self.subs.subscribe('userByUserSlug', userSlug, function(){
         let user = Meteor.users.findOne( {"profile.userSlug": userSlug});
         if (!user){
-          Bert.alert('Page does not exist', 'danger');
-          //Back to the previews page:
-          setTimeout(function(){ window.history.back(); }, 2000);
-          //FlowRouter.go('/');
+            Bert.alert('Page does not exist', 'danger');
+            //Back to the previews page:
+            //setTimeout(function(){ window.history.back(); }, 2000);
+            // TBD:
+            if ( Meteor.user() ) {
+              let userSlug = Meteor.user().profile.userSlug;
+              FlowRouter.go( '/' + userSlug );
+            } else {
+              FlowRouter.go('/dotz');
+            }
         } else if (user) {
           //console.log("$$$$$$$$ user.username " + user.username);
           var title = "Dotz: " + user.username;
@@ -50,7 +55,6 @@ Template.desktopUserShow.onCreated(function() {
 
 
 Template.desktopUserShow.onRendered(function() {
-  //Session.set('showShareDotz', false);
   Session.set('changeListener', true);
   Session.set('spinnerOn', false);
   (function(d, s, id){
@@ -182,25 +186,11 @@ Template.desktopUserShow.helpers({
 
   connectedDotzArray: function() {
     Session.get('changeListener');
-    Session.get('showShareDotz');
     let profileDot = Dotz.findOne(this.profile.profileDotId);
     if (profileDot){
       return profileDot.connectedDotzArray;
     }
 
-  },
-  sharedDotzArray: function(){
-    let sharedDot = Dotz.findOne(this.profile.shareDotId);
-    if (sharedDot){
-      return sharedDot.connectedDotzArray;
-    }
-
-  },
-  shareMode: function(){
-    return Session.get('showShareDotz');
-  },
-  canGenerateAutoLists: function(){
-    return (Meteor.user().profile.createdByUserLists.length === 0 )
   },
 
   dataForCreateInMyProfile: function() {
@@ -333,21 +323,14 @@ Template.desktopUserShow.events({
       title: "Auto Generate Lists From: Profile"
     })
   },
-  'click ._goToShareMode': function(){
-    Session.set('showShareDotz', true);
-    analytics.track("Show Shared Lists Page", {
-    })
-  },
-  'click .goToProfileMode': function(){
-    Session.set('showShareDotz', false);
-  },
+
   'click #_userConnectivity': function(){
     Modal.show('userConnectivity',{
       data: {
         userId: this._id
       }
       });
-  },
+  }
 
 
 });

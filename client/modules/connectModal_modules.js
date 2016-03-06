@@ -17,11 +17,11 @@ let getAvailableLists = function(dotIdWishedToConnectTo) {
   //else{
   //  return false
   //}
-  let lastDotzConnectedByTheUser = Meteor.user().profile.lastDotzConnectedByTheUser;
+  let lastDotzUserConnectedTo = Meteor.user().profile.lastDotzUserConnectedTo;
   let availableDotz = [];
-  if (lastDotzConnectedByTheUser) {
-    lastDotzConnectedByTheUser.forEach(function (smartRef) {
-      availableDotz.push(smartRef.dot._id);
+  if (lastDotzUserConnectedTo) {
+    lastDotzUserConnectedTo.forEach(function (dotId) {
+      availableDotz.push(dotId);
       //TBD:
       //if(canBeConnectedToDot(smartRef.dot._id, dotIdWishedToConnectTo)){
       //  availableDotz.push(smartRef.dot._id);
