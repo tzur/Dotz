@@ -167,6 +167,12 @@ Template.desktopDotCard.helpers({
     return ( parentDotOwnerId === Meteor.userId() )
   },
 
+  actionNameIsConnect: function(){
+    if (this.connection && this.connection.actionName) {
+      return (this.connection.actionName === 'Connect');
+    }
+  },
+
   actionDate: function(){
     if (this.dot && this.dot.createdAtDate) {
       return (moment(this.dot.createdAtDate).fromNow())
