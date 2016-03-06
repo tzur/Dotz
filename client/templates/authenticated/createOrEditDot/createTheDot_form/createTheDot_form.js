@@ -89,6 +89,7 @@ Template.createTheDot_form.events({
     $('#searchResultsDiv').addClass('hidden');
     $('#main-createNewDot').removeClass('hidden');
     $('#connectTheDot-Box').addClass('boxToModal');
+    $('#dotShowFooter-inListShow').addClass('background-fa');
     $('body').addClass('noScroll');
     $('#closeBtnModal').removeClass('hidden');
   },
@@ -97,6 +98,7 @@ Template.createTheDot_form.events({
   'click #_searchBoxInput': function(){
     $('#main-createNewDot').addClass('hidden');
     $('#searchResultsDiv').removeClass('hidden');
+    $('#footer-createNewDot').addClass('hidden');
   },
 
 

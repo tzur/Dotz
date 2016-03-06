@@ -456,6 +456,7 @@ Template.desktopDotShow.events({
     $('#closeBtnModal').addClass('hidden');
     $('#typesAndSearch-div').addClass('hidden');
     $('#footer-createNewDot').addClass('hidden');
+    $('#dotShowFooter-inListShow').removeClass('background-fa');
   },
 
   'click .like': function(event){

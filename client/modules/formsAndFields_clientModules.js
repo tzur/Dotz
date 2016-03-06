@@ -45,6 +45,7 @@ function createDotClearForm(){
   $('body').removeClass('noScroll');
   $('#closeBtnModal').addClass('hidden');
   $('#searchResultsDiv').addClass('hidden');
+  $('#dotShowFooter-inListShow').removeClass('background-fa');
 }
 
 
