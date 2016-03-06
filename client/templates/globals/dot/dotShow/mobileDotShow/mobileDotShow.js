@@ -146,7 +146,9 @@ Template.mobileDotShow.helpers({
 
 
   thereIsNoConnectionsToThisDot: function() {
-    return (this.dot.connectedDotzArray.length === 0)
+    if (this.dot.connectedDotzArray) {
+      return (this.dot.connectedDotzArray.length === 0)
+    }
   },
 
   ////"show more description" session:

@@ -112,4 +112,7 @@
 
 .mobile-buck-button {
   margin-top: -3px;
+  color: #fff;
+  border-color: #fff;
+  background-color: rgba(0,0,0,0.1);
 }
