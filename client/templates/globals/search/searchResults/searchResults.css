@@ -1,0 +1,45 @@
+
+
+#searchTabs {
+  border-bottom: rgba(0,0,0,0.2) solid 1px;
+  margin: 3vh 0 5vh 0;
+}
+
+#searchTabs .search-btns {
+  display: inline-block;
+}
+
+#searchTabs .active {
+  border-bottom: rgba(0,0,0,0.2) solid 2px;
+  background-color: transparent;
+}
+
+
+#searchTabs a:hover, #searchTabs a:focus  {
+  background-color: transparent;
+}
+
+#searchTabs ul .search-btns a {
+  color: #ccc;
+}
+
+
+.nav-pills li a {
+  border: #337AB7 solid 1px;
+}
+
+.nav-pills .active {
+  background-color: transparent;
+}
+
+
+
+#searchResults {
+  min-height: 30vh;
+}
+
+
+#searchResults .tab-content {
+  border:none;
+}
+
