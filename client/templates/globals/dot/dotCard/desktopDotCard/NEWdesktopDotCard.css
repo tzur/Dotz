@@ -1,8 +1,20 @@
 #dotCardAndConnectorBox-Desktop {
-  margin-top: 3vh;
-  margin-bottom: 3vh;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
+  /* margin-top: 2vh; */
+  /* margin-bottom: 2vh; */
+  border-top: 1px solid #f2f2f2;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+}
+
+#dotCardBox-Desktop-Reconnected-div {
+  text-align: right;
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+  margin-top: 0;
+  /*margin-top: 1vh;*/
+  font-size: 12px;
+  /*color: #8899a9;*/
 }
 
 #dotCardAndConnectorBox-Desktop:hover {
@@ -10,12 +22,14 @@
 }
 
 #dotCardAndConnectorBox-Desktop:hover #desktopDotCard-editOrConnectButtonsDiv {
-  display: inline-block;
-  float: right;
+  /*display: inline-block;*/
+  /*float: right;*/
 }
 
 #desktopDotCard-editOrConnectButtonsDiv {
-  display: none;
+  /*display: none;*/
+  display: inline-block;
+  float: right;
 }
 
 #desktopDotCard-3dots {
@@ -26,8 +40,8 @@
 }
 
 #dotCardBox-Desktop {
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  /*margin-top: 2vh;*/
+  /*margin-bottom: 1vh;*/
 }
 
 #dotCard-sortOrLike-col {
@@ -38,6 +52,7 @@
   position: relative;
   top: 7vh;
   left: 50%;
+  text-align: center;
 }
 
 .likeBtn {
@@ -46,14 +61,14 @@
 
 
 .connectorProfileImage-Desktop {
-  height: 3.5vh;
-  width: 3.5vh;
-  border-radius: 4px;
+  height: 18px;
+  width: 18px;
+  border-radius: 3px;
 }
 
 .connectorText-Desktop {
-  /*vertical-align: sub;*/
-  font-size: 15px;
+  vertical-align: sub;
+  font-size: 18px;
   color: #333;
   font-weight: 600;
 }
@@ -122,6 +137,7 @@
 }
 
 #dotCardShortDescription-Desktop {
+  color: rgba(51, 51, 51, 0.85);
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -134,6 +150,6 @@
   border-radius: 50%;
   width: 1.5em;
   height: 1.5em;
-  margin-top: 7vh;
+  margin-top: 2px;
   line-height: 0.8;
 }

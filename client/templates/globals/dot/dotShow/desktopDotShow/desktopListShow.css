@@ -53,9 +53,13 @@
 }
 
 #connectedDotzArray-desktopListShow {
-  background-color: #FFFFFF;
+  background-color: #fafafa;
   min-height: 15vh;
   /*padding-top: 4vh;*/
+}
+
+#connectedDotzArray-col {
+  background-color: #ffffff;
 }
 
 #dotShowFooter-inListShow {

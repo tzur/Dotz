@@ -6,26 +6,32 @@
     <!--the connected dot section-->
     <div class="row">
 
+
+  <!--<div id="dotCardBox-Desktop-Reconnected-div" class="col-sm-8 pull-right">-->
+      <!--<i class="fa fa-retweet"></i>-->
+      <!--<span>Otni Levi ReConnected:</span>-->
+  <!--</div>-->
+
   <div class="col-sm-12">     <!--Hide the horizinal line-->
 
 
       <div id="dotCardBox-Desktop" class="row">
 
-              <div id="dotCard-sortOrLike-col" class="col-xs-1 noPadding">
+              <div id="dotCard-sortOrLike-col" class="col-sm-1">
 
                   <div id="dotCard-Like-col">
 
                       {{# if isLikedByMe}}
                           <a class="unlike">
                               <i class="unlike lightGrey likeBtn fa fa-heart"></i>
-                              <span class="likesCounter normalTxt bold lightGrey"> {{likeCounter}}</span>
+                              <div class="likesCounter normalTxt bold lightGrey"> {{likeCounter}}</div>
                           </a>
 
                       {{else}}
 
                           <a class="like">
                               <i class="like lightGrey likeBtn fa fa-heart-o"></i>
-                              <span class="likesCounter normalTxt lightGrey"> {{likeCounter}}</span>
+                              <div class="likesCounter normalTxt lightGrey"> {{likeCounter}}</div>
                           </a>
                       {{/if}}
 
@@ -34,105 +40,116 @@
               </div>
 
 
-          <!-- dot card image -->
-
-              <div class="col-sm-2 col-md-3">
-                <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-
-                      <div id="dotCardImg-Desktop" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{dotCoverImageUrlOrFb}}')">
-                        {{#if dot.connectedDotzArray}}
-                          <div id="dotsNumBadge">{{dot.connectedDotzArray.length}}</div>
-                        {{/if}}
-                      </div>
-                </a>
-              </div>
 
 
-          <!-- dot card content -->
+              <div class="col-sm-10">
 
-              <div id="dotCardText-Desktop" class="col-sm-8 col-md-7 no-left-pad">
+<!--  <<<<<<<<<<<<<<<<<<<<< dot card image -->
+
+                  <a class="_setCurrentPath pull-left" href="/{{dot.dotSlug}}">
+
+                        <div id="dotCardImg-Desktop" class="{{dot.dotColor}}-background" style="background-image: url('{{dotCoverImageUrlOrFb}}')">
+                          {{#if dot.connectedDotzArray}}
+                            <div id="dotsNumBadge">{{dot.connectedDotzArray.length}}</div>
+                          {{/if}}
+                        </div>
+                  </a>
 
 
-                  <!--connector img and connection reason-->
 
-                  {{#unless inDotParentSearchResults}}     <!--Hides the owner and the personal description-->
+                  <div id="dotCardText-Desktop" class="col-xs-8 pull-left">
 
-                      <div class="row">
 
-                          <div class="col-xs-12">
+<!--<<<<<<<<<<<<<<<<<<<< connector img and connection reason-->
 
-                              <a href="/{{ownerUser.profile.userSlug}}">
-                                  <img class="connectorProfileImage-Desktop" src="{{ownerUser.profile.profileImage}}">
-                              </a>
+                    {{#unless inDotParentSearchResults}}     <!--Hides the owner and the personal description-->
 
-                            {{#if DOT_TYPE_IS 'StartDot' dot.dotSubType}}
-                                <span class="connectorText-Desktop">{{dot.title}}:</span>
-                            {{else}}
-                              {{#if smartRef.connection.personalDescription}}
-                                   <span class="connectorText-Desktop">{{smartRef.connection.personalDescription}}:</span>
+                        <div class="row">
+
+                            <div class="col-sm-12">
+
+                                <a href="/{{ownerUser.profile.userSlug}}">
+                                    <img class="connectorProfileImage-Desktop" src="{{ownerUser.profile.profileImage}}">
+                                </a>
+
+                              {{#if DOT_TYPE_IS 'StartDot' dot.dotSubType}}
+                                  <span class="connectorText-Desktop">{{dot.title}}:</span>
+                              {{else}}
+                                {{#if smartRef.connection.personalDescription}}
+                                    <span class="connectorText-Desktop">{{smartRef.connection.personalDescription}}:</span>
                                 {{else}}
-                                   <span class="connectorName-Desktop greyText">{{ownerUser.username}} Connected:</span>
+                                    <span class="connectorName-Desktop greyText">{{ownerUser.username}} Connected:</span>
+                                {{/if}}
                               {{/if}}
+
+                            </div>
+
+                        </div>
+
+                    {{/unless}}
+
+
+                      <!--<a class="_setCurrentPath" href="/{{dot.dotSlug}}">-->
+                      <!--<h5 id="dotCardShortTitle-Desktop" class="break" dir="auto">{{dot.title}}</h5>-->
+                      <!--</a>-->
+
+
+                      <!-- description / date / location /price -->
+
+
+                      <div id="dotContent-row" class="row">
+
+                          <div id="dotContent-col" class="col-sm-12">
+
+                            {{#unless DOT_TYPE_IS 'Event' dot.dotSubType}}
+                                <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                                    <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">{{dot.title}}</p>
+                                </a>
+                            {{/unless}}
+
+
+
+
+                            {{#if DOT_TYPE_IS 'Link' dot.dotSubType}}
+                                <a href="{{dot.linkUrl}}" target="_blank">
+                                    <h6 class="break lightBlue">{{dot.linkName}}</h6>
+                                </a>
+                            {{/if}}
+
+                            {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
+                                <div>
+                                    <span class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
+                                    <!--TODO get the event date data from the create & edit form @yoav-->
+                                </div>
+                            {{/if}}
+
+                            {{#if dot.location}}
+                                <div>
+                                    <span class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
+                                </div>
+                            {{/if}}
+
+                            {{#if dot.price}}
+                                <div>
+                                    <span class="greyText"><i class="fa dotCardIcons-desktopDotCard"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
+                                </div>
                             {{/if}}
 
                           </div>
 
                       </div>
 
-                  {{/unless}}
-
-
-                      <!--<a class="_setCurrentPath" href="/{{dot.dotSlug}}">-->
-                        <!--<h5 id="dotCardShortTitle-Desktop" class="break" dir="auto">{{dot.title}}</h5>-->
-                      <!--</a>-->
-
-
-    <!-- description / date / location /price -->
-
-
-                  <div id="dotContent-row" class="row">
-
-                    <div id="dotContent-col" class="col-xs-12">
-
-                      {{#unless DOT_TYPE_IS 'Event' dot.dotSubType}}
-                        <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                          <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">{{dot.title}}</p>
-                        </a>
-                      {{/unless}}
-
-
-
-
-                        {{#if DOT_TYPE_IS 'Link' dot.dotSubType}}
-                          <a href="{{dot.linkUrl}}" target="_blank">
-                            <h6 class="break lightBlue">{{dot.linkName}}</h6>
-                          </a>
-                        {{/if}}
-
-                        {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
-                            <div>
-                                <span class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
-                                <!--TODO get the event date data from the create & edit form @yoav-->
-                            </div>
-                        {{/if}}
-
-                        {{#if dot.location}}
-                            <div>
-                                <span class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
-                            </div>
-                        {{/if}}
-
-                        {{#if dot.price}}
-                            <div>
-                                <span class="greyText"><i class="fa dotCardIcons-desktopDotCard"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
-                            </div>
-                        {{/if}}
-
-                    </div>
-
                   </div>
 
+
+
+
               </div>
+
+
+          <!-- dot card content -->
+
+
 
 
           <!-- dot card connect button -->
@@ -173,6 +190,13 @@
                 </div>
 
               </div>
+
+
+                <div id="dotCardBox-Desktop-Reconnected-div" class="col-sm-8 pull-right lightGrey">
+                    <i class="fa fa-retweet"></i>
+                    <span>ReConnected by Otni Levi</span>
+                </div>
+
 
             </div>
 
