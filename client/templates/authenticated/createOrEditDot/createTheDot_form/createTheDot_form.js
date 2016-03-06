@@ -88,11 +88,17 @@ Template.createTheDot_form.events({
   'click #createTypeButtons': function(){
     $('#searchResultsDiv').addClass('hidden');
     $('#main-createNewDot').removeClass('hidden');
+    $('#connectTheDot-Box').addClass('boxToModal');
+    $('#dotShowFooter-inListShow').addClass('background-fa');
+    $('body').addClass('noScroll');
+    $('#closeBtnModal').removeClass('hidden');
   },
+
 
   'click #_searchBoxInput': function(){
     $('#main-createNewDot').addClass('hidden');
     $('#searchResultsDiv').removeClass('hidden');
+    $('#footer-createNewDot').addClass('hidden');
   },
 
 
@@ -140,7 +146,10 @@ Template.createTheDot_form.events({
     console.log("self.parentDotId is   ----->  " + self.parentDotId);
     Modules.client.handleCreateSubmit(self.parentDotId, Session.get('dotCoverImg'), Session.get('locationObject'));
     $('#main-createNewDot').addClass('hidden');
-    Modules.client.createDotClearForm();
+
+    Modules.client.createDotClearForm(); //close the forms and clear the fields is in the modules
+
+
   }
 });
 

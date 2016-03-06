@@ -95,11 +95,20 @@ Check the dotSchema and the createDotHooks for allowedValues:
   background-color: #ff9900;
 }
 
-/*defaultDot-background*/
+/*Backgrounds*/
 
 .defaultDot-background {
   background-color: rgba(0,0,0,0.1);
 }
+
+.background-white {
+  background-color: #ffffff;
+}
+
+.background-fa {
+  background-color: #fafafa;
+}
+
 
 /*colors*/
 

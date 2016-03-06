@@ -163,3 +163,10 @@ span a:hover {
 .fa-trash-o {
   color: #d9534f;
 }
+
+
+/*NO SCROLL*/
+
+.noScroll {
+  overflow: hidden;
+}

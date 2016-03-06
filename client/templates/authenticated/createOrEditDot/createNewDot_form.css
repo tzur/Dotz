@@ -12,9 +12,14 @@
 }
 
 .fieldBox {
+  /*border-bottom: 1px solid rgba(0,0,0,0.1);*/
+  /*padding: 10px;*/
+  /*margin: 10px;*/
+
   border-bottom: 1px solid rgba(0,0,0,0.1);
-  padding: 10px;
-  margin: 10px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .bottomBorder {
@@ -122,7 +127,7 @@
 }
 
 #main-createNewDot {
-  min-height: 30vh;
+  /*min-height: 30vh;*/
   background-color: #FFFFFF;
   padding: 0 15px;;
 }

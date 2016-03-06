@@ -233,11 +233,11 @@
 
 {{#if isUserAllowToConnect}}
 
-  <div class="container-fluid" id="dotShowFooter-inListShow">
+  <div class="container-fluid navbar-fixed-bottom background-white" id="dotShowFooter-inListShow">
     <div class="row">
 
         <div id="lastCard-desktopDotShow" class="col-xs-12 col-sm-12 col-md-7 col-lg-7 colCenter noPadding">
-            <div id="desktopDotCard-lastDot" class="container-fluid">
+            <div id="desktopDotCard-lastDot" class="container-fluid material-shadow-2">
                 <!--<div id="desktopDotCard-lastDot-col-connectLine-inListShow"></div>-->
 
               {{# if addDotIsAvailable}}
@@ -248,6 +248,10 @@
               {{/if}}
 
             </div>
+        </div>
+
+        <div id="closeBtnModal" class="hidden">
+            <span>X</span>
         </div>
 
     </div>

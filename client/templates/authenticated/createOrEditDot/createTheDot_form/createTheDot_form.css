@@ -1,5 +1,11 @@
 #connectTheDot-Box {
-  margin: 3vh 0 14vh 0;
+  margin: 2vh 0 0vh 0;
+}
+
+.boxToModal {
+  height: 100vh;
+  padding-top: 5vh;
+  overflow: auto;
 }
 
 .connectorProfileImage-connectTheDot-Desktop {
@@ -60,4 +66,13 @@
 
 #typesAndSearch-div .nav-pills > li + li {
   margin-left: 0;
+}
+
+#closeBtnModal {
+  position: absolute;
+  top: 3vh;
+  left: 3vh;
+  font-size: 36px;
+  color: #ddd;
+  cursor: pointer;
 }
