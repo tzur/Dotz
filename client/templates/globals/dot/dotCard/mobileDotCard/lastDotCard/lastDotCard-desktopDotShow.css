@@ -9,8 +9,9 @@
 
 
 #desktopDotCard-lastDot {
-  padding: 5vh 0 0 0;
+  padding: 0vh 0 0 0;
   position: relative;
+  background-color: #ffffff;
 }
 
 

@@ -448,6 +448,16 @@ Template.desktopDotShow.events({
     Modules.client.editDot_settings(this.dot);
   },
 
+  'click #closeBtnModal': function(){
+    $('#searchResultsDiv').addClass('hidden');
+    $('#main-createNewDot').addClass('hidden');
+    $('#connectTheDot-Box').removeClass('boxToModal');
+    $('body').removeClass('noScroll');
+    $('#closeBtnModal').addClass('hidden');
+    $('#typesAndSearch-div').addClass('hidden');
+    $('#footer-createNewDot').addClass('hidden');
+  },
+
   'click .like': function(event){
     event.preventDefault();
 

@@ -39,6 +39,12 @@ function createDotClearForm(){
   $('#currencyField').val('');
   $('#price').val('');
   $('#priceMax').val('');
+
+  //close the modal
+  $('#connectTheDot-Box').removeClass('boxToModal');
+  $('body').removeClass('noScroll');
+  $('#closeBtnModal').addClass('hidden');
+  $('#searchResultsDiv').addClass('hidden');
 }
 
 
