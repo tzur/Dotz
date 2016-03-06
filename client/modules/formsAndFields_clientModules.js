@@ -46,6 +46,8 @@ function createDotClearForm(){
   $('#closeBtnModal').addClass('hidden');
   $('#searchResultsDiv').addClass('hidden');
   $('#dotShowFooter-inListShow').removeClass('background-fa');
+  $('#typesAndSearch-div').addClass('hidden');
+  $('#footer-createNewDot').addClass('hidden');
 }
 
 
