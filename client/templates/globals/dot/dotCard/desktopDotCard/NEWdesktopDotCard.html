@@ -68,17 +68,21 @@
 
                             <div class="col-sm-12">
 
-                                <a href="/{{ownerUser.profile.userSlug}}">
-                                    <img class="connectorProfileImage-Desktop" src="{{ownerUser.profile.profileImage}}">
+                                <a href="/{{connectedByUser.profile.userSlug}}">
+                                    <img class="connectorProfileImage-Desktop" src="{{connectedByUser.profile.profileImage}}">
                                 </a>
 
                               {{#if DOT_TYPE_IS 'StartDot' dot.dotSubType}}
-                                  <span class="connectorText-Desktop">{{dot.title}}:</span>
+                                    <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                                      <span class="connectorText-Desktop">{{dot.title}}:</span>
+                                    </a>
                               {{else}}
                                 {{#if smartRef.connection.personalDescription}}
                                     <span class="connectorText-Desktop">{{smartRef.connection.personalDescription}}:</span>
-                                {{else}}
-                                    <span class="connectorName-Desktop greyText">{{ownerUser.username}} Connected:</span>
+                                  {{else}}
+                                    <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                                        <span class="connectorText-Desktop">{{dot.title}}:</span>
+                                    </a>
                                 {{/if}}
                               {{/if}}
 
@@ -118,7 +122,7 @@
 
                             {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
                                 <div>
-                                    <span class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
+                                    <span class="greyText ellipsisOne"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
                                     <!--TODO get the event date data from the create & edit form @yoav-->
                                 </div>
                             {{/if}}
