@@ -90,7 +90,7 @@ Template.createTheDot_form.events({
     $('#main-createNewDot').removeClass('hidden');
     $('#connectTheDot-Box').addClass('boxToModal');
     $('#dotShowFooter-inListShow').addClass('background-fa');
-    $('body').addClass('noScroll');
+    //$('body').addClass('noScroll');
     $('#closeBtnModal').removeClass('hidden');
   },
 

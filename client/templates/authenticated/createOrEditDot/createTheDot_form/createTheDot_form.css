@@ -4,14 +4,18 @@
 
 .boxToModal {
   height: 100vh;
-  padding-top: 5vh;
-  overflow: auto;
+  /*padding-top: 5vh;*/
+  /*overflow: auto;*/
 }
 
 .connectorProfileImage-connectTheDot-Desktop {
-  height: 5vh;
-  width: 5vh;
-  border-radius: 50%;
+  height: 4vh;
+  width: 4vh;
+  border-radius: 3px;
+}
+
+.textBoxForConnect {
+  height: 4.5vh;
 }
 
 #connectTheDot-Box .form-control-feedback{

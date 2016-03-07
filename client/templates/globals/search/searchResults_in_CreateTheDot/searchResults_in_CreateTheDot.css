@@ -2,7 +2,7 @@
 
 #searchResults_in_CreateTheDot {
   min-height: 12vh;
-  max-height: 60vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+  /*max-height: 60vh;*/
+  /*overflow-x: hidden;*/
+  /*overflow-y: auto;*/
 }

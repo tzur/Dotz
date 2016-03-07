@@ -1,3 +1,24 @@
+
+
+#header_userShow {
+  height: 36vh;
+  padding-top: 10vh;
+  background-color: #fafafa;
+}
+
+
+#userImgProfile {
+  height: 16vh;
+  width: 16vh;
+  background-color: #fafafa;
+  border-radius: 3px;
+  background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
+  /*border: #fafafa solid 1px;*/
+}
+
+
 /*.canvas-renderer {*/
     /*display: block;*/
     /*position: fixed;*/
@@ -41,13 +62,13 @@
 }
 
 #userShowMainDiv {
-    position: relative;
-    top: 30vh;
+    /*position: relative;*/
+    /*top: 30vh;*/
     /*min-height: 60vh;*/
-    padding-top: 4em;
-    background-color: #fafafa;
+    /*padding-top: 4em;*/
+    background-color: #FFFFFF;
     /*TBD - Z-index ?*/
-    z-index: 2;
+    /*z-index: 2;*/
 }
 
 .userNameTitle {
@@ -82,7 +103,7 @@
 
 .user-profile-cards {
     padding-top: 2em;
-    background-color: #fafafa;
+    background-color: #FFFFFF;
     /*border-top: #ccc solid 1px;*/
 }
 
@@ -107,16 +128,6 @@
     font-weight: 300;
 }
 
-#userImgProfile {
-    height: 8em;
-    width: 8em;
-    background-color: #fafafa;
-    border-radius: 3px;
-    background-size: cover;
-    background-position-y: 50%;
-    background-position-x: 50%;
-    /*border: #fafafa solid 1px;*/
-}
 
 
 #userName {
@@ -142,10 +153,10 @@
 }
 
 #editUserAccount-btn {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  z-index: 9999;
+  /*position: absolute;*/
+  /*top: 1em;*/
+  /*right: 1em;*/
+  /*z-index: 9999;*/
 }
 
 
@@ -260,4 +271,15 @@ menu, ol, ul {
 }
 #dropDownShareUser{
   left: 35%;
+}
+
+
+#createNewDot_userShow {
+  min-height: 25vh;
+}
+
+#footer_userShow {
+  background-color: #fafafa;
+  min-height: 30vh;
+  padding-top: 5vh;
 }

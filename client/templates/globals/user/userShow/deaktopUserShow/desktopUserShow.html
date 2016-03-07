@@ -2,40 +2,52 @@
 <template name="desktopUserShow">
 <!--{{#if subscriptionsReady}}-->
 {{#with dataUser}}
-        <div id="userBgImg" class="container-liquid">
-            <div class="row imgCover" style="background-image: url('{{profile.coverImage}}')">
-                <div class="col-xs-12 colCenter">
-                </div>
+
+
+
+<div id="header_userShow" class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
+
+
+
+            <div class="col-xs-4">
+                <div id="userImgProfile" class="colCenter" style="background-image: url('{{profile.profileImage}}')"></div>
             </div>
-        </div>
 
-        <div id="userShowMainDiv" class="container-fluid">
 
-            {{#if notMyProfile}}
-
-            {{else}}
-                <button type="button" id="editUserAccount-btn" class="editUserAccount-btn btn btn-full-trans btn-xs hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>
-            {{/if}}
-
-            <div class="profile-user-data-row">
-
+            <div class="col-xs-8">
+                <!--user description-->
                 <div class="container-fluid">
                     <div class="row">
-                        <div id="userData" class="col-sm-12 colCenter">
-                            <div id="userImgProfile" class="container-fluid material-shadow-1" style="background-image: url('{{profile.profileImage}}')"></div>
-                        </div>
-                    </div>
-                </div>
-
-              <!--user description-->
-                <div class="container-fluid">
-                    <div class="row">
-                        <div id="userDescription" class="col-xs-12 col-md-9 col-lg-7 colCenter txtCenter">
+                        <div id="userDescription" class="">
                             <h1 class="userNameTitle">{{username}}</h1>
                             <p>{{profile.description}}</p>
+
+                          {{#if myProfile}}
+                              <button type="button" id="editUserAccount-btn" class="editUserAccount-btn btn btn-full-trans btn-xs hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>
+                          {{/if}}
                         </div>
                     </div>
                 </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <div id="userShowMainDiv" class="container-fluid">
+
+
+
+            <div class="profile-user-data-row">
 
               <!--The counters & the social icons -->
                 <div id="counters-desktopDotShow" class="row colCenter txtCenter">
@@ -155,56 +167,21 @@
 
       <div class="container-fluid">
           <div class="row">
-              <div class="col-xs-12 col-sm-10 col-lg-10 colCenter">
+              <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
 
                   {{#each connectedDotzArray}}
                     {{> profileDotCard}}
                   {{/each}}
 
 
-{{#if myProfileIsEmpty}}<!--fake ListCard-->
+{{#if myProfileIsEmpty}}
 
 <div class="txtMd">
 
     <br>
     <h2 class="lightGrey">Every great profile starts with a tiny action :)</h2>
     <br><br>
-
-    <!--<button id="_createListInProfile" class="btn btn-primary square btn-md">-->
-        <!--Create my first Dot-->
-    <!--</button>-->
-
 </div>
-
-
-
-
-
-
-  <!--{{#if canGeneratts}}-->
-    <!--<br>-->
-      <!--<br>-->
-      <!--<br>-->
-
-    <!--<div class="col-xs-12 col-sm-10 colCenter" id="emptyProfile">-->
-
-        <!--<div class="card col-xs-12 colCenter" id="listCover">-->
-            <!--<div class="container-fluid dot-container-img-listCard"-->
-                 <!--style="background-image: url('https://dotz-dev-images.s3.amazonaws.com/sXLnHX3sr8vbeh8KB/dotz_How.jpg')">-->
-                <!--<div class="filter">-->
-                    <!--<div class="listCoverContent">-->
-                            <!--<div class="title">-->
-                                <!--<h2 class="whiteTxt txtMd">This Is How We Do It</h2>-->
-                            <!--</div>-->
-                            <!--<div class="col-xs-12 txtMd">-->
-                                    <!--<button id= "_generateAutoLists" type="button" class="btn btn-primary btn-md">Quick Start!</button>-->
-                            <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div> &lt;!&ndash; end listCard &ndash;&gt;-->
-    <!--</div>-->
-    <!--{{/if}}-->
 
 {{/if}}
 
@@ -221,15 +198,39 @@
 
 
           {{#if myProfile}}
-              <div class="container-fluid">
+              <!--<div class="container-fluid">-->
+                  <!--<div class="row">-->
+                      <!--<div id="createNewDot_userShow" class="hidden-xs col-sm-8 col-md-7 col-lg-6 colCenter">-->
+                        <!--{{#with dataForCreateInMyProfile}}-->
+                          <!--{{>createTheDot_form}}-->
+                        <!--{{/with}}-->
+                      <!--</div>-->
+                  <!--</div>-->
+              <!--</div>-->
+
+
+
+          <br><br>
+
+              <div class="container-fluid" id="footer_userShow">
                   <div class="row">
-                      <div id="createNewDot_form" class="hidden-xs col-sm-8 col-md-7 col-lg-6 colCenter">
-                        {{#with dataForCreateInMyProfile}}
-                          {{>createTheDot_form}}
-                        {{/with}}
+
+                      <div class="container-fluid">
+                          <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter noPadding">
+                             {{#with dataForCreateInMyProfile}}
+                                {{>createTheDot_form}}
+                              {{/with}}
+                          </div>
                       </div>
+
+                      <div id="closeBtnModal" class="hidden">
+                          <span>X</span>
+                      </div>
+
                   </div>
               </div>
+
+
           {{/if}}
 
 
