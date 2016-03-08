@@ -42,7 +42,7 @@
 
 
 
-              <div class="col-sm-10">
+              <div id="dotCard-imageAndContent-col" class="col-sm-10">
 
 <!--  <<<<<<<<<<<<<<<<<<<<< dot card image -->
 
@@ -57,34 +57,24 @@
 
 
 
-                  <div id="dotCardText-Desktop" class="col-xs-8 pull-left">
+                  <div id="dotCardText-Desktop" class="col-xs-9 pull-left">
 
 
-<!--<<<<<<<<<<<<<<<<<<<< connector img and connection reason-->
+<!--<<<<<<<<<<<<<<<<<<<< connector img and title -->
 
                     {{#unless inDotParentSearchResults}}     <!--Hides the owner and the personal description-->
 
-                        <div class="row">
+                        <div class="row connectorText-Desktop">
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 ellipsisOne">
 
                                 <a href="/{{connectedByUser.profile.userSlug}}">
                                     <img class="connectorProfileImage-Desktop" src="{{connectedByUser.profile.profileImage}}">
                                 </a>
 
-                              {{#if DOT_TYPE_IS 'StartDot' dot.dotSubType}}
-                                    <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                                      <span class="connectorText-Desktop">{{dot.title}}:</span>
-                                    </a>
-                              {{else}}
-                                {{#if smartRef.connection.personalDescription}}
-                                    <span class="connectorText-Desktop">{{smartRef.connection.personalDescription}}:</span>
-                                  {{else}}
-                                    <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                                        <span class="connectorText-Desktop">{{dot.title}}:</span>
-                                    </a>
-                                {{/if}}
-                              {{/if}}
+                                <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                                  <span class="connectorText-Desktop">{{dot.title}}:</span>
+                                </a>
 
                             </div>
 
@@ -93,49 +83,61 @@
                     {{/unless}}
 
 
-                      <!--<a class="_setCurrentPath" href="/{{dot.dotSlug}}">-->
-                      <!--<h5 id="dotCardShortTitle-Desktop" class="break" dir="auto">{{dot.title}}</h5>-->
-                      <!--</a>-->
 
-
-                      <!-- description / date / location /price -->
+                      <!-- description / date / location / price -->
 
 
                       <div id="dotContent-row" class="row">
 
-                          <div id="dotContent-col" class="col-sm-12">
+                          <div id="dotContent-col{{isLink}}" class="col-sm-11">
 
                             {{#unless DOT_TYPE_IS 'Event' dot.dotSubType}}
+                              {{#if dot.bodyText}}
                                 <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                                    <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">{{dot.title}}</p>
+                                  <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">{{dot.bodyText}}</p>
                                 </a>
+                              {{/if}}
                             {{/unless}}
 
 
 
 
                             {{#if DOT_TYPE_IS 'Link' dot.dotSubType}}
+                              {{#if dot.linkName}}
                                 <a href="{{dot.linkUrl}}" target="_blank">
-                                    <h6 class="break lightBlue">{{dot.linkName}}</h6>
+                                    <h6 id="dotCard-linkName" class="break lightBlue">{{dot.linkName}}</h6>
                                 </a>
+                              {{/if}}
                             {{/if}}
+
+
+
+
 
                             {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
                                 <div>
-                                    <span class="greyText ellipsisOne"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
+                                    <span class="greyText alignSub ellipsisOne"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
                                     <!--TODO get the event date data from the create & edit form @yoav-->
                                 </div>
                             {{/if}}
 
+
+
+
+
                             {{#if dot.location}}
                                 <div>
-                                    <span class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
+                                    <span class="greyText alignSub"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
                                 </div>
                             {{/if}}
 
+
+
+
+
                             {{#if dot.price}}
                                 <div>
-                                    <span class="greyText"><i class="fa dotCardIcons-desktopDotCard"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
+                                    <span class="greyText alignSub"><i class="fa dotCardIcons-desktopDotCard"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
                                 </div>
                             {{/if}}
 
@@ -159,7 +161,7 @@
           <!-- dot card connect button -->
 
 
-              <div class="col-sm-1">
+              <div id="dotCard-buttons-col" class="col-sm-1">
 
                 <div id="desktopDotCard-editOrConnectButtonsDiv">
 
