@@ -45,14 +45,27 @@
 }
 
 #dotCard-sortOrLike-col {
-  height: 18vh;
+  height: 110px;
+  width: 5%;
+  padding: 0;
+}
+
+#dotCard-buttons-col {
+  height: 110px;
+  width: 5%;
+  padding: 0 10px 0 0;
+  float: right;
 }
 
 #dotCard-Like-col {
   position: relative;
-  top: 7vh;
-  left: 50%;
+  top: 45px;
+  /*left: 50%;*/
   text-align: center;
+}
+
+#dotCard-imageAndContent-col {
+  width: 90%;
 }
 
 .likeBtn {
@@ -67,10 +80,11 @@
 }
 
 .connectorText-Desktop {
-  vertical-align: sub;
+  /*vertical-align: sub;*/
   font-size: 18px;
   color: #333;
   font-weight: 500;
+  height: 25px;
 }
 
 .connectorName-Desktop {
@@ -82,18 +96,26 @@
 
 #dotContent-row {
   padding-left: 14px;
-  margin-top: 8px;
+  margin-top: 10px;
+  height: 75px;
 }
 
 #dotContent-col {
+  padding-left: 2px;
+  height: 68px;
+}
+
+#dotContent-col-Link {
   border-left: 3px solid #eee;
   padding-left: 8px;
+  min-height: 0;
+  height: 68px;
 }
 
 #dotCardImg-Desktop {
   padding: 0;
-  height: 18vh;
-  width: 18vh;
+  height: 110px;
+  width: 110px;
   border-radius: 50%;
   background-size: cover;
   position: relative;
@@ -119,13 +141,19 @@
 }
 
 #dotCardText-Desktop {
+  height: 110px;
   padding-right: 0;
   /*padding-left: 0;*/
 }
 
-#dotCardText-Desktop h4, #dotCardText-Desktop h5, #dotCardText-Desktop h6, #dotCardText-Desktop p {
+#dotCardText-Desktop h4, #dotCardText-Desktop h5, #dotCardText-Desktop p {
   margin-top: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+#dotCardText-Desktop h6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 #dotCardShortTitle-Desktop {
@@ -142,6 +170,11 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+#dotCard-linkName {
+  position: absolute;
+  bottom: 0;
 }
 
 

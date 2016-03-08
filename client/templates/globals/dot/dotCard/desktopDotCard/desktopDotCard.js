@@ -168,8 +168,8 @@ Template.desktopDotCard.helpers({
   },
 
   actionNameIsConnect: function(){
-    if (this.connection && this.connection.actionName) {
-      return (this.connection.actionName === 'Connect');
+    if (this.smartRef && this.smartRef.connection) {
+      return (this.smartRef.connection.actionName === 'Connect');
     }
   },
 
@@ -216,6 +216,12 @@ Template.desktopDotCard.helpers({
   placeOrEvent: function(){
     if ((this.dot.dotSubType === "Place") || (this.dot.dotSubType === "Event"))  {
       return true;
+    }
+  },
+
+  isLink: function(){
+    if ((this.dot.dotSubType === "Link") || (this.dot.dotSubType === "Media"))  {
+      return ("-Link");
     }
   },
 
