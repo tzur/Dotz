@@ -9,11 +9,18 @@ Template.searchResults_in_CreateTheDot.onCreated(function() {
 });
 
 
+Template.searchResults_in_CreateTheDot.onRendered(function() {
+
+});
+
+
 Template.searchResults_in_CreateTheDot.onDestroyed(function(){
-  let algoliaIndicesArray = ["googleResults", "links_DOTZ", "media_DOTZ", "places_DOTZ", "events_DOTZ", "persons_DOTZ", "lists_DOTZ", "users_DOTZ"];
-  algoliaIndicesArray.forEach(index => {
-    Session.set(index, undefined);
-  });
+  //let algoliaIndicesArray = ["googleResults", "links_DOTZ", "media_DOTZ", "places_DOTZ", "events_DOTZ", "persons_DOTZ", "lists_DOTZ", "users_DOTZ"];
+  //algoliaIndicesArray.forEach(index => {
+  //  Session.set(index, undefined);
+  //});
+
+  Session.set("lists_DOTZ", undefined);
 
 });
 

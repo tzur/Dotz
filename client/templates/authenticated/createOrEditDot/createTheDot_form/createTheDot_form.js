@@ -156,16 +156,18 @@ Template.createTheDot_form.events({
 
   'click #_searchToReconnect': function(e){
     e.preventDefault();
-
-    console.log("$('#personalDescription').val() >>>>>>> " + $('#personalDescription').val() )
+    let inputToSearch = $('#personalDescription').val();
+    if (inputToSearch === "") {
+      Bert.alert("It's hard to search ''nothing'', try to type a bit :)", 'warning', 'fixed-bottom');
+      return false;
+    }
 
     //TODO: we need to check this operation on mobile devices.. @otni
-    Modules.client.searchByAlgolia("lists_DOTZ", $('#personalDescription').val() , function(error, content) {
+    Modules.client.searchByAlgolia("lists_DOTZ", inputToSearch , function(error, content) {
       if(content){
         Session.set("lists_DOTZ", content.hits);
-        console.log("content >>>>> " + content)
       }
-      else{
+      else {
         console.log("Error, on index: " + index + " >>>> search failed : " + error)
       }
     });
