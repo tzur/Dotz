@@ -1,242 +1,126 @@
-
 <template name="desktopUserShow">
 <!--{{#if subscriptionsReady}}-->
 {{#with dataUser}}
 
 
-
+<!-- header -->
 <div id="header_userShow" class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
-
-
 
             <div class="col-xs-4">
                 <div id="userImgProfile" class="colCenter" style="background-image: url('{{profile.profileImage}}')"></div>
             </div>
 
+            <div id="userDescription" class="col-xs-8">
+                <h1 class="userNameTitle">{{username}}</h1>
+                <p>{{profile.description}}</p>
 
-            <div class="col-xs-8">
-                <!--user description-->
-                <div class="container-fluid">
-                    <div class="row">
-                        <div id="userDescription" class="">
-                            <h1 class="userNameTitle">{{username}}</h1>
-                            <p>{{profile.description}}</p>
+                <!--The counters & the social icons -->
+                <!--{{#if dotNumCounter}}-->
+                    <!--<span class=""><strong>{{dotNumCounter}}</strong> Dotz</span>-->
+                        <!--{{/if}}-->
+                        <!--{{#if connectionsCounter}}-->
+                    <!--<span class="spacer"> · </span>-->
+                    <!--<span class=""><strong>{{connectionsCounter}}</strong> Connections</span>-->
+                <!--{{/if}}-->
 
-                          {{#if myProfile}}
-                              <button type="button" id="editUserAccount-btn" class="editUserAccount-btn btn btn-full-trans btn-xs hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>
-                          {{/if}}
-                        </div>
-                    </div>
-                </div>
+                <span class="iconsLinksEtc"><ul>
+                        <!--Web & Social-->
+                      {{#if profile.websiteUrl}}
+                          <li class="inline-block">
+                              <!--<span class="spacer"> · </span>-->
+                          </li>
+                          <li class="websiteWrapper inline-block">
+                              <a href="{{profile.websiteUrl}}" target="_blank" class="mdGrey" rel="nofollow">
+                                  <i class="fa fa-globe mdGrey"></i>
+                              </a>
+                          </li>
+                      {{/if}}
+                      {{#if profile.facebookAccountUrl}}
+                          <li class="inline-block">
+                              <a href="{{profile.facebookAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                  <i class="fa fa-facebook-official mdGrey"></i></a>
+                          </li>
+                      {{/if}}
+                      {{#if profile.twitterAccountUrl}}
+                          <li class="inline-block">
+                              <a href="{{profile.twitterAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                  <i class="fa fa-twitter-square mdGrey"></i></a>
+                          </li>
+                      {{/if}}
+                      {{#if profile.googleAccountUrl}}
+                          <li class="inline-block">
+                              <a href="{{profile.googleAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
+                                  <i class="fa fa-google-plus-square mdGrey"></i></a>
+                          </li>
+                      {{/if}}
+                        <!--The Real world :)-->
+                      {{#if profile.location.googleMapsUrl}}
+                          <li class="inline-block">
+                              <span class="spacer"> · </span>
+                          </li>
+                          <li class="locationWrapper inline-block">
+                              <a href="{{profile.location.googleMapsUrl}}" target="_blank" class="mdGrey" rel="nofollow">
+                                  <i class="fa fa-map-marker mdGrey"></i></a>
+                          </li>
+                      {{/if}}
+                </ul></span>
+
+                {{#if myProfile}}
+                    <button type="button" id="editUserAccount-btn" class="editUserAccount-btn btn btn-full-trans btn-xs hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>
+                {{else}}
+                    <!--Connect/Follow button-->
+                        <!--{{#if feedAndFollowAllows}}-->
+                        <!--{{#if myFollow}}-->
+                        <!--<button type="button" class="unFollow btn btn-success btn-md">Connected</button>-->
+                            <!--{{else}}-->
+                        <!--<button type="button" class="follow btn btn-success btn-md">Connect</button>-->
+                            <!--{{/if}}-->
+                        <!--{{/if}}-->
+                {{/if}}
             </div>
-
-
-
 
         </div>
     </div>
 </div>
 
 
-
-
-
-    <div id="userShowMainDiv" class="container-fluid">
-
-
-
-            <div class="profile-user-data-row">
-
-              <!--The counters & the social icons -->
-                <div id="counters-desktopDotShow" class="row colCenter txtCenter">
-
-                    <!--{{#if dotNumCounter}}-->
-                        <!--<span class=""><strong>{{dotNumCounter}}</strong> Dotz</span>-->
-                    <!--{{/if}}-->
-                    <!--{{#if connectionsCounter}}-->
-                        <!--<span class="spacer"> · </span>-->
-                        <!--<span class=""><strong>{{connectionsCounter}}</strong> Connections</span>-->
-                    <!--{{/if}}-->
-
-                    <span class="iconsLinksEtc">
-                        <ul>
-
-                            <!--Web & Social-->
-                          {{#if profile.websiteUrl}}
-                              <li class="inline-block">
-                                  <!--<span class="spacer"> · </span>-->
-                              </li>
-                              <li class="websiteWrapper inline-block">
-                                  <a href="{{profile.websiteUrl}}" target="_blank" class="mdGrey" rel="nofollow">
-                                      <i class="fa fa-globe mdGrey"></i>
-                                  </a>
-                              </li>
-                          {{/if}}
-                          {{#if profile.facebookAccountUrl}}
-                              <li class="inline-block">
-                                  <a href="{{profile.facebookAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
-                                      <i class="fa fa-facebook-official mdGrey"></i></a>
-                              </li>
-                          {{/if}}
-                          {{#if profile.twitterAccountUrl}}
-                              <li class="inline-block">
-                                  <a href="{{profile.twitterAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
-                                      <i class="fa fa-twitter-square mdGrey"></i></a>
-                              </li>
-                          {{/if}}
-                          {{#if profile.googleAccountUrl}}
-                              <li class="inline-block">
-                                  <a href="{{profile.googleAccountUrl}}" target="_blank" rel="nofollow" class="userMenuIcons">
-                                      <i class="fa fa-google-plus-square mdGrey"></i></a>
-                              </li>
-                          {{/if}}
-
-                            <!--The Real world :)-->
-                          {{#if profile.location.googleMapsUrl}}
-                              <li class="inline-block">
-                                  <span class="spacer"> · </span>
-                              </li>
-                              <li class="locationWrapper inline-block">
-                                  <a href="{{profile.location.googleMapsUrl}}" target="_blank" class="mdGrey" rel="nofollow">
-                                      <i class="fa fa-map-marker mdGrey"></i></a>
-                              </li>
-                          {{/if}}
-
-                            <!--place holder for Tel/Fax ???-->
-                        </ul>
-                        </span>
-                </div>
-
-<!--Connect/Follow button || user-edit-settings buttons-->
-                <div id="following" class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-12 txtMd">
-
-                          {{#if notMyProfile}}
-
-                            <!--Connect/Follow button-->
-                            {{#if feedAndFollowAllows}}
-                              {{#if myFollow}}
-                                  <button type="button" class="unFollow btn btn-success btn-md">Connected</button>
-                              {{else}}
-                                  <button type="button" class="follow btn btn-success btn-md">Connect</button>
-                              {{/if}}
-                            {{/if}}
-
-
-                          {{else}}
-
-
-                             <!--share buttons-->
-
-                              <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
-                                  <!--<div class="btn btn-default btn-md"><i class="fa fa-share-alt"></i></div></a>-->
-                             <!---->
-                              <!--<ul id ="dropDownShareUser" class="dropdown-menu">-->
-                                  <!--<li class="shareOnFaceBook">-->
-                                      <!--<a href="#"  target="_blank" class="btn btn-facebook _shareUserOnFB">-->
-                                          <!--<i class="fa fa-facebook"></i>Share on facebook</a>-->
-                                  <!--</li>-->
-                                  <!--&lt;!&ndash;TBD&ndash;&gt;-->
-                                  <!--&lt;!&ndash;<li class="shareOnFaceBook"><a href="#"><i class="fa fa-facebook-official"></i>Share on facebook</a></li>&ndash;&gt;-->
-                                  <!--<li class="shareList">-->
-                                      <!--<a href="#" class="_superShareEmail"><i class="fa fa-paper-plane "></i>Share by mail</a>-->
-                                  <!--</li>-->
-                              <!--</ul>-->
-
-
-                          <!--Edit Account-->
-                              <!--<button type="button" id="editUserAccount-btn" class="editUserAccount-btn btn btn-full-trans btn-xs hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>-->
-
-
-
-
-                          {{/if}}
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div>
+<!--The main div (with the profileDot cards-->
+<div id="userShowMainDiv" class="container-fluid">
     <div class="row user-profile-cards">
+      <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
 
-<!--<br>-->
+          {{#each connectedDotzArray}}
+            {{> profileDotCard}}
+          {{/each}}
 
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
-
-                  {{#each connectedDotzArray}}
-                    {{> profileDotCard}}
-                  {{/each}}
-
-
-{{#if myProfileIsEmpty}}
-
-<div class="txtMd">
-
-    <br>
-    <h2 class="lightGrey">Every great profile starts with a tiny action :)</h2>
-    <br><br>
-</div>
-
-{{/if}}
-
-
-              </div>
-          </div>
-      </div><!-- end wrapper -->
-
-
-        </div>
-    </div>
-
-
-
-
-          {{#if myProfile}}
-              <!--<div class="container-fluid">-->
-                  <!--<div class="row">-->
-                      <!--<div id="createNewDot_userShow" class="hidden-xs col-sm-8 col-md-7 col-lg-6 colCenter">-->
-                        <!--{{#with dataForCreateInMyProfile}}-->
-                          <!--{{>createTheDot_form}}-->
-                        <!--{{/with}}-->
-                      <!--</div>-->
-                  <!--</div>-->
-              <!--</div>-->
-
-
-
-          <br><br>
-
-              <div class="container-fluid" id="footer_userShow">
-                  <div class="row">
-
-                      <div class="container-fluid">
-                          <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter noPadding">
-                             {{#with dataForCreateInMyProfile}}
-                                {{>createTheDot_form}}
-                              {{/with}}
-                          </div>
-                      </div>
-
-                      <div id="closeBtnModal" class="hidden">
-                          <span>X</span>
-                      </div>
-
-                  </div>
-              </div>
-
-
+          {{#if myProfileIsEmpty}}
+            <div class="txtMd">
+              <br>
+              <!--TODO: give a nice message here..-->
+              <h2 class="lightGrey">Every great profile starts with a tiny action :)</h2>
+              <br><br>
+            </div>
           {{/if}}
 
-
-
-
+      </div>
+    </div>
 </div>
+
+
+<!-- Add new dot_form: -->
+{{#if myProfile}}
+<div class="container-fluid" id="footer_userShow">
+  <div class="row">
+    <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter noPadding">
+       {{#with dataForCreateInMyProfile}}
+          {{>createTheDot_form}}
+        {{/with}}
+    </div>
+  </div>
+</div>
+{{/if}}
 
 
 

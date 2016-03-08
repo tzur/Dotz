@@ -1,7 +1,7 @@
 
 
 #header_userShow {
-  height: 36vh;
+  min-height: 36vh;
   padding-top: 10vh;
   background-color: #fafafa;
 }

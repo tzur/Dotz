@@ -2,6 +2,56 @@
   margin: 2vh 0 0vh 0;
 }
 
+
+#primary_file_button {
+  position: absolute;
+  bottom: 0;
+  right: -44px;
+  background: #fff;
+  color: rgba(0,0,0,.35);
+  border: 2px solid #E0E0E0;
+  background-clip: padding-box;
+  height: 42px;
+  width: 44px;
+  line-height: 42px;
+  min-height: 42px!important;
+  max-height: 10pc!important;
+  padding: 0;
+  text-align: center;
+  -webkit-transition: background 50ms,color 50ms;
+  -moz-transition: background 50ms,color 50ms;
+  transition: background 50ms,color 50ms;
+  text-shadow: none;
+  border-radius: 0px 6px 6px 0px;
+}
+
+#message-input {
+  background: #fff;
+  width: 100%;
+  font-size: 15px;
+  line-height: 1.2rem;
+  border: 2px solid #E0E0E0;
+  border-right: none;
+  background-clip: padding-box;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+  margin: 0;
+  color: #3d3c40;
+  -webkit-appearance: none;
+  box-shadow: none;
+  outline: 0;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  min-height: 42px!important;
+  padding: 9px 40px 9px 8px;
+  max-height: 10pc!important;
+  resize: none!important;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+  border-radius: 6px 0 0 6px;
+}
+
 .boxToModal {
   height: 100vh;
   /*padding-top: 5vh;*/
@@ -16,6 +66,7 @@
 
 .textBoxForConnect {
   height: 4.5vh;
+  border: 2px solid #E0E0E0;
 }
 
 #connectTheDot-Box .form-control-feedback{
@@ -43,10 +94,11 @@
 .btn-circleDotTypeIcon2 .fa {
   font-size: 1.5vw;
   vertical-align: initial;
+  /*text-align: center;*/
 }
 
 .nav-pills .active .btn-circleDotTypeIcon2 {
-  background-color: #ffffff;
+  /*background-color: #ffffff;*/
   color: #333;
 }
 
@@ -56,7 +108,7 @@
 }
 
 .nav-pills .btn-circleDotTypeIcon2 {
-  text-align: left;
+  text-align: center;
   background-color: transparent;
   color: #e5e5e5;
   border: none;
