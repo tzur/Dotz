@@ -102,13 +102,7 @@
 
 
 
-                            {{#if DOT_TYPE_IS 'Link' dot.dotSubType}}
-                              {{#if dot.linkName}}
-                                <a href="{{dot.linkUrl}}" target="_blank">
-                                    <h6 id="dotCard-linkName" class="break lightBlue">{{dot.linkName}}</h6>
-                                </a>
-                              {{/if}}
-                            {{/if}}
+
 
 
 
@@ -140,6 +134,16 @@
                                     <span class="greyText alignSub"><i class="fa dotCardIcons-desktopDotCard"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
                                 </div>
                             {{/if}}
+
+
+
+                            <!--{{#if DOT_TYPE_IS 'Link' dot.dotSubType}}-->
+                              {{#if dot.linkName}}
+                                  <a href="{{dot.linkUrl}}" target="_blank">
+                                      <h6 id="dotCard-linkName" class="break lightBlue">{{dot.linkName}}</h6>
+                                  </a>
+                              {{/if}}
+                            <!--{{/if}}-->
 
                           </div>
 
