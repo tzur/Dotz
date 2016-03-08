@@ -75,6 +75,10 @@ Template.createTheDot_form.helpers({
     if (Session.get('link') || Session.get('media')) {
       return true;
     }
+  },
+
+  lists_DOTZ_Algolia: function(){
+    return Session.get('lists_DOTZ');
   }
 
 });
@@ -148,9 +152,26 @@ Template.createTheDot_form.events({
     $('#main-createNewDot').addClass('hidden');
 
     Modules.client.createDotClearForm(); //close the forms and clear the fields is in the modules
+  },
 
+  'click #_searchToReconnect': function(e){
+    e.preventDefault();
+
+    console.log("$('#personalDescription').val() >>>>>>> " + $('#personalDescription').val() )
+
+    //TODO: we need to check this operation on mobile devices.. @otni
+    Modules.client.searchByAlgolia("lists_DOTZ", $('#personalDescription').val() , function(error, content) {
+      if(content){
+        Session.set("lists_DOTZ", content.hits);
+        console.log("content >>>>> " + content)
+      }
+      else{
+        console.log("Error, on index: " + index + " >>>> search failed : " + error)
+      }
+    });
 
   }
+
 });
 
 function _clearSessions(){

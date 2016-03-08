@@ -1,15 +1,28 @@
 <template name="createTheDot_form">
     {{#unless isEditMod}}
 
+
+
+
+
+
+
+
+
+
+
+
+
     <div id="connectTheDot-Box" class="container-fluid">
 
 
 <!--User and personal description fields-->
+      <!--{{>imgUploaderPreview}}-->
 
-        <div class="row">
+        <div class="row colCenter">
 
             <div class="col-xs-1">
-                <a href="/{{ownerUser.profile.userSlug}}">
+                <a href="/{{currentUser.profile.userSlug}}">
                     <img class="connectorProfileImage-connectTheDot-Desktop" src="{{currentUser.profile.profileImage}}">
                 </a>
             </div>
@@ -18,6 +31,44 @@
                 <div class="form-group">
                     <label for="personalDescription" class="hidden">Personal Description</label>
                     <input type="text" name="personalDescription" id="personalDescription" class="form-control textBoxForConnect" placeholder="What do you want to connect?">
+
+                    <!--<br>-->
+                    <!--<br>-->
+                    <!--<br>-->
+
+                    <!--<textarea id="message-input" maxlength="" aria-label="Message input for Channel #aaa_main-channel"-->
+                              <!--style="overflow-y: hidden; height: 42px;" autocorrect="off" autocomplete="off" spellcheck="true"></textarea>-->
+                    <!--<a onclick="return false;" id="primary_file_button" class="file_upload_btn" aria-label="File menu" style="height: 42px;">-->
+                        <!--<i class="ts_icon ts_icon_plus_thick"></i>-->
+                    <!--</a>-->
+
+
+                    <!--<a id="primary_file_button" class="panelBtn dropdown-toggle pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                        <!--<i class="fa fa-plus"></i>-->
+                    <!--</a>-->
+
+                    <!--<ul id="pre-delete-menu" class="dropdown-menu pull-right">-->
+
+
+                        <!--<li class="connect"><a>-->
+                            <!--<div id="" class="dotTypeButtonCol-createNewDot">-->
+                                <!--<button id="image" class="btn btn-circleDotTypeIcon2">-->
+                                  <!--{{>imgUploader}}-->
+                                <!--</button>-->
+                            <!--</div>-->
+                            <!--Upload an Image</a></li>-->
+
+                        <!--<li class="_disConnectBtn"><a><i class="mdGrey fa fa-minus-circle"></i> Disconnect</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                        <!--<li class="connect"><a><i class="mdGrey fa fa-plus-circle"></i> ReConnect</a></li>-->
+                        <!--<li id="_editDotCardBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                        <!--<li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>-->
+                    <!--</ul>-->
+
+
+
+
                 </div>
             </div>
 
@@ -25,17 +76,13 @@
 
 
 
-
-
-
         <div id="typesAndSearch-div" class="row hidden">
-
-
-
 
 <!--nav bar - dot type Icons-->
 
-            <div class="col-xs-5 col-xs-offset-1">
+    {{#unless lists_DOTZ_Algolia}}
+
+            <div class="col-xs-11 col-xs-offset-1">
 
                 <!-- Nav tabs -->
                 <ul id="createTypeButtons" class="nav nav-pills">
@@ -101,14 +148,16 @@
 
             </div>
 
+      {{/unless}}
 
-            <div class="col-xs-1">
-                <span id="typeOrSearch-span">Or</span>
-            </div>
 
-            <div class="col-xs-5">
-                {{>searchBox}}
-            </div>
+              <!--<div class="col-xs-1">-->
+                <!--<span id="typeOrSearch-span">Or</span>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-5">-->
+                <!--{{>searchBox}}-->
+            <!--</div>-->
 
         </div>
 
@@ -124,15 +173,17 @@
 
             <form id="createDotForm" class="">
 
+
+
                 <div id="main-createNewDot" class="container-fluid hidden">
 
-                        {{#if image}}
+                  {{#if image}}
 
-                            <div>
-                              {{> img}}
-                            </div>
+                      <div>
+                        {{> img}}
+                      </div>
 
-                        {{else}}
+                  {{else}}
 
 
 
@@ -186,25 +237,35 @@
                             </div>
                         {{/if}}
 
-
-
-                {{/if}}
-
-                    <!-- Connection reason field -->
-                    <!--<div class="row fieldBox">-->
-                      <!--{{> connectionReasonField}}-->
-                    <!--</div>-->
-
+                    {{/if}}
 
                 </div>
 
 
-                <!--Submit button-->
+              {{#if lists_DOTZ_Algolia}}
+
+                  <!--Seach results-->
+                  <div id="searchResultsDiv" class="row">
+                      <div class="col-sm-12 colCenter">
+                        {{>searchResults_in_CreateTheDot}}
+                      </div>
+                  </div>
+
+              {{else}}
+
                 <div id="footer-createNewDot" class="col-xs-11 text-right pull-right hidden">
 
-                    <button id="_createDotBtn" type="submit" class="btn btn-default btn-Link">CONNECT</button>
+                    <!--Search button-->
+                    <button id="_searchToReconnect" class="btn btn-default square btn-noLead">SEARCH</button>
+
+                  &nbsp;
+
+                    <!--Submit button-->
+                    <button id="_createDotBtn" type="submit" class="btn btn-default square btn-lead">CONNECT</button>
 
                 </div>
+
+                {{/if}}
 
 
             </form>
@@ -227,14 +288,6 @@
 
 
 
-<!--Seach results-->
-
-
-        <div id="searchResultsDiv" class="row hidden">
-            <div class="col-sm-12 colCenter">
-              {{>searchResults_in_CreateTheDot}}
-            </div>
-        </div>
 
 
 
