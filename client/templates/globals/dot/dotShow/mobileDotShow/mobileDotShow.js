@@ -14,10 +14,10 @@ Template.mobileDotShow.onCreated(function() {
       GoogleMaps.load({key: "AIzaSyC35BXkB-3zxK89xynEq038-mE6Ts9Dg-0", libraries: 'places', language: 'en'});
     }
     FlowRouter.watchPathChange();
-    let dotSlug = FlowRouter.current().path.slice(1);
-    if (dotSlug) {
-      self.subs.subscribe('dotShowByDotSlug', dotSlug, function(){
-          let dotShow = Dotz.findOne({dotSlug: dotSlug});
+    let dotId = FlowRouter.getParam('dotId');
+    if (dotId) {
+      self.subs.subscribe('dotShowByDotId', dotId, function(){
+          let dotShow = Dotz.findOne({_id: dotId});
           if (!dotShow){
             FlowRouter.go('/');
             Bert.alert('Page does not exist', 'danger');
@@ -29,7 +29,7 @@ Template.mobileDotShow.onCreated(function() {
         }
       );
     }
-    let currentDot = Dotz.findOne({"dotSlug": dotSlug});
+    let currentDot = Dotz.findOne({_id: dotId});
     if (currentDot) {
       self.subs.subscribe('user', currentDot.ownerUserId);
       if(currentDot.dotType === "List"){
@@ -110,7 +110,7 @@ Template.mobileDotShow.helpers({
 
   dotShow: function() {
     FlowRouter.watchPathChange();
-    let dot = Dotz.findOne({ "dotSlug": FlowRouter.current().path.slice(1)});
+    let dot = Dotz.findOne({ _id: FlowRouter.getParam('dotId') });
     if (dot){
       let ownerUser = Meteor.users.findOne(dot.ownerUserId);
       let data = {

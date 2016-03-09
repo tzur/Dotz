@@ -46,15 +46,19 @@ Template.editDot_form.onDestroyed(function(){
 Template.editDot_form.helpers({
 
   publicSelectedClass: function() {
-    if (Session.get('publicList')) {return "selectedPrivacyBtn";}
+    if (Session.get('publicDot')) {
+      console.log("public........")
+      return "selectedPrivacyBtn";}
   },
 
   closedSelectedClass: function() {
-    if (Session.get('closedList')) {return "selectedPrivacyBtn";}
+    if (Session.get('closedDot')) {
+      console.log("closed........")
+      return "selectedPrivacyBtn";}
   },
 
   secretSelectedClass: function() {
-    if (Session.get('secretList')) {return "selectedPrivacyBtn";}
+    if (Session.get('secretDot')) {return "selectedPrivacyBtn";}
   },
 
   editAction_list: function() {
@@ -73,17 +77,17 @@ Template.editDot_form.events({
 
   'click #_publicList': function() {
     _clearSessions();
-    Session.set('publicList', "Public");
+    Session.set('publicDot', "Public");
   },
 
   'click #_closedList': function() {
     _clearSessions();
-    Session.set('closedList', "Closed");
+    Session.set('closedDot', "Closed");
   },
 
   'click #_secretList': function() {
     _clearSessions();
-    Session.set('secretList', "Secret");
+    Session.set('secretDot', "Secret");
   },
 
 
@@ -114,7 +118,7 @@ Template.editDot_form.events({
 
 //private function:
 function _clearSessions(){
-  Session.set('publicList', undefined);
-  Session.set('closedList', undefined);
-  Session.set('secretList', undefined);
+  Session.set('publicDot', undefined);
+  Session.set('closedDot', undefined);
+  Session.set('secretDot', undefined);
 }
