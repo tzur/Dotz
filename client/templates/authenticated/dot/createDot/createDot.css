@@ -75,15 +75,16 @@
 }
 
 .dot-img-create-dot {
-  width: 10vh;
-  height: 10vh;
+  width: 80px;
+  height: 80px;
   background-size: cover;
   background-position-y: 50%;
   background-position-x: 50%;
   border-radius: 50%;
-  padding-top: 2vh;
-  padding-left: 4vh;
+  /*padding-top: 2vh;*/
+  /*padding-left: 4vh;*/
   font-size: 20px;
+  margin-right: 20px;
   /*background-color: #eee;*/
 }
 

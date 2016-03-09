@@ -79,6 +79,11 @@ function updateCreateDotFields(fields){
   if (dotToEdit) {
     //console.log("dotToEdit.coverImageUrl >>>> " + dotToEdit.dot.coverImageUrl)
     Session.set('dotCoverImg', dotToEdit.dot.coverImageUrl);
+    if (dotToEdit.isOpen) {
+      Session.set('publicDot', true);
+    } else {
+      Session.set('closedDot', true);
+    }
   } else if (fields.coverImageUrl) { //Support embedly img
     Modules.client.uploadToAmazonViaUrl(fields.coverImageUrl, function (error, url) {
       if (error) {
@@ -91,11 +96,7 @@ function updateCreateDotFields(fields){
 
   // LIST or DOT sections:
 
-      if (dotToEdit.isOpen) {
-        Session.set('publicDot', true);
-      } else {
-        Session.set('closedDot', true);
-      }
+
 
       //  TODO >>> add solution to bring the hide/show dotz counter
       //console.log("dotToEdit.showDotzCounter is:" + dotToEdit.showDotzCounter)
