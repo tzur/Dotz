@@ -170,11 +170,14 @@ Meteor.publish('dotCard', function(dotId){
 //});
 
 //TODO: make smarter publish.. @otni
-Meteor.publish( 'dotShowByDotSlug', function( dotSlug ) {
-  check(dotSlug, String);
-  if (dotSlug) {
-    return Dotz.find({"dotSlug": dotSlug});
-  }
+Meteor.publish( 'dotShowByDotId', function( dotId ) {
+  check(dotId, String);
+    console.log("dotId >>>>>>>>>>>>>> " + dotId)
+  return Dotz.find({_id: dotId});
+
+  //if (dotId) {
+  //  return Dotz.find({_id: dotId});
+  //}
 });
 
 Meteor.publish('createByUserLists', function() {

@@ -220,7 +220,7 @@ Template.desktopDotCard.helpers({
   },
 
   isLink: function(){
-    if ((this.dot.dotSubType === "Link") || (this.dot.dotSubType === "Media"))  {
+    if (this.dot && ( (this.dot.dotSubType === "Link") || (this.dot.dotSubType === "Media") ) )  {
       return ("-Link");
     }
   },
