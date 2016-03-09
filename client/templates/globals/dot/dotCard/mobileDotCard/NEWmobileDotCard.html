@@ -1,32 +1,20 @@
 <template name="mobileDotCard">
 {{#with dataCard}}
 
-<div id="dotCardAndConnectorBox-Mobile" class="container-fluid">
-
-{{#unless inDotParentSearchResults}}     <!--Hide the owner and the personal description-->
-
-    <!--connector img and connection reason-->
-    <div class="row">
-        <div>
-            <a href="/{{ownerUser.profile.userSlug}}">
-                <img class="connectorProfileImage-Mobile" src="{{ownerUser.profile.profileImage}}">
-            </a>
-
-            <span class="connectorText-Mobile">{{smartRef.connection.personalDescription}}:</span>
-        </div>
-    </div>
-
-{{/unless}}
+<div class="row">
 
     <!--the connected dot section-->
-    <div class="row">
-        <div class="col-xs-12 left-line-dot-card-box-desktop{{inDotParentSearchResults}}">
+    <div>
+        <div id="dotCardAndConnectorBox-Mobile" class="col-xs-12">
 
-            <div id="dotCardBox-Mobile" class="row">
+            <div class="row">
 
                 <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                  <div class="col-xs-3">
+                  <div id="dotCardImgCol-mobile" class="container-fluid">
                       <div id="dotCardImg-Mobile" class="container-fluid {{dot.dotColor}}-background" style="background-image: url('{{dotCoverImageUrlOrFb}}')"></div>
+                      {{#if dot.connectedDotzArray}}
+                          <div id="dotsNumBadge-mobile">{{dot.connectedDotzArray.length}}</div>
+                      {{/if}}
                   </div>
                 </a>
 
@@ -36,21 +24,21 @@
 
                   {{#unless DOT_TYPE_IS 'Event' dot.dotSubType}}
                     <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                      <h5 id="dotCardShortTitle-Mobile2" class=" break" dir="auto">{{dot.title}}</h5>
-                    </a>
-                  {{else}}
-                    <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                      <h5 id="dotCardShortTitle-Mobile" class=" break" dir="auto">{{dot.title}}</h5>
+                      <h5 id="dotCardShortTitle-Mobile2" class=" break" dir="auto">
+                        <a href="/{{ownerUser.profile.userSlug}}">
+                            <img class="connectorProfileImage-Mobile" src="{{ownerUser.profile.profileImage}}">
+                        </a>
+                        {{dot.title}}</h5>
                     </a>
                   {{/unless}}
 
 
                     <div>
 
-                      {{#if DOT_TYPE_IS 'Link' dot.dotSubType}}
-                          <a href="{{dot.linkUrl}}" target="_blank">
-                              <h6 class="lightBlue break">{{dot.linkName}}</h6>
-                          </a>
+                      {{#if DOT_TYPE_IS 'StartDot' dot.dotSubType}}
+                          <div>
+                              <h6 id="dotCardShortTitle-Mobile2" class="greyText break" dir="auto">Created By {{ownerUser.username}}</h6>
+                          </div>
                       {{/if}}
 
                       {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
@@ -66,7 +54,14 @@
                           </div>
                       {{/if}}
 
-                      <!--No place for price for now-->
+                      {{#if DOT_TYPE_IS 'Link' dot.dotSubType}}
+                          <a href="{{dot.linkUrl}}" target="_blank">
+                              <h6 class="lightBlue break">{{dot.linkName}}</h6>
+                          </a>
+                      {{/if}}
+
+
+                      <!--No place for price right now-->
 
                       <!--{{#if dot.price}}-->
                           <!--<div>-->
@@ -80,14 +75,14 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div id="dotCardButtonsBox-Mobile" class="col-xs-12 noPadding">
 
-                <div class="col-xs-2 col-xs-offset-1">
+                <div id="dotCardLikeCol-Mobile">
 
                   {{# if isLikedByMe}}
                       <a class="unlike">
                           <i class="unlike lightGrey likeBtn fa fa-heart"></i>
-                          <span class="likesCounter sm2Txt bold lightGrey"> {{likeCounter}}</span>
+                          <span class="likesCounter sm2Txt lightGrey"> {{likeCounter}}</span>
                       </a>
 
                   {{else}}
@@ -102,22 +97,14 @@
 
                 <div class="col-xs-4">
                     <button id="dotCardConnectButton-Moblie" class="connect btn btn-full-trans btn-xs lightGrey pull-left">
-                        Connect
+                        ReConnect
                     </button>
                 </div>
 
                 <div class="col-xs-4 noPadding pull-right">
-                    <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                    <!--{{#if dotzNum}}-->
-                      <button class="btn btn-full-trans btn-xs lightGrey pull-right">
-                          Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>
-                      </button>
-                    <!--{{else}}-->
-                        <!--<button class="btn btn-full-trans btn-xs lightGrey pull-right">-->
-                            <!--Discover {{dotzNum}} Dotz <i class="fa fa-angle-double-right mdTxt lightGrey"></i>-->
-                        <!--</button>-->
-                    <!--{{/if}}-->
-                    </a>
+                  {{#if actionNameIsConnect}}
+                      <span class="lightGrey ellipsisOne text-right sm2Txt"><i class="fa fa-retweet lightGrey"></i> {{connectedByUser.username}}</span>
+                  {{/if}}
                 </div>
 
             </div>

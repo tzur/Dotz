@@ -3,13 +3,13 @@
 
 #header-mobileDotShow {
   padding: 0;
-  margin-bottom: 2vh;
+  margin-bottom: 14px;
   /*min-height: 74vh;*/
 }
 
 #coverImg-mobileDotShow {
   position: relative;
-  height: 35vh;
+  height: 220px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 50%;
@@ -22,12 +22,12 @@
 }
 
 #mobileDotShow-title {
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
 
 #buttonsPanel-mobileDotShow {
-  padding: 3vh 15px 3vh 15px;
+  padding: 15px;
   /*border-top: 1px solid #eee;*/
 }
 
@@ -36,8 +36,8 @@
 }
 
 #connectedByTextDiv-mobileDotShow{
-  padding-top: 2vh;
-  padding-bottom: 2vh;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 #connectedByText-mobileDotShow {
@@ -74,12 +74,12 @@
 .divSubtitle-mobileDotShow {
   text-transform: uppercase;
   color: #aaa;
-  margin: 3vh 0;
+  margin: 21px 0;
 }
 
 #description-mobileDotShow {
   /*margin-top: 2vh;*/
-  margin-bottom: 6vh;
+  margin-bottom: 42px;
   font-size: 17px;
   font-weight: normal;
   line-height: 24px;
@@ -100,7 +100,7 @@
 }
 
 #buttonsRow-mobileDotShow {
-  padding-top: 2vh;
+  padding-top: 14px;
 }
 
 #circleImgsRow-mobileDotShow {
@@ -172,22 +172,22 @@
 
 
 #title-mobileDotShow {
-  margin-top: 4vh;
+  margin-top: 28px;
   font-weight: 600;
   text-align: center;
   color: #333;
 }
 
 #connectButton-mobileDotShow {
-  margin: 0 2vw;
+  /*margin: 0 2vw;*/
   padding-right: 3vw;
   padding-left: 3vw;
 }
 
 
 .ownerImgProfile-mobileDotShow {
-  height: 3.5vh;
-  width: 3.5vh;
+  height: 25px;
+  width: 25px;
   border-radius: 50%;
 }
 
@@ -203,6 +203,15 @@
 
 #connectedDotzArray-mobileDotShow {
   background-color: #FAFAFA;
+  border-top: 1px solid #eee;
+  padding-top: 7px;
+}
+
+.dotCard-hr-mobile {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border: 0;
+  border-top: 1px solid #eee;
 }
 
 
@@ -210,11 +219,12 @@
 
 #fixedFooter-mobileDotShow {
   background-color: #FAFAFA;
-  padding: 2vh 0;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
 }
 
 #fixedFooter-mobileDotShow h4 {
-  margin: 1vh 0;
+  margin: 7px 0;
   text-transform: uppercase;
 }
 
@@ -273,17 +283,17 @@
 }
 
 #dotShowFooter-mobileDotShow .addButton {
-  width: 35vh;
+  width: 100px;
   margin: auto;
 }
 
 #dotShowFooter-mobileDotShow .addButton button {
-  width: 35vh;
+  width: 100px;
   margin-right: auto;
   margin-left: auto;
 }
 
 #dotShowFooter-mobileDotShow .title {
-  margin: 5vh;
+  margin: 35px;
   text-align: center;
 }
