@@ -10,6 +10,7 @@ let editDot_settings = ( dot, smartRef ) => {
   let objectToEdit = {
     dot: {
       _id: dot._id,
+      isOpen: dot.isOpen,
       dotSlug: dot.dotSlug,
       title: dot.title,
       bodyText: dot.bodyText,

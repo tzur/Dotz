@@ -91,12 +91,10 @@ function updateCreateDotFields(fields){
 
   // LIST or DOT sections:
 
-  //List only:
-  if (dotToEdit && dotToEdit.dotType === "List") {
-      if (dotToEdit.dotSubType === "Public List") {
-        Session.set('publicList', "Public");
-      } else if (dotToEdit.dotSubType === "Closed List") {
-        Session.set('closedList', "Closed");
+      if (dotToEdit.isOpen) {
+        Session.set('publicDot', true);
+      } else {
+        Session.set('closedDot', true);
       }
 
       //  TODO >>> add solution to bring the hide/show dotz counter
@@ -107,7 +105,6 @@ function updateCreateDotFields(fields){
       //  $('#showDotzCounter').val("Hide");
       //}
 
-  } else {
       //Dot only:
       if (fields.linkUrl){
         //$('#url').val(linkUrl).load();
@@ -143,7 +140,6 @@ function updateCreateDotFields(fields){
         //}
 
       }
-  }
 
 }
 

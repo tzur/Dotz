@@ -88,22 +88,22 @@ Template.createTheDot_form.events({
     $('#typesAndSearch-div').removeClass('hidden');
     $('#footer-createNewDot').removeClass('hidden');
   },
-
+  //
   'click #createTypeButtons': function(){
-    $('#searchResultsDiv').addClass('hidden');
+    //$('#searchResultsDiv').addClass('hidden');
     $('#main-createNewDot').removeClass('hidden');
     $('#connectTheDot-Box').addClass('boxToModal');
     $('#dotShowFooter-inListShow').addClass('background-fa');
     //$('body').addClass('noScroll');
-    $('#closeBtnModal').removeClass('hidden');
+    //$('#closeBtnModal').removeClass('hidden');
   },
-
-
-  'click #_searchBoxInput': function(){
-    $('#main-createNewDot').addClass('hidden');
-    $('#searchResultsDiv').removeClass('hidden');
-    $('#footer-createNewDot').addClass('hidden');
-  },
+  //
+  //
+  //'click #_searchBoxInput': function(){
+  //  $('#main-createNewDot').addClass('hidden');
+  //  $('#searchResultsDiv').removeClass('hidden');
+  //  $('#footer-createNewDot').addClass('hidden');
+  //},
 
 
   'click #link': function(){

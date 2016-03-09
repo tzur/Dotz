@@ -49,14 +49,13 @@ let _handleEditDot = ( template ) => {
   //Types & Open:
   let selectedSubType;
   let openOrClosed;
-  //if (Session.get('publicList')) {
-  //    selectedSubType = "Public List";
-  //    openOrClosed = true;
-  //} else if (Session.get('closedList')) {
-  //    selectedSubType = "Closed List";
-  //    openOrClosed = false;
-  //} else if (Session.get('secretList')) {
-  //    selectedSubType = "Secret List";
+  if (Session.get('publicDot')) {
+      openOrClosed = true;
+  } else if (Session.get('closedDot')) {
+      openOrClosed = false;
+  }
+  //else if (Session.get('secretList')) {
+  //    //selectedSubType = "Secret List";
   //    openOrClosed = false;
   //}
 
@@ -84,8 +83,8 @@ let _handleEditDot = ( template ) => {
       bodyText: template.find( '[name="description"]' ).value,
       showDotzCounter: showDotzCounter,
       ownerUserId: Meteor.userId(),
-      //coverImageUrl: template.find( '[name="password"]' ).value,
-      dotType: "List",
+      //coverImageUrl: template.find( '[name=""]' ).value,
+      //dotType: "List",
       dotSubType: selectedSubType,
       isOpen: openOrClosed,
       //dotColor: dotColor,
