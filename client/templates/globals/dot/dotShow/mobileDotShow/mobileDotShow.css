@@ -21,9 +21,17 @@
   color: #337ab7;
 }
 
+#mobileDotShow-titleDiv {
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  z-index: 2;
+}
+
 #mobileDotShow-title {
   margin-top: 14px;
   margin-bottom: 14px;
+  line-height: inherit;
 }
 
 #buttonsPanel-mobileDotShow {
@@ -79,10 +87,14 @@
 
 #description-mobileDotShow {
   /*margin-top: 2vh;*/
-  margin-bottom: 42px;
+  margin-bottom: 14px;
   font-size: 17px;
   font-weight: normal;
   line-height: 24px;
+}
+
+#linkName-mobileDotShow {
+  margin-bottom: 14px;
 }
 
 #shortDescription-mobileDotShow {
@@ -98,6 +110,8 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+
 
 #buttonsRow-mobileDotShow {
   padding-top: 14px;
