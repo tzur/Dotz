@@ -1,5 +1,5 @@
 #dotCardAndConnectorBox-Mobile {
-  margin: 21px 0;
+  margin: 14px 0;
   /*padding-right: 0;*/
  }
 
@@ -10,12 +10,20 @@
   margin-top: 7px;
 }
 
-#dotCardBox-Mobile {
-  margin-top: 7px;
-  margin-bottom: 7px;
+#dotCardButtonsBox-Mobile {
+  margin-top: 14px;
 }
 
+#dotCardLikeCol-Mobile {
+  float: left;
+  width: 65px;
+  padding-left: 25px;
+}
 
+.likesCounter {
+  margin: 0;
+  font-weight: 500;
+}
 
 .connectorProfileImage-Mobile {
   height: 14px;

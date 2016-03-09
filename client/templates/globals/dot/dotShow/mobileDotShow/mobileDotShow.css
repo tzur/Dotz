@@ -203,6 +203,15 @@
 
 #connectedDotzArray-mobileDotShow {
   background-color: #FAFAFA;
+  border-top: 1px solid #eee;
+  padding-top: 7px;
+}
+
+.dotCard-hr-mobile {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border: 0;
+  border-top: 1px solid #eee;
 }
 
 
@@ -210,7 +219,8 @@
 
 #fixedFooter-mobileDotShow {
   background-color: #FAFAFA;
-  padding: 14px 0;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
 }
 
 #fixedFooter-mobileDotShow h4 {

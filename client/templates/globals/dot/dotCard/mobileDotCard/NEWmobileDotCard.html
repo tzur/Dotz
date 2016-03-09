@@ -7,7 +7,7 @@
     <div>
         <div id="dotCardAndConnectorBox-Mobile" class="col-xs-12">
 
-            <div id="dotCardBox-Mobile" class="row">
+            <div class="row">
 
                 <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
                   <div id="dotCardImgCol-mobile" class="container-fluid">
@@ -34,6 +34,12 @@
 
 
                     <div>
+
+                      {{#if DOT_TYPE_IS 'StartDot' dot.dotSubType}}
+                          <div>
+                              <h5 id="dotCardShortTitle-Mobile2" class="greyText break" dir="auto">Created By {{ownerUser.username}}</h5>
+                          </div>
+                      {{/if}}
 
                       {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
                           <div>
@@ -69,14 +75,14 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div id="dotCardButtonsBox-Mobile" class="col-xs-12 noPadding">
 
-                <div class="col-xs-2 col-xs-offset-1">
+                <div id="dotCardLikeCol-Mobile">
 
                   {{# if isLikedByMe}}
                       <a class="unlike">
                           <i class="unlike lightGrey likeBtn fa fa-heart"></i>
-                          <span class="likesCounter sm2Txt bold lightGrey"> {{likeCounter}}</span>
+                          <span class="likesCounter sm2Txt lightGrey"> {{likeCounter}}</span>
                       </a>
 
                   {{else}}
@@ -91,13 +97,13 @@
 
                 <div class="col-xs-4">
                     <button id="dotCardConnectButton-Moblie" class="connect btn btn-full-trans btn-xs lightGrey pull-left">
-                        Connect
+                        ReConnect
                     </button>
                 </div>
 
                 <div class="col-xs-4 noPadding pull-right">
                   {{#if actionNameIsConnect}}
-                      <span class="lightGrey ellipsisOne sm2Txt"><i class="fa fa-retweet lightGrey"></i> {{connectedByUser.username}}</span>
+                      <span class="lightGrey ellipsisOne text-right sm2Txt"><i class="fa fa-retweet lightGrey"></i> {{connectedByUser.username}}</span>
                   {{/if}}
                 </div>
 
