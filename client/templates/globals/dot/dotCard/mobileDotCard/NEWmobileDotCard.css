@@ -14,10 +14,12 @@
   margin-bottom: 1vh;
 }
 
+
+
 .connectorProfileImage-Mobile {
-  height: 3vh;
-  width: 3vh;
-  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+  border-radius: 3px;
 }
 
 .connectorText-Mobile {
@@ -27,16 +29,38 @@
   color: #333;
 }
 
+#dotCardImgCol-mobile {
+  float: left;
+  position: relative;
+  padding: 0;
+}
+
 #dotCardImg-Mobile {
   padding: 0;
-  height: 18vw;
-  width: 18vw;
+  height: 65px;
+  width: 65px;
   border-radius: 50%;
   background-size: cover;
   position: relative;
   background-position-y: 50%;
   background-position-x: 50%;
-  border: #e5e5e5 solid 2px;
+  border: #e5e5e5 solid 1px;
+}
+
+#dotsNumBadge-mobile {
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  padding-top: 2px;
+  border-radius: 24px;
+  border: 2px solid #fff;
+  background-color: #0090ff;
+  color: #fff;
+  text-align: center;
+  /* line-height: 1.7; */
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 #dotCardText-Mobile {
@@ -46,6 +70,7 @@
 #dotCardText-Mobile h5, #dotCardText-Mobile h6 {
   margin-top: 5px;
   margin-bottom: 5px;
+  line-height: initial;
 }
 
 #dotCardShortTitle-Mobile {

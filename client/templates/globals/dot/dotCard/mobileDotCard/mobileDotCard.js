@@ -110,6 +110,12 @@ Template.mobileDotCard.helpers({
     }
   },
 
+  actionNameIsConnect: function(){
+    if (this.smartRef && this.smartRef.connection) {
+      return (this.smartRef.connection.actionName === 'Connect');
+    }
+  },
+
   //end UI helpers
 
   //Search Helpers:

@@ -9,7 +9,7 @@
 
 #coverImg-mobileDotShow {
   position: relative;
-  height: 35vh;
+  height: 220px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 50%;
@@ -179,7 +179,7 @@
 }
 
 #connectButton-mobileDotShow {
-  margin: 0 2vw;
+  /*margin: 0 2vw;*/
   padding-right: 3vw;
   padding-left: 3vw;
 }
