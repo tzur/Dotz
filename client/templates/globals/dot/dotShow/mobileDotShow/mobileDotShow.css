@@ -3,7 +3,7 @@
 
 #header-mobileDotShow {
   padding: 0;
-  margin-bottom: 2vh;
+  margin-bottom: 14px;
   /*min-height: 74vh;*/
 }
 
@@ -22,12 +22,12 @@
 }
 
 #mobileDotShow-title {
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
 
 #buttonsPanel-mobileDotShow {
-  padding: 3vh 15px 3vh 15px;
+  padding: 21px 15px 21px 15px;
   /*border-top: 1px solid #eee;*/
 }
 
@@ -36,8 +36,8 @@
 }
 
 #connectedByTextDiv-mobileDotShow{
-  padding-top: 2vh;
-  padding-bottom: 2vh;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 #connectedByText-mobileDotShow {
@@ -74,12 +74,12 @@
 .divSubtitle-mobileDotShow {
   text-transform: uppercase;
   color: #aaa;
-  margin: 3vh 0;
+  margin: 21px 0;
 }
 
 #description-mobileDotShow {
   /*margin-top: 2vh;*/
-  margin-bottom: 6vh;
+  margin-bottom: 42px;
   font-size: 17px;
   font-weight: normal;
   line-height: 24px;
@@ -100,7 +100,7 @@
 }
 
 #buttonsRow-mobileDotShow {
-  padding-top: 2vh;
+  padding-top: 14px;
 }
 
 #circleImgsRow-mobileDotShow {
@@ -172,7 +172,7 @@
 
 
 #title-mobileDotShow {
-  margin-top: 4vh;
+  margin-top: 28px;
   font-weight: 600;
   text-align: center;
   color: #333;
@@ -186,8 +186,8 @@
 
 
 .ownerImgProfile-mobileDotShow {
-  height: 3.5vh;
-  width: 3.5vh;
+  height: 25px;
+  width: 25px;
   border-radius: 50%;
 }
 
@@ -210,11 +210,11 @@
 
 #fixedFooter-mobileDotShow {
   background-color: #FAFAFA;
-  padding: 2vh 0;
+  padding: 14px 0;
 }
 
 #fixedFooter-mobileDotShow h4 {
-  margin: 1vh 0;
+  margin: 7px 0;
   text-transform: uppercase;
 }
 
@@ -273,17 +273,17 @@
 }
 
 #dotShowFooter-mobileDotShow .addButton {
-  width: 35vh;
+  width: 100px;
   margin: auto;
 }
 
 #dotShowFooter-mobileDotShow .addButton button {
-  width: 35vh;
+  width: 100px;
   margin-right: auto;
   margin-left: auto;
 }
 
 #dotShowFooter-mobileDotShow .title {
-  margin: 5vh;
+  margin: 35px;
   text-align: center;
 }
