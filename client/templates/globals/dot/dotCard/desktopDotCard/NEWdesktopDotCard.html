@@ -101,13 +101,6 @@
 
 
 
-
-
-
-
-
-
-
                             {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
                                 <div>
                                     <span class="greyText alignSub ellipsisOne"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
@@ -117,16 +110,11 @@
 
 
 
-
-
                             {{#if dot.location}}
                                 <div>
                                     <span class="greyText alignSub"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
                                 </div>
                             {{/if}}
-
-
-
 
 
                             {{#if dot.price}}
@@ -138,11 +126,13 @@
 
 
                             <!--{{#if DOT_TYPE_IS 'Link' dot.dotSubType}}-->
+                          {{#unless dot.location}}
                               {{#if dot.linkName}}
                                   <a href="{{dot.linkUrl}}" target="_blank">
                                       <h6 id="dotCard-linkName" class="break lightBlue">{{dot.linkName}}</h6>
                                   </a>
                               {{/if}}
+                              {{/unless}}
                             <!--{{/if}}-->
 
                           </div>
