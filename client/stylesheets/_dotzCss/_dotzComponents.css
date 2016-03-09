@@ -39,13 +39,13 @@ button, a, button:hover, button:focus button:active {
   outline: none !important;
 }
 
-span a {
-  color: inherit;
-}
+/*span a {*/
+  /*color: inherit;*/
+/*}*/
 
-span a:hover {
-  color: #337ab7;
-}
+/*span a:hover {*/
+  /*color: #337ab7;*/
+/*}*/
 
 #arrow-up-div {
   background-color: #ffffff;

@@ -1,295 +1,161 @@
 <template name="mobileDotShow">
 {{#with dotShow}}
 
-{{# if isListShow dot.dotType}}
 
-<div class="container-fluid" id="header-mobileDotShow-list">
+  <div class="container-fluid" id="header-mobileDotShow">
 
-    <div id="coverImg-mobileDotShow-list" class="row {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')">
-      <div id="filter-mobileDotShow-list">
-        <div id="titleDiv-mobileDotShow-list" class="container-fluid">
-            <h4 id="title-mobileDotShow-list" class="col-xs-12 text-center noPadding break" dir="auto">{{dot.title}}</h4>
-            <h6 id="description-mobileDotShow-list" class="col-xs-12 text-center" dir="auto">
-              {{#autolink}}
-                {{dot.bodyText}}
-              {{/autolink}}
-            </h6>
-        </div>
-      </div>
-    </div>
+      <div id="coverImg-mobileDotShow" class="row {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')">
 
+          <div id="desktopDotShow-listShowHeader-filter"></div>
 
-    <div id="buttonsPanel-mobileDotShow-list" class="container-fluid">
-
-        <a href="/{{ownerUser.profile.userSlug}}">
-            <img class="ownerImgProfile-mobileDotShow" src="{{ownerUser.profile.profileImage}}">
-            <span class="darkText">{{ownerUser.username}}</span>
-        </a>
-
-      <div class="pull-right">
-
-        <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-md pull-right"><i class="fa mdGrey fa-retweet"></i> ReConnect</button>
-
-
-        <!--{{# if isLikedByMe}}-->
-            <!--<button class="unlike btn btn-default btn-xs mdGrey">-->
-                <!--<i class="mdGrey likeBtn fa fa-heart"></i>-->
-                <!--<span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>-->
-            <!--</button>-->
-        <!--{{else}}-->
-            <!--<button class="like btn btn-default btn-xs mdGrey">-->
-                <!--<i class="mdGrey likeBtn fa fa-heart-o"></i>-->
-                <!--<span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>-->
-            <!--</button>-->
-        <!--{{/if}}-->
+          <div id="mobileDotShow-titleDiv" class="col-sm-7 colCenter">
+              <h4 id="mobileDotShow-title" class="bold container-fluid noPadding break" dir="auto">{{dot.title}}</h4>
+          </div>
 
       </div>
 
-    </div>
-</div>
-
-  {{#if isEmptyList}}
-
-  {{else}}
-
-    <div id="connectedDotzArray-list">
-        <div class="container-fluid">
-          {{#each connectedDotzArray}}
-            {{>mobileDotCard}}
-
-              <!--<hr id="mobileDotCard-hr-inListShow">-->
-
-          {{/each}}
-
-          <br>
-          <br>
-          <br>
+  </div>
 
 
-        </div>
-    </div>
+      <div>
 
-  {{/if}}
+       <div class="container-fluid">
+          <div class="mdTxt">
 
-{{#if isHardSale}}
-  {{#if isUserAllowToConnect}}
+              <!--IF THE DOT SUB TYPE IS EVENT or PLACE-->
 
-      <div class="container-fluid" id="dotShowFooter">
-          <div class="">
+            {{#if eventDate}}
+                <div>
+                    <span class="lightGrey"><i class="fa fa-calendar"></i> {{eventDate}} </span>
+                    <!--TODO get the event date data from the create & edit form @yoav-->
+                </div>
+            {{/if}}
 
-            {{# if addDotIsAvailable}}
-              {{#with dataForCreateHere}}
-                {{>searchBoxForConnect}}
-              {{/with}}
+
+            {{#if dot.location}}
+                <div>
+                    <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
+                </div>
+            {{/if}}
+
+            {{#if dot.location.address}}
+                <div>
+                    <span class="lightGrey">&nbsp;&nbsp; {{dot.location.address}}.</span>
+                </div>
+            {{/if}}
+
+
+            {{#if dot.price}}
+                <div>
+                    <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
+                </div>
             {{/if}}
 
           </div>
-      </div>
+       </div>
 
-  {{/if}}
-{{/if}}
+        {{#if dot.bodyText}}
 
+            <div class="container-fluid">
 
+          {{#if userClickOnShowMoreButton}}
+              <pre id="description-mobileDotShow" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
 
-    <!--##############################-->
-    <!--##############################-->
+              <!--URL NAME OR AUTHOR NAME-->
 
-    <!--is dot show (Mobile) -->
+              <div id="linkName-mobileDotShow">
 
-    <!--We need to separate it soon (List || Dot) -->
-
-    <!--##############################-->
-    <!--##############################-->
-
-
-{{else}}
-
-
-
-
-
-        <!--<div class="backToLastPath">-->
-            <!--<button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-minus-circle"></i></button>-->
-        <!--</div>-->
-
-        <div class="container-fluid" id="header-mobileDotShow">
-
-            <div id="coverImg-mobileDotShow" class="row {{dot.dotColor}}-background" style="background-image: url('{{dot.coverImageUrl}}')">
-
-                <!--<div id="desktopDotShow-listShowHeader-filter"></div>-->
-
-            </div>
-
-            <div id="mobileDotShow-titleDiv" class="col-sm-7 colCenter">
-                <h4 id="mobileDotShow-title" class="darkText bold container-fluid noPadding break" dir="auto">{{dot.title}}</h4>
-            </div>
-
-            <div class="col-xs-12">
-
-              {{#if facebookDot}}
-                  <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{authorFbProfile}}"></a>
-              {{else}}
-                {{#if dot.linkFavicon}}
-                  {{#if dot.linkName}}
-                      <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{dot.linkFavicon}}"></a>
+                {{#if facebookDot}}
+                    <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{authorFbProfile}}"></a>
+                {{else}}
+                  {{#if dot.linkFavicon}}
+                    {{#if dot.linkName}}
+                        <a href="{{dot.linkUrl}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{dot.linkFavicon}}"></a>
+                    {{/if}}
                   {{/if}}
                 {{/if}}
-              {{/if}}
 
-                <span>
+                  <span>
 
-                  {{#if dot.linkName}}
+                    {{#if dot.linkName}}
 
-                    {{#if dot.linkAuthorName}}
-                        <span class="mdGrey userText">By <a href="{{dot.linkUrl}}" target="_blank">{{dot.linkAuthorName}}</a></span>
+                      {{#if dot.linkAuthorName}}
+                          <span class="userText">By <a href="{{dot.linkUrl}}" target="_blank">{{dot.linkAuthorName}}</a></span>
+                      {{/if}}
+
+                        <span class="userText"><a href="{{dot.linkUrl}}" target="_blank">{{dot.linkName}}</a></span>
+
+                    {{else}}
+
+                        <span class="mdGrey userText">
+                            <a href="/{{ownerUser.userSlug}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
+                            <a href="/{{ownerUser.userSlug}}" target="_blank">{{ownerUser.username}}</a>
+                        </span>
+
                     {{/if}}
 
-                      <span class="mdGrey userText"><a href="{{dot.linkUrl}}" target="_blank">{{dot.linkName}}</a></span>
+                  </span>
 
-                  {{else}}
+              </div>
 
-                      <span class="mdGrey userText">
-                                  <a href="/{{ownerUser.userSlug}}" target="_blank"><img class="desktopDotShow-originImgProfile" src="{{ownerUser.profile.profileImage}}"></a>
-                                  <a href="/{{ownerUser.userSlug}}" target="_blank">{{ownerUser.username}}</a>
-                              </span>
+          {{else}}
 
-                  {{/if}}
-                </span>
+              <pre id="shortDescription-mobileDotShow" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+              <div class="text-center">
+                  <button id="_showMore" class="btn btn-full-trans btn-xs">SHOW MORE</button>
+              </div>
 
-            </div>
+              <br>
 
-        </div>
-
-
-            <div>
-
-             <div class="container-fluid">
-                <div class="mdTxt">
-
-                    <!--IF THE DOT SUB TYPE IS EVENT or PLACE-->
-
-                  {{#if eventDate}}
-                      <div>
-                          <span class="lightGrey"><i class="fa fa-calendar"></i> {{eventDate}} </span>
-                          <!--TODO get the event date data from the create & edit form @yoav-->
-                      </div>
-                  {{/if}}
-
-
-                  {{#if dot.location}}
-                      <div>
-                          <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
-                      </div>
-                  {{/if}}
-
-                  {{#if dot.location.address}}
-                      <div>
-                          <span class="lightGrey">&nbsp;&nbsp; {{dot.location.address}}.</span>
-                      </div>
-                  {{/if}}
-
-
-                  {{#if dot.price}}
-                      <div>
-                          <span class="lightGrey"> {{dot.currency}} {{dot.price}} </span>
-                      </div>
-                  {{/if}}
-
-                </div>
-             </div>
-
-              {{#if dot.bodyText}}
-
-                  <div class="container-fluid">
-
-                {{#if userClickOnShowMoreButton}}
-                    <pre id="description-mobileDotShow" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
-                {{else}}
-
-                    <pre id="shortDescription-mobileDotShow" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
-                    <div class="text-center">
-                        <button id="_showMore" class="btn btn-full-trans btn-xs">SHOW MORE</button>
-                    </div>
-
-                    <br>
-
-                {{/if}}
-
-                  </div>
-
-              {{/if}}
+          {{/if}}
 
             </div>
 
+        {{/if}}
 
-            <hr class="col-xs-10 colCenter">
-
-
-            <div id="buttonsPanel-mobileDotShow" class="container-fluid">
-
-              {{#if dot.linkUrl}}
-                {{#unless dot.location}}
-                    <a href="{{dot.linkUrl}}" target="_blank">
-                        <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-md pull-right"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
-                    </a>
-                {{/unless}}
-              {{/if}}
-
-              {{#if dot.location}}
-                  <a href="{{dot.location.googleMapsUrl}}" target="_blank">
-                      <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-Place btn-md pull-right"><i class="fa fa-map-marker"></i> Navigate</button>
-                  </a>
-              {{/if}}
+      </div>
 
 
-                <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-md pull-left"><i class="fa mdGrey fa-retweet"></i> ReConnect</button>
-
-                <!--{{# if isLikedByMe}}-->
-                  <!--<button class="unlike btn btn-default btn-md mdGrey pull-left">-->
-                  <!--<i class="mdGrey likeBtn fa fa-heart"></i>-->
-                  <!--<span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>-->
-                  <!--</button>-->
-                <!--{{else}}-->
-                  <!--<button class="like btn btn-default btn-md mdGrey pull-left">-->
-                  <!--<i class="mdGrey likeBtn fa fa-heart-o"></i>-->
-                  <!--<span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>-->
-                  <!--</button>-->
-                <!--{{/if}}-->
-
-            </div>
+      <hr class="col-xs-10 colCenter">
 
 
-            <!--<div id="connectedByTextDiv-mobileDotShow" class="container-fluid">-->
+      <div id="buttonsPanel-mobileDotShow" class="container-fluid">
 
-                <!--<div class="row">-->
+        {{#if dot.linkUrl}}
+          {{#unless dot.location}}
+              <a href="{{dot.linkUrl}}" target="_blank">
+                  <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-md pull-right"><i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}</button>
+              </a>
+          {{/unless}}
+        {{/if}}
 
-                    <!--<div class="user col-xs-9">-->
-                        <!--<div class="iconDiv smTxt">-->
-                            <!--<a href="/{{ownerUser.profile.userSlug}}"><img class="postUserImgProfile" src="{{ownerUser.profile.profileImage}}"></a>-->
-                            <!--<a href="/{{ownerUser.profile.userSlug}}"><span class="userText mdTxt">Connected By <strong>{{ownerUser.username}}</strong></span></a>-->
-                        <!--</div>-->
-                    <!--</div>-->
+        {{#if dot.location}}
+            <a href="{{dot.location.googleMapsUrl}}" target="_blank">
+                <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-Place btn-md pull-right"><i class="fa fa-map-marker"></i> Navigate</button>
+            </a>
+        {{/if}}
 
-                    <!--<div class="col-xs-3 txtR">-->
-                        <!--<button type="button" class="btn btn-default btn-xs"><i class="fa fa-heart"></i> 24</button>-->
-                    <!--</div>-->
 
-                <!--</div>-->
+          <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-md mdGrey pull-left">
+              <i class="fa mdGrey fa-retweet"></i> ReConnect
+          </button>
 
-                <!--<div id="arrow-up-div" class="container-fluid">-->
-                    <!--<div class="arrow-up pull-left"></div>-->
-                <!--</div>-->
+          <!--{{# if isLikedByMe}}-->
+            <!--<button class="unlike btn btn-default btn-md mdGrey pull-left">-->
+            <!--<i class="mdGrey likeBtn fa fa-heart"></i>-->
+            <!--<span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>-->
+            <!--</button>-->
+          <!--{{else}}-->
+            <!--<button class="like btn btn-default btn-md mdGrey pull-left">-->
+            <!--<i class="mdGrey likeBtn fa fa-heart-o"></i>-->
+            <!--<span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>-->
+            <!--</button>-->
+          <!--{{/if}}-->
 
-                <!--<div id="connectedByText-mobileDotShow" class="container-fluid">-->
+      </div>
 
-                    <!--<div class="row">-->
-                        <!--<div class="col-xs-12">-->
-                           <!--<p>ajkdja shkd jah kjdh akjs dhkaj shkdj ahskjdhka jshkdj ahkdj ahksj dhka sjdh kaj</p>-->
-                        <!--</div>-->
-                    <!--</div>-->
 
-                <!--</div>-->
-            <!--</div>-->
+
 
 
 
@@ -384,9 +250,6 @@
             </div>
 
         {{/if}}
-
-
-{{/if}}
 
 {{/with}}
 </template>
