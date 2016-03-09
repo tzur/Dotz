@@ -4,11 +4,11 @@
 
 
         <div id="listTitle" class="row">
-            <div class="col-xs-3">
+            <div class="col-xs-2">
                 <p><strong>Dot Name</strong></p>
             </div>
 
-            <div class="col-xs-9">
+            <div class="col-xs-10">
                 <input type="text" id="title" name="title" class="transparent-InputBox" placeholder='Like "My Favorites" or "Cool Events to Go" '>
             </div>
         </div>
@@ -16,108 +16,215 @@
         <hr>
 
         <div id="listDescription" class="row">
-            <div class="col-xs-3">
+            <div class="col-xs-2">
                 <p><strong>Description</strong></p>
             </div>
 
-            <div class="col-xs-9">
+            <div class="col-xs-10">
                 <!--<input type="text" name="listDescription" class="transparent-InputBox" placeholder="What's your list about?">-->
-                <textarea id="description" name="description" class="transparent-InputBox" rows="3" placeholder="What's your list about?"></textarea>
+                <textarea id="description" name="description" class="transparent-InputBox" rows="5" placeholder="What's your list about?"></textarea>
             </div>
         </div>
 
         <hr>
 
         <div id="listImage" class="row">
-            <div class="col-xs-3">
-                <p><strong>Dot Cover Image</strong></p>
+            <div class="col-xs-2">
+                <p><strong>Image</strong></p>
             </div>
 
-            <div class="col-xs-9">
+            <div class="col-xs-10 noPadding">
                 <!--NOTE! "{>imgUploader}" is a shred template (with the createNewDot form) -->
               {{>img}}
             </div>
         </div>
 
-        <hr>
 
-        <div id="listPrivacy" class="row">
 
-            <div class="col-xs-3">
-                <p><strong>Dot Privacy</strong></p>
+        <div class="panel-group" id="accordion_editDot_Form" role="tablist" aria-multiselectable="true">
+
+
+          <!-- Link -->
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fa fa-link"></i> Edit Link
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <p><strong>Url Address</strong></p>
+                            </div>
+                            <div class="col-xs-10">
+                              {{> url}}
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
 
-            <div class="col-xs-9">
+          <!-- Event / Dates -->
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="fa fa-calendar"></i> Date, Time & Event Details
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
 
-                <!--Public-->
-                <div class="col-xs-4 text-center">
-                    <div id="_publicList" class="privacyBtns {{publicSelectedClass}}">
-                        <i class="fa fa-globe"></i>
-                        <br>
-                        <p><strong>Public</strong></p>
-                        <!--<p class="mdGrey"><small>Anyone can see and add dotz to the list.</small></p>-->
-                        <p class="mdGrey"><small>Let everyone see and add new dotz to this dot.</small></p>
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <p><strong>Date & Time</strong></p>
+                            </div>
+                            <div class="col-xs-10">
+                              {{> dateComponent}}
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <p><strong>Price</strong></p>
+                            </div>
+                            <div class="col-xs-10">
+                              {{> price}}
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
+            </div>
 
-                <!--Closed-->
-                <div class="col-xs-4 text-center">
-                    <div id="_closedList" class="privacyBtns {{closedSelectedClass}}">
-                        <i class="fa fa-lock"></i>
-                        <br>
-                        <p><strong>Closed</strong></p>
-                        <p class="mdGrey"><small>Anyone can see the dot. Only you can add new dotz.</small></p>
+          <!-- Location / Place -->
+            <div class="panel panel-default">
+                <div class="panel-heading _showMap" role="tab" id="headingFour">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <i class="fa fa-map-marker"></i> Location / Address
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="panel-body noPadding">
+
+                      {{#if showMapHasClicked}}
+                        {{>map}}
+                      {{/if}}
+
                     </div>
                 </div>
+            </div>
 
-                <!--Secret - coming soon... -->
-                <!--<div class="col-xs-4 text-center">-->
-                <!--<div id="_secretList" class="privacyBtns {{secretSelectedClass}}">-->
-                <!--<i class="fa fa-user"></i>-->
-                <!--<br>-->
-                <!--<p><strong>Secret</strong></p>-->
-                <!--<p class="mdGrey"><small>Only you can see and add dotz to this list.</small></p>-->
-                <!--</div>-->
-                <!--</div>-->
+          <!-- Dot Settings -->
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFive">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <i class="fa fa-cog"></i> Dot Settings
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                    <div class="panel-body">
 
+                        <div id="listPrivacy" class="row">
+
+                            <div class="col-xs-3">
+                                <p><strong>Dot Privacy</strong></p>
+                            </div>
+
+                            <div class="col-xs-9">
+
+                                <!--Public-->
+                                <div class="col-xs-4 text-center">
+                                    <div id="_publicList" class="privacyBtns {{publicSelectedClass}}">
+                                        <i class="fa fa-globe"></i>
+                                        <br>
+                                        <p><strong>Public</strong></p>
+                                        <!--<p class="mdGrey"><small>Anyone can see and add dotz to the list.</small></p>-->
+                                        <p class="mdGrey"><small>Let everyone see and add new dotz to this dot.</small></p>
+                                    </div>
+                                </div>
+
+                                <!--Closed-->
+                                <div class="col-xs-4 text-center">
+                                    <div id="_closedList" class="privacyBtns {{closedSelectedClass}}">
+                                        <i class="fa fa-lock"></i>
+                                        <br>
+                                        <p><strong>Closed</strong></p>
+                                        <p class="mdGrey"><small>Anyone can see the dot. Only you can add new dotz.</small></p>
+                                    </div>
+                                </div>
+
+                                <!--Secret - coming soon... -->
+                                <!--<div class="col-xs-4 text-center">-->
+                                <!--<div id="_secretList" class="privacyBtns {{secretSelectedClass}}">-->
+                                <!--<i class="fa fa-user"></i>-->
+                                <!--<br>-->
+                                <!--<p><strong>Secret</strong></p>-->
+                                <!--<p class="mdGrey"><small>Only you can see and add dotz to this list.</small></p>-->
+                                <!--</div>-->
+                                <!--</div>-->
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- editAction_list mod: -->
+
+                        <hr>
+
+                        <div id="listTitle" class="row">
+                            <div class="col-xs-3">
+                                <p><strong>Dotz Counter</strong></p>
+                            </div>
+
+                            <div class="col-xs-9">
+
+                                <div class="col-xs-3">
+                                    <!--<label for="currencyField" class="control-label">Dotz Counter</label>-->
+                                    <select name="showDotzCounter" id="showDotzCounter" autocomplete="off" class="form-control">
+                                        <option value=true>Show</option>
+                                        <option value=false>Hide</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
         </div>
 
 
 
-        <!-- editAction_list mod: -->
-      <!--{{#if editAction_list}}-->
-
-          <hr>
-
-          <div id="listTitle" class="row">
-              <div class="col-xs-3">
-                  <p><strong>Dotz Counter</strong></p>
-              </div>
-
-              <div class="col-xs-9">
-
-                  <div class="col-xs-3">
-                      <!--<label for="currencyField" class="control-label">Dotz Counter</label>-->
-                      <select name="showDotzCounter" id="showDotzCounter" autocomplete="off" class="form-control">
-                          <option value=true>Show</option>
-                          <option value=false>Hide</option>
-                      </select>
-                  </div>
-              </div>
-          </div>
 
 
-      <!--{{/if}}-->
+
+
 
         <div id="footer-createNewList_form" class="form-group txtMd">
             <!--<input type="submit" class="btn signupBtn" value="create New List">-->
           {{#if isSpinnerOn}}
-              <button id="createNewListButton" type="submit" class="_submitBtn createNewDotBtn transparent btn  btn-primary has-spinner active">
-                  <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>EDIT</button>
+              <button id="createNewListButton" type="submit" class="_submitBtn createNewDotBtn transparent btn square has-spinner active">
+                  <span class="spinner"><i class="fa fa-spinner lightGrey fa-spin-custom"></i></span>SAVE</button>
           {{else}}
-              <button id="createNewListButton" type="submit" class="_submitBtn createNewDot_Btn btn btn-default">SAVE</button>
+              <button id="createNewListButton" type="submit" class="_submitBtn createNewDot_Btn btn btn-default square">SAVE</button>
           {{/if}}
         </div>
 

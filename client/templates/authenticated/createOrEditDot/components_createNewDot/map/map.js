@@ -1,4 +1,4 @@
-// This example adds a search box to a map, using the Google Place Autocomplete
+// This example adds a search box to a map, using the Google Place AutoComplete
 // feature. People can enter geographical searches. The search box will return a
 // pick list containing a mix of places and predicted search terms.
 
@@ -18,15 +18,12 @@ Template.map.onRendered(function(){
       let centerLatLng = [];
       let zoomLevel;
 
-      if(Template.parentData() && Template.parentData().data && Template.parentData().data.dot && Template.parentData().data.dot.location ) {
+      if (Template.parentData() && Template.parentData().data && Template.parentData().data.dot && Template.parentData().data.dot.location ) {
         centerLatLng = Template.parentData().data.dot.location.latLng
         zoomLevel = 16
-      }
-
-      else{
+      } else {
         centerLatLng = [32.075362, 34.774936]
         zoomLevel = 13
-
       }
 
       var map = new google.maps.Map(document.getElementById('map'), {

@@ -338,7 +338,11 @@ Template.desktopDotShow.helpers({
   //},
 
   addDotIsAvailable: function() {
-    return ( Meteor.user() && ( this.dot.isOpen || (this.dot.ownerUserId === Meteor.userId()) ) )
+    if (  Meteor.user() && this.dot.isOpen ) {
+      return true;
+    } else {
+      return this.dot.ownerUserId === Meteor.userId();
+    }
   },
 
   dataForTheQ: function() {

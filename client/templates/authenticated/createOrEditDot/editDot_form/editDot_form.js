@@ -7,6 +7,8 @@ Template.editDot_form.onRendered( () => {
     template: Template.instance()
   });
 
+  _clearSessions();
+
   let dotToEdit = Session.get('editAction_docToEdit');
   let parentDotId, personalDescription;
   if (dotToEdit.smartRef) {
@@ -38,6 +40,8 @@ Template.editDot_form.onDestroyed(function(){
   Session.set('editAction_dot', undefined);
   Session.set('editAction_docToEdit', undefined);
   Session.set('dotCoverImg', undefined);
+
+  Session.set("showMapHasClicked", undefined);
 });
 
 
@@ -63,6 +67,10 @@ Template.editDot_form.helpers({
 
   editAction_list: function() {
     if (Session.get('editAction_list')) {return true;}
+  },
+
+  showMapHasClicked: function(){
+    return Session.get('showMapHasClicked');
   }
 
 });
@@ -90,6 +98,9 @@ Template.editDot_form.events({
     Session.set('secretDot', "Secret");
   },
 
+  'click ._showMap': function() {
+    Session.set("showMapHasClicked", true);
+  },
 
   'click #createNewListButton': function(event){
     // //event.preventDefault();
