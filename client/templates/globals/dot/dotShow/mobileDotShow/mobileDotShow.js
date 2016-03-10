@@ -273,11 +273,8 @@ Template.mobileDotShow.helpers({
       if (connectedDotz === 0) {
         return false;
       }
-      else if (connectedDotz === 1) {
-        return ("1 Dot")
-      }
       else if (connectedDotz > 1) {
-        return ( connectedDotz + " Dotz" );
+        return ( "Dotz " + "("+connectedDotz+")"  );
       }
 
   },
