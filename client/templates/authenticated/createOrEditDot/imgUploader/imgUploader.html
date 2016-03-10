@@ -1,10 +1,45 @@
 
 <template name="imgUploader">
 
-    <div id="addDotImageWraper" class="">
-        <i class="fa greyText fa-camera fa-2x btn-file">
-            <input type="file">
-        </i>
-    </div>
+    <!--<div class="file container-fluid">-->
+        <!--<div class="row">-->
+
+            <div id="addDotImageWraper" class="text-center">
+                <!--<i class="fa fa-camera btn-file">-->
+                    <!--<input type="file">-->
+                <!--</i>-->
+
+
+                <!--<input type="file" name="media_empty"-->
+                       <!--accept="image/gif,image/jpeg,image/jpg,image/png,video/mp4,video/x-m4v"-->
+                       <!--class="file-input js-tooltip" data-original-title="Add photos or video"-->
+                       <!--data-delay="150">-->
+
+
+
+                <div class="image-selector">
+                    <input type="hidden" name="media_data_empty" class="file-data" value="">
+                    <div class="multi-photo-data-container hidden"></div>
+                    <label class="t1-label">
+      <!--<span class="visuallyhidden">-->
+          <!--Add media-->
+      <!--</span>-->
+
+                        <i class="fa fa-camera"></i>
+
+                        <input type="file" name="image"
+                               accept="image/gif,image/jpeg,image/jpg,image/png"
+                               class="file-input js-tooltip" data-original-title="Add an Image" data-delay="150">
+                    </label>
+                    <div class="swf-container"></div>
+                </div>
+
+
+            </div>
+
+        <!--</div>-->
+    <!--</div>-->
+
+
 
 </template>

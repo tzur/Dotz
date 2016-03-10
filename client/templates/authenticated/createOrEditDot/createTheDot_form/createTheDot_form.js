@@ -89,7 +89,8 @@ Template.createTheDot_form.events({
     $('#footer-createNewDot').removeClass('hidden');
   },
   //
-  'click #createTypeButtons': function(){
+  'click #createTypeButtons': function(e){
+    e.preventDefault();
     //$('#searchResultsDiv').addClass('hidden');
     $('#main-createNewDot').removeClass('hidden');
     $('#connectTheDot-Box').addClass('boxToModal');
