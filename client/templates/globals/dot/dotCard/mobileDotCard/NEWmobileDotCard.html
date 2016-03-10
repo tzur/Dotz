@@ -18,7 +18,7 @@
                   </div>
                 </a>
 
-                <div id="dotCardText-Mobile" class="col-xs-9">
+                <div id="dotCardText-Mobile" class="col-xs-8">
 
                   <!--determine the length of the title. if event = 1 line, else = 2 lines-->
 
@@ -42,15 +42,24 @@
                       {{/if}}
 
                       {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
+
+                          <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                              <h5 id="dotCardShortTitle-Mobile" class=" break" dir="auto">
+                                  <a href="/{{ownerUser.profile.userSlug}}">
+                                      <img class="connectorProfileImage-Mobile" src="{{ownerUser.profile.profileImage}}">
+                                  </a>
+                                {{dot.title}}</h5>
+                          </a>
+
                           <div>
-                              <h6 class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</h6>
+                              <h6 class="greyText ellipsisOne"><i class="dotCardIcons-mobileDotCard fa fa-calendar"></i>{{eventDate}}</h6>
                               <!--TODO get the event date data from the create & edit form @yoav-->
                           </div>
                       {{/if}}
 
                       {{#if dot.location}}
                           <div>
-                              <h6 class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</h6>
+                              <h6 class="greyText"><i class="dotCardIcons-mobileDotCard fa fa-map-marker"></i>{{dot.location.name}}</h6>
                           </div>
                       {{/if}}
 
@@ -97,17 +106,42 @@
 
                 <div class="col-xs-4">
                     <button id="dotCardConnectButton-Moblie" class="connect btn btn-full-trans btn-xs lightGrey pull-left">
-                        ReConnect
+                        FOLLOW
                     </button>
                 </div>
 
-                <div class="col-xs-4 noPadding pull-right">
+                <div class="col-xs-5 noPadding pull-right">
                   {{#if actionNameIsConnect}}
-                      <span class="lightGrey ellipsisOne text-right sm2Txt"><i class="fa fa-retweet lightGrey"></i> {{connectedByUser.username}}</span>
+                      <span class="lightGrey ellipsisOne text-right sm2Txt"><i class="fa fa-retweet lightGrey"></i> By {{connectedByUser.username}}</span>
                   {{/if}}
                 </div>
 
             </div>
+
+
+      <!--3 Dots MENU FOR MORE ACTIONS-->
+
+              <a class="panelBtn dropdown-toggle pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span id="mobileDotCard-3dots" class="lightGrey" aria-hidden="true">...</span>
+              </a>
+
+              <ul id="mobileDotCard-3dotsMenu" class="dropdown-menu pull-right">
+                {{#if isConnected}}
+                    <li class="connect"><a><i class="mdGrey fa fa-retweet"></i> ReConnect</a></li>
+                    <li class="_disConnectBtn"><a><i class="mdGrey fa fa-arrows-h"></i> Disconnect</a></li>
+                    <li role="separator" class="divider"></li>
+                {{else}}
+
+                    <li class="connect"><a><i class="mdGrey fa fa-retweet"></i> ReConnect</a></li>
+
+                {{/if}}
+                {{#if isMyDot}}
+                    <li id="_editDotCardBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                {{/if}}
+              </ul>
+
         </div>
     </div>
 

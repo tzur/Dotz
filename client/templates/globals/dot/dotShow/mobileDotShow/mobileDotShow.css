@@ -229,6 +229,7 @@
 
 #fixedFooter-mobileDotShow {
   padding: 12px 0 0 0;
+  border-bottom: 1px solid #fafafa;
 }
 
 #fixedFooter-mobileDotShow h4 {

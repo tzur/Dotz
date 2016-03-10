@@ -1,6 +1,7 @@
 #dotCardAndConnectorBox-Mobile {
-  margin: 14px 0;
-  /*padding-right: 0;*/
+  margin: 18px 0 0 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #fafafa;
  }
 
 .left-line-dot-card-box {
@@ -47,8 +48,8 @@
 
 #dotCardImg-Mobile {
   padding: 0;
-  height: 65px;
-  width: 65px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   background-size: cover;
   position: relative;
@@ -74,7 +75,7 @@
 }
 
 #dotCardText-Mobile {
-  padding-right: 12px;
+  padding-right: 0px;
 }
 
 #dotCardText-Mobile h5, #dotCardText-Mobile h6 {
@@ -97,7 +98,30 @@
   -webkit-box-orient: vertical;
 }
 
+.dotCardIcons-mobileDotCard {
+  width: 15px;
+  text-align: center;
+  margin-right: 6px;
+}
+
 
 #dotCardConnectButton-Moblie {
   padding: 0;
+}
+
+#mobileDotCard-3dots {
+  font-size: 20px;
+  line-height: 0px;
+  letter-spacing: -4px;
+  font-family: monospace;
+  transform: rotate(270deg);
+  float: right;
+  position: absolute;
+  right: 12px;
+  top: 18px;
+}
+
+#mobileDotCard-3dotsMenu {
+  top: 30px;
+  right: 15px;
 }
