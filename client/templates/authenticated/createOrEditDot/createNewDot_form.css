@@ -132,6 +132,11 @@
   padding: 0 15px;;
 }
 
+.createDotFields {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 #footer-createNewDot {
   margin-bottom: 2vh;
   height: 10vh;

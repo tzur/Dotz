@@ -179,7 +179,7 @@
 
                   {{#if image}}
 
-                      <div>
+                      <div class="col-xs-12 createDotFields">
                         {{> img}}
                       </div>
 
@@ -189,7 +189,7 @@
 
                           <!--if Link - start with url-->
                         {{#unless person}}
-                            <div>
+                            <div class="col-xs-12 createDotFields">
                               {{> url}}
                                 <!--<div class="hr simpleHr">-->
                             </div>
@@ -198,20 +198,20 @@
 
                           <!--The main fields-->
 
-                          <div>
+                          <div class="col-xs-12 createDotFields">
                             {{> title}}
                           </div>
-                          <div>
+                          <div class="col-xs-12 createDotFields">
                             {{> description}}
                           </div>
-                          <div>
+                          <div class="col-xs-12 createDotFields">
                             {{> img}}
                           </div>
                           <!--<div class="hr simpleHr"></div>-->
 
                         {{#if person}}
 
-                            <div>
+                            <div class="col-xs-12 createDotFields">
                               {{> webAddress}}
                             </div>
 
@@ -219,20 +219,20 @@
 
                           <!-- Place fields -->
                         {{#if place}}
-                            <div>
+                            <div class="col-xs-12 createDotFields">
                               {{> map}}
                             </div>
                         {{/if}}
 
                           <!--Event Fields-->
                         {{#if event}}
-                            <div>
+                            <div class="col-xs-12 createDotFields">
                               {{> dateComponent}}
                             </div>
-                            <div>
+                            <div class="col-xs-12 createDotFields">
                               {{> map}}
                             </div>
-                            <div>
+                            <div class="col-xs-12 createDotFields">
                               {{> price}}
                             </div>
                         {{/if}}
