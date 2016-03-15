@@ -167,6 +167,14 @@ Template.mobileDotShow.helpers({
     }
   },
 
+  isLikedByMe: function(){
+    let likersArray = this.smartRef.connection.likes;
+    if ( likersArray.indexOf( Meteor.userId() ) >= 0 ) {
+      return true
+    }
+
+  },
+
   isEmptyList: function() {
     return ( (this.dot.dotType === "List") && (this.dot.connectedDotzArray.length === 0) )
   },
@@ -273,11 +281,8 @@ Template.mobileDotShow.helpers({
       if (connectedDotz === 0) {
         return false;
       }
-      else if (connectedDotz === 1) {
-        return ("1 Dot")
-      }
       else if (connectedDotz > 1) {
-        return ( connectedDotz + " Dotz" );
+        return ( "Dotz " + "("+connectedDotz+")"  );
       }
 
   },

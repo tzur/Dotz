@@ -21,6 +21,10 @@
   background-color: #fafafa;
 }
 
+#dotCardAndConnectorBox-Desktop:hover #desktopDotCard-col-sortBtns {
+  display: block;
+}
+
 #dotCardAndConnectorBox-Desktop:hover #desktopDotCard-editOrConnectButtonsDiv {
   /*display: inline-block;*/
   /*float: right;*/

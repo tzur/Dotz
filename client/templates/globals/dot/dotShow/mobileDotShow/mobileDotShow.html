@@ -8,16 +8,16 @@
 
           <div id="desktopDotShow-listShowHeader-filter"></div>
 
-          <div id="mobileDotShow-titleDiv" class="col-sm-7 colCenter">
-              <h4 id="mobileDotShow-title" class="bold container-fluid noPadding break" dir="auto">{{dot.title}}</h4>
-          </div>
-
       </div>
 
   </div>
 
 
-      <div>
+  <div id="mobileDotShow-contentDiv">
+
+        <div class="col-sm-7 colCenter">
+            <h4 id="mobileDotShow-title" class="bold container-fluid noPadding break" dir="auto">{{dot.title}}</h4>
+        </div>
 
        <div class="container-fluid">
           <div class="mdTxt">
@@ -35,12 +35,6 @@
             {{#if dot.location}}
                 <div>
                     <span class="lightGrey"><i class="fa fa-map-marker"></i> {{dot.location.name}} </span>
-                </div>
-            {{/if}}
-
-            {{#if dot.location.address}}
-                <div>
-                    <span class="lightGrey">&nbsp;&nbsp; {{dot.location.address}}.</span>
                 </div>
             {{/if}}
 
@@ -100,7 +94,10 @@
 
           {{else}}
 
-              <pre id="shortDescription-mobileDotShow" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+              {{#unless eventDate}}
+                <pre id="shortDescription-mobileDotShow" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
+              {{/unless}}
+
               <div class="text-center">
                   <button id="_showMore" class="btn btn-full-trans btn-xs">SHOW MORE</button>
               </div>
@@ -113,7 +110,18 @@
 
         {{/if}}
 
-      </div>
+
+
+
+
+
+
+
+<!--DOT SHOW BUTTONS AREA-->
+
+
+
+
 
 
       <hr class="col-xs-10 colCenter">
@@ -136,25 +144,25 @@
         {{/if}}
 
 
-          <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-md mdGrey pull-left">
+          <button id="connectButton-mobileDotShow" type="button" class="connect btn btn-default btn-trans btn-md mdGrey pull-left">
               <i class="fa mdGrey fa-retweet"></i> ReConnect
           </button>
 
-          <!--{{# if isLikedByMe}}-->
-            <!--<button class="unlike btn btn-default btn-md mdGrey pull-left">-->
-            <!--<i class="mdGrey likeBtn fa fa-heart"></i>-->
-            <!--<span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>-->
-            <!--</button>-->
-          <!--{{else}}-->
-            <!--<button class="like btn btn-default btn-md mdGrey pull-left">-->
-            <!--<i class="mdGrey likeBtn fa fa-heart-o"></i>-->
-            <!--<span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>-->
-            <!--</button>-->
-          <!--{{/if}}-->
+          {{# if isLikedByMe}}
+            <button class="unlike btn btn-default btn-trans btn-md mdGrey pull-left">
+            <i class="mdGrey likeBtn fa fa-heart"></i>
+            <span class="likesCounter sm2Txt bold mdGrey"> {{likeCounter}}</span>
+            </button>
+          {{else}}
+            <button class="like btn btn-default btn-trans btn-md mdGrey pull-left">
+            <i class="mdGrey likeBtn fa fa-heart-o"></i>
+            <span class="likesCounter sm2Txt mdGrey"> {{likeCounter}}</span>
+            </button>
+          {{/if}}
 
       </div>
 
-
+  </div>
 
 
 
@@ -172,7 +180,7 @@
           <div class="container-fluid">
               <div class="row">
                   <div class="col-xs-10">
-                     <h4 class="mdTxt darkText bold text-uppercase">{{dotzNum}} Connected</h4>
+                     <h4 class="mdTxt darkText bold text-uppercase">Connected {{dotzNum}} </h4>
                   </div>
 
                   <div class="col-xs-2">
@@ -191,8 +199,8 @@
 
       <div id="connectedDotzArray-mobileDotShow" class="container-fluid">
           {{#each connectedDotzArray}}
+            <!--<hr class="dotCard-hr-mobile">-->
             {{>mobileDotCard}}
-            <hr class="dotCard-hr-mobile">
           {{/each}}
       </div>
 

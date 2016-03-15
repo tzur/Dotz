@@ -21,23 +21,48 @@
 
                   <div id="dotCard-Like-col">
 
-                      {{# if isLikedByMe}}
-                          <a class="unlike">
-                              <i class="unlike lightGrey likeBtn fa fa-heart"></i>
-                              <div class="likesCounter normalTxt bold lightGrey"> {{likeCounter}}</div>
-                          </a>
+                      <!--{{#if isInClosedList}}-->
 
-                      {{else}}
+                        <!--{{#if sortIsAvailable}}-->
 
-                          <a class="like">
-                              <i class="like lightGrey likeBtn fa fa-heart-o"></i>
-                              <div class="likesCounter normalTxt lightGrey"> {{likeCounter}}</div>
-                          </a>
-                      {{/if}}
+                                <!--<div id="desktopDotCard-col-sortBtns">-->
+                                    <!--<a class="upBtn panelBtn">-->
+                                        <!--<i class="fa fa-arrow-circle-up mdTxt mdGrey"></i>-->
+                                        <!--&lt;!&ndash;<span class="glyphicon glyphicon-triangle-top smTxt"  aria-hidden="true"> </span>&ndash;&gt;-->
+                                    <!--</a>-->
+                                    <!--<br>-->
+                                    <!--<br>-->
+                                    <!--<a class="downBtn panelBtn">-->
+                                        <!--&lt;!&ndash;<span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span>&ndash;&gt;-->
+                                        <!--<i class="fa fa-arrow-circle-down mdTxt mdGrey"></i>-->
+                                    <!--</a>-->
+                                <!--</div>-->
+
+                        <!--{{/if}}-->
+
+                      <!--{{else}}-->
+
+                              {{# if isLikedByMe}}
+                                  <a class="unlike">
+                                      <i class="unlike lightGrey likeBtn fa fa-heart"></i>
+                                      <div class="likesCounter normalTxt bold lightGrey"> {{likeCounter}}</div>
+                                  </a>
+
+                              {{else}}
+
+                                  <a class="like">
+                                      <i class="like lightGrey likeBtn fa fa-heart-o"></i>
+                                      <div class="likesCounter normalTxt lightGrey"> {{likeCounter}}</div>
+                                  </a>
+                              {{/if}}
+
+                      <!--{{/if}}-->
 
                   </div>
 
               </div>
+
+
 
 
 
@@ -49,7 +74,7 @@
                   <a class="_setCurrentPath pull-left" href="/{{dot.dotSlug}}">
 
                         <div id="dotCardImg-Desktop" class="{{dot.dotColor}}-background" style="background-image: url('{{dotCoverImageUrlOrFb}}')">
-                          {{#if dot.connectedDotzArray}}
+                          {{#if dotzNum}}
                             <div id="dotsNumBadge">{{dot.connectedDotzArray.length}}</div>
                           {{/if}}
                         </div>
@@ -73,7 +98,7 @@
                                 </a>
 
                                 <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                                  <span class="connectorText-Desktop">{{dot.title}}:</span>
+                                  <span class="connectorText-Desktop">{{dot.title}}</span>
                                 </a>
 
                             </div>

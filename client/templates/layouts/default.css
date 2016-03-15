@@ -13,6 +13,10 @@ body {
 }
 
 @media (max-width: 767px) {
+  body {
+    background-color: #fff;
+  }
+
   #main {
     background-color: #fff;
     /*margin-top: 9vh;*/

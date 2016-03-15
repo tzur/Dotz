@@ -186,11 +186,6 @@
   font-size: 1.25em;
 }
 
-#mobileDotCard-3dots {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
 
 #mobileDotCard-3dots .dropdown-menu > li > a {
   padding-left: 0;

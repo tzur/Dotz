@@ -3,13 +3,12 @@
 
 #header-mobileDotShow {
   padding: 0;
-  margin-bottom: 14px;
   /*min-height: 74vh;*/
 }
 
 #coverImg-mobileDotShow {
   position: relative;
-  height: 220px;
+  height: 150px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 50%;
@@ -21,17 +20,16 @@
   color: #337ab7;
 }
 
-#mobileDotShow-titleDiv {
-  position: absolute;
-  bottom: 0;
-  color: #fff;
-  z-index: 2;
+#mobileDotShow-contentDiv {
+  background-color: #fafafa;
+  padding-top: 16px;
 }
 
 #mobileDotShow-title {
-  margin-top: 14px;
+  margin-top: 0px;
   margin-bottom: 14px;
   line-height: inherit;
+  font-size: 20px;
 }
 
 #buttonsPanel-mobileDotShow {
@@ -107,7 +105,7 @@
   max-height: 72px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
@@ -216,9 +214,7 @@
 /*}*/
 
 #connectedDotzArray-mobileDotShow {
-  background-color: #FAFAFA;
-  border-top: 1px solid #eee;
-  padding-top: 7px;
+
 }
 
 .dotCard-hr-mobile {
@@ -232,9 +228,8 @@
 /*fixed footer*/
 
 #fixedFooter-mobileDotShow {
-  background-color: #FAFAFA;
-  padding: 12px 0;
-  border-bottom: 1px solid #eee;
+  padding: 12px 0 0 0;
+  border-bottom: 1px solid #fafafa;
 }
 
 #fixedFooter-mobileDotShow h4 {
