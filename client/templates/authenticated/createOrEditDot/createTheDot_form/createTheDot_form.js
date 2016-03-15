@@ -47,6 +47,10 @@ Template.createTheDot_form.helpers({
     return Session.get('editAction_dot');
   },
 
+  imagePreviewUrl: function(){
+    return Session.get('dotCoverImg');
+  },
+
   link: function(){
     return Session.get('link');
   },

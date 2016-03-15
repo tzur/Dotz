@@ -78,19 +78,25 @@ let _handleEditDot = ( template ) => {
     showDotzCounter =  false;
   }
 
-  let doc = {
-      title: template.find( '[name="title"]' ).value,
-      bodyText: template.find( '[name="description"]' ).value,
-      showDotzCounter: showDotzCounter,
-      ownerUserId: Meteor.userId(),
-      //coverImageUrl: template.find( '[name=""]' ).value,
-      //dotType: "List",
-      dotSubType: selectedSubType,
-      isOpen: openOrClosed,
-      //dotColor: dotColor,
-      coverImageUrl: Session.get('dotCoverImg'),
-      inDotz: [parentDotId]
-  };
+  let doc = Modules.client.takeInputFromFields();
+  if (doc) {
+    console.log("data.title >>>>> " + doc.title)
+  }
+
+  //title: template.find( '[name="title"]' ).value,
+  //bodyText: template.find( '[name="description"]' ).value,
+  doc.showDotzCounter = showDotzCounter;
+  doc.ownerUserId = Meteor.userId();
+  //coverImageUrl: template.find( '[name=""]' ).value,
+  //dotType: "List",
+  doc.dotSubType = selectedSubType;
+  doc.isOpen = openOrClosed;
+  //dotColor: dotColor,
+  doc.coverImageUrl = Session.get('dotCoverImg');
+  doc.inDotz = [parentDotId];
+
+  console.log("data.title >>>>> 222222 " + doc.title)
+
 
   //This is edit action:
   let dotToEdit =  Session.get('editAction_docToEdit');
