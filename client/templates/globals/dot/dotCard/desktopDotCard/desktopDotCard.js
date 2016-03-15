@@ -161,11 +161,14 @@ Template.desktopDotCard.helpers({
     return ( (this.dot && this.dot.ownerUserId === Meteor.userId()) || (this.smartRef.connection.connectedByUserId === Meteor.userId()) );
   },
 
-  //Works for dotzConnectedByOwner, TBD for dotzConnectedByOthers:
   sortIsAvailable: function() {
-    let parentDotOwnerId = Dotz.findOne(this.smartRef.connection.toParentDotId).ownerUserId;
-    return ( parentDotOwnerId === Meteor.userId() )
+    let parentDot = Dotz.findOne(this.smartRef.connection.toParentDotId);
+    if (parentDot && !parentDot.isOpen) {
+      return ( parentDot.ownerUserId === Meteor.userId() )
+    }
   },
+
+
 
   actionNameIsConnect: function(){
     if (this.smartRef && this.smartRef.connection) {
