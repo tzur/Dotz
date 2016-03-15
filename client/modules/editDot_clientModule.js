@@ -81,6 +81,7 @@ let _handleEditDot = ( template ) => {
   let doc = Modules.client.takeInputFromFields();
   if (doc) {
     console.log("data.title >>>>> " + doc.title)
+    console.log("data.price >>>>>> " + doc.price)
   }
 
   //title: template.find( '[name="title"]' ).value,
@@ -94,9 +95,6 @@ let _handleEditDot = ( template ) => {
   //dotColor: dotColor,
   doc.coverImageUrl = Session.get('dotCoverImg');
   doc.inDotz = [parentDotId];
-
-  console.log("data.title >>>>> 222222 " + doc.title)
-
 
   //This is edit action:
   let dotToEdit =  Session.get('editAction_docToEdit');

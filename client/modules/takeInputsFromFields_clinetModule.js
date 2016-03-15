@@ -32,7 +32,8 @@ let takeInputFromFields = function() {
   //}
 
   data.bodyText = $('#description').val();
-  data.price =$('#price').val();
+  let price = $('#price').val();
+  data.price = parseInt(price, 10);
   if (data.price === ""){
     data.price = undefined;
   }

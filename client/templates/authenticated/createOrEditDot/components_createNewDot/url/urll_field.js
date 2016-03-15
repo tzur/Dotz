@@ -101,6 +101,8 @@ function _embedlyFacebookIntegration(){
           if (obj.provider_url.indexOf('https://www.facebook.com') > -1){
             _getFromFacebook(obj.provider_url);
           }
+          console.log("EMBEDLY_Error");
+          Modules.client.createDotFinishedLoading();
         }
       });
   }

@@ -11,8 +11,8 @@ function createDotLoading(){
 
 function createDotFinishedLoading(){
   Session.set('spinnerOn', false);
-  $('#title').toggleClass('nonEditAble');
-  $('#description').toggleClass('nonEditAble');
+  $('#title').removeClass('nonEditAble');
+  $('#description').removeClass('nonEditAble');
   //TODO DISABLE MORE FIELDS IF NECCESSARE PAY ATTENTION IT'S ONLY ON LINK TYPE
 }
 
