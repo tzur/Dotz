@@ -21,26 +21,26 @@
 
                   <div id="dotCard-Like-col">
 
-                      <!--{{#if isInClosedList}}-->
+                      <!--{{#if isInClosedList}}--><!--{{/if}}-->
 
-                        <!--{{#if sortIsAvailable}}-->
+                        {{#if sortIsAvailable}}
 
-                                <!--<div id="desktopDotCard-col-sortBtns">-->
-                                    <!--<a class="upBtn panelBtn">-->
-                                        <!--<i class="fa fa-arrow-circle-up mdTxt mdGrey"></i>-->
-                                        <!--&lt;!&ndash;<span class="glyphicon glyphicon-triangle-top smTxt"  aria-hidden="true"> </span>&ndash;&gt;-->
-                                    <!--</a>-->
-                                    <!--<br>-->
-                                    <!--<br>-->
-                                    <!--<a class="downBtn panelBtn">-->
-                                        <!--&lt;!&ndash;<span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span>&ndash;&gt;-->
-                                        <!--<i class="fa fa-arrow-circle-down mdTxt mdGrey"></i>-->
-                                    <!--</a>-->
-                                <!--</div>-->
+                                <div id="desktopDotCard-col-sortBtns">
+                                    <a class="upBtn panelBtn">
+                                        <i class="fa fa-arrow-circle-up mdTxt mdGrey"></i>
+                                        <!--<span class="glyphicon glyphicon-triangle-top smTxt"  aria-hidden="true"> </span>-->
+                                    </a>
+                                    <br>
+                                    <br>
+                                    <a class="downBtn panelBtn">
+                                        <!--<span class="glyphicon glyphicon-triangle-bottom smTxt" aria-hidden="true"> </span>-->
+                                        <i class="fa fa-arrow-circle-down mdTxt mdGrey"></i>
+                                    </a>
+                                </div>
 
-                        <!--{{/if}}-->
 
-                      <!--{{else}}-->
+
+                      {{else}}
 
                               {{# if isLikedByMe}}
                                   <a class="unlike">
@@ -56,7 +56,7 @@
                                   </a>
                               {{/if}}
 
-                      <!--{{/if}}-->
+                      {{/if}}
 
                   </div>
 

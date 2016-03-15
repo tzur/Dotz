@@ -77,7 +77,7 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
         "location.address": 1,
         "location.googleMapsUrl": 1,
         "startDateAndHour": 1,
-        "endRepeatedDate": 1,
+        "endDateAndHour": 1,
         "repeated": 1,
         "multipleEventsNote": 1,
         "price": 1,
