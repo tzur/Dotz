@@ -249,7 +249,7 @@ Template.desktopDotCard.helpers({
     if (this.dot && this.smartRef.connection.personalDescription){
       return this.smartRef.connection.personalDescription;
     }
-    else {
+    else if (this.dot && this.dot.title) {
       return this.dot.title;
     }
 

@@ -150,14 +150,19 @@
   /*padding-left: 0;*/
 }
 
-#dotCardText-Desktop h4, #dotCardText-Desktop h5, #dotCardText-Desktop p {
+#dotCardText-Desktop h4, #dotCardText-Desktop h5 {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-#dotCard-location-div {
-  margin-top: 14px;
+#dotCardText-Desktop p {
+  margin-top: 0px;
+  margin-bottom: 14px;
 }
+
+/*#dotCard-location-div {*/
+  /*margin-top: 14px;*/
+/*}*/
 
 #dotCardText-Desktop h6 {
   margin-top: 19px;
@@ -180,9 +185,9 @@
   -webkit-box-orient: vertical;
 }
 
-#dotCard-linkName {
-  /*position: absolute;*/
-  /*bottom: 0;*/
+#dotCardText-Desktop #dotCard-linkName {
+  margin-top: 14px;
+  margin-left: 3px;
 }
 
 

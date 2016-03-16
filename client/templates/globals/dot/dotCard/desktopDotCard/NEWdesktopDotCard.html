@@ -116,14 +116,61 @@
 
                           <div id="dotContent-col{{isLink}}" class="col-sm-11">
 
-                            {{#unless DOT_TYPE_IS 'Event' dot.dotSubType}}
-                              {{#if dot.bodyText}}
-                                <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
-                                  <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">{{dot.bodyText}}</p>
-                                </a>
-                              {{/if}}
-                            {{/unless}}
+                              <!-- if there's a date -->
 
+                              {{#if eventDate}}
+
+                                  <div>
+                                      <span class="greyText alignSub ellipsisOne"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
+                                      <!--TODO get the event date data from the create & edit form @yoav-->
+                                  </div>
+
+                                  {{#if dot.location}}
+                                      <div>
+                                          <span class="alignSub greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
+                                      </div>
+                                  {{/if}}
+
+                                  {{#if dot.price}}
+                                      <div>
+                                          <span class="greyText alignSub"><i class="fa dotCardIcons-desktopDotCard"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
+                                      </div>
+                                  {{/if}}
+
+                                  {{#if dot.linkName}}
+                                      <a href="{{dot.linkUrl}}" target="_blank">
+                                          <h6 id="dotCard-linkName" class="break lightBlue">{{dot.linkName}}</h6>
+                                      </a>
+                                  {{/if}}
+
+                                  <!-- if there's no date -->
+
+                              {{else}}
+
+                                  {{#if dot.bodyText}}
+                                      <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
+                                          <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">{{dot.bodyText}}</p>
+                                      </a>
+                                  {{/if}}
+
+                                  {{#if dot.location}}
+
+                                      <div>
+                                          <span class="sm2Txt greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
+                                      </div>
+
+                                  {{else}}
+
+                                      <a href="{{dot.linkUrl}}" target="_blank">
+                                          <h6 id="dotCard-linkName" class="break lightBlue">{{dot.linkName}}</h6>
+                                      </a>
+
+                                  {{/if}}
+
+                              {{/if}}
+
+
+                              <!-- if it's a start dot -->
 
                             {{#if DOT_TYPE_IS 'StartDot' dot.dotSubType}}
                                 <div>
@@ -132,43 +179,6 @@
                             {{/if}}
 
 
-
-                            {{#if DOT_TYPE_IS 'Event' dot.dotSubType}}
-                                <div>
-                                    <span class="greyText alignSub ellipsisOne"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
-                                    <!--TODO get the event date data from the create & edit form @yoav-->
-                                </div>
-                            {{/if}}
-
-
-
-
-                            {{#if dot.price}}
-                                <div>
-                                    <span class="greyText alignSub"><i class="fa dotCardIcons-desktopDotCard"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
-                                </div>
-                            {{/if}}
-
-
-
-
-                            {{#if dot.location}}
-                                <div id="dotCard-location-div">
-                                    <span class="greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
-                                </div>
-                            {{/if}}
-
-
-
-                            <!--{{#if DOT_TYPE_IS 'Link' dot.dotSubType}}-->
-                          {{#unless dot.location}}
-                              {{#if dot.linkName}}
-                                  <a href="{{dot.linkUrl}}" target="_blank">
-                                      <h6 id="dotCard-linkName" class="break lightBlue">{{dot.linkName}}</h6>
-                                  </a>
-                              {{/if}}
-                              {{/unless}}
-                            <!--{{/if}}-->
 
                           </div>
 
