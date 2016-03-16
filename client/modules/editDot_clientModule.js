@@ -47,7 +47,6 @@ let _handleEditDot = ( template ) => {
   //Session.set('spinnerOn', true);
 
   //Types & Open:
-  let selectedSubType;
   let openOrClosed;
   if (Session.get('publicDot')) {
       openOrClosed = true;
@@ -55,7 +54,6 @@ let _handleEditDot = ( template ) => {
       openOrClosed = false;
   }
   //else if (Session.get('secretList')) {
-  //    //selectedSubType = "Secret List";
   //    openOrClosed = false;
   //}
 
@@ -79,9 +77,17 @@ let _handleEditDot = ( template ) => {
   }
 
   let doc = Modules.client.takeInputFromFields();
-  if (doc) {
-    console.log("data.title >>>>> " + doc.title)
-    console.log("data.price >>>>>> " + doc.price)
+  //if (doc) {
+  //  console.log("data.title >>>>> " + doc.title)
+  //  console.log("data.price >>>>>> " + doc.price)
+  //}
+
+  //dotSubType:
+  let selectedSubType;
+  if (doc.startDateAndHour) {
+    selectedSubType = 'Event';
+  } else if (doc.location) {
+    selectedSubType = 'Place';
   }
 
   //title: template.find( '[name="title"]' ).value,

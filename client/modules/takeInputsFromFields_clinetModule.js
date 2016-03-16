@@ -33,14 +33,17 @@ let takeInputFromFields = function() {
 
   data.bodyText = $('#description').val();
   let price = $('#price').val();
-  data.price = parseInt(price, 10);
-  if (data.price === ""){
+  if (price === ""){
     data.price = undefined;
+  } else if (price) {
+    data.price = parseInt(price, 10);
   }
 
-  data.priceMax =$('#priceMax').val();
-  if (data.priceMax === ""){
+  let priceMax =$('#priceMax').val();
+  if (priceMax === ""){
     data.priceMax = undefined
+  } else if (priceMax) {
+    data.priceMax = parseInt(priceMax, 10);
   }
 
   data.currency = $('#currencyField').val();
