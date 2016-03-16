@@ -115,50 +115,22 @@ button .collapsed {
 }
 
 
-.btn-file {
-  position: relative;
-  overflow: hidden;
-}
-
-.image .btn-file {
-  padding: 0.25em 0 0 0;
-}
-
-.tab-pane .btn-file {
-  padding: 0.5em 0 0 0;
-}
-
-.btn-file input[type=file] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  font-size: 100px;
-  text-align: right;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  outline: none;
-  background: white;
-  cursor: inherit;
-  display: block;
-}
 
 #addDotImage-list {
-  display: none;
+display: none;
 }
 
 #addDotImage, #editDotImage {
-  display: none;
+display: none;
 }
 
 .image-create-preview {
-  padding: 1em 1em 0 1em;
-  background-color: #fafafa;
+padding: 1em 1em 0 1em;
+background-color: #fafafa;
 }
 
 .nav-tabs li i {
-  font-size: 1.125em;
+font-size: 1.125em;
 }
 
 /**/

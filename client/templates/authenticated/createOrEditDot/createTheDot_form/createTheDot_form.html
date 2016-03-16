@@ -16,160 +16,47 @@
     <div id="connectTheDot-Box" class="container-fluid">
 
 
-<!--User and personal description fields-->
-      <!--{{>imgUploaderPreview}}-->
 
-        <div class="row colCenter">
-
-            <div class="col-xs-1">
-                <a href="/{{currentUser.profile.userSlug}}">
-                    <img class="connectorProfileImage-connectTheDot-Desktop" src="{{currentUser.profile.profileImage}}">
-                </a>
-            </div>
-
-            <div class="col-xs-11 noPadding">
-                <div class="form-group">
-                    <label for="personalDescription" class="hidden">Personal Description</label>
-                    <input type="text" name="personalDescription" id="personalDescription" class="form-control textBoxForConnect" placeholder="What do you want to connect?">
-
-                    <!--<br>-->
-                    <!--<br>-->
-                    <!--<br>-->
-
-                    <!--<textarea id="message-input" maxlength="" aria-label="Message input for Channel #aaa_main-channel"-->
-                              <!--style="overflow-y: hidden; height: 42px;" autocorrect="off" autocomplete="off" spellcheck="true"></textarea>-->
-                    <!--<a onclick="return false;" id="primary_file_button" class="file_upload_btn" aria-label="File menu" style="height: 42px;">-->
-                        <!--<i class="ts_icon ts_icon_plus_thick"></i>-->
-                    <!--</a>-->
-
-
-                    <!--<a id="primary_file_button" class="panelBtn dropdown-toggle pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                        <!--<i class="fa fa-plus"></i>-->
-                    <!--</a>-->
-
-                    <!--<ul id="pre-delete-menu" class="dropdown-menu pull-right">-->
-
-
-                        <!--<li class="connect"><a>-->
-                            <!--<div id="" class="dotTypeButtonCol-createNewDot">-->
-                                <!--<button id="image" class="btn btn-circleDotTypeIcon2">-->
-                                  <!--{{>imgUploader}}-->
-                                <!--</button>-->
-                            <!--</div>-->
-                            <!--Upload an Image</a></li>-->
-
-                        <!--<li class="_disConnectBtn"><a><i class="mdGrey fa fa-minus-circle"></i> Disconnect</a></li>-->
-                        <!--<li role="separator" class="divider"></li>-->
-                        <!--<li class="connect"><a><i class="mdGrey fa fa-plus-circle"></i> ReConnect</a></li>-->
-                        <!--<li id="_editDotCardBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>-->
-                        <!--<li role="separator" class="divider"></li>-->
-                        <!--<li class="delete"><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>-->
-                    <!--</ul>-->
-
-
-
-
-                </div>
-            </div>
-
-        </div>
-
-
-
-        <div id="typesAndSearch-div" class="row hidden">
-
-<!--nav bar - dot type Icons-->
-
-    {{#unless lists_DOTZ_Algolia}}
-
-            <div class="col-xs-11 col-xs-offset-1">
-
-                <!-- Nav tabs -->
-                <ul id="createTypeButtons" class="nav nav-pills">
-
-                    <!-- role="tablist"-->
-                    <!-- data-toggle="tab"-->
-
-                    <!--Link-->
-                    <li role="presentation" class="col-xs-2">
-                        <div id="" class="{{link}} dotTypeButtonCol-createNewDot">
-                            <button id="link" class="btn btn-circleDotTypeIcon2">
-                                <i class="fa fa-link fa-lg"></i>
-                            </button>
-                        </div>
-                    </li>
-
-                    <!--Image-->
-                    <li role="presentation" class="col-xs-2">
-                        <div id="" class="{{image}} dotTypeButtonCol-createNewDot">
-                            <button id="image" class="btn btn-circleDotTypeIcon2">
-                              {{>imgUploader}}
-                            </button>
-                        </div>
-                    </li>
-
-                    <!--Place-->
-                    <li role="presentation" class="col-xs-2">
-                        <div id="" class="{{place}} dotTypeButtonCol-createNewDot">
-                            <button id="place" class="btn btn-circleDotTypeIcon2">
-                                <i class="fa fa-map-marker fa-lg"></i>
-                            </button>
-                        </div>
-                    </li>
-
-                    <!--Event-->
-                    <li role="presentation" class="col-xs-2">
-                        <div id="" class="{{event}} dotTypeButtonCol-createNewDot">
-                            <button id="event" class="btn btn-circleDotTypeIcon2">
-                                <i class="fa fa-calendar fa-lg"></i>
-                            </button>
-                        </div>
-                    </li>
-
-                    <!--Media-->
-                    <li role="presentation" class="col-xs-2">
-                        <div id="" class="{{media}} dotTypeButtonCol-createNewDot">
-                            <button id="media" class="btn btn-circleDotTypeIcon2">
-                                <i class="fa fa-play fa-lg"></i>
-                            </button>
-                        </div>
-                    </li>
-
-                    <!--Person-->
-                    <li role="presentation" class="col-xs-2">
-                        <div id="" class="{{person}} dotTypeButtonCol-createNewDot">
-                            <button id="person" class="btn btn-circleDotTypeIcon2">
-                                <i class="fa fa-user fa-lg"></i>
-                            </button>
-                        </div>
-                    </li>
-
-                </ul>
-
-            </div>
-
-      {{/unless}}
-
-
-              <!--<div class="col-xs-1">-->
-                <!--<span id="typeOrSearch-span">Or</span>-->
-            <!--</div>-->
-
-            <!--<div class="col-xs-5">-->
-                <!--{{>searchBox}}-->
-            <!--</div>-->
-
-        </div>
-
-
-
-
-
-
-
-<!--The Form-->
-
+        <!--User and "(a former..) personal description" field-->
         <div class="row">
+
+
+            <!--{{#if imagePreviewUrl}}-->
+              <!--{{>imgUploaderPreview}}-->
+            <!--{{/if}}-->
+
+            <div class="col-xs-12">
+                <div class="col-xs-1 noPadding">
+                    <a href="/{{currentUser.profile.userSlug}}">
+                        <img class="connectorProfileImage-connectTheDot-Desktop" src="{{currentUser.profile.profileImage}}">
+                    </a>
+                </div>
+                <div class="col-xs-11 noPadding">
+                        <label for="personalDescription" class="hidden">Personal Description</label>
+                        <input type="text" name="personalDescription" id="personalDescription" class="form-control textBoxForConnect" placeholder="What do you want to connect?">
+                </div>
+                <!--<div class="col-xs-1">-->
+                      <!--{{>imgUploader}}-->
+                <!--</div>-->
+
+
+
+            </div>
+        </div>
+
+
+
+<!-- Show search results: -->
+{{#if lists_DOTZ_Algolia}}
+
+    <div id="searchResultsDiv" class="row">
+        <div class="col-sm-12 colCenter">
+          {{>searchResults_in_CreateTheDot}}
+        </div>
+    </div>
+
+{{else}}
+<!-- The Form & the buttons -->
 
             <form id="createDotForm" class="">
 
@@ -179,8 +66,10 @@
 
                   {{#if image}}
 
-                      <div class="col-xs-12 createDotFields">
-                        {{> img}}
+                      <div class="col-xs-8 imgSection_createDot colCenter createDotFields">
+                        <br>
+                        {{>imgUploaderPreview}}
+                        {{> imgUploader}}
                       </div>
 
                   {{else}}
@@ -204,8 +93,10 @@
                           <div class="col-xs-12 createDotFields">
                             {{> description}}
                           </div>
-                          <div class="col-xs-12 createDotFields">
-                            {{> img}}
+                          <div class="col-xs-8 imgSection_createDot pull-right createDotFields">
+                              <br>
+                            {{>imgUploaderPreview}}
+                            {{> imgUploader}}
                           </div>
                           <!--<div class="hr simpleHr"></div>-->
 
@@ -241,42 +132,158 @@
 
                 </div>
 
+              <br>
+            <!--<div id="" class="row">-->
+                <!--<div class="col-xs-12">-->
 
-              {{#if lists_DOTZ_Algolia}}
+                <!--<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">-->
+                    <!--<div class="panel panel-default">-->
+                        <!--<div class="panel-heading" role="tab" id="headingOne">-->
+                            <!--<h4 class="panel-title">-->
+                                <!--<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">-->
+                                    <!--Collapsible Group Item #1-->
+                                <!--</a>-->
+                            <!--</h4>-->
+                        <!--</div>-->
+                        <!--<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">-->
+                            <!--<div class="panel-body">-->
+                                <!--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="panel panel-default">-->
+                        <!--<div class="panel-heading" role="tab" id="headingTwo">-->
+                            <!--<h4 class="panel-title">-->
+                                <!--<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">-->
+                                    <!--Collapsible Group Item #2-->
+                                <!--</a>-->
+                            <!--</h4>-->
+                        <!--</div>-->
+                        <!--<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">-->
+                            <!--<div class="panel-body">-->
+                                <!--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="panel panel-default">-->
+                        <!--<div class="panel-heading" role="tab" id="headingThree">-->
+                            <!--<h4 class="panel-title">-->
+                                <!--<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">-->
+                                    <!--Collapsible Group Item #3-->
+                                <!--</a>-->
+                            <!--</h4>-->
+                        <!--</div>-->
+                        <!--<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">-->
+                            <!--<div class="panel-body">-->
+                                <!--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
 
-                  <!--Seach results-->
-                  <div id="searchResultsDiv" class="row">
-                      <div class="col-sm-12 colCenter">
-                        {{>searchResults_in_CreateTheDot}}
-                      </div>
-                  </div>
+                <!--</div>-->
+            <!--</div>-->
 
-              {{else}}
 
-                <div id="footer-createNewDot" class="col-xs-11 text-right pull-right hidden">
 
-                    <!--Search button-->
-                    <button id="_searchToReconnect" class="btn btn-default square btn-noLead">SEARCH</button>
 
-                  &nbsp;
 
-                    <!--Submit button-->
-                    <button id="_createDotBtn" type="submit" class="btn btn-default square btn-lead">CONNECT</button>
 
+
+
+              <div id="typesAndSearch-div" class="row hidden">
+                  <div class="col-xs-12">
+
+                  <!--nav bar - dot type Icons-->
+                <div class="col-xs-6 col-xs-offset-1">
+                        <!-- Nav tabs -->
+                    <ul id="createTypeButtons" class="nav nav-pills">
+
+                        <!-- role="tablist"-->
+                        <!-- data-toggle="tab"-->
+
+                        <!--Link-->
+                        <li role="presentation" class="col-xs-2">
+                            <div id="" class="{{link}} dotTypeButtonCol-createNewDot">
+                                <button id="link" class="btn btn-circleDotTypeIcon2">
+                                    <i class="fa fa-link fa-lg"></i>
+                                </button>
+                            </div>
+                        </li>
+
+                        <!--Image-->
+                        <li role="presentation" class="col-xs-2">
+                            <div id="" class="{{image}} dotTypeButtonCol-createNewDot">
+                                <button id="image" class="btn btn-circleDotTypeIcon2">
+                                  <!--{{>imgUploader}}-->
+                                    <i class="fa fa-camera fa-lg"></i>
+                                </button>
+                            </div>
+                        </li>
+
+                        <!--Place-->
+                        <li role="presentation" class="col-xs-2">
+                            <div id="" class="{{place}} dotTypeButtonCol-createNewDot">
+                                <button id="place" class="btn btn-circleDotTypeIcon2">
+                                    <i class="fa fa-map-marker fa-lg"></i>
+                                </button>
+                            </div>
+                        </li>
+
+                        <!--Event-->
+                        <li role="presentation" class="col-xs-2">
+                            <div id="" class="{{event}} dotTypeButtonCol-createNewDot">
+                                <button id="event" class="btn btn-circleDotTypeIcon2">
+                                    <i class="fa fa-calendar fa-lg"></i>
+                                </button>
+                            </div>
+                        </li>
+
+                        <!--Media-->
+                        <li role="presentation" class="col-xs-2">
+                            <div id="" class="{{media}} dotTypeButtonCol-createNewDot">
+                                <button id="media" class="btn btn-circleDotTypeIcon2">
+                                    <i class="fa fa-play fa-lg"></i>
+                                </button>
+                            </div>
+                        </li>
+
+                        <!--Person-->
+                        <li role="presentation" class="col-xs-2">
+                            <div id="" class="{{person}} dotTypeButtonCol-createNewDot">
+                                <button id="person" class="btn btn-circleDotTypeIcon2">
+                                    <i class="fa fa-user fa-lg"></i>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
 
-                {{/if}}
+                <div id="footer-createNewDot" class="col-xs-5 noPadding text-right pull-right hidden">
+                    <!--Search button-->
+                    <button id="_searchToReconnect" class="btn btn-default square btn-noLead">SEARCH</button>
+                  &nbsp;
+                    <!--Submit button-->
+                    <button id="_createDotBtn" type="submit" class="btn btn-default square btn-lead">CONNECT</button>
+                </div>
+
+              </div>
+
+              </div>
+
+
 
 
             </form>
-
-        </div>
-
+{{/if}}
 
 
 
 
-<!--The Create button-->
+
+
+
+        <!--The Create button-->
 
         <div class="row">
 

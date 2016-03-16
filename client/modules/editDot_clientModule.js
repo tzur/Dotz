@@ -47,7 +47,6 @@ let _handleEditDot = ( template ) => {
   //Session.set('spinnerOn', true);
 
   //Types & Open:
-  let selectedSubType;
   let openOrClosed;
   if (Session.get('publicDot')) {
       openOrClosed = true;
@@ -55,7 +54,6 @@ let _handleEditDot = ( template ) => {
       openOrClosed = false;
   }
   //else if (Session.get('secretList')) {
-  //    //selectedSubType = "Secret List";
   //    openOrClosed = false;
   //}
 
@@ -78,19 +76,31 @@ let _handleEditDot = ( template ) => {
     showDotzCounter =  false;
   }
 
-  let doc = {
-      title: template.find( '[name="title"]' ).value,
-      bodyText: template.find( '[name="description"]' ).value,
-      showDotzCounter: showDotzCounter,
-      ownerUserId: Meteor.userId(),
-      //coverImageUrl: template.find( '[name=""]' ).value,
-      //dotType: "List",
-      dotSubType: selectedSubType,
-      isOpen: openOrClosed,
-      //dotColor: dotColor,
-      coverImageUrl: Session.get('dotCoverImg'),
-      inDotz: [parentDotId]
-  };
+  let doc = Modules.client.takeInputFromFields();
+  //if (doc) {
+  //  console.log("data.title >>>>> " + doc.title)
+  //  console.log("data.price >>>>>> " + doc.price)
+  //}
+
+  //dotSubType:
+  let selectedSubType;
+  if (doc.startDateAndHour) {
+    selectedSubType = 'Event';
+  } else if (doc.location) {
+    selectedSubType = 'Place';
+  }
+
+  //title: template.find( '[name="title"]' ).value,
+  //bodyText: template.find( '[name="description"]' ).value,
+  doc.showDotzCounter = showDotzCounter;
+  doc.ownerUserId = Meteor.userId();
+  //coverImageUrl: template.find( '[name=""]' ).value,
+  //dotType: "List",
+  doc.dotSubType = selectedSubType;
+  doc.isOpen = openOrClosed;
+  //dotColor: dotColor,
+  doc.coverImageUrl = Session.get('dotCoverImg');
+  doc.inDotz = [parentDotId];
 
   //This is edit action:
   let dotToEdit =  Session.get('editAction_docToEdit');

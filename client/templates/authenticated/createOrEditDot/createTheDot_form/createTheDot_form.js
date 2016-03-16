@@ -47,6 +47,10 @@ Template.createTheDot_form.helpers({
     return Session.get('editAction_dot');
   },
 
+  imagePreviewUrl: function(){
+    return Session.get('dotCoverImg');
+  },
+
   link: function(){
     return Session.get('link');
   },
@@ -89,7 +93,8 @@ Template.createTheDot_form.events({
     $('#footer-createNewDot').removeClass('hidden');
   },
   //
-  'click #createTypeButtons': function(){
+  'click #createTypeButtons': function(e){
+    e.preventDefault();
     //$('#searchResultsDiv').addClass('hidden');
     $('#main-createNewDot').removeClass('hidden');
     $('#connectTheDot-Box').addClass('boxToModal');

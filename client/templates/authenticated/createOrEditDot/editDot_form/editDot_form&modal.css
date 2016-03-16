@@ -48,6 +48,7 @@
 
 .privacyBtns {
   padding: 4px;
+  height: 130px;
 }
 
 .privacyBtns:hover {

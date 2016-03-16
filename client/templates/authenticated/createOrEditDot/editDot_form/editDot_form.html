@@ -28,14 +28,15 @@
 
         <hr>
 
-        <div id="listImage" class="row">
+        <div id="dotImage" class="row">
             <div class="col-xs-2">
                 <p><strong>Image</strong></p>
             </div>
 
             <div class="col-xs-10 noPadding">
                 <!--NOTE! "{>imgUploader}" is a shred template (with the createNewDot form) -->
-              {{>img}}
+              {{>imgUploaderPreview}}
+              {{>imgUploader}}
             </div>
         </div>
 
@@ -57,10 +58,10 @@
                     <div class="panel-body">
 
                         <div class="row">
-                            <div class="col-xs-2">
-                                <p><strong>Url Address</strong></p>
-                            </div>
-                            <div class="col-xs-10">
+                            <!--<div class="col-xs-2">-->
+                                <!--<p><strong>Url Address</strong></p>-->
+                            <!--</div>-->
+                            <div class="col-xs-12">
                               {{> url}}
                             </div>
                         </div>
@@ -83,10 +84,10 @@
                     <div class="panel-body">
 
                         <div class="row">
-                            <div class="col-xs-2">
-                                <p><strong>Date & Time</strong></p>
-                            </div>
-                            <div class="col-xs-10">
+                            <!--<div class="col-xs-2">-->
+                                <!--<p><strong>Date & Time</strong></p>-->
+                            <!--</div>-->
+                            <div class="col-xs-12">
                               {{> dateComponent}}
                             </div>
                         </div>
@@ -94,10 +95,18 @@
                         <hr>
 
                         <div class="row">
-                            <div class="col-xs-2">
-                                <p><strong>Price</strong></p>
+                            <div class="col-xs-12">
+                              {{> eventDetails}}
                             </div>
-                            <div class="col-xs-10">
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <!--<div class="col-xs-2">-->
+                            <!--<p><strong>Price</strong></p>-->
+                            <!--</div>-->
+                            <div class="col-xs-12">
                               {{> price}}
                             </div>
                         </div>
@@ -141,11 +150,11 @@
 
                         <div id="listPrivacy" class="row">
 
-                            <div class="col-xs-3">
-                                <p><strong>Dot Privacy</strong></p>
-                            </div>
+                            <!--<div class="col-xs-3">-->
+                                <!--<p><strong>Dot Privacy</strong></p>-->
+                            <!--</div>-->
 
-                            <div class="col-xs-9">
+                            <div class="col-xs-12">
 
                                 <!--Public-->
                                 <div class="col-xs-4 text-center">

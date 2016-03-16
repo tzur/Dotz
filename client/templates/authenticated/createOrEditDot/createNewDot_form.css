@@ -132,6 +132,10 @@
   padding: 0 15px;;
 }
 
+.imgSection_createDot {
+  min-height: 100px;
+}
+
 .createDotFields {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -151,7 +155,7 @@
 }
 
 #_createDotBtn {
-  margin: 2.5vh 0;
+  margin: 0;
   padding-left: 3vw;
   padding-right: 3vw;
 }
