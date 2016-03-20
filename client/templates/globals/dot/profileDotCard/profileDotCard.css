@@ -86,7 +86,7 @@ a span:hover {
 #profileDotCard-buttons #notInMyProfile{
   position: absolute;
   top: 9vw;
-  left: 0.5vw;
+  left: 0;
 }
 
 #profileDotCard-buttons a .circle {

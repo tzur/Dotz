@@ -245,10 +245,14 @@ Template.desktopDotCard.helpers({
     }
   },
 
-  shortenTitle: function() {
-    if (this.dot){
-      return s.prune(this.dot.title, 70);
+  title: function() {
+    if (this.dot && this.smartRef.connection.personalDescription){
+      return this.smartRef.connection.personalDescription;
     }
+    else if (this.dot && this.dot.title) {
+      return this.dot.title;
+    }
+
   },
 
   shortenBodyText: function() {
