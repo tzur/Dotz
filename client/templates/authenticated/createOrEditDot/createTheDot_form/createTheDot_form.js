@@ -51,11 +51,17 @@ Template.createTheDot_form.helpers({
     return Session.get('dotCoverImg');
   },
 
+  showMapHasClicked: function(){
+    return Session.get('showMapHasClicked');
+  },
+
   link: function(){
     return Session.get('link');
   },
   place: function(){
-    return Session.get('place');
+    if ( Session.get('place') ||  Session.get('event') ) {
+      return true;
+    }
   },
   person: function(){
     return Session.get('person')
@@ -88,7 +94,7 @@ Template.createTheDot_form.helpers({
 });
 Template.createTheDot_form.events({
 
-  'click #personalDescription': function(){
+  'click #title': function(){
     $('#typesAndSearch-div').removeClass('hidden');
     $('#footer-createNewDot').removeClass('hidden');
   },
@@ -109,6 +115,10 @@ Template.createTheDot_form.events({
   //  $('#searchResultsDiv').removeClass('hidden');
   //  $('#footer-createNewDot').addClass('hidden');
   //},
+
+  'click ._showMap': function() {
+    Session.set("showMapHasClicked", true);
+  },
 
 
   'click #link': function(){
@@ -161,7 +171,7 @@ Template.createTheDot_form.events({
 
   'click #_searchToReconnect': function(e){
     e.preventDefault();
-    let inputToSearch = $('#personalDescription').val();
+    let inputToSearch = $('#title').val();
     if (inputToSearch === "") {
       Bert.alert("It's hard to search ''nothing'', try to type a bit :)", 'warning', 'fixed-bottom');
       return false;

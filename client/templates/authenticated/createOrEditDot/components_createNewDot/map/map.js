@@ -122,6 +122,11 @@ Template.map.onRendered(function(){
 
 });
 
+Template.map.onDestroyed(function(){
+  Session.set("showMapHasClicked", undefined);
+});
+
+
 Template.map.helpers({
   SearchBoxPlaceHolder: function(){
     if(Template.parentData() && Template.parentData().data && Template.parentData().data.dot.location){
