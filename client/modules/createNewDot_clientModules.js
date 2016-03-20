@@ -66,16 +66,16 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
   //}
 
   //connectionReason (personalDescription...)
-  let personalDescription = $('#personalDescription').val();
+  //let personalDescription = $('#personalDescription').val();
   //if (personalDescription === ""){
   //  personalDescription = "@" + Meteor.user().username;
   //}
 
   title = $('#title').val();
-  if (!title || title === ""){
-    title = personalDescription;
-    //personalDescription = "";
-  }
+  //if (!title || title === ""){
+  //  title = personalDescription;
+  //  //personalDescription = "";
+  //}
 
   description = $('#description').val();
   price =$('#price').val();
@@ -232,8 +232,8 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       );
 
       //Go create:
-    console.log("BC personalDescription >> " + personalDescription)
-      Meteor.call('createDot', dot, redirectAfterCreateSlug, personalDescription ,function(error,result){
+    //console.log("BC personalDescription >> " + personalDescription)
+      Meteor.call('createDot', dot, redirectAfterCreateSlug ,function(error,result){
         if (error){
           console.log(error)
         } else {
