@@ -108,6 +108,8 @@ Template.desktopDotShow.onRendered(function(){
 
 Template.desktopDotShow.onDestroyed(function(){
 
+  Session.set("resultsFromFilteringByTags", undefined);
+
 });
 
 
@@ -395,11 +397,31 @@ Template.desktopDotShow.helpers({
   },
   authorFbProfile: function(){
     return 'http://graph.facebook.com/'+ this.dot.facebookAuthorId + '/picture/?type=large';
+  },
+
+  resultsFromFilteringByTags: function(){
+    return Session.get('resultsFromFilteringByTags');
   }
+
 });
+
 
 Template.desktopDotShow.events({
 
+  'click ._sendTagValueToSearch': function(event){
+    event.preventDefault();
+    console.log(" _superTagToFilter >>>>>>>>>>>>>>> " + event.toElement.value)
+    //TODO: we need to check this operation on mobile devices.. @otni
+    let inputToSearch = event.toElement.value;
+    Modules.client.searchByAlgolia("lists_DOTZ", inputToSearch , function(error, content) {
+      if(content){
+        Session.set("resultsFromFilteringByTags", content.hits);
+      }
+      else {
+        console.log("Error, on index: resultsFromFilteringByTags " + " >>>> search failed : " + error)
+      }
+    });
+  },
 
   'click #fixedFooter-desktopDotShow': function(){
 

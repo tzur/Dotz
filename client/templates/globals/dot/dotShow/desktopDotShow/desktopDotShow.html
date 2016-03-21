@@ -221,28 +221,69 @@
         <div id="connectedDotzArray-desktopListShow">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
+                        <div class="col-xs-3 pull-left">
+                          {{#if dotzNum}}
+                              <h4 class="subTitles-desktopDottShow">{{dotzNum}}:</h4>
+                              <!--<i class="fa fa-plus"></i>-->
+                          {{/if}}
+                        </div>
+
+                        <div class="col-xs-9 text-right">
+                            {{#each dot.superTagsToFilterConnectedDotz}}
+
+                                <button class="btn btn-default _sendTagValueToSearch" value="{{parentTag}}" type="submit">{{parentTag}}
+                                    {{#if subTags}}
+                                            :
+                                    {{/if}}
+                                </button>
+                                  {{#each subTag in subTags}}
+                                      <button class="btn btn-default _sendTagValueToSearch" value="{{subTag}}" type="submit">{{subTag}}</button>
+                                  {{/each}}
+                                &nbsp; &nbsp;
+
+                            {{/each}}
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="row">
                     <div id="connectedDotzArray-col" class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
 
+                    {{#if resultsFromFilteringByTags}}
 
-                    {{#if thereIsNoConnectionsToThisDot}}
-
-                      {{#if isUserAllowToConnect}}
-
-                      {{else}}
-                        <div class="text-center">
-                            <br><br><br>
-                            <p>Coming soon, stay tuned :)</p>
-                        </div>
-                      {{/if}}
+                      {{#each resultsFromFilteringByTags}}
+                          {{#with DATA_FOR_ALGOLIA_DOT_CARD}}
+                            {{> dotCard}}
+                          {{/with}}
+                      {{/each}}
 
                     {{else}}
 
-                        {{#each connectedDotzArray}}
-                          {{>dotCard}}
-                        {{/each}}
+                          {{#each connectedDotzArray}}
+                              {{>dotCard}}
+                          {{else}}
+                              {{#if isUserAllowToConnect}}
+                                  <div class="text-center">
+                                      <br><br><br>
+                                      <p>Let's start connect :)</p>
+                                  </div>
+                              {{else}}
+                                <div class="text-center">
+                                    <br><br><br>
+                                    <p>Coming soon, stay tuned :)</p>
+                                </div>
+                              {{/if}}
+                          {{/each}}
+
                     {{/if}}
                     </div>
                 </div>
+
             </div><!-- end container-fluid -->
         </div>
 
