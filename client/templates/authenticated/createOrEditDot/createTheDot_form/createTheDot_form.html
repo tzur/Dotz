@@ -126,11 +126,29 @@
                             <div id="" class="row">
                                 <div class="">
 
-                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingTwo">
+                                                <h4 class="panel-title">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        Link:
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                                                <div class="panel-body">
+                                                    <div class="col-xs-12">
+                                                      {{> url}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="panel panel-default">
                                             <div class="panel-heading" role="tab" id="headingOne">
                                                 <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <a role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                         Description (optional)
                                                     </a>
                                                 </h4>
@@ -143,26 +161,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingTwo">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                        Link:
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                <div class="panel-body">
-                                                    <div class="col-xs-12">
-                                                      {{> url}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
+
                                         <div class="panel panel-default">
                                             <div class="panel-heading" role="tab" id="headingThree">
                                                 <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                                         <i class="fa fa-camera"></i> Image
                                                     </a>
                                                 </h4>
@@ -179,27 +183,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--<div class="panel panel-default">-->
-                                            <!--<div class="panel-heading" role="tab" id="heading4">-->
-                                                <!--<h4 class="panel-title">-->
-                                                    <!--<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapseTwo">-->
-                                                        <!--Collapsible Group Item #4-->
-                                                    <!--</a>-->
-                                                <!--</h4>-->
-                                            <!--</div>-->
-                                            <!--<div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">-->
-                                                <!--<div class="panel-body">-->
 
-                                                <!--</div>-->
-                                            <!--</div>-->
-                                        <!--</div>-->
 
 
                                       {{#if place}}
                                           <div class="panel panel-default">
                                               <div class="panel-heading _showMap" role="tab" id="heading5">
                                                   <h4 class="panel-title">
-                                                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapseTwo">
+                                                      <a class="collapsed" role="button" data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapseTwo">
                                                           <i class="fa fa-map-marker"></i> Location / Address
                                                       </a>
                                                   </h4>
@@ -218,7 +209,7 @@
                                           <div class="panel panel-default">
                                               <div class="panel-heading" role="tab" id="heading6">
                                                   <h4 class="panel-title">
-                                                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false" aria-controls="collapseThree">
+                                                      <a class="collapsed" role="button" data-toggle="collapse" href="#collapse6" aria-expanded="false" aria-controls="collapseThree">
                                                           <i class="fa fa-calendar"></i> Date, Time & Event Details
                                                       </a>
                                                   </h4>
@@ -232,6 +223,30 @@
                                                           <br><hr><br>
 
                                                         {{> price}}
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      {{/if}}
+
+
+                                      {{#if person}}
+                                          <div class="panel panel-default">
+                                              <div class="panel-heading" role="tab" id="heading7">
+                                                  <h4 class="panel-title">
+                                                      <a class="collapsed" role="button" data-toggle="collapse" href="#collapse7" aria-expanded="false" aria-controls="collapseFour">
+                                                          <i class="fa fa-user"></i> Person's Contacts
+                                                      </a>
+                                                  </h4>
+                                              </div>
+                                              <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
+                                                  <div class="panel-body">
+                                                      <div class="col-xs-6">
+                                                        {{> webAddress}}
+                                                          <br>
+                                                        {{> facebookAddress}}
+                                                          <br>
+                                                        {{> twitterAddress}}
                                                       </div>
                                                   </div>
                                               </div>

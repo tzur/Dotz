@@ -174,10 +174,12 @@
 
                               <!-- if it's a start dot -->
 
-                            {{#if DOT_TYPE_IS 'StartDot' dot.dotSubType}}
+                            {{#if DOT_TYPE_IS_OR 'StartDot' 'List' dot.dotSubType dot.dotType}}
+                              {{#unless inDotParentSearchResults}}
                                 <div>
-                                    <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">Created By {{ownerUser.username}}</p>
+                                    <p id="dotCardShortDescription-Desktop" class="greyText break sm2Txt" dir="auto">By {{ownerUser.username}}</p>
                                 </div>
+                              {{/unless}}
                             {{/if}}
 
 
