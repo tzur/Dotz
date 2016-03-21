@@ -48,7 +48,7 @@ function _DotFactory(
 
 
 function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
-  let linkUrl, title, description, price, priceMax, currency, dotSubType, webAddress, facebookAddress, twitterAddress, redirectAfterCreateSlug;
+  let linkUrl, title, description, price, priceMax, currency, dotSubType, mailContact, facebookContact, twitterContact, linkedinContact, redirectAfterCreateSlug;
   if (parentDotId === Meteor.user().profile.profileDotId){
     redirectAfterCreateSlug = Meteor.user().profile.userSlug;
   }else{
@@ -130,19 +130,24 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
     dotSubType = 'StartDot'; // it is default to be ?.
   }
 
-  webAddress = $('#webAddress').val();
-  if (webAddress === ""){
-    webAddress = undefined
+  mailContact = $('#mailContact').val();
+  if (mailContact === ""){
+    mailContact = undefined
   }
 
-  facebookAddress = $('#facebookAddress').val();
-  if (facebookAddress === ""){
-    facebookAddress = undefined
+  facebookContact = $('#facebookContact').val();
+  if (facebookContact === ""){
+    facebookContact = undefined
   }
 
-  twitterAddress = $('#twitterAddress').val();
-  if (twitterAddress === ""){
-    twitterAddress = undefined
+  twitterContact = $('#twitterContact').val();
+  if (twitterContact === ""){
+    twitterContact = undefined
+  }
+
+  linkedinContact = $('#linkedinContact').val();
+  if (linkedinContact === ""){
+    linkedinContact = undefined
   }
 
 

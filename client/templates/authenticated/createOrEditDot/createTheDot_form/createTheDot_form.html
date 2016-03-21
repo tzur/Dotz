@@ -70,11 +70,35 @@
 
                   {{#if image}}
 
-                      <div class="col-xs-8 imgSection_createDot colCenter createDotFields">
+                    <div class="row">
                         <br>
-                        {{>imgUploaderPreview}}
-                        {{> imgUploader}}
+                      <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingThree">
+                              <h4 class="panel-title">
+                                  <a class="collapsed" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                      <i class="fa fa-camera"></i> Image
+                                  </a>
+                              </h4>
+                          </div>
+                          <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+                              <div class="panel-body">
+
+                                  <div class="col-xs-12 imgSection_createDot createDotFields">
+                                      <br>
+                                    {{>imgUploaderPreview}}
+                                    {{> imgUploader}}
+                                  </div>
+
+                              </div>
+                          </div>
                       </div>
+                    </div>
+
+                      <!--<div class="col-xs-8 imgSection_createDot colCenter createDotFields">-->
+                        <!--<br>-->
+                        <!--{{>imgUploaderPreview}}-->
+                        <!--{{> imgUploader}}-->
+                      <!--</div>-->
 
                   {{else}}
 
@@ -242,11 +266,13 @@
                                               <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
                                                   <div class="panel-body">
                                                       <div class="col-xs-6">
-                                                        {{> webAddress}}
+                                                        {{> mailContact}}
                                                           <br>
-                                                        {{> facebookAddress}}
+                                                        {{> facebookContact}}
                                                           <br>
-                                                        {{> twitterAddress}}
+                                                        {{> twitterContact}}
+                                                          <br>
+                                                        {{> linkedinContact}}
                                                       </div>
                                                   </div>
                                               </div>

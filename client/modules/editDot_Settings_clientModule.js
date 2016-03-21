@@ -16,6 +16,12 @@ let editDot_settings = ( dot, smartRef ) => {
       bodyText: dot.bodyText,
       coverImageUrl: dot.coverImageUrl,
       linkUrl: dot.linkUrl,
+
+      mailContact: dot.mailContact,
+      facebookContact: dot.facebookContact,
+      twitterContact: dot.twitterContact,
+      linkedinContact: dot.linkedinContact,
+
       linkName: dot.linkName,
       startDate: dot.startDate,
       startHour: dot.startDate,
