@@ -44,6 +44,7 @@ Template.desktopDotCard.helpers({
   dataCard: function(){
 
     if (this.algolisSearchResult) {
+      console.log("this.algolisSearchResult in dotCard >>>>>>>>>>> " + this.algolisSearchResult.title)
       let data = {
         dot: this.algolisSearchResult,
         smartRef: this,

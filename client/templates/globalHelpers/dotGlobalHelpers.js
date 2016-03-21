@@ -15,7 +15,7 @@ Template.registerHelper('DOT_TYPE_IS_OR', ( typeName1, typeName2, dotSubType, do
 });
 
 
-Template.registerHelper('DATA_FOR_ALGOLIA_DOT_CARD', () => {
+Template.registerHelper('DATA_FOR_ALGOLIA_DOT_CARD', (algoliaObject) => {
   let data = {
     //dot: this,
     ////dot: {
@@ -23,21 +23,23 @@ Template.registerHelper('DATA_FOR_ALGOLIA_DOT_CARD', () => {
     ////  ownerUserId: this.ownerUserId,
     ////  title: this.title
     ////},
-    //connection: {
-    //  connectedByUserId: this.ownerUserId,
-    //  likes: "none"
-    //},
-    algolisSearchResult: this,
+
+    algolisSearchResult: algoliaObject,
     dot: {
-      _id: this._id,
-      ownerUserId: this.ownerUserId,
-      title: this.title,
-      coverImageUrl: this.coverImageUrl,
-      dotColor: this.dotColor
+      _id: algoliaObject._id,
+      ownerUserId: algoliaObject.ownerUserId,
+      title: algoliaObject.title,
+      coverImageUrl: algoliaObject.coverImageUrl,
+      dotColor: algoliaObject.dotColor
+    },
+    connection: {
+      connectedByUserId: algoliaObject.ownerUserId,
+      //TODO >>> add total likes here:
+      likes: ""
     },
     //This helps us to determine if to show the plus/connect to dotParent button:
     inDotParentSearchResults: false
   };
-  console.log("data >>>> " + data._id)
+  console.log("algolisSearchResult >>>> " + data.algolisSearchResult.title)
   return data;
 });

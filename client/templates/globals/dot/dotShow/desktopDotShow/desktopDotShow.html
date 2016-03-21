@@ -256,8 +256,8 @@
 
                     {{#if resultsFromFilteringByTags}}
 
-                      {{#each resultsFromFilteringByTags}}
-                          {{#with DATA_FOR_ALGOLIA_DOT_CARD}}
+                      {{#each resultsFromFilteringByTag in resultsFromFilteringByTags}}
+                          {{#with DATA_FOR_ALGOLIA_DOT_CARD resultsFromFilteringByTag}}
                             {{> dotCard}}
                           {{/with}}
                       {{/each}}
