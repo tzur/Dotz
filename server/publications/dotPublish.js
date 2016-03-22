@@ -84,6 +84,8 @@ Meteor.publish('mobileDotCard', function(dotId, ownerUserId, connectedByUserId){
         "currency": 1,
         "showDotzCounter": 1,
         "inDotz": 1, //TBD
+        "selfSuperTags": 1,
+        "superTagsToFilterConnectedDotz": 1,
         "connectedDotzArray": 1} //TBD
       }),
     Meteor.users.find({_id: { $in: [ownerUserId,connectedByUserId] }}, //TBD..

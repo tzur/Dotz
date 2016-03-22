@@ -37,7 +37,7 @@ let editDot_settings = ( dot, smartRef ) => {
       superTagsToFilterConnectedDotz: dot.superTagsToFilterConnectedDotz
     }
   };
-  if (smartRef) {
+  if (smartRef) {   //i.e. Edit from dotCard:
     objectToEdit.smartRef = {
       parentDotId: smartRef.connection.toParentDotId,
       personalDescription: smartRef.connection.personalDescription

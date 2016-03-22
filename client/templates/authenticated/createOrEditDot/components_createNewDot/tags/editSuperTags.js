@@ -2,6 +2,10 @@
 
 Template.editSuperTags.onRendered( () => {
 
+  //EditTags component:
+  //TBD:
+  $("._tagsInput").tagsinput('items');
+
 
 });
 

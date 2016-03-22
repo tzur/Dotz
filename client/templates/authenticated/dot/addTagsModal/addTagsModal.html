@@ -8,16 +8,27 @@
                     <button type="button" id="closeBtn_EditDotModal" class="close pull-left" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4><strong>Tag it</strong></h4>
+                    <h4><strong>Tag the connections:</strong></h4>
                 </div>
 
                 <div class="modal-body">
 
-                    <form id="addTags" class="">
+
+                  <!--{{>superTags}}-->
+
+                  {{#each superTagsArray_tagTheDot}}
+
+                    {{>editSuperTags}}
+
+                      <hr>
+                  {{/each}}
+
+
+                    <!--<form id="addTags" class="">-->
 
 
                     <!--data-role="tagsinput"-->
-                    <input id="bla" type="text" value="Washington,Sydney,Beijing" data-role="tagsinput">
+                    <!--<input id="bla" type="text" value="Washington,Sydney,Beijing" data-role="tagsinput">-->
 
                       <!--Amsterdam,Washington,Sydney,Beijing,Cairo-->
                     <!--<input type="text" id="title" name="title" class="" >-->
@@ -26,10 +37,10 @@
 
                     <!--$("input").tagsinput('items')-->
 
-                        <button id="_saveTags" type="submit" class=" btn btn-default square">Add</button>
+                        <button id="_saveTags" type="submit" class=" btn btn-default square">Tag it</button>
 
 
-                    </form>
+                    <!--</form>-->
 
                 </div>
 
