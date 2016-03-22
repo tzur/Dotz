@@ -233,10 +233,10 @@
                                     {{#each dot.superTagsToFilterConnectedDotz}}
 
                                     <div class="parentTag">
-                                        <button class="btn btn-parentTag btn-xs _sendTagValueToSearch" data-toggle="collapse" data-target="#{{parentTag}}-group" value="{{parentTag}}" type="submit">{{parentTag}}</button>
+                                        <button class="btn btn-parentTag btn-xs _sendTagValueToSearch" data-toggle="collapse" data-target="#{{_id}}-group" value="{{parentTag}}" type="submit">{{parentTag}}</button>
 
                                         {{#if subTags}}
-                                            <span id="{{parentTag}}-group" class="subTagsGroup collapse">
+                                            <span id="{{_id}}-group" class="subTagsGroup collapse">
                                               {{#each subTag in subTags}}
                                                   <button class="btn btn-default btn-subTag btn-xs _sendTagValueToSearch" value="{{subTag}}" type="submit">{{subTag}}</button>
                                               {{/each}}

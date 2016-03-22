@@ -165,6 +165,39 @@
                 </div>
             </div>
 
+            <!-- Dot Tags -->
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTags">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTags" aria-expanded="false" aria-controls="collapseFive">
+                            <i class="fa fa-tags"></i> Add Super-Tags
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTags" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTags">
+                    <div class="panel-body">
+
+                      {{#each superTagsToFilterConnectedDotzToEdit}}
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <button class="btn btn-default btn-subTag btn-xs" value="{{parentTag}}">{{parentTag}}:</button>
+                            </div>
+                            <div class="col-xs-10">
+                                <input id="{{_id}}_subTags" class="_tagsInput" type="text" value="{{#each subTag in subTags}}{{subTag}},{{/each}}" data-role="tagsinput">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!--Add new tag (one each time..)-->
+
+                      {{/each}}
+
+
+                    </div>
+                </div>
+            </div>
+
           <!-- Dot Settings -->
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingFive">
