@@ -436,9 +436,12 @@ Template.desktopDotCard.events({
   'click .addTags': function(){
 
     if(Meteor.user()) {
+      console.log("addTags>>>>>> here")
       Modal.show('addTagsModal',{
         data:{
-          dot: this.dot
+          "dot._id": this.dot._id,
+          "parentDot._id": this.smartRef.connection.toParentDotId,
+          "parentDot.superTagsToFilterConnectedDotz": Template.parentData().dot.superTagsToFilterConnectedDotz
         }
       });
       //Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect: ',this.dot._id, this.dot.title, this.dot.dotType);

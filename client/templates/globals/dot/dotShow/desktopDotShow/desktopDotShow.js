@@ -109,6 +109,7 @@ Template.desktopDotShow.onRendered(function(){
 Template.desktopDotShow.onDestroyed(function(){
 
   Session.set("resultsFromFilteringByTags", undefined);
+  Session.set('dataOnTheAir', undefined);
 
 });
 
@@ -124,6 +125,7 @@ Template.desktopDotShow.helpers({
         dot: dot,
         ownerUser: ownerUser
       };
+      Session.set('dataOnTheAir', data);
       return data;
     }
   },
@@ -418,12 +420,15 @@ Template.desktopDotShow.events({
     //'inDotz:7ad8rkCN7HPP6ze6R',
     //'selfSuperTags.parentTag:Tel1',
     //'selfSuperTags.subTags:aa'
-    let thisDotId = '7ad8rkCN7HPP6ze6R';
+    //let thisDotId = '7ad8rkCN7HPP6ze6R';
+    let thisDotId = Session.get('dataOnTheAir').dot._id;
+
+    console.log("thisDotId >>>>> " + thisDotId)
 
     let inputToSearch = {
       facets: '*',
       facetFilters: [
-        'inDotz:' + this.dot._id,
+        'inDotz:' + thisDotId,
         'selfSuperTags.parentTag:Tel1',
         'selfSuperTags.subTags:aa'
       ]
