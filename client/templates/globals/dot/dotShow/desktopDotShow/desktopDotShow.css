@@ -66,8 +66,12 @@
 
 
 #desktopDotShow-descriptionDiv {
-  /*padding-top: 2vh;*/
-  /*background-color: #ffffff;*/
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+
+.dotDetailsDiv {
+  padding-bottom: 5px;
 }
 
 .locationDatePriceDiv-desktopDotShow {
@@ -194,7 +198,7 @@
 
 #actionButton-desktopDotShow-dot {
   min-width: 7vw;
-  margin-left: 1vw;
+  margin-right: 10px;
 }
 
 #desktopDotShow-personalDescriptionDiv {
