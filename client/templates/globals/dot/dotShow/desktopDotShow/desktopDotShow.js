@@ -327,6 +327,20 @@ Template.desktopDotShow.helpers({
     }
   },
 
+  dotDetails: function(){
+    if (this.dot.startDateAndHour || this.dot.location || this.dot.price) {
+
+      return true;
+    }
+  },
+
+  //dotzNumOrTags: function(){
+  //  if ((this.dot.connectedDotzArray.length > 0) || (this.dot.superTagsToFilterConnectedDotz.length > 0)) {
+  //
+  //    return true;
+  //  }
+  //},
+
   connectedDotzArray: function() {
     return this.dot.connectedDotzArray;
   },

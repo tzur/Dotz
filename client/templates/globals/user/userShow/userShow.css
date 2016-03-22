@@ -73,8 +73,8 @@
 
 .userNameTitle {
   font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, 'Roboto', sans-serif, Arial;
-  font-size: 34px;
   color: rgba(75, 79, 84, 1);
+  margin-top: 0;
 }
 
 
