@@ -37,7 +37,7 @@
 
 #desktopDotShow-titleDiv {
   position: absolute;
-  bottom: 2vh;
+  bottom: 30px;
   /*padding-left: 0;*/
   left: 0;
   right: 0;
@@ -57,7 +57,7 @@
 }
 
 #desktopDotShow-title {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   /*color: #333;*/
   margin-top: 0vh;
   /*bottom: 0vh;*/
@@ -66,8 +66,12 @@
 
 
 #desktopDotShow-descriptionDiv {
-  /*padding-top: 2vh;*/
-  /*background-color: #ffffff;*/
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+
+.dotDetailsDiv {
+  padding-bottom: 5px;
 }
 
 .locationDatePriceDiv-desktopDotShow {
@@ -194,7 +198,7 @@
 
 #actionButton-desktopDotShow-dot {
   min-width: 7vw;
-  margin-left: 1vw;
+  margin-right: 10px;
 }
 
 #desktopDotShow-personalDescriptionDiv {

@@ -144,3 +144,7 @@ Check the dotSchema and the createDotHooks for allowedValues:
   color: #9B998D;
 }
 
+.invisible {
+  color: transparent;
+}
+

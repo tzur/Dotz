@@ -2,9 +2,9 @@
 {{#with dotShow}}
 
 
-    <div class="backToLastPath">
-        <button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-arrow-left"></i></button>
-    </div>
+    <!--<div class="backToLastPath">-->
+        <!--<button id="_lastPathBtn" type="button" class="btn btn-default round btn-sm"><i class="fa fa-arrow-left"></i></button>-->
+    <!--</div>-->
 
 
         <div class="container-fluid" id="dotShowHeader-desktopDotShow">
@@ -16,9 +16,68 @@
                         <div class="col-xs-3 material-shadow-1 {{dot.dotColor}}-background" id="circleDotImg-desktopDotShow" style="background-image: url('{{dot.coverImageUrl}}')">
                             <!--<img src="{{dot.coverImageUrl}}" id="circleDotImg-desktopDotShow" class="material-shadow-1">-->
                         </div>
+
                         <div class="col-xs-9">
                             <h2 id="desktopDotShow-title" class="whiteTxt break" dir="auto">{{dot.title}}</h2>
                         </div>
+
+
+                        <div id="buttonsTitlePanel-desktopListShow" class="col-xs-9">
+
+                            <!--Action buttons-->
+
+                            {{#if dot.location.googleMapsUrl}}
+                                <a href="{{dot.location.googleMapsUrl}}" target="_blank">
+                                    <a type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-Place btn-sm"><i class="fa fa-map-marker"></i> &nbsp;Navigate</a>
+                                </a>
+                            {{/if}}
+
+                            {{#unless DOT_TYPE_IS 'Place' dot.dotSubType}}
+                              {{#if dot.linkUrl}}
+                                  <a href="{{dot.linkUrl}}" target="_blank">
+                                      <a type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-sm">
+                                          <i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}
+                                        {{#if dot.linkName}}
+                                          {{dot.linkName}}
+                                        {{/if}}
+                                      </a>
+                                  </a>
+                              {{/if}}
+                            {{/unless}}
+
+
+                            <!--Stay tuned button-->
+
+
+                            <button type="button" class="follow btn btn-trans btn-sm mdGrey"><i class="fa fa-bullhorn"></i> &nbsp;Stay Tuned</button>
+
+
+                            <!--ReConnect button-->
+
+
+                            <button type="button" class="connect btn btn-trans btn-sm mdGrey"><i class="fa fa-plus-circle"></i> &nbsp;ReConnect</button>
+
+                            <!--Edit buttons-->
+
+                            {{#if isMyDot}}
+                                <span class="dropdown">
+                                  <button type="button" class="btn btn-sm btn-trans mdGrey dropdown-toggle"
+                                          id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <i class="fa fa-pencil"></i> &nbsp;Edit
+                                  </button>
+
+                                  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                                      <li class="_editBtn_list"><a href="#"><i class="mdGrey fa fa-pencil"></i>Edit</a></li>
+                                      <li role="separator" class="divider"></li>
+                                      <li class="deleteShow"><a href="#"><i class="fa fa-trash-o"></i>Delete</a></li>
+                                  </ul>
+                                </span>
+                            {{/if}}
+
+                        </div>
+
+
+
                     </div>
 
                     {{#if ownerUser.profile.brandLine}}
@@ -41,29 +100,34 @@
                         <div class="mdTxt">
 
                           {{#if eventDate}}
-                            <br>
-                              <div class="">
-                                  <span class="lightGrey"><i class="dotCardIcons-desktopDotShow fa fa-calendar"></i> {{eventDate}} </span>
-                                  <!--TODO get the event date data from the create & edit form @yoav-->
-                              </div>
+
+                            <div class="dotDetailsDiv">
+                                <span class="greyText alignSub ellipsisOne"><i class="dotCardIcons-desktopDotCard fa fa-calendar"></i>{{eventDate}}</span>
+                                <!--TODO get the event date data from the create & edit form @yoav-->
+                            </div>
+
                           {{/if}}
 
                           {{#if dot.location}}
-                              <div class="locationDatePriceDiv-desktopDotShow">
-                                  <span class="lightGrey"><i class="dotCardIcons-desktopDotShow fa fa-map-marker"></i> {{dot.location.name}} </span>
-                                {{#if dot.location.address}}
-                                    <span class="lightGrey">, &nbsp;{{dot.location.address}}.</span>
-                                {{/if}}
+
+                              <div class="dotDetailsDiv">
+                                  <span class="alignSub greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
+                                  {{#if dot.location.address}}
+                                      <div class="alignSub greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker invisible"></i>{{dot.location.address}}.</div>
+                                  {{/if}}
                               </div>
+
                           {{/if}}
 
                           {{#if dot.price}}
-                              <div class="locationDatePriceDiv-desktopDotShow">
-                              <span class="lightGrey">
-                                  <span class="lightGrey"><i class="fa dotCardIcons-desktopDotShow"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
-                                {{#if dot.priceMax}} - {{dot.priceMax}} {{/if}}
-                              </span>
+
+                              <div class="dotDetailsDiv">
+                                <span class="greyText">
+                                    <span class="greyText"><i class="fa dotCardIcons-desktopDotShow"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
+                                  {{#if dot.priceMax}} - {{dot.priceMax}} {{/if}}
+                                </span>
                               </div>
+
                           {{/if}}
 
                         </div>
@@ -132,7 +196,7 @@
                               </div>
 
                           {{/if}}
-                          <hr class="noMargin">
+
                       {{/if}}
 
                     </div>
@@ -140,78 +204,8 @@
 
 
 
-
-
-
-            <div id="buttonsPanel-desktopListShow" class="col-xs-12">
-
-                <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
-
-
-                    <div class="pull-left noPadding">
-                        <button type="button" class="follow btn btn-trans btn-md mdGrey">Follow</button>
-                    </div>
-
-                    <div class="pull-right noPadding text-right">
-                      {{#if isMyDot}}
-                          <span id="desktopDotShow-3dots" class="dropdown">
-                          <button type="button" class="btn btn-md btn-full-trans mdGrey dropdown-toggle"
-                                  id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fa fa-pencil"></i>
-                          </button>
-
-                          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-                              <li class="_editBtn_list"><a><i class="mdGrey fa fa-pencil"></i>Edit</a></li>
-                              <li role="separator" class="divider"></li>
-                              <li class="deleteShow"><a href="#"><i class="fa fa-trash-o"></i>Delete</a></li>
-                          </ul>
-                        </span>
-                      {{/if}}
-
-                      <button type="button" class="connect btn btn-trans btn-md mdGrey"><i class="fa fa-plus-circle"></i> ReConnect</button>
-
-                      {{#if dot.location.googleMapsUrl}}
-                          <a href="{{dot.location.googleMapsUrl}}" target="_blank">
-                              <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-Place btn-md"><i class="fa fa-map-marker"></i> Navigate</button>
-                          </a>
-                      {{/if}}
-
-                      {{#unless DOT_TYPE_IS 'Place' dot.dotSubType}}
-                        {{#if dot.linkUrl}}
-                            <a href="{{dot.linkUrl}}" target="_blank">
-                                <button type="button" id="actionButton-desktopDotShow-dot" class="btn btn-default btn-{{dot.dotSubType}} btn-md">
-                                    <i class="fa {{actionButtonIcon}}"></i> {{actionButtonTitle}}
-                                  {{#if dot.linkName}}
-                                      {{dot.linkName}}
-                                  {{/if}}
-                                </button>
-                            </a>
-                        {{/if}}
-                      {{/unless}}
-
-                    </div>
-
-
-
-                </div>
-
-            </div>
         </div>
 
-
-
-        <!--<a name="connectedDotz"></a>-->
-
-<!--<div class="col-xs-12 col-sm-11 col-md-8 col-lg-7">-->
-
-    <!--<div class="pull-left noPadding">-->
-      <!--{{#if dotzNum}}-->
-          <!--<h4 class="subTitles-desktopDottShow">{{dotzNum}}:</h4>-->
-          <!--&lt;!&ndash;<i class="fa fa-plus"></i>&ndash;&gt;-->
-      <!--{{/if}}-->
-    <!--</div>-->
-
-<!--</div>-->
 
 
 

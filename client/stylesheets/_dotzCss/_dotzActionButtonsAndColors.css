@@ -6,15 +6,15 @@
 }
 
 .btn-Person {
-  color: #2e6da4;
-  background-color: transparent;
-  border-color: #2e6da4;
-}
-
-.btn-Person:hover {
   color: #fff;
   background-color: #286090;
   border-color: #204d74;
+}
+
+.btn-Person:hover {
+  color: #2e6da4;
+  background-color: transparent;
+  border-color: #2e6da4;
 }
 
 .btn-Person:focus {
@@ -37,15 +37,15 @@
 }
 
 .btn-Media {
-  color: #d43f3a;
-  background-color: transparent;
-  border-color: #d43f3a;
-}
-
-.btn-Media:hover {
   color: #fff;
   background-color: #c9302c;
   border-color: #ac2925;
+}
+
+.btn-Media:hover {
+  color: #d43f3a;
+  background-color: transparent;
+  border-color: #d43f3a;
 }
 
 .btn-Media:focus {
@@ -68,15 +68,15 @@
 }
 
 .btn-Place {
-  color: #4cae4c;
-  background-color: transparent;
-  border-color: #4cae4c;
-}
-
-.btn-Place:hover {
   color: #fff;
   background-color: #449d44;
   border-color: #398439;
+}
+
+.btn-Place:hover {
+  color: #4cae4c;
+  background-color: transparent;
+  border-color: #4cae4c;
 }
 
 .btn-Place:focus {
@@ -99,15 +99,15 @@
 }
 
 .btn-Link {
-  color: #46b8da;
-  background-color: transparent;
-  border-color: #46b8da;
-}
-
-.btn-Link:hover {
   color: #fff;
   background-color: #31b0d5;
   border-color: #269abc;
+}
+
+.btn-Link:hover {
+  color: #46b8da;
+  background-color: transparent;
+  border-color: #46b8da;
 }
 
 .btn-Link:focus {
@@ -130,15 +130,15 @@
 }
 
 .btn-Event {
-  color: #eea236;
-  background-color: transparent;
-  border-color: #eea236;
-}
-
-.btn-Event:hover {
   color: #fff;
   background-color: #ec971f;
   border-color: #d58512;
+}
+
+.btn-Event:hover {
+  color: #eea236;
+  background-color: transparent;
+  border-color: #eea236;
 }
 
 .btn-Event:focus {
@@ -161,15 +161,15 @@
 }
 
 .btn-Product {
-  color: #904CCF;
-  background-color: transparent;
-  border-color: #904CCF;
-}
-
-.btn-Product:hover {
   color: #fff;
   background-color: #8D45C4;
   border-color: #893BB5;
+}
+
+.btn-Product:hover {
+  color: #904CCF;
+  background-color: transparent;
+  border-color: #904CCF;
 }
 
 .btn-Product:focus {
