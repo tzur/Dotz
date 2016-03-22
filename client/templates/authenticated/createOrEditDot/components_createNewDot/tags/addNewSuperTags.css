@@ -1,0 +1,4 @@
+.input_fields_wrap .form-control {
+  width: inherit;
+  display: inline-block;
+}
