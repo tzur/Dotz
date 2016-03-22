@@ -82,3 +82,16 @@
 .round {
   border-radius: 24px;
 }
+
+.btn-subTag {
+  color: #333;
+  background-color: #eee;
+  border-color: #ccc;
+  border-radius: 0px 4px 4px 0px;
+}
+
+.btn-subTag:hover {
+  color: #333;
+  background-color: #ccc;
+  border-color: #ccc;
+}

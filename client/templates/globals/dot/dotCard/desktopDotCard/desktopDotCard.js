@@ -433,6 +433,23 @@ Template.desktopDotCard.events({
 
   },
 
+  'click .addTags': function(){
+
+    if(Meteor.user()) {
+      Modal.show('addTagsModal',{
+        data:{
+          dot: this.dot
+        }
+      });
+      //Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect: ',this.dot._id, this.dot.title, this.dot.dotType);
+    }
+    else {
+      Modal.show('signUpModal');
+      //Modules.client.Dotz.dotCardAnalyticsEvents('Enter Connect Modal', 'Try to connect: ',this.dot._id, this.dot.title, this.dot.dotType);
+    }
+
+  },
+
   'click .upBtn':function(event){
     //console.log("UP: ");
     let smartRef = this.smartRef;
