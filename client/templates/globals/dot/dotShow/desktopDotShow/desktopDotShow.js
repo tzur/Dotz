@@ -410,16 +410,23 @@ Template.desktopDotShow.events({
 
   'click ._sendTagValueToSearch': function(event){
     event.preventDefault();
+
     console.log(" _superTagToFilter >>>>>>>>>>>>>>> " + event.toElement.value)
     //TODO: we need to check this operation on mobile devices.. @otni
 
     //let inputToSearch = event.toElement.value;
+    //'inDotz:7ad8rkCN7HPP6ze6R',
+    //'selfSuperTags.parentTag:Tel1',
+    //'selfSuperTags.subTags:aa'
+    let thisDotId = '7ad8rkCN7HPP6ze6R';
+
     let inputToSearch = {
       facets: '*',
       facetFilters: [
-        //'title:Happy',
-        'inDotz:RR98bMyxLGZfGsHvq'
-    ]
+        'inDotz:' + this.dot._id,
+        'selfSuperTags.parentTag:Tel1',
+        'selfSuperTags.subTags:aa'
+      ]
     };
     Modules.client.searchByAlgolia("lists_DOTZ", inputToSearch , function(error, content) {
       if(content){
