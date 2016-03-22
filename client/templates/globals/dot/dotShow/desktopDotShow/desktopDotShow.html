@@ -223,10 +223,6 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
 
-                        <!--{{#if dotzNumOrTags}}-->
-                          <!--<h1>lajdshlaksjdlkajldkasjdasl</h1>-->
-
-                        <!--{{/if}}-->
 
                         <div id="dotzNumAndTagsDiv" class="row">
 
@@ -242,25 +238,46 @@
 
                                     {{#each dot.superTagsToFilterConnectedDotz}}
 
-                                    <div class="parentTag">
-                                        <button class="btn btn-parentTag btn-xs _sendTagValueToSearch" data-toggle="collapse" data-target="#{{_id}}-group" value="{{parentTag}}" type="submit">{{parentTag}}</button>
+                                      <div class="parentTag">
+                                          <button class="btn btn-parentTag btn-xs _sendTagValueToSearch" data-toggle="collapse" data-target="#{{_id}}-group" value="{{parentTag}}" type="submit">{{parentTag}}</button>
 
-                                        {{#if subTags}}
-                                            <span id="{{_id}}-group" class="subTagsGroup collapse">
-                                              {{#each subTag in subTags}}
-                                                  <button class="btn btn-default btn-subTag btn-xs _sendTagValueToSearch" value="{{subTag}}" type="submit">{{subTag}}</button>
-                                              {{/each}}
-                                            </span>
-                                        {{/if}}
-                                    </div>
+                                          {{#if subTags}}
+                                              <span id="{{_id}}-group" class="subTagsGroup collapse">
+                                                {{#each subTag in subTags}}
+                                                    <button class="btn btn-default btn-subTag btn-xs _sendTagValueToSearch" value="{{subTag}}" type="submit">{{subTag}}</button>
+                                                {{/each}}
+                                              </span>
+                                          {{/if}}
+                                      </div>
+
                                     {{/each}}
+
+                                    <!--Add new super tag collapse-->
+
+
+
+                                    <div>
+
+                                        <a class="greyText sm2Txt" data-toggle="collapse" data-target="#addNewSuperTags" type="button"><i class="fa fa-tags"></i> Add Super Tags</a>
+
+                                    </div>
+
 
                                 </div>
 
-
                             </div>
-
                         </div>
+
+                                 <div id="addNewSuperTagsDiv">
+                                    <div id="addNewSuperTags" class="collapse">
+
+                                        <div class="well superTagsWell">
+                                          {{>superTags}}
+                                          {{>addNewSuperTags}}
+                                        </div>
+
+                                    </div>
+                                 </div>
 
                     </div>
                 </div>
