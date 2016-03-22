@@ -149,10 +149,7 @@
 
 
                     <div class="pull-left noPadding">
-                        {{#if dotzNum}}
-                            <h4 class="subTitles-desktopDottShow">{{dotzNum}}:</h4>
-                            <!--<i class="fa fa-plus"></i>-->
-                        {{/if}}
+                        <button type="button" class="follow btn btn-trans btn-md mdGrey">Follow</button>
                     </div>
 
                     <div class="pull-right noPadding text-right">
@@ -171,7 +168,7 @@
                         </span>
                       {{/if}}
 
-                      <button type="button" class="connect btn btn-trans btn-md mdGrey"><i class="fa fa-plus-circle"></i> Connect</button>
+                      <button type="button" class="connect btn btn-trans btn-md mdGrey"><i class="fa fa-retweet"></i> ReConnect</button>
 
                       {{#if dot.location.googleMapsUrl}}
                           <a href="{{dot.location.googleMapsUrl}}" target="_blank">
@@ -222,30 +219,40 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
-                        <div class="col-xs-3 pull-left">
-                          {{#if dotzNum}}
-                              <h4 class="subTitles-desktopDottShow">{{dotzNum}}:</h4>
-                              <!--<i class="fa fa-plus"></i>-->
-                          {{/if}}
+
+                        <div id="dotzNumAndTagsDiv" class="row">
+
+                            <div class="col-xs-3 pull-left">
+                              {{#if dotzNum}}
+                                  <h4 class="subTitles-desktopDottShow">{{dotzNum}}</h4>
+                              {{/if}}
+                            </div>
+
+                            <div id="superTagsCol-dotShow" class="col-xs-9 text-left">
+
+                                <div id="superTags-dotShow">
+
+                                    {{#each dot.superTagsToFilterConnectedDotz}}
+                                    <div class="parentTag">
+                                        <button class="btn btn-default btn-sm _sendTagValueToSearch" data-toggle="collapse" data-target="#{{parentTag}}-group" value="{{parentTag}}" type="submit">{{parentTag}}</button>
+
+                                        {{#if subTags}}
+                                            <span id="{{parentTag}}-group" class="subTagsGroup collapse">
+                                              {{#each subTag in subTags}}
+                                                  <button class="btn btn-default btn-subTag btn-sm _sendTagValueToSearch" value="{{subTag}}" type="submit">{{subTag}}</button>
+                                              {{/each}}
+                                            </span>
+                                        {{/if}}
+                                    </div>
+                                        &nbsp;
+                                    {{/each}}
+
+                                </div>
+
+
+                            </div>
+
                         </div>
-
-                        <div class="col-xs-9 text-right">
-                            {{#each dot.superTagsToFilterConnectedDotz}}
-
-                                <button class="btn btn-default _sendTagValueToSearch" value="{{parentTag}}" type="submit">{{parentTag}}
-                                    {{#if subTags}}
-                                            :
-                                    {{/if}}
-                                </button>
-                                  {{#each subTag in subTags}}
-                                      <button class="btn btn-default _sendTagValueToSearch" value="{{subTag}}" type="submit">{{subTag}}</button>
-                                  {{/each}}
-                                &nbsp; &nbsp;
-
-                            {{/each}}
-
-                        </div>
-
 
                     </div>
                 </div>

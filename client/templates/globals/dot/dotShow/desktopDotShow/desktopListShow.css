@@ -74,3 +74,35 @@
   min-height: 30vh;
   padding-top: 5vh;
 }
+
+#dotzNumAndTagsDiv {
+  padding: 10px 0;
+  border-bottom: 2px solid #fafafa;
+  margin: 0;
+}
+
+.parentTag {
+  display: inline;
+}
+
+#superTags-dotShow button {
+  margin: 5px -3px;
+}
+
+.subTagsGroup {
+  margin: 0 7px 0 0px;
+}
+
+#superTags-dotShow .collapsing  {
+  -webkit-transition-property: width; /* Safari */
+  -o-transition-property: width;
+  transition-property: width;
+  transition-duration: .01ms;
+  -webkit-transition-duration: .01ms;
+}
+
+#superTags-dotShow .collapse.in {
+  display: inline;
+}
+
+
