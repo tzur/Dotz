@@ -97,6 +97,10 @@
             <div id="desktopDotShow-descriptionDiv" class="col-xs-12">
                     <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
 
+                        {{#if dotDetails}}
+                            <div class="dotDetailsSpacer"></div>
+                        {{/if}}
+
                         <div class="mdTxt">
 
                           {{#if eventDate}}
@@ -106,28 +110,32 @@
                                 <!--TODO get the event date data from the create & edit form @yoav-->
                             </div>
 
+                            {{#if dot.location}}
+
+                                <div class="dotDetailsDiv">
+                                    <span class="alignSub greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
+                                    {{#if dot.location.address}}
+                                        <div class="alignSub greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker invisible"></i>{{dot.location.address}}.</div>
+                                    {{/if}}
+                                </div>
+
+                            {{/if}}
+
+                            {{#if dot.price}}
+
+                                <div class="dotDetailsDiv">
+                                  <span class="greyText">
+                                      <span class="greyText"><i class="fa dotCardIcons-desktopDotShow"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
+                                    {{#if dot.priceMax}} - {{dot.priceMax}} {{/if}}
+                                  </span>
+                                </div>
+
+                            {{/if}}
+
                           {{/if}}
 
-                          {{#if dot.location}}
-
-                              <div class="dotDetailsDiv">
-                                  <span class="alignSub greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
-                                  {{#if dot.location.address}}
-                                      <div class="alignSub greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker invisible"></i>{{dot.location.address}}.</div>
-                                  {{/if}}
-                              </div>
-
-                          {{/if}}
-
-                          {{#if dot.price}}
-
-                              <div class="dotDetailsDiv">
-                                <span class="greyText">
-                                    <span class="greyText"><i class="fa dotCardIcons-desktopDotShow"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
-                                  {{#if dot.priceMax}} - {{dot.priceMax}} {{/if}}
-                                </span>
-                              </div>
-
+                          {{#if dotDetails}}
+                              <div class="dotDetailsSpacer"></div>
                           {{/if}}
 
                         </div>
@@ -137,7 +145,6 @@
 
                               <pre id="desktopDotShow-description" class="darkText break" dir="auto">{{#autolink}}{{dot.bodyText}}{{/autolink}}</pre>
 
-                          <br>
 
                           {{#if dot.coverImageUrl}}
                               <div class="mediaDivInShowMore-desktopDotShow">
@@ -195,6 +202,8 @@
                                   <button id="_showMore" class="btn btn-full-trans btn-sm">SHOW MORE</button>
                               </div>
 
+                              <div class="dotDetailsSpacer"></div>
+
                           {{/if}}
 
                       {{/if}}
@@ -213,6 +222,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
+
+                        <!--{{#if dotzNumOrTags}}-->
+                          <!--<h1>lajdshlaksjdlkajldkasjdasl</h1>-->
+
+                        <!--{{/if}}-->
 
                         <div id="dotzNumAndTagsDiv" class="row">
 
@@ -270,13 +284,15 @@
                           {{else}}
                               {{#if isUserAllowToConnect}}
                                   <div class="text-center">
-                                      <br><br><br>
-                                      <p>Let's start connect :)</p>
+                                      <br><br>
+                                      <h4>Let's connect the 1st Dot :)</h4>
+                                      <p>Use the box below</p>
                                   </div>
                               {{else}}
                                 <div class="text-center">
-                                    <br><br><br>
-                                    <p>Coming soon, stay tuned :)</p>
+                                    <br><br>
+                                    <h4>Stay tuned for updates :)</h4>
+                                    <button type="button" class="follow btn btn-trans btn-sm mdGrey"><i class="fa fa-bullhorn"></i> &nbsp;Stay Tuned</button>
                                 </div>
                               {{/if}}
                           {{/each}}

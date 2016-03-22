@@ -8,12 +8,12 @@
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
 
-            <div class="col-xs-4">
+            <div class="col-xs-2 col-xs-offset-1">
                 <div id="userImgProfile" class="colCenter" style="background-image: url('{{profile.profileImage}}')"></div>
             </div>
 
-            <div id="userDescription" class="col-xs-8">
-                <h1 class="userNameTitle">{{username}}</h1>
+            <div id="userDescription" class="col-xs-9">
+                <h2 class="userNameTitle">{{username}}</h2>
                 <p>{{profile.description}}</p>
 
                 <!--The counters & the social icons -->
@@ -68,6 +68,9 @@
                 </ul></span>
 
                 {{#if myProfile}}
+                    <li class="inline-block">
+                        <span class="spacer"> · </span>
+                    </li>
                     <button type="button" id="editUserAccount-btn" class="editUserAccount-btn btn btn-full-trans btn-xs hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>
                 {{else}}
                     <!--Connect/Follow button-->

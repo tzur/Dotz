@@ -66,9 +66,12 @@
 
 
 #desktopDotShow-descriptionDiv {
-  padding-top: 15px;
-  padding-bottom: 30px;
+  /*padding-bottom: 30px;*/
 }
+
+.dotDetailsSpacer {
+   padding-top: 20px;
+ }
 
 .dotDetailsDiv {
   padding-bottom: 5px;
@@ -85,8 +88,8 @@
 }
 
 #desktopDotShow-description {
-  margin-top: 2vh;
-  margin-bottom: 6vh;
+  margin-top: 20px;
+  margin-bottom: 30px;
   font-size: 18px;
   font-weight: normal;
   line-height: 25px;
@@ -96,6 +99,7 @@
   /*height: 100%;*/
   /*width: 100%;*/
   /*padding: 10px;*/
+  margin-bottom: 40px;
 }
 
 #imgInShowMore-desktopDotShow {
@@ -103,7 +107,7 @@
   /*padding: 0;*/
   /*max-width: 55vw;*/
   max-height: 35vh;
-  margin-bottom: 3vh;
+  /*margin-bottom: 3vh;*/
   /*width: 100%;*/
   /*background-size: cover;*/
   /* background-color: #e5e5e5; */
@@ -122,7 +126,8 @@
 
 #desktopDotShow-shortDescription-pre {
   overflow: inherit;
-  margin-top: 2vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 18px;
   font-weight: normal;
   line-height: 25px;
