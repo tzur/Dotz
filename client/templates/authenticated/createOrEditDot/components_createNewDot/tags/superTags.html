@@ -1,0 +1,28 @@
+<template name="superTags">
+
+
+  {{#each superTagsToFilterConnectedDotzToEdit}}
+      <div class="row">
+          <div class="col-xs-2">
+              <button class="btn btn-default btn-parentTag btn-xs" value="{{parentTag}}">{{parentTag}}:</button>
+          </div>
+          <div class="col-xs-10">
+              <input id="{{_id}}_subTags" class="_tagsInput" type="text" value="{{#each subTag in subTags}}{{subTag}},{{/each}}" data-role="tagsinput">
+          </div>
+      </div>
+
+      <hr>
+
+
+  {{/each}}
+
+
+    <!--Add new tag , TODO: one each time..-->
+    <div class="input_fields_wrap">
+        <!--<div><input type="text" name="mytext[]"></div>-->
+    </div>
+
+    <button class="btn btn-default add_field_button">Add More Super Tags</button>
+
+
+</template>
