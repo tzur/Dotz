@@ -7,6 +7,10 @@ a h4, a h5, a h6 {
   color: #555;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
           /*  badge division */
 .badge {
   background-color: transparent;

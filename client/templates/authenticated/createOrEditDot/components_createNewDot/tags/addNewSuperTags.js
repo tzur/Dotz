@@ -19,7 +19,7 @@ Template.addNewSuperTags.onRendered( () => {
         x++; //text box increment
 
 
-        let inputToAdd = '<div class="_newInput' + x + '"><input  id="_newParentTag' + x + '" class="_newParentTag' + x + ' form-control" type="text" name="parentTag[]"/>&nbsp;<input id="_newSubTags' + x + '" class="_newSubTags" type="text" data-role="tagsinput" name="subTags[]"/>&nbsp;<a href="#" class="remove_field">Remove</a></div>';
+        let inputToAdd = '<div class="_newInput' + x + ' newInputDiv"><input  id="_newParentTag' + x + '" class="_newParentTag' + x + ' form-control" type="text" name="parentTag[]"/>&nbsp; <span class="colons">:</span><input id="_newSubTags' + x + '" class="_newSubTags" type="text" data-role="tagsinput" name="subTags[]"/>&nbsp;<a href="#" class="remove_field">&nbsp;<i class="fa fa-times"></i></a></div>';
         $(wrapper).append(inputToAdd); //add input box
         $("._newSubTags").tagsinput('items');
       }

@@ -252,15 +252,32 @@
 
                                     {{/each}}
 
-                                    <button class="btn btn-primary btn-xs" data-toggle="collapse" data-target="#addNewSuperTags" type="button">Add a Tag</button>
+                                    <!--Add new super tag collapse-->
+
+
+
+                                    <div>
+
+                                        <a class="greyText sm2Txt" data-toggle="collapse" data-target="#addNewSuperTags" type="button"><i class="fa fa-tags"></i> Add Super Tags</a>
+
+                                    </div>
 
 
                                 </div>
 
-
                             </div>
-
                         </div>
+
+                                 <div id="addNewSuperTagsDiv">
+                                    <div id="addNewSuperTags" class="collapse">
+
+                                        <div class="well superTagsWell">
+                                          {{>superTags}}
+                                          {{>addNewSuperTags}}
+                                        </div>
+
+                                    </div>
+                                 </div>
 
                     </div>
                 </div>

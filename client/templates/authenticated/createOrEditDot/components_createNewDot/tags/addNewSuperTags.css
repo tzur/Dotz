@@ -1,16 +1,30 @@
 .input_fields_wrap .form-control {
   display: inline-block;
-  width: 100px;
+  width: 15%;
 }
 
 .input_fields_wrap .bootstrap-tagsinput {
   margin-bottom: 0;
-  height: 34px;
+  min-height: 34px;
   vertical-align: bottom;
-  margin-left: 40px;
-  width: 200px;
+  margin-left: 20px;
+  width: 65%;
 }
 
 .add_field_button {
   margin-top: 10px;
+  width: 15%;
+}
+
+.newInputDiv {
+  margin-bottom: 10px;
+}
+
+.remove_field .fa-times {
+  color: #c60000;
+}
+
+.colons {
+  font-weight: bold;
+  font-size: 20px;
 }
