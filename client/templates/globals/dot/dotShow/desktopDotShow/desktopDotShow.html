@@ -97,6 +97,10 @@
             <div id="desktopDotShow-descriptionDiv" class="col-xs-12">
                     <div class="col-xs-12 col-sm-11 col-md-8 col-lg-7 colCenter">
 
+                        {{#if dotDetails}}
+                            <div id="dotDetailsCol"></div>
+                        {{/if}}
+
                         <div class="mdTxt">
 
                           {{#if eventDate}}
@@ -106,27 +110,27 @@
                                 <!--TODO get the event date data from the create & edit form @yoav-->
                             </div>
 
-                          {{/if}}
+                            {{#if dot.location}}
 
-                          {{#if dot.location}}
+                                <div class="dotDetailsDiv">
+                                    <span class="alignSub greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
+                                    {{#if dot.location.address}}
+                                        <div class="alignSub greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker invisible"></i>{{dot.location.address}}.</div>
+                                    {{/if}}
+                                </div>
 
-                              <div class="dotDetailsDiv">
-                                  <span class="alignSub greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker"></i>{{dot.location.name}}</span>
-                                  {{#if dot.location.address}}
-                                      <div class="alignSub greyText"><i class="dotCardIcons-desktopDotCard fa fa-map-marker invisible"></i>{{dot.location.address}}.</div>
-                                  {{/if}}
-                              </div>
+                            {{/if}}
 
-                          {{/if}}
+                            {{#if dot.price}}
 
-                          {{#if dot.price}}
+                                <div class="dotDetailsDiv">
+                                  <span class="greyText">
+                                      <span class="greyText"><i class="fa dotCardIcons-desktopDotShow"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
+                                    {{#if dot.priceMax}} - {{dot.priceMax}} {{/if}}
+                                  </span>
+                                </div>
 
-                              <div class="dotDetailsDiv">
-                                <span class="greyText">
-                                    <span class="greyText"><i class="fa dotCardIcons-desktopDotShow"><strong>{{dot.currency}}</strong></i>{{dot.price}}</span>
-                                  {{#if dot.priceMax}} - {{dot.priceMax}} {{/if}}
-                                </span>
-                              </div>
+                            {{/if}}
 
                           {{/if}}
 
