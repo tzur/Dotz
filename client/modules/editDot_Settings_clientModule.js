@@ -7,6 +7,10 @@ let editDot_settings = ( dot, smartRef ) => {
   //This session will nullify at the end of editDot method:
   Session.set('editAction_dot', true);
 
+  //if (smartRef) {
+  //  Session.set('parentDot', smartRef.connection.toParentDotId);
+  //}
+
   let objectToEdit = {
     dot: {
       _id: dot._id,
@@ -27,7 +31,10 @@ let editDot_settings = ( dot, smartRef ) => {
       startHour: dot.startDate,
       ebdDate: dot.startDate,
       endHour: dot.startDate,
-      multipleEventsNote: dot.multipleEventsNote
+      multipleEventsNote: dot.multipleEventsNote,
+
+      selfSuperTags: dot.selfSuperTags,
+      superTagsToFilterConnectedDotz: dot.superTagsToFilterConnectedDotz
     }
   };
   if (smartRef) {

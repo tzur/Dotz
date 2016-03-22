@@ -31,6 +31,10 @@ Template.editDot_form.onRendered( () => {
   //prevent send by enter (exclude the textarea):
   Modules.client.preventEnterByElementId('#editDot');
 
+
+  //EditTags component:
+  $("._tagsInput").tagsinput('items');
+
 });
 
 
@@ -71,6 +75,12 @@ Template.editDot_form.helpers({
 
   showMapHasClicked: function(){
     return Session.get('showMapHasClicked');
+  },
+
+  //editTags component:
+  superTagsToFilterConnectedDotzToEdit: function(){
+    console.log("docToedit>>>>>>>> " + Session.get('editAction_docToEdit').dot.superTagsToFilterConnectedDotz )
+    return Session.get('editAction_docToEdit').dot.superTagsToFilterConnectedDotz;
   }
 
 });

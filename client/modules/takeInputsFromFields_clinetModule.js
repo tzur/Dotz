@@ -67,6 +67,7 @@ let takeInputFromFields = function() {
     //console.log("data.endDateAndHour >>>>>> " + data.endDateAndHour);
   }
 
+  //location object:
   let locationObject = Session.get('locationObject');
   let location;
   if (locationObject){
@@ -80,11 +81,48 @@ let takeInputFromFields = function() {
     };
   }
 
-
   return data;
 };
 
 
+//takeSuperTagsFromFields
+let takeSuperTagsFromFields = function() {
+
+  //let data = {};
+  let parentDot = Session.get('editAction_docToEdit');
+  let parentDotId;
+  if (parentDot.smartRef) {
+    parentDotId = parentDot.smartRef.connection.toParentDotId;
+  } else {
+    parentDotId = parentDot.dot._id;
+  }
+  console.log("parentDotId >>>>>>>>>>> " + parentDotId);
+  parentDot = Dotz.findOne(parentDotId);
+  let selfSuperTags = [];
+
+  //super Tags:
+  parentDot.superTagsToFilterConnectedDotz.forEach(function (superTag) {
+
+    let superTagToPush = {};
+    superTagToPush.parentTag = superTag.parentTag;
+    superTagToPush.subTags = $('#' + superTag._id + '_subTags').val();
+    console.log("superTagToPush.subTags >>>>>>>>>>> " + superTagToPush.subTags)
+    selfSuperTags.push();
+  });
+
+
+
+  //let priceMax = $('#priceMax').val();
+  //if (priceMax === ""){
+  //  data.priceMax = undefined
+  //} else if (priceMax) {
+  //  data.priceMax = parseInt(priceMax, 10);
+  //}
+
+
+  return selfSuperTags;
+};
 
 
 Modules.client.takeInputFromFields = takeInputFromFields;
+Modules.client.takeSuperTagsFromFields = takeSuperTagsFromFields;
