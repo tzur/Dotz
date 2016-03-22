@@ -168,7 +168,7 @@
                         </span>
                       {{/if}}
 
-                      <button type="button" class="connect btn btn-trans btn-md mdGrey"><i class="fa fa-retweet"></i> ReConnect</button>
+                      <button type="button" class="connect btn btn-trans btn-md mdGrey"><i class="fa fa-plus-circle"></i> ReConnect</button>
 
                       {{#if dot.location.googleMapsUrl}}
                           <a href="{{dot.location.googleMapsUrl}}" target="_blank">
@@ -228,23 +228,23 @@
                               {{/if}}
                             </div>
 
-                            <div id="superTagsCol-dotShow" class="col-xs-9 text-left">
+                            <div id="superTagsCol-dotShow" class="col-xs-9 text-right">
 
                                 <div id="superTags-dotShow">
 
                                     {{#each dot.superTagsToFilterConnectedDotz}}
+
                                     <div class="parentTag">
-                                        <button class="btn btn-default btn-sm _sendTagValueToSearch" data-toggle="collapse" data-target="#{{parentTag}}-group" value="{{parentTag}}" type="submit">{{parentTag}}</button>
+                                        <button class="btn btn-parentTag btn-xs _sendTagValueToSearch" data-toggle="collapse" data-target="#{{parentTag}}-group" value="{{parentTag}}" type="submit">{{parentTag}}</button>
 
                                         {{#if subTags}}
                                             <span id="{{parentTag}}-group" class="subTagsGroup collapse">
                                               {{#each subTag in subTags}}
-                                                  <button class="btn btn-default btn-subTag btn-sm _sendTagValueToSearch" value="{{subTag}}" type="submit">{{subTag}}</button>
+                                                  <button class="btn btn-default btn-subTag btn-xs _sendTagValueToSearch" value="{{subTag}}" type="submit">{{subTag}}</button>
                                               {{/each}}
                                             </span>
                                         {{/if}}
                                     </div>
-                                        &nbsp;
                                     {{/each}}
 
                                 </div>

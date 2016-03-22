@@ -82,15 +82,21 @@
 }
 
 .parentTag {
-  display: inline;
+  display: inline-block;
+  margin-left: 10px;
 }
 
 #superTags-dotShow button {
   margin: 5px -3px;
 }
 
+#superTags-dotShow button:focus {
+  font-weight: bold;
+  color:#333;
+}
+
 .subTagsGroup {
-  margin: 0 7px 0 0px;
+  margin: 0 0px 0 0px;
 }
 
 #superTags-dotShow .collapsing  {

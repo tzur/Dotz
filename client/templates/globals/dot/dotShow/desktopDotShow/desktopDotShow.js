@@ -305,10 +305,10 @@ Template.desktopDotShow.helpers({
         return false;
       }
       else if (connectedDotz === 1) {
-        return ("1 DOT")
+        return ("1 DOT CONNECTED")
       }
       else if (connectedDotz > 1) {
-        return ( connectedDotz + " DOTZ" );
+        return ( connectedDotz + " DOTZ CONNECTED" );
       }
 
   },
