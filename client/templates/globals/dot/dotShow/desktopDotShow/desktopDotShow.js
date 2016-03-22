@@ -109,6 +109,7 @@ Template.desktopDotShow.onRendered(function(){
 Template.desktopDotShow.onDestroyed(function(){
 
   Session.set("resultsFromFilteringByTags", undefined);
+  Session.set('dataOnTheAir', undefined);
 
 });
 
@@ -124,6 +125,7 @@ Template.desktopDotShow.helpers({
         dot: dot,
         ownerUser: ownerUser
       };
+      Session.set('dataOnTheAir', data);
       return data;
     }
   },
@@ -410,9 +412,27 @@ Template.desktopDotShow.events({
 
   'click ._sendTagValueToSearch': function(event){
     event.preventDefault();
+
     console.log(" _superTagToFilter >>>>>>>>>>>>>>> " + event.toElement.value)
     //TODO: we need to check this operation on mobile devices.. @otni
-    let inputToSearch = event.toElement.value;
+
+    //let inputToSearch = event.toElement.value;
+    //'inDotz:7ad8rkCN7HPP6ze6R',
+    //'selfSuperTags.parentTag:Tel1',
+    //'selfSuperTags.subTags:aa'
+    //let thisDotId = '7ad8rkCN7HPP6ze6R';
+    let thisDotId = Session.get('dataOnTheAir').dot._id;
+
+    console.log("thisDotId >>>>> " + thisDotId)
+
+    let inputToSearch = {
+      facets: '*',
+      facetFilters: [
+        'inDotz:' + thisDotId,
+        'selfSuperTags.parentTag:Tel1',
+        'selfSuperTags.subTags:aa'
+      ]
+    };
     Modules.client.searchByAlgolia("lists_DOTZ", inputToSearch , function(error, content) {
       if(content){
         Session.set("resultsFromFilteringByTags", content.hits);

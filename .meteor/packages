@@ -45,7 +45,6 @@ peppelg:bootstrap-3-modal
 momentjs:moment
 underscorestring:underscore.string
 easy:search
-yogiben:autoform-tags
 meteorhacks:subs-manager
 spiderable
 ddp
@@ -71,3 +70,4 @@ froatsnook:request
 konecty:autolinker
 browser-policy
 percolate:migrations
+ajduke:bootstrap-tagsinput
