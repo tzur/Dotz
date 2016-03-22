@@ -79,7 +79,7 @@ let _handleEditDot = ( template ) => {
   }
 
   let doc = Modules.client.takeInputFromFields();
-  let selfSuperTags = Modules.client.takeSuperTagsFromFields();
+  let superTagsToFilterConnectedDotz = Modules.client.takeSuperTagsFromFields();
   //if (doc) {
   //  console.log("data.title >>>>> " + doc.title)
   //  console.log("data.price >>>>>> " + doc.price)
@@ -103,7 +103,8 @@ let _handleEditDot = ( template ) => {
   doc.isOpen = openOrClosed;
   //dotColor: dotColor,
   doc.coverImageUrl = Session.get('dotCoverImg');
-  doc.selfSuperTags = selfSuperTags;
+  doc.superTagsToFilterConnectedDotz = superTagsToFilterConnectedDotz;
+  console.log("doc.superTagsToFilterConnectedDotz >>>>>>>>> " + doc.superTagsToFilterConnectedDotz)
   //doc.inDotz = [parentDotId];
 
   //This is edit action:
