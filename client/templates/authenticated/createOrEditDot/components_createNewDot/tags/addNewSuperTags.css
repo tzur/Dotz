@@ -1,4 +1,16 @@
 .input_fields_wrap .form-control {
-  width: inherit;
   display: inline-block;
+  width: 100px;
+}
+
+.input_fields_wrap .bootstrap-tagsinput {
+  margin-bottom: 0;
+  height: 34px;
+  vertical-align: bottom;
+  margin-left: 40px;
+  width: 200px;
+}
+
+.add_field_button {
+  margin-top: 10px;
 }
