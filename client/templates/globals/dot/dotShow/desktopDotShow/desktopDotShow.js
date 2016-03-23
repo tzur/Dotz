@@ -304,7 +304,9 @@ Template.desktopDotShow.helpers({
   dotzNum: function() {
 
       let connectedDotz = 0;
-      if (this.dot.connectedDotzArray) {
+      if (!this.dot.showDotzCounter) {
+        return false;
+      } else if (this.dot.connectedDotzArray) {
         connectedDotz = this.dot.connectedDotzArray.length;
       }
       if (connectedDotz === 0) {
