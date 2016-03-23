@@ -2,9 +2,6 @@
 
 Template.addNewSuperTags.onRendered( () => {
 
-  //EditTags component:
-  //TBD:
-  $("._tagsInput").tagsinput('items');
 
 
   $(document).ready(function() {

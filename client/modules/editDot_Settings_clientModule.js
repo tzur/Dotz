@@ -33,11 +33,9 @@ let editDot_settings = ( dot, smartRef ) => {
       endHour: dot.startDate,
       multipleEventsNote: dot.multipleEventsNote,
 
-      selfSuperTags: dot.selfSuperTags,
-      superTagsToFilterConnectedDotz: dot.superTagsToFilterConnectedDotz
     }
   };
-  if (smartRef) {
+  if (smartRef) {   //i.e. Edit from dotCard:
     objectToEdit.smartRef = {
       parentDotId: smartRef.connection.toParentDotId,
       personalDescription: smartRef.connection.personalDescription

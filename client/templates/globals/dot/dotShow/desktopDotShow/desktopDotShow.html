@@ -254,13 +254,13 @@
 
                                     <!--Add new super tag collapse-->
 
-
-
+                                    {{#if isMyDot}}
                                     <div>
-
-                                        <a class="greyText sm2Txt" data-toggle="collapse" data-target="#addNewSuperTags" type="button"><i class="fa fa-tags"></i> Add Super Tags</a>
-
+                                        <a class="greyText sm2Txt" data-toggle="collapse" data-target="#addNewSuperTags" type="button">
+                                            <i class="fa fa-tags"></i> Add Super Tags (aka "Filters")
+                                        </a>
                                     </div>
+                                    {{/if}}
 
 
                                 </div>
@@ -268,16 +268,25 @@
                             </div>
                         </div>
 
-                                 <div id="addNewSuperTagsDiv">
-                                    <div id="addNewSuperTags" class="collapse">
+                        {{#if isMyDot}}
+                            <div id="addNewSuperTagsDiv">
+                              <div id="addNewSuperTags" class="collapse">
+                                  <div class="well superTagsWell">
 
-                                        <div class="well superTagsWell">
-                                          {{>superTags}}
-                                          {{>addNewSuperTags}}
-                                        </div>
+                                    <!--{{>superTags}}-->
+                                    {{#each superTagsToFilterConnectedDotzToEdit}}
 
-                                    </div>
-                                 </div>
+                                      {{>editSuperTags}}
+
+                                        <hr>
+                                    {{/each}}
+
+                                    {{>addNewSuperTags}}
+                                  </div>
+                              </div>
+                           </div>
+                        {{/if}}
+
 
                     </div>
                 </div>
