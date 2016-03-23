@@ -233,6 +233,10 @@ Template.desktopDotShow.helpers({
     return (this.dot.ownerUserId === Meteor.userId())
   },
 
+  superTagsToFilterConnectedDotzToEdit: function(){
+    return this.dot.superTagsToFilterConnectedDotz;
+  },
+
   actionDate: function(){
     return (moment(this.dot.createdAtDate).fromNow())
   },
