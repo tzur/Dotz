@@ -1,7 +1,25 @@
-/**
- * Created by avivhatzir on 30/11/2015.
- */
+
 Meteor.methods({
+
+  prepareMyProfile_byDotzArray(answerObj, dotOwnerUserId){
+    check(answerObj, Object);
+    check(answerObj.userDots, Array);
+    check(dotOwnerUserId, String);
+
+    let profileDotId = Meteor.user().profile.profileDotId;
+    console.log("prepareMyProfile_byDotzArray: profileDotId >>>>>>>>>>>>>>>>>>>> " + profileDotId);
+
+    answerObj.userDots.forEach(function(id){
+      // _smartRef = function (dotId, dotOwnerUserId,parentDotId, actionName, connectedByUserId ,personalDescription )
+      let newSmartRef = new Modules.both.Dotz.smartRef(id, dotOwnerUserId,
+        profileDotId, CONNECT_ACTION, Meteor.userId());
+      console.log("answerObj.userDots.forEach: newSmartRef >>>>>>>>>>>>>>>>>>>>> " + newSmartRef);
+      Meteor.call('connectDot',(newSmartRef));
+    });
+
+    Meteor.call('updateUserDotsAndTags', answerObj.userDots, answerObj.userTags);
+  },
+
 
   autoGenerateContentInsideList(quickStartListId, parentDot){
     check(quickStartListId, String);
@@ -12,7 +30,6 @@ Meteor.methods({
       let newSmartRef = new Modules.both.Dotz.smartRef(smartRef.dot._id, smartRef.dot.ownerUserId,
                         parentDot, CONNECT_ACTION, Meteor.userId());
       console.log(newSmartRef);
-
 
       Meteor.call('connectDot',(newSmartRef));
     });

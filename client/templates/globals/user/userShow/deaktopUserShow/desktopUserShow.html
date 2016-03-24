@@ -69,9 +69,22 @@
 
                 {{#if myProfile}}
                     <li class="inline-block">
+                        <!--<span class="spacer"> · </span>-->
+                    </li>
+
+                    <button type="button" id="editUserAccount-btn" class="editUserAccount-btn btn btn-full-trans btn-xs hidden-xs">
+                        <i class="fa fa-pencil"></i> Edit Profile</button>
+
+                    <li class="inline-block">
                         <span class="spacer"> · </span>
                     </li>
-                    <button type="button" id="editUserAccount-btn" class="editUserAccount-btn btn btn-full-trans btn-xs hidden-xs"><i class="fa fa-pencil"></i> Edit Profile</button>
+
+                    <a href="/guideLanding">
+                        <button type="button" id="reGuide-btn" class="btn btn-full-trans btn-xs hidden-xs">
+                            <i class="fa fa-refresh"></i> ReGuide Me</button>
+                    </a>
+
+
                 {{else}}
                     <!--Connect/Follow button-->
                         <!--{{#if feedAndFollowAllows}}-->
