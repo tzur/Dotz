@@ -4,7 +4,9 @@ function _DotFactory(
   linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
   locationObject, price, dotSubType,
   embedlyObj, FBdataObj,
-  startDateAndHour, endDateAndHour, multipleEventsNote, priceMax, currency)
+  startDateAndHour, endDateAndHour, multipleEventsNote, priceMax, currency,
+  mailContact, facebookContact, twitterContact, linkedinContact
+  )
   {
     this.linkUrl = linkUrl;
     this.title= title;
@@ -248,7 +250,9 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
         dotSubType,
         Session.get('embedlyObj'),
         Session.get('fbPostAuthorData'),
-        startDateAndHour, endDateAndHour, multipleEventsNote, priceMax, currency
+        startDateAndHour, endDateAndHour, multipleEventsNote, priceMax, currency,
+        mailContact, facebookContact, twitterContact, linkedinContact
+
       );
 
       //Go create:
