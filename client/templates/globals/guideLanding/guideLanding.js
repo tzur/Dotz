@@ -111,8 +111,8 @@ Template.guideLanding.events({
       isFullTime = false;
     }
 
-    let skillsVal = $('#skillSet').innerHTML.split(',');
-    let skills = skillsVal.length; // 5 is the max
+    // let skillsVal = .split(',');
+    let skills = $('#skillSet').length; // 5 is the max
 
     let typeVal = $('#businessType').val(); // 0 - B2B, 1 - B2C
     var type = 'B2B';
