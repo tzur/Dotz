@@ -42,6 +42,13 @@ Template.signup.events({
           else{
             Modal.hide('signUpModal');
             console.log(result + "  facebook slug");
+
+            //prepare my profile:
+            let answersObject = Session.get('answersObject');
+            if (answersObject) {
+              Modules.client.prepareMyProfile(answersObject);
+            }
+
             FlowRouter.go('/' + Meteor.user().profile.userSlug);
             Bert.alert( 'Welcome!', 'success' );
             let userCategory;
