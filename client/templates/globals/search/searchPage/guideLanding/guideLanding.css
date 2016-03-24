@@ -1,0 +1,62 @@
+#landingPageGuide-body {
+  height: 100vh;
+  background-size: cover;
+  background-position: 50%;
+  background-image: url('https://dotz-dev-images.s3.amazonaws.com/oeiL7bHQsszzXdeW7/bg3.jpg');
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.landingPageGuide-overlayer {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.21);
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  z-index: 0;
+}
+
+#landingPageGuide-header {
+  margin-top: 20vh;
+  padding-bottom: 30px;
+  border-bottom: 1px rgba(250, 250, 250, 0.47) solid;
+}
+
+#landingPageGuide-title {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 36px;
+  line-height: 48px;
+
+}
+
+#landingPageGuide-main {
+  padding-top: 6vh;
+}
+
+#landingPageGuide-questions {
+   color: #fff;
+   font-weight: 100;
+   letter-spacing: 1px;
+   font-size: 30px;
+ }
+
+#landingPageGuide-questions2 {
+  color: #fff;
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 30px;
+}
+
+#landingPageGuide-questions button {
+  border-color: transparent;
+  background-color: rgba(255,255,255,0.21);
+  color: #fff;
+
+}
