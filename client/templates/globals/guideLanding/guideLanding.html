@@ -18,42 +18,11 @@
             <div id="landingPageGuide-questions2" class="col-sm-7 col-sm-offset-2">
                 <p id="landingPageGuide-questions" class="text-left">
 
-                    I
-
-                    <!--<div class="btn-group">-->
-                        <!--<button type="button" id="quest1" class="btn btn-default btn-trans btn-md dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                            <!--Have <span class="caret"></span>-->
-                        <!--</button>-->
-                        <!--<ul class="dropdown-menu">-->
-                            <!--<li><a class="selectedAnswer" href="#" data-value="Have">Have</a></li>-->
-                            <!--<li><a href="#" data-value="Haven't got">Haven't got</a></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
+                    I have an awesome idea and I'm working on it
 
                     <form class="form-inline">
                         <div class="input-group">
-                            <select id="quest1" class="selectpicker form-control" data-live-search="true">
-                                <option>Have</option>
-                                <option>Haven't got</option>
-                            </select>
-                        </div>
-                    </form>
-
-                    an awesome idea and I'm working on it
-
-                    <!--<div class="btn-group">-->
-                        <!--<button type="button" id="quest1" class="btn btn-default btn-trans btn-md dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                            <!--by myself <span class="caret"></span>-->
-                        <!--</button>-->
-                        <!--<ul class="dropdown-menu">-->
-                            <!--<li><a href="#">by myself</a></li>-->
-                            <!--<li><a href="#">with friends</a></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-
-                    <form class="form-inline">
-                        <div class="input-group">
-                            <select id="quest2" class="selectpicker form-control" data-live-search="true">
+                            <select id="meOrFriends" class="selectpicker form-control" data-live-search="true">
                                 <option>by myself</option>
                                 <option>with friends</option>
                             </select>
@@ -62,24 +31,12 @@
 
                     . Currently it's
 
-                    <!--<div class="btn-group">-->
-                        <!--<button type="button" id="quest1" class="btn btn-default btn-trans btn-md dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                            <!--a prototype <span class="caret"></span>-->
-                        <!--</button>-->
-                        <!--<ul class="dropdown-menu">-->
-                            <!--<li><a href="#">just an idea</a></li>-->
-                            <!--<li><a href="#">on research / validation</a></li>-->
-                            <!--<li><a href="#">a prototype</a></li>-->
-                            <!--<li><a href="#">on the market</a></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-
                     <form class="form-inline">
                         <div class="input-group">
-                            <select id="quest3" class="selectpicker form-control" data-live-search="true">
+                            <select id="ideaStage" class="selectpicker form-control" data-live-search="true">
                                 <option>a prototype</option>
                                 <option>just an idea</option>
-                                <option>on research / validation</option>
+                                <option>on research</option>
                                 <option>on the market</option>
                             </select>
                         </div>
@@ -87,19 +44,9 @@
 
                     , and I'm ready to work on it on a
 
-                    <!--<div class="btn-group">-->
-                        <!--<button type="button" id="quest1" class="btn btn-default btn-trans btn-md dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                            <!--full <span class="caret"></span>-->
-                        <!--</button>-->
-                        <!--<ul class="dropdown-menu">-->
-                            <!--<li><a href="#">full</a></li>-->
-                            <!--<li><a href="#">part</a></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-
                     <form class="form-inline">
                         <div class="input-group">
-                            <select id="quest4" class="selectpicker form-control" data-live-search="true">
+                            <select id="fullOrPartTime" class="selectpicker form-control" data-live-search="true">
                                 <option>full</option>
                                 <option>part</option>
                             </select>
@@ -112,30 +59,33 @@
 
                     Hopefully, with the combination of the my skill set (
 
-                    <!--<div class="btn-group">-->
-                        <!--<button type="button" id="quest1" class="btn btn-default btn-trans btn-md dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                            <!--Tech <span class="caret"></span>-->
-                        <!--</button>-->
-                        <!--<ul class="dropdown-menu">-->
-                            <!--<li><a href="#">Tech</a></li>-->
-                            <!--<li><a href="#">BizDev</a></li>-->
-                            <!--<li><a href="#">Marketing</a></li>-->
-                            <!--<li><a href="#">Product</a></li>-->
-                            <!--<li><a href="#">Ux/Ui</a></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
+                    <dl class="dropdown1">
 
-                    <form class="form-inline">
-                        <div class="input-group">
-                            <select id="quest5" class="selectpicker form-control" data-live-search="true">
-                                <option>Tech</option>
-                                <option>BizDev</option>
-                                <option>Marketing</option>
-                                <option>Product</option>
-                                <option>Ux/Ui</option>
-                            </select>
-                        </div>
-                    </form>
+                        <dt>
+                            <a id="multiSelect" href="#">
+                                <span class="hida">Tech, BizDev</span>
+                                <p id="skillSet" class="multiSel"></p>
+                            </a>
+                        </dt>
+
+                        <dd>
+                            <div class="mutliSelect">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" value="Tech" />Tech</li>
+                                    <li>
+                                        <input type="checkbox" value="BizDev" />BizDev</li>
+                                    <li>
+                                        <input type="checkbox" value="Marketing" />Marketing</li>
+                                    <li>
+                                        <input type="checkbox" value="Product" />Product</li>
+                                    <li>
+                                        <input type="checkbox" value="Ux/Ui" />Ux/Ui</li>
+                                </ul>
+                            </div>
+                        </dd>
+
+                    </dl>
 
                     ) and the right guidance - the sky is the limit.
 
@@ -145,9 +95,21 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-8 colCenter text-right">
-                <button class="btn btn-default btn-md">Guide me</button>
+
+
+            <div class="col-sm-4 colCenter">
+
+              {{>signup}}
+
+              <div class="or-wrapper txtMd ">
+                  <a class="" role="button">
+                      <span class="txtMd smTxt lightGrey"><p><u>Haven't got an idea? check this out</u></p></span>
+                  </a>
+              </div>
+
             </div>
+
+
         </div>
 
 
