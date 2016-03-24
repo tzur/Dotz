@@ -65,3 +65,111 @@
 #landingPageGuide-main .form-inline {
   display: inline;
 }
+
+
+/*THE MULTISELECT*/
+
+
+#landingPageGuide-body dl {
+  margin: 0;
+}
+
+.dropdown1 {
+  /*position: relative;*/
+  /*top:50%;*/
+  /*transform: translateY(-50%);*/
+  display: inline-block;
+}
+
+a {
+  color: #fff;
+}
+
+.dropdown1 dd,
+.dropdown1 dt {
+  margin: 0px;
+  padding: 0px;
+}
+
+.dropdown1 ul {
+  margin: -1px 0 0 0;
+}
+
+.dropdown1 dd {
+  position: relative;
+}
+
+.dropdown1 a,
+.dropdown1 a:visited {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+  font-size: 12px;
+}
+
+.dropdown1 dt a {
+  background-color: #FFFFFF;
+  display: inline-table;
+  color: #FCFCFC;
+  padding: 14px 20px 0px 10px;
+  height: 36px;
+  /* min-height: 21px; */
+  line-height: 10px;
+  overflow: hidden;
+  border: 0;
+  /* width: inherit; */
+}
+
+.dropdown1 dt a span,
+.multiSel span {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 3px 2px 0;
+}
+
+.dropdown1 dd ul {
+  background-color: #4F6877;
+  border: 0;
+  color: #fff;
+  display: none;
+  left: 0px;
+  padding: 2px 15px 2px 5px;
+  position: absolute;
+  top: 2px;
+  width: 190px;
+  list-style: none;
+  height: 100px;
+  overflow: auto;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.dropdown1 span.value {
+  display: none;
+}
+
+.dropdown1 dd ul li a {
+  padding: 5px;
+  display: block;
+}
+
+.dropdown1 dd ul li a:hover {
+  background-color: #fff;
+}
+
+button {
+  background-color: #6BBE92;
+  width: 302px;
+  border: 0;
+  padding: 10px 0;
+  margin: 5px 0;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+#multiSelect {
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 28px;
+}

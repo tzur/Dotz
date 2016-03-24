@@ -193,6 +193,18 @@ Template.desktopUserShow.helpers({
 
   },
 
+  relatedDotzArray: function() {
+    //let userId = this._id;
+    //if (userId){
+    //  return Modules.client.relatedDotzArray(userId);
+    //}
+    let profileDot = Dotz.findOne(this.profile.profileDotId);
+    if (profileDot){
+      return profileDot.relatedDotzArray;
+    }
+
+  },
+
   dataForCreateInMyProfile: function() {
     return ( {
       parentDotId: Meteor.user().profile.profileDotId
