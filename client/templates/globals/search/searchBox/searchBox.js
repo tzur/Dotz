@@ -26,7 +26,7 @@ Template.searchBox.events({
     //});
 
     //TODO: we need to check this operation on mobile devices.. @otni
-    let algoliaIndicesArray = ["links_DOTZ", "medias_DOTZ", "places_DOTZ", "events_DOTZ", "persons_DOTZ", "lists_DOTZ", "users_DOTZ"];
+    let algoliaIndicesArray = ["the_guide_DOTZ", "users_DOTZ"];
     algoliaIndicesArray.forEach(index => {
       Modules.client.searchByAlgolia(index, $('#_searchBoxInput').val() , function(error, content) {
         if(content){

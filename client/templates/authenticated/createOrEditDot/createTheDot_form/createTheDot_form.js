@@ -178,7 +178,7 @@ Template.createTheDot_form.events({
     }
 
     //TODO: we need to check this operation on mobile devices.. @otni
-    Modules.client.searchByAlgolia("lists_DOTZ", inputToSearch , function(error, content) {
+    Modules.client.searchByAlgolia("the_guide_DOTZ", inputToSearch , function(error, content) {
       if(content){
         Session.set("lists_DOTZ", content.hits);
       }

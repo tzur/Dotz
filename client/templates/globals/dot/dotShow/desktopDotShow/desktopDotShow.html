@@ -256,7 +256,7 @@
 
                                     {{#if isMyDot}}
                                     <div>
-                                        <a class="greyText sm2Txt" data-toggle="collapse" data-target="#addNewSuperTags" type="button">
+                                        <a id="_showAddSuperTagsToFilter" class="greyText sm2Txt" data-toggle="collapse" data-target="#addNewSuperTags" type="button">
                                             <i class="fa fa-tags"></i> Add Super Tags (aka "Filters")
                                         </a>
                                     </div>
@@ -271,18 +271,23 @@
                         {{#if isMyDot}}
                             <div id="addNewSuperTagsDiv">
                               <div id="addNewSuperTags" class="collapse">
-                                  <div class="well superTagsWell">
 
+                              {{#if showAddSuperTagsToFilter}}
+                                  <div class="well superTagsWell">
                                     <!--{{>superTags}}-->
                                     {{#each superTagsToFilterConnectedDotzToEdit}}
-
                                       {{>editSuperTags}}
-
                                         <hr>
                                     {{/each}}
-
                                     {{>addNewSuperTags}}
                                   </div>
+
+                                  <div class="pull-right">
+                                      <a id="_saveSupertags" class="pull-right btn btn-primary btn-sm"
+                                         data-toggle="collapse" data-target="#addNewSuperTags" type="button">Save Super-Tags</a>
+                                  </div>
+                            {{/if}}
+
                               </div>
                            </div>
                         {{/if}}
