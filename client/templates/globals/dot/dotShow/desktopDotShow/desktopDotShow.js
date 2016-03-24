@@ -423,6 +423,10 @@ Template.desktopDotShow.helpers({
 
   resultsFromFilteringByTags: function(){
     return Session.get('resultsFromFilteringByTags');
+  },
+
+  showAddSuperTagsToFilter: function(){
+    return Session.get('_showAddSuperTagsToFilter');
   }
 
 });
@@ -449,11 +453,12 @@ Template.desktopDotShow.events({
       facets: '*',
       facetFilters: [
         'inDotz:' + thisDotId,
-        'selfSuperTags.parentTag:Tel1',
-        'selfSuperTags.subTags:aa'
+        'selfSuperTags.parentTag:Location',
+        'selfSuperTags.subTags:Tel-Aviv'
       ]
     };
-    Modules.client.searchByAlgolia("lists_DOTZ", inputToSearch , function(error, content) {
+
+    Modules.client.searchByAlgolia("the_guide_DOTZ", inputToSearch , function(error, content) {
       if(content){
         Session.set("resultsFromFilteringByTags", content.hits);
       }
@@ -461,6 +466,16 @@ Template.desktopDotShow.events({
         console.log("Error, on index: resultsFromFilteringByTags " + " >>>> search failed : " + error)
       }
     });
+  },
+
+  'click #_saveSupertags': function (e){
+    event.preventDefault();
+
+    Modules.client.editSuperTagsToFilterDot(this.dot);
+  },
+
+  'click #_showAddSuperTagsToFilter': function (e){
+    Session.set('_showAddSuperTagsToFilter', true);
   },
 
   'click #fixedFooter-desktopDotShow': function(){

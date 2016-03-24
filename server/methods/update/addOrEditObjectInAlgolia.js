@@ -32,7 +32,7 @@ Meteor.methods({
           //  docIndex = "lists_DOTZ";
           //}
           //TBD:
-          docIndex = "lists_DOTZ";
+          docIndex = "the_guide_DOTZ";
 
           //currentDoc.inDotz = currentDoc.inDotz.length + currentDoc.totalUpvotes.length;
 
@@ -90,7 +90,7 @@ Meteor.methods({
         //  index = client.initIndex("lists_DOTZ");
         //}
 
-        index = client.initIndex("lists_DOTZ");
+        index = client.initIndex("the_guide_DOTZ");
 
         // delete the record with objectID="dotId":
         index.deleteObject(dotId, function(err) {
