@@ -23,8 +23,12 @@
                     <form class="form-inline">
                         <div class="input-group">
                             <select id="businessType" class="form-control" data-live-search="true">
-                                <option>B2B</option>
-                                <option>B2C</option>
+                                <ul>
+                                    <li><option value="B2B">B2B</option></li>
+                                    <li><option value="B2C">B2C</option></li>
+                                </ul>
+
+
                             </select>
                         </div>
                     </form>
@@ -34,21 +38,21 @@
                     <form class="form-inline">
                         <div class="input-group">
                             <select id="meOrFriends" class="form-control" data-live-search="true">
-                                <option>by myself</option>
-                                <option>with friends</option>
+                                <option value="myself">by myself.</option>
+                                <option value="friends">with friends.</option>
                             </select>
                         </div>
                     </form>
 
-                    . Currently it's
+                    Currently it's
 
                     <form class="form-inline">
                         <div class="input-group">
                             <select id="ideaStage" class="form-control" data-live-search="true">
-                                <option>just an idea</option>
-                                <option>on research</option>
-                                <option>a prototype</option>
-                                <option>on the market</option>
+                                <option value="idea">just an idea</option>
+                                <option value="research">on research</option>
+                                <option value="prototype">a prototype</option>
+                                <option value="lunched">on the market</option>
                             </select>
                         </div>
                     </form>
@@ -58,8 +62,8 @@
                     <form class="form-inline">
                         <div class="input-group">
                             <select id="fullOrPartTime" class="form-control" data-live-search="true">
-                                <option>full</option>
-                                <option>part</option>
+                                <option value="full">full</option>
+                                <option value="part">part</option>
                             </select>
                         </div>
                     </form>
@@ -68,7 +72,7 @@
 
                     <br><br>
 
-                    Hopefully, with the combination of the my skill set (
+                    Hopefully, with the combination of my skill set (
 
                     <dl class="dropdown1">
 
@@ -105,7 +109,7 @@
 
         </div>
 
-        <div class="row">
+        <div id="actionLandingGuide" class="row">
 
 
             <div class="col-sm-4 colCenter">
@@ -118,6 +122,14 @@
                   </a>
               </div>
 
+            </div>
+
+            <div id="signup-login-bottom-links-div" class="row exploreGuideBtn-div">
+              <div id="_exploreGuideBtn" class="text-right">
+                <a href="/the-guide">
+                 <span>Explore</span>
+                </a>
+              </div>
             </div>
 
 

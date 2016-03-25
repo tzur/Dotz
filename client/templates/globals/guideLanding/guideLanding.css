@@ -6,12 +6,13 @@
   font-family: 'Fira Sans', sans-serif;
 }
 
+
 .landingPageGuide-overlayer {
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.21);
+  background-color: rgba(0, 0, 0, 0.33);
 
   position: absolute;
   width: 100%;
@@ -23,7 +24,7 @@
 
 #landingPageGuide-header {
   margin-top: 12vh;
-  padding-bottom: 30px;
+  padding-bottom: 8px;
   border-bottom: 1px rgba(250, 250, 250, 0.47) solid;
 }
 
@@ -52,28 +53,45 @@
   font-weight: 100;
   letter-spacing: 1px;
   font-size: 24px;
+  line-height: 38px;
 }
 
 #landingPageGuide-questions2 select {
-  /*border-color: transparent;*/
-  /*background-color: rgba(255,255,255,0.21);*/
-  /*color: #fff;*/
-  background-color: rgba(250, 250, 250, 0.15);
-  color: #fff;
-  font-size: 24px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  padding-bottom: 0;
-  height: 38px;
-  margin-bottom: 10px;
-  cursor: pointer;
+   /*border-color: transparent;*/
+   /*background-color: rgba(255,255,255,0.21);*/
+   /*color: #fff;*/
+   background-color: rgba(250, 250, 250, 0.15);
+   color: #fff;
+   font-size: 24px;
+   border-top: none;
+   border-left: none;
+   border-right: none;
+   padding-bottom: 0;
+   height: 38px;
+   /*margin-bottom: 10px;*/
+   cursor: pointer;
+   border-bottom: #fafafa 1px solid;
+ }
+
+#landingPageGuide-questions2 option {
+  background-color: #fafafa;
+  color: #333;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 100;
 }
 
 #landingPageGuide-main .form-inline {
-  display: inline;
+  display: inline-block;
+  vertical-align: text-bottom;
 }
 
+#actionLandingGuide {
+  margin-top: 70px;
+}
+
+.exploreGuideBtn-div {
+
+}
 
 
 
@@ -135,24 +153,29 @@
   cursor: pointer;
   display: inline-block;
   padding: 0 3px 2px 0;
+  color: #fff;
 }
 
 .dropdown1 dd ul {
-  background-color: #4F6877;
   border: 0;
-  color: #fff;
   display: none;
   left: 0px;
   padding: 2px 15px 2px 5px;
   position: absolute;
   top: -2px;
-  width: 190px;
   list-style: none;
   height: inherit;
   z-index: 2;
   overflow: auto;
   font-size: 20px;
   padding-left: 10px;
+  width: 100%;
+  min-width: 180px;
+
+  background-color: #fafafa;
+  color: #333;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 100;
 }
 
 .dropdown1 span.value {
@@ -172,7 +195,17 @@
 #multiSelect {
   font-weight: 100;
   letter-spacing: 1px;
-  font-size: 28px;
+  background-color: rgba(250, 250, 250, 0.15);
+  color: #fff;
+  font-size: 24px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding-bottom: 0;
+  height: 38px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  border-bottom: #fafafa 1px solid;
 }
 
 .dropdown1 input[type="checkbox"] {
