@@ -198,8 +198,9 @@ Template.desktopUserShow.helpers({
     //if (userId){
     //  return Modules.client.relatedDotzArray(userId);
     //}
+    //let profileDot = Dotz.findOne(this.profile.profileDotId);
     let profileDot = Dotz.findOne(this.profile.profileDotId);
-    if (profileDot && profileDot.relatedDotzArray){
+    if (profileDot){
       return profileDot.relatedDotzArray;
     }
 

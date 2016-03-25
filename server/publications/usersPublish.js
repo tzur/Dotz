@@ -35,7 +35,9 @@ Meteor.publish('userByUserSlug', function(userSlug){
           "profile.websiteUrl": 1,
           "profile.facebookAccountUrl": 1,
           "profile.twitterAccountUrl": 1,
-          "profile.googleAccountUrl": 1}
+          "profile.googleAccountUrl": 1,
+          "profile.relatedDotzArray": 1
+        }
         }),
 
       Dotz.find({_id: { $in: [user.profile.profileDotId, user.profile.shareDotId] }}, //TBD
