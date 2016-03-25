@@ -11,7 +11,13 @@ Template.searchResultCard_in_CreateTheDot.events({
   'click #_reconnectDotToParentDot': function(){
     let currentDot = this.dot;
     let parentDot = Template.parentData(3).dot;
-    Meteor.call('checkIfUserAuthoriseForConnect', parentDot._id, function(error, result){
+    let parentDotId;
+    if (parentDot) {
+      parentDotId = parentDot._id;
+    } else {
+      parentDotId = Meteor.user().profileDotId;
+    }
+    Meteor.call('checkIfUserAuthoriseForConnect', parentDotId, function(error, result){
       if(result === true){
 
         //TBD:

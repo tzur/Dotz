@@ -3,7 +3,7 @@ Template.guideLanding.onRendered(function(){
 
   $('body').addClass('guideLoadingBg');
 
-  $("#loginFacebookBtn").html('<i class="fa fa-facebook"></i>' + ' Guide Me');
+  $("#loginFacebookBtn").html('<i class="fa fa-facebook"></i>' + ' Discover');
 
   $(".dropdown1 dt a").on('click', function() {
     $(".dropdown1 dd ul").slideToggle('fast');

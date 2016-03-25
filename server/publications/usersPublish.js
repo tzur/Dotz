@@ -35,14 +35,17 @@ Meteor.publish('userByUserSlug', function(userSlug){
           "profile.websiteUrl": 1,
           "profile.facebookAccountUrl": 1,
           "profile.twitterAccountUrl": 1,
-          "profile.googleAccountUrl": 1}
+          "profile.googleAccountUrl": 1
+        }
         }),
 
-      Dotz.find({_id: { $in: [user.profile.profileDotId, user.profile.shareDotId] }}, //TBD
+      Dotz.find({_id: user.profile.profileDotId}, //TBD
         {fields: {
           "isOpen": 1,
           "ownerUserId": 1,
-          "connectedDotzArray": 1}
+          "connectedDotzArray": 1,
+          "relatedDotzArray": 1
+        }
         }),
 
       UserConnections.find({userId: user._id} //TBD: right now we are actually publishing the full Doc :(

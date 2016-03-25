@@ -26,7 +26,7 @@ Template.desktopUserShow.onCreated(function() {
               let userSlug = Meteor.user().profile.userSlug;
               FlowRouter.go( '/' + userSlug );
             } else {
-              FlowRouter.go('/dotz');
+              FlowRouter.go('/');
             }
         } else if (user) {
           //console.log("$$$$$$$$ user.username " + user.username);
@@ -198,8 +198,9 @@ Template.desktopUserShow.helpers({
     //if (userId){
     //  return Modules.client.relatedDotzArray(userId);
     //}
+    //let profileDot = Dotz.findOne(this.profile.profileDotId);
     let profileDot = Dotz.findOne(this.profile.profileDotId);
-    if (profileDot && profileDot.relatedDotzArray){
+    if (profileDot){
       return profileDot.relatedDotzArray;
     }
 
