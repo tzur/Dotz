@@ -98,6 +98,9 @@ Template.guideLanding.events({
     const TOOLS = '32an4gFBdTRgMt9FH';
     const MUST_READ = 'vBhXy6JXseANiJqcr';
 
+    let userDots = [];
+    let userTags = [];
+
     let aloneVal = $('#meOrFriends').val(); // 0 - alone, 1 - withOthers
     var isAlone = true;
     if (aloneVal == 1) {
@@ -132,9 +135,6 @@ Template.guideLanding.events({
     } else {
       userTags.push('Launched');
     }
-
-    let userDots = [];
-    let userTags = [];
 
     // Build User tags
     userTags.push(type);
