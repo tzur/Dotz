@@ -46,6 +46,13 @@ function _DotFactory(
     this.startDateAndHour = startDateAndHour;
     this.endDateAndHour = endDateAndHour;
     this.multipleEventsNote = multipleEventsNote;
+
+    //person
+    this.mailContact = mailContact;
+    this.facebookContact = facebookContact;
+    this.twitterContact = twitterContact;
+    this.linkedinContact = linkedinContact;
+
   }
 
 
@@ -206,7 +213,12 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       //event:
       multipleEventsNote: multipleEventsNote,
       startDateAndHour: startDateAndHour,
-      endDateAndHour: endDateAndHour
+      endDateAndHour: endDateAndHour,
+      mailContact: mailContact,
+      facebookContact: facebookContact,
+      twitterContact: twitterContact,
+      linkedinContact: linkedinContact
+
     };
 
     //let editedDotId = editedDot._id.toString();
