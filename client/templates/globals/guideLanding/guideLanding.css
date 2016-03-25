@@ -208,11 +208,12 @@
   /* width: inherit; */
 }
 
-.dropdown1 dt a span,
-.multiSel span {
+
+.dropdown1 dt a span, .multiSel span {
   cursor: pointer;
-  display: inline-block;
+  display: table-cell;
   padding: 0 3px 2px 0;
+  float: right;
   color: #fff;
   line-height: 22px;
 }
