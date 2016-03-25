@@ -232,7 +232,7 @@ Template.guideLanding.events({
     debugDots.push('MUST_READ');
 
     // Build the result object and send it through session
-    let answerObject = {'userDots': userDots, 'userTags': userTags, 'debugSkills' : skills, debugDots: debugDots};
+    let answerObject = {'userDots': userDots, 'userTags': userTags, 'debugSkills' : skills, 'debugDots': debugDots, 'debugChoice': debugChoice};
     Session.set('answerObject', answerObject);
   }
   //'click .selectedAnswer':function(){
