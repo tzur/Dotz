@@ -1,5 +1,6 @@
 #landingPageGuide-body {
   height: 100vh;
+  position: relative;
   background-size: cover;
   background-position: 50%;
   background-image: url('https://dotz-dev-images.s3.amazonaws.com/oeiL7bHQsszzXdeW7/bg3.jpg');
@@ -18,10 +19,10 @@
   background-color: rgba(0, 0, 0, 0.33);
 
   position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  margin: 0px;
+  /*width: 100%;*/
+  /*height: 100%;*/
+  /*padding: 0px;*/
+  /*margin: 0px;*/
   z-index: 0;
 }
 
@@ -117,7 +118,8 @@
 }
 
 #actionLandingGuide {
-  margin-top: 70px;
+  margin-top: 60px;
+  margin-bottom: 30px;
 }
 
 @media (max-width: 767px) {
@@ -208,14 +210,19 @@
   /* width: inherit; */
 }
 
-
-.dropdown1 dt a span, .multiSel span {
+.dropdown1 dt a span,
+.multiSel span {
   cursor: pointer;
-  display: table-cell;
+  display: inline-block;
   padding: 0 3px 2px 0;
-  float: right;
   color: #fff;
   line-height: 22px;
+}
+
+.dropdown1 dt a .caret {
+  position: absolute;
+  right: 4px;
+  top: 20px;
 }
 
 .dropdown1 dd ul {
@@ -262,6 +269,10 @@
 
 
 #multiSelect {
+  position: relative;
+  vertical-align: middle;
+  padding-top: 0;
+
   font-weight: 100;
   letter-spacing: 1px;
   background-color: rgba(250, 250, 250, 0.15);
@@ -287,4 +298,8 @@
   margin: 4px 8px 0 0;
   margin-top: 1px \9;
   line-height: normal;
+}
+
+#multiSelect #skillSet{
+  margin-top: 7px;
 }
