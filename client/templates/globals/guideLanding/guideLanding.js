@@ -1,6 +1,10 @@
 
 Template.guideLanding.onRendered(function(){
 
+  $('body').addClass('guideLoadingBg');
+
+  $("#loginFacebookBtn").html(' Guide Me');
+
   $(".dropdown1 dt a").on('click', function() {
     $(".dropdown1 dd ul").slideToggle('fast');
   });
@@ -41,6 +45,10 @@ Template.guideLanding.onRendered(function(){
 
 
 Template.guideLanding.onDestroyed(function(){
+
+  $('body').removeClass('guideLoadingBg');
+
+  $("#loginFacebookBtn").html(' Login with Facebook');
 
 });
 

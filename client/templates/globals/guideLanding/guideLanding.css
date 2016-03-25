@@ -6,6 +6,9 @@
   font-family: 'Fira Sans', sans-serif;
 }
 
+.guideLoadingBg {
+  background-color: #101316;
+}
 
 .landingPageGuide-overlayer {
   top: 0;
@@ -89,10 +92,26 @@
   margin-top: 70px;
 }
 
-.exploreGuideBtn-div {
-
+#exploreGuideBtn-div {
+  font-weight: 700;
+  position: absolute;
+  bottom: 3vh;
+  width: 100%;
 }
 
+@media (max-width: 767px) {
+  #exploreGuideBtn-div {
+    font-weight: 700;
+    margin-top: 50px;
+    width: 100%;
+    position: relative;
+  }
+}
+
+#exploreGuideBtn-div a span {
+  color: #ffffff;
+  padding-left: 1em;
+}
 
 
 /*THE MULTISELECT*/
