@@ -24,7 +24,7 @@ Template.searchResultCard_in_CreateTheDot.events({
         let personalDescription = $('#personalDescription').val();
 
         let smartRef = new Modules.both.Dotz.smartRef(currentDot._id, currentDot.ownerUserId,
-          parentDot._id, CONNECT_ACTION, Meteor.userId(), personalDescription);
+          parentDotId, CONNECT_ACTION, Meteor.userId(), personalDescription);
 
         Meteor.call('connectDot', smartRef,  function(error, result){
           if (!error) {
