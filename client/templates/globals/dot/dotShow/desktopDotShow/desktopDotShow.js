@@ -23,7 +23,7 @@ Template.desktopDotShow.onCreated(function() {
             Bert.alert('Page does not exist', 'danger');
           }
           else{
-            var title = "Dotz: " + dotShow.title;
+            var title = dotShow.title;
             DocHead.setTitle(title);
           }
         }

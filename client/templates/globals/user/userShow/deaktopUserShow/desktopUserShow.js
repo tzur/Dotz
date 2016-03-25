@@ -30,7 +30,7 @@ Template.desktopUserShow.onCreated(function() {
             }
         } else if (user) {
           //console.log("$$$$$$$$ user.username " + user.username);
-          var title = "Dotz: " + user.username;
+          var title = user.username;
           DocHead.setTitle(title);
           let userPageInfo = "User show: " + user.username;
           if(!Session.get('landingPageCategory') && user.roles){
