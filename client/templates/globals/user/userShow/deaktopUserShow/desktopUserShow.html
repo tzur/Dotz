@@ -68,6 +68,8 @@
                 </ul></span>
 
                 {{#if myProfile}}
+                  <!--<div class="inline-block">-->
+
                     <li class="inline-block">
                         <!--<span class="spacer"> · </span>-->
                     </li>
@@ -83,8 +85,7 @@
                         <button type="button" id="reGuide-btn" class="btn btn-full-trans btn-xs hidden-xs">
                             <i class="fa fa-refresh"></i> ReGuide Me</button>
                     </a>
-
-
+                  <!--</div>-->
                 {{else}}
                     <!--Connect/Follow button-->
                         <!--{{#if feedAndFollowAllows}}-->
@@ -128,6 +129,7 @@
 
     <!--relatedDotzArray-->
 
+{{#if relatedDotzArray}}
 <div id="userShowMainDiv" class="container-fluid">
 <div class="row">
     <div class="col-xs-12 col-sm-10 col-lg-9 colCenter">
@@ -139,6 +141,7 @@
 
 </div>
 </div>
+{{/if}}
 
 
 <!-- Add new dot_form: -->
