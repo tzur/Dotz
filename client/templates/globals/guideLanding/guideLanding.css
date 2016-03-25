@@ -123,6 +123,7 @@
 @media (max-width: 767px) {
   #actionLandingGuide {
     margin-top: 50px;
+    margin-bottom: 40px;
   }
 }
 
@@ -140,6 +141,11 @@
     margin-top: 50px;
     width: 100%;
     position: relative;
+    display: none;
+  }
+
+  #noIdeaConnect {
+    display: none;
   }
 }
 
@@ -231,6 +237,13 @@
   color: #333;
   font-family: 'Fira Sans', sans-serif;
   font-weight: 100;
+}
+
+@media (max-width: 767px) {
+  .dropdown1 dd ul {
+    top: inherit;
+    bottom: 50px;
+  }
 }
 
 .dropdown1 span.value {
