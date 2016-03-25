@@ -445,7 +445,7 @@ Template.desktopDotShow.events({
     //TODO: we need to check this operation on mobile devices.. @otni
 
     let thisDotId = Session.get('dataOnTheAir').dot._id;
-    thisDotId = '8knwDpjdoRkssYYjZ';
+    //thisDotId = '8knwDpjdoRkssYYjZ';
 
     let inputToSearch = {
       facets: '*',
