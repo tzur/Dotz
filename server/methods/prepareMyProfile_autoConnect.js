@@ -17,6 +17,8 @@ Meteor.methods({
       Meteor.call('connectDot',(newSmartRef));
     });
 
+    Modules.both.relatedDotzArray();
+
     Meteor.call('updateUserDotsAndTags', answerObj.userDots, answerObj.userTags);
   },
 

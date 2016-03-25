@@ -98,43 +98,64 @@ Template.guideLanding.events({
     const TOOLS = '32an4gFBdTRgMt9FH';
     const MUST_READ = 'vBhXy6JXseANiJqcr';
 
-    let aloneVal = $('#meOrFriends').val(); // 0 - alone, 1 - withOthers
+    let userDots = [];
+    let userTags = [];
+
+    let debugDots = [];
+    let debugChoice = [];
+
+    let aloneVal = parseInt($('#meOrFriends').val()); // 0 - alone, 1 - withOthers
     var isAlone = true;
     if (aloneVal == 1) {
       // Choose with others
       isAlone = false;
+      debugChoice.push('NOT_ALONE');
+    } else {
+      debugChoice.push('ALONE');
     }
 
-    let workingFullTimeVal = $('#fullOrPartTime').val(); // 0 - Full Time 1 - Half Time
+
+    let workingFullTimeVal = parseInt($('#fullOrPartTime').val()); // 0 - Full Time 1 - Half Time
     var isFullTime = true;
     if (workingFullTimeVal == 1) {
+      debugChoice.push('NOT_FULL_TIME');
       isFullTime = false;
+    } else {
+      debugChoice.push('FULL_TIME');
     }
 
-    let skillsVal = $('#skillSet').innerHTML.split(',');
-    let skills = skillsVal.length; // 5 is the max
+    // let skillsVal = .split(',');
+    let skills = $('#skillSet').length; // 5 is the max
+    debugChoice.push(skills);
 
-    let typeVal = $('#businessType').val(); // 0 - B2B, 1 - B2C
+    let typeVal = parseInt($('#businessType').val()); // 0 - B2B, 1 - B2C
     var type = 'B2B';
     var isB2B = true;
     if (typeVal == 1) {
       // Choose B2C
       type = 'B2C';
       isB2B = false;
+      debugChoice.push('B2C');
+    } else {
+      debugChoice.push('B2B');
     }
 
-    let stateVal = $('#ideaStage').val(); // 0 - Idea, 1 - Research, 2 - POC, 3 - Launched, 4 - Lunched & Paying costumers
+    let stateVal = parseInt($('#ideaStage').val()); // 0 - Idea, 1 - Research, 2 - POC, 3 - Launched, 4 - Lunched & Paying costumers
 
     if (stateVal < 2) {
+      if (stateVal == 1) {
+        debugChoice.push('Research');
+      } else {
+        debugChoice.push('Idea');
+      }
       userTags.push('Idea');
     } else if (stateVal == 2) {
+      debugChoice.push('POC');
       userTags.push('POC');
     } else {
+      debugChoice.push('Launched');
       userTags.push('Launched');
     }
-
-    let userDots = [];
-    let userTags = [];
 
     // Build User tags
     userTags.push(type);
@@ -146,17 +167,20 @@ Template.guideLanding.events({
       if (skills < MAX_SKILLS) {
         // Alone & don't have all skills --> Need Team
         pushTeam = true;
+        debugDots.push('TEAM-1');
       }
     } else {
       if (isB2B) {
         if (skills < 2) {
           // Not Alone, but have less than 2 skills and B2B --> Need Team
           pushTeam = true;
+          debugDots.push('TEAM-2');
         }
       } else {
         if (skills < 3) {
           // Not Alone, but have less than 3 skills and B2C --> Need Team
           pushTeam = true;
+          debugDots.push('TEAM-3');
         }
       }
     }
@@ -168,17 +192,23 @@ Template.guideLanding.events({
     if (stateVal == 0) {
       // In Idea stage
       userDots.push(MARKET_RESEARCH); // Market Research
+      debugDots.push('MARKET_RESEARCH');
     }
 
     if (stateVal < 2) {
       // Before Research
       if (isB2B) {
         userDots.push(EVENTS); // Events
+        debugDots.push('EVENTS');
         userDots.push(MENTOR); // Mentor
+        debugDots.push('MENTOR');
         userDots.push(PRODUCT_VALIDATION); // Product Validation
+        debugDots.push('PRODUCT_VALIDATION');
       } else {
         userDots.push(PRODUCT_VALIDATION); // Product Validation
+        debugDots.push('PRODUCT_VALIDATION');
         userDots.push(EVENTS); // Events
+        debugDots.push('EVENTS');
       }
     }
 
@@ -186,19 +216,25 @@ Template.guideLanding.events({
       // Before Prototype
       if (isB2B == false) {
         userDots.push(MENTOR); // Mentor
+        debugDots.push('MENTOR');
       }
       if (isFullTime) {
         userDots.push(ACCELERATOR); // Accelerator
+        debugDots.push('ACCELERATOR');
       }
     }
 
     userDots.push(INVESTORS); // Investors
+    debugDots.push('INVESTORS');
     userDots.push(SERVICE_PROVIDERS); // Service Providers
+    debugDots.push('SERVICE_PROVIDERS');
     userDots.push(TOOLS); // Tools
+    debugDots.push('TOOLS');
     userDots.push(MUST_READ); // Must Read
+    debugDots.push('MUST_READ');
 
     // Build the result object and send it through session
-    let answerObject = {'userDots': userDots, 'userTags': userTags};
+    let answerObject = {'userDots': userDots, 'userTags': userTags, 'debugSkills' : skills, 'debugDots': debugDots, 'debugChoice': debugChoice};
     Session.set('answerObject', answerObject);
   }
   //'click .selectedAnswer':function(){
