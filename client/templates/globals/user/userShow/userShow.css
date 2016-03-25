@@ -71,6 +71,14 @@
     /*z-index: 2;*/
 }
 
+#relatedDotzArray {
+  background-color: #FFFFFF;
+}
+
+#relatedDotzArray hr {
+  margin-top: 1px;
+}
+
 .userNameTitle {
   font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, 'Roboto', sans-serif, Arial;
   color: rgba(75, 79, 84, 1);
