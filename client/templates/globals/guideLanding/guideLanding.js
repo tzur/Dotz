@@ -24,7 +24,7 @@ Template.guideLanding.onRendered(function(){
       title = $(this).val() + ",";
 
     if ($(this).is(':checked')) {
-      var html = '<span title="' + title + '">' + title + '</span>';
+      var html = '<span id="selectedSkillInDrop" title="' + title + '">' + title + '</span>';
       $('.multiSel').append(html);
       $(".hida").hide();
     } else {
@@ -125,7 +125,7 @@ Template.guideLanding.events({
     }
 
     // let skillsVal = .split(',');
-    let skills = $('#skillSet').length; // 5 is the max
+    let skills = $("span[id='selectedSkillInDrop']").length; // 5 is the max
     debugChoice.push(skills);
 
     let typeVal = parseInt($('#businessType').val()); // 0 - B2B, 1 - B2C
