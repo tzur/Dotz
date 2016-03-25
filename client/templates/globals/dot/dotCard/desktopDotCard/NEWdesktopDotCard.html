@@ -223,7 +223,7 @@
                             <li class="connect"><a><i class="mdGrey fa fa-plus-circle"></i> ReConnect</a></li>
 
                         {{/if}}
-                            <li class="addTags"><a><i class="mdGrey fa fa-tags"></i> Add Tags</a></li>
+                            <!--<li class="addTags"><a><i class="mdGrey fa fa-tags"></i> Add Tags</a></li>-->
                         {{#if isMyDot}}
                             <li id="_editDotCardBtn"><a><i class="mdGrey fa fa-pencil"></i> Edit</a></li>
                             <li role="separator" class="divider"></li>
@@ -242,11 +242,18 @@
               </div>
 
 
-                <div id="dotCardBox-Desktop-Reconnected-div" class="col-sm-8 pull-right lightGrey">
+                <div id="dotCardBox-Desktop-Reconnected-div" class="col-sm-8 pull-right lightGrey noPadding">
                   {{#if actionNameIsConnect}}
                     <i class="fa fa-retweet"></i>
                     <span>ReConnected by {{connectedByUser.username}}</span>
                   {{/if}}
+                    &nbsp;
+                    <span>
+                    <button class="addTags btn btn-full-trans btn-xs lightGrey normalTxt pull-right">
+                        <a><i class="lightGrey fa fa-tags"></i></a>
+                    </button>
+                    </span>
+
                 </div>
 
 
