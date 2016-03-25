@@ -49,7 +49,7 @@
                             <!--Stay tuned button-->
 
 
-                            <button type="button" class="follow btn btn-trans btn-sm mdGrey"><i class="fa fa-bullhorn"></i> &nbsp;Stay Tuned</button>
+                            <!--<button type="button" class="follow btn btn-trans btn-sm mdGrey"><i class="fa fa-bullhorn"></i> &nbsp;Stay Tuned</button>-->
 
 
                             <!--ReConnect button-->
@@ -276,7 +276,7 @@
                                     {{#each dot.superTagsToFilterConnectedDotz}}
 
                                       <div class="parentTag">
-                                          <button class="btn btn-parentTag btn-xs _sendTagValueToSearch" data-toggle="collapse" data-target="#{{_id}}-group" value="{{parentTag}}" type="submit">{{parentTag}}</button>
+                                          <button class="btn btn-parentTag btn-xs _sendTagValueToSearch" data-toggle="collapse" data-target="#{{_id}}-group" value="{{parentTag}}" type="button">{{parentTag}}</button>
 
                                           {{#if subTags}}
                                               <span id="{{_id}}-group" class="subTagsGroup collapse">
@@ -360,7 +360,7 @@
                                 <div class="text-center">
                                     <br><br>
                                     <h4>Stay tuned for updates :)</h4>
-                                    <button type="button" class="follow btn btn-trans btn-sm mdGrey"><i class="fa fa-bullhorn"></i> &nbsp;Stay Tuned</button>
+                                    <!--<button type="button" class="follow btn btn-trans btn-sm mdGrey"><i class="fa fa-bullhorn"></i> &nbsp;Stay Tuned</button>-->
                                 </div>
                               {{/if}}
                           {{/each}}

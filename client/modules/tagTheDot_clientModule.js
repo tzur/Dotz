@@ -17,6 +17,13 @@ let tagTheDot = () => {
         console.log("updateDot error >>> " + error)
       } else {
         Modal.hide();
+
+        Meteor.call('pushNewDotSuperTagsToFilterConnectedDotz', dotId, selfSuperTags  ,function(error,result) {
+          if (error) {
+            console.log("pushNewDotSuperTagsToFilterConnectedDotz error >>> " + error)
+          }
+        });
+
         Session.set('spinnerOn', false);
         Session.set('superTagsArray_tagTheDot', undefined);
 

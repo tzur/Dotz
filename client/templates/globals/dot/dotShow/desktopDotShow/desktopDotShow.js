@@ -439,28 +439,38 @@ Template.desktopDotShow.helpers({
 Template.desktopDotShow.events({
 
   'click ._sendTagValueToSearch': function(event){
-    event.preventDefault();
+    //event.preventDefault();
 
     console.log(" _superTagToFilter >>>>>>>>>>>>>>> " + event.toElement.value)
     //TODO: we need to check this operation on mobile devices.. @otni
 
-    //let inputToSearch = event.toElement.value;
-    //'inDotz:7ad8rkCN7HPP6ze6R',
-    //'selfSuperTags.parentTag:Tel1',
-    //'selfSuperTags.subTags:aa'
-    //let thisDotId = '7ad8rkCN7HPP6ze6R';
     let thisDotId = Session.get('dataOnTheAir').dot._id;
-
-    console.log("thisDotId >>>>> " + thisDotId)
+    thisDotId = '8knwDpjdoRkssYYjZ';
 
     let inputToSearch = {
       facets: '*',
-      facetFilters: [
-        'inDotz:' + thisDotId,
-        'selfSuperTags.parentTag:Location',
-        'selfSuperTags.subTags:Tel-Aviv'
-      ]
+      facetFilters: []
     };
+
+    //the parentTag clicked:
+    if (event.toElement.type === "button") {
+      console.log("button >>>>> " )
+      inputToSearch.facetFilters = [
+        'inDotz:' + thisDotId,
+        'selfSuperTags.parentTag:' + event.toElement.value,
+        //'selfSuperTags.subTags:Tel-Aviv'
+        ]
+    }
+    //the subTag clicked:
+    else if (event.toElement.type === "submit") {
+      console.log("submit >>>>> " )
+      inputToSearch.facetFilters = [
+        'inDotz:' + thisDotId,
+        //'selfSuperTags.parentTag:Location',
+        'selfSuperTags.subTags:' + event.toElement.value]
+    }
+
+    console.log("thisDotId >>>>> " + thisDotId)
 
     Modules.client.searchByAlgolia("the_guide_DOTZ", inputToSearch , function(error, content) {
       if(content){
@@ -470,6 +480,16 @@ Template.desktopDotShow.events({
         console.log("Error, on index: resultsFromFilteringByTags " + " >>>> search failed : " + error)
       }
     });
+
+    //let inputToSearch = {
+    //  facets: '*',
+    //  facetFilters: [
+    //    'inDotz:' + thisDotId,
+    //    'selfSuperTags.parentTag:Location',
+    //    'selfSuperTags.subTags:Tel-Aviv'
+    //  ]
+    //};
+    //Session.set('dataOnTheAir', undefined);
   },
 
   'click #_saveSupertags': function (e){
