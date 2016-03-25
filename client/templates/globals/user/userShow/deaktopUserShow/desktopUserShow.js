@@ -26,7 +26,7 @@ Template.desktopUserShow.onCreated(function() {
               let userSlug = Meteor.user().profile.userSlug;
               FlowRouter.go( '/' + userSlug );
             } else {
-              FlowRouter.go('/dotz');
+              FlowRouter.go('/');
             }
         } else if (user) {
           //console.log("$$$$$$$$ user.username " + user.username);
