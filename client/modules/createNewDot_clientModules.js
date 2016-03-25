@@ -4,7 +4,9 @@ function _DotFactory(
   linkUrl, title, description, parentDotId, dotColor, coverImgUrl,
   locationObject, price, dotSubType,
   embedlyObj, FBdataObj,
-  startDateAndHour, endDateAndHour, multipleEventsNote, priceMax, currency)
+  startDateAndHour, endDateAndHour, multipleEventsNote, priceMax, currency,
+  mailContact, facebookContact, twitterContact, linkedinContact
+  )
   {
     this.linkUrl = linkUrl;
     this.title= title;
@@ -44,6 +46,13 @@ function _DotFactory(
     this.startDateAndHour = startDateAndHour;
     this.endDateAndHour = endDateAndHour;
     this.multipleEventsNote = multipleEventsNote;
+
+    //person
+    this.mailContact = mailContact;
+    this.facebookContact = facebookContact;
+    this.twitterContact = twitterContact;
+    this.linkedinContact = linkedinContact;
+
   }
 
 
@@ -204,7 +213,12 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
       //event:
       multipleEventsNote: multipleEventsNote,
       startDateAndHour: startDateAndHour,
-      endDateAndHour: endDateAndHour
+      endDateAndHour: endDateAndHour,
+      mailContact: mailContact,
+      facebookContact: facebookContact,
+      twitterContact: twitterContact,
+      linkedinContact: linkedinContact
+
     };
 
     //let editedDotId = editedDot._id.toString();
@@ -248,7 +262,9 @@ function handleCreateSubmit(parentDotId, coverImgUrl, locationObject){
         dotSubType,
         Session.get('embedlyObj'),
         Session.get('fbPostAuthorData'),
-        startDateAndHour, endDateAndHour, multipleEventsNote, priceMax, currency
+        startDateAndHour, endDateAndHour, multipleEventsNote, priceMax, currency,
+        mailContact, facebookContact, twitterContact, linkedinContact
+
       );
 
       //Go create:
