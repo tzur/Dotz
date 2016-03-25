@@ -37,12 +37,26 @@
   letter-spacing: 1px;
   font-size: 36px;
   line-height: 48px;
-
 }
+
+@media (max-width: 767px) {
+  #landingPageGuide-title {
+    font-size: 28px;
+    line-height: 37px;
+  }
+}
+
 
 #landingPageGuide-main {
   padding-top: 6vh;
 }
+
+@media (max-width: 767px) {
+  #landingPageGuide-main {
+    padding-top: 4vh;
+  }
+}
+
 
 #landingPageGuide-questions {
    color: #fff;
@@ -57,6 +71,13 @@
   letter-spacing: 1px;
   font-size: 24px;
   line-height: 38px;
+}
+
+@media (max-width: 767px) {
+  #landingPageGuide-questions2 {
+    font-size: 20px;
+    line-height: 32px;
+  }
 }
 
 #landingPageGuide-questions2 select {
@@ -76,6 +97,13 @@
    border-bottom: #fafafa 1px solid;
  }
 
+@media (max-width: 767px) {
+  #landingPageGuide-questions2 select {
+    font-size: 20px;
+    height: 32px;
+  }
+}
+
 #landingPageGuide-questions2 option {
   background-color: #fafafa;
   color: #333;
@@ -91,6 +119,13 @@
 #actionLandingGuide {
   margin-top: 70px;
 }
+
+@media (max-width: 767px) {
+  #actionLandingGuide {
+    margin-top: 50px;
+  }
+}
+
 
 #exploreGuideBtn-div {
   font-weight: 700;
@@ -173,6 +208,7 @@
   display: inline-block;
   padding: 0 3px 2px 0;
   color: #fff;
+  line-height: 22px;
 }
 
 .dropdown1 dd ul {
@@ -225,6 +261,12 @@
   margin-bottom: 2px;
   cursor: pointer;
   border-bottom: #fafafa 1px solid;
+}
+
+@media (max-width: 767px) {
+  #multiSelect {
+    font-size: 20px;
+  }
 }
 
 .dropdown1 input[type="checkbox"] {
