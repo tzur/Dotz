@@ -427,6 +427,10 @@ Template.desktopDotShow.helpers({
 
   showAddSuperTagsToFilter: function(){
     return Session.get('_showAddSuperTagsToFilter');
+  },
+
+  dotHasPersonContact: function(){
+   return (this.dot.mailContact || this.dot.facebookContact || this.dot.twitterContact || this.dot.linkedinContact )
   }
 
 });

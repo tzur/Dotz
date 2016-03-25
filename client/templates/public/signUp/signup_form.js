@@ -44,9 +44,9 @@ Template.signup.events({
             console.log(result + "  facebook slug");
 
             //prepare my profile:
-            let answersObject = Session.get('answersObject');
-            if (answersObject) {
-              Modules.client.prepareMyProfile(answersObject);
+            let answerObject = Session.get('answerObject');
+            if (answerObject) {
+              Modules.client.prepareMyProfile(answerObject);
             }
 
             FlowRouter.go('/' + Meteor.user().profile.userSlug);
