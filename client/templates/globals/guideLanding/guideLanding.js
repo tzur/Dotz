@@ -101,14 +101,14 @@ Template.guideLanding.events({
     let userDots = [];
     let userTags = [];
 
-    let aloneVal = $('#meOrFriends').val(); // 0 - alone, 1 - withOthers
+    let aloneVal = parseInt($('#meOrFriends').val()); // 0 - alone, 1 - withOthers
     var isAlone = true;
     if (aloneVal == 1) {
       // Choose with others
       isAlone = false;
     }
 
-    let workingFullTimeVal = $('#fullOrPartTime').val(); // 0 - Full Time 1 - Half Time
+    let workingFullTimeVal = parseInt($('#fullOrPartTime').val()); // 0 - Full Time 1 - Half Time
     var isFullTime = true;
     if (workingFullTimeVal == 1) {
       isFullTime = false;
@@ -117,7 +117,7 @@ Template.guideLanding.events({
     // let skillsVal = .split(',');
     let skills = $('#skillSet').length; // 5 is the max
 
-    let typeVal = $('#businessType').val(); // 0 - B2B, 1 - B2C
+    let typeVal = parseInt($('#businessType').val()); // 0 - B2B, 1 - B2C
     var type = 'B2B';
     var isB2B = true;
     if (typeVal == 1) {
@@ -126,7 +126,7 @@ Template.guideLanding.events({
       isB2B = false;
     }
 
-    let stateVal = $('#ideaStage').val(); // 0 - Idea, 1 - Research, 2 - POC, 3 - Launched, 4 - Lunched & Paying costumers
+    let stateVal = parseInt($('#ideaStage').val()); // 0 - Idea, 1 - Research, 2 - POC, 3 - Launched, 4 - Lunched & Paying costumers
 
     if (stateVal < 2) {
       userTags.push('Idea');
@@ -198,7 +198,7 @@ Template.guideLanding.events({
     userDots.push(MUST_READ); // Must Read
 
     // Build the result object and send it through session
-    let answerObject = {'userDots': userDots, 'userTags': userTags};
+    let answerObject = {'userDots': userDots, 'userTags': userTags, 'debugSkills' : skills};
     Session.set('answerObject', answerObject);
   }
   //'click .selectedAnswer':function(){
