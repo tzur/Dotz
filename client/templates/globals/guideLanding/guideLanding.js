@@ -167,24 +167,26 @@ Template.guideLanding.events({
       if (skills < MAX_SKILLS) {
         // Alone & don't have all skills --> Need Team
         pushTeam = true;
+        debugDots.push('TEAM-1');
       }
     } else {
       if (isB2B) {
         if (skills < 2) {
           // Not Alone, but have less than 2 skills and B2B --> Need Team
           pushTeam = true;
+          debugDots.push('TEAM-2');
         }
       } else {
         if (skills < 3) {
           // Not Alone, but have less than 3 skills and B2C --> Need Team
           pushTeam = true;
+          debugDots.push('TEAM-3');
         }
       }
     }
 
     if (pushTeam) {
       userDots.push(TEAM); // Find Co-Founders
-      debugDots.push('TEAM');
     }
 
     if (stateVal == 0) {
