@@ -1,4 +1,12 @@
 
+Template.guideLanding.onRendered(function() {
+
+  //Discover how to start your startup
+  DocHead.setTitle("Discover how to start your startup");
+
+});
+
+
 Template.guideLanding.onRendered(function(){
 
   $('body').addClass('guideLoadingBg');
@@ -40,8 +48,6 @@ Template.guideLanding.onRendered(function(){
   });
 
 });
-
-
 
 
 Template.guideLanding.onDestroyed(function(){

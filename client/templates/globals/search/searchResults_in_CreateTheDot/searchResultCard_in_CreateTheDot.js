@@ -40,7 +40,7 @@ Template.searchResultCard_in_CreateTheDot.events({
         //  }
         //});
       } else {
-        Modal.show('signUpModal');
+        //Modal.show('signUpModal');
       }
     })
   }
