@@ -14,9 +14,20 @@ var seoPicker = Picker.filter(function(req, res) {
   return isCrawler.indexOf(true) >= 0;
 });
 
+//The startup guide:
+seoPicker.route('/discover-your-way', function(params, req, res){
+  console.log(">>> in /discover-your-way - SSR render");
+  var obj = {};
+  var html = SSR.render('seoLayout',{
+    template:'seoStartTheGuide',
+    data: {info: obj}
+  });
+  res.end(html);
+});
+
  //The startup guide:
 seoPicker.route('/discover-how-to-start', function(params, req, res){
-  console.log(">>> in /how-to-start - SSR render");
+  console.log(">>> in /discover-how-to-start - SSR render");
   var obj = {};
   var html = SSR.render('seoLayout',{
     template:'seoStartTheGuide',
