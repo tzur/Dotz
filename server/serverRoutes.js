@@ -15,7 +15,7 @@ var seoPicker = Picker.filter(function(req, res) {
 });
 
  //The startup guide:
-seoPicker.route('/how-to-start', function(params, req, res){
+seoPicker.route('/discover-your-way', function(params, req, res){
   console.log(">>> in /how-to-start - SSR render");
   var obj = {};
   var html = SSR.render('seoLayout',{
