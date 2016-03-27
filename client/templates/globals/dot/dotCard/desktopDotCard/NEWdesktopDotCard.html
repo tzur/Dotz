@@ -147,7 +147,11 @@
 
                               {{else}}
 
-                                  {{#if dot.bodyText}}
+                                  {{#if dot.linkUrl}}
+                                      <a class="_setCurrentPath" href="{{dot.linkUrl}}">
+                                          <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">{{dot.bodyText}}</p>
+                                      </a>
+                                  {{else}}
                                       <a class="_setCurrentPath" href="/{{dot.dotSlug}}">
                                           <p id="dotCardShortDescription-Desktop" class="greyText break" dir="auto">{{dot.bodyText}}</p>
                                       </a>
