@@ -10,7 +10,6 @@ Template.guideLanding.onRendered(function() {
 Template.guideLanding.onRendered(function(){
 
   $('body').addClass('guideLoadingBg');
-
   $("#loginFacebookBtn").html('<i class="fa fa-facebook"></i>' + ' Login and Discover');
 
   $(".dropdown1 dt a").on('click', function() {

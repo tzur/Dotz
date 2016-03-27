@@ -13,6 +13,16 @@ var seoPicker = Picker.filter(function(req, res) {
   }
   return isCrawler.indexOf(true) >= 0;
 });
+
+ //The startup guide:
+seoPicker.route('/start-discover', function(params, req, res){
+  console.log(">>> in /start-discover - SSR render");
+  var html = SSR.render('seoLayout',{
+    template:'seoStartTheGuide'
+  });
+  res.end(html);
+});
+
  //Indexing user pages
 seoPicker.route('/:userSlug/:dotType/:dotId/:dotSlug', function(params, req, res){
   var fullSlug = params.userSlug +'/' + params.dotType + '/' + params.dotId + '/' + params.dotSlug;
