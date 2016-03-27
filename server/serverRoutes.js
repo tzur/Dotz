@@ -15,8 +15,8 @@ var seoPicker = Picker.filter(function(req, res) {
 });
 
  //The startup guide:
-seoPicker.route('/start-discover', function(params, req, res){
-  console.log(">>> in /start-discover - SSR render");
+seoPicker.route('/how-to-start', function(params, req, res){
+  console.log(">>> in /how-to-start - SSR render");
   var obj = {};
   var html = SSR.render('seoLayout',{
     template:'seoStartTheGuide',
@@ -28,7 +28,7 @@ seoPicker.route('/start-discover', function(params, req, res){
  //Indexing user pages
 seoPicker.route('/:userSlug/:dotType/:dotId/:dotSlug', function(params, req, res){
   var fullSlug = params.userSlug +'/' + params.dotType + '/' + params.dotId + '/' + params.dotSlug;
-  console.log("im heree SSR render DOT");
+  console.log(">>> SSR render - DOT");
   console.log(fullSlug);
   var dot = Dotz.findOne({"dotSlug": fullSlug});
   //console.log(dot.title);
@@ -39,7 +39,7 @@ seoPicker.route('/:userSlug/:dotType/:dotId/:dotSlug', function(params, req, res
   res.end(html);
 });
 seoPicker.route('/:userSlug', function(params, req, res){
-  console.log("im heree SSR render USER");
+  console.log(">>> SSR render - USER");
   var user = Meteor.users.findOne({"profile.userSlug": params.userSlug});
   //console.log(user.username);
   var html = SSR.render('seoLayout',{
