@@ -77,14 +77,16 @@
                     <button type="button" id="editUserAccount-btn" class="editUserAccount-btn btn btn-full-trans btn-xs hidden-xs">
                         <i class="fa fa-pencil"></i> Edit Profile</button>
 
-                    <li class="inline-block">
-                        <span class="spacer"> · </span>
-                    </li>
-
-                    <a href="/discover-how-to-start">
+                  {{#if USER_TYPE_IS 'Tech'}}
+                      <li class="inline-block">
+                          <span class="spacer"> · </span>
+                      </li>
+                      <a href="/discover-how-to-start">
                         <button type="button" id="reGuide-btn" class="btn btn-full-trans btn-xs hidden-xs">
-                            <i class="fa fa-refresh"></i> ReGuide Me</button>
-                    </a>
+                        <i class="fa fa-refresh"></i> ReGuide Me</button>
+                      </a>
+                  {{/if}}
+
                   <!--</div>-->
                 {{else}}
                     <!--Connect/Follow button-->

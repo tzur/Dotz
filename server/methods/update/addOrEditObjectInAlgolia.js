@@ -8,7 +8,7 @@ Meteor.methods({
     if (process.env.NODE_ENV === "production") {
         //console.log("I am in (Algolia check): " + process.env.NODE_ENV);
         let array;
-        let docIndex;
+        let index;
         var client = AlgoliaSearch("WB8PQ4YYUT", "d1d8771f079e6676097bded60b6c8355");
 
         if (isUser) {
@@ -16,7 +16,7 @@ Meteor.methods({
           let currentDoc = Meteor.users.findOne({"profile.userSlug": docSlug});
           currentDoc.objectID = currentDoc._id;
           array = [{"objectID": currentDoc.objectID,"username": currentDoc.username, "profile": currentDoc.profile, "_id": currentDoc._id}];
-          docIndex = "users_DOTZ";
+          index = "users_DOTZ";
 
         // if is dot/list:
         } else {
@@ -25,14 +25,18 @@ Meteor.methods({
 
           //TODO >>> fix algolia
           //if (currentDoc.dotType === "Dot") {
-          //  docIndex = currentDoc.dotSubType.toLowerCase() + "s_DOTZ";
+          //  index = currentDoc.dotSubType.toLowerCase() + "s_DOTZ";
           //} else if (currentDoc.dotType === "List") {
-          //  docIndex = "lists_DOTZ";
+          //  index = "lists_DOTZ";
           //} else if (currentDoc.dotType === "FBDot") {
-          //  docIndex = "lists_DOTZ";
+          //  index = "lists_DOTZ";
           //}
           //TBD:
-          docIndex = "the_guide_DOTZ";
+          if (Meteor.user().profile.userCommunities[0] === 'Tel_Aviv') {
+            index = "Tel_Aviv_DOTZ";
+          } else {
+            index = "Startup_IL_DOTZ";
+          }
 
           //currentDoc.inDotz = currentDoc.inDotz.length + currentDoc.totalUpvotes.length;
 
@@ -42,7 +46,7 @@ Meteor.methods({
           array = [currentDoc];
         }
 
-        var index = client.initIndex(docIndex);
+        var index = client.initIndex(index);
 
         // array contains the data you want to save in the index
         index.saveObjects(array, function (error, content) {
@@ -90,7 +94,14 @@ Meteor.methods({
         //  index = client.initIndex("lists_DOTZ");
         //}
 
-        index = client.initIndex("the_guide_DOTZ");
+
+        //TBD:
+        if (Meteor.user().profile.userCommunities[0] === 'Tel_Aviv') {
+          index = "Tel_Aviv_DOTZ";
+        } else {
+          index = "Startup_IL_DOTZ";
+        }
+        //index = client.initIndex("the_guide_DOTZ");
 
         // delete the record with objectID="dotId":
         index.deleteObject(dotId, function(err) {

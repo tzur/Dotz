@@ -15,7 +15,7 @@ Template.searchResults.onDestroyed(function(){
   //Session.set('dotzResult', undefined);
   //Session.set('listResult', undefined);
 
-  let algoliaIndicesArray = ["googleResults", "links_DOTZ", "media_DOTZ", "places_DOTZ", "events_DOTZ", "persons_DOTZ", "lists_DOTZ", "users_DOTZ"];
+  let algoliaIndicesArray = ["googleResults", "index_DOTZ_Algolia", "users_DOTZ"];
   algoliaIndicesArray.forEach(index => {
     Session.set(index, undefined);
   });
@@ -48,28 +48,8 @@ Template.searchResults.helpers({
 
   },
 
-  links_DOTZ_Algolia: function(){
-    return Session.get('links_DOTZ');
-  },
-
-  media_DOTZ_Algolia: function(){
-    return Session.get('medias_DOTZ');
-  },
-
-  places_DOTZ_Algolia: function(){
-    return Session.get('places_DOTZ');
-  },
-
-  events_DOTZ_Algolia: function(){
-    return Session.get('events_DOTZ');
-  },
-
-  persons_DOTZ_Algolia: function(){
-    return Session.get('persons_DOTZ');
-  },
-
-  lists_DOTZ_Algolia: function(){
-    return Session.get('lists_DOTZ');
+  Algolia_DOTZ: function(){
+    return Session.get('index_DOTZ_Algolia');
   },
 
   users_DOTZ_Algolia: function(){

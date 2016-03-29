@@ -171,9 +171,9 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-12 colCenter">
-                                {{#if lists_DOTZ_Algolia}}
+                                {{#if Algolia_DOTZ}}
                                     <ul>
-                                      {{#each lists_DOTZ_Algolia}}
+                                      {{#each Algolia_DOTZ}}
                                         {{#if isNotAlreadyConnected}}
                                           {{#with dataForDotCard}}
                                             {{> dotCard}}

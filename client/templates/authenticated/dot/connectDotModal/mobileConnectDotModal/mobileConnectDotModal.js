@@ -103,8 +103,7 @@ Template.mobileConnectDotModal.events({
   'submit ._dotToConnectSearch': function(e){
     e.preventDefault();
 
-    let index = "lists_DOTZ";
-
+    let index = Modules.client.selectDotzIndex_ForAlgoliaSearch();
     console.log("$('#_searchBoxInput').val() >>>> " + $('#_searchBoxInput_connectModal').val())
 
     Modules.client.searchByAlgolia(index, $('#_searchBoxInput_connectModal').val() , function(error, content) {

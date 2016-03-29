@@ -178,7 +178,8 @@ Template.createTheDot_form.events({
     }
 
     //TODO: we need to check this operation on mobile devices.. @otni
-    Modules.client.searchByAlgolia("the_guide_DOTZ", inputToSearch , function(error, content) {
+    let algoliaIndex = Modules.client.selectDotzIndex_ForAlgoliaSearch();
+    Modules.client.searchByAlgolia(algoliaIndex, inputToSearch , function(error, content) {
       if(content){
         Session.set("lists_DOTZ", content.hits);
       }
