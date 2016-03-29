@@ -23,10 +23,10 @@ Meteor.methods({
         } else {
           let currentDoc = Dotz.findOne({dotSlug: docSlug});
           currentDoc.objectID = currentDoc._id;
-          if (Meteor.user().profile.userCommunities[0] === 'Tel_Aviv') {
+          selectedIndex = "Startup_IL_DOTZ";
+          let userCommunities = Meteor.user().profile.userCommunities;
+          if (userCommunities && userCommunities[0] === 'Tel_Aviv') {
             selectedIndex = "Tel_Aviv_DOTZ";
-          } else {
-            selectedIndex = "Startup_IL_DOTZ";
           }
           if (currentDoc.location && currentDoc.location.latLng) {
             currentDoc._geoloc = {"lat":currentDoc.location.latLng[0], "lng":currentDoc.location.latLng[1]};
@@ -34,7 +34,7 @@ Meteor.methods({
           array = [currentDoc];
         }
 
-        var index = client.initIndex(selectedIndex);
+        index = client.initIndex(selectedIndex);
 
         // array contains the data you want to save in the index
         index.saveObjects(array, function (error, content) {
@@ -69,11 +69,10 @@ Meteor.methods({
         //let dot = Dotz.findOne("dotId");
         let index;
         //TBD:
-        let selectedIndex;
-        if (Meteor.user().profile.userCommunities[0] === 'Tel_Aviv') {
+        let selectedIndex = "Startup_IL_DOTZ";
+        let userCommunities = Meteor.user().profile.userCommunities;
+        if (userCommunities && userCommunities [0] === 'Tel_Aviv') {
           selectedIndex = "Tel_Aviv_DOTZ";
-        } else {
-          selectedIndex = "Startup_IL_DOTZ";
         }
         index = client.initIndex(selectedIndex);
 
@@ -89,3 +88,33 @@ Meteor.methods({
   }
 
 });
+
+/*
+ Exception while invoking method 'addOrEditObjectInAlgolia' TypeError: Cannot call method 'saveObjects' of undefined
+ at [object Object].Meteor.methods.addOrEditObjectInAlgolia (server/methods/update/addOrEditObjectInAlgolia.js:40:15)
+ at [object Object].methodMap.(anonymous function) (packages/meteorhacks_kadira/lib/hijack/wrap_session.js:164:1)
+ at packages/check/match.js:103:1
+ at [object Object]._.extend.withValue (packages/meteor/dynamics_nodejs.js:56:1)
+ at Object.Match._failIfArgumentsAreNotAllChecked (packages/check/match.js:102:1)
+ at maybeAuditArgumentChecks (livedata_server.js:1695:18)
+ at livedata_server.js:708:19
+ at [object Object]._.extend.withValue (packages/meteor/dynamics_nodejs.js:56:1)
+ at livedata_server.js:706:40
+ at [object Object]._.extend.withValue (packages/meteor/dynamics_nodejs.js:56:1)
+
+ dotId >>>>>>>>>>>>>> y3QBwWExwXxQ2iiKK
+
+ Exception while invoking method 'addOrEditObjectInAlgolia' TypeError: Cannot call method 'saveObjects' of undefined
+ at [object Object].Meteor.methods.addOrEditObjectInAlgolia (server/methods/update/addOrEditObjectInAlgolia.js:40:15)
+ at [object Object].methodMap.(anonymous function) (packages/meteorhacks_kadira/lib/hijack/wrap_session.js:164:1)
+ at packages/check/match.js:103:1
+ at [object Object]._.extend.withValue (packages/meteor/dynamics_nodejs.js:56:1)
+ at Object.Match._failIfArgumentsAreNotAllChecked (packages/check/match.js:102:1)
+ at maybeAuditArgumentChecks (livedata_server.js:1695:18)
+ at livedata_server.js:708:19
+ at [object Object]._.extend.withValue (packages/meteor/dynamics_nodejs.js:56:1)
+ at livedata_server.js:706:40
+ at [object Object]._.extend.withValue (packages/meteor/dynamics_nodejs.js:56:1)
+
+ dotId >>>>>>>>>>>>>> n4vsWpcFmAo4LLcLm
+ */
